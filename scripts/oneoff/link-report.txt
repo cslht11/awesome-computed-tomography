@@ -1,0 +1,346 @@
+checking 500 URLs ...
+==============================================================================
+OK      : 400
+BLOCKED : 21  (reachable, refuses bots)
+PROBLEM : 79
+
+--- PROBLEM ---
+  papers.yaml[20] Extreme Few-view CT Reconstruction using Dee
+      https://arxiv.org/abs/1910.05375
+      -> arxiv id not found
+  papers.yaml[128] Sharpness-Aware Low Dose CT Denoising Using 
+      https://doi.org/10.1007/s10278-018-0056-0
+      -> 502
+  papers.yaml[144] Limited View Tomographic Reconstruction Usin
+      https://arxiv.org/abs/2009.01782
+      -> arxiv id not found
+  papers.yaml[155] Data-Driven Filter Design in FBP: Transformi
+      https://arxiv.org/abs/2401.16039
+      -> arxiv id not found
+  papers.yaml[255] X-GRM: Large Gaussian Reconstruction Model f
+      https://arxiv.org/abs/2505.15235
+      -> arxiv id not found
+  papers.yaml[256] Limited-angle SPECT image reconstruction usi
+      https://arxiv.org/abs/2503.18342
+      -> arxiv id not found
+  papers.yaml[257] Learning Where and What to Lift for Bi-plana
+      https://arxiv.org/abs/2608.17255
+      -> arxiv id not found
+  papers.yaml[258] LUCID: Learned Undersampling-Adaptive Consis
+      https://arxiv.org/abs/2606.16212
+      -> arxiv id not found
+  papers.yaml[259] Conditional Diffusion Posterior Alignment fo
+      https://arxiv.org/abs/2604.21960
+      -> arxiv id not found
+  papers.yaml[260] Cone-Beam CT Image Quality Enhancement Using
+      https://arxiv.org/abs/2603.26014
+      -> arxiv id not found
+  papers.yaml[261] Continuity-driven Synergistic Diffusion with
+      https://arxiv.org/abs/2602.07980
+      -> arxiv id not found
+  papers.yaml[262] Latent Space Consistency for Sparse-View CT 
+      https://arxiv.org/abs/2507.11152
+      -> arxiv id not found
+  papers.yaml[263] Geometry-Aware Diffusion Approximate Posteri
+      https://arxiv.org/abs/2610.08866
+      -> arxiv id not found
+  papers.yaml[264] Complex Wavelet-Based Sinogram Segmentation 
+      https://arxiv.org/abs/2602.14315
+      -> arxiv id not found
+  papers.yaml[265] Adaptive Diffusion Models for Sparse-View Mo
+      https://arxiv.org/abs/2504.14033
+      -> arxiv id not found
+  papers.yaml[266] Anatomy-preserving unpaired cone-beam CT ref
+      https://arxiv.org/abs/2610.06094
+      -> arxiv id not found
+  papers.yaml[267] Computed Tomography Reconstruction Algorithm
+      https://arxiv.org/abs/2605.11637
+      -> arxiv id not found
+  papers.yaml[268] CBCT-Based Synthetic CT Generation Using Con
+      https://arxiv.org/abs/2603.05796
+      -> arxiv id not found
+  papers.yaml[269] Neural Discrete Representation Learning for 
+      https://arxiv.org/abs/2512.00873
+      -> arxiv id not found
+  papers.yaml[270] Ordered-subsets Multi-diffusion Model for Sp
+      https://arxiv.org/abs/2505.09985
+      -> arxiv id not found
+  papers.yaml[271] Toward a Foundation Plug-and-Play Prior for 
+      https://arxiv.org/abs/2608.23190
+      -> arxiv id not found
+  papers.yaml[272] Active View Selection with Perturbed Gaussia
+      https://arxiv.org/abs/2603.06852
+      -> arxiv id not found
+  papers.yaml[273] MInDI-3D: Iterative Deep Learning in 3D for 
+      https://arxiv.org/abs/2508.09616
+      -> arxiv id not found
+  papers.yaml[274] Zero-Shot Low-dose CT Denoising via Sinogram
+      https://arxiv.org/abs/2504.07927
+      -> arxiv id not found
+  papers.yaml[275] A Learnt Half-Quadratic Splitting-Based Algo
+      https://arxiv.org/abs/2501.13128
+      -> arxiv id not found
+  papers.yaml[276] Projection-Volume Fidelity Divergence: Diagn
+      https://arxiv.org/abs/2606.22525
+      -> arxiv id not found
+  papers.yaml[277] Projection Embedded Diffusion Bridge for CT 
+      https://arxiv.org/abs/2510.22605
+      -> arxiv id not found
+  papers.yaml[278] Noise-Inspired Diffusion Model for Generaliz
+      https://arxiv.org/abs/2506.22012
+      -> arxiv id not found
+  papers.yaml[279] A CT Geometry With Multiple Centers Of Rotat
+      https://arxiv.org/abs/2502.06125
+      -> arxiv id not found
+  papers.yaml[280] Splat-Based Metal Artifact Reduction in Cone
+      https://arxiv.org/abs/2608.04764
+      -> arxiv id not found
+  papers.yaml[281] Texture-preserving implicit neural represent
+      https://arxiv.org/abs/2606.06039
+      -> arxiv id not found
+  papers.yaml[282] Conditional Diffusion for 3D CT Volume Recon
+      https://arxiv.org/abs/2603.26509
+      -> arxiv id not found
+  papers.yaml[283] Enhancing Synthetic CT from CBCT via Multimo
+      https://arxiv.org/abs/2507.06067
+      -> arxiv id not found
+  papers.yaml[284] When are Diffusion Priors Helpful in Sparse 
+      https://arxiv.org/abs/2502.02771
+      -> arxiv id not found
+  papers.yaml[285] CG-GLORE: A Conjugate Gradient-Based Global-
+      https://arxiv.org/abs/2608.15246
+      -> arxiv id not found
+  papers.yaml[286] Towards reconstructing experimental sparse-v
+      https://arxiv.org/abs/2602.12755
+      -> arxiv id not found
+  papers.yaml[287] GANeXt: A Fully ConvNeXt-Enhanced Generative
+      https://arxiv.org/abs/2512.19336
+      -> arxiv id not found
+  papers.yaml[288] Accelerated Optimization of Implicit Neural 
+      https://arxiv.org/abs/2504.13390
+      -> arxiv id not found
+  papers.yaml[289] Robustness and Stability Analysis of Differe
+      https://arxiv.org/abs/2607.09828
+      -> arxiv id not found
+  papers.yaml[290] From Sparse X-rays to 3D CT: Training-Free R
+      https://arxiv.org/abs/2606.20763
+      -> arxiv id not found
+  papers.yaml[291] HARU-Net: Hybrid Attention Residual U-Net fo
+      https://arxiv.org/abs/2602.22544
+      -> arxiv id not found
+  papers.yaml[292] Equivariance2Inverse: A Practical Self-Super
+      https://arxiv.org/abs/2510.23317
+      -> arxiv id not found
+  papers.yaml[293] Zero-shot CT Super-Resolution using Diffusio
+      https://arxiv.org/abs/2508.15151
+      -> arxiv id not found
+  papers.yaml[294] Dual-domain U-Nets with embedded back projec
+      https://arxiv.org/abs/2608.03430
+      -> arxiv id not found
+  papers.yaml[295] Radioactive 3D Gaussian Ray Tracing for Tomo
+      https://arxiv.org/abs/2602.01057
+      -> arxiv id not found
+  papers.yaml[296] Nonperiodic dynamic CT reconstruction using 
+      https://arxiv.org/abs/2505.03463
+      -> arxiv id not found
+  papers.yaml[297] Advancing Limited-Angle CT Reconstruction Th
+      https://arxiv.org/abs/2505.19385
+      -> arxiv id not found
+  papers.yaml[298] Cross-Modal Guidance for Fast Diffusion-Base
+      https://arxiv.org/abs/2603.01253
+      -> arxiv id not found
+  papers.yaml[299] TG-Field: Geometry-Aware Radiative Gaussian 
+      https://arxiv.org/abs/2602.11705
+      -> arxiv id not found
+  papers.yaml[300] Learning Wavelet-Sparse FDK for 3D Cone-Beam
+      https://arxiv.org/abs/2505.13579
+      -> arxiv id not found
+  papers.yaml[301] FaCT-GS: Fast and Scalable CT Reconstruction
+      https://arxiv.org/abs/2604.01844
+      -> arxiv id not found
+  papers.yaml[302] Semantic contrastive learning for orthogonal
+      https://arxiv.org/abs/2512.22674
+      -> arxiv id not found
+  papers.yaml[303] Cross-Distribution Diffusion Priors-Driven I
+      https://arxiv.org/abs/2509.13576
+      -> arxiv id not found
+  papers.yaml[304] DIGS: Dynamic CBCT Reconstruction using Defo
+      https://arxiv.org/abs/2506.22280
+      -> arxiv id not found
+  papers.yaml[305] H3D-MarNet: Wavelet-Guided Dual-Path Learnin
+      https://arxiv.org/abs/2605.12252
+      -> arxiv id not found
+  papers.yaml[306] Shape-guided Gaussian Splatting for Sparse-V
+      https://arxiv.org/abs/2609.10376
+      -> arxiv id not found
+  papers.yaml[307] DiffNR: Diffusion-Enhanced Neural Representa
+      https://arxiv.org/abs/2604.21518
+      -> arxiv id not found
+  papers.yaml[308] Field-of-View Extension in Dental Cone-Beam 
+      https://arxiv.org/abs/2609.28110
+      -> arxiv id not found
+  papers.yaml[309] Diffusion-Based Limited-Angle CT Reconstruct
+      https://arxiv.org/abs/2507.05647
+      -> arxiv id not found
+  papers.yaml[310] Dose-Aware Cold Diffusion with Physics Consi
+      https://arxiv.org/abs/2609.18943
+      -> arxiv id not found
+  papers.yaml[311] $K$-NeAS: Scalable Multi-Material CT Reconst
+      https://arxiv.org/abs/2607.14415
+      -> arxiv id not found
+  papers.yaml[312] 3D CBCT Artefact Removal Using Perpendicular
+      https://arxiv.org/abs/2603.06300
+      -> arxiv id not found
+  papers.yaml[313] Deformable CT-US Registration via Anatomy-Aw
+      https://arxiv.org/abs/2610.08419
+      -> arxiv id not found
+  papers.yaml[314] High-Fidelity 3D Tooth Reconstruction by Fus
+      https://arxiv.org/abs/2601.15358
+      -> arxiv id not found
+  papers.yaml[315] Balancing Efficiency and Restoration: Lightw
+      https://arxiv.org/abs/2604.06622
+      -> arxiv id not found
+  papers.yaml[316] GB-SVFBP: Gaussian-Based Shift-Variant FBP n
+      https://arxiv.org/abs/2607.11584
+      -> arxiv id not found
+  papers.yaml[317] ReMAR-DS: Recalibrated Feature Learning for 
+      https://arxiv.org/abs/2506.19531
+      -> arxiv id not found
+  papers.yaml[318] Entity-Constrained CBCT Retrieval for Low-Re
+      https://arxiv.org/abs/2608.21913
+      -> arxiv id not found
+  papers.yaml[319] Leveraging Image Editing Foundation Models f
+      https://arxiv.org/abs/2604.05934
+      -> arxiv id not found
+  papers.yaml[320] Unsupervised Metal Artifact Reduction in Den
+      https://arxiv.org/abs/2607.20977
+      -> arxiv id not found
+  papers.yaml[321] FIND-Net -- Fourier-Integrated Network with 
+      https://arxiv.org/abs/2508.10617
+      -> arxiv id not found
+  papers.yaml[322] GLFC: Unified Global-Local Feature and Contr
+      https://arxiv.org/abs/2501.02992
+      -> arxiv id not found
+  papers.yaml[323] Synthetic CT image generation from CBCT: A S
+      https://arxiv.org/abs/2501.13972
+      -> arxiv id not found
+  papers.yaml[324] VoxelSynth3D: Interpretable Volumetric Image
+      https://arxiv.org/abs/2610.01512
+      -> arxiv id not found
+  papers.yaml[325] Bigger Isn't Always Better: Towards a Genera
+      https://arxiv.org/abs/2501.07376
+      -> arxiv id not found
+  papers.yaml[326] InsideOut: Integrated RGB-Radiative Gaussian
+      https://arxiv.org/abs/2510.17864
+      -> arxiv id not found
+  datasets.yaml[6] ToothFairy2
+      https://zenodo.org/records/13147476
+      -> 504
+  datasets.yaml[32] COBRA2026: a large-scale multicenter pelvic 
+      https://arxiv.org/abs/2607.20037
+      -> arxiv id not found
+  datasets.yaml[33] MORE: Multi-Organ Medical Image REconstructi
+      https://arxiv.org/abs/2510.26759
+      -> arxiv id not found
+
+--- BLOCKED (spot-check by hand) ---
+  papers.yaml      403   https://doi.org/10.1093/bjrai/ubae013
+  papers.yaml      403   https://doi.org/10.1002/mp.15952
+  papers.yaml      403   https://doi.org/10.36227/techrxiv.23726703
+  papers.yaml      403   https://doi.org/10.1145/3503161.3548204
+  papers.yaml      403   https://doi.org/10.3390/tomography7040077
+  papers.yaml      403   https://doi.org/10.1002/mp.14319
+  papers.yaml      403   https://doi.org/10.1002/mp.15183
+  papers.yaml      403   https://doi.org/10.1002/mp.12523
+  papers.yaml      403   https://doi.org/10.1118/1.3589140
+  papers.yaml      403   https://doi.org/10.1002/mp.15952
+  papers.yaml      403   https://doi.org/10.1145/3503161.3548204
+  papers.yaml      403   https://doi.org/10.3390/tomography7040077
+  papers.yaml      403   https://doi.org/10.1002/mp.14319
+  papers.yaml      403   https://doi.org/10.1002/mp.15183
+  papers.yaml      403   https://doi.org/10.1002/mp.12344
+  papers.yaml      403   https://doi.org/10.1002/mp.12523
+  papers.yaml      403   https://doi.org/10.1117/12.2254244
+  learning.yaml    403   https://doi.org/10.1137/1.9780898719284
+  learning.yaml    403   https://doi.org/10.1002/0471722138
+  learning.yaml    403   https://www.spiedigitallibrary.org/ebooks/PM/Computed-Tomography-Principles-Design-Artifacts-and-Recent-Advances-Third-Edition/eISBN-9781628418040/10.1117/3.1764041
+  learning.yaml    403   https://gvirtualxray.sourceforge.io/
+
+--- WARN ---
+   ('papers.yaml', 20, 'Extreme Few-view CT Reconstruction using Deep Inference', 'https://arxiv.org/abs/1910.05375', 'arxiv api URLError')
+   ('papers.yaml', 144, 'Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency', 'https://arxiv.org/abs/2009.01782', 'arxiv api URLError')
+   ('papers.yaml', 155, 'Data-Driven Filter Design in FBP: Transforming CT Reconstruction with Trainable Fourier Series', 'https://arxiv.org/abs/2401.16039', 'arxiv api URLError')
+   ('papers.yaml', 255, 'X-GRM: Large Gaussian Reconstruction Model for Sparse-view X-rays to Computed Tomography', 'https://arxiv.org/abs/2505.15235', 'arxiv api HTTPError')
+   ('papers.yaml', 256, 'Limited-angle SPECT image reconstruction using deep image prior', 'https://arxiv.org/abs/2503.18342', 'arxiv api HTTPError')
+   ('papers.yaml', 257, 'Learning Where and What to Lift for Bi-planar X-ray-to-CT Reconstruction', 'https://arxiv.org/abs/2608.17255', 'arxiv api URLError')
+   ('papers.yaml', 258, 'LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction', 'https://arxiv.org/abs/2606.16212', 'arxiv api HTTPError')
+   ('papers.yaml', 259, 'Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction', 'https://arxiv.org/abs/2604.21960', 'arxiv api HTTPError')
+   ('papers.yaml', 260, 'Cone-Beam CT Image Quality Enhancement Using A Latent Diffusion Model Trained with Simulated CBCT Artifacts', 'https://arxiv.org/abs/2603.26014', 'arxiv api HTTPError')
+   ('papers.yaml', 261, 'Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction', 'https://arxiv.org/abs/2602.07980', 'arxiv api HTTPError')
+   ('papers.yaml', 262, 'Latent Space Consistency for Sparse-View CT Reconstruction', 'https://arxiv.org/abs/2507.11152', 'arxiv api HTTPError')
+   ('papers.yaml', 263, 'Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT', 'https://arxiv.org/abs/2610.08866', 'arxiv api HTTPError')
+   ('papers.yaml', 264, 'Complex Wavelet-Based Sinogram Segmentation for Metal Artifact Reduction in Cone-Beam CT', 'https://arxiv.org/abs/2602.14315', 'arxiv api HTTPError')
+   ('papers.yaml', 265, 'Adaptive Diffusion Models for Sparse-View Motion-Corrected Head Cone-beam CT', 'https://arxiv.org/abs/2504.14033', 'arxiv api HTTPError')
+   ('papers.yaml', 266, 'Anatomy-preserving unpaired cone-beam CT refinement for image-guided radiotherapy using pseudo-label guided diffusion', 'https://arxiv.org/abs/2610.06094', 'arxiv api HTTPError')
+   ('papers.yaml', 267, 'Computed Tomography Reconstruction Algorithm Using Markov Random Field Model', 'https://arxiv.org/abs/2605.11637', 'arxiv api HTTPError')
+   ('papers.yaml', 268, 'CBCT-Based Synthetic CT Generation Using Conditional Flow Matching Model', 'https://arxiv.org/abs/2603.05796', 'arxiv api HTTPError')
+   ('papers.yaml', 269, 'Neural Discrete Representation Learning for Sparse-View CBCT Reconstruction: From Algorithm Design to Prospective Multicenter Clinical Evaluation', 'https://arxiv.org/abs/2512.00873', 'arxiv api HTTPError')
+   ('papers.yaml', 270, 'Ordered-subsets Multi-diffusion Model for Sparse-view CT Reconstruction', 'https://arxiv.org/abs/2505.09985', 'arxiv api HTTPError')
+   ('papers.yaml', 271, 'Toward a Foundation Plug-and-Play Prior for Computed Tomography Reconstruction via a Multimodal Diffusion Model', 'https://arxiv.org/abs/2608.23190', 'arxiv api HTTPError')
+   ('papers.yaml', 272, 'Active View Selection with Perturbed Gaussian Ensemble for Tomographic Reconstruction', 'https://arxiv.org/abs/2603.06852', 'arxiv api HTTPError')
+   ('papers.yaml', 273, 'MInDI-3D: Iterative Deep Learning in 3D for Sparse-view Cone Beam Computed Tomography', 'https://arxiv.org/abs/2508.09616', 'arxiv api HTTPError')
+   ('papers.yaml', 274, 'Zero-Shot Low-dose CT Denoising via Sinogram Flicking', 'https://arxiv.org/abs/2504.07927', 'arxiv api HTTPError')
+   ('papers.yaml', 275, 'A Learnt Half-Quadratic Splitting-Based Algorithm for Fast and High-Quality Industrial Cone-beam CT Reconstruction', 'https://arxiv.org/abs/2501.13128', 'arxiv api HTTPError')
+   ('papers.yaml', 276, 'Projection-Volume Fidelity Divergence: Diagnosing and Controlling Optimization Drift in Sparse-View 3D Gaussian Tomography', 'https://arxiv.org/abs/2606.22525', 'arxiv api HTTPError')
+   ('papers.yaml', 277, 'Projection Embedded Diffusion Bridge for CT Reconstruction from Incomplete Data', 'https://arxiv.org/abs/2510.22605', 'arxiv api HTTPError')
+   ('papers.yaml', 278, 'Noise-Inspired Diffusion Model for Generalizable Low-Dose CT Reconstruction', 'https://arxiv.org/abs/2506.22012', 'arxiv api HTTPError')
+   ('papers.yaml', 279, 'A CT Geometry With Multiple Centers Of Rotation For Solving Sparse View Problem', 'https://arxiv.org/abs/2502.06125', 'arxiv api HTTPError')
+   ('papers.yaml', 280, 'Splat-Based Metal Artifact Reduction in Cone-Beam CT via Compact Attenuation Modeling', 'https://arxiv.org/abs/2608.04764', 'arxiv api HTTPError')
+   ('papers.yaml', 281, 'Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction', 'https://arxiv.org/abs/2606.06039', 'arxiv api HTTPError')
+   ('papers.yaml', 282, 'Conditional Diffusion for 3D CT Volume Reconstruction from 2D X-rays', 'https://arxiv.org/abs/2603.26509', 'arxiv api HTTPError')
+   ('papers.yaml', 283, 'Enhancing Synthetic CT from CBCT via Multimodal Fusion and End-To-End Registration', 'https://arxiv.org/abs/2507.06067', 'arxiv api HTTPError')
+   ('papers.yaml', 284, 'When are Diffusion Priors Helpful in Sparse Reconstruction? A Study with Sparse-view CT', 'https://arxiv.org/abs/2502.02771', 'arxiv api HTTPError')
+   ('papers.yaml', 285, 'CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction', 'https://arxiv.org/abs/2608.15246', 'arxiv api HTTPError')
+   ('papers.yaml', 286, 'Towards reconstructing experimental sparse-view X-ray CT data with diffusion models', 'https://arxiv.org/abs/2602.12755', 'arxiv api HTTPError')
+   ('papers.yaml', 287, 'GANeXt: A Fully ConvNeXt-Enhanced Generative Adversarial Network for MRI- and CBCT-to-CT Synthesis', 'https://arxiv.org/abs/2512.19336', 'arxiv api HTTPError')
+   ('papers.yaml', 288, 'Accelerated Optimization of Implicit Neural Representations for CT Reconstruction', 'https://arxiv.org/abs/2504.13390', 'arxiv api HTTPError')
+   ('papers.yaml', 289, 'Robustness and Stability Analysis of Differentiable Shift-Variant FBP for Cone-Beam CT under Challenging Acquisition Settings', 'https://arxiv.org/abs/2607.09828', 'arxiv api HTTPError')
+   ('papers.yaml', 290, 'From Sparse X-rays to 3D CT: Training-Free Reconstruction with Diffusion Priors', 'https://arxiv.org/abs/2606.20763', 'arxiv api HTTPError')
+   ('papers.yaml', 291, 'HARU-Net: Hybrid Attention Residual U-Net for Edge-Preserving Denoising in Cone-Beam Computed Tomography', 'https://arxiv.org/abs/2602.22544', 'arxiv api HTTPError')
+   ('papers.yaml', 292, 'Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data', 'https://arxiv.org/abs/2510.23317', 'arxiv api HTTPError')
+   ('papers.yaml', 293, 'Zero-shot CT Super-Resolution using Diffusion-based 2D Projection Priors and Signed 3D Gaussians', 'https://arxiv.org/abs/2508.15151', 'arxiv api HTTPError')
+   ('papers.yaml', 294, 'Dual-domain U-Nets with embedded back projection operators for motion-resolved 4D CBCT reconstruction', 'https://arxiv.org/abs/2608.03430', 'arxiv api HTTPError')
+   ('papers.yaml', 295, 'Radioactive 3D Gaussian Ray Tracing for Tomographic Reconstruction', 'https://arxiv.org/abs/2602.01057', 'arxiv api HTTPError')
+   ('papers.yaml', 296, 'Nonperiodic dynamic CT reconstruction using backward-warping INR with regularization of diffeomorphism (BIRD)', 'https://arxiv.org/abs/2505.03463', 'arxiv api HTTPError')
+   ('papers.yaml', 297, 'Advancing Limited-Angle CT Reconstruction Through Diffusion-Based Sinogram Completion', 'https://arxiv.org/abs/2505.19385', 'arxiv api HTTPError')
+   ('papers.yaml', 298, 'Cross-Modal Guidance for Fast Diffusion-Based Computed Tomography', 'https://arxiv.org/abs/2603.01253', 'arxiv api HTTPError')
+   ('papers.yaml', 299, 'TG-Field: Geometry-Aware Radiative Gaussian Fields for Tomographic Reconstruction', 'https://arxiv.org/abs/2602.11705', 'arxiv api HTTPError')
+   ('papers.yaml', 300, 'Learning Wavelet-Sparse FDK for 3D Cone-Beam CT Reconstruction', 'https://arxiv.org/abs/2505.13579', 'arxiv api HTTPError')
+   ('papers.yaml', 301, 'FaCT-GS: Fast and Scalable CT Reconstruction with Gaussian Splatting', 'https://arxiv.org/abs/2604.01844', 'arxiv api HTTPError')
+   ('papers.yaml', 302, 'Semantic contrastive learning for orthogonal X-ray computed tomography reconstruction', 'https://arxiv.org/abs/2512.22674', 'arxiv api HTTPError')
+   ('papers.yaml', 303, 'Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT', 'https://arxiv.org/abs/2509.13576', 'arxiv api HTTPError')
+   ('papers.yaml', 304, 'DIGS: Dynamic CBCT Reconstruction using Deformation-Informed 4D Gaussian Splatting and a Low-Rank Free-Form Deformation Model', 'https://arxiv.org/abs/2506.22280', 'arxiv api URLError')
+   ('papers.yaml', 305, 'H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows', 'https://arxiv.org/abs/2605.12252', 'arxiv api HTTPError')
+   ('papers.yaml', 306, 'Shape-guided Gaussian Splatting for Sparse-View X-ray 3D Reconstruction', 'https://arxiv.org/abs/2609.10376', 'arxiv api HTTPError')
+   ('papers.yaml', 307, 'DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction', 'https://arxiv.org/abs/2604.21518', 'arxiv api HTTPError')
+   ('papers.yaml', 308, 'Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement', 'https://arxiv.org/abs/2609.28110', 'arxiv api HTTPError')
+   ('papers.yaml', 309, 'Diffusion-Based Limited-Angle CT Reconstruction under Noisy Conditions', 'https://arxiv.org/abs/2507.05647', 'arxiv api HTTPError')
+   ('papers.yaml', 310, 'Dose-Aware Cold Diffusion with Physics Consistency for Generalizable Low-Dose CT Reconstruction', 'https://arxiv.org/abs/2609.18943', 'arxiv api HTTPError')
+   ('papers.yaml', 311, '$K$-NeAS: Scalable Multi-Material CT Reconstruction Using Neural SDFs', 'https://arxiv.org/abs/2607.14415', 'arxiv api HTTPError')
+   ('papers.yaml', 312, '3D CBCT Artefact Removal Using Perpendicular Score-Based Diffusion Models', 'https://arxiv.org/abs/2603.06300', 'arxiv api HTTPError')
+   ('papers.yaml', 313, 'Deformable CT-US Registration via Anatomy-Aware Implicit Neural Representations', 'https://arxiv.org/abs/2610.08419', 'arxiv api HTTPError')
+   ('papers.yaml', 314, 'High-Fidelity 3D Tooth Reconstruction by Fusing Intraoral Scans and CBCT Data via a Deep Implicit Representation', 'https://arxiv.org/abs/2601.15358', 'arxiv api HTTPError')
+   ('papers.yaml', 315, 'Balancing Efficiency and Restoration: Lightweight Mamba-Based Model for CT Metal Artifact Reduction', 'https://arxiv.org/abs/2604.06622', 'arxiv api HTTPError')
+   ('papers.yaml', 316, 'GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network', 'https://arxiv.org/abs/2607.11584', 'arxiv api HTTPError')
+   ('papers.yaml', 317, 'ReMAR-DS: Recalibrated Feature Learning for Metal Artifact Reduction and CT Domain Transformation', 'https://arxiv.org/abs/2506.19531', 'arxiv api HTTPError')
+   ('papers.yaml', 318, 'Entity-Constrained CBCT Retrieval for Low-Resource Dental Record Completion', 'https://arxiv.org/abs/2608.21913', 'arxiv api HTTPError')
+   ('papers.yaml', 319, 'Leveraging Image Editing Foundation Models for Data-Efficient CT Metal Artifact Reduction', 'https://arxiv.org/abs/2604.05934', 'arxiv api HTTPError')
+   ('papers.yaml', 320, 'Unsupervised Metal Artifact Reduction in Dental CBCT using Fine-tuned Cycle-Consistent Adversarial Networks', 'https://arxiv.org/abs/2607.20977', 'arxiv api HTTPError')
+   ('papers.yaml', 321, 'FIND-Net -- Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction', 'https://arxiv.org/abs/2508.10617', 'arxiv api HTTPError')
+   ('papers.yaml', 322, 'GLFC: Unified Global-Local Feature and Contrast Learning with Mamba-Enhanced UNet for Synthetic CT Generation from CBCT', 'https://arxiv.org/abs/2501.02992', 'arxiv api HTTPError')
+   ('papers.yaml', 323, 'Synthetic CT image generation from CBCT: A Systematic Review', 'https://arxiv.org/abs/2501.13972', 'arxiv api HTTPError')
+   ('papers.yaml', 324, 'VoxelSynth3D: Interpretable Volumetric Image-Domain Metal Artifact Reduction with a Paired Synthetic CLINIC-Metal Benchmark', 'https://arxiv.org/abs/2610.01512', 'arxiv api HTTPError')
+   ('papers.yaml', 325, "Bigger Isn't Always Better: Towards a General Prior for Medical Image Reconstruction", 'https://arxiv.org/abs/2501.07376', 'arxiv api HTTPError')
+   ('papers.yaml', 326, 'InsideOut: Integrated RGB-Radiative Gaussian Splatting for Comprehensive 3D Object Representation', 'https://arxiv.org/abs/2510.17864', 'arxiv api HTTPError')
+   ('datasets.yaml', 32, 'COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset', 'https://arxiv.org/abs/2607.20037', 'arxiv api HTTPError')
+   ('datasets.yaml', 33, 'MORE: Multi-Organ Medical Image REconstruction Dataset', 'https://arxiv.org/abs/2510.26759', 'arxiv api HTTPError')

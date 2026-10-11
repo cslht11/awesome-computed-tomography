@@ -1,0 +1,145 @@
+[
+  {
+    "id": "baggagect",
+    "year": 2024,
+    "local_title": "Fan-Beam CT Reconstruction for Unaligned Sparse-View X-Ray Baggage Data",
+    "best": {
+      "sim": 0.471,
+      "title": "Deep learning based sparse view x-ray CT reconstruction for checked baggage screening",
+      "doi": "10.1117/12.2309509",
+      "year": 2018,
+      "container": "Anomaly Detection and Imaging with X-Rays (ADIX) III",
+      "type": "proceedings-article"
+    }
+  },
+  {
+    "id": "data-driven-filter-design-in-fbp-transforming-ct-reconstru",
+    "year": 2024,
+    "local_title": "Data-Driven Filter Design in FBP: Transforming CT Reconstruction with Trainable Fourier Series",
+    "best": {
+      "sim": 0.238,
+      "title": "A novel scheme to design the filter for CT reconstruction using FBP algorithm",
+      "doi": "10.1186/1475-925x-12-50",
+      "year": 2013,
+      "container": "BioMedical Engineering OnLine",
+      "type": "journal-article"
+    }
+  },
+  {
+    "id": "extreme-few-view-ct-reconstruction-using-deep-inference",
+    "year": 2019,
+    "local_title": "Extreme Few-view CT Reconstruction using Deep Inference",
+    "best": {
+      "sim": 0.417,
+      "title": "Few-View CT reconstruction method based on deep learning",
+      "doi": "10.1109/nssmic.2016.8069593",
+      "year": 2016,
+      "container": "2016 IEEE Nuclear Science Symposium, Medical Imaging Conference and Room-Temperature Semiconductor Detector Workshop (NSS/MIC/RTSD)",
+      "type": "proceedings-article"
+    }
+  },
+  {
+    "id": "low-dose-ct-using-denoising-diffusion-probabilistic-model-",
+    "year": 2022,
+    "local_title": "Low-Dose CT Using Denoising Diffusion Probabilistic Model for 20× Speedup",
+    "best": {
+      "sim": 0.583,
+      "title": "Dose-aware denoising diffusion model for low-dose CT",
+      "doi": "10.1088/1361-6560/ade8cc",
+      "year": 2025,
+      "container": "Physics in Medicine &amp; Biology",
+      "type": "journal-article"
+    }
+  },
+  {
+    "id": "statistical-image-reconstruction-using-mixed-poisson-gauss",
+    "year": 2018,
+    "local_title": "Statistical Image Reconstruction Using Mixed Poisson-Gaussian Noise Model for X-Ray CT",
+    "best": {
+      "sim": 0.35,
+      "title": "A New Image Sparse Reconstruction Method for Mixed Gaussian-Poisson Noise with Multiple Constraints",
+      "doi": "10.1007/978-981-10-7302-1_29",
+      "year": 2017,
+      "container": "Communications in Computer and Information Science",
+      "type": "book-chapter"
+    }
+  },
+  {
+    "id": "uncertainr-uncertainty-quantification-of-end-to-end-implic",
+    "year": 2022,
+    "local_title": "UncertaINR: Uncertainty Quantification of End-to-End Implicit Neural Representations for Computed Tomography",
+    "best": {
+      "sim": 0.462,
+      "title": "End-to-End Implicit Neural Representations for Classification",
+      "doi": "10.1109/cvpr52734.2025.01745",
+      "year": 2025,
+      "container": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "type": "proceedings-article"
+    }
+  },
+  {
+    "id": "diffmed",
+    "year": 2022,
+    "local_title": "Diffusion Models for Medical Image Analysis: A Comprehensive Survey",
+    "best": {
+      "sim": 0.7,
+      "title": "Diffusion Models for Medical Image Computing: A Survey",
+      "doi": "10.26599/tst.2024.9010047",
+      "year": 2025,
+      "container": "Tsinghua Science and Technology",
+      "type": "journal-article"
+    }
+  },
+  {
+    "id": "snaf",
+    "year": 2022,
+    "local_title": "SNAF: Sparse-View CBCT Reconstruction with Neural Attenuation Fields",
+    "best": {
+      "sim": 0.636,
+      "title": "NAF: Neural Attenuation Fields for Sparse-View CBCT Reconstruction",
+      "doi": "10.1007/978-3-031-16446-0_42",
+      "year": 2022,
+      "container": "Lecture Notes in Computer Science",
+      "type": "book-chapter"
+    }
+  },
+  {
+    "id": "2-step-sparse-view-ct-reconstruction-with-a-domain-specifi",
+    "year": 2020,
+    "local_title": "2-Step Sparse-View CT Reconstruction with a Domain-Specific Perceptual Network",
+    "best": {
+      "sim": 0.429,
+      "title": "Dual-domain reconstruction network for sparse-view CT",
+      "doi": "10.1117/12.2597801",
+      "year": 2021,
+      "container": "Developments in X-Ray Tomography XIII",
+      "type": "proceedings-article"
+    }
+  },
+  {
+    "id": "limited-view-tomographic-reconstruction-using-a-deep-recur",
+    "year": 2020,
+    "local_title": "Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency",
+    "best": {
+      "sim": 0.542,
+      "title": "Limited View Tomographic Reconstruction Using a Cascaded Residual Dense Spatial-Channel Attention Network With Projection Data Fidelity Layer",
+      "doi": "10.1109/tmi.2021.3066318",
+      "year": 2021,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    }
+  },
+  {
+    "id": "learned-convex-regularizers-for-inverse-problems",
+    "year": 2020,
+    "local_title": "Learned convex regularizers for inverse problems",
+    "best": {
+      "sim": 0.833,
+      "title": "Learned Regularizers for Inverse Problems",
+      "doi": "10.1007/978-3-030-98661-2_68",
+      "year": 2023,
+      "container": "Handbook of Mathematical Models and Algorithms in Computer Vision and Imaging",
+      "type": "book-chapter"
+    }
+  }
+]

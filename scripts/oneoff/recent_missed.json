@@ -1,0 +1,132 @@
+[
+  {
+    "score": 54,
+    "arxiv_id": "2602.11705",
+    "title": "TG-Field: Geometry-Aware Radiative Gaussian Fields for Tomographic Reconstruction",
+    "year": 2026,
+    "date": "2026-02-12",
+    "primary_category": "cs.CV",
+    "comment": "Accepted to AAAI 2026. Project page: https://vcc.tech/research/2026/TG-Field",
+    "abstract": "3D Gaussian Splatting (3DGS) has revolutionized 3D scene representation with superior efficiency and quality. While recent adaptations for computed tomography (CT) show promise, they struggle with severe artifacts under highly sparse-view projections and dynamic motions. To address these challenges, we propose Tomographic Geometry Field (TG-Field), a geometry-aware Gaussian deformation framework tailored for both static and dynamic CT reconstruction. A multi-resolution hash encoder is employed to capture local spatial priors, regularizing primitive parameters under ultra-sparse settings. We further extend the framework to dynamic reconstruction by introducing time-conditioned representations and a spatiotemporal attention block to adaptively aggregate features, thereby resolving spatiotemporal ambiguities and enforcing temporal coherence. In addition, a motion-flow network models fine-grained respiratory motion to track local anatomical deformations. Extensive experiments on synthetic and real-world datasets demonstrate that TG-Field consistently outperforms existing methods, achieving state-of-the-art reconstruction accuracy under highly sparse-view conditions."
+  },
+  {
+    "score": 54,
+    "arxiv_id": "2505.13579",
+    "title": "Learning Wavelet-Sparse FDK for 3D Cone-Beam CT Reconstruction",
+    "year": 2025,
+    "date": "2025-05-19",
+    "primary_category": "eess.IV",
+    "comment": "Accepted by Fully3D 2025",
+    "abstract": "Cone-Beam Computed Tomography (CBCT) is essential in medical imaging, and the Feldkamp-Davis-Kress (FDK) algorithm is a popular choice for reconstruction due to its efficiency. However, FDK is susceptible to noise and artifacts. While recent deep learning methods offer improved image quality, they often increase computational complexity and lack the interpretability of traditional methods. In this paper, we introduce an enhanced FDK-based neural network that maintains the classical algorithm's interpretability by selectively integrating trainable elements into the cosine weighting and filtering stages. Recognizing the challenge of a large parameter space inherent in 3D CBCT data, we leverage wavelet transformations to create sparse representations of the cosine weights and filters. This strategic sparsification reduces the parameter count by $93.75\\%$ without compromising performance, accelerates convergence, and importantly, maintains the inference computational cost equivalent to the classical FDK algorithm. Our method not only ensures volumetric consistency and boosts robustness to noise, but is also designed for straightforward integration into existing CT reconstruction pipelines. This presents a pragmatic enhancement that can benefit clinical applications, particularly in environments with computational limitations."
+  },
+  {
+    "score": 53,
+    "arxiv_id": "2605.16431",
+    "title": "CT-DegradBench: A Physics-Informed Benchmark for CT Degradation Detection and Severity Estimation",
+    "year": 2026,
+    "date": "2026-05-14",
+    "primary_category": "cs.CV",
+    "comment": "Accepted in CVPR 2026 VISION Workshop (DEXTER track)",
+    "abstract": "Computed tomography (CT) images are frequently degraded by acquisition artifacts, including noise, blur, streaking, aliasing, and metal artifacts. Yet CT enhancement is still largely evaluated using image quality metrics with limited perceptual and clinical validity, while existing datasets remain focused on isolated restoration tasks, hindering unified benchmarking across diverse degradation types. We present CT-DegradBench, a dataset and benchmark for CT degradation detection and severity estimation under controlled single- and mixed-artifact settings. CT-DegradBench enables systematic evaluation across multiple degradation families and severity levels within a common experimental framework. We further propose SeSpeCT (Semantic-Spectral CT degradation estimation), a framework that combines semantic priors from medical vision-language models with complementary frequency-domain cues for artifact analysis. SeSpeCT constructs a training-free semantic quality axis in the multimodal embedding space using radiology-informed text prompts, without task-specific fine-tuning, and combines it with spectral features that capture degradation-specific frequency patterns. The resulting representation enables joint prediction of artifact type and severity. Experimental results show that SeSpeCT consistently outperforms the evaluated baselines under both single- and mixed-degradation settings. The framework is available at https://github.com/yousranb/CT-DEGRADBENCH."
+  },
+  {
+    "score": 53,
+    "arxiv_id": "2512.22674",
+    "title": "Semantic contrastive learning for orthogonal X-ray computed tomography reconstruction",
+    "year": 2025,
+    "date": "2025-12-27",
+    "primary_category": "eess.IV",
+    "comment": "This paper is accepted by Fully3D 2025",
+    "abstract": "X-ray computed tomography (CT) is widely used in medical imaging, with sparse-view reconstruction offering an effective way to reduce radiation dose. However, ill-posed conditions often result in severe streak artifacts. Recent advances in deep learning-based methods have improved reconstruction quality, but challenges still remain. To address these challenges, we propose a novel semantic feature contrastive learning loss function that evaluates semantic similarity in high-level latent spaces and anatomical similarity in shallow latent spaces. Our approach utilizes a three-stage U-Net-based architecture: one for coarse reconstruction, one for detail refinement, and one for semantic similarity measurement. Tests on a chest dataset with orthogonal projections demonstrate that our method achieves superior reconstruction quality and faster processing compared to other algorithms. The results show significant improvements in image quality while maintaining low computational complexity, making it a practical solution for orthogonal CT reconstruction."
+  },
+  {
+    "score": 53,
+    "arxiv_id": "2506.22280",
+    "title": "DIGS: Dynamic CBCT Reconstruction using Deformation-Informed 4D Gaussian Splatting and a Low-Rank Free-Form Deformation Model",
+    "year": 2025,
+    "date": "2025-06-27",
+    "primary_category": "eess.IV",
+    "comment": "Accepted by MICCAI 2025",
+    "abstract": "3D Cone-Beam CT (CBCT) is widely used in radiotherapy but suffers from motion artifacts due to breathing. A common clinical approach mitigates this by sorting projections into respiratory phases and reconstructing images per phase, but this does not account for breathing variability. Dynamic CBCT instead reconstructs images at each projection, capturing continuous motion without phase sorting. Recent advancements in 4D Gaussian Splatting (4DGS) offer powerful tools for modeling dynamic scenes, yet their application to dynamic CBCT remains underexplored. Existing 4DGS methods, such as HexPlane, use implicit motion representations, which are computationally expensive. While explicit low-rank motion models have been proposed, they lack spatial regularization, leading to inconsistencies in Gaussian motion. To address these limitations, we introduce a free-form deformation (FFD)-based spatial basis function and a deformation-informed framework that enforces consistency by coupling the temporal evolution of Gaussian's mean position, scale, and rotation under a unified deformation field. We evaluate our approach on six CBCT datasets, demonstrating superior image quality with a 6x speedup over HexPlane. These results highlight the potential of deformation-informed 4DGS for efficient, motion-compensated CBCT reconstruction. The code is available at https://github.com/Yuliang-Huang/DIGS."
+  },
+  {
+    "score": 49,
+    "arxiv_id": "2604.21518",
+    "title": "DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction",
+    "year": 2026,
+    "date": "2026-04-23",
+    "primary_category": "eess.IV",
+    "comment": "Accepted to AAAI 2026. Project page: https://ooonesevennn.github.io/DiffNR/",
+    "abstract": "Neural representations (NRs), such as neural fields and 3D Gaussians, effectively model volumetric data in computed tomography (CT) but suffer from severe artifacts under sparse-view settings. To address this, we propose DiffNR, a novel framework that enhances NR optimization with diffusion priors. At its core is SliceFixer, a single-step diffusion model designed to correct artifacts in degraded slices. We integrate specialized conditioning layers into the network and develop tailored data curation strategies to support model finetuning. During reconstruction, SliceFixer periodically generates pseudo-reference volumes, providing auxiliary 3D perceptual supervision to fix underconstrained regions. Compared to prior methods that embed CT solvers into time-consuming iterative denoising, our repair-and-augment strategy avoids frequent diffusion model queries, leading to better runtime performance. Extensive experiments show that DiffNR improves PSNR by 3.99 dB on average, generalizes well across domains, and maintains efficient optimization."
+  },
+  {
+    "score": 43,
+    "arxiv_id": "2511.17068",
+    "title": "ReBrain: Brain MRI Reconstruction from Sparse CT Slice via Retrieval-Augmented Diffusion",
+    "year": 2025,
+    "date": "2025-11-21",
+    "primary_category": "cs.CV",
+    "comment": "16 pages, 12 figures, 7 tables; Accepted by WACV 2026",
+    "abstract": "Magnetic Resonance Imaging (MRI) plays a crucial role in brain disease diagnosis, but it is not always feasible for certain patients due to physical or clinical constraints. Recent studies attempt to synthesize MRI from Computed Tomography (CT) scans; however, low-dose protocols often result in highly sparse CT volumes with poor through-plane resolution, making accurate reconstruction of the full brain MRI volume particularly challenging. To address this, we propose ReBrain, a retrieval-augmented diffusion framework for brain MRI reconstruction. Given any 3D CT scan with limited slices, we first employ a Brownian Bridge Diffusion Model (BBDM) to synthesize MRI slices along the 2D dimension. Simultaneously, we retrieve structurally and pathologically similar CT slices from a comprehensive prior database via a fine-tuned retrieval model. These retrieved slices are used as references, incorporated through a ControlNet branch to guide the generation of intermediate MRI slices and ensure structural continuity. We further account for rare retrieval failures when the database lacks suitable references and apply spherical linear interpolation to provide supplementary guidance. Extensive experiments on SynthRAD2023 and BraTS demonstrate that ReBrain achieves state-of-the-art performance in cross-modal reconstruction under sparse conditions."
+  },
+  {
+    "score": 43,
+    "arxiv_id": "2501.02992",
+    "title": "GLFC: Unified Global-Local Feature and Contrast Learning with Mamba-Enhanced UNet for Synthetic CT Generation from CBCT",
+    "year": 2025,
+    "date": "2025-01-06",
+    "primary_category": "eess.IV",
+    "comment": "Accepted by ISBI2025",
+    "abstract": "Generating synthetic Computed Tomography (CT) images from Cone Beam Computed Tomography (CBCT) is desirable for improving the image quality of CBCT. Existing synthetic CT (sCT) generation methods using Convolutional Neural Networks (CNN) and Transformers often face difficulties in effectively capturing both global and local features and contrasts for high-quality sCT generation. In this work, we propose a Global-Local Feature and Contrast learning (GLFC) framework for sCT generation. First, a Mamba-Enhanced UNet (MEUNet) is introduced by integrating Mamba blocks into the skip connections of a high-resolution UNet for effective global and local feature learning. Second, we propose a Multiple Contrast Loss (MCL) that calculates synthetic loss at different intensity windows to improve quality for both soft tissues and bone regions. Experiments on the SynthRAD2023 dataset demonstrate that GLFC improved the SSIM of sCT from 77.91% to 91.50% compared with the original CBCT, and significantly outperformed several existing methods for sCT generation. The code is available at https://github.com/HiLab-git/GLFC"
+  },
+  {
+    "score": 35,
+    "arxiv_id": "2604.05934",
+    "title": "Leveraging Image Editing Foundation Models for Data-Efficient CT Metal Artifact Reduction",
+    "year": 2026,
+    "date": "2026-04-07",
+    "primary_category": "cs.CV",
+    "comment": "Accepted to CVPRW 2026 Med-Reasoner",
+    "abstract": "Metal artifacts from high-attenuation implants severely degrade CT image quality, obscuring critical anatomical structures and posing a challenge for standard deep learning methods that require extensive paired training data. We propose a paradigm shift: reframing artifact reduction as an in-context reasoning task by adapting a general-purpose vision-language diffusion foundation model via parameter-efficient Low-Rank Adaptation (LoRA). By leveraging rich visual priors, our approach achieves effective artifact suppression with only 16 to 128 paired training examples reducing data requirements by two orders of magnitude. Crucially, we demonstrate that domain adaptation is essential for hallucination mitigation; without it, foundation models interpret streak artifacts as erroneous natural objects (e.g., waffles or petri dishes). To ground the restoration, we propose a multi-reference conditioning strategy where clean anatomical exemplars from unrelated subjects are provided alongside the corrupted input, enabling the model to exploit category-specific context to infer uncorrupted anatomy. Extensive evaluation on the AAPM CT-MAR benchmark demonstrates that our method achieves state-of-the-art performance on perceptual and radiological-feature metrics . This work establishes that foundation models, when appropriately adapted, offer a scalable alternative for interpretable, data-efficient medical image reconstruction. Code is available at https://github.com/ahmetemirdagi/CT-EditMAR."
+  },
+  {
+    "score": 30,
+    "arxiv_id": "2508.10617",
+    "title": "FIND-Net -- Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction",
+    "year": 2025,
+    "date": "2025-08-14",
+    "primary_category": "cs.CV",
+    "comment": "Accepted at MICCAI 2025. This is the submitted version prior to peer review. The final Version of Record will appear in the MICCAI 2025 proceedings (Springer LNCS)",
+    "abstract": "Metal artifacts, caused by high-density metallic implants in computed tomography (CT) imaging, severely degrade image quality, complicating diagnosis and treatment planning. While existing deep learning algorithms have achieved notable success in Metal Artifact Reduction (MAR), they often struggle to suppress artifacts while preserving structural details. To address this challenge, we propose FIND-Net (Fourier-Integrated Network with Dictionary Kernels), a novel MAR framework that integrates frequency and spatial domain processing to achieve superior artifact suppression and structural preservation. FIND-Net incorporates Fast Fourier Convolution (FFC) layers and trainable Gaussian filtering, treating MAR as a hybrid task operating in both spatial and frequency domains. This approach enhances global contextual understanding and frequency selectivity, effectively reducing artifacts while maintaining anatomical structures. Experiments on synthetic datasets show that FIND-Net achieves statistically significant improvements over state-of-the-art MAR methods, with a 3.07% MAE reduction, 0.18% SSIM increase, and 0.90% PSNR improvement, confirming robustness across varying artifact complexities. Furthermore, evaluations on real-world clinical CT scans confirm FIND-Net's ability to minimize modifications to clean anatomical regions while effectively suppressing metal-induced distortions. These findings highlight FIND-Net's potential for advancing MAR performance, offering superior structural preservation and improved clinical applicability. Code is available at https://github.com/Farid-Tasharofi/FIND-Net"
+  },
+  {
+    "score": 28,
+    "arxiv_id": "2510.26759",
+    "title": "MORE: Multi-Organ Medical Image REconstruction Dataset",
+    "year": 2025,
+    "date": "2025-10-30",
+    "primary_category": "eess.IV",
+    "comment": "Accepted to ACMMM 2025",
+    "abstract": "CT reconstruction provides radiologists with images for diagnosis and treatment, yet current deep learning methods are typically limited to specific anatomies and datasets, hindering generalization ability to unseen anatomies and lesions. To address this, we introduce the Multi-Organ medical image REconstruction (MORE) dataset, comprising CT scans across 9 diverse anatomies with 15 lesion types. This dataset serves two key purposes: (1) enabling robust training of deep learning models on extensive, heterogeneous data, and (2) facilitating rigorous evaluation of model generalization for CT reconstruction. We further establish a strong baseline solution that outperforms prior approaches under these challenging conditions. Our results demonstrate that: (1) a comprehensive dataset helps improve the generalization capability of models, and (2) optimization-based methods offer enhanced robustness for unseen anatomies. The MORE dataset is freely accessible under CC-BY-NC 4.0 at our project page https://more-med.github.io/"
+  },
+  {
+    "score": 12,
+    "arxiv_id": "2507.18534",
+    "title": "Elucidating the Design Space of Arbitrary-Noise-Based Diffusion Models",
+    "year": 2025,
+    "date": "2025-07-24",
+    "primary_category": "cs.CV",
+    "comment": "16 pages, 4 figures, accepted by CVPR 2026",
+    "abstract": "Although EDM aims to unify the design space of diffusion models, its reliance on fixed Gaussian noise prevents it from explaining emerging flow-based methods that diffuse arbitrary noise. Moreover, our study reveals that EDM's forcible injection of Gaussian noise has adverse effects on image restoration task, as it corrupts the degraded images, overextends the restoration distance, and increases the task's complexity. To interpret diverse methods for handling distinct noise patterns within a unified theoretical framework and to minimize the restoration distance, we propose EDA, which Elucidates the Design space of Arbitrary-noise diffusion models. Theoretically, EDA expands noise pattern flexibility while preserving EDM's modularity, with rigorous proof that increased noise complexity introduces no additional computational overhead during restoration. EDA is validated on three representative medical image denoising and natural image restoration tasks: MRI bias field correction (global smooth noise), CT metal artifact removal (global sharp noise) and natural image shadow removal (local boundary-aware noise). With only 5 sampling steps, competitive results against specialized methods across medical and natural tasks demonstrate EDA's strong generalization capability for image restoration. Code is available at: https://github.com/PerceptionComputingLab/EDA."
+  },
+  {
+    "score": 9,
+    "arxiv_id": "2507.12985",
+    "title": "From Variability To Accuracy: Conditional Bernoulli Diffusion Models with Consensus-Driven Correction for Thin Structure Segmentation",
+    "year": 2025,
+    "date": "2025-07-17",
+    "primary_category": "eess.IV",
+    "comment": "Early accepted at MICCAI 2025",
+    "abstract": "Accurate segmentation of orbital bones in facial computed tomography (CT) images is essential for the creation of customized implants for reconstruction of defected orbital bones, particularly challenging due to the ambiguous boundaries and thin structures such as the orbital medial wall and orbital floor. In these ambiguous regions, existing segmentation approaches often output disconnected or under-segmented results. We propose a novel framework that corrects segmentation results by leveraging consensus from multiple diffusion model outputs. Our approach employs a conditional Bernoulli diffusion model trained on diverse annotation patterns per image to generate multiple plausible segmentations, followed by a consensus-driven correction that incorporates position proximity, consensus level, and gradient direction similarity to correct challenging regions. Experimental results demonstrate that our method outperforms existing methods, significantly improving recall in ambiguous regions while preserving the continuity of thin structures. Furthermore, our method automates the manual process of segmentation result correction and can be applied to image-guided surgical planning and surgery."
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "arxiv_id": "2412.03036",
+    "title": "Fan-Beam CT Reconstruction for Unaligned Sparse-View X-ray Baggage Dataset",
+    "published": "2024-12-04",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2401.16039",
+    "title": "Data-Driven Filter Design in FBP: Transforming CT Reconstruction with Trainable Fourier Series",
+    "published": "2024-01-29",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "1910.05375",
+    "title": "Extreme Few-view CT Reconstruction using Deep Inference",
+    "published": "2019-10-11",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2209.15136",
+    "title": "Low-Dose CT Using Denoising Diffusion Probabilistic Model for 20$\\times$ Speedup",
+    "published": "2022-09-29",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "1801.09533",
+    "title": "Statistical Image Reconstruction Using Mixed Poisson-Gaussian Noise Model for X-Ray CT",
+    "published": "2018-01-19",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2202.10847",
+    "title": "UncertaINR: Uncertainty Quantification of End-to-End Implicit Neural Representations for Computed Tomography",
+    "published": "2022-02-22",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2211.07804",
+    "title": "Diffusion Models for Medical Image Analysis: A Comprehensive Survey",
+    "published": "2022-11-14",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2211.17048",
+    "title": "SNAF: Sparse-view CBCT Reconstruction with Neural Attenuation Fields",
+    "published": "2022-11-30",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2012.04743",
+    "title": "2-Step Sparse-View CT Reconstruction with a Domain-Specific Perceptual Network",
+    "published": "2020-12-08",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2009.01782",
+    "title": "Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency",
+    "published": "2020-09-03",
+    "journal_ref": "",
+    "doi": ""
+  },
+  {
+    "arxiv_id": "2008.02839",
+    "title": "Learned convex regularizers for inverse problems",
+    "published": "2020-08-06",
+    "journal_ref": "",
+    "doi": ""
+  }
+]

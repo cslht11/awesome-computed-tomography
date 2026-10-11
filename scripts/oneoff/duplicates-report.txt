@@ -1,0 +1,645 @@
+SAME-WORK CLUSTERS: 81  (entries removed: 81)
+
+================================================================================================
+TITLE  2 step sparse view ct reconstruction with a domain specific perceptual network   [2 copies]
+   id=2-step-sparse-view-ct-reconstruction-with-a-domain-specifi year=2012
+       venue=-                                              paper=https://arxiv.org/abs/2012.04743
+   id=2-step-sparse-view-ct-reconstruction-with-a-domain-specifi year=2020
+       venue=-                                              paper=https://arxiv.org/abs/2012.04743
+================================================================================================
+TITLE  a dataset free deep learning method for low dose ct image reconstruction   [2 copies]
+   id=dfdlm                                                      year=2022
+       venue=Inverse Problems                               paper=https://arxiv.org/abs/2205.00463
+       abbr=DFDLM
+   id=dfdlm-2                                                    year=2022
+       venue=Inverse Problems                               paper=https://doi.org/10.1088/1361-6420/ac8ac6
+       abbr=DFDLM
+================================================================================================
+TITLE  a deep convolutional neural network using directional wavelets for low dose x ray ct rec   [2 copies]
+   id=deepcnn                                                    year=2017
+       venue=Med Phys                                       paper=https://arxiv.org/abs/1610.09736
+       abbr=DeepCNN
+   id=deepcnn-2                                                  year=2017
+       venue=Medical Physics                                paper=https://doi.org/10.1002/mp.12344
+       abbr=DeepCNN
+================================================================================================
+TITLE  a dual encoder single decoder based low dose ct denoising network   [2 copies]
+   id=desdgan                                                    year=2022
+       venue=JBHI                                           paper=https://doi.org/10.1109/jbhi.2022.3155788
+       code=https://github.com/hanzefang/DESDGAN  abbr=DESDGAN
+   id=desdgan-2                                                  year=2022
+       venue=IEEE Journal of Biomedical and Health Informat paper=https://doi.org/10.1109/jbhi.2022.3155788
+       abbr=DESDGAN
+================================================================================================
+TITLE  a regional adaptive variational pde model for computed tomography image reconstruction   [2 copies]
+   id=pde                                                        year=2019
+       venue=PR                                             paper=https://doi.org/10.1016/j.patcog.2019.03.009
+       abbr=PDE
+   id=pde-2                                                      year=2019
+       venue=Pattern Recognition                            paper=https://doi.org/10.1016/j.patcog.2019.03.009
+       abbr=PDE
+================================================================================================
+TITLE  a review on deep learning in medical image reconstruction   [2 copies]
+   id=a-review-on-deep-learning-in-medical-image-reconstruction  year=2017
+       venue=JORSC                                          paper=https://arxiv.org/abs/1906.10643
+   id=a-review-on-deep-learning-in-medical-image-reconstruction- year=2017
+       venue=-                                              paper=https://arxiv.org/abs/1906.10643v3
+================================================================================================
+TITLE  a sparse view ct reconstruction method based on combination of densenet and deconvolutio   [2 copies]
+   id=dd-net                                                     year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2823338
+       code=https://github.com/zzc623/DD_Net  abbr=DD-Net
+   id=dd-net-2                                                   year=2018
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2823338
+       abbr=DD-Net
+================================================================================================
+TITLE  accurate and robust sparse view angle ct image reconstruction using deep learning and pr   [2 copies]
+   id=dl-piccs                                                   year=2019
+       venue=Med Phys                                       paper=https://doi.org/10.1002/mp.15183
+       abbr=DL-PICCS
+   id=dl-piccs-2                                                 year=2021
+       venue=Medical Physics                                paper=https://doi.org/10.1002/mp.15183
+       abbr=DL-PICCS
+================================================================================================
+TITLE  an end to end deep network for reconstructing ct images directly from sparse sinograms   [2 copies]
+   id=etedn                                                      year=2020
+       venue=TCI                                            paper=https://doi.org/10.1109/tci.2020.3039385
+       code=https://github.com/wangwei-cmd/CT-image-reconstruction  abbr=ETEDN
+   id=etedn-2                                                    year=2020
+       venue=IEEE Transactions on Computational Imaging     paper=https://doi.org/10.1109/tci.2020.3039385
+       abbr=ETEDN
+================================================================================================
+TITLE  an unsupervised reconstruction method for low dose ct using deep generative regularizati   [2 copies]
+   id=dgr-2                                                      year=2025
+       venue=ICCV                                           paper=https://arxiv.org/abs/2012.06448
+       code=https://github.com/mozanunal/SparseCT  abbr=DGR-2
+   id=dgr-3                                                      year=2022
+       venue=Biomedical Signal Processing and Control       paper=https://doi.org/10.1016/j.bspc.2022.103598
+       abbr=DGR
+================================================================================================
+TITLE  artifact removal using a hybrid domain convolutional neural network for limited angle co   [2 copies]
+   id=hd-cnn                                                     year=2020
+       venue=PMB                                            paper=https://doi.org/10.1088/1361-6560/ab9066
+       abbr=HD-CNN
+   id=hd-cnn-2                                                   year=2020
+       venue=Physics in Medicine &amp; Biology              paper=https://doi.org/10.1088/1361-6560/ab9066
+       abbr=HD-CNN
+================================================================================================
+TITLE  ccn cl a content noise complementary network with contrastive learning for low dose comp   [2 copies]
+   id=ccn-cl                                                     year=2022
+       venue=CBM                                            paper=https://doi.org/10.1016/j.compbiomed.2022.105759
+       abbr=CCN-CL
+   id=ccn-cl-2                                                   year=2022
+       venue=Computers in Biology and Medicine              paper=https://doi.org/10.1016/j.compbiomed.2022.105759
+       abbr=CCN-CL
+================================================================================================
+TITLE  clear comprehensive learning enabled adversarial reconstruction for subtle structure enh   [2 copies]
+   id=clear                                                      year=2021
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2021.3097808
+       abbr=CLEAR
+   id=clear-2                                                    year=2021
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2021.3097808
+       abbr=CLEAR
+================================================================================================
+TITLE  cnn based projected gradient descent for consistent ct image reconstruction   [2 copies]
+   id=cnnrpgd                                                    year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2832656
+       abbr=CNNRPGD
+   id=cnnrpgd-2                                                  year=2018
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2832656
+       abbr=CNNRPGD
+================================================================================================
+TITLE  competitive performance of a modularized deep neural network compared to commercial algo   [2 copies]
+   id=map-nn                                                     year=2021
+       venue=Nat Mach Intell                                paper=https://doi.org/10.1038/s42256-019-0057-9
+       abbr=MAP-NN
+   id=map-nn-2                                                   year=2019
+       venue=Nature Machine Intelligence                    paper=https://doi.org/10.1038/s42256-019-0057-9
+       abbr=MAP-NN
+================================================================================================
+TITLE  computed tomography reconstruction using deep image prior and learned reconstruction met   [2 copies]
+   id=dip                                                        year=2020
+       venue=Inverse Problems                               paper=https://doi.org/10.1088/1361-6420/aba415
+       code=https://github.com/oterobaguer/dip-ct-benchmark  abbr=DIP
+   id=dip-2                                                      year=2020
+       venue=Inverse Problems                               paper=https://doi.org/10.1088/1361-6420/aba415
+       abbr=DIP
+================================================================================================
+TITLE  ct reconstruction with pdf parameter dependent framework for data from multiple geometri   [2 copies]
+   id=pdf                                                        year=2021
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2021.3085839
+       abbr=PDF
+   id=pdf-2                                                      year=2021
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2021.3085839
+       abbr=PDF
+================================================================================================
+TITLE  data driven filter design in fbp transforming ct reconstruction with trainable fourier s   [2 copies]
+   id=data-driven-filter-design-in-fbp-transforming-ct-reconstru year=2024
+       venue=-                                              paper=https://arxiv.org/abs/2401.16039
+   id=data-driven-filter-design-in-fbp-transforming-ct-reconstru year=2024
+       venue=-                                              paper=https://arxiv.org/abs/2401.16039
+================================================================================================
+TITLE  deep efficient end to end reconstruction deer network for few view breast ct image recon   [2 copies]
+   id=deer                                                       year=2020
+       venue=IEEE Access                                    paper=https://doi.org/10.1109/access.2020.3033795
+       code=https://github.com/WANG-AXIS/DEER  abbr=DEER
+   id=deer-2                                                     year=2020
+       venue=IEEE Access                                    paper=https://doi.org/10.1109/access.2020.3033795
+       abbr=DEER
+================================================================================================
+TITLE  deep learning computed tomography learning projection domain weights from image domain i   [2 copies]
+   id=dlct                                                       year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2833499
+       abbr=DLCT
+   id=dlct-2                                                     year=2018
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2833499
+       abbr=DLCT
+================================================================================================
+TITLE  deep learning methods for image reconstruction from angularly sparse data for ct and sar   [2 copies]
+   id=dlmir                                                      year=2020
+       venue=ASARI                                          paper=https://doi.org/10.1117/12.2558953
+       code=https://github.com/e-yavuz/Deep-Learning-Methods-for-Image-Reconstruction-from-Angularly-Sparse-Data-for-CT-and-SAR-Imaging  abbr=DLMIR
+   id=dlmir-2                                                    year=2020
+       venue=Algorithms for Synthetic Aperture Radar Imager paper=https://doi.org/10.1117/12.2558953
+       abbr=DLMIR
+================================================================================================
+TITLE  deep neural network based sinogram synthesis for sparse view ct image reconstruction   [2 copies]
+   id=dnnss                                                      year=2019
+       venue=TRPMS                                          paper=https://doi.org/10.1109/trpms.2018.2867611
+       abbr=DNNSS
+   id=dnnss-2                                                    year=2019
+       venue=IEEE Transactions on Radiation and Plasma Medi paper=https://doi.org/10.1109/trpms.2018.2867611
+       abbr=DNNSS
+================================================================================================
+TITLE  degradation aware deep learning framework for sparse view ct reconstruction   [2 copies]
+   id=fdm                                                        year=2021
+       venue=Tomography                                     paper=https://doi.org/10.3390/tomography7040077
+       code=https://github.com/sunchang2017/degradation-aware-sparse-CT-reconstruction  abbr=FDM
+   id=fdm-2                                                      year=2021
+       venue=Tomography                                     paper=https://doi.org/10.3390/tomography7040077
+       abbr=FDM
+================================================================================================
+TITLE  domain adaptive denoising network for low dose ct via noise estimation and transfer lear   [2 copies]
+   id=dadn                                                       year=2023
+       venue=Med Phys                                       paper=https://doi.org/10.1002/mp.15952
+       abbr=DADN
+   id=dadn-2                                                     year=2023
+       venue=Medical Physics                                paper=https://doi.org/10.1002/mp.15952
+       abbr=DADN
+================================================================================================
+TITLE  dream net deep residual error iterative minimization network for sparse view ct reconstr   [2 copies]
+   id=dream-net                                                  year=2022
+       venue=TMI                                            paper=https://doi.org/10.1109/jbhi.2022.3225697
+       abbr=DREAM-Net
+   id=dream-net-2                                                year=2023
+       venue=IEEE Journal of Biomedical and Health Informat paper=https://doi.org/10.1109/jbhi.2022.3225697
+       abbr=DREAM-Net
+================================================================================================
+TITLE  dual domain closed loop learning for sparse view ct reconstruction   [2 copies]
+   id=ddcl                                                       year=2022
+       venue=ICIFXCT                                        paper=https://doi.org/10.1117/12.2646639
+       abbr=DDCL
+   id=ddcl-2                                                     year=2022
+       venue=7th International Conference on Image Formatio paper=https://doi.org/10.1117/12.2646639
+       abbr=DDCL
+================================================================================================
+TITLE  eagle an edge aware gradient localization enhanced loss for ct image reconstruction   [2 copies]
+   id=eagle-an-edge-aware-gradient-localization-enhanced-loss-fo year=2024
+       venue=-                                              paper=https://arxiv.org/abs/2403.10695
+       code=https://github.com/sypsyp97/Eagle_Loss
+   id=eagle-an-edge-aware-gradient-localization-enhanced-loss-fo year=2024
+       venue=-                                              paper=https://arxiv.org/abs/2403.10695
+================================================================================================
+TITLE  extreme few view ct reconstruction using deep inference   [2 copies]
+   id=extreme-few-view-ct-reconstruction-using-deep-inference    year=2024
+       venue=-                                              paper=https://arxiv.org/abs/1910.05375
+   id=extreme-few-view-ct-reconstruction-using-deep-inference-2  year=2019
+       venue=-                                              paper=https://arxiv.org/abs/1910.05375
+================================================================================================
+TITLE  fista net learning a fast iterative shrinkage thresholding network for inverse problems    [2 copies]
+   id=fista-net                                                  year=2021
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2021.3054167
+       code=https://github.com/jinxixiang/FISTA-Net  abbr=FISTA-Net
+   id=fista-net-2                                                year=2021
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2021.3054167
+       abbr=FISTA-Net
+================================================================================================
+TITLE  font sir fourth order nonlocal tensor decomposition model for spectral ct image reconstr   [2 copies]
+   id=font-sir                                                   year=2022
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2022.3156270
+       abbr=FONT-SIR
+   id=font-sir-2                                                 year=2022
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2022.3156270
+       abbr=FONT-SIR
+================================================================================================
+TITLE  fstensorfull spectrum knowledge aware tensor model for energy resolved ct iterative reco   [2 copies]
+   id=fstensor                                                   year=2020
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2020.2976692
+       abbr=FSTensor
+   id=fstensor-2                                                 year=2020
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2020.2976692
+       abbr=FSTensor
+================================================================================================
+TITLE  generative modeling in sinogram domain for sparse view ct reconstruction   [2 copies]
+   id=generative-modeling-in-sinogram-domain-for-sparse-view-ct- year=2024
+       venue=-                                              paper=https://arxiv.org/abs/2211.13926
+   id=generative-modeling-in-sinogram-domain-for-sparse-view-ct- year=2022
+       venue=-                                              paper=https://arxiv.org/abs/2211.13926
+================================================================================================
+TITLE  gradient based geometry learning for fan beam ct reconstruction   [2 copies]
+   id=gglf                                                       year=2023
+       venue=PMB                                            paper=https://doi.org/10.1088/1361-6560/acf90e
+       abbr=GGLF
+   id=gglf-2                                                     year=2023
+       venue=Physics in Medicine &amp; Biology              paper=https://doi.org/10.1088/1361-6560/acf90e
+       abbr=GGLF
+================================================================================================
+TITLE  hybrid domain neural network processing for sparse view ct reconstruction   [2 copies]
+   id=hdnet                                                      year=2020
+       venue=TRPMS                                          paper=https://doi.org/10.1109/trpms.2020.3011413
+       abbr=HDNet
+   id=hdnet-2                                                    year=2021
+       venue=IEEE Transactions on Radiation and Plasma Medi paper=https://doi.org/10.1109/trpms.2020.3011413
+       abbr=HDNet
+================================================================================================
+TITLE  image reconstruction by domain transform manifold learning   [2 copies]
+   id=automap                                                    year=2018
+       venue=Nature                                         paper=https://doi.org/10.1038/nature25988
+       abbr=AUTOMAP
+   id=automap-2                                                  year=2018
+       venue=Nature                                         paper=https://doi.org/10.1038/nature25988
+       abbr=AUTOMAP
+================================================================================================
+TITLE  intelligent parameter tuning in optimization based iterative ct reconstruction via deep    [2 copies]
+   id=ptpn                                                       year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2823679
+       abbr=PTPN
+   id=ptpn-2                                                     year=2018
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2823679
+       abbr=PTPN
+================================================================================================
+TITLE  intratomo self supervised learning based tomography via sinogram synthesis and predictio   [2 copies]
+   id=intratomo                                                  year=2021
+       venue=ICCV                                           paper=https://doi.org/10.1109/iccv48922.2021.00197
+       code=https://github.com/vccimaging/IntraTomo  abbr=IntraTomo
+   id=intratomo-2                                                year=2021
+       venue=CVF International Conference on Computer Visio paper=https://doi.org/10.1109/iccv48922.2021.00197
+       abbr=IntraTomo
+================================================================================================
+TITLE  iterative low dose ct reconstruction with priors trained by artificial neural network   [2 copies]
+   id=ksae                                                       year=2017
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2017.2753138
+       abbr=KSAE
+   id=ksae-2                                                     year=2017
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2017.2753138
+       abbr=KSAE
+================================================================================================
+TITLE  iterative reconstruction for low dose ct using deep gradient priors of generative model   [2 copies]
+   id=easel                                                      year=2022
+       venue=TRPMS                                          paper=https://doi.org/10.1109/trpms.2022.3148373
+       code=https://github.com/yqx7150/EASEL  abbr=EASEL
+   id=easel-2                                                    year=2022
+       venue=IEEE Transactions on Radiation and Plasma Medi paper=https://doi.org/10.1109/trpms.2022.3148373
+       abbr=EASEL
+================================================================================================
+TITLE  iterative reconstruction of low dose ct based on differential sparse   [2 copies]
+   id=irds                                                       year=2023
+       venue=BSPC                                           paper=https://doi.org/10.1016/j.bspc.2022.104204
+       abbr=IRDS
+   id=irds-2                                                     year=2023
+       venue=Biomedical Signal Processing and Control       paper=https://doi.org/10.1016/j.bspc.2022.104204
+       abbr=IRDS
+================================================================================================
+TITLE  learn learned experts assessment based reconstruction network for sparse data ct   [2 copies]
+   id=learn                                                      year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2805692
+       abbr=LEARN
+   id=learn-2                                                    year=2018
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2805692
+       abbr=LEARN
+================================================================================================
+TITLE  learnable multi scale fourier interpolation for sparse view ct image reconstruction   [2 copies]
+   id=lmfi                                                       year=2021
+       venue=MICCAI                                         paper=https://doi.org/10.1007/978-3-030-87231-1_28
+       abbr=LMFI
+   id=lmfi-2                                                     year=2021
+       venue=Lecture Notes in Computer Science              paper=https://doi.org/10.1007/978-3-030-87231-1_28
+       abbr=LMFI
+================================================================================================
+TITLE  learned convex regularizers for inverse problems   [2 copies]
+   id=learned-convex-regularizers-for-inverse-problems           year=2008
+       venue=-                                              paper=https://arxiv.org/abs/2008.02839
+   id=learned-convex-regularizers-for-inverse-problems-2         year=2020
+       venue=-                                              paper=https://arxiv.org/abs/2008.02839
+================================================================================================
+TITLE  learned primal dual reconstruction   [2 copies]
+   id=lpd                                                        year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2799231
+       abbr=LPD
+   id=lpd-2                                                      year=2018
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2799231
+       abbr=LPD
+================================================================================================
+TITLE  learning a deep cnn denoising approach using anatomical prior information implemented wi   [2 copies]
+   id=deacnn                                                     year=2021
+       venue=JBHI                                           paper=https://doi.org/10.1109/jbhi.2021.3061758
+       abbr=DeACNN
+   id=deacnn-2                                                   year=2021
+       venue=IEEE Journal of Biomedical and Health Informat paper=https://doi.org/10.1109/jbhi.2021.3061758
+       abbr=DeACNN
+================================================================================================
+TITLE  learning projection views for sparse view ct reconstruction   [2 copies]
+   id=planet                                                     year=2022
+       venue=ACM MM                                         paper=https://doi.org/10.1145/3503161.3548204
+       abbr=PLANet
+   id=planet-2                                                   year=2022
+       venue=Proceedings of the 30th ACM International Conf paper=https://doi.org/10.1145/3503161.3548204
+       abbr=PLANet
+================================================================================================
+TITLE  learning to reconstruct computed tomography images directly from sinogram data under a v   [2 copies]
+   id=sisvm                                                      year=2019
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2019.2910760
+       abbr=SISVM
+   id=sisvm-2                                                    year=2019
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2019.2910760
+       abbr=SISVM
+================================================================================================
+TITLE  learning to reconstruct ct images from the vvbp tensor   [2 copies]
+   id=tensor-net                                                 year=2021
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2021.3090257
+       abbr=Tensor-Net
+   id=tensor-net-2                                               year=2021
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2021.3090257
+       abbr=Tensor-Net
+================================================================================================
+TITLE  limited angle x ray ct reconstruction using image gradient norm with dictionary learning   [2 copies]
+   id=dl                                                         year=2020
+       venue=TRPMS                                          paper=https://doi.org/10.1109/trpms.2020.2991887
+       abbr=ℓ₀DL
+   id=dl-2                                                       year=2021
+       venue=IEEE Transactions on Radiation and Plasma Medi paper=https://doi.org/10.1109/trpms.2020.2991887
+       abbr=ℓ₀DL
+================================================================================================
+TITLE  limited view tomographic reconstruction using a cascaded residual dense spatial channel    [2 copies]
+   id=casredscan                                                 year=2021
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2021.3066318
+       abbr=CasRedSCAN
+   id=casredscan-2                                               year=2021
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2021.3066318
+       abbr=CasRedSCAN
+================================================================================================
+TITLE  limited view tomographic reconstruction using a deep recurrent framework with residual d   [2 copies]
+   id=limited-view-tomographic-reconstruction-using-a-deep-recur year=2009
+       venue=-                                              paper=https://arxiv.org/abs/2009.01782
+   id=limited-view-tomographic-reconstruction-using-a-deep-recur year=2020
+       venue=-                                              paper=https://arxiv.org/abs/2009.01782
+================================================================================================
+TITLE  lose the views limited angle ct reconstruction via implicit sinogram completion   [2 copies]
+   id=ctnet                                                      year=2018
+       venue=CVPR                                           paper=https://doi.org/10.1109/cvpr.2018.00664
+       abbr=CTNet
+   id=ctnet-2                                                    year=2018
+       venue=CVF Conference on Computer Vision and Pattern  paper=https://doi.org/10.1109/cvpr.2018.00664
+       abbr=CTNet
+================================================================================================
+TITLE  low dose ct reconstruction using spatially encoded nonlocal penalty   [2 copies]
+   id=senp                                                       year=2017
+       venue=Med Phys                                       paper=https://doi.org/10.1002/mp.12523
+       abbr=SENP
+   id=senp-2                                                     year=2017
+       venue=Medical Physics                                paper=https://doi.org/10.1002/mp.12523
+       abbr=SENP
+================================================================================================
+TITLE  low dose ct using denoising diffusion probabilistic model for 20 speedup   [2 copies]
+   id=low-dose-ct-using-denoising-diffusion-probabilistic-model- year=2024
+       venue=-                                              paper=https://arxiv.org/abs/2209.15136
+   id=low-dose-ct-using-denoising-diffusion-probabilistic-model- year=2022
+       venue=-                                              paper=https://arxiv.org/abs/2209.15136
+================================================================================================
+TITLE  momentum net fast and convergent iterative neural network for inverse problems   [2 copies]
+   id=momentum-net                                               year=2020
+       venue=TPAMI                                          paper=https://doi.org/10.1109/tpami.2020.3012955
+       abbr=Momentum-Net
+   id=momentum-net-2                                             year=2023
+       venue=IEEE Transactions on Pattern Analysis and Mach paper=https://doi.org/10.1109/tpami.2020.3012955
+       abbr=Momentum-Net
+================================================================================================
+TITLE  multiple adversarial learning based angiography reconstruction for ultra low dose contra   [2 copies]
+   id=malar                                                      year=2022
+       venue=JBHI                                           paper=https://doi.org/10.1109/jbhi.2022.3213595
+       code=https://github.com/HIC-SYSU/MALAR  abbr=MALAR
+   id=malar-2                                                    year=2023
+       venue=IEEE Journal of Biomedical and Health Informat paper=https://doi.org/10.1109/jbhi.2022.3213595
+       abbr=MALAR
+================================================================================================
+TITLE  noise and spatial resolution properties of a commercially available deep learning based    [2 copies]
+   id=cadl                                                       year=2020
+       venue=Med Phys                                       paper=https://doi.org/10.1002/mp.14319
+       abbr=CADL
+   id=cadl-2                                                     year=2020
+       venue=Medical Physics                                paper=https://doi.org/10.1002/mp.14319
+       abbr=CADL
+================================================================================================
+TITLE  noise characteristics modeled unsupervised network for robust ct image reconstruction   [2 copies]
+   id=gmm-unnet                                                  year=2022
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2022.3197400
+       abbr=GMM-unNet
+   id=gmm-unnet-2                                                year=2022
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2022.3197400
+       abbr=GMM-unNet
+================================================================================================
+TITLE  noise generating mechanism driven unsupervised learning for low dose ct sinogram recover   [2 copies]
+   id=sinonet                                                    year=2021
+       venue=TRPMS                                          paper=https://doi.org/10.1109/trpms.2021.3083361
+       abbr=SinoNet
+   id=sinonet-2                                                  year=2022
+       venue=IEEE Transactions on Radiation and Plasma Medi paper=https://doi.org/10.1109/trpms.2021.3083361
+       abbr=SinoNet
+================================================================================================
+TITLE  non local low rank cube based tensor factorization for spectral ct reconstruction   [2 copies]
+   id=nlctf                                                      year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2878226
+       abbr=NLCTF
+   id=nlctf-2                                                    year=2019
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2878226
+       abbr=NLCTF
+================================================================================================
+TITLE  optimizing a parameterized plug and play admm for iterative low dose ct reconstruction   [2 copies]
+   id=3padmm                                                     year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2865202
+       abbr=3pADMM
+   id=3padmm-2                                                   year=2019
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2865202
+       abbr=3pADMM
+================================================================================================
+TITLE  patient specific reconstruction of volumetric computed tomography images from a single p   [2 copies]
+   id=psrv                                                       year=2019
+       venue=-                                              paper=https://doi.org/10.1038/s41551-019-0466-4
+       abbr=PSRV
+   id=psrv-2                                                     year=2019
+       venue=Nature Biomedical Engineering                  paper=https://doi.org/10.1038/s41551-019-0466-4
+       abbr=PSRV
+================================================================================================
+TITLE  redaep robust and enhanced denoising autoencoding prior for sparse view ct reconstructio   [2 copies]
+   id=redaep                                                     year=2020
+       venue=TRPMS                                          paper=https://doi.org/10.1109/trpms.2020.2989634
+       abbr=REDAEP
+   id=redaep-2                                                   year=2021
+       venue=IEEE Transactions on Radiation and Plasma Medi paper=https://doi.org/10.1109/trpms.2020.2989634
+       abbr=REDAEP
+================================================================================================
+TITLE  regularization analysis and design for prior image based x ray ct reconstruction   [2 copies]
+   id=rad                                                        year=2018
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2018.2847250
+       abbr=RAD
+   id=rad-2                                                      year=2018
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2018.2847250
+       abbr=RAD
+================================================================================================
+TITLE  robust low dose ct sinogram preprocessing via exploiting noise generating mechanism   [2 copies]
+   id=imap-tv                                                    year=2017
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2017.2767290
+       abbr=IMAP-TV
+   id=imap-tv-2                                                  year=2017
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2017.2767290
+       abbr=IMAP-TV
+================================================================================================
+TITLE  sacnn self attention convolutional neural network for low dose ct denoising with self su   [2 copies]
+   id=sacnn                                                      year=2020
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2020.2968472
+       abbr=SACNN
+   id=sacnn-2                                                    year=2020
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2020.2968472
+       abbr=SACNN
+================================================================================================
+TITLE  sharpness preserved sinogram synthesis using convolutional neural network for sparse vie   [2 copies]
+   id=spss                                                       year=2019
+       venue=Medical Imaging                                paper=https://doi.org/10.1117/12.2512894
+       abbr=SPSS
+   id=spss-2                                                     year=2019
+       venue=Medical Imaging 2019: Image Processing         paper=https://doi.org/10.1117/12.2512894
+       abbr=SPSS
+================================================================================================
+TITLE  solving 3d inverse problems using pre trained 2d diffusion models   [2 copies]
+   id=3dip                                                       year=2023
+       venue=CVPR                                           paper=https://doi.org/10.1109/cvpr52729.2023.02159
+       abbr=3DIP
+   id=3dip-2                                                     year=2023
+       venue=CVF Conference on Computer Vision and Pattern  paper=https://doi.org/10.1109/cvpr52729.2023.02159
+       abbr=3DIP
+================================================================================================
+TITLE  sparse view and limited angle ct reconstruction with untrained networks and deep image p   [2 copies]
+   id=undip                                                      year=2022
+       venue=CMPB                                           paper=https://doi.org/10.1016/j.cmpb.2022.107167
+       abbr=UNDIP
+   id=undip-2                                                    year=2022
+       venue=Computer Methods and Programs in Biomedicine   paper=https://doi.org/10.1016/j.cmpb.2022.107167
+       abbr=UNDIP
+================================================================================================
+TITLE  sparse view ct image reconstruction based on total variation and wavelet frame regulariz   [2 copies]
+   id=tvwfr                                                      year=2020
+       venue=IEEE Access                                    paper=https://doi.org/10.1109/access.2020.2982229
+       abbr=TVWFR
+   id=tvwfr-2                                                    year=2020
+       venue=IEEE Access                                    paper=https://doi.org/10.1109/access.2020.2982229
+       abbr=TVWFR
+================================================================================================
+TITLE  spectral ct reconstruction via low rank representation and region specific texture prese   [2 copies]
+   id=lrtp                                                       year=2020
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2020.2983414
+       abbr=LRTP
+   id=lrtp-2                                                     year=2020
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2020.2983414
+       abbr=LRTP
+================================================================================================
+TITLE  spultra low dose ct image reconstruction with joint statistical and learned image models   [2 copies]
+   id=spultra                                                    year=2019
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2019.2934933
+       abbr=SPULTRA
+   id=spultra-2                                                  year=2020
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2019.2934933
+       abbr=SPULTRA
+================================================================================================
+TITLE  stabilizing deep tomographic reconstruction part a hybrid framework and experimental res   [2 copies]
+   id=acid-a                                                     year=2022
+       venue=Patterns                                       paper=https://doi.org/10.1016/j.patter.2022.100474
+       abbr=ACID-A
+   id=acid-a-2                                                   year=2022
+       venue=Patterns                                       paper=https://doi.org/10.1016/j.patter.2022.100474
+       abbr=ACID-A
+================================================================================================
+TITLE  stabilizing deep tomographic reconstruction part b convergence analysis and adversarial    [2 copies]
+   id=acid-b                                                     year=2022
+       venue=Patterns                                       paper=https://doi.org/10.1016/j.patter.2022.100475
+       abbr=ACID-B
+   id=acid-b-2                                                   year=2022
+       venue=Patterns                                       paper=https://doi.org/10.1016/j.patter.2022.100475
+       abbr=ACID-B
+================================================================================================
+TITLE  statistical image reconstruction using mixed poisson gaussian noise model for x ray ct   [2 copies]
+   id=statistical-image-reconstruction-using-mixed-poisson-gauss year=2024
+       venue=-                                              paper=https://arxiv.org/abs/1801.09533
+   id=statistical-image-reconstruction-using-mixed-poisson-gauss year=2018
+       venue=-                                              paper=https://arxiv.org/abs/1801.09533
+================================================================================================
+TITLE  structure preserving quality improvement of cone beam ct images using contrastive learni   [2 copies]
+   id=spqi                                                       year=2023
+       venue=CBM                                            paper=https://doi.org/10.1016/j.compbiomed.2023.106803
+       abbr=SPQI
+   id=spqi-2                                                     year=2023
+       venue=Computers in Biology and Medicine              paper=https://doi.org/10.1016/j.compbiomed.2023.106803
+       abbr=SPQI
+================================================================================================
+TITLE  super learning a supervised unsupervised framework for low dose ct image reconstruction   [2 copies]
+   id=super-2                                                    year=2019
+       venue=ICCVW                                          paper=https://doi.org/10.1109/iccvw.2019.00490
+       abbr=SUPER-2
+   id=super-4                                                    year=2019
+       venue=CVF International Conference on Computer Visio paper=https://doi.org/10.1109/iccvw.2019.00490
+       abbr=SUPER
+================================================================================================
+TITLE  uncertainr uncertainty quantification of end to end implicit neural representations for    [2 copies]
+   id=uncertainr-uncertainty-quantification-of-end-to-end-implic year=2024
+       venue=-                                              paper=https://arxiv.org/abs/2202.10847
+   id=uncertainr-uncertainty-quantification-of-end-to-end-implic year=2022
+       venue=-                                              paper=https://arxiv.org/abs/2202.10847
+================================================================================================
+TITLE  unified supervised unsupervised super learning for x ray ct image reconstruction   [2 copies]
+   id=super                                                      year=2021
+       venue=TMI                                            paper=https://arxiv.org/abs/2010.02761
+       abbr=SUPER
+   id=super-3                                                    year=2021
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2021.3095310
+       abbr=SUPER
+================================================================================================
+TITLE  view interpolation of sparsely sampled sinogram using convolutional neural network   [2 copies]
+   id=viss                                                       year=2017
+       venue=Medical Imaging                                paper=https://doi.org/10.1117/12.2254244
+       abbr=VISS
+   id=viss-2                                                     year=2017
+       venue=SPIE Proceedings                               paper=https://doi.org/10.1117/12.2254244
+       abbr=VISS
+================================================================================================
+TITLE  vvbp tensor in the fbp algorithm its properties and application in low dose ct reconstru   [2 copies]
+   id=vvbp-tsvd                                                  year=2019
+       venue=TMI                                            paper=https://doi.org/10.1109/tmi.2019.2935187
+       abbr=VVBP-tSVD
+   id=vvbp-tsvd-2                                                year=2020
+       venue=IEEE Transactions on Medical Imaging           paper=https://doi.org/10.1109/tmi.2019.2935187
+       abbr=VVBP-tSVD
+
+SHARED TITLE BUT DIFFERENT WORK: 14
+   adversarially learned iterative reconstruction for imaging inverse pro -> ['alpd']
+   adversarially learned iterative reconstruction for imaging inverse pro -> ['alpd-2']
+   deep convolutional framelet denosing for low dose ct via wavelet resid -> ['wavresnet']
+   deep convolutional framelet denosing for low dose ct via wavelet resid -> ['wavresnet-2']
+   dynamic ct reconstruction from limited views with implicit neural repr -> ['dctr-2']
+   dynamic ct reconstruction from limited views with implicit neural repr -> ['dctr']
+   framing u net via deep convolutional framelets application to sparse v -> ['tfu-net']
+   framing u net via deep convolutional framelets application to sparse v -> ['tfu-net-2']
+   magic manifold and graph integrative convolutional network for low dos -> ['magic']
+   magic manifold and graph integrative convolutional network for low dos -> ['magic-2']
+   radon inversion via deep learning -> ['iradonmap']
+   radon inversion via deep learning -> ['iradonmap-2']
+   sinogram interpolation for sparse view micro ct with deep learning neu -> ['ictnet']
+   sinogram interpolation for sparse view micro ct with deep learning neu -> ['ictnet-2']

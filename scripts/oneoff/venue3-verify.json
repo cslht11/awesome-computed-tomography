@@ -1,0 +1,29 @@
+[
+  {
+    "doi": "10.1109/isbi60581.2025.10981301",
+    "sim": 0.929,
+    "year": 2025,
+    "container": "2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI)",
+    "crossref_title": "EPI-NAF: Enhancing Neural Attenuation Fields for Limited-Angle CT with Epipolar Consistency Conditions",
+    "local_title": "Epi-NAF: Enhancing Neural Attenuation Fields for Limited-Angle CT with Epipolar Consistency",
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1109/trpms.2023.3309474",
+    "sim": 1.0,
+    "year": 2024,
+    "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+    "crossref_title": "Generative Modeling in Sinogram Domain for Sparse-View CT Reconstruction",
+    "local_title": "Generative Modeling in Sinogram Domain for Sparse-view CT Reconstruction",
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1117/12.2634939",
+    "sim": 1.0,
+    "year": 2022,
+    "container": "Developments in X-Ray Tomography XIV",
+    "crossref_title": "CoCoDiff: a contextual conditional diffusion model for low-dose CT image denoising",
+    "local_title": "CoCoDiff: A Contextual Conditional Diffusion Model for Low-dose CT Image Denoising",
+    "type": "proceedings-article"
+  }
+]

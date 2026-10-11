@@ -1,0 +1,451 @@
+# Supplementary entries (gap-filling).
+# paper links: Crossref DOI first, arXiv fallback; year/venue written back
+# from the authoritative Crossref record. `_via` / `_sim` are audit trails.
+
+  id: "r2-gaussian"
+  abbr: "R2-Gaussian"
+  title: "Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction"
+  year: 2024
+  venue: "NeurIPS"
+  topics: [gaussian, sparse-view]
+  paper: "https://arxiv.org/abs/2405.20693v2"
+  code: "https://github.com/Ruyi-Zha/r2_gaussian"
+  _via: "arxiv-re-resolve"
+  _sim: 0.78
+  _verified_title: "R$^2$-Gaussian: Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction"
+
+  id: "sax-nerf"
+  abbr: "SAX-NeRF"
+  title: "Structure-Aware Sparse-View X-Ray 3D Reconstruction"
+  year: 2024
+  venue: "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+  topics: [inr, sparse-view]
+  paper: "https://doi.org/10.1109/cvpr52733.2024.01062"
+  code: "https://github.com/caiyuanhao1998/SAX-NeRF"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Structure-Aware Sparse-View X-Ray 3D Reconstruction"
+
+  id: "dif-gaussian"
+  abbr: "DIF-Gaussian"
+  title: "Learning 3D Gaussians for Extremely Sparse-View Cone-Beam CT Reconstruction"
+  year: 2024
+  venue: "Lecture Notes in Computer Science"
+  topics: [gaussian, sparse-view, cbct]
+  paper: "https://doi.org/10.1007/978-3-031-72104-5_41"
+  code: "https://github.com/xmed-lab/DIF-Gaussian"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Learning 3D Gaussians for Extremely Sparse-View Cone-Beam CT Reconstruction"
+
+  id: "x2-gaussian"
+  abbr: "X2-Gaussian"
+  title: "X2-Gaussian: 4D Radiative Gaussian Splatting for Continuous-Time Tomographic Reconstruction"
+  year: 2025
+  venue: "ICCV"
+  topics: [gaussian, dynamic]
+  code: "https://github.com/yuyouxixi/x2-gaussian"
+  _via: "none"
+
+  id: "dgr"
+  abbr: "DGR"
+  title: "Discretized Gaussian Representation for Tomographic Reconstruction"
+  year: 2025
+  venue: "2025 IEEE/CVF International Conference on Computer Vision (ICCV)"
+  topics: [gaussian]
+  paper: "https://doi.org/10.1109/iccv51701.2025.02325"
+  code: "https://github.com/wskingdom/DGR"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Discretized Gaussian Representation for Tomographic Reconstruction"
+
+  id: "4dgs-4dcbct"
+  abbr: "4DGS-4DCBCT"
+  title: "Spatiotemporal Gaussian Optimization for 4D Cone Beam CT Reconstruction from Sparsely Sampled Projections"
+  year: 2025
+  topics: [gaussian, dynamic, cbct]
+  code: "https://github.com/fuyabo/4DGS_for_4DCBCT"
+  _via: "none"
+
+  id: "naf"
+  abbr: "NAF"
+  title: "Neural Attenuation Fields for Sparse-View Cone-Beam CT Reconstruction"
+  year: 2022
+  venue: "MICCAI"
+  topics: [inr, cbct, sparse-view]
+  code: "https://github.com/Ruyi-Zha/naf_cbct"
+  _via: "none"
+
+  id: "piner"
+  abbr: "PINER"
+  title: "PINER: Prior-Informed Implicit Neural Representation Learning for Test-Time Adaptation in Sparse-View CT Reconstruction"
+  year: 2023
+  venue: "2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+  topics: [inr, sparse-view, self-supervised]
+  paper: "https://doi.org/10.1109/wacv56688.2023.00197"
+  code: "https://github.com/efzero/PINER"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "PINER: Prior-informed Implicit Neural Representation Learning for Test-time Adaptation in Sparse-view CT Reconstruction"
+
+  id: "inr-joint"
+  abbr: "INR-Joint"
+  title: "Implicit Neural Representations for Robust Joint Sparse-View CT Reconstruction"
+  year: 2024
+  venue: "TMLR"
+  topics: [inr, sparse-view]
+  paper: "https://arxiv.org/abs/2405.02509v2"
+  code: "https://github.com/jiayangshi/INR4JointCTRecon"
+  _via: "arxiv-check"
+  _sim: 1.0
+  _verified_title: "Implicit Neural Representations for Robust Joint Sparse-View CT Reconstruction"
+
+  id: "spener"
+  abbr: "Spener"
+  title: "Unsupervised Self-Prior Embedding Neural Representation for Sparse-View CT Reconstruction"
+  year: 2025
+  venue: "Proceedings of the AAAI Conference on Artificial Intelligence"
+  topics: [inr, sparse-view, self-supervised]
+  paper: "https://doi.org/10.1609/aaai.v39i7.32794"
+  code: "https://github.com/MeijiTian/Spener"
+  _via: "doi-check"
+  _sim: 0.92
+  _verified_title: "Unsupervised Self-Prior Embedding Neural Representation for Iterative Sparse-View CT Reconstruction"
+
+  id: "incode"
+  abbr: "INCODE"
+  title: "INCODE: Implicit Neural Conditioning with Prior Knowledge Embeddings"
+  year: 2024
+  venue: "2024 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+  topics: [inr]
+  paper: "https://doi.org/10.1109/wacv57701.2024.00133"
+  code: "https://github.com/xmindflow/INCODE"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "INCODE: Implicit Neural Conditioning with Prior Knowledge Embeddings"
+
+  id: "indudonet"
+  abbr: "InDuDoNet"
+  title: "An Interpretable Dual Domain Network for CT Metal Artifact Reduction"
+  year: 2021
+  venue: "MICCAI"
+  topics: [metal-artifact, unrolling]
+  paper: "https://arxiv.org/abs/2109.05298v1"
+  code: "https://github.com/hongwang01/InDuDoNet"
+  _via: "arxiv-check"
+  _sim: 0.91
+  _verified_title: "InDuDoNet: An Interpretable Dual Domain Network for CT Metal Artifact Reduction"
+
+  id: "acdnet"
+  abbr: "ACDNet"
+  title: "Adaptive Convolutional Dictionary Network for CT Metal Artifact Reduction"
+  year: 2022
+  venue: "Proceedings of the Thirty-First International Joint Conference on Artificial Intelligence"
+  topics: [metal-artifact, unrolling]
+  paper: "https://doi.org/10.24963/ijcai.2022/195"
+  code: "https://github.com/hongwang01/ACDNet"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Adaptive Convolutional Dictionary Network for CT Metal Artifact Reduction"
+
+  id: "polyner"
+  abbr: "Polyner"
+  title: "Unsupervised Polychromatic Neural Representation for CT Metal Artifact Reduction"
+  year: 2023
+  venue: "Advances in Neural Information Processing Systems 36"
+  topics: [metal-artifact, inr, self-supervised]
+  paper: "https://doi.org/10.52202/075280-3048"
+  code: "https://github.com/iwuqing/Polyner"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Unsupervised Polychromatic Neural Representation for CT Metal Artifact Reduction"
+
+  id: "dan-net"
+  abbr: "DAN-Net"
+  title: "Dual-Domain Adaptive-Scaling Non-Local Network for CT Metal Artifact Reduction"
+  year: 2021
+  venue: "Lecture Notes in Computer Science"
+  topics: [metal-artifact, unrolling]
+  paper: "https://doi.org/10.1007/978-3-030-87231-1_24"
+  code: "https://github.com/zjk1988/DAN-Net"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Dual-Domain Adaptive-Scaling Non-local Network for CT Metal Artifact Reduction"
+
+  id: "idol-net"
+  abbr: "IDOL-Net"
+  title: "IDOL-Net: An Interactive Dual-Domain Parallel Network for CT Metal Artifact Reduction"
+  year: 2022
+  venue: "IEEE Transactions on Radiation and Plasma Medical Sciences"
+  topics: [metal-artifact, unrolling]
+  paper: "https://doi.org/10.1109/trpms.2022.3171440"
+  code: "https://github.com/zjk1988/IDOL-Net"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "IDOL-Net: An Interactive Dual-Domain Parallel Network for CT Metal Artifact Reduction"
+
+  id: "semimar"
+  abbr: "SemiMAR"
+  title: "SemiMAR: Semi-Supervised Learning for CT Metal Artifact Reduction"
+  year: 2023
+  venue: "IEEE Journal of Biomedical and Health Informatics"
+  topics: [metal-artifact, self-supervised]
+  paper: "https://doi.org/10.1109/jbhi.2023.3312292"
+  code: "https://github.com/zjk1988/SemiMAR"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "SemiMAR: Semi-Supervised Learning for CT Metal Artifact Reduction"
+
+  id: "dudodp-mar"
+  abbr: "DuDoDp-MAR"
+  title: "Unsupervised CT Metal Artifact Reduction by Plugging Diffusion Priors in Dual Domains"
+  year: 2024
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [metal-artifact, diffusion, self-supervised]
+  paper: "https://doi.org/10.1109/tmi.2024.3351201"
+  code: "https://github.com/DeepXuan/DuDoDp-MAR"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Unsupervised CT Metal Artifact Reduction by Plugging Diffusion Priors in Dual Domains"
+
+  id: "dudotrans"
+  abbr: "DuDoTrans"
+  title: "DuDoTrans: Dual-Domain Transformer for Sparse-View CT Reconstruction"
+  year: 2022
+  venue: "Lecture Notes in Computer Science"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1007/978-3-031-17247-2_9"
+  code: "https://github.com/cewang-sysu/DuDoTrans"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "DuDoTrans: Dual-Domain Transformer for Sparse-View CT Reconstruction"
+
+  id: "drone"
+  abbr: "DRONE"
+  title: "DRONE: Dual-Domain Residual-Based Optimization Network for Sparse-View CT Reconstruction"
+  year: 2021
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1109/tmi.2021.3078067"
+  code: "https://github.com/weiwenwu12/DRONE"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "DRONE: Dual-Domain Residual-based Optimization NEtwork for Sparse-View CT Reconstruction"
+
+  id: "metainv-net"
+  abbr: "MetaInv-Net"
+  title: "MetaInv-Net: Meta Inversion Network for Sparse View CT Image Reconstruction"
+  year: 2021
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1109/tmi.2020.3033541"
+  code: "https://github.com/haimiaozh/MetaInv-Net"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "MetaInv-Net: Meta Inversion Network for Sparse View CT Image Reconstruction"
+
+  id: "freeseed"
+  abbr: "FreeSeed"
+  title: "FreeSeed: Frequency-Band-Aware and Self-Guided Network for Sparse-View CT Reconstruction"
+  year: 2023
+  venue: "Lecture Notes in Computer Science"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1007/978-3-031-43999-5_24"
+  code: "https://github.com/Masaaki-75/freeseed"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "FreeSeed: Frequency-Band-Aware and Self-guided Network for Sparse-View CT Reconstruction"
+
+  id: "dddm"
+  abbr: "DDDM"
+  title: "Dual-Domain Diffusion Model for Sparse-View CT Reconstruction"
+  year: 2023
+  topics: [sparse-view, diffusion]
+  paper: "https://doi.org/10.36227/techrxiv.23726703"
+  code: "https://github.com/YC-Markus/code-for-DDDM"
+  _via: "doi-check"
+  _sim: 0.9
+  _verified_title: "A Dual-domain Diffusion Model for Sparse-view CT Reconstruction"
+
+  id: "sword"
+  abbr: "SWORD"
+  title: "Stage-by-Stage Wavelet Optimization Refinement Diffusion Model for Sparse-View CT Reconstruction"
+  year: 2024
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [sparse-view, diffusion]
+  paper: "https://doi.org/10.1109/tmi.2024.3355455"
+  code: "https://github.com/yqx7150/SWORD"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Stage-by-Stage Wavelet Optimization Refinement Diffusion Model for Sparse-View CT Reconstruction"
+
+  id: "cvg-diff"
+  abbr: "CvG-Diff"
+  title: "Cross-View Generalized Diffusion Model for Sparse-View CT Reconstruction"
+  year: 2026
+  venue: "Lecture Notes in Computer Science"
+  topics: [sparse-view, diffusion]
+  paper: "https://doi.org/10.1007/978-3-032-05325-1_14"
+  code: "https://github.com/xmed-lab/CvG-Diff"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Cross-View Generalized Diffusion Model for Sparse-View CT Reconstruction"
+
+  id: "dd-net"
+  abbr: "DD-Net"
+  title: "A Sparse-View CT Reconstruction Method Based on Dual-Domain Network"
+  year: 2021
+  venue: "TMI"
+  topics: [sparse-view, unrolling]
+  code: "https://github.com/zzc623/DD_Net"
+  _via: "none"
+
+  id: "red-cnn"
+  abbr: "RED-CNN"
+  title: "Low-Dose CT with a Residual Encoder-Decoder Convolutional Neural Network"
+  year: 2017
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/tmi.2017.2715284"
+  code: "https://github.com/SSinyu/RED-CNN"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Low-Dose CT With a Residual Encoder-Decoder Convolutional Neural Network"
+
+  id: "edcnn"
+  abbr: "EDCNN"
+  title: "EDCNN: Edge Enhancement-Based Densely Connected Network with Compound Loss for Low-Dose CT Denoising"
+  year: 2020
+  venue: "2020 15th IEEE International Conference on Signal Processing (ICSP)"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/icsp48669.2020.9320928"
+  code: "https://github.com/workingcoder/EDCNN"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "EDCNN: Edge enhancement-based Densely Connected Network with Compound Loss for Low-Dose CT Denoising"
+
+  id: "wgan-vgg"
+  abbr: "WGAN-VGG"
+  title: "Low Dose CT Image Denoising Using a Generative Adversarial Network with Wasserstein Distance and Perceptual Loss"
+  year: 2018
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/tmi.2018.2827462"
+  code: "https://github.com/SSinyu/WGAN-VGG"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Low-Dose CT Image Denoising Using a Generative Adversarial Network With Wasserstein Distance and Perceptual Loss"
+
+  id: "sagan"
+  abbr: "SAGAN"
+  title: "Sharpness-Aware Low Dose CT Denoising Using Conditional Generative Adversarial Network"
+  year: 2018
+  venue: "Journal of Digital Imaging"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1007/s10278-018-0056-0"
+  code: "https://github.com/xinario/SAGAN"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Sharpness-Aware Low-Dose CT Denoising Using Conditional Generative Adversarial Network"
+
+  id: "du-gan"
+  abbr: "DU-GAN"
+  title: "DU-GAN: Generative Adversarial Networks with Dual-Domain U-Net Based Discriminators for Low-Dose CT Denoising"
+  year: 2022
+  venue: "IEEE Transactions on Instrumentation and Measurement"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/tim.2021.3128703"
+  code: "https://github.com/Hzzone/DU-GAN"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "DU-GAN: Generative Adversarial Networks With Dual-Domain U-Net-Based Discriminators for Low-Dose CT Denoising"
+
+  id: "ctformer"
+  abbr: "CTformer"
+  title: "CTformer: Convolution-Free Token2Token Dilated Vision Transformer for Low-Dose CT Denoising"
+  year: 2023
+  venue: "Physics in Medicine &amp; Biology"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1088/1361-6560/acc000"
+  code: "https://github.com/wdayang/CTformer"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "CTformer: convolution-free Token2Token dilated vision transformer for low-dose CT denoising"
+
+  id: "denomamba"
+  abbr: "DenoMamba"
+  title: "DenoMamba: A Fused State-Space Model for Low-Dose CT Denoising"
+  year: 2026
+  venue: "IEEE Journal of Biomedical and Health Informatics"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/jbhi.2025.3629034"
+  code: "https://github.com/icon-lab/DenoMamba"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "DenoMamba: A Fused State-Space Model for Low-Dose CT Denoising"
+
+  id: "ascon"
+  abbr: "ASCON"
+  title: "ASCON: Anatomy-Aware Supervised Contrastive Learning Framework for Low-Dose CT Denoising"
+  year: 2023
+  venue: "Lecture Notes in Computer Science"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1007/978-3-031-43999-5_34"
+  code: "https://github.com/hao1635/ASCON"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "ASCON: Anatomy-Aware Supervised Contrastive Learning Framework for Low-Dose CT Denoising"
+
+  id: "soul-net"
+  abbr: "SOUL-Net"
+  title: "SOUL-Net: A Sparse and Low-Rank Unrolling Network for Spectral CT Image Reconstruction"
+  year: 2024
+  venue: "IEEE Transactions on Neural Networks and Learning Systems"
+  topics: [spectral, unrolling]
+  paper: "https://doi.org/10.1109/tnnls.2023.3319408"
+  code: "https://github.com/scuchenxiang/SOUL-Net"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "SOUL-Net: A Sparse and Low-Rank Unrolling Network for Spectral CT Image Reconstruction"
+
+  id: "motion-grad"
+  abbr: "Motion-Grad"
+  title: "A Gradient-Based Approach to Fast and Accurate Head Motion Compensation in Cone-Beam CT"
+  year: 2025
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [geometry, cbct, dynamic]
+  paper: "https://doi.org/10.1109/tmi.2024.3474250"
+  code: "https://github.com/mareikethies/geometry_gradients_CT"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "A Gradient-Based Approach to Fast and Accurate Head Motion Compensation in Cone-Beam CT"
+
+  id: "dsignet"
+  abbr: "DSigNet"
+  title: "Downsampled Imaging Geometric Modeling for Accurate CT Reconstruction via Deep Learning"
+  year: 2021
+  venue: "IEEE Transactions on Medical Imaging"
+  topics: [geometry, unrolling]
+  paper: "https://doi.org/10.1109/tmi.2021.3074783"
+  code: "https://github.com/hejipro/DSigNet"
+  _via: "doi-check"
+  _sim: 1.0
+  _verified_title: "Downsampled Imaging Geometric Modeling for Accurate CT Reconstruction via Deep Learning"
+
+  id: "foundation-vae"
+  abbr: "Foundation-VAE"
+  title: "Foundation VAE for CT Reconstruction, Augmentation and Beyond"
+  year: 2026
+  venue: "ICML"
+  topics: [low-dose, diffusion]
+  code: "https://github.com/qic999/Foundation-VAE"
+  _via: "none"
+
+  id: "dm4ct"
+  abbr: "DM4CT"
+  title: "DM4CT: Benchmarking Diffusion Models for CT Reconstruction"
+  year: 2026
+  venue: "ICLR"
+  topics: [diffusion, survey]
+  code: "https://github.com/DM4CT/DM4CT"
+  _via: "none"

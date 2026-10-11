@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{HTML_LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PAGE_TITLE}} — {{TITLE}}</title>
+<meta name="description" content="{{PAGE_DESC}}">
+<link rel="canonical" href="{{PAGE_URL}}">
+<link rel="license" href="{{CONTENT_LICENSE_URL}}">
+<link rel="stylesheet" href="{{ROOT}}styles.css">
+<script>try{var t=localStorage.getItem("ct-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body class="subpage">
+
+<header class="top">
+  <div class="wrap bar">
+    <button type="button" id="menu" class="menu-btn" aria-label="{{UI_MENU_ARIA}}" aria-expanded="false" aria-controls="tabs">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand" href="{{ROOT}}"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="2" stroke-dasharray="2 3"/><g stroke="currentColor" stroke-opacity=".6" stroke-width="2"><line x1="32" y1="5" x2="14" y2="52"/><line x1="32" y1="5" x2="32" y2="59"/><line x1="32" y1="5" x2="50" y2="52"/></g><circle cx="32" cy="5" r="4" fill="currentColor"/><ellipse cx="32" cy="34" rx="9" ry="11" fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="2"/></svg><span>{{TITLE}}</span></a>
+    <span class="spacer"></span>
+    <button type="button" id="theme" class="icon-btn" aria-label="{{UI_THEME_ARIA}}" title="{{UI_THEME_TITLE}}">
+      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="star" href="{{REPO_URL}}" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span>{{UI_STAR}}</span></a>
+  </div>
+  <div class="tabrow">
+    <nav id="tabs" class="wrap" aria-label="{{UI_SECTIONS_ARIA}}">
+      <p class="drawer-title">{{UI_DRAWER_TITLE}}</p>
+      <a class="nav-ext" href="{{ROOT}}"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>{{UI_TAB_PAPERS}}</a>
+      <a class="nav-ext" href="{{ROOT}}?tab=toolkits"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>{{UI_TAB_TOOLKITS}}</a>
+      <a class="nav-ext" href="{{ROOT}}?tab=datasets"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg>{{UI_TAB_DATASETS}}</a>
+      <a class="nav-ext" href="{{ROOT}}?tab=benchmarks"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 20V12M12 20V5M17 20v-5"/></svg>{{UI_TAB_BENCHMARKS}}</a>
+      <a class="nav-ext" href="{{ROOT}}?tab=learning"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3V11"/></svg>{{UI_TAB_LEARNING}}</a>
+      <a class="nav-ext drawer-only" href="{{REPO_URL}}" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>{{UI_GITHUB}}</a>
+    </nav>
+  </div>
+</header>
+<div id="scrim" class="scrim" hidden></div>
+
+<main class="wrap prose">
+{{BODY}}
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p class="foot-note">{{UI_FOOT_NOTE}}</p>
+    <nav class="foot-links" aria-label="{{UI_FOOT_SITE_ARIA}}">
+      <a href="{{ROOT}}about/">{{UI_FOOT_ABOUT}}</a>
+      <a href="{{ROOT}}contact/">{{UI_FOOT_CONTACT}}</a>
+      <a href="{{ROOT}}privacy/">{{UI_FOOT_PRIVACY}}</a>
+      {{LANG_SWITCH}}
+    </nav>
+  </div>
+  <div class="wrap foot-legal">
+    {{UI_FOOT_LEGAL}}
+  </div>
+</footer>
+
+<script src="{{ROOT}}chrome.js"></script>
+</body>
+</html>

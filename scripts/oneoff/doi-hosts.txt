@@ -1,0 +1,253 @@
+final hosts for 112 DOI links
+==============================================================================
+GR-Gaussian                  202  ieeexplore.ieee.org
+    https://doi.org/10.1109/TCI.2026.3701585
+CvG-Diff                     200  link.springer.com
+    https://doi.org/10.1007/978-3-032-05325-1_14
+DenoMamba                    202  ieeexplore.ieee.org
+    https://doi.org/10.1109/jbhi.2025.3629034
+DGR                          202  ieeexplore.ieee.org
+    https://doi.org/10.1109/iccv51701.2025.02325
+Motion-Grad                  202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2024.3474250
+Spener                       200  ojs.aaai.org
+    https://doi.org/10.1609/aaai.v39i7.32794
+X2-Gaussian                  202  ieeexplore.ieee.org
+    https://doi.org/10.1109/iccv51701.2025.02293
+cocodiff-a-contextual-conditional-diffusion-model-for-low- 200  www.spiedigitallibrary.org
+    https://doi.org/10.1117/12.2634939
+DIF-Gaussian                 200  link.springer.com
+    https://doi.org/10.1007/978-3-031-72104-5_41
+DiffRecon                    403  https://academic.oup.com/bjrai/article/doi/10.1093/bjrai/ubae013/7745314
+    https://doi.org/10.1093/bjrai/ubae013
+DuDoDp-MAR                   202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2024.3351201
+INCODE                       202  ieeexplore.ieee.org
+    https://doi.org/10.1109/wacv57701.2024.00133
+SUSPECT R2-Gaussian                  200  www.proceedings.com
+    https://doi.org/10.52202/079017-1427
+SAX-NeRF                     202  ieeexplore.ieee.org
+    https://doi.org/10.1109/cvpr52733.2024.01062
+Scatter-DL                   200  link.springer.com
+    https://doi.org/10.1007/978-3-031-75653-5_6
+SOUL-Net                     202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tnnls.2023.3319408
+SWORD                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2024.3355455
+3DIP                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/cvpr52729.2023.02159
+ASCON                        200  link.springer.com
+    https://doi.org/10.1007/978-3-031-43999-5_34
+CTformer                     200  validate.perfdrive.com
+    https://doi.org/10.1088/1361-6560/acc000
+DADN                         403  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.15952
+    https://doi.org/10.1002/mp.15952
+DDDM                         403  https://www.techrxiv.org/articles/preprint/A_Dual-domain_Diffusion_Model_for_Sparse-view_CT_Reconstruction/23726703
+    https://doi.org/10.36227/techrxiv.23726703
+FreeSeed                     200  link.springer.com
+    https://doi.org/10.1007/978-3-031-43999-5_24
+GGLF                         200  validate.perfdrive.com
+    https://doi.org/10.1088/1361-6560/acf90e
+IRDS                         200  linkinghub.elsevier.com
+    https://doi.org/10.1016/j.bspc.2022.104204
+PINER                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/wacv56688.2023.00197
+SUSPECT Polyner                      200  www.proceedings.com
+    https://doi.org/10.52202/075280-3048
+SemiMAR                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/jbhi.2023.3312292
+SPQI                         200  linkinghub.elsevier.com
+    https://doi.org/10.1016/j.compbiomed.2023.106803
+ACDNet                       200  www.ijcai.org
+    https://doi.org/10.24963/ijcai.2022/195
+ACID-A                       200  linkinghub.elsevier.com
+    https://doi.org/10.1016/j.patter.2022.100474
+ACID-B                       200  linkinghub.elsevier.com
+    https://doi.org/10.1016/j.patter.2022.100475
+CCN-CL                       200  linkinghub.elsevier.com
+    https://doi.org/10.1016/j.compbiomed.2022.105759
+DDCL                         200  www.spiedigitallibrary.org
+    https://doi.org/10.1117/12.2646639
+DESDGAN                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/jbhi.2022.3155788
+DREAM-Net                    202  ieeexplore.ieee.org
+    https://doi.org/10.1109/jbhi.2022.3225697
+DU-GAN                       202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tim.2021.3128703
+DuDoTrans                    200  link.springer.com
+    https://doi.org/10.1007/978-3-031-17247-2_9
+EASEL                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/trpms.2022.3148373
+FONT-SIR                     202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2022.3156270
+GMM-unNet                    202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2022.3197400
+IDOL-Net                     202  ieeexplore.ieee.org
+    https://doi.org/10.1109/trpms.2022.3171440
+MALAR                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/jbhi.2022.3213595
+PLANet                       403  https://dl.acm.org/doi/10.1145/3503161.3548204
+    https://doi.org/10.1145/3503161.3548204
+UNDIP                        200  linkinghub.elsevier.com
+    https://doi.org/10.1016/j.cmpb.2022.107167
+CasRedSCAN                   202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2021.3066318
+CLEAR                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2021.3097808
+DAN-Net                      200  link.springer.com
+    https://doi.org/10.1007/978-3-030-87231-1_24
+DCTR                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/iccv48922.2021.00226
+DeACNN                       202  ieeexplore.ieee.org
+    https://doi.org/10.1109/jbhi.2021.3061758
+DRONE                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2021.3078067
+DSigNet                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2021.3074783
+FDM                          403  https://www.mdpi.com/2379-139X/7/4/77
+    https://doi.org/10.3390/tomography7040077
+FISTA-Net                    202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2021.3054167
+IntraTomo                    202  ieeexplore.ieee.org
+    https://doi.org/10.1109/iccv48922.2021.00197
+LMFI                         200  link.springer.com
+    https://doi.org/10.1007/978-3-030-87231-1_28
+MAP-NN                       200  www.nature.com
+    https://doi.org/10.1038/s42256-019-0057-9
+MetaInv-Net                  202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2020.3033541
+PDF                          202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2021.3085839
+SinoNet                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/trpms.2021.3083361
+Tensor-Net                   202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2021.3090257
+CADL                         403  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.14319
+    https://doi.org/10.1002/mp.14319
+DEER                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/access.2020.3033795
+DIP                          200  validate.perfdrive.com
+    https://doi.org/10.1088/1361-6420/aba415
+DL-CT-Rev                    200  www.nature.com
+    https://doi.org/10.1038/s42256-020-00273-z
+DLMIR                        200  www.spiedigitallibrary.org
+    https://doi.org/10.1117/12.2558953
+EDCNN                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/icsp48669.2020.9320928
+ETEDN                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tci.2020.3039385
+FSTensor                     202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2020.2976692
+HD-CNN                       200  validate.perfdrive.com
+    https://doi.org/10.1088/1361-6560/ab9066
+HDNet                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/trpms.2020.3011413
+LRTP                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2020.2983414
+Momentum-Net                 202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tpami.2020.3012955
+REDAEP                       202  ieeexplore.ieee.org
+    https://doi.org/10.1109/trpms.2020.2989634
+SACNN                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2020.2968472
+Sparsity2DL                  202  ieeexplore.ieee.org
+    https://doi.org/10.1109/JPROC.2019.2936204
+TVWFR                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/access.2020.2982229
+ℓ₀DL                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/trpms.2020.2991887
+CT-Evolution                 200  link.springer.com
+    https://doi.org/10.1007/s00330-018-5810-7
+DataDriven                   200  www.cambridge.org
+    https://doi.org/10.1017/S0962492919000059
+DL-PICCS                     403  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.15183
+    https://doi.org/10.1002/mp.15183
+DNNSS                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/trpms.2018.2867611
+PDE                          200  linkinghub.elsevier.com
+    https://doi.org/10.1016/j.patcog.2019.03.009
+PSRV                         200  www.nature.com
+    https://doi.org/10.1038/s41551-019-0466-4
+SISVM                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2019.2910760
+SPSS                         200  www.spiedigitallibrary.org
+    https://doi.org/10.1117/12.2512894
+SPULTRA                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2019.2934933
+SUPER-2                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/iccvw.2019.00490
+VVBP-tSVD                    202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2019.2935187
+3pADMM                       202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2865202
+AUTOMAP                      200  www.nature.com
+    https://doi.org/10.1038/nature25988
+CNNRPGD                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2832656
+CTNet                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/cvpr.2018.00664
+DD-Net                       202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2823338
+DLCT                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2833499
+DSE                          403  https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10573/2292919/Deep-scatter-estimation-DSE--feasibility-of-using-a-deep/10.1117/12.2292919.full
+    https://doi.org/10.1117/12.2292919
+LEARN                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2805692
+LPD                          202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2799231
+NLCTF                        202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2878226
+PTPN                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2823679
+RAD                          202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2847250
+SAGAN                        200  link.springer.com
+    https://doi.org/10.1007/s10278-018-0056-0
+WGAN-VGG                     202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2018.2827462
+CNN-InvRev                   202  ieeexplore.ieee.org
+    https://doi.org/10.1109/MSP.2017.2739299
+IMAP-TV                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2017.2767290
+KSAE                         202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2017.2753138
+LoDoPaB-CT                   200  www.nature.com
+    https://doi.org/10.1038/s41597-021-00893-z
+RED-CNN                      202  ieeexplore.ieee.org
+    https://doi.org/10.1109/tmi.2017.2715284
+SENP                         403  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.12523
+    https://doi.org/10.1002/mp.12523
+VISS                         403  https://www.spiedigitallibrary.org/redirect/proceedings/proceeding?doi=10.1117/12.2254244
+    https://doi.org/10.1117/12.2254244
+MAR-4Dec                     202  ieeexplore.ieee.org
+    https://doi.org/10.1109/ACCESS.2016.2608621
+Scatter-Rev                  403  https://aapm.onlinelibrary.wiley.com/doi/10.1118/1.3589140
+    https://doi.org/10.1118/1.3589140
+
+--- host histogram ---
+  66  ieeexplore.ieee.org
+  10  link.springer.com
+   7  linkinghub.elsevier.com
+   5  www.nature.com
+   4  www.spiedigitallibrary.org
+   4  validate.perfdrive.com
+   2  www.proceedings.com
+   1  ojs.aaai.org
+   1  https://academic.oup.com/bjrai/article/doi/10.1093/bjrai/ubae013/7745314
+   1  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.15952
+   1  https://www.techrxiv.org/articles/preprint/A_Dual-domain_Diffusion_Model_for_Sparse-view_CT_Reconstruction/23726703
+   1  www.ijcai.org
+   1  https://dl.acm.org/doi/10.1145/3503161.3548204
+   1  https://www.mdpi.com/2379-139X/7/4/77
+   1  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.14319
+   1  www.cambridge.org
+   1  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.15183
+   1  https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10573/2292919/Deep-scatter-estimation-DSE--feasibility-of-using-a-deep/10.1117/12.2292919.full
+   1  https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.12523
+   1  https://www.spiedigitallibrary.org/redirect/proceedings/proceeding?doi=10.1117/12.2254244
+   1  https://aapm.onlinelibrary.wiley.com/doi/10.1118/1.3589140
+
+--- suspects (resellers / aggregators) ---
+  R2-Gaussian                  https://doi.org/10.52202/079017-1427 -> 200  (www.proceedings.com)
+  Polyner                      https://doi.org/10.52202/075280-3048 -> 200  (www.proceedings.com)

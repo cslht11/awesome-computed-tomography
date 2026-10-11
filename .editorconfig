@@ -1,0 +1,26 @@
+# EditorConfig — keeps style identical across editors.
+# Line endings are deliberately stated in one more place: .gitattributes pins
+# `* text=auto eol=lf`, and the two must agree or editors and git will fight.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.py]
+indent_size = 4
+
+[*.md]
+# Markdown uses two trailing spaces for a hard line break — never strip them.
+trim_trailing_whitespace = false
+
+[scripts/oneoff/**]
+# Machine-generated dumps and reports: json.dump() writes no trailing newline, and
+# the .txt/.tsv summaries use padded columns. Exempt them so an editor never churns
+# files that nobody edits by hand.
+insert_final_newline = false
+trim_trailing_whitespace = false

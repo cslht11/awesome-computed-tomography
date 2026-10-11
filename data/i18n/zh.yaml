@@ -1,0 +1,655 @@
+# 中文译文覆盖层（简体）。
+#
+# 这个文件**不替换**英文源，而是叠加在它之上：任何没有列在这里的键都会自动回落到
+# data/i18n/en.yaml 与 data/*.yaml 里的英文原文。因此漏翻不会把页面弄坏，只会
+# 让那一句保持英文——build.py 会打印每种语言还缺多少条，缺口是可见的而不是静默的。
+#
+# 键的写法：
+#   ui.*      界面文案，键名见 data/i18n/en.yaml
+#   readme.*  写进 README 的散文（Markdown，可用 {占位符}）
+#   topics.*  以 data/meta.yaml 里的主题 id 为键
+#   toolkits./datasets./benchmarks./learning.*  以该行的 name 为键
+#
+# 注意：这里的键必须能在英文源里找到对应项。指向已改名或已删除条目的"孤儿键"
+# 会让构建失败（见 scripts/i18n.py 的 check），因为那种译文只会静默失效。
+#
+# ★ 中文段落一律写在一行内，不要为了好看折行。YAML 的折叠标量（>-）会把行尾换行
+#   折成一个空格，英文折行后正好当空格用，但中文句子中间凭空多一个空格就是硬伤
+#   （"34 个数据集、 19 个基准"）。长行不好看，但对中文是唯一正确的写法。
+#
+# 本轮状态：样张。界面文案、17 个主题、README 散文已全部译出；四条表格的说明
+# 译了 12 条作为样例，其余回落英文。
+
+lang: zh-Hans
+
+tagline: "CT 重建资源精选列表"
+description: >-
+  计算机断层成像（CT / CBCT / 显微 CT）重建资源精选列表：289 篇论文（1976–2026）、43 个工具包、34 个数据集、19 个基准与挑战赛、29 项学习资源，覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D/动态 CT。
+keywords: >-
+  计算机断层成像, CT 重建, 稀疏视角 CT, 有限角层析, 低剂量 CT, 金属伪影校正, 锥束 CT, 深度学习, 精选列表
+
+ui:
+  # ---- 页头
+  badge: "精选列表"
+  navReadme: "README"
+  copyLink: "复制链接"
+  copied: "已复制"
+  copyLinkTitle: "复制此链接"
+  theme: "主题"
+  themeAria: "切换配色主题"
+  langSwitchAria: "语言"
+
+  # ---- 首屏
+  eyebrow: "计算机断层成像 · 重建"
+  heroTitle: "一张经过核验的 CT 重建研究地图"
+  coverage: "{papers} 篇论文（{year_min}–{year_max}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。"
+  browsePapers: "浏览论文"
+  contribute: "参与贡献"
+
+  # ---- 统计卡
+  statsAria: "列表内容概览"
+  statPapers: "篇论文"
+  statPeer: "同行评审"
+  statToolkits: "个工具包"
+  statDatasets: "个数据集"
+  statBenchmarks: "个基准"
+  statLearning: "项学习资源"
+
+  # ---- 检索与筛选
+  searchPlaceholder: "搜索标题、缩写、会议期刊、主题、arXiv 编号、代码仓库…"
+  searchAria: "搜索论文"
+  statusAria: "发表状态"
+  all: "全部"
+  peerReviewed: "同行评审"
+  preprints: "预印本"
+  hasCode: "有代码"
+  from: "起始年份"
+  anyYear: "不限"
+  sort: "排序"
+  sortNew: "最新优先"
+  sortOld: "最早优先"
+  sortTitle: "标题 A–Z"
+  topicsAria: "按主题筛选"
+  countOf: "/"
+  countPapers: "篇论文"
+  reset: "重置"
+  pressSlash: "按 <kbd>/</kbd> 搜索"
+
+  # ---- 分区标签
+  sectionsAria: "分区"
+  tabPapers: "论文"
+  tabToolkits: "工具包"
+  tabDatasets: "数据集"
+  tabBenchmarks: "基准与挑战赛"
+  tabLearning: "学习资源"
+
+  # ---- 论文区
+  emptyText: "没有论文符合当前筛选条件。"
+  emptyReset: "重置筛选"
+  venuePreprint: "预印本"
+  yearAndLater: "{year} 年及以后"
+
+  # ---- 表格表头
+  tableToolkit: "工具包"
+  tableLanguage: "语言"
+  tableLicense: "许可"
+  tableStars: "Star"
+  tableNotes: "说明"
+  tableDataset: "数据集"
+  tableModality: "成像模态"
+  tableTasks: "任务"
+  tableBenchmark: "基准 / 挑战赛"
+  tableYear: "年份"
+  tableResource: "资源"
+  tableType: "类型"
+
+  # ---- 页脚与无脚本回退
+  footer1: >-
+    **{title}** — {tagline}。共 {papers} 篇论文（{year_min}–{year_max}），其中 {peer} 篇发表于同行评审会议或期刊（{peer_pct}%），{preprints} 篇为预印本；另有 {toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。
+  footer2: >-
+    每条论文链接均已对照 Crossref、arXiv 或出版社官方记录核验，每个 URL 也都检查过。数据来源是 [{repo}]({repo_url}) 中的 `data/*.yaml`；README 由同一批文件生成，两者不会不一致。
+  footer3: >-
+    欢迎参与贡献——见 [CONTRIBUTING.md]({repo_url}/blob/main/CONTRIBUTING.md)。内容采用 [{content_license}]({content_license_url})，代码采用 [{code_license}]({code_license_url})。页面生成于 {build_date}。
+  noscript: >-
+    JavaScript 已禁用，因此搜索与筛选不可用。全部 {papers} 篇论文仍以上方纯 HTML 形式列出，完整数据集见 [data.json](./data.json)。
+
+  # ---- 站点外壳：关于 / 联系 / 隐私 三个页面与重写后的页头页脚
+  menuAria: "打开导航"
+  search: "搜索"
+  searchWholeAria: "搜索整个列表"
+  themeTitle: "浅色 / 深色"
+  star: "在 GitHub 上收藏"
+  drawerTitle: "栏目"
+  github: "GitHub"
+  heroLead: "{tagline} — {coverage} 每篇论文的链接都经 Crossref、arXiv 或出版方自身记录核验。"
+  statLabelPeer: "同行评议"
+  statLabelYears: "年份"
+  labelHasCode: "有代码"
+  labelFrom: "起始"
+  labelSort: "排序"
+  labelReset: "重置"
+  labelShare: "复制链接"
+  footNote: "人工精选并逐条校验链接。发现错误？欢迎指正。"
+  footSiteAria: "站点"
+  footAbout: "关于"
+  footContact: "联系"
+  footPrivacy: "隐私"
+  footLegal: "内容 <a href=\"{content_license_url}\" target=\"_blank\" rel=\"noopener license\">{content_license}</a> · 代码 <a href=\"{code_license_url}\" target=\"_blank\" rel=\"noopener\">{code_license}</a> · 更新于 {build_date}"
+  kindPaper: "论文"
+  kindToolkit: "工具库"
+  kindDataset: "数据集"
+  kindBenchmark: "基准"
+  kindLearning: "学习资源"
+  noMatch: "未找到与“{q}”匹配的结果"
+  showAll: "显示全部 {n} 篇匹配论文 ↵"
+  homepageTitle: "主页"
+  pageAboutTitle: "关于"
+  pageAboutDesc: "Awesome Computed Tomography 是什么、条目如何挑选与核验，以及内容可以如何复用。"
+  pageContactTitle: "联系"
+  pageContactDesc: "如何报告错误、推荐论文，或私下联系维护者。"
+  pagePrivacyTitle: "隐私"
+  pagePrivacyDesc: "当你访问 {host} 时，你的信息会如何处理。"
+
+readme:
+  blurb: "覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D CT——从 FBP 与迭代求解器，到展开式网络、扩散先验、神经场与高斯溅射。每条论文链接均对照 Crossref、arXiv 或出版方记录核验。检索与筛选请使用 **[网站]({site_url})**。"
+  coverage: >-
+    覆盖范围：{papers} 篇论文（{year_min}–{year_max}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准/挑战赛、{learning} 项学习资源。每条论文链接均已对照 Crossref、arXiv 或出版社官方记录核验，每个 URL 也都检查过。
+  peerLine: >-
+    {papers} 篇论文中有 {peer} 篇（{peer_pct}%）发表于同行评审会议或期刊；其余 {preprints} 篇为预印本，年份处标记为 `预印本`。
+  contribLine: "欢迎参与贡献——见 [CONTRIBUTING.md](CONTRIBUTING.md)。"
+  siteLine: >-
+    同一份数据也可以渲染为一个可检索的单页站点（`python scripts/build_site.py`）——详见 [SITE.md](SITE.md)。
+  contentsHeading: "目录"
+  papersHeading: "论文"
+  papersListName: "CT 重建论文"
+  legendPapers: "同一主题内按最新在前排列。每条条目以斜体给出出处与年份；_预印本_ 表示该工作尚未（或还未）发表于同行评审的会议或期刊，年份取首次公开的时间。"
+  toolkitsHeading: "工具包与库"
+  datasetsHeading: "数据集"
+  legendDatasets: "**数据**列说明一份发布包含什么：_投影域 + 图像域_ 表示既有原始投影又有参考体，因而可以对前向模型做端到端评分；_仅投影域_ 表示只有原始数据；_仅图像域_ 表示只有图像域数据，无法用来检验投影模型。"
+  benchmarksHeading: "基准与挑战赛"
+  learningHeading: "学习资源"
+  entriesCount: "<sub>共 {n} 条</sub>"
+  preprintLabel: "预印本"
+  contributingHeading: "参与贡献"
+  contributingBody: >-
+    见 [CONTRIBUTING.md](CONTRIBUTING.md)。简要说明：在 `data/` 下相应文件里添加一条记录，运行 `python scripts/build.py`，然后提交 pull request。CI 会替你校验 YAML。
+  licenseHeading: "许可"
+  licenseBody1: >-
+    **代码**（`scripts/`、`web/`、`.github/`）采用 [MIT](LICENSE)。**内容**（`data/`、本 README 以及生成的站点）采用 [CC BY 4.0](LICENSE-content)——可自由复用，包括商业用途，只需注明出处。
+  licenseBody2: >-
+    工具包与数据集表格中的 `License` 列描述的是**那些项目自身**的许可，与本列表无关。论文标题、发表出处与链接是关于他人工作的事实，权利仍归其所有；本列表中的条目只是指向论文的链接，从不复制论文正文。
+
+# ----------------------------------------------------------------- 主题（17 个）
+  # ---- English keys added when upstream redesigned the README
+  heroTagline: "**一份经过核验的 CT 重建研究精选列表**——涵盖 CT、CBCT 与显微 CT 的论文、工具包、数据集与基准。"
+  navWebsite: "网站"
+  badgeWebsite: "网站"
+  badgePapers: "论文"
+  badgeLicense: "许可"
+  statPapersCell: "{papers} 篇论文"
+  statPeerCell: "{peer_pct}% 同行评议"
+  statCodeCell: "{ncode} 项附代码"
+  statToolkitsCell: "{toolkits} 个工具包"
+  statDatasetsCell: "{datasets} 个数据集"
+  statBenchmarksCell: "{benchmarks} 个基准"
+  statSpanCell: "{year_min}\u2013{year_max}"
+  topicCount: "<sub>{desc} \u00b7 {n} 篇论文</sub>"
+  linkPaper: "论文"
+  linkCode: "代码"
+  linkProject: "项目页"
+  linkData: "数据"
+  colData: "数据"
+  kindProjImage: "投影域 + 图像域"
+  kindProjections: "仅投影域"
+  kindImage: "仅图像域"
+  learnBooks: "图书"
+  learnCourses: "课程"
+  learnTutorials: "教程"
+  learnTools: "工具"
+  learnLists: "其他列表"
+  learnMore: "更多"
+  tableDescription: "说明"
+  backToTop: "回到顶部"
+  contactHeading: "联系方式"
+  contactBody: "本列表由作者策展并维护，不接受拉取请求。如有疑问、勘误，或希望增删某篇论文，请提交 [issue](https://github.com/{repo}/issues) 或发送邮件至 **[heitieya@163.com](mailto:heitieya@163.com)**。"
+  licenseIntro: "内容（`data/`、本 README 与生成的网站）采用 [CC BY-NC-SA 4.0](LICENSE-content) 许可："
+  licenseAttribution: "**署名**：使用时请注明出处。"
+  licenseNonCommercial: "**非商业性使用**：不得用于商业用途，如需商用请先联系。"
+  licenseShareAlike: "**相同方式共享**：改编作品须以相同许可发布。"
+  licenseCodeColumn: "代码（`scripts/`、`web/`、`.github/`）采用 [MIT](LICENSE) 许可。表格中的许可列描述的是**那些项目自身**而非本列表；每条条目都只是指向论文的链接，从不复制论文内容。"
+topics:
+  survey:
+    name: 综述与回顾
+    desc: 概述性论文、教程与对比研究。
+  classical:
+    name: 经典与迭代重建
+    desc: 解析法（FBP/FDK）与迭代法（SART/SIRT/CGLS），以及手工设计的正则项（TV、TGV、非局部）。
+  sparse-view:
+    name: 稀疏视角 CT
+    desc: 投影角度数量不足时的重建。
+  limited-angle:
+    name: 有限角层析
+    desc: 角度楔形缺失，零空间使问题严重病态。
+  low-dose:
+    name: 低剂量 CT 去噪
+    desc: 管电流降低带来的噪声抑制，可在图像域、投影域或双域进行。
+  metal-artifact:
+    name: 金属伪影校正
+    desc: 高密度植入物引起的射线硬化、光子饥饿与散射。
+  spectral:
+    name: 能谱与双能 CT
+    desc: 多能采集、物质分解与光子计数 CT。
+  cbct:
+    name: 锥束 CT
+    desc: 圆周、螺旋与非标准 CBCT 几何；在轨成像。
+  dynamic:
+    name: 动态与 4D CT
+    desc: 时间分辨重建、运动建模、灌注与心脏 CT。
+  scatter:
+    name: 散射校正
+    desc: 散射的估计与去除，涵盖硬件与软件两类方法。
+  geometry:
+    name: 几何标定与运动补偿
+    desc: 几何自标定、无标记配准、刚性与非刚性运动校正。
+  unrolling:
+    name: 深度展开与模型驱动学习
+    desc: 把经典求解器展开成网络的学习型迭代方案，可带或不带数据一致性约束。
+  self-supervised:
+    name: 自监督与免训练方法
+    desc: 无需成对数据的训练——深度图像先验、noise2noise 类方法、无监督正则。
+  diffusion:
+    name: 扩散与生成式先验
+    desc: 把分数模型与扩散模型用作层析反演的先验或采样器。
+  inr:
+    name: 隐式神经表示
+    desc: 用坐标网络（INR / NeRF）直接表示待求的体数据本身。
+  gaussian:
+    name: 高斯溅射
+    desc: 以显式高斯基元作为可微的层析表示。
+  other:
+    name: 其他主题
+    desc: 工业无损检测、相位衬度、定量 CT、重建软件，以及不属于以上各类的工作。
+# ------------------------------------------------------------------ 工具包
+toolkits:
+  "TIGRE":
+    note: "GPU 加速（CUDA）的锥束与平行束 CT 工具箱；提供 FDK、SART、SIRT、CGLS 及 TV 变体。"
+  "ASTRA Toolbox":
+    note: "历史悠久的研究型工具箱，投影算子与算法覆盖面很广；CPU/GPU 上的参照基线。"
+  "tomosipo":
+    note: "以极低的负担描述二维/三维投影几何；封装 ASTRA 并与 PyTorch 打通。"
+  "ODL":
+    note: "算子离散化库——以泛函分析的框架组织逆问题，内置 CT 几何。"
+  "Core Imaging Library (CIL)":
+    note: "CCPi 的变分 CT 重建框架，附有一整套优化算法目录。"
+  "CCPi Regularisation Toolkit":
+    note: "TV、TGV、方向性 TV 以及 CIL 所用其它正则项的 CPU/GPU 实现。"
+  "LEAP":
+    note: "LLNL 的 Livermore 能耗感知处理器，面向三维透射 CT；达到生产级水准的基于模型的重建。"
+  "svmbir":
+    note: "快速的超体素模型迭代重建，支持近端映射插件。"
+  "RTK":
+    note: "构建在 ITK 之上的重建工具包；在临床 CBCT 与介入研究中广泛使用。"
+  "PyTomography":
+    note: "端到端的医学影像重建，带定量能力，包含基于 CT 的衰减校正。"
+  "OMEGA":
+    note: "开源的多维层析重建软件，覆盖 PET/SPECT/CT。"
+  "TomoPy":
+    note: "同步辐射显微/纳米层析的参照工具箱；gridrec、FBP 与相位恢复。"
+  "RadIO":
+    note: "精简易读的 Python 包，实现 Radon 变换与 FBP。"
+  "pySART":
+    note: "同时代数重建技术（SART）的精简参照实现。"
+  "libcbct":
+    note: "轻量锥束 CT 重建库，含 FDK 与迭代求解器。"
+  "tofu":
+    note: "架在 UFO 框架之上的辅助层，用于搭建快速 GPU 层析重建流程。"
+  "sigpy":
+    note: "面向迭代图像重建的信号处理包；近端算子与 NUFFT/Radon 原语。"
+  "DeepInverse":
+    note: "面向成像逆问题的 PyTorch 库——物理算子、学习型去噪器、展开网络与基准测试。"
+  "torch-radon":
+    note: "PyTorch 中的可微分 Radon 变换与滤波反投影。"
+  "LION":
+    note: "学习式迭代优化网络——基于 PyTorch 的展开式重建，用于 CT 与 PET。"
+  "TomoPhantom":
+    note: "解析式的二维/三维/四维体模生成，配合正投影，用于受控的重建实验。"
+  "xraylib":
+    note: "X 射线与物质相互作用的截面、荧光产额与康普顿剖面；做真实仿真所需的物理层。"
+  "pydicom":
+    note: "读写 DICOM 文件——处理临床 CT 数据的标准入口。"
+  "MONAI":
+    note: "基于 PyTorch 的医学影像框架，提供 CT 重建相关的变换与预训练模型。"
+  "tomviz":
+    note: "跨平台应用层析数据可视化与处理。"
+  "MIRT":
+    note: "密歇根大学图像重建工具箱。涵盖极广的经典、统计与惩罚似然重建方法的参照实现；是长期存在的 MATLAB 版 MIRT 的 Julia 移植。"
+  "IRtools":
+    note: "迭代正则化工具——混合 Krylov 方法、Tikhonov、TV 与一般形式正则化，随包附带大规模层析测试问题。来自 Hansen 课题组。"
+  "leehoy/CTReconstruction":
+    note: "精简易读的 Python 实现，含 FBP 与迭代 CT 重建算法——适合作为从零实现的参照。"
+  "Algotom":
+    note: "层析数据处理算法集——环状伪影与伪影去除、畸变校正、去噪、相位恢复与重建。为同步辐射光束线开发。"
+  "Sarepy":
+    note: "层析中环状伪影去除的数值方法——最完备的开源条纹/环状滤波器集合。"
+  "DBT-Reconstruction":
+    note: "数字乳腺层析（DBT）的开源重建工具箱，覆盖 DBT 特有几何，并提供 FBP 与迭代求解器。"
+  "Discorpy":
+    note: "亚像素级的相机与透镜畸变标定；用于在重建前校正探测器/几何畸变。"
+  "Learned Primal-Dual":
+    note: "学习式原始-对偶重建的参照实现——最典型的展开式原始-对偶方案，最初即用于 CT。"
+  "Learned Gradient Tomography":
+    note: "面向不适定层析的学习式梯度下降参照实现（Adler & Öktem）；后来许多展开式 CT 网络的源头。"
+  "Physics-ArX":
+    note: "基于物理的数据增强库，把真实的 CT/CBCT 噪声、散射与伪影模型注入既有图像，以构造成对训练数据。"
+  "LD-CT simulator":
+    note: "低剂量 CT 仿真器，用经过验证的噪声模型把高剂量图像转成逼真的低剂量对应图像。"
+  "CBCT Scatter Correction Tool":
+    note: "为数不多的锥束 CT 散射估计与校正开源实现之一。"
+  "3D Slicer":
+    note: "医学影像计算领域最主要的开源平台；用于查看、分割与配准 CT 体数据，也可以以扩展模块的形式搭建重建流程原型。"
+  "voxenra":
+    note: "跨平台的 CT/MRI/PET-CT DICOM 阅片器，支持多平面重组、三维体绘制与融合——用来快速目检重建结果很顺手。"
+  "PyLops":
+    note: "线性算子库，含 Radon 变换与一整套求解器（CGLS、LSQR、TV、稀疏性促进）。不想自己写无矩阵算子时，做变分 CT 原型最干净的选择。"
+  "mumott":
+    note: "面向倒空间数据的张量层析重建，由丹麦技术大学（DTU）开发。专用而非通用，但它是张量层析模型最完整的开源实现。"
+  "XrayPhysics":
+    note: "X 射线截面、源能谱建模、多材料射束硬化校正与双能分解。出自 LEAP 的作者，需要物理上诚实的能谱时，它与仿真器天然配合。"
+  "pyHST2":
+    note: "ESRF 光束线的重建代码——gridrec、FBP 与迭代方法，带用于传播型相位衬度层析的相位恢复。同步辐射领域长期的主力工具。"
+
+# ------------------------------------------------------------------ 数据集
+  "DIRECTT Reconstruction GUI":
+    note: "基于 ASTRA 工具箱的 Python 图形界面，用于 X 射线 CT 数据重建，并内置 DIRECTT 算法。DIRECTT 面向的正是只有极少量投影、且扫描轨迹任意的情形，并把采集路径本身一并纳入反问题求解——多数基于算子的工具箱基本不涉及这个角度。由德国联邦材料研究与测试研究所（BAM）开发，发表于 Review of Scientific Instruments 2020；运行 Main.py 即可启动。虽属小众、星标很少，但明确处理轨迹问题的工具本就寥寥无几。"
+datasets:
+  "LoDoPaB-CT":
+    note: "**Projection + image.** 41,000 张仿真人体胸腔切片（LIDC/IDRI），两个剂量水平。事实上的低剂量 CT 标准基准；附有调优良好的 FBP/U-Net 参考流程。"
+  "LDCT-and-Projection-data":
+    note: "**Projection + image.** Mayo Clinic 发布，经 TCIA 分发。299 例胸部／腹部／头部扫描，四个剂量水平（全剂量 / 1/4 / 10% / 5%），并以开放的 **DICOM-CT-PD** 格式提供原始正弦图。它源自 2016 年 AAPM 低剂量 CT 大挑战，目前是投影域方法最好的真实数据来源。"
+  "2DeteCT":
+    note: "**Projection + image.** 5,000 张真实实验采集的混合物体二维切片，三个剂量水平，多种源-探测器几何。非常适合做可复现的真实数据 CT 基准测试。"
+  "Walnut-CBCT":
+    note: "**Projection only.** 芬兰逆问题学会。真实采集的核桃锥束投影，提供多种角度采样——稀疏视角与有限角 CBCT 的标准测试床。"
+  "Helsinki Tomography Challenge 2022":
+    note: "**Projection only.** 体模与莲藕的真实有限角正弦图；配套挑战赛定义了标准的有限角协议。"
+  "SPARE 4D-CBCT":
+    note: "**Projection + image.** 用于呼吸运动分辨重建的胸部四维锥束 CT；动态 CBCT 的参照基准。"
+  "ToothFairy2":
+    note: "480 例牙科 CBCT 扫描，带三维牙齿与颌骨标注；规模可观，适合做 CBCT 域预训练。**仅图像域**——只发布体数据，不带原始投影。"
+  "Cone-Beam CT (CBCT) Head & Neck":
+    note: "配对的计划 CT 与机载 CBCT——放射治疗中 CBCT 校正与合成 CT 工作的标准场景。"
+  "LIDC-IDRI":
+    note: "1,018 例胸部 CT，带四位放射科医师的结节标注。LoDoPaB-CT 与多数仿真低剂量数据所依据的解剖来源。"
+  "DeepLesion":
+    note: "覆盖 4,427 名患者、10,594 次检查的 32,735 处病灶标注——CT 域骨干网络的大规模预训练语料。"
+  "LUNA16":
+    note: "888 例薄层胸部 CT，统一重采样到 1 mm 并带结节标注；干净、整理得当的去噪/检测基准。"
+  "KiTS23":
+    note: "489 例腹部 CT，带肾肿瘤与囊肿标注，横跨三届挑战赛。"
+  "Pancreas-CT (NIH)":
+    note: "82 例腹部增强 CT，带专家标注的胰腺掩膜；规模不大但使用极广的参照集。"
+  "BTCV (Beyond the Cranial Vault)":
+    note: "30 例腹部 CT，带 13 个器官标注；是多器官基准中 FLARE/AMOS 一脉的源头。"
+  "TotalSegmentator":
+    note: "1,228 例 CT、104 个解剖结构——规模最大的开源 CT 结构集，也是很强的预训练目标。"
+  "AMOS22":
+    note: "500 例 CT 加 100 例 MRI 腹部扫描、15 个器官；刻意采用异构设备，因此很考验鲁棒性。"
+  "Medical Segmentation Decathlon":
+    note: "十个任务，其中四个是 CT（肺、胰腺、结肠、肝血管）。被引用最多的多任务医学分割基准。"
+  "VerSe":
+    note: "3,741 例 CT/CBCT 脊柱扫描，带椎体与椎间盘标签；临床 CT 与 CBCT 混合，因此与伪影鲁棒性相关。"
+  "RibFrac":
+    note: "5,000 例 CT、660 处肋骨骨折标注；规模大，常被用作 CT 辅助语料。"
+  "CT-ORG":
+    note: "140 例 CT，带多器官掩膜，其中含 Liver Tumor Segmentation 基准的一个子集。"
+  "STOIC 2021":
+    note: "来自多中心国际研究的 23,000 余例 COVID-19 胸部 CT；规模极大的真实临床分布偏移测试。此处通过 NCI Imaging Data Commons 镜像收录，同一批数据提供可查询 API。"
+  "MosMedData":
+    note: "1,110 例胸部 CT，带 COVID-19 严重程度分级；常被复用为低质量/低剂量鲁棒性测试集。"
+  "HNSCC (Head & Neck)":
+    note: "多机构的头颈部 CT，带 GTV/CTV 勾画；与 HECKTOR 挑战赛配套。"
+  "CTPelvic1K":
+    note: "跨 7 个子集的 1,184 例盆腔 CT；值得注意的是含**金属植入物**病例，是真实金属伪影的少数开放来源之一。"
+  "FLARE22":
+    note: "2,000 例腹部 CT、13 个器官标签，来自 20 余台设备；大规模鲁棒性基准。"
+  "AutoPET-II":
+    note: "1,014 例全身 PET/CT 检查，带病灶掩膜；当 CT 重建要喂给下游任务时相关。"
+  "HECKTOR":
+    note: "头颈部 PET/CT，带原发肿瘤勾画；五届标注口径一致。"
+  "CT Lymph Nodes":
+    note: "176 例腹部 CT，带纵隔与腹部淋巴结标注。"
+  "NLST":
+    note: "26,254 例基线低剂量筛查 CT——迄今最大的真实低剂量 CT 集合，但获取需要申请授权。"
+  "AAPM DL-Sparse-View CT data":
+    note: "**Projection + image.** 2016 年挑战赛队列重新投影为每圈 2/4/8/16/32/64 个视角，在固定解剖真值下给出可控的稀疏视角轴。"
+  "Finnish Inverse Problems Society (FIPS) datasets":
+    note: "**Projection only.** 一批真实测量的正弦图（核桃、莲藕、苹果、胡萝卜、体模），采集几何记录详尽——检验重建算子最干净的公开来源。"
+  "LoDoPaB-CT (benchmark release paper)":
+    note: "LoDoPaB-CT 数据集在 **Scientific Data** 上的数据描述论文——在该切分上报告结果时应引用的文献。记录了仿真协议与 FBP/U-Net 参照基线。"
+  "COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset":
+    note: "以公开投影数据集的形式发布（获取方式见论文）。"
+  "MORE: Multi-Organ Medical Image REconstruction Dataset":
+    note: "以公开投影数据集的形式发布（获取方式见论文）。已被 ACMMM 2025 接收。"
+
+  "TomoBank":
+    note: "**Projection + image.** 由美国阿贡国家实验室 Advanced Photon Source 维护的层析数据仓库，收录大量实验采集与仿真的层析数据，覆盖多种仪器与样品类型。它的价值在于用真正来自光束线的数据来检验和比较重建方法，而不是只靠体模。"
+  "SparseBeads":
+    note: "**Projection + image.** 48 组真实采集的珠体体模扫描，图像稀疏程度被系统地拉开梯度，专为稀疏正则化重建的基准评测而发布。灵感来自 SophiaBeads，是在已知真值下横比不同正则项时的参照点。"
+  "Walnut-21 (two dose levels)":
+    note: "**Projection only.** 21 颗核桃的高分辨率锥束扫描，每颗都以两个辐射剂量水平各采一次——同一物体的一版「干净」与一版「带噪」。这种配对采集正是它的用处：噪声水平可以直接对照已知解剖结构来比较，而不是靠推测。"
+
+# ------------------------------------------------------- 基准与挑战赛
+  "FleX-ray Walnut CBCT Collection (CWI)":
+    note: "**Projection + image.** 42 个核桃，每个沿三条不同轨道各采集一次——因此可由合并视角算出无伪影的参考体，用作监督学习的真值。值得注意的是这并非又一个单一物体体模：其设计意图是同一类物体之间的自然变异。完整流水线一并给出——原始投影、扫描几何、预处理与重建脚本（均为开源软件）以及重建后的体数据，因而既可用于高锥角伪影抑制，也可用于稀疏角／有限角重建、超分辨与分割。数据分六个 Zenodo 存档发布，覆盖样本 1–42。"
+  "LoDoInd":
+    note: "同一批工业 CT 试件的五个剂量级别，其中含一次近乎无噪的参考扫描，全部预先配准，跨剂量级别的切片彼此对齐。与医学低剂量数据集的关键差别在于几何与试件——这是工业硬件的检测数据而非临床解剖，所以当目标是 NDT 流水线而非诊断流程时，它才是该用的基准。每级 4000 张 1250×1250 切片；因 Zenodo 单次上传上限 50 GB，拆分为三个存档。"
+  "Carved cheese (FIPS)":
+    note: "**Projection only.** 芬兰逆问题学会发布的一个雕花奶酪单层二维切片，提供三种分辨率，并附带把 X 射线变换写成显式线性算子的测量矩阵。正弦图之外还把前向算子直接交到你手上，可省掉一整类几何不匹配的错误，这也是它在把重建方法移植到真实实测数据时始终作为标准首测的原因。文档见 arXiv:1705.05732。"
+benchmarks:
+  "AAPM Low-Dose CT Grand Challenge":
+    note: "确立了 1/4 剂量 / 10% / 5% 协议与 Mayo 腹部队列的挑战赛。几乎每一篇低剂量 CT 论文至今仍在该切分上报告结果。"
+  "AAPM DL-Sparse-View CT Challenge":
+    note: "在重新投影的临床数据上固定稀疏视角协议（2/4/8/16/32/64 视角），提供官方指标与公开排行榜。稀疏视角 CT 的标准参照点。"
+  "Helsinki Tomography Challenge":
+    note: "真实测量的有限角正弦图。值得注意的是优胜方案是经典/基于模型的，而非纯学习型——是一个有用的反例。"
+  "LoDoPaB-CT benchmark":
+    note: "在 LoDoPaB-CT 切分上以大挑战赛方式评测，并发布经过调优的 FBP+U-Net 参照基线，使改进幅度可度量。"
+  "SPARE Challenge":
+    note: "从一分钟扫描重建胸部四维锥束 CT。首个被广泛采用的呼吸分辨动态 CBCT 基准；由悉尼大学 Image X 研究所主办。"
+  "MICCAI FLARE":
+    note: "跨四届（FLARE21/22/23/24）的多器官腹部 CT 分割；是 CT 重建输出的标准下游鲁棒性检验目标。"
+  "Medical Segmentation Decathlon":
+    note: "十个任务，测试集固定且隐藏，并严格禁止针对单一任务调优——真正公平的泛化基准。"
+  "KiTS Challenge":
+    note: "肾肿瘤分割，三届（2019/2021/2023），标注质量严格受控，并高度强调跨机构泛化。"
+  "VerSe Challenge":
+    note: "同时覆盖 CT 与 CBCT 的椎体标注，带大规模隐藏测试集；CBCT 那一半天然适合作为伪影严重输入的压力测试。"
+  "CHAOS Challenge":
+    note: "腹部 CT 与 MRI 器官分割，包含低剂量与平扫协议，并明确做跨模态评测。"
+  "SPIE-AAPM-NCI LungX Challenge":
+    note: "低剂量筛查 CT 上的肺结节检测；早期证明了在低剂量数据上达到阅片者水平是可行的。数据经 TCIA 分发。"
+  "AutoPET Challenge":
+    note: "跨三届的全身 PET/CT 病灶分割，刻意隐藏多中心测试队列。"
+  "HECKTOR Challenge":
+    note: "头颈部 PET/CT 肿瘤勾画；五届使其成为运行时间较长的医学影像挑战赛之一。"
+  "CTooth / CTooth+":
+    note: "全标注的三维牙科 CBCT 数据集与牙齿分割基准（5,803 层 CBCT），后扩展为 CTooth+。在伪影严重的领域里，是一个规模不大但标注精良的 CBCT 基准。"
+  "Noise2Noise denoising protocol":
+    note: "让「无需干净真值即可训练去噪器」流行起来的参照实现。在 CT 上它成为标准的「无干净真值」评测协议——多数无监督 CT 去噪论文都在此设定下、用 Mayo-LDCT 式切分报告结果。"
+  "SynthRAD2023 Challenge":
+    note: "从 CBCT 与 MRI 生成合成 CT。与此处相关，是因为 CBCT→CT 任务恰恰由重建伪影（散射、截断、射束硬化）主导——该挑战赛迫使方法正面处理它们，而不是假设输入干净。"
+  "DeepInverse benchmark suite":
+    note: "统一的 PyTorch 基准框架，覆盖 CT、MRI、去模糊与图像修复，提供可复现指标与预训练基线——把新 CT 方法与强通用求解器对比的最实用途径。"
+  "Generating synthetic computed tomography for radiotherapy: SynthRAD2025 challenge report":
+    note: "共 59 页：正文 26 页 + 补充材料；正文 8 幅图，补充 3 幅图。目前正由 Medical Image Analysis 期刊审稿中。"
+  "CT-DegradBench: A Physics-Informed Benchmark for CT Degradation Detection and Severity Estimation":
+    note: "已被 CVPR 2026 VISION Workshop（DEXTER track）接收。"
+
+# ------------------------------------------------------------ 学习资源
+learning:
+  "Principles of Computerized Tomographic Imaging":
+    note: "Kak & Slaney（1988）。**免费 PDF。** 奠基之作：Radon 变换、傅里叶切片定理、FBP、代数重建、扇束/锥束重排。建议先读第 1–3 章。"
+  "The Mathematics of Computerized Tomography":
+    note: "Natterer（1986，SIAM 重印本）。严谨的逆问题处理——Sobolev 空间上的 Radon 变换、采样理论、不适定性与正则化。"
+  "Computed Tomography - From Photon Statistics to Modern Cone-Beam CT":
+    note: "Buzug（2008）。从物理（光子统计、多色性、探测器响应）通向重建算法的最佳单本桥梁之作。"
+  "Fundamentals of Computerized Tomography - Image Reconstruction from Projections":
+    note: "Herman（第 2 版，2009）。非常实用，给出明确的算法与伪代码，并细致处理采样与离散化伪影。"
+  "Medical Image Reconstruction - A Conceptual Tutorial":
+    note: "Zeng（2010）。刻意以直觉优先：用最少的符号解释 FBP、迭代与解析方法为何如此表现。"
+  "Foundations of Image Science":
+    note: "Barrett & Myers（2004）。成像系统理论的百科式参考——傅里叶串扰、基于任务的评估，以及迭代重建的数学基础。"
+  "Computed Tomography - Principles, Design, Artifacts, and Recent Advances":
+    note: "Hsieh（第 3 版，2015，SPIE）。出自 CT 厂商内部视角：系统设计、剂量、伪影分类与临床校正策略。"
+  "Principles of Medical Imaging (MIT OCW 22.058)":
+    note: "免费的讲义与习题集，覆盖投影成像、Radon 变换与重建，并旁及 MRI、超声与 PET。"
+  "ASTRA Toolbox documentation and tutorials":
+    note: "最容易上手的动手入口：CPU/GPU 正投影与反投影算子、FBP、SART/SIRT、CGLS，每种几何都配可运行示例。"
+  "TIGRE demos":
+    note: "可运行的 GPU 演示，从解析 FBP 到迭代、全变分与即插即用重建，另附 CBCT 几何标定演示。"
+  "ODL examples":
+    note: "演示如何把 CT 问题表述为算子与泛函，再用近端方法求解——变分 CT 最清晰的入门。"
+  "Radon transform in scikit-image":
+    note: "二十行代码，从体模到正弦图再用 FBP 反推回来；接触真实几何之前建立直觉最快的途径。"
+  "DeepInverse documentation":
+    note: "现代的 PyTorch 优先教程路径：物理算子、学习型去噪器、即插即用与扩散采样器，全部配有 CT 示例。"
+  "XDesign":
+    note: "可微分的 CT 采集仿真——在训练循环内建模多色能谱、探测器响应与几何。最初与 CIL 一同开发，现由 Advanced Photon Source 维护。"
+  "SpekPy":
+    note: "X 射线管能谱仿真（TASMIP/IPEM 一脉），以 Python 包发布。用它生成逼真的多色能谱，用于射束硬化实验。"
+  "TomoPhantom":
+    note: "快速的解析式二维/三维/四维体模生成，内置噪声与偏移模型；便于做受控重建研究。"
+  "gVXR (gVirtualXray)":
+    note: "GPU 加速的 X 射线投影仿真器，支持任意三维场景与多色能谱——适合构建大规模合成投影数据集。"
+  "SimpleITK":
+    note: "医学体数据的标准 I/O 与重采样层；本列表中几乎所有 CT 数据集都通过它加载最省事。"
+  "Awesome CT Reconstruction (LoraLinH)":
+    note: "最知名的前作 CT 重建列表。适合交叉核对 2020–2024 年文献的覆盖情况。"
+  "CT Denoising Review":
+    note: "专注低剂量 CT 去噪，侧重 SSinyu/Mayo 一脉的方法。"
+  "Awesome 3D Gaussian Splatting":
+    note: "3DGS 的参照列表。其中贴近层析的条目（r2_gaussian、X-Gaussian、X2-Gaussian）是通往高斯泼溅 CT 的桥梁。"
+  "Awesome NeRF and 3DGS for SLAM":
+    note: "机器人/视觉社区的神经场文献；当前被移植到 CT 的隐式表示技术即源自此处。"
+  "Low-Dose CT Denoising (code collection)":
+    note: "持续更新的低剂量 CT 去噪代码合集，按年份组织——便于查找某篇论文背后的实现。"
+  "Awesome Medical Imaging":
+    note: "更宽泛的医学影像分析资源：数据集、工具包与预训练模型，在 CT 流程中常被复用。"
+  "X-Ray Data Booklet":
+    note: "**LBNL。** 元素 X 射线性质的标准速查手册——吸收边、荧光产额与散射截面。仿真需要某个物理常数时的第一去处。"
+  "NIST X-Ray Mass Attenuation Coefficients":
+    note: "**NIST。** 全周期表 mu/rho 与 mu_en/rho 的权威表格。XrayPhysics 与 SpekPy 内部即以此校准——需要核检多色模型时很有用。"
+  "CT Principles and Algorithms":
+    name: "CT 原理与算法（庄天戈）"
+    note: "庄天戈。中文的 CT 原理与算法入门读物；被广泛用作第一门课程的教材，也是偏好中文的读者最自然的切入点。"
+  "Industrial CT Technology and Principles":
+    note: "张朝宗。工业（无损检测）CT 的参考书——几何、射线源、探测器与工业侧的伪影来源，正是医学教材止步之处。"
+  "Medical Tomographic Image Reconstruction Simulation Experiments":
+    note: "黄力宇。中文的实践型实验手册：把每个重建算法做成仿真实验，而不是当作理论来讲。"
+
+
+# ---------------------------------------------------------------- pages
+# 静态页面正文（保留原始 HTML 标签与 class，仅替换可见文本）
+pages:
+  about: |-
+    <p class="kicker">关于</p>
+    <h1>关于本列表</h1>
+    <p class="lede">Awesome Computed Tomography 是一份独立、人工精选的 CT 图像重建研究地图：研究人员进入这一领域所需要的论文、开源工具库、数据集、基准与学习资料，集中在一处并逐条人工核对。</p>
+
+    <h2>收录范围</h2>
+    <p>本列表目前收录 {{N_PAPERS}} 篇论文（{{YEAR_MIN}}–{{YEAR_MAX}} 年）、{{N_TOOLKITS}} 个工具库、{{N_DATASETS}} 个数据集、{{N_BENCHMARKS}} 个基准和 {{N_LEARNING}} 项学习资源。论文按问题（稀疏视角、有限角、低剂量、金属伪影、能谱、锥束、动态与 4D CT、散射、标定与运动）和方法族（经典与迭代求解器、深度展开、自监督方法、扩散与生成式先验、隐式神经表示、高斯泼澅）分组。</p>
+    <p>这是一份阅读清单，而不是包罗万象的数据库。一个条目之所以被收录，是因为它对从事 CT 重建的人有用：别人会在此基础上继续做的方法、一个强有力的基线、结果所基于的数据集或基准，或一份清晰的入门介绍。</p>
+
+    <h2>条目如何核验</h2>
+    <ul>
+      <li><strong>身份。</strong> 每条论文链接都对照 Crossref、arXiv 或出版方自身的记录解析，并与该记录的标题比对，因此条目不会悄悄指向另一篇论文。</li>
+      <li><strong>发表出处。</strong> {{N_PEER}} 篇（{{PEER_PCT}}%）具有同行评议的发表出处，以 DOI 为准而非搜索结果。其余 {{N_PREPRINT}} 篇标记为<em>预印本</em>，按首次公开日期标注。</li>
+      <li><strong>链接。</strong> 每个 URL 都经过检查。若作者提供了代码仓库，代码链接指向作者自己的仓库。</li>
+    </ul>
+    <p>这些检查能发现失效链接和记录不匹配，但无法发现所有错误。某个发表出处、年份或分类仍可能出错。如果某个细节对你的工作很关键，请顺着链接以原始论文为准。</p>
+
+    <h2>它不是什么</h2>
+    <p>一个条目只是指向他人工作的指针，绝不是其副本。标题、发表出处与链接是关于论文的事实，归作者与出版方所有；收录并不意味着他们认可，也不表示这里复现了结果。本站内容不构成医疗建议。</p>
+
+    <h2>维护</h2>
+    <p>本列表由作者策划和维护并持续更新，包括新增 arXiv 论文、更正发表出处和修复链接。它不接受外部 pull request。建议与更正欢迎通过<a href="{{ROOT}}contact/">联系页面</a>提交，每一条都会先经核对再决定是否收录。</p>
+    <p>同样的数据也以 <a href="{{REPO_URL}}" target="_blank" rel="noopener">GitHub README</a> 和 <a href="{{ROOT}}data.json">data.json</a> 发布。两者由同一份源文件生成，因此不会与本站产生分歧。</p>
+
+    <h2>许可与复用</h2>
+    <p>内容（精选记录、README 与本网站）采用 <a href="{{CONTENT_LICENSE_URL}}" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可：</p>
+    <ul>
+      <li><strong>署名。</strong> 注明“Awesome Computed Tomography”并链接到 computedtomography.org。</li>
+      <li><strong>非商业性使用。</strong> 不得用于商业用途。如需商业使用，请先邮件联系 <a href="mailto:heitieya@163.com">heitieya@163.com</a>。</li>
+      <li><strong>相同方式共享。</strong> 如果你改编了本列表，需以相同许可分享你的版本。</li>
+    </ul>
+    <p>本站代码采用 MIT 许可。工具库与数据集表格中的许可列描述的是那些项目，而不是本列表。</p>
+
+    <h2>引用</h2>
+    <p>本列表持续变动，因此请引用固定快照：仓库 URL 连同提交哈希，或页面 URL 连同你的访问日期。</p>
+
+  contact: |-
+    <p class="kicker">联系</p>
+    <h1>联系</h1>
+    <p class="lede">更正与建议会让这份列表更好。公开反馈请走 GitHub Issues；不便公开的内容请发邮件。</p>
+
+    <div class="cards">
+      <a class="card" href="{{REPO_URL}}/issues/new/choose" target="_blank" rel="noopener">
+        <span class="card-k">公开</span>
+        <span class="card-t">GitHub Issues</span>
+        <span class="card-d">推荐论文、举报错误的发表出处或失效链接。需要 GitHub 账号。</span>
+      </a>
+      <a class="card" href="mailto:heitieya@163.com">
+        <span class="card-k">私下</span>
+        <span class="card-t">heitieya@163.com</span>
+        <span class="card-d">版权、署名、删除请求、商业授权，以及任何不适合公开讨论的事项。</span>
+      </a>
+    </div>
+
+    <h2>推荐论文</h2>
+    <p>请提供 DOI 或 arXiv 链接，并说明它属于哪个方向：它解决的问题（例如稀疏视角或金属伪影），以及若有代码仓库也一并给出。每条建议都会先对照 Crossref 或 arXiv 核验再收录，因此你无需再写别的。</p>
+
+    <h2>报告错误</h2>
+    <ul>
+      <li>该条目的标题，以及它所在的栏目或页面。</li>
+      <li>错在哪里：发表出处、年份、链接还是分类。</li>
+      <li>依据：DOI、出版方页面或 arXiv 记录。</li>
+    </ul>
+    <p>如果是网站问题（搜索、导航、手机端显示），请给出页面地址、你的操作、你的预期和实际结果，以及浏览器和设备。</p>
+
+    <h2>作者</h2>
+    <p>如果你的论文被收录但某项信息有误，或你希望添加、删除它，或把它移到别的主题下，请开 issue 或发邮件。来自作者的请求会优先处理。</p>
+
+    <h2>你会得到什么</h2>
+    <p>反馈会对照原始来源核对。建议未必被采纳，也没有固定的回复时限。我们绝不会向你索要密码、验证码或付款信息。请勿在公开 issue 中发布隐私内容。</p>
+
+  privacy: |-
+    <p class="kicker">隐私</p>
+    <h1>隐私政策</h1>
+    <p class="lede">最后更新于 2026 年 10 月 10 日。本政策适用于 https://computedtomography.org/，这是由作者维护的个人非商业项目。</p>
+
+    <h2>简而言之</h2>
+    <p>本站没有账号、没有广告、没有跟踪脚本，也不设置 cookie。阅读本站不需要你提供任何东西。</p>
+
+    <h2>托管</h2>
+    <p>本站为静态站点，由 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a> 托管；域名的 DNS 由 <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare</a> 管理。与任何 Web 服务器一样，GitHub 会收到每次请求的技术细节（IP 地址、浏览器、请求的页面和时间），并可能按其自身政策保存在日志中。本站不会接收或保存这些日志。</p>
+
+    <h2>分析</h2>
+    <p>无。本站不加载任何分析、广告或社交媒体脚本。若将来改变，会先更新本页。</p>
+
+    <h2>浏览器中的存储</h2>
+    <p>你的浅色/深色主题选择保存在浏览器的本地存储中，键名为 <code>ct-theme</code>，以便下次访问时记住。它绝不会离开你的设备。你可以通过浏览器的站点数据设置清除它。</p>
+
+    <h2>搜索</h2>
+    <p>搜索与筛选完全在你的浏览器中针对随页面加载的列表副本运行；查询不会发送到任何地方。你应用的筛选条件会写入地址栏（例如 <code>?q=diffusion</code>）以便分享某个视图，这意味着它们可能出现在你的浏览器历史记录中。</p>
+
+    <h2>外部链接</h2>
+    <p>条目会链接到出版方、arXiv、GitHub 等站点。一旦你跟随链接，适用的是该站点自身的隐私政策。</p>
+
+    <h2>邮件</h2>
+    <p>如果你写信到 <a href="mailto:heitieya@163.com">heitieya@163.com</a>，邮件内容和你的地址仅用于处理你的请求。一般邮件在事项结束最多 12 个月后删除。请只发送必要内容，绝不要发送密码、验证码或付款信息。GitHub Issues 是公开的，受 GitHub 条款约束。</p>
+
+    <h2>你的权利</h2>
+    <p>根据你所在地区，你可能有权访问、更正或删除与你有关的个人信息，并向数据保护机构投诉。请发邮件至 <a href="mailto:heitieya@163.com">heitieya@163.com</a> 提出请求。对于 GitHub 或 Cloudflare 持有的数据，你可能需要直接联系他们。</p>
+
+    <h2>变更</h2>
+    <p>本政策变更时，本页顶部的日期会随之更改。</p>

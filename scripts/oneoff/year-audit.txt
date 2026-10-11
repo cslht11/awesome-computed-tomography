@@ -1,0 +1,11 @@
+papers checked          : 129
+year earlier than arXiv, no venue to explain it : 0
+year earlier than the arXiv posting, venue given: 1 (informational)
+disagrees with journal  : 0
+
+== year earlier than the preprint and no venue (mis-parse) ==
+
+== venue year precedes the arXiv posting (plausible, listed for review) ==
+  3d-cbct-artefact-removal-using-perpendicular-score-b year=2025  arxiv published=2026  venue=DGM4MICCAI
+
+== year differs from journal_ref ==

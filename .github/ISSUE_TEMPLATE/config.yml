@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Email the maintainers
+    url: mailto:heitieya@163.com
+    about: For anything that is not a new entry or a broken link.

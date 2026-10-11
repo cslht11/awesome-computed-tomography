@@ -1,0 +1,59 @@
+name: Deploy site to GitHub Pages
+
+# Deploys on every push to main; can also be run by hand from the Actions tab.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # The site is a rendering of the same data as README.md, so the data
+      # checks that guard the list also guard the site.
+      - name: Validate data files
+        run: python scripts/build.py --check
+
+      - name: Build site
+        run: python scripts/build_site.py
+
+      # build_site.py asserts canonical/og:url match the configured origin and
+      # that no github.io URL leaks in when a custom domain is set; reaching
+      # this step means that passed.
+      - name: Show what was built
+        run: ls -la site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

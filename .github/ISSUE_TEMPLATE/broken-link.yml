@@ -1,0 +1,37 @@
+name: Report a broken or wrong link
+description: A link is dead, or the entry does not describe what the link points at.
+title: "[Link] "
+labels: ["bug"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Which entry?
+      description: The title as it appears in README.md, or its `id` in data/papers.yaml.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: The link in question
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong with it?
+      options:
+        - Dead link (404 or redirect loop)
+        - Paywalled even though an open version exists
+        - It points at a different paper than the entry claims
+        - Wrong venue or wrong year
+        - Filed under the wrong section
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Anything else
+      description: If you already found the correct DOI or arXiv id, put it here.
+    validations:
+      required: false

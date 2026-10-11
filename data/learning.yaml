@@ -1,0 +1,157 @@
+# Learning resources: books, courses, tutorials and teaching tools.
+# Fields: name (required), url | repo (required), type, note
+# type is one of: book | course | tutorial | tool | list
+#
+# Survey papers live in the Papers section (topic: `survey`) so that they are not
+# listed twice — see data/papers.yaml.
+
+# ---------------------------------------------------------------- books
+- name: Principles of Computerized Tomographic Imaging
+  url: https://www.slaney.org/pct/pct-toc.html
+  type: book
+  note: "Kak & Slaney (1988). **Free PDF.** The foundation: Radon transform, Fourier-slice theorem, FBP, algebraic reconstruction, fan/cone-beam rebinning. Read chapters 1-3 first."
+
+- name: The Mathematics of Computerized Tomography
+  url: https://doi.org/10.1137/1.9780898719284
+  type: book
+  note: "Natterer (1986, SIAM reissue). The rigorous inverse-problem treatment — Radon transform on Sobolev spaces, sampling theory, ill-posedness and regularisation."
+
+- name: Computed Tomography - From Photon Statistics to Modern Cone-Beam CT
+  url: https://doi.org/10.1007/978-3-540-39408-2
+  type: book
+  note: "Buzug (2008). The best single bridge from the physics (photon statistics, polychromaticity, detector response) to the reconstruction algorithms."
+
+- name: Fundamentals of Computerized Tomography - Image Reconstruction from Projections
+  url: https://doi.org/10.1007/978-1-84628-723-7
+  type: book
+  note: "Herman (2nd ed. 2009). Very practical, with explicit algorithms, pseudocode and a careful treatment of sampling and discretisation artefacts."
+
+- name: Medical Image Reconstruction - A Conceptual Tutorial
+  url: https://doi.org/10.1007/978-3-642-05368-9
+  type: book
+  note: "Zeng (2010). Deliberately intuition-first: explains *why* FBP, iterative and analytic methods behave the way they do, with minimal notation."
+
+- name: Foundations of Image Science
+  url: https://doi.org/10.1002/0471722138
+  type: book
+  note: "Barrett & Myers (2004). The encyclopaedic reference for imaging-system theory — Fourier crosstalk, task-based assessment, and the mathematical basis of iterative reconstruction."
+
+- name: Computed Tomography - Principles, Design, Artifacts, and Recent Advances
+  url: https://www.spiedigitallibrary.org/ebooks/PM/Computed-Tomography-Principles-Design-Artifacts-and-Recent-Advances-Third-Edition/eISBN-9781628418040/10.1117/3.1764041
+  type: book
+  note: "Hsieh (3rd ed. 2015, SPIE). Written from inside a CT vendor: system design, dose, artefact taxonomy and clinical correction strategies."
+
+# ---------------------------------------------------------------- courses
+- name: Principles of Medical Imaging (MIT OCW 22.058)
+  url: https://ocw.mit.edu/courses/22-058-principles-of-medical-imaging-fall-2002/
+  type: course
+  note: "Free lecture notes and problem sets covering projection imaging, the Radon transform and reconstruction alongside MRI, ultrasound and PET."
+
+- name: ASTRA Toolbox documentation and tutorials
+  url: https://astra-toolbox.com/docs/index.html
+  type: tutorial
+  note: "The most accessible hands-on entry point: CPU/GPU forward and back projectors, FBP, SART/SIRT, CGLS, with runnable examples for each geometry."
+
+- name: TIGRE demos
+  url: https://github.com/CERN/TIGRE/tree/master/Python/demos
+  type: tutorial
+  note: "Runnable GPU demos from analytical FBP through iterative, total-variation and plug-and-play reconstruction, plus a CBCT geometry-calibration walkthrough."
+
+- name: ODL examples
+  url: https://github.com/odlgroup/odl/tree/master/examples
+  type: tutorial
+  note: "Shows how to express a CT problem as operators and functionals, then solve it with proximal methods — the clearest introduction to variational CT."
+
+- name: Radon transform in scikit-image
+  url: https://scikit-image.org/docs/stable/auto_examples/transform/plot_radon_transform.html
+  type: tutorial
+  note: "Twenty lines of code from a phantom to a sinogram and back with FBP; the fastest way to build intuition before touching a real geometry."
+
+- name: DeepInverse documentation
+  url: https://deepinv.github.io/
+  type: tutorial
+  note: "Modern PyTorch-first tutorial track: physics operators, learned denoisers, plug-and-play and diffusion samplers, all with CT examples."
+
+# ---------------------------------------------------------------- teaching tools
+- name: XDesign
+  url: https://github.com/AdvancedPhotonSource/xdesign
+  type: tool
+  note: "Differentiable CT acquisition simulation — model polychromatic spectra, detector response and geometry inside a training loop. Originally developed alongside CIL; now maintained by the Advanced Photon Source."
+
+- name: SpekPy
+  url: https://pypi.org/project/spekpy/
+  type: tool
+  note: "X-ray tube spectrum simulation (TASMIP/IPEM lineage), distributed as a Python package. Use it to generate realistic polychromatic spectra for beam-hardening experiments."
+
+- name: TomoPhantom
+  url: https://github.com/dkazanc/TomoPhantom
+  type: tool
+  note: "Fast analytical 2D/3D/4D phantom generation with built-in noise and offset models; convenient for controlled reconstruction studies."
+
+- name: gVXR (gVirtualXray)
+  url: https://gvirtualxray.sourceforge.io/
+  type: tool
+  note: "GPU-accelerated X-ray projection simulator supporting arbitrary 3D scenes and polychromatic spectra — useful for building large synthetic projection datasets."
+
+- name: SimpleITK
+  url: https://github.com/SimpleITK/SimpleITK
+  type: tool
+  note: "The standard I/O and resampling layer for medical volumes; almost every CT dataset in this list is easiest to load through it."
+
+# ---------------------------------------------------------------- related lists
+- name: Awesome CT Reconstruction (LoraLinH)
+  url: https://github.com/LoraLinH/Awesome-CT-Reconstruction
+  type: list
+  note: "The best-known prior CT reconstruction list. Useful for cross-checking coverage of the 2020-2024 literature."
+
+- name: CT Denoising Review
+  url: https://github.com/SSinyu/CT-Denoising-Review
+  type: list
+  note: "Dedicated to low-dose CT denoising, with an emphasis on the SSinyu/Mayo lineage of methods."
+
+- name: Awesome 3D Gaussian Splatting
+  url: https://github.com/MrNeRF/awesome-3D-gaussian-splatting
+  type: list
+  note: "The reference 3DGS list. Its tomography-adjacent entries (r2_gaussian, X-Gaussian, X2-Gaussian) are the bridge to Gaussian-splatting CT."
+
+- name: Awesome NeRF and 3DGS for SLAM
+  url: https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM
+  type: list
+  note: "Neural-field literature in the robotics/vision community; the source of the implicit-representation techniques now being adapted to CT."
+
+- name: Low-Dose CT Denoising (code collection)
+  url: https://github.com/houguanqun/Low-Dose-CT-denoising
+  type: list
+  note: "A running collection of low-dose CT denoising code releases, organised by year — convenient for locating the implementation behind a given paper."
+
+- name: Awesome Medical Imaging
+  url: https://github.com/fepegar/awesome-medical-imaging
+  type: list
+  note: "Broader medical image analysis resources: datasets, toolkits and pretrained models that are frequently reused in CT pipelines."
+
+# ---------------------------------------------------------------- physics reference tables
+- name: X-Ray Data Booklet
+  url: https://xdb.lbl.gov/
+  type: tool
+  note: "**LBNL.** The standard quick reference for X-ray properties of the elements — absorption edges, fluorescence yields and scattering cross-sections. The first place to look when a simulation needs a physical constant."
+
+- name: NIST X-Ray Mass Attenuation Coefficients
+  url: https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients
+  type: tool
+  note: "**NIST.** Authoritative tabulation of mu/rho and mu_en/rho across the periodic table. What XrayPhysics and SpekPy are internally calibrated against — useful whenever you need to sanity-check a polychromatic model."
+
+# ---------------------------------------------------------------- Chinese-language references
+- name: CT Principles and Algorithms
+  url: https://www.google.com/search?q=%E5%BA%84%E5%A4%A9%E6%88%88+CT%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%97%E6%B3%95
+  type: book
+  note: "庄天戈. The Chinese-language introduction to CT principles and algorithms; widely used as a first course text and the natural entry point for readers who prefer Chinese."
+
+- name: Industrial CT Technology and Principles
+  url: https://www.google.com/search?q=%E5%BC%A0%E6%9C%9D%E5%AE%97+%E5%B7%A5%E4%B8%9ACT%E6%8A%80%E6%9C%AF%E5%92%8C%E5%8E%9F%E7%90%86
+  type: book
+  note: "张朝宗. The reference for industrial (non-destructive-testing) CT — geometry, sources, detectors and artefact sources on the industrial side, where the medical textbooks stop."
+
+- name: Medical Tomographic Image Reconstruction Simulation Experiments
+  url: https://www.google.com/search?q=%E9%BB%84%E5%8A%9B%E5%AE%87+%E5%8C%BB%E5%AD%A6%E6%96%AD%E5%B1%82%E5%9B%BE%E5%83%8F%E9%87%8D%E5%BB%BA%E4%BB%BF%E7%9C%9F%E5%AE%9E%E9%AA%8C
+  type: book
+  note: "黄力宇. A hands-on Chinese-language lab manual: builds each reconstruction algorithm as a simulation experiment rather than presenting it as theory."

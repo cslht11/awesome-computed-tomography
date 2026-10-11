@@ -1,0 +1,103 @@
+papers total            : 240
+
+A. top conference              44  ( 18.3%)
+B. flagship journal            98  ( 40.8%)
+C. other peer-reviewed venue   35  ( 14.6%)
+D. preprint + code              6  (  2.5%)
+E. preprint, no code           57  ( 23.8%)
+
+venue-backed            : 177 / 240  (73.8%)
+preprint-only           : 63 / 240  (26.2%)
+
+E tail: 2025-2026 (frontier) 46 | pre-2025 (weak tail) 11
+
+== C tier venues (what 'other peer-reviewed' covers) ==
+  ASARI                  1
+  BHI                    1
+  BJR|AI                 1
+  CAIP                   1
+  CVPRW                  1
+  DGM4MICCAI             2
+  DL4X-ray               1
+  Digital                1
+  Fully3D                2
+  GCPR                   1
+  ICCVW                  1
+  ICIAP                  1
+  ICIFXCT                1
+  ICSP                   1
+  IEEE Access            3
+  IEEE JSAIT             1
+  IJCNN                  1
+  J. Phys. Soc. Jpn.     1
+  JDI                    1
+  MICAD                  1
+  MLMIR                  1
+  Off-Grid Workshop      1
+  SC Workshops           1
+  SPIE DXRT              1
+  SPIE MI                4
+  SSVM                   1
+  TIM                    1
+  Tomography             1
+
+== E, pre-2025 (the only real candidate for pruning) ==
+  2018 statistical-image-reconstruction-using-mixed-poisson-gauss Statistical Image Reconstruction Using Mixed Poisson-Gaussia
+  2019 extreme-few-view-ct-reconstruction-using-deep-inference    Extreme Few-view CT Reconstruction using Deep Inference
+  2020 2-step-sparse-view-ct-reconstruction-with-a-domain-specifi 2-Step Sparse-View CT Reconstruction with a Domain-Specific 
+  2020 learned-convex-regularizers-for-inverse-problems           Learned convex regularizers for inverse problems
+  2020 limited-view-tomographic-reconstruction-using-a-deep-recur Limited View Tomographic Reconstruction Using a Deep Recurre
+  2022 diffmed                                                    Diffusion Models for Medical Image Analysis: A Comprehensive
+  2022 low-dose-ct-using-denoising-diffusion-probabilistic-model- Low-Dose CT Using Denoising Diffusion Probabilistic Model fo
+  2022 snaf                                                       SNAF: Sparse-View CBCT Reconstruction with Neural Attenuatio
+  2022 uncertainr-uncertainty-quantification-of-end-to-end-implic UncertaINR: Uncertainty Quantification of End-to-End Implici
+  2024 baggagect                                                  Fan-Beam CT Reconstruction for Unaligned Sparse-View X-Ray B
+  2024 data-driven-filter-design-in-fbp-transforming-ct-reconstru Data-Driven Filter Design in FBP: Transforming CT Reconstruc
+
+== E, 2025-2026 (frontier, keep) ==
+  2026 anatomy-preserving-unpaired-cone-beam-ct-refinement-for-im Anatomy-preserving unpaired cone-beam CT refinement for imag
+  2026 cbct-based-synthetic-ct-generation-using-conditional-flow- CBCT-Based Synthetic CT Generation Using Conditional Flow Ma
+  2026 conditional-diffusion-posterior-alignment-for-sparse-view- Conditional Diffusion Posterior Alignment for Sparse-View CT
+  2026 cone-beam-artifact-reduction-in-gamma-knife-cbct-images-us Cone-beam artifact reduction in Gamma Knife CBCT images usin
+  2026 cone-beam-ct-image-quality-enhancement-using-a-latent-diff Cone-Beam CT Image Quality Enhancement Using A Latent Diffus
+  2026 continuity-driven-synergistic-diffusion-with-neural-priors Continuity-driven Synergistic Diffusion with Neural Priors f
+  2026 dual-domain-u-nets-with-embedded-back-projection-operators Dual-domain U-Nets with embedded back projection operators f
+  2026 gb-svfbp-gaussian-based-shift-variant-fbp-neural-network   GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network
+  2026 geometry-aware-diffusion-approximate-posterior-sampling-fo Geometry-Aware Diffusion Approximate Posterior Sampling for 
+  2026 haru-net-hybrid-attention-residual-u-net-for-edge-preservi HARU-Net: Hybrid Attention Residual U-Net for Edge-Preservin
+  2026 ilv-iterative-latent-volumes-for-fast-and-accurate-sparse- ILV: Iterative Latent Volumes for Fast and Accurate Sparse-V
+  2026 integration-of-spectral-ct-with-pet-and-spect-bringing-tis Integration of Spectral CT with PET and SPECT: Bringing Tiss
+  2026 joint-decoupled-iterative-cbct-reconstruction-with-hybrid- Joint-decoupled iterative CBCT reconstruction with hybrid sc
+  2026 learning-where-and-what-to-lift-for-bi-planar-x-ray-to-ct- Learning Where and What to Lift for Bi-planar X-ray-to-CT Re
+  2026 lucid-learned-undersampling-adaptive-consistency-guided-in LUCID: Learned Undersampling-Adaptive Consistency-Guided Inf
+  2026 mgmar-metal-guided-metal-artifact-reduction-for-x-ray-comp MGMAR: Metal-Guided Metal Artifact Reduction for X-ray Compu
+  2026 non-circular-scan-trajectories-for-reducing-cone-beam-arti Non-circular scan trajectories for reducing cone-beam artifa
+  2026 projection-volume-fidelity-divergence-diagnosing-and-contr Projection-Volume Fidelity Divergence: Diagnosing and Contro
+  2026 radioactive-3d-gaussian-ray-tracing-for-tomographic-recons Radioactive 3D Gaussian Ray Tracing for Tomographic Reconstr
+  2026 texture-preserving-implicit-neural-representation-for-cone Texture-preserving implicit neural representation for Cone b
+  2026 toward-ct-equivalent-image-quality-in-low-dose-radiotherap Toward CT-Equivalent Image Quality in Low-Dose Radiotherapy 
+  2026 towards-reconstructing-experimental-sparse-view-x-ray-ct-d Towards reconstructing experimental sparse-view X-ray CT dat
+  2025 a-ct-geometry-with-multiple-centers-of-rotation-for-solvin A CT Geometry With Multiple Centers Of Rotation For Solving 
+  2025 a-learnt-half-quadratic-splitting-based-algorithm-for-fast A Learnt Half-Quadratic Splitting-Based Algorithm for Fast a
+  2025 accelerated-optimization-of-implicit-neural-representation Accelerated Optimization of Implicit Neural Representations 
+  2025 an-iterative-reconstruction-method-for-dental-cone-beam-co An Iterative Reconstruction Method for Dental Cone-Beam Comp
+  2025 data-efficient-limited-angle-ct-using-deep-priors-and-regu Data-Efficient Limited-Angle CT Using Deep Priors and Regula
+  2025 diffnaf                                                    Iterative Diffusion-Refined Neural Attenuation Fields for Mu
+  2025 dvg-diffusion-dual-view-guided-diffusion-model-for-ct-reco DVG-Diffusion: Dual-View Guided Diffusion Model for CT Recon
+  2025 enhancing-synthetic-ct-from-cbct-via-multimodal-fusion-a-s Enhancing Synthetic CT from CBCT via Multimodal Fusion: A St
+  2025 equivariant-multiscale-learned-invertible-reconstruction-f Equivariant Multiscale Learned Invertible Reconstruction for
+  2025 ganext-a-fully-convnext-enhanced-generative-adversarial-ne GANeXt: A Fully ConvNeXt-Enhanced Generative Adversarial Net
+  2025 latent-space-consistency-for-sparse-view-ct-reconstruction Latent Space Consistency for Sparse-View CT Reconstruction
+  2025 limited-angle-cbct-reconstruction-via-geometry-integrated- Limited-Angle CBCT Reconstruction via Geometry-Integrated Cy
+  2025 mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-con MInDI-3D: Iterative Deep Learning in 3D for Sparse-view Cone
+  2025 monstr-model-oriented-neutron-strain-tomographic-reconstru MONSTR: Model-Oriented Neutron Strain Tomographic Reconstruc
+  2025 neural-discrete-representation-learning-for-sparse-view-cb Neural Discrete Representation Learning for Sparse-View CBCT
+  2025 nonperiodic-dynamic-ct-reconstruction-using-backward-warpi Nonperiodic dynamic CT reconstruction using backward-warping
+  2025 ordered-subsets-multi-diffusion-model-for-sparse-view-ct-r Ordered-subsets Multi-diffusion Model for Sparse-view CT Rec
+  2025 physics-inspired-gaussian-kolmogorov-arnold-networks-for-x Physics-Inspired Gaussian Kolmogorov-Arnold Networks for X-r
+  2025 prior-adapted-progressive-time-resolved-cbct-reconstructio Prior-Adapted Progressive Time-Resolved CBCT Reconstruction 
+  2025 projection-embedded-diffusion-bridge-for-ct-reconstruction Projection Embedded Diffusion Bridge for CT Reconstruction f
+  2025 time-resolved-dynamic-cbct-reconstruction-using-prior-mode Time-resolved dynamic CBCT reconstruction using prior-model-
+  2025 ultrafast-deep-learning-based-scatter-estimation-in-cone-b Ultrafast Deep Learning-Based Scatter Estimation in Cone-Bea
+  2025 zero-shot-ct-super-resolution-using-diffusion-based-2d-pro Zero-shot CT Super-Resolution using Diffusion-based 2D Proje
+  2025 zero-shot-low-dose-ct-denoising-via-sinogram-flicking      Zero-Shot Low-dose CT Denoising via Sinogram Flicking

@@ -1,0 +1,36 @@
+<!-- title: About -->
+<!-- description: What Awesome Computed Tomography is, how entries are chosen and verified, and how the content may be reused. -->
+<p class="kicker">About</p>
+<h1>About this list</h1>
+<p class="lede">Awesome Computed Tomography is an independent, hand-curated map of research on CT image reconstruction: the papers, open-source toolkits, datasets, benchmarks and learning material a researcher needs to find their way into the field, kept in one place and checked by hand.</p>
+
+<h2>What it covers</h2>
+<p>The list currently holds {{N_PAPERS}} papers from {{YEAR_MIN}} to {{YEAR_MAX}}, {{N_TOOLKITS}} toolkits, {{N_DATASETS}} datasets, {{N_BENCHMARKS}} benchmarks and {{N_LEARNING}} learning resources. Papers are grouped by problem (sparse-view, limited-angle, low-dose, metal artifacts, spectral, cone-beam, dynamic and 4D CT, scatter, calibration and motion) and by method family (classical and iterative solvers, deep unrolling, self-supervised methods, diffusion and generative priors, implicit neural representations, Gaussian splatting).</p>
+<p>It is a reading list, not a database of everything. An entry is included because it is useful to someone working on CT reconstruction: a method people build on, a strong baseline, a dataset or benchmark that results are reported on, or a clear introduction.</p>
+
+<h2>How entries are verified</h2>
+<ul>
+  <li><strong>Identity.</strong> Every paper link is resolved against Crossref, arXiv or the publisher’s own record, and the title is matched against that record, so an entry cannot quietly point at a different paper.</li>
+  <li><strong>Venue.</strong> {{N_PEER}} papers ({{PEER_PCT}}%) carry a peer-reviewed venue, confirmed from the DOI rather than from search results. The other {{N_PREPRINT}} are marked <em>preprint</em> and dated by their first public posting.</li>
+  <li><strong>Links.</strong> Every URL is checked. Code links point at the authors’ own repositories where they exist.</li>
+</ul>
+<p>Checks catch broken links and mismatched records, not every mistake. A venue, a year or a category can still be wrong. If a detail matters for your work, follow the link and rely on the original paper.</p>
+
+<h2>What it is not</h2>
+<p>An entry is a pointer to someone else’s work, never a copy of it. Titles, venues and links are facts about papers that belong to their authors and publishers; inclusion is not an endorsement by them, and is not a claim that results have been reproduced here. Nothing on this site is medical advice.</p>
+
+<h2>Maintenance</h2>
+<p>The list is curated and maintained by its authors and updated continuously, with new arXiv papers, corrected venues and repaired links. It does not accept outside pull requests. Suggestions and corrections are welcome through the <a href="{{ROOT}}contact/">contact page</a>, and each one is checked before anything is added.</p>
+<p>The same data is published as the <a href="{{REPO_URL}}" target="_blank" rel="noopener">GitHub README</a> and as <a href="{{ROOT}}data.json">data.json</a>. Both are generated from the same source files, so they never disagree with this site.</p>
+
+<h2>Licence and reuse</h2>
+<p>The content (the curated records, the README and this website) is licensed under <a href="{{CONTENT_LICENSE_URL}}" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>:</p>
+<ul>
+  <li><strong>Attribution.</strong> Credit “Awesome Computed Tomography” and link to computedtomography.org.</li>
+  <li><strong>NonCommercial.</strong> No commercial use. For commercial use, email <a href="mailto:heitieya@163.com">heitieya@163.com</a> first.</li>
+  <li><strong>ShareAlike.</strong> If you adapt the list, share your version under the same licence.</li>
+</ul>
+<p>The site’s code is MIT. Licence columns in the toolkit and dataset tables describe those projects, not this list.</p>
+
+<h2>Citing</h2>
+<p>The list changes continuously, so cite a fixed snapshot: the repository URL together with a commit hash, or the page URL with the date you accessed it.</p>

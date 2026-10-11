@@ -1,0 +1,29 @@
+CERN/TIGRE	812	MATLAB	BSD-3-Clause	2026-09-29	false	TIGRE: Tomographic Iterative GPU-based Reconstruction Toolbox
+astra-toolbox/astra-toolbox	637	C++	GPL-3.0	2026-08-10	false	ASTRA Tomography Toolbox
+cicwi/tomosipo	107	Python	GPL-3.0	2026-07-28	false	A library for painless 3D tomographic reconstruction
+odlgroup/odl	434	Python	MPL-2.0	2026-03-11	false	Operator Discretization Library  https://odl.readthedocs.io/
+deepinv/deepinv	827	Python	BSD-3-Clause	2026-10-06	false	DeepInverse: a PyTorch library for solving imaging inverse problems using deep learning
+matteo-ronchetti/torch-radon	280	Python	GPL-3.0	2023-09-22	false	Computational Tomography in PyTorch
+llnl/LEAP	254	Cuda	MIT	2026-07-25	false	comprehensive library of 3D transmission Computed Tomography (CT) algorithms with Python and C++ API
+tomopy/tomopy	397	Python	NOASSERTION	2025-10-03	false	Tomographic Reconstruction in Python
+analysiscenter/radio	227	Jupyter Notebook	Apache-2.0	2022-01-21	false	RadIO is a library for data science research of computed tomography imaging
+cabouman/svmbir	28	C	BSD-3-Clause	2026-09-27	false	Fast code for parallel or fan beam tomographic reconstruction
+djvine/pySART	33	Python	GPL-2.0	2013-11-03	false	Tomographic reconstruction using the Simultaneous Algebraic Reconstruction Technique (SART) implemen
+tatsy/libcbct	10	C++	NOASSERTION	2025-11-24	false	Cone-beam CT reconstruction library.
+ufo-kit/tofu	20	Python	LGPL-3.0	2026-09-15	false	Helper scripts for tomographic reconstruction using the ufo-core framework
+villekf/OMEGA	111	MATLAB	GPL-3.0	2026-10-08	false	Open-source multi-dimensional tomographic reconstruction software (OMEGA)
+{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/repos#get-a-repository","status":"404"}
+{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/repos#get-a-repository","status":"404"}
+PyTomography/PyTomography	173	Python	MIT	2026-10-09	false	This repository enables easy and fast medical image reconstruction in Python.
+RTKConsortium/RTK	298	C++	Apache-2.0	2026-10-08	false	Reconstruction Toolkit
+{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/repos#get-a-repository","status":"404"}
+CambridgeCIA/LION	63	Python	GPL-3.0	2026-09-29	false	Learned Iterative Optimization Networks
+{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/repos#get-a-repository","status":"404"}
+{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/repos#get-a-repository","status":"404"}
+{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/repos#get-a-repository","status":"404"}
+{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/repos#get-a-repository","status":"404"}
+pydicom/pydicom	2219	Python	NOASSERTION	2026-10-05	false	Read, modify and write DICOM files with python code
+Project-MONAI/MONAI	8760	Python	Apache-2.0	2026-10-08	false	AI Toolkit for Healthcare Imaging
+scikit-image/scikit-image	6607	Python	NOASSERTION	2026-10-08	false	Image processing in Python
+SimpleITK/SimpleITK	1091	C++	Apache-2.0	2026-10-09	false	SimpleITK: a layer built on top of the Insight Toolkit (ITK), intended to simplify and facilitate IT
+CERN/TIGRE	812	MATLAB	BSD-3-Clause	2026-09-29	false	TIGRE: Tomographic Iterative GPU-based Reconstruction Toolbox

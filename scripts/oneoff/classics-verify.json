@@ -1,0 +1,421 @@
+[
+  {
+    "key": "alvarez1976",
+    "topics": [
+      "spectral"
+    ],
+    "local_title": "Energy-selective reconstructions in X-ray computerised tomography",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Energy-selective reconstructions in X-ray computerised tomography",
+      "doi": "10.1088/0031-9155/21/5/002",
+      "year": 1976,
+      "container": "Physics in Medicine &amp; Biology",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Energy-selective reconstructions in X-ray computerised tomography",
+      "doi": "10.1088/0031-9155/21/5/002",
+      "year": 1976,
+      "container": "Physics in Medicine &amp; Biology",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "elbakri2002",
+    "topics": [
+      "spectral"
+    ],
+    "local_title": "Statistical image reconstruction for polyenergetic X-ray computed tomography",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Statistical image reconstruction for polyenergetic X-ray computed tomography",
+      "doi": "10.1109/42.993128",
+      "year": 2002,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Statistical image reconstruction for polyenergetic X-ray computed tomography",
+      "doi": "10.1109/42.993128",
+      "year": 2002,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "deman2001",
+    "topics": [
+      "spectral"
+    ],
+    "local_title": "An iterative maximum-likelihood polychromatic algorithm for CT",
+    "search_best": {
+      "sim": 1.0,
+      "title": "An iterative maximum-likelihood polychromatic algorithm for CT",
+      "doi": "10.1109/42.959297",
+      "year": 2001,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "An iterative maximum-likelihood polychromatic algorithm for CT",
+      "doi": "10.1109/42.959297",
+      "year": 2001,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "roessl2007",
+    "topics": [
+      "spectral"
+    ],
+    "local_title": "K-edge imaging in x-ray computed tomography using multi-bin photon counting detectors",
+    "search_best": {
+      "sim": 1.0,
+      "title": "K-edge imaging in x-ray computed tomography using multi-bin photon counting detectors",
+      "doi": "10.1088/0031-9155/52/15/020",
+      "year": 2007,
+      "container": "Physics in Medicine and Biology",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "K-edge imaging in x-ray computed tomography using multi-bin photon counting detectors",
+      "doi": "10.1088/0031-9155/52/15/020",
+      "year": 2007,
+      "container": "Physics in Medicine and Biology",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "schlomka2008",
+    "topics": [
+      "spectral"
+    ],
+    "local_title": "Experimental feasibility of multi-energy photon-counting K-edge imaging in pre-clinical computed tomography",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Experimental feasibility of multi-energy photon-counting K-edge imaging in pre-clinical computed tomography",
+      "doi": "10.1088/0031-9155/53/15/002",
+      "year": 2008,
+      "container": "Physics in Medicine and Biology",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Experimental feasibility of multi-energy photon-counting K-edge imaging in pre-clinical computed tomography",
+      "doi": "10.1088/0031-9155/53/15/002",
+      "year": 2008,
+      "container": "Physics in Medicine and Biology",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "mccollough2015",
+    "topics": [
+      "spectral"
+    ],
+    "local_title": "Dual- and Multi-Energy CT: Principles, Technical Approaches, and Clinical Applications",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Dual- and Multi-Energy CT: Principles, Technical Approaches, and Clinical Applications",
+      "doi": "10.1148/radiol.2015142631",
+      "year": 2015,
+      "container": "Radiology",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Dual- and Multi-Energy CT: Principles, Technical Approaches, and Clinical Applications",
+      "doi": "10.1148/radiol.2015142631",
+      "year": 2015,
+      "container": "Radiology",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "siewerdsen2001",
+    "topics": [
+      "scatter",
+      "cbct"
+    ],
+    "local_title": "Cone-beam computed tomography with a flat-panel imager: magnitude and effects of x-ray scatter",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Cone-beam computed tomography with a flat-panel imager: Magnitude and effects of x-ray scatter",
+      "doi": "10.1118/1.1339879",
+      "year": 2001,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Cone-beam computed tomography with a flat-panel imager: Magnitude and effects of x-ray scatter",
+      "doi": "10.1118/1.1339879",
+      "year": 2001,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "zbijewski2006",
+    "topics": [
+      "scatter"
+    ],
+    "local_title": "Efficient Monte Carlo based scatter artifact reduction in cone-beam micro-CT",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Efficient Monte Carlo based scatter artifact reduction in cone-beam micro-CT",
+      "doi": "10.1109/tmi.2006.872328",
+      "year": 2006,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Efficient Monte Carlo based scatter artifact reduction in cone-beam micro-CT",
+      "doi": "10.1109/tmi.2006.872328",
+      "year": 2006,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "zhu2006",
+    "topics": [
+      "scatter"
+    ],
+    "local_title": "Scatter correction method for X-ray CT using primary modulation: theory and preliminary results",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Scatter Correction Method for X-Ray CT Using Primary Modulation: Theory and Preliminary Results",
+      "doi": "10.1109/tmi.2006.884636",
+      "year": 2006,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Scatter Correction Method for X-Ray CT Using Primary Modulation: Theory and Preliminary Results",
+      "doi": "10.1109/tmi.2006.884636",
+      "year": 2006,
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "ruhrnschopf2011b",
+    "topics": [
+      "scatter"
+    ],
+    "local_title": "A general framework and review of scatter correction methods in x-ray cone-beam computerized tomography. Part 2: Scatter artifact correction approaches",
+    "search_best": {
+      "sim": 0.818,
+      "title": "A general framework and review of scatter correction methods in x‐ray cone‐beam computerized tomography. Part 1: Scatter compensation approaches",
+      "doi": "10.1118/1.3599033",
+      "year": 2011,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "status": "reject"
+  },
+  {
+    "key": "maier2019",
+    "topics": [
+      "scatter"
+    ],
+    "local_title": "Real-time scatter estimation for medical CT using the deep scatter estimation: method and robustness analysis with respect to different anatomies, dose levels, tube voltages, and data truncation",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Real‐time scatter estimation for medical CT using the deep scatter estimation: Method and robustness analysis with respect to different anatomies, dose levels, tube voltages, and data truncation",
+      "doi": "10.1002/mp.13274",
+      "year": 2018,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Real‐time scatter estimation for medical CT using the deep scatter estimation: Method and robustness analysis with respect to different anatomies, dose levels, tube voltages, and data truncation",
+      "doi": "10.1002/mp.13274",
+      "year": 2018,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "sonke2005",
+    "topics": [
+      "dynamic",
+      "cbct"
+    ],
+    "local_title": "Respiratory correlated cone beam CT",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Respiratory correlated cone beam CT",
+      "doi": "10.1118/1.1869074",
+      "year": 2005,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Respiratory correlated cone beam CT",
+      "doi": "10.1118/1.1869074",
+      "year": 2005,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "chen2008piccs",
+    "topics": [
+      "dynamic"
+    ],
+    "local_title": "Prior image constrained compressed sensing (PICCS): a method to accurately reconstruct dynamic CT images from highly undersampled projection data sets",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Prior image constrained compressed sensing (PICCS): A method to accurately reconstruct dynamic CT images from highly undersampled projection data sets",
+      "doi": "10.1118/1.2836423",
+      "year": 2008,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Prior image constrained compressed sensing (PICCS): A method to accurately reconstruct dynamic CT images from highly undersampled projection data sets",
+      "doi": "10.1118/1.2836423",
+      "year": 2008,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "leng2008",
+    "topics": [
+      "dynamic",
+      "cbct"
+    ],
+    "local_title": "High temporal resolution and streak-free four-dimensional cone-beam computed tomography",
+    "search_best": {
+      "sim": 1.0,
+      "title": "High temporal resolution and streak-free four-dimensional cone-beam computed tomography",
+      "doi": "10.1088/0031-9155/53/20/006",
+      "year": 2008,
+      "container": "Physics in Medicine and Biology",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "High temporal resolution and streak-free four-dimensional cone-beam computed tomography",
+      "doi": "10.1088/0031-9155/53/20/006",
+      "year": 2008,
+      "container": "Physics in Medicine and Biology",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "rit2009",
+    "topics": [
+      "dynamic"
+    ],
+    "local_title": "On-the-fly motion-compensated cone-beam CT using an a priori model of the motion",
+    "search_best": {
+      "sim": 0.929,
+      "title": "On-the-Fly Motion-Compensated Cone-Beam CT Using an a Priori Motion Model",
+      "doi": "10.1007/978-3-540-85988-8_87",
+      "year": 2008,
+      "container": "Lecture Notes in Computer Science",
+      "type": "book-chapter"
+    },
+    "doi_readback": {
+      "sim": 0.929,
+      "title": "On-the-Fly Motion-Compensated Cone-Beam CT Using an a Priori Motion Model",
+      "doi": "10.1007/978-3-540-85988-8_87",
+      "year": 2008,
+      "container": "Lecture Notes in Computer Science",
+      "type": "book-chapter"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "gao2013",
+    "topics": [
+      "dynamic"
+    ],
+    "local_title": "Four-dimensional cone beam CT via spatiotemporal tensor framelet",
+    "search_best": {
+      "sim": 0.7,
+      "title": "4D cone beam CT via spatiotemporal tensor framelet",
+      "doi": "10.1118/1.4762288",
+      "year": 2012,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "status": "reject"
+  },
+  {
+    "key": "bergner2009",
+    "topics": [
+      "dynamic"
+    ],
+    "local_title": "An investigation of 4D cone-beam CT algorithms for slowly rotating scanners",
+    "search_best": {
+      "sim": 1.0,
+      "title": "An investigation of 4D cone‐beam CT algorithms for slowly rotating scanners",
+      "doi": "10.1118/1.3480986",
+      "year": 2010,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "An investigation of 4D cone‐beam CT algorithms for slowly rotating scanners",
+      "doi": "10.1118/1.3480986",
+      "year": 2010,
+      "container": "Medical Physics",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  },
+  {
+    "key": "lixing2007",
+    "topics": [
+      "dynamic"
+    ],
+    "local_title": "Optimizing 4D cone-beam CT acquisition protocol for external beam radiotherapy",
+    "search_best": {
+      "sim": 1.0,
+      "title": "Optimizing 4D cone-beam CT acquisition protocol for external beam radiotherapy",
+      "doi": "10.1016/j.ijrobp.2006.10.024",
+      "year": 2007,
+      "container": "International Journal of Radiation Oncology*Biology*Physics",
+      "type": "journal-article"
+    },
+    "doi_readback": {
+      "sim": 1.0,
+      "title": "Optimizing 4D cone-beam CT acquisition protocol for external beam radiotherapy",
+      "doi": "10.1016/j.ijrobp.2006.10.024",
+      "year": 2007,
+      "container": "International Journal of Radiation Oncology*Biology*Physics",
+      "type": "journal-article"
+    },
+    "status": "ACCEPT"
+  }
+]

@@ -1,0 +1,431 @@
+0w0n2/ct-fbp-reconstruction	1	C++	-	2025-06-16	false	Gray scale 이미지로 촬영한 CT Tomograpy 이미지로부터 sinogram을 생성한 후, Back Projection과 Filtered Back Projection을 적용한 단층 촬영 	back-projection,ct-reconstruction,filtered-back-projection
+AdamRountrey/back-and-forth-releases	0	-	MIT	2026-08-31	false	Official Windows releases and user documentation for back-and-forth CT reconstruction software.	ct-reconstruction,micro-ct,nikon,scientific-software,windows
+Ademsk1/tomographicReconstruction	0	Python	-	2022-09-05	false	Tomographic reconstruction technique using MLEM with dampening fibres as the medium of signal transfer.	
+AlbertZhangHIT/torch-radon	12	Python	MIT	2020-08-31	false	Implementation of radon transform for pytorch	
+AnderBiguri/PhDThesis	41	TeX	-	2019-01-21	false	A.Biguri PhD thesis: Iterative Reconstruction and Motion compensation in Computed Tomography on GPUs	gpu,motion-compensation,thesis,tigre-toolbox,tomography
+Anjinpeng/4DCT	2	Python	-	2026-03-02	false	 DSV-CTGS：Dynamic Sparse-view CT Reconstruction  based on Gaussian Splatting and Prior Transfer.	
+Apoorva0607/CBCT	37	Matlab	-	2018-04-02	false	3D Cone beam CT reconstruction	cone-beam-ct,ct-reconstruction,fdk-ct,image-reconstruction,medical-imaging
+BARUD77/CT_MetalArtifactReduction	2	Python	-	2024-07-05	false	This repository is for experimenting with deep learning based metal artifact reduction.	
+Benny0323/Flow-MAR-Project-Page	0	HTML	-	2026-09-26	false	The project page of our under-reviewed paper titled "Flow-MAR: One-Step Consistency Flow with Projection-Aware	
+BoyangW/ImageReconstruction	0	Python	-	2026-05-26	false	Initial sparse-view CT reconstruction prototype	
+CERN/TIGRE	812	MATLAB	BSD-3-Clause	2026-09-29	false	TIGRE: Tomographic Iterative GPU-based Reconstruction Toolbox	cuda,gpus,image-reconstruction,matlab,python,tigre,tomography,toolbox,x-ray
+Cardiac-MR-Group-Lund/segment-open	82	MATLAB	NOASSERTION	2026-05-11	false	Segment Source Distribution	cardiac,cardiac-dynamics,cardiac-segmentation,computed-tomography,computedtomography,image-analysis,image-analysis-and-processing,image-analysis-workflows,image-processing,magnetic-resonance-imaging,matlab,matlab-gui,matlab-interface,medical,medical-image-processing,medical-imaging,plugin,plugin-system,plugins,segmentation
+ChairChandler/Computer-Tomography-Simulation	3	Python	GPL-3.0	2020-03-30	true	Computer Tomography simulation using radon transform.	computed-tomography,computer-tomograpy,ct,dicom,medical-informatics,numpy,pydicom,pyside2,python,python-3,python-3-6,radon-transform,simulation,sinogram,sinogram-viewer,skimage,tomography-simulation
+CtPeng-USTC-ND/An-Irregular-Metal-Trace-Inpainting-Network-for-X-ray-CT-Metal-Artifact-Reduction	8	Jupyter Notebook	-	2020-10-04	false	-	
+CyberHuman777/Sparse-Views-CT-Reconstruction	0	-	-	2024-05-24	false	-	
+DIAL-RPI/KAMP-Net	13	Python	MIT	2020-08-30	false	Deep learning for mortality prediction from low-dose CT images	
+DM4CT/DM4CT	31	Python	-	2026-04-09	false	Code for ICLR2026 paper - DM4CT: Benchmarking Diffusion Models for Computed Tomography Reconstruction	ct-reconstruction,diffusion-models
+Deep-Imaging-Group/ASSIST	8	MATLAB	-	2019-03-27	false	Spectral CT Reconstruction -- ASSIST: Aided by Self-Similarity in Image-Spectral Tensors	
+DeepXuan/DuDoDp-MAR	83	Python	-	2023-12-08	false	Official implementation of the paper "Unsupervised CT Metal Artifact Reduction by Plugging Diffusion Priors in	
+DiamondLightSource/discorpy	93	Python	Apache-2.0	2026-04-17	false	Camera calibration with sub-pixel accuracy: https://discorpy.readthedocs.io/	camera-calibration,distortion-correction,fisheye-camera,fisheye-undistorting,perspective-distortion,radial-distortion,tomography
+DrewLab/Whisker-Tracking	0	MATLAB	-	2019-01-19	false	Quantification of average whisker angle over time using the Radon transform	
+Dylan8527/NeRF-for-Sparse-view-CT	10	Python	MIT	2023-01-03	false	Try NeRF with CT:)	
+EFMCT/EFMCT	14	Python	-	2026-08-26	false	Code for MICCAI 2026 paper "Efficient Flow Matching for Sparse-View CT Reconstruction"	
+EO-College/tomography_tutorial	132	Jupyter Notebook	GPL-3.0	2026-09-23	false	A tutorial for Synthetic Aperture Radar Tomography	earth-observation,gdal,python,remote-sensing,sar,tomography
+FengleiFan/QAE	19	Python	Apache-2.0	2020-12-03	false	Quadratic Autoencoder based on new types of neurons and its application in low-dose CT	
+FirasGit/transformers_ct_reconstruction	18	Python	-	2023-10-16	false	This repository contains the code for our paper: Transformers for CT Reconstruction From Monoplanar and Biplan	
+GFP-1011/efficientLDCT	6	Python	MIT	2023-04-04	false	This is an efficient sparse-viw CT reconstruction algorithm from the paper "An efficient sinogram-domain fully	
+GeoscienceAustralia/hiperseis	61	Jupyter Notebook	GPL-3.0	2026-08-05	false	High Performance Seismologic Data and Metadata Processing System	geophysics,inversion,seismology,tomography
+GiuseppeSpathis/TomographicReconstruction	1	Jupyter Notebook	-	2025-06-02	true	-	
+Graeme-Lee/CDPIR	6	Python	-	2026-05-28	false	Officel code for TMI paper Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View	
+Hallan99/offset-cone-beam-CT-reconstruction	3	Python	MIT	2026-02-23	false	Code to support: "Multi-contrast X-ray microtomography of human lung specimens with an extended field-of-view"	
+Hanqingliu-radiology/Sparse-view-CT-Reconstruction	0	MATLAB	-	2025-07-25	false	Python and Matlab	
+Haytham-ali/sparse-view-ct-reconstruction	1	Jupyter Notebook	-	2025-12-13	false	Deep learning–based sparse-view CT reconstruction using public or synthetic data.	
+Hzzone/DU-GAN	85	Jupyter Notebook	-	2021-11-03	false	DU-GAN: Generative Adversarial Networks with Dual-Domain U-Net Based Discriminators for Low-Dose CT Denoising	
+ILoveU3D/Algorithm-list-of-CT-reprojection	23	MATLAB	-	2022-02-09	false	Learn a series of implementation codes in the process of CT reconstruction / imaging.	ct,fbp,reprojection
+IPMI-ICNS-UKE/gdl-fire-4d	40	Python	GPL-3.0	2018-12-13	false	General deep learning-based fast image registration framework for clinical thoracic 4D CT data	computed-tomography,deep-learning,image-registration,radiotherapy
+IsoNet-cryoET/IsoNet	92	Python	MIT	2024-12-29	false	Self-supervised learning for isotropic cryoET reconstruction	cryo-em,cryo-et,cryoet,deep-learning,image-processing,inverse-problems,tomography
+IsoNet-cryoET/IsoNet2	40	Python	GPL-3.0	2026-06-25	false	IsoNet at higher resolution	cryo-em,cryo-et,cryoet,deep-learning,image-processing,inverse-problems,tomography
+JJ704sd/OpenGATE-Door	0	Python	-	2026-07-08	false	CT 真实患者腹部重建项目(v14 baseline)。端到端管线:FLARE22 NIfTI → HU 标定 → 5 能箱 Radon 投影 → FBP / SART / SART+TV 重建 → MAE / SSIM	computed-tomography,ct-reconstruction,flare22,image-reconstruction,medical-imaging,nifti,python,radon-transform,sart,tv-regularization
+Jayx-Wang/RDDM	8	Python	MIT	2026-05-28	false	Official implementation of RDDM for low-dose CT denoising	
+JeffFessler/MIRT.jl	126	Julia	MIT	2026-07-21	false	MIRT: Michigan Image Reconstruction Toolbox (Julia version)	image-reconstruction,inverse-problems,julia,k-space,lasso,mirt,mri,nufft,optimization-algorithms,sinogram,sparse-coding,tomography
+JueHo/CT-Recon	44	C++	NOASSERTION	2026-05-18	false	Tools for X-ray CT reconstruction	
+JuliaImageRecon/Sinograms.jl	17	Julia	MIT	2026-07-21	false	Julia library for working with sinograms / tomography / Radon transform	
+JuliaTomo/DeepReconstruction.jl	2	Julia	-	2020-10-27	false	Deep image prior for tomographic reconstruction	deep-image-prior,image-reconstruction,julia
+JustRacc00n/polmar	0	Python	NOASSERTION	2026-10-09	false	Two-stage CT metal artifact reduction: CircNet + U-Net Refiner	
+LAVI-USP/DBT-Reconstruction	62	MATLAB	GPL-3.0	2022-03-21	false	LAVI open-source reconstruction toolbox for digital breast tomosynthesis (DBT)	cuda,dbt,dbt-reconstruction,digital-breast-tomosynthesis,reconstruction,tomography,toolbox,x-ray
+LFY1998/IPDM-PyTorch	21	Jupyter Notebook	MIT	2025-03-26	false	Official implementation of paper  "Domain Progressive Low-dose CT Imaging using Iterative Partial Diffusion Mo	
+LMescheder/Radon.jl	3	Julia	NOASSERTION	2024-08-15	false	Simple package for performing radon transforms and back projection	
+LoraLinH/Awesome-CT-Reconstruction	241	-	-	2025-03-22	false	Awesome CT Reconstruction	computational-geometry,computed-tomography,ct,ct-reconstruction,medical-image-processing,medical-imaging
+LucaDeSiena/MuRAT	60	MATLAB	MIT	2026-10-08	false	A multi-resolution seismic attenuation tomography code - currently in its 4.0 release	absorption,attenuation,coda-attenuation,inversion,matlab,seismology,tomography,wave-attenuation
+MLI-lab/DeepDeWedge	56	Jupyter Notebook	BSD-2-Clause	2025-07-29	false	Self-supervised deep learning for denoising and missing wedge reconstruction of cryo-ET tomograms	cryo-et,deep-learning,denoising,missing-wedge,self-supervised-learning,tomography
+Masaaki-75/freeseed	27	Jupyter Notebook	-	2025-02-05	false	Official implementation of "FreeSeed: Frequency-band-aware and Self-guided Network for Sparse-view CT Reconstr	
+Masaaki-75/proct	27	Jupyter Notebook	MIT	2026-03-22	false	Official implementation of "Universal Incomplete-View CT Reconstruction with Prompted Contextual Transformer"	
+Mateo74/Tomographic-Reconstruction	0	TeX	-	2020-08-27	false	-	
+MatthewConnolly/ParticleSize	1	Matlab	-	2018-03-18	false	Code for determining particle size from x-ray tomography	
+Maxwell-Zhao/WI-LD2ND	28	Python	-	2024-10-22	false	Code for [MICCAI 2024] WIA-LD2ND: Wavelet-based Image Alignment for Self-supervised Low-Dose CT Denoising.	
+Medical-Imaging-Group/Convolutional-neural-networks-based-robust-Denoising-of-Low-Dose-Computed-Tomography-Perfusion-maps	6	MATLAB	-	2020-08-27	false	Denoising of low dose CT perfusion maps using Deep Learning	
+MehdiMahdaviara/2D-3D-UNet-for-GDL-segmentation	3	Python	-	2023-06-26	false	2D and 2D U-Net for multiphase segmentation of X-ray tomography of gas giffusion layers 	
+MeijiTian/Spener	17	Python	-	2025-05-18	false	[AAAI 2025] Unsupervised Self-prior Embedding Implicit Neural Respresentation for Iterative Sparse-View CT Rec	
+MeshInspector/MeshInspector	74	-	-	2026-09-17	false	Mesh processing application	3d,app,computed-tomography,cpp,cross-platform,distance-map,geometry,mesh,mesh-analysis,mesh-boolean,mesh-decimation,mesh-processing,mesh-registration,mesh-segmentation,mesh-smoothing,pointcloud,pointcloud-triangulation,python,voxel,voxel-segmentation
+Miguel-Alessio/Sparse-View-CT-Reconstruction	1	MATLAB	-	2026-05-22	false	-	
+Mihaiooo/MN-Sparse_view_ct_reconstruction	0	MATLAB	-	2026-09-30	false	First-year -- MATLAB project implementing sparse-view CT image reconstruction using Conjugate Gradient, IRLS a	
+MiiL07/X-rayTomography-StructuralAnalysis	0	Jupyter Notebook	MIT	2026-06-22	false	Python pipeline for quantifying the 3D microstructure of porous soft materials from X-ray micro-CT.	image-analysis,image-processing,micro-ct,microstructure,python,x-ray-tomography
+MuscleMap/MuscleMap	137	Python	MIT	2026-08-16	false	MuscleMap: An Open-Source, Community-Supported Consortium for Whole-Body Quantitative MRI of Muscle	3d-modeling,analysis,artificial-intelligence,automated,body-composition,cnn,computed-tomography,computer-vision,image-analysis-toolbox,image-segmentation,magnetic-resonance-imaging,muscle,muscle-model,muscles,open-science,open-source,python,pytorch,segmentation,segmentation-models
+NAIST-ICB/metal_artifact_simulation	47	MATLAB	MIT	2019-06-26	false	-	computed-tomography,metal-artifact,simulator
+Nadja1611/Sparse2Inverse-Self-supervised-inversion-of-sparse-view-CT-data	2	Python	-	2024-07-09	false	-	
+Naoki326/RadonTransform	3	C++	GPL-3.0	2019-09-29	false	采用傅里叶切片定理实现的快速Radon变换，并实现类似Matlab的峰值检测算法用于搜索直线，采用opencv及fftw库	
+NeelBhowmik/xray	139	-	MIT	2025-01-02	false	List of datasets and papers in X-ray security images (Computer vision/Machine Learning)	anomaly,anomaly-detection,artificial-intelligence,classification,cnn,computed-tomography,computer-vision,ct,datasets,deep-learning,gan,machine-learning,object-detection,papers,segmentation,threat-image-projection,tip,x-ray,x-ray-images
+Nicolik/Segm_Ident_Vertebrae_CNN_kmeans_knn	67	Python	GPL-3.0	2021-10-12	false	Segmentation and Identification of Vertebrae in CT Scans using CNN, k-means Clustering and k-NN	3d-convolutional-neural-network,computed-tomography,k-means-clustering,k-nearest-neighbors,spine-analysis,vertebrae-identification,vertebrae-segmentation
+Nioolek/UNAD	18	Python	MIT	2024-03-19	false	Official implementation of UNAD: Universal Anatomy-initialized Noise Distribution Learning Framework Towards L	
+OpenEIT/OpenEIT	266	Python	NOASSERTION	2025-07-22	false	Python based dashboard for real-time Electrical Impedance Tomography including image reconstruction using Back	biomedical-image-processing,biomedical-instrumentation,eit,electrical-impedance-tomography,image-reconstruction,inverse-problems,python,tomography
+PMEAL/porespy	424	Python	MIT	2026-10-04	false	A set of tools for characterizing and analyzing 3D images of porous materials	3d-images,image-analysis,porespy,porous-materials,porous-media,python,scientific-visualization,tomography,voxel-generator
+PaPieta/fact-gs	22	Python	NOASSERTION	2026-09-30	false	Fast and Scalable CT reconstruction with Gaussian Splatting (ECCV 2026)	
+Peanut-Git2/L1-HRLRT-RFs	2	-	-	2022-08-29	false	removing surface waves in RFs by using high-resolution Radon transform	
+QuanZhang97/pyradon	8	C	-	2023-10-17	false	This package is to use high-resolution Radon transform to regularize Receiver function data.	
+RI-imaging/cellsino	4	Python	BSD-3-Clause	2025-02-06	false	Python library for generating sinograms (phase and fluorescence) of cell phantoms for testing tomographic reco	
+RICKand-MORTY/MARMamba	7	Python	-	2026-03-18	false	Source code of "Balancing Efficiency and Restoration: Lightweight Mamba-Based Model for CT Metal Artifact Redu	
+RSBradley/TomoTools	8	Matlab	GPL-2.0	2016-09-20	false	A Matlab based GUI for processing of x-ray tomography data	
+RawthiL/PET_DeepAttCorrection	25	Python	MIT	2023-05-01	false	Whole Body Positron Emission Tomography Attenuation Correction Map Synthesizing using 3D Deep Networks	3d-pix2pix,3d-unet,attenuation-map,computed-tomography,gan,positron-emission-tomography
+Ruyi-Zha/naf_cbct	185	Python	MIT	2024-10-28	false	"Neural Attenuation Fields for Sparse-View CBCT Reconstruction" (MICCAI 2022 Oral)	3d-reconstruction,ct-reconstruction,instant-ngp,medical-imaging,nerf,neural-radiance-fields
+Ruyi-Zha/r2_gaussian	306	Python	NOASSERTION	2025-10-10	false	"Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction" (NeurIPS 2024)	3d-reconstruction,3dgs,ct-reconstruction,gaussian-splatting,volume-reconstruction,x-ray-images
+RyanJamesSchultz/Radon-Transform_Schultz-Gu	23	MATLAB	GPL-3.0	2023-11-10	false	We present two Matlab-based routines, Radon_inverse and Radon_forward, that perform discrete inverse and forwa	
+Ryosaeba8/Medical-Imaging-LOW-DOSE-CT-DENOISING	4	Jupyter Notebook	-	2020-04-30	false	DLMI PROJECT : LOW DOSE CT DENOISING	
+SABIR-ILYASS/Tomographic-reconstruction	1	MATLAB	MIT	2023-06-13	false	-	
+SLIM-MSU-repo/SparseViewCT-TCI	6	Python	-	2023-08-28	false	Source code for the paper "Sparse-view Cone Beam CT Reconstruction using Data-consistent Supervised and Advers	
+SPelto/Tomography	0	MATLAB	-	2019-12-17	false	Matlab codes for computing x-ray tomography	
+SSinyu/CycleGAN-CT-Denoising	44	Python	-	2020-12-14	false	Low Dose CT Image Denoising Using a Cycle-Consistent Adversarial Networks.	
+SSinyu/RED-CNN	270	Python	-	2020-11-25	false	Pytorch Implementation of Low-Dose CT with a Residual Encoder-Decoder Convolutional Neural Network (RED-CNN)	
+SSinyu/WGAN-VGG	148	Python	-	2020-11-17	false	Pytorch Implementation of Low Dose CT Image Denoising Using a Generative Adversarial Network with Wasserstein 	
+SURF-ML/3D-VQ-VAE-2	53	Python	-	2022-01-11	false	3D VQ-VAE-2 for high-resolution CT scan synthesis	3d,computed-tomography,generative-model,pixelcnn,pixelsnail,pytorch,pytorch-lightning,vq-vae-2
+SachaGERMAIN/Segmentation_Biopores	1	Python	-	2023-09-25	false	Unet++ 2D segmentation of biological pores in X-Ray tomography images of soil 	
+SanketD92/CT-Image-Reconstruction	96	MATLAB	-	2019-09-06	false	Computed Tomography Image Reconstruction Project using MATLAB	computed-tomography,image-processing,image-reconstruction,matlab,medical-image-processing,medical-imaging
+Sanssssssssssssssss/ct-mri-medical-imaging-workflows	0	Jupyter Notebook	MIT	2026-08-26	false	Reproducible CT reconstruction and MRI denoising workflows with docs, tests, Docker, and reports.	ct-reconstruction,image-reconstruction,jupyter-notebook,medical-imaging,mri-denoising,python
+SasiAlavala/3D-CBCT	0	Python	MIT	2023-12-15	false	Low-dose 3D cone-beam CT reconstruction	
+SilviaParaschiv/Sparse-View-CT-Reconstruction	0	MATLAB	-	2026-08-30	false	-	
+SimianLibrarian/vritra	3	Python	GPL-3.0	2022-02-14	false	Program to reconstruct and segment emulsions and foams from 2D slices from X-Ray tomography. It reconstructs, 	
+Slicer/Slicer	2652	C++	NOASSERTION	2026-10-08	false	Multi-platform, free open source software for visualization and image computing.	3d-printing,3d-slicer,c-plus-plus,computed-tomography,image-guided-therapy,image-processing,itk,kitware,medical-image-computing,medical-imaging,national-institutes-of-health,neuroimaging,nih,python,qt,registration,segmentation,tcia-dac,tractography,vtk
+StanfordMIMI/Comp2Comp	127	Python	Apache-2.0	2026-01-06	false	Computed tomography to body composition (Comp2Comp).	abdomen-ct,abdominal,body-composition,computed-tomography,segmentation
+Subhadip-1/data_driven_convex_regularization	10	Python	MIT	2021-04-15	false	A PyTorch implementation of the data-driven convex regularization approach for inverse problems	ct-reconstruction,deep-learning,inverse-problems
+SurriyaGokul/Sparse_View_CT	0	-	-	2025-05-07	false	-	
+SynthRAD2023/preprocessing	75	Python	GPL-3.0	2023-04-01	false	Preprocessing scripts: from dicom to aligned nitfy for SynthRAD2023 Grand Challenge	computed-tomography,cone-beam-ct,image-processing,medical-imaging,mri,radiotherapy
+THUINET501/ADMM-DRP	4	-	MIT	2025-08-20	false	An unsupervised sparse-view CT reconstruction framework using combination of iterative deep image prior and AD	
+THUINET501/DRP	10	Python	MIT	2025-08-20	false	Deep Radon Prior: A Fully Unsupervised Framework for Sparse-View CT Reconstruction	
+TISGroup/ZIP	1	Python	-	2024-10-02	false	Compression of Battery X-ray Tomography Data with Machine Learning	
+ToFuProject/tofu	88	Python	MIT	2026-09-25	false	Project for an open-source python library for synthetic diagnostics and tomography for Fusion devices	conda,data-visualization,diagnostics,fusion,imas,nuclear-fusion,open-source,physics,pip,plasma,plasma-diagnostics,plasma-physics,python,ray-tracing,raytracer,science-research,synthetic-diagnostics,tokamak,tomography,toolbox
+TomographicImaging/CCPi-Regularisation-Toolkit	63	C	Apache-2.0	2026-06-11	false	The set of CPU/GPU optimised regularisation modules for iterative image reconstruction and other image process	denoising,gpu,image-reconstruction,inverse-problems,iterative-reconstruction,reconstruction,regularisation,regularization,tomography
+TomographicImaging/CIL	155	Python	Apache-2.0	2026-10-08	false	A versatile python framework for tomographic imaging	optimisation,python,tomography
+TuanDangNguyen2003/X-ray-tomography-related	0	Python	-	2025-04-07	false	This will contain all the code and tsv files of Tuan's optional research project. 	
+UT-Austin-Data-Science-Group/HSW	7	Python	MIT	2023-02-16	false	Hierarchical Sliced Wasserstein distance is a metric between probability measures that utilizes Hierarchical R	
+UtharaS123/Tomographic-Reconstruction	0	Jupyter Notebook	-	2026-05-29	false	-	
+WangStephen/DL-limited-angle-CT-reconstruction	17	Python	MIT	2025-06-21	false	Master Thesis Project	
+WebxCT/WebCT	37	TypeScript	GPL-3.0	2025-10-22	false	Interactive Web UI for X-ray CT with Real-time Results	computed-tomography,ct,image-reconstruction,python,simulation,tomography,x-ray,xct
+Xiaoman896/Sparse2Noise	3	Python	MIT	2023-08-02	false	Low-dose synchrotron X-ray tomography without high-quality reference data	
+XieQi2015/IMAP-TV2-CT-Sinogram-Prepocessing	17	MATLAB	-	2020-08-16	false	Robust Low-dose CT Sinogram Prepocessing via Exploiting Noise-generating Mechanism	
+YB-Cheng/LIR-Net	4	Python	MIT	2024-04-18	false	Code and Model about Paper : 'LIR-Net：Learnable Iterative Reconstruction Network(Framework) for Sparse-View CT	
+YC-Markus/code-for-DDDM	19	Python	-	2023-07-21	false	code for DMDD: Diffusion Models on Dual Domains for Sparse-view CT Reconstruction	
+Youssef-Elshinnawi/Fan-Beam-Cone-Beam-CT-Reconstruction-FDK-ASTRA	1	Python	MIT	2026-08-07	false	From-scratch fan-beam and cone-beam (FDK) CT reconstruction in Python and C++, built on the ASTRA Toolbox and 	
+YuZitong/Radon-Transform-and-Inverse-Radon-Transform	24	MATLAB	-	2019-05-12	false	Radon Transform and Inverse Radon Transform	image,radon-transform,reconstruction
+YuhangLiu98/SDCNN	19	Python	-	2025-04-11	false	SDCNN: Self-Supervised Disentangled Convolutional Neural Network for Low-Dose  CT Denoising	
+YuzeGuoG/SparseViewCT-code-release	0	Jupyter Notebook	-	2026-05-06	false	-	
+aakashks/CT-Reconstruction-2D	1	Jupyter Notebook	MIT	2023-12-12	false	Python Implementation of Computed Tomography (CT) reconstruction for 2D images	computed-tomography,ct-reconstruction,numpy
+aakashks/CT-Reconstruction-3D	7	Python	MIT	2024-10-13	false	Performing 3D Cone Beam CT Reconstruction on GPU	computer-vision,cone-beam-ct,ct-reconstruction,imaging,linear-algebra,pytorch
+abdgafartunde/medical-imaging	0	Python	MIT	2026-07-12	false	Compressed sensing reconstruction for accelerated MRI and CT. Sparse-view and under-sampled image recovery usi	compressed-sensing,ct-reconstruction,inverse-problems,mri-reconstruction,python
+adamnpeace/learned-ct-reconstruction	1	Jupyter Notebook	-	2020-03-30	false	[WIP] Deep Learning and Inverse Problems (Research Conducted under Prof Simon Arridge)	
+adh182/ct-reconstruction	12	Python	-	2021-12-20	false	Python program and GUI to reconstruct CT image	computed,python,skimage,tkinter-gui,tomography
+adler-j/learned_gradient_tomography	97	Python	-	2021-11-12	false	Solving ill-posed inverse problems using iterative deep neural networks	inverse-problems,machine-learning,mathematics,odl,tomography
+adler-j/learned_primal_dual	110	Python	-	2019-06-23	false	Learned Primal-Dual Reconstruction	computed-tomography,inverse-problems,machine-learning,mathematics,odl,python,tomography
+ahmetemirdagi/CT-EditMAR	0	-	-	2026-04-06	false	Official Implementation of the CVPR 2026 Med-Reasoner paper "Leveraging Image Editing Foundation Models For Da	
+ajevnisek/Optimization---X-Ray-Tomography	0	Matlab	-	2018-04-20	false	This is Exercise 1 in Optimization Course @ TAU	
+ajinkyakadu/CoShaRP	3	MATLAB	MIT	2023-01-18	false	Convex Shape Recovery Program for Single-Shot X-ray Tomography	convex-optimization,imaging,shape,single-shot-detection,tomography
+alelouis/radon-transform	2	Jupyter Notebook	-	2022-11-05	false	Radon transform implementation in Rust and Python.	benckmark,python,radon,rust,transform
+algotom/algotom	69	Python	Apache-2.0	2026-09-08	false	Data processing algorithms for tomography: https://algotom.readthedocs.io	grid-scanning-tomography,half-acquisition-scan,helical-scan,image-processing,image-reconstruction,phase-contrast-imaging,phase-unwrapping,preprocessing-techniques,ring-artifact-removal,speckle-tracking,synchrotron-based-tomography,tomography,x-ray-imaging
+alidarbandi/TomoAnchor-V3	0	Python	-	2026-07-14	false	TomoAnchor V3 GPU-resident z-sharded TIGRE ADMM-GMRES cone-beam CT reconstruction software	admm,cone-beam-ct,ct-reconstruction,cuda,gmres,gpu,tigre,tomography
+alidarbandi/Tomoanchor-V2.0-GPU-based	0	Python	-	2026-06-14	false	TomoAnchor V2.0 GPU based cone-beam CT reconstruction software	
+amirfaraji/LowDoseCTPytorch	14	C++	-	2020-12-18	false	LoDoPaB-CT Grand Challenge Code	
+analysiscenter/radio	227	Jupyter Notebook	Apache-2.0	2022-01-21	false	RadIO is a library for data science research of computed tomography imaging	computed-tomography,data-science,deep-learning,machine-learning,medical-imaging,neural-networks,tensorflow
+andersteele/Cell-labelling	0	Python	MIT	2017-06-27	false	Deep convolutional neural network for segmenting X-ray tomography data of various animal cells	
+andreiii479/Sparse-View-CT-Reconstruction	0	MATLAB	-	2026-09-27	false	-	
+anduena2208/Sparse-View-CT-Reconstruction	0	MATLAB	-	2026-09-18	false	Sparse-view CT image reconstruction using custom iterative numerical solvers and regularization in MATLAB/Octa	
+aniketkt/CTSegNet	27	Jupyter Notebook	NOASSERTION	2021-05-16	false	CTSegNet is an end-to-end 3D segmentation package for large X-ray tomographic datasets using 2D fully convolut	3d-segmentation,computed-tomography,ct-scans,surface-detection,synchrotron,unet-image-segmentation
+arcaduf/gridding_method_minimal_oversampling	3	Python	-	2017-02-17	false	Gridding method with minimal oversampling for tomographic reconstruction	
+arcaduf/iterative_tomographic_reconstruction_algorithms	16	Python	-	2017-02-17	false	-	
+arttumiettinen/pi2	59	C++	GPL-3.0	2025-06-25	false	C++ library and command-line software for processing and analysis of terabyte-scale volume images locally or o	3d-images,bioimage-analysis,bioimage-informatics,bioimaging,brain-imaging,c-plus-plus,cluster-computing,computing-cluster,cross-platform,high-performance-computing,image-analysis,image-processing,non-rigid-registration,non-rigid-stitching,python,stitching,tomography
+avm-debatr/debisim2	28	Python	GPL-3.0	2023-05-14	false	A Python-based 3D CT Simulation library for single and dual energy X-ray image generation.  This library is de	baggage-xray,computed-tomography,simulation,x-ray-imaging
+axarekma/ncxt_psftomo	0	Jupyter Notebook	-	2025-02-18	false	Projection operators with PSF for x-ray tomography	
+ayserozan/ACSeg	0	-	-	2024-07-23	false	Automated 3D Cytoplasm Segmentation in Soft X-Ray Tomography	
+ayush-chauhan-1202/physics-aware-ct-reconstruction	1	Python	-	2026-01-15	false	Physics-aware cone-beam CT reconstruction from scratch using Python and PyTorch. Implements forward projection	computational-imaging,computer-vision,ct-reconstruction,gpu-acceleration,iterative-reconstruction,physics-informed-ml,pytorch,tomography
+bemoregt/gpRadonTransform	10	Makefile	-	2021-05-19	false	Radon Transform(Sinogram) of Image for Openframeworks.	angle,coordinate,fourier,hough,polar,projection,radon,reciprocal,reconstruction,rotation,sinogram,slice,theorem,transform
+berkanlafci/pyruct	48	Python	MIT	2023-06-11	false	Python Package for Reflection Ultrasound Computed Tomography (RUCT) Delay And Sum (DAS) Algorithm	beamforming,computed-tomography,delay-and-sum,ultrasound
+bijiuni/CT_reconstruction	24	Matlab	MIT	2018-10-18	false	Radon Transform CT image reconstruction using Fourier Filtered Backprojection	
+biswajitcsecu/Visual-Enhancement-of-X-ray-Tomography	2	C++	GPL-3.0	2018-09-18	false	Visual Enhancement of X-ray Tomography Aid to Interpretation of Pneumonia Malformation via Intuitionistic Fuzz	
+bogbear/spectral-ct-reconstruction	0	Python	-	2025-10-03	false	Spectral CT reconstruction using ASTRA, TIGRE, and Tomosipo with INR and material decomposition	
+brudfors/UniRes	95	Python	MIT	2026-08-03	false	Unified super-resolution and denoising of medical images in PyTorch	computed-tomography,denoising,magnetic-resonance-imaging,medical-imaging,super-resolution
+buzmakov/tomography_alignment	0	-	-	2022-03-07	false	Rigid body alignment of x-ray tomography data	
+cabouman/mbirjax	23	Python	BSD-3-Clause	2026-09-20	false	MBIRJAX is a Python package for Model Based Iterative Reconstruction (MBIR) of images from tomographic data.	computed-tomography,ct,image-reconstruction,jax,mbir,plug-and-play-priors,regularlized-inversion,tomography,x-ray-imaging
+cabouman/svmbir	28	C	BSD-3-Clause	2026-09-27	false	Fast code for parallel or fan beam tomographic reconstruction	computed-tomography,fan-beam,parallel-beam,plug-and-play,python,python3,reconstruction,tomography
+caiyuanhao1998/SAX-NeRF	810	Python	MIT	2026-06-24	false	"Structure-Aware Sparse-View X-ray 3D Reconstruction" (CVPR 2024)  -  A Toolbox for CT reconstruction and X-ra	3d-graphics,3d-reconstruction,3d-vision,ct-reconstruction,cvpr,instant-ngp,medical-imaging,nerf,neural-radiance-fields,novel-view-synthesis,transformer,x-ray-images
+caiyuanhao1998/X-Gaussian	335	Python	-	2025-07-21	false	"Radiative Gaussian Splatting for Efficient X-ray Novel View Synthesis" (ECCV 2024)	3d,3d-gaussian-splatting,3d-graphics,3d-reconstruction,3dgs,ct-reconstruction,gaussian-splatting,medical-imaging,nerf,novel-view-synthesis,point-cloud,x-ray-images
+cdc15000/mar-eval	1	Python	MIT	2025-12-20	false	Implementation of IEC 60601-2-44 Ed.4 Annex GG for objective evaluation of CT Metal Artifact Reduction (MAR) u	auc-analysis,cho,ct-imaging,iec-60601-2-44,mar,medical-physics,regulatory-compliance
+cewang-sysu/DuDoTrans	45	Python	MIT	2022-12-28	false	This code is an official implementation of "DuDoTrans: Dual-Domain Transformer for Sparse-View CT Reconstructi	
+chemerzhc/Tomo_align	2	Python	-	2026-05-22	false	A python based algorithm for electron/X-ray tomography dataset fine alignment	
+chirataandrei/Sparse-View-CT-Reconstruction	0	MATLAB	-	2026-08-15	false	-	
+chmike/FastFDK	5	C++	-	2012-09-10	false	FDK tomographic reconstruction program	
+choiyoungeunn/ReCo-Diff	2	Python	MIT	2026-06-15	false	ReCo-Diff: Residual-Conditioned Deterministic Sampling for Cold Diffusion in Sparse-View CT	cold-diffusion,ct-reconstruction,diffusion-models,medical-imaging,pytorch,sparse-view-ct
+ciclope-microFE/ciclope	25	Jupyter Notebook	MIT	2026-07-10	false	Computed Tomography to Finite Elements	biomechanics,computed-tomography,engineering,finite-elements,python,simulation
+cicwi/tomosipo	107	Python	GPL-3.0	2026-07-28	false	A library for painless 3D tomographic reconstruction	cuda,python3,scientific-computing,tomography
+cimentaur/polyquant	30	MATLAB	NOASSERTION	2019-06-03	false	Matlab toolbox for polyenergetic quantitative (polyquant) X-ray CT reconstruction with demos.	cbct,computed-tomography,cone-beam-ct,ct-reconstruction,image-processing,matlab-toolbox,medical-image-computing,medical-imaging,medical-physics,poisson-reconstruction,quantitative-imaging,reconstruction-toolbox,scatter,statistical-inference
+cmh104u/TF2_CMS_CyclicGen	2	Python	-	2021-01-26	false	Sparse-view CT image reconstruction by CyclicGen in tensorflow 2	
+cmh104u/U-net	9	Python	-	2021-01-26	false	Implement "Deep-Neural-Network-Based Sinogram Synthesis for Sparse-View CT Image Reconstruction"	
+cnpem/ssc-raft	2	C	GPL-3.0	2026-01-28	false	Fast tomographic reconstruction	
+codinghardadmin/Filtered_Back_Projection_DHBW	5	Python	-	2021-01-14	false	Filtered Back Projection of Radon-Transformed Image | Digital Image Processing | DHBW Mosbach	
+computed-axial-lithography/CAL-software-Matlab	86	MATLAB	GPL-3.0	2021-12-03	false	Software to support volumetric additive manufacturing by tomographic reconstruction (education, research and n	
+crimsonKn1ght/ct_scan_reconstruction	1	Python	-	2026-08-17	false	CT scan reconstruction using end-to-end deep learning model	ct-reconstruction,deep-learning,image-reconstruction,medical-imaging,pytorch,swin-transformer
+csheaff/filt-back-proj	29	Python	-	2022-11-22	false	Filtered backprojection in python without explicit use of Radon transform functions	tomography
+cswin/PIMA-CT	6	Python	-	2022-06-09	false	Low-dose CT noise simulation and denosing	
+dTork16/tomographic-reconstruction	0	Python	-	2026-08-27	false	Comparing least squares, Tikhonov and total-variation regularisation for image reconstruction from sparse, noi	
+davidegiamb/PyMedImage-Core	0	Jupyter Notebook	MIT	2026-04-10	false	From-scratch Python library for CT image reconstruction (Filtered Back-Projection) and multi-modal rigid regis	ct-reconstruction,filtered-back-projection,image-registration,inverse-problems,medical-imaging,mutual-information,numpy,python,scipy
+dchansen/protonCT	1	C++	MIT	2016-05-11	false	A library for proton CT reconstruction	
+deepinv/deepinv	827	Python	BSD-3-Clause	2026-10-06	false	DeepInverse: a PyTorch library for solving imaging inverse problems using deep learning	computational-imaging,deblurring,deep-learning,denoising,diffusion-models,image-reconstruction,medical-imaging,microscopy,mri,plug-and-play-priors,pytorch,self-supervised,super-resolution,tomography,unrolled-algorithms
+dek924/PerX2CT	91	Python	-	2026-06-15	false	Perspective Projection-Based 3D CT Reconstruction from Biplanar X-rays (ICASSP 2023, Best Student Paper Awards	
+denysdovhan/voxel-viewer	80	TypeScript	NOASSERTION	2026-08-10	false	Web-based viewer for CBCT (Cone Beam Computed Tomography) volumes and scan folders (supports Sirona GALILEOS, 	cbct,cbct-images,computer-tomograpy,cone-beam,cone-beam-ct,dental,dental-scanning,dental-software,dicom,dicom-files,dicom-images,dicom-viewer,galileos,onevolume,sirona-galileos,threejs,threejs-learning,tomography,voxel-engine,voxels
+dgursoy/xstream	0	Python	NOASSERTION	2016-03-29	false	Streaming data algorithms for x-ray tomography	
+djvine/pySART	33	Python	GPL-2.0	2013-11-03	false	Tomographic reconstruction using the Simultaneous Algebraic Reconstruction Technique (SART) implemented in pyt	
+dkazanc/ToMoBAR	54	Python	NOASSERTION	2026-09-12	false	TOmographic MOdel-BAsed Reconstruction (ToMoBAR) software	admm,artifacts,astra-toolbox,cupy,fista,fourier,inverse-problems,model-based,multigpu,reconstruction,regularisation,regularization,tomographic-reconstruction,tomography,x-ray
+dkazanc/TomoPhantom	135	Python	Apache-2.0	2026-09-14	false	Software to generate 2D/3D/4D analytical phantoms and their Radon transforms (parallel beam) for image process	3d-phantoms,astra-toolbox,computed-tomography,deblurring,denoising-images,image,image-classification,image-reconstruction,machine-learning,matlab,phantom,radon,reconstruction,tomography
+dlfe-laura/X-ray-Tomography	0	MATLAB	-	2025-12-19	false	-	
+dmpelt/pymrfbp	3	Python	GPL-3.0	2016-04-11	false	Python implementation of the MR-FBP tomographic reconstruction method	
+drgHannah/Explorable_CT_Reconstruction	3	Jupyter Notebook	MIT	2023-02-03	false	The official implementation of the publication Explorable Data Consistent CT Reconstruction.	
+drgHannah/Radon-Transformation	20	Jupyter Notebook	NOASSERTION	2023-05-31	false	A Pytorch implementation of the radon operator and filtered backprojection with, except for a constant, adjoin	adjoint,filtered-back-projection,pytorch,radon,radon-transform
+dsrim/adrtc	5	C	BSD-3-Clause	2020-04-16	false	Approximate Discrete Radon Transform	
+dzwiedzn7/filtered-back-projection	24	Python	GPL-3.0	2017-09-09	false	Implementation of radon transform and inverse radon transform(using fbp) for image reconstruction.	
+eboigne/PyTV-4D	46	Python	GPL-3.0	2023-10-17	false	Python routines to compute the Total Variation (TV) of 2D, 3D and 4D images on CPU & GPU. Compatible with prox	admm-algorithm,chambolle-pock,computed-tomography,proximal-operators,tomography,total-variation,total-variation-loss,total-variation-minimization,totalvariation
+edoardomangia/MVE386	0	C++	-	2026-01-11	false	...WIP -- An X-ray tomography simulation tool	
+eeulig/ldct-benchmark	53	Python	MIT	2025-04-15	false	A benchmark for deep learning-based low dose CT image denoising	2d,3d,computed-tomography,ct-denoising,dicom,image-processing,image-quality-assessment,low-dose-ct,low-dose-denoising,machine-learning,medical,medical-image-processing,medical-imaging,python,tcia-dac
+effepivi/gvxr-CMPB	24	Jupyter Notebook	NOASSERTION	2023-03-31	false	Simulation of X-ray projections on GPU: benchmarking gVirtualXray with clinically realistic phantoms	computed-tomography,drr,gpu-programming,image-registration,monte-carlo,simulation,x-rays
+eitcom/pyEIT	255	Python	NOASSERTION	2025-12-12	false	Python based toolkit for Electrical Impedance Tomography	eit,eit-imaging,electrical-impedance-tomography,finite-element-methods,inverse-problems,mesh-generation,python,tomography
+erellaz/Diffraction_Spike_removal	4	Python	MIT	2020-05-27	false	Use Radon transform to remove diffraction spikes in a telescope image	
+eunh/low_dose_CT	73	MATLAB	-	2019-01-30	false	Deep Convolutional Framelet Denoising for Low-Dose CT via Wavelet Residual Network	
+evelyncueva/spectral-CT	2	Jupyter Notebook	-	2021-01-19	false	This code is related to the submitted article Synergistic Multi-spectral CT Reconstruction with Directional To	
+fan2fan/OpenCV-Radon	5	C++	-	2016-06-16	false	radon transform	
+fblupi/3DCurator	40	C++	GPL-3.0	2026-04-10	false	A 3D Viewer for CTs of Polychromed Wood Sculptures	boost,canny-edge-detection,cmake,computed-tomography,ct,cultural-heritage,dicom,direct-volume-rendering,gaussian-blur,hough-transform,itk,marching-cubes,mean-filter,median-filter,opencv,qt,volume,volume-ray-casting,volume-rendering,vtk
+fedor-goncharov/wrt-project	6	C	-	2020-09-29	false	Some programs to simulate and invert (generalized, weighted) Radon transforms in 2D/3D	
+ferasboulala/radon-tf	14	C++	MIT	2023-04-07	false	Simple opencv radon transform implementation	cpp,radon-transform
+flannelhead/xray-tomography-project	0	JavaScript	MIT	2017-03-09	false	An exercise project work on an X-ray tomography course	
+flmiot/SimpleCT	0	C++	-	2017-02-08	false	A simple wxWidgets based GUI for custom X-ray tomography setups	
+fmagrini/seislib	106	Jupyter Notebook	MIT	2026-06-30	false	Seismic imaging at local, regional, and global scale	ambient-noise,imaging,inversion,python,seismology,surface-waves,teleseismic-earthquakes,tomography
+forgottenflowers/XrayTomography_PhaseContrast	0	Python	-	2026-03-17	false	Image analysis of tiny corals, using phase contrast X-ray tomography images from Soleil Synchrotron.	
+forieux/qmm	18	Python	GPL-3.0	2026-01-30	false	Python Quadratic Majorization-Minimization (MM) optimization algorithms of half-quadratic criteria. Inverses p	data-processing,data-science,denoising,image-processing,inverse-problems,non-linear-optimization,nonlinear-optimization,optimization,optimization-algorithms,optimization-methods,python
+fosky1/x-ray-tomography	0	MATLAB	MIT	2025-06-30	false	-	
+fqjin/radon-transform	11	MATLAB	Apache-2.0	2023-05-01	false	Radon transform algorithm to find wave trajectories and speeds from spatiotemporal data	matlab,radon-transform,shear-waves,ultrasound
+fujintao1999/NAS-DRP	3	-	Apache-2.0	2025-05-29	false	NAS-DRP：Neural Architecture Search with Deep Radon Prior for Sparse-view CT Image Reconstruction	
+fuyabo/4DGS_for_4DCBCT	25	Python	-	2025-02-05	false	Spatiotemporal Gaussian Optimization for 4D Cone Beam CT Reconstruction from Sparse Projections 	
+gianthk/alrecon	6	Python	MIT	2025-04-21	false	Tomography reconstruction Web App that keeps non-expert users in mind	ct-reconstruction,graphical-user-interface,image-processing,solara,tomography
+gianthk/recon_utils	2	Jupyter Notebook	MIT	2024-10-31	false	image processing utilites for tomographic reconstruction	
+gituser12981u2/tomographic-reconstruction	0	MATLAB	-	2026-04-28	false	-	
+goktug-sirma/biomedical-imaging	0	Python	MIT	2025-09-11	false	Implementation of forward (Radon transform) and inverse (filtered backprojection) problems in biomedical imagi	biomedical-image-processing,computer-vision,ct-reconstruction,dsp,fourier-transform,git,github,image-processing,numpy,python,radon-transform
+guibo-tech/Tomographic-Reconstruction	10	Python	Apache-2.0	2024-09-02	false	Computed Tomography (CT) Reconstruction toolkit featuring Radon transforms, filtered back projection, and Four	
+guoyii/SACNN	37	Python	MIT	2023-07-06	false	Paper Reimplementation: Self-Attention Convolutional Neural Network for Low-Dose CT Denoising with Self-superv	
+guynir42/pyradon	25	Python	NOASSERTION	2024-09-14	false	Python tools for streak detection in astronomical images using the Fast Radon Transform	
+guynir42/radon	4	MATLAB	NOASSERTION	2019-03-24	false	Streak detection using the Fast Radon Transform	
+gyronaut/tomography	2	C++	-	2014-03-27	false	code for doing tomographic reconstructions and image filtering	
+haimiaozh/MetaInv-Net	28	Python	NOASSERTION	2022-01-10	false	MetaInv-Net: Meta Inversion Network for Sparse View CT Image Reconstruction	
+hamirii/3D-Image-Reconstruction-PET-Scan-using-Inverse-Radon-Transform	4	Python	-	2020-08-08	false	Positron Emission Tomography (PET) is a technique used in a variety of applications within medicine and resear	
+hanyoseob/matlab-ART	12	MATLAB	-	2020-01-07	false	Algebraic Reconstruction Technique (ART)	algebraic-reconstruction-technique,ct-reconstruction,iterative-reconstruction,matlab-implementations,mbir
+hanyoseob/python-ART	16	Python	-	2020-01-07	false	Algebraic Reconstruction Technique (ART)	algebraic-reconstruction-technique,ct-reconstruction,iterative-reconstruction,mbir,python-implementations
+hao1635/ASCON	34	Python	-	2023-12-05	false	Official implementation of "ASCON: Anatomy-aware Supervised Contrastive Learning Framework for Low-dose CT Den	ct-denoising,miccai2023
+hao1635/FoundDiff	24	Python	-	2026-02-07	false	Official implementation of "FoundDiff: Foundational Diffusion Model for Generalizable Low-Dose CT Denoising"	
+hao1635/LEDA	14	Python	-	2025-03-18	false	Official implementation of "Low-dose CT Denoising with Language-engaged Dual-space Alignment"	
+hardik0001/ct-reconstruction-gpu	2	C++	-	2026-03-22	false	GPU-accelerated cone-beam CT reconstruction using the FDK algorithm with OpenCL, featuring CPU and multiple GP	
+hasibzunair/uniformizing-3D	61	Jupyter Notebook	-	2022-08-11	false	[MICCAI'2020 PRIME] Uniformizing Techniques to Process CT scans with 3D CNNs for Tuberculosis Severity Estimat	3d-data,classification,computed-tomography,convolutional-neural-networks,deep-learning,information-retrieval,volumetric-data
+hejipro/iRadonMAP-DSigNet	21	Python	-	2021-05-06	false	Downsampled Imaging Geometric Modeling for Accurate CT Reconstruction via Deep Learning	
+hijimasa/radon-template-matching	3	Python	MIT	2026-08-30	false	Template matching for rotation using Radon transforms.	image-processing,rotated-object-detection,template-matching
+hmshan/CPCE-3D	52	Python	-	2019-02-17	false	Low-dose CT via Transfer Learning from a 2D Trained Network, In IEEE TMI 2018	computed-tomography,deep-learning,denoising,generative-adversarial-network,perceptual-losses,transfer-learning
+holgerroth/3Dunet_abdomen_cascade	104	Jupyter Notebook	NOASSERTION	2019-02-11	false	-	computed-tomography,computer-aided-detection,convolutional-neural-networks,deep-learning,fully-convolutional-networks,multi-organ-segmentation,segmentation,semantic-segmentation
+hongwang01/ACDNet	52	Python	-	2024-01-03	false	【IJCAI2022】Adaptive Convolutional Dictionary Network for CT Metal Artifact Reduction	
+hongwang01/InDuDoNet	75	Python	-	2024-09-25	false	【MICCAI 2021】An Interpretable Dual Domain Network for CT Metal Artifact Reduction	
+hongwang01/SynDeepLesion	80	-	-	2025-12-07	false	A Benchmark Dataset: Synthesized DeepLesion for CT Metal Artifact Reduction	
+houguanqun/Low-Dose-CT-denoising	104	Python	-	2021-03-07	false	Code and papers for Low-Dose CT denoising	
+huaibovip/Deep-Learning-CT-Metal-Artifact-Reduction	0	-	Apache-2.0	2025-05-19	false	-	
+hyeongyuy/CT-RED_CNN_tensorflow	11	Python	-	2018-12-26	false	Low-Dose CT with a Residual Encoder-Decoder Convolutional Neural Network (RED-CNN)	
+hyeongyuy/CT-WGAN_VGG_tensorflow	37	Python	-	2018-12-26	false	Low Dose CT Image Denoising Using a Generative Adversarial Network with Wasserstein Distance and Perceptual Lo	
+icfaust/xtomo	0	Python	-	2018-08-28	false	X-ray tomography filter foil contamination analysis	
+icon-lab/DenoMamba	37	Python	MIT	2025-11-05	false	Official implementation of DenoMamba: A fused state-space model for low-dose CT denoising	computed-tomography,contextualized-representation,deep-learning,denoising,long-range,low-dose-ct-denoising,mamba,medical-imaging,python,pytorch,sequence-models,state-space-models
+ieee8023/covid-chestxray-dataset	3060	Jupyter Notebook	-	2022-08-18	false	We are building an open database of COVID-19 cases with chest X-ray or CT images.	computed-tomography,computer-vision,covid-19,dataset,deep-learning,xray
+igrega348/neural_xray	5	Jupyter Notebook	MIT	2026-06-24	false	Exploring the potential for neural rendering methods in x-ray tomography	
+iitpvisionlab/adrt	3	Python	MIT	2026-07-04	false	Approximate Discrete Radon Transform	
+imagereconstruction/ASD_POCS_mex_cuda_demo	6	Cuda	-	2018-07-26	false	ASD-POCS CT reconstruction algorithm proposed by Sidky and Pan	
+invesalius/invesalius3	804	Python	GPL-2.0	2026-10-06	false	3D medical imaging reconstruction software	dicom,dicom-viewer,magnetic-resonance-imaging,medical-image-processing,medical-imaging,segmentation,tomographic-images,tomography
+itu-biai/torchtomo	10	Python	NOASSERTION	2026-10-08	false	Differentiable 2D CT in PyTorch with parallel/fan-beam projectors, exact adjoints, filtered backprojection, le	autograd,computed-tomography,ct-reconstruction,cuda,differentiable-programming,filtered-backprojection,geometry-calibration,image-reconstruction,inverse-problems,learned-primal-dual,medical-imaging,python,pytorch,radon-transform,tomography
+itu-biai/torchtomo-benchmark	0	Python	-	2026-10-08	false	Reproducible CT benchmarks for TorchTomo: projector accuracy and speed, classical and learned reconstruction, 	benchmarking,computed-tomography,ct-reconstruction,cuda,filtered-backprojection,geometry-calibration,image-reconstruction,inverse-problems,learned-primal-dual,medical-imaging,python,pytorch,reproducible-research,self-supervised-learning,torchtomo
+iwuqing/Polyner	48	MATLAB	-	2025-02-06	false	[NeurIPS 2023] Unsupervised Polychromatic Neural Representation for CT Metal Artifact Reduction	
+jbrussell/mat-LRTdisp	50	MATLAB	-	2026-03-10	false	MATLAB package for measuring multi-mode surface wave dispersion using the Linear Radon Transform (LRT)	
+jcy132/DML_CT	23	Python	MIT	2022-07-12	false	Official Pytorch implementation of "Patch-wise Deep Metric Learning for Unsupervised Low-Dose CT Denoising" (M	
+jemtchou/FDK-Simple-algoritm	16	C++	-	2014-05-05	false	This is our realization of FDK Simple  algoritm for CT reconstruction	
+jhernandezga/CT_Reconstruction_LEARN_paper	20	Python	-	2024-01-14	false	Implementation of the paper LEARN: Learned Experts’ Assessment-based Reconstruction Network for Sparse-data CT	deep-learning,medical-imaging,reconstructed-images,reconstruction,tomography
+jiayangshi/INR4JointCTRecon	15	Python	-	2025-06-05	false	Code for TMLR paper "Implicit Neural Representations for Robust Joint Sparse-View CT Reconstruction"	ct-reconstruction,implicit-neural-representation,inverse-problems
+jnagy1/IRtools	91	MATLAB	NOASSERTION	2026-03-19	false	MATLAB package of iterative regularization methods and large-scale test problems. This software is described i	conjugate-gradient,fista,gmres,image-deblurring,inverse-problems,krylov-subspace-methods,matlab,nmr,regularization,tomography
+joaolcguerreiro/M3DSR	1	Python	MIT	2026-05-23	false	Official repository for M3DSR, accepted at EUVIP 2026.	ct,ct-reconstruction,denoising,gan,low-dose-ct-denoising,low-field-mri-denoising,low-field-mri-super-resolution,medical-image-reconstruction,mri,mri-reconstruction,super-resolution
+jongcye/CycleCNN_LowDoseCT	6	Python	-	2019-08-11	false	-	
+jongcye/deeplearningLDCT	16	MATLAB	-	2019-07-18	false	Deep Learning Low-Dose CT Project:  AAPM-Net,  WavResNet	
+jwbuurlage/Pleiades	3	C++	-	2020-02-26	false	Distributed-memory tomographic reconstruction using the ASTRA toolbox, and Bulk.	
+jwbuurlage/TPT	14	C++	GPL-3.0	2019-11-03	false	Data partitioning toolbox for tomographic reconstruction	distributed-computing,mpi,parallel-algorithm,tomography
+kaioraf/xray-simulation-group-8	0	Python	MIT	2026-07-06	false	Repo voor het project over x ray tomography	
+kaledhoshme123/VAE-CycleGAN-MRI-CT-Scan-Images	13	Jupyter Notebook	MIT	2024-09-23	false	The study works on generating CT images from MRI images, where unsupervised learning was used using VAE-CycleG	cnn,convolutional-neural-networks,ct-images,ct-reconstruction,ct-scan-images,cyclegan,gan,generative-adversarial-network,image-generation,image-to-image-translation,keras,mri-brain,mri-images,mri-reconstruction,tensorflow,variational-autoencoder
+kamallouisnahas/Contour	3	Python	GPL-3.0	2026-05-12	false	A semi-automated segmentation and quantitation tool for cyro-soft-X-ray tomography	
+karlotness/adrt	8	Python	BSD-3-Clause	2026-09-24	false	Fast approximate discrete Radon transform for NumPy arrays	
+kbredies/graptor	9	Python	GPL-3.0	2021-08-17	false	Graptor - Graz Application for Tomographic Reconstruction	
+kk17m/CT-Fan-beam-FBP-reconstruction	54	MATLAB	-	2019-07-31	false	CT image reconstruction using Fan-beam Filtered back-projection with Parker and Differential weighting.	computed-tomography,image-reconstruction,medical-imaging
+knxie/MAR-DCD	0	-	Unlicense	2020-11-05	false	Code for the paper: Unsupervised CT Metal Artifact Reduction with Deep CNN Denoiser	
+kotomoran/TomoMu	0	Jupyter Notebook	-	2024-06-05	false	Penetration calculation for the X-ray tomography scanner	
+kshkss/torch-radon	6	Cuda	GPL-3.0	2020-05-16	false	A PyTorch extension to compute radon transform and its adjoint operator using gpu	
+ktfriends/Quantum_CT_reconstruction	3	Jupyter Notebook	-	2025-09-02	false	-	
+kuixu/awesome-cryoem	160	-	CC0-1.0	2021-01-25	false	A collaborative list of awesome CryoEM (Cryo Electron Microscopy) resources. 	3d-denoise,3d-reconstruction,cryo-em,cryoem,density-map,electron-microscopy,model-building,protein-structures,tomography
+kulvait/KCT_cbct	30	C++	GPL-3.0	2026-06-16	false	Fast, accurate and reliable software for algebraic CT reconstruction	image-processing,tomographic-reconstruction,tomography
+kushalchalla981-tech/ctscan	0	Python	-	2026-06-30	false	CT Reconstruction using LU Decomposition — from X-ray projections to image reconstruction via first-principles	ct-reconstruction,dicom,educational,image-reconstruction,inverse-problems,linear-algebra,lsqr,lu-decomposition,medical-imaging,python
+kvarun95/fbpconvnet	2	Jupyter Notebook	-	2018-12-13	false	Keras Implementation of FBPConvNet for X-ray Tomography reconstruction	
+kylechampley/LEAPCT-UI-GUI	24	Python	MIT	2024-11-08	false	high level UI and GUI for the LEAP-CT library	computed-tomography,leap,tomographic-reconstruction,tomography
+kylechampley/XrayPhysics	56	C++	MIT	2025-01-19	false	C/C++ library and Python bindings for x-ray cross sections, x-ray source spectra modeling, multi-material beam	beamhardening,bremsstrahlung,computed-tomography,cross-sections,dect,leap,spectra,tomography,x-ray-physics,x-ray-simulation
+l5769389/voxenra	299	Python	-	2026-10-09	false	Cross-platform DICOM viewer for CT, MRI and PET/CT with MPR, 3D volume rendering, fusion, segmentation, measur	computed-tomography,dicom,dicom-seg,dicom-sr,dicom-viewer,image-segmentation,medical-imaging,mpr,mri,pacs,pet-ct,pyside6,qml,qt,volume-rendering
+leehoy/CTReconstruction	96	Python	GPL-2.0	2021-07-18	false	Algorithms for ct reconstruction	
+liuhongen1234567/Low-dose-CT-Image-Denoising	6	Python	-	2022-06-01	false	-	
+lixing0810/NGIM-IRL	1	Python	-	2026-04-30	false	Github Code for "Noise-Generating and Imaging Mechanism Inspired Implicit Regularization Learning Network for 	ct-reconstruction,implicit-regularization,low-dose,noise-generating
+liyaya011/C-arm-recon	1	Python	-	2026-09-09	false	C-arm cone-beam CT reconstruction: FDK, geometry calibration, mechanical error simulation	
+llnl/LEAP	254	Cuda	MIT	2026-07-25	false	comprehensive library of 3D transmission Computed Tomography (CT) algorithms with Python and C++ APIs, a PyQt 	abel-transform,artificial-intelligence,beamhardening,bhc,computed-tomography,cone-beam,ct,helical-reconstruction,image-reconstruction,iterative-reconstruction,leap,machine-learning,medical-imaging,metal-artifact-reduction,parallel-beam,scatter-correction,spect,tomographic-reconstruction,tomography,vam
+loli/medpy	623	Jupyter Notebook	GPL-3.0	2024-09-03	false	Medical image processing in Python	2d,3d,4d,computed-tomography,dicom,feature-extraction,graph-cut,image-classification,image-processing,image-segmentation,itk,machine-learning,magnetic-resonance-imaging,medical,medpy,mha,mhd,nifti-format,python,simpleitk
+lonelyatu/SISTER	11	MATLAB	-	2021-01-29	false	Sparse-view Spectral CT Reconstruction	
+lucatanislav/Sparse-view-CT-DIY	0	MATLAB	-	2026-06-27	false	-	
+lukasz1303/Tomographic-Reconstruction	0	Python	-	2021-03-29	false	-	
+luqigroup/mempost	2	Python	MIT	2026-09-12	false	Code to reproduce the results in "On the role of memorization in learned priors for geophysical inverse proble	generative-model,inverse-problems,uncertainty-quantification
+maransari/low-dose-CT-denoising	17	Python	-	2019-04-17	false	low-dose CT denoising with deep learning 	
+masoudea/GPvesseltracking	9	Matlab	-	2018-05-02	false	Tracking and diameter estimation (segmentation) of retinal vessels using Gaussian process and Radon transform	
+matteo-ronchetti/torch-radon	280	Python	GPL-3.0	2023-09-22	false	Computational Tomography in PyTorch	cuda,hacktoberfest,inverse-problems,pytorch,radon-transform,shearlet-transform,tomography
+matteobsu/MARCNN	10	Python	-	2021-05-28	false	Metal Artifact Removal for spectral CT reconstruction using Convolutional Neural Network	
+maximka48/XIMG-EMBL	2	Jupyter Notebook	MIT	2022-01-25	false	Tools for image processing and phase-contrast X-ray tomography from M.Polikarpov	
+maybe198376/Low-Dose-CT-With-a-Residual-Encoder-Decoder-Convolutional-Neural-Network	10	Matlab	GPL-3.0	2017-12-08	false	-	
+mayinjin/cycleGAN_CTdenoising	11	-	-	2018-09-13	false	Low Dose CT Image Denoising Using a Cycle-Consistent Adversarial Networks.	
+megalinier/PsiDONet	4	Python	GPL-3.0	2021-02-23	false	Convolutional neural network for limited-angle tomographic reconstruction	
+mittoalb/xsim	0	-	-	2024-02-10	false	X-ray tomography simulation kit	
+mizeboud/NormalisedRadonTransform	6	Jupyter Notebook	Apache-2.0	2026-07-01	false	Python/Matlab scripts that detect damage on Antarctic ice shelves as seen in Optical or SAR remote sensing dat	
+morganjroberts/open-UST	46	-	-	2023-11-20	false	An Open Source Manufacturing Framework for a Low-cost Ultrasound Tomography Research System	3d-printing,acoustics,breast-cancer,casting,low-cost-sensor,mechanical-engineering,tomography,ultrasound,ultrasound-imaging,ultrasound-transducer-array
+mozanunal/SparseCT	54	Python	MIT	2024-03-05	false	Framework for designing, training and benchmarking sparse-view CT reconstruction algorithms; includes datasets	computed-tomography,deep-learning,low-dose,reconstruction
+msacchi/Radon_Py	23	Jupyter Notebook	-	2022-11-05	false	Parabolic Radon Transform - least-squares solution via CG	inversion,randon
+mschiffn/f_number	47	MATLAB	NOASSERTION	2025-10-05	false	Frequency-dependent F-number for pulse-echo ultrasound imaging with linear arrays	beamforming,coherent,compounding,delay-and-sum,delay-and-sum-beamforming,f-number,fourier-domain,fourier-domain-beamforming,plane-wave,sonogram,sonography,synthetic-aperture,tomography,ultrasound,ultrasound-imaging,ultrasound-tomography
+mscipio/occiput-suite	9	Jupyter Notebook	NOASSERTION	2018-11-13	false	Tomographic reconstruction software for PET, PET-MRI and SPECT in 2D, 3D (volumetric) and 4D (spatio-temporal)	
+mseals2/CEETomo	0	-	-	2017-11-22	false	Labview Programs for driving UTK X-ray Tomography chamber	
+mughanibu/Deep-Learning-for-Inverse-Problems	42	Python	MIT	2017-05-02	false	This project hosts the code and datasets I used for Deep Learning course at Boston University. It aims to post	deep-learning,inverse-problems,regularization,tomography
+mughanibu/DeepMAR	19	-	-	2019-07-23	false	This repository hosts the training code and links to trained models and training datasets used in our article 	
+mzeegers/DeepFODDataGenerator	2	Python	MIT	2023-04-13	false	Code for generating deep learning data through X-ray tomography for object detection	computed-tomography,convolutional-neural-network,deep-learning,food-inspection,foreign-object-detection,industrial-imaging,inverse-problem,machine-learning,pytorch,segmentation,tomography,u-net,workflow,x-ray-imaging
+nadeemlab/Physics-ArX	79	Python	-	2023-05-10	false	Physics-based data augmentation library for quantifying CT and CBCT images in radiotherapy [PMB'23, PMB'21, Me	artifacts-generation,computed-tomography,cone-beam-ct,data-augmentation,deep-learning,motion-simulation,physics-simulation,radiology,radiotherapy
+ncxt/InteriorSXT	0	Python	MIT	2025-12-21	false	Interior soft x-ray tomography with sparse global sampling	
+ndwork/ctCodes	7	Matlab	-	2013-12-09	false	Matlab codes related to CT reconstructions and simulations	
+nghia-vo/sarepy	63	Python	NOASSERTION	2025-02-12	false	Numerical techniques for ring artifact removal in tomography https://sarepy.readthedocs.io/	ring-artifact-reduction,tomography,xray-micro-tomography
+nikitinvv/hypLpRadon	4	C	-	2022-08-19	false	Fast evaluation of the hyperbolic Radon transform and corresponding adjoint operator by the log-polar coordina	
+nikitinvv/rectv_gpu	5	C	BSD-2-Clause	2023-04-14	false	Four-dimensional tomographic reconstruction by time domain decomposition. Version on GPU 	
+noahschuetz/cuda-cbct-sart	1	Cuda	MIT	2026-07-24	false	GPU-accelerated cone-beam CT reconstruction (SART) in CUDA — 281x speedup over CPU via profile-guided optimiza	
+odhondt/ndsar	45	C++	NOASSERTION	2019-06-05	false	NDSAR speckle filtering for multidimensional and single-channel SAR images	cpp,denoising,image-filtering,image-processing,polarimetry,python,remote-sensing,speckle,synthetic-aperture-radar,tomography
+odlgroup/odl	434	Python	MPL-2.0	2026-03-11	false	Operator Discretization Library  https://odl.readthedocs.io/	discretization,imaging,inverse-problems,mathematics,optimization,prototyping,python,tomography
+okhmat/RadonTransform	4	HTML	-	2018-01-07	false	Implementation of Radon transform in naive way and using Fourier slice theorem and comparison it with other im	
+ooonesevennn/DiffNR	11	Python	NOASSERTION	2026-04-24	false	"DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction" 	
+ovalles/Seismic_RadonFilt	14	Python	-	2017-09-09	false	TauPi and Radon Transform of seismic data	
+pandekan/tomography_alignment	9	Python	-	2023-07-28	false	Rigid body alignment of x-ray tomography data	
+pdhs-group/electrode_XRT	0	Python	GPL-3.0	2026-06-03	false	Analyse X-ray tomography data of electrode sheets	
+pengbao7598/GSR-SART	30	Matlab	-	2018-06-13	false	Few-view CT reconstruction with group-sparsity regularization	
+pengbao7598/PWLS-CSCGR	44	MATLAB	-	2019-03-26	false	Convolutional Sparse Coding for Compressed Sensing CT Reconstruction	
+pengpeng1528/FSP-diff	0	Python	MIT	2026-05-27	false	FSP-Diff: Full-Spectrum Prior-Enhanced Dual-Domain Latent Diffusion for Ultra-Low-Dose Spectral CT Reconstruct	
+phernst/cwgan	2	Python	-	2022-03-03	false	Conditional Wasserstein GAN for Sparse View CT	
+phernst/tf-radon	4	Python	-	2021-11-16	false	Radon transform in Tensorflow	
+pingpingyin/Attention-Unet-sparse-view-CT	0	Python	-	2023-03-03	false	-	
+pvskand/CTReconstruction	6	Matlab	-	2017-12-12	false	CT Reconstruction Algorithms	
+pymango/pymango	5	Python	BSD-2-Clause	2015-04-06	false	Python API for 3D image processing and micro-CT tomographic reconstruction.	
+qgao21/NEED	18	Python	-	2025-06-30	false	Code for "Noise-Inspired Diffusion Model for Generalizable Low-Dose CT Reconstruction"	
+qic999/Foundation-VAE	43	Python	-	2026-07-06	false	[ICML 2026] Foundation VAE for CT Reconstruction, Augmentation, and Generation	
+qingchaozhang3/sparse_view_ct	0	Cuda	-	2022-05-06	false	-	
+quocbao2772004/XAdaptCT	0	Python	NOASSERTION	2026-09-22	false	ICTA 2025: A Deep Learning-based Web Application for CT Reconstruction from X-ray Images	ct-reconstruction,deep-learning,diffusion-models,medical-imaging,pytorch,x-ray
+rayolddog/projection-domain-ich	0	Python	MIT	2026-07-18	false	Sinogram-native deep learning for intracranial hemorrhage detection in CT projection data — reference code, ex	computed-tomography,ct-reconstruction,deep-learning,intracranial-hemorrhage,medical-imaging,pytorch,sinogram
+resfahani/HRRT	22	Python	MIT	2023-07-15	false	Linear Radon Transform (Slant stack) and its high-resolution version for dispersion curve estimation	geophysics,high-resolution,linear,radon,seismology,slant,stack,transform
+rigetti/forest-benchmarking	59	Python	Apache-2.0	2024-10-18	false	A library for quantum characterization, verification, validation (QCVV), and benchmarking using pyQuil.	benchmarking,forest,qcvv,quantum-computing,tomography
+ritwickchaudhry/DictionaryLearningForComputedTomographicReconstruction	4	Matlab	-	2018-05-10	false	-	
+rlafoy/MLOS-Matlab-Codes	2	Matlab	-	2015-05-15	false	A group of Matlab codes and documentation for performing MLOS tomographic reconstructions.	
+robtovey/2018_dictionary_tomography	0	Python	-	2019-03-29	false	Code for performing X-ray tomography reconstructions in a discrete atomic dictionary	
+robtovey/ToveyTomoTools	9	Jupyter Notebook	MIT	2021-08-18	false	A collection of tools for performing reconstructions from X-ray tomography data, such as Total Variation or To	
+roflmaostc/RadonKA.jl	20	Julia	MIT	2025-12-01	false	A simple yet sufficiently fast (attenuated) Radon and backproject implementation using KernelAbstractions.jl. 	automatic-differentiation,computed-tomography,ct,cuda,gpu,julia,julia-language,optimization,radon,radon-transform,tomography,x-ray
+rplab-snu/Low_Dose_CT	1	Python	-	2018-03-11	false	-	
+rtarun9/HFormer-Low-Dose-CT-Denoiser	13	Jupyter Notebook	Apache-2.0	2024-01-21	false	Unofficial Tensorflow implementation of the paper "Hformer: highly efficient vision transformer for low-dose C	aapm,denoising,ldct-denoising,tensorflow,transformer
+rubenlab/snartomo	4	Shell	MPL-2.0	2026-09-16	false	On-the-fly tomographic reconstruction	
+rumkex/IonTools	4	C++	NOASSERTION	2014-02-20	false	tomographic reconstruction software written in C++, primarily for ionospheric data	
+sagar87/starXray	0	Jupyter Notebook	-	2025-02-12	false	A snakemake-based 3D-segmentation pipeline taylored for X-ray tomography data.	
+sahilgupta2105/Tomographic-Reconstruction	7	MATLAB	-	2019-01-12	false	Implements a tomographic reconstruction problem in Matlab	inverse-problems,matlab,matlab-gui,spectroscopy,tomography
+sandialabs/pyGSTi	191	Python	Apache-2.0	2026-10-09	false	A python implementation of Gate Set Tomography	characterization,gst,qcvv,quantum-computing,scr-2018,snl-quantum-computing,tomography
+scimet/clxt2d	0	Python	GPL-3.0	2023-03-06	false	Correlative light X-ray tomography 2D	
+seawander/centerRadon	1	Python	BSD-3-Clause	2019-07-02	false	Center determination code based on Radon Transform	
+shiliu0114/TDMAR-Net	0	-	-	2026-01-14	false	A frequency-aware tri-domain diffusion framework for CT Metal Artifact Reduction (MAR). TDMAR-Net integrates s	
+shubhamgogri/Image_Correction_in_SparseView_CT	0	Jupyter Notebook	-	2023-10-08	false	-	
+shuleyu/seismic-tomography-models	48	C++	-	2020-07-16	false	whole mantle tomography, seismology, S and P seismic wave speed models	mantle,models,seismic,seismology,tomography,whole
+shw0123/Fast-Learnable-Sparse-Radon-Transform-Net	3	Python	-	2023-04-27	false	Python code for a fast learnable sparse Radon transform.	
+sichkar-valentyn/Radon_Transformation_Matlab	4	MATLAB	MIT	2019-07-19	false	Radon Transformations in Matlab	matlab,peak,radon-transformations,rectangle
+sidgautam95/dynamic-tomography-with-learned-robust-features	4	Python	MIT	2025-06-12	false	Code for reproducing results for the paper: "Robust Features for Scatter Removal and Reconstruction in Dynamic	deep-learning,feature-extraction,image-denoising,image-reconstruction,xray-ct-reconstruction
+simon-frankau/rediscovering-tomography	4	Rust	MIT	2023-09-10	false	Reinventing tomographic reconstruction from scratch	
+slaclab/py_image_processing	0	Python	-	2017-09-12	false	Python routines for image processing and tomographic reconstruction	
+smuzd/LD-CT-simulation	59	Matlab	-	2017-04-17	false	low dose CT simulator to yield low dose CT images from high-dose one	
+sngryongLee/ILV	11	Python	MIT	2026-06-24	false	ILV: Iterative Latent Volumes for Fast and Accurate Sparse-View CT Reconstruction	
+sokolmarek/CTBasicReconstruction	3	MATLAB	-	2021-03-19	true	Functions demonstrating the basic principles of image reconstruction in computed tomography.	
+ssiltane/BolognaWinterSchool2023	3	MATLAB	Apache-2.0	2023-01-26	false	Talk slides and numerical algorithms related to a minicourse about X-ray tomography by Professor Samuli Siltan	
+sufangbing/Low-dose-CT-denoising	12	-	-	2023-04-19	false	-	
+superxuang/amta-net	33	Python	MIT	2024-11-05	false	Asymmetric Multi-Task Attention Network for Prostate Bed Segmentation in CT Images	attention-mechanism,computed-tomography,multi-task-learning,prostate,prostate-segmentation
+svkucheryavski/nscradon	1	Matlab	-	2018-09-13	true	MATLAB scripts for detection of lines using Radon transform	
+svvenkatakrishnan/pyMBIR	12	Python	NOASSERTION	2021-11-15	false	Model-based tomographic reconstruction for different acquisition geometries	model-based,tomography
+sypsyp97/Filter2Noise	24	Python	NOASSERTION	2026-04-15	false	Official implementation of Filter2Noise, an interpretable zero-shot framework for low-dose CT image denoising.	
+taehoon-yoon/CT-denoising-using-CycleGAN	31	Jupyter Notebook	-	2023-06-28	false	AAPM Low Dose CT data denoising using Cycle GAN	aapm,ct-denoising,ct-image,cyclegan,denoising,low-dose-denoising,u-net
+tatsy/libcbct	10	C++	NOASSERTION	2025-11-24	false	Cone-beam CT reconstruction library.	
+tbensonatl/iterativect	11	C++	BSD-3-Clause	2023-01-22	false	Iterative 3D CT reconstruction	
+tgymnich/XRayCTPlayground	6	Swift	MIT	2021-10-02	false	🦴 Playground demonstrating the radon transform	biological-imaging,computed-tompography,ct,radon-transform,swift,xray-ct
+thavlik/machine-learning-portfolio	51	Python	Apache-2.0	2026-04-12	false	Assorted machine learning implementations for medical data (legacy)	computed-tomography,computer-vision,deep-learning,eeg,electroencephalography,fmri,functional-mri,gan,hemorrhage-detection,machine-learning,magnetic-resonance-imaging,medical,medicine,mri,neurology,neuroscience,radiology,reinforcement-learning,tumor-segmentation,vae
+timg021/UTR_public	6	C++	GPL-3.0	2023-03-30	false	A collection of C++ source code modules for forward and inverse simulations of Unified Tomographic Reconstruct	computed-tomography,cryo-em,electron-tomography,phase-contrast-imaging,transmission-electron-microscopy,x-ray-imaging
+tomography/tomobank	37	Python	BSD-3-Clause	2026-09-01	false	Tomography data bank for everyone.	database,tomography,x-ray-physics
+tomopy/tomopy	397	Python	NOASSERTION	2025-10-03	false	Tomographic Reconstruction in Python	python,reconstruction,tomography,toolbox
+topiastw/x-ray-tomography-metropolis-hastings	0	TeX	-	2020-04-15	false	Bachelor's thesis (2017) on x-raying an asparagus and the math behind it. Shit code with a young heart	
+towzeur/QN-Mixer	9	JavaScript	-	2024-03-29	false	QN-Mixer: A Quasi-Newton MLP-Mixer Model for Sparse-View CT Reconstruction (CVPR 2024)	
+ufo-kit/tofu	20	Python	LGPL-3.0	2026-09-15	false	Helper scripts for tomographic reconstruction using the ufo-core framework	
+unibas-bmc/mosaicreconstruction	1	MATLAB	MIT	2024-08-05	false	Software pipeline for extended field-of-view X-ray tomography by projection stitching	
+ustcfdm/mangoct	8	C++	-	2021-04-18	false	This is c++ code for CT reconstruction algorithm.	cpp,ct,cuda
+veritas9872/Medical-Imaging-Tutorial	41	Matlab	-	2018-11-20	true	A few projects with MRI and X-ray CT imaging that I have done. SENSE, GRAPPA, and linear CT reconstruction are	
+villekf/OMEGA	111	MATLAB	GPL-3.0	2026-10-08	false	Open-source multi-dimensional tomographic reconstruction software (OMEGA)	computed-tomography,cone-beam-ct,cuda,emission-tomography,gate,gpgpu,gpu,image-reconstruction,inverse-problems,matlab,medical-imaging,octave,opencl,opengate,pet,python,reconstruction,tomography
+vintagewtj/sparse-view-CT-reconstruction	1	Python	-	2022-12-20	false	-	
+vintagewtj/sparse_view_CT	3	Python	-	2022-03-25	false	-	
+vmohammadi/Cone-beam-CT-reconstruction	2	Python	-	2025-03-24	false	-	
+wailmu/spectral-ct	1	-	-	2020-11-30	false	Python code for the article "Sparse-View Spectral CT Reconstruction Using Deep Learning"	
+wangkun7673/ct-reconstruction	8	MATLAB	-	2020-02-09	false	siddon forward projection algorithm based on equidistance fan-beam CT	
+wdayang/CTformer	84	Python	MIT	2022-04-04	false	This repository includes implementation of CTformer on Low-dose CT Denoising	
+wlmb/Radon	5	Perl	-	2020-03-12	false	Module for performing Discreet Direct and Inverse Radon Transforms	
+won548/LDCT-Octave	8	Python	-	2020-11-22	false	Low-Dose CT Denoising using Octave Convolution	
+workingcoder/EDCNN	160	Python	Apache-2.0	2021-04-26	false	EDCNN: Edge enhancement-based Densely Connected Network with Compound Loss for Low-Dose CT Denoising	ct-denoising,denoising,edcnn,edge-enhancement,low-dose,low-dose-ct,low-dose-ct-denoising
+wskingdom/DGR	23	Python	GPL-3.0	2026-01-27	false	[ICCV 2025] Official Implementation for Paper 'Discretized Gaussian Representation for Tomographic Reconstruct	
+wudufan/KSAERecon	14	Jupyter Notebook	MIT	2017-11-10	false	TMI paper "Iterative low-dose CT reconstruction with priors trained by neural networks". 	
+xhsang/Radon_transformation	4	C++	-	2013-12-29	false	-	
+xiaolongma/radon	5	Python	-	2016-07-15	false	Collection of routines related to the computation of the radon transform and its inverse	
+xiawj-hub/ASSIST	3	MATLAB	-	2019-03-31	false	Spectral CT Reconstruction --ASSIST: Aided by Self-Similarity in Image-Spectral Tensors	
+xin2zhang/MCTomo	62	Fortran	GPL-3.0	2025-11-11	false	2D and 3D Monte Carlo seismic tomography	geophysics,tomography
+xinario/SAGAN	141	Lua	-	2022-01-04	false	Sharpness-aware Low Dose CT Denoising Using Conditional Generative Adversarial Network	computed-tomography,convolutional-neural-networks,deep-learning,denoising,gan,generative-adversarial-network,image-to-image-translation,kaggle,low-dose
+xmed-lab/C2RV-CBCT	48	Python	-	2025-03-10	false	[CVPR 2024] C^2RV: Cross-Regional and Cross-View Learning for Sparse-View CBCT Reconstruction	computed-tomography,cvpr2024,nerf,reconstruction
+xmed-lab/CvG-Diff	15	Python	MIT	2025-10-18	false	[MICCAI 2025 Spotlight] Cross-view Generalized Diffusion Model for Sparse-view CT Reconstruction	diffusion-models,miccai,miccai2025,reconstruction,sparse-view
+xmed-lab/DIF-Gaussian	66	Python	-	2025-03-09	false	[MICCAI 2024] Learning 3D Gaussians for Extremely Sparse-View Cone-Beam CT Reconstruction	computed-tomography,gaussian-splatting,implicit-neural-representation,miccai2024,nerf,reconstruction
+xmed-lab/DeepSparse	21	Python	MIT	2026-05-12	false	[TMI 2026] DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction	cbct,ct-reconstruction,foundation-models,sparse-view-3d-reconstruction,sparse-view-ct,tmi
+xmindflow/INCODE	49	Jupyter Notebook	MIT	2026-04-08	false	[WACV 2024] INCODE: Implicit Neural Conditioning with Prior Knowledge Embeddings	audio-representation,ct-reconstruction,denoising,image-representation,implicit-neural-representation,inpainting,inr,mlp,nerf,neural-representation,sdf,shape-representation,siren,super-resolution
+xtie97/SparseViewCTRecon	5	Python	-	2024-01-07	false	Code for CS766 Computer Vision Course Project: Sparse View CT Reconstruction Based on a Dual-domain Convolutio	
+xuyankun/CT-Reconstruction	6	Matlab	-	2017-04-24	false	Three CT-reconstruction method functions by Matlab	
+xziyue/tomographic-reconstruction	0	Jupyter Notebook	MIT	2021-02-08	false	Tomographic reconstruction of ray-traced simulated X-ray image	
+ya2405/Artifact-Removal-with-CNN-in-Low-Dose-Computed-Tomography	9	Python	MIT	2020-09-21	false	Removing artifacts with U-Net type network in low dose CT	
+yangz3/java_tomography_backprojection	4	Processing	GPL-2.0	2019-08-24	false	A Java version of the linear back-projection algorithm for tomographic reconstruction	
+yijiang1/fold_slice	119	MATLAB	-	2024-11-23	true	Electron/X-ray ptychography and tomography/laminography	computational-science,gpt,microscopy,ptychography,tomography,xray-diffraction
+yngvem/CT_reconstruction	5	Matlab	-	2017-10-26	true	A toolbox for 2D CT reconstruction written as part of my undergraduate project at the University of Manchester	
+yqx7150/4D-SG	0	-	-	2026-07-18	false	Shared-Structure 4D Spectral Gaussian Representation for Sparse-View Spectral CT Reconstruction	
+yqx7150/EASEL	23	Python	-	2025-12-25	false	Iterative Reconstruction for Low-Dose CT using Deep Gradient Priors of Generative Model	
+yqx7150/GMSD	12	Jupyter Notebook	-	2024-12-02	false	Generative Modeling in Sinogram Domain for Sparse-view CT Reconstruction	
+yqx7150/MSDiff	2	Python	-	2026-01-16	false	Multi-Diffusion Model for Ultra-Sparse View CT Reconstruction	
+yqx7150/OSDM	8	Python	-	2025-12-25	false	One Sample Diffusion Model in Projection Domain for Low-Dose CT Imaging	
+yqx7150/REDAEP	15	MATLAB	-	2025-12-25	false	REDAEP: Robust and Enhanced Denoising Autoencoding Prior for Sparse-View CT Reconstruction	
+yqx7150/SWORD	31	Python	-	2025-12-25	false	Stage-by-stage Wavelet Optimization Refinement Diffusion Model for Sparse-view CT Reconstruction	
+yulunwu0108/Perturbed-Gaussian-Ensemble	11	Python	NOASSERTION	2026-09-21	false	[ECCV'26] Active View Selection with Perturbed Gaussian Ensemble for Tomographic Reconstruction	
+yuyouxixi/x2-gaussian	61	Python	MIT	2025-10-27	false	[ICCV 2025] Official implementation of X2-Gaussian: 4D Radiative Gaussian Splatting for Continuous-time Tomogr	
+zac-k/x-ray-tomography	3	C#	-	2017-10-21	false	Simulate x-ray absorption images, and use them to reconstruct the object function.	
+zacco97/DuDoDp-MAR	0	Python	-	2026-02-13	false	Official implementation of the paper "Unsupervised CT Metal Artifact Reduction by Plugging Diffusion Priors in	
+zguo0525/Noise-resilience-deep-reconstruction-for-X-ray-Tomography	1	Jupyter Notebook	-	2023-03-03	false	-	
+zguo0525/Physics-assisted-Generative-Adversarial-Network-for-X-Ray-Tomography	1	Python	-	2022-04-27	false	-	
+zhengjingrena/improved-googlenet	10	Matlab	-	2018-07-06	false	Artifact Removal using Improved GoogLeNet for Sparse-view CT Reconstruction	
+zhenglinwang/Backprojection-Wiener-Deconvolution-for-Computed-Tomographic-Reconstruction	2	MATLAB	MIT	2019-04-29	false	Backprojection Wiener Deconvolution for Computed Tomographic Reconstruction	
+zjk1988/DAN-Net	32	Python	-	2024-06-12	false	A Pytorch implementation of  Dual-domain Adaptive-scaling Non-local Network for CT Metal Artifact Reduction.	
+zjk1988/Deep-Learning-CT-Reconstruction-from-Incomplete-Projection-Data	66	-	-	2026-02-27	false	-	
+zjk1988/IDOL-Net	23	Python	-	2025-09-28	false	IDOL-Net: An Interactive Dual-Domain Parallel Network for CT Metal Artifact Reduction	
+zjk1988/SemiMAR	19	Python	-	2024-03-02	false	A Pytorch implementation of SemiMAR: Semi-Supervised Learning for CT Metal Artifact Reduction	
+zzc623/DD_Net	44	Python	-	2018-04-23	false	code for the paper entitled "A Sparse-View CT Reconstruction Method Based on Combination of DenseNet and Decon	

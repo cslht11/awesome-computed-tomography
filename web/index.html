@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="{{HTML_LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{HEAD}}
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <button type="button" id="menu" class="menu-btn" aria-label="{{UI_MENU_ARIA}}" aria-expanded="false" aria-controls="tabs">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand" href="./"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="2" stroke-dasharray="2 3"/><g stroke="currentColor" stroke-opacity=".6" stroke-width="2"><line x1="32" y1="5" x2="14" y2="52"/><line x1="32" y1="5" x2="32" y2="59"/><line x1="32" y1="5" x2="50" y2="52"/></g><circle cx="32" cy="5" r="4" fill="currentColor"/><ellipse cx="32" cy="34" rx="9" ry="11" fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="2"/></svg><span>{{TITLE}}</span></a>
+    <span class="spacer"></span>
+    <div class="gsearch" role="search">
+      <input id="gq" type="search" placeholder="{{UI_SEARCH}}" autocomplete="off" spellcheck="false" aria-label="{{UI_SEARCH_WHOLE_ARIA}}" aria-controls="gres" aria-expanded="false">
+      <kbd class="gkbd">/</kbd>
+      <div id="gres" class="gres" role="listbox" hidden></div>
+    </div>
+    <button type="button" id="theme" class="icon-btn" aria-label="{{UI_THEME_ARIA}}" title="{{UI_THEME_TITLE}}">
+      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="star" href="{{REPO_URL}}" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span>{{UI_STAR}}</span></a>
+  </div>
+  <div class="tabrow">
+    <nav id="tabs" class="wrap" role="tablist" aria-label="{{UI_SECTIONS_ARIA}}">
+      <p class="drawer-title">{{UI_DRAWER_TITLE}}</p>
+      <button type="button" role="tab" data-tab="papers" aria-selected="true"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>{{UI_TAB_PAPERS}}</button>
+      <button type="button" role="tab" data-tab="toolkits" aria-selected="false"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>{{UI_TAB_TOOLKITS}}</button>
+      <button type="button" role="tab" data-tab="datasets" aria-selected="false"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg>{{UI_TAB_DATASETS}}</button>
+      <button type="button" role="tab" data-tab="benchmarks" aria-selected="false"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 20V12M12 20V5M17 20v-5"/></svg>{{UI_TAB_BENCHMARKS}}</button>
+      <button type="button" role="tab" data-tab="learning" aria-selected="false"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3V11"/></svg>{{UI_TAB_LEARNING}}</button>
+      <a class="nav-ext drawer-only" href="{{REPO_URL}}" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>{{UI_GITHUB}}</a>
+    </nav>
+  </div>
+</header>
+<div id="scrim" class="scrim" hidden></div>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="hero-art"><svg class="gantry" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="2" stroke-dasharray="2 3"/><g stroke="currentColor" stroke-opacity=".6" stroke-width="2"><line x1="32" y1="5" x2="14" y2="52"/><line x1="32" y1="5" x2="32" y2="59"/><line x1="32" y1="5" x2="50" y2="52"/></g><circle cx="32" cy="5" r="4" fill="currentColor"/><ellipse cx="32" cy="34" rx="9" ry="11" fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="2"/></svg></div>
+    <h1 class="hero-title">{{TITLE}}</h1>
+    <p class="lead">{{UI_HERO_LEAD}}</p>
+    <dl class="stats">
+      <div><dt>{{UI_TAB_PAPERS}}</dt><dd>{{N_PAPERS}}</dd></div>
+      <div><dt>{{UI_STAT_LABEL_PEER}}</dt><dd>{{PEER_PCT}}%</dd></div>
+      <div><dt>{{UI_TAB_TOOLKITS}}</dt><dd>{{N_TOOLKITS}}</dd></div>
+      <div><dt>{{UI_TAB_DATASETS}}</dt><dd>{{N_DATASETS}}</dd></div>
+      <div><dt>{{UI_TAB_BENCHMARKS}}</dt><dd>{{N_BENCHMARKS}}</dd></div>
+      <div><dt>{{UI_STAT_LABEL_YEARS}}</dt><dd>{{YEAR_MIN}}–{{YEAR_MAX}}</dd></div>
+    </dl>
+  </section>
+
+  <section id="panel-papers" role="tabpanel" aria-label="{{UI_TAB_PAPERS}}">
+    <div class="toolbar">
+      <input id="q" type="hidden" value="">
+      <span class="seg" id="typeseg" role="group" aria-label="{{UI_STATUS_ARIA}}">
+        <button type="button" data-type="all" aria-pressed="true">{{UI_ALL}}</button>
+        <button type="button" data-type="peer" aria-pressed="false">{{UI_PEER_REVIEWED}}</button>
+        <button type="button" data-type="preprint" aria-pressed="false">{{UI_PREPRINTS}}</button>
+      </span>
+      <label class="check"><input type="checkbox" id="has-code"> {{UI_LABEL_HAS_CODE}}</label>
+      <label>{{UI_LABEL_FROM}} <select id="from"><option value="0">{{UI_ANY_YEAR}}</option></select></label>
+      <label>{{UI_LABEL_SORT}} <select id="sort">
+        <option value="new">{{UI_SORT_NEW}}</option>
+        <option value="old">{{UI_SORT_OLD}}</option>
+        <option value="title">{{UI_SORT_TITLE}}</option>
+      </select></label>
+      <span class="spacer"></span>
+      <span class="countbar"><span id="qtag" class="qtag" hidden></span><strong id="count">{{N_PAPERS}}</strong>&nbsp;{{UI_COUNT_OF}} {{N_PAPERS}} <button type="button" id="reset" class="link-btn">{{UI_LABEL_RESET}}</button><button type="button" id="share" class="link-btn">{{UI_LABEL_SHARE}}</button></span>
+    </div>
+    <div id="topics" role="group" aria-label="{{UI_TOPICS_ARIA}}"></div>
+    <p class="panel-intro">{{PAPERS_LEGEND}}</p>
+    <ul class="papers" id="papers-list">{{PAPERS_STATIC}}</ul>
+    <p class="empty" id="empty" hidden>{{UI_EMPTY_TEXT}} <button type="button" class="link-btn" onclick="document.getElementById('reset').click()">{{UI_EMPTY_RESET}}</button></p>
+  </section>
+
+  <section id="panel-toolkits" role="tabpanel" aria-label="{{UI_TAB_TOOLKITS}}" hidden>
+    <div id="t-toolkits"></div>
+  </section>
+
+  <section id="panel-datasets" role="tabpanel" aria-label="{{UI_TAB_DATASETS}}" hidden>
+    <p class="panel-intro">{{DATASET_LEGEND}}</p>
+    <div id="t-datasets"></div>
+  </section>
+
+  <section id="panel-benchmarks" role="tabpanel" aria-label="{{UI_TAB_BENCHMARKS}}" hidden>
+    <div id="t-benchmarks"></div>
+  </section>
+
+  <section id="panel-learning" role="tabpanel" aria-label="{{UI_TAB_LEARNING}}" hidden>
+    <div id="t-learning"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p class="foot-note">{{UI_FOOT_NOTE}}</p>
+    <nav class="foot-links" aria-label="{{UI_FOOT_SITE_ARIA}}">
+      <a href="{{ROOT}}about/">{{UI_FOOT_ABOUT}}</a>
+      <a href="{{ROOT}}contact/">{{UI_FOOT_CONTACT}}</a>
+      <a href="{{ROOT}}privacy/">{{UI_FOOT_PRIVACY}}</a>
+      {{LANG_SWITCH}}
+    </nav>
+  </div>
+  <div class="wrap foot-legal">
+    {{UI_FOOT_LEGAL}}
+  </div>
+</footer>
+
+<noscript>
+  <div class="wrap">
+    <p class="panel-intro">{{UI_NOSCRIPT}}</p>
+  </div>
+</noscript>
+
+<script id="site-data" type="application/json">{{DATA}}</script>
+<script src="./app.js"></script>
+<script>
+  // Phone: the section nav lives in a left drawer opened by the menu button.
+  (function () {
+    var btn = document.getElementById("menu"), nav = document.getElementById("tabs"),
+        scrim = document.getElementById("scrim");
+    function set(open) {
+      document.body.classList.toggle("drawer-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      scrim.hidden = !open;
+    }
+    btn.addEventListener("click", function () { set(!document.body.classList.contains("drawer-open")); });
+    scrim.addEventListener("click", function () { set(false); });
+    nav.addEventListener("click", function (e) {
+      if (e.target.closest("button")) { set(false); window.scrollTo({ top: 0, behavior: "smooth" }); }
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+  })();
+</script>
+<script>
+  // Global search in the top bar: one small box over every section.
+  // Typing shows the best matches as a dropdown; Enter filters the paper list.
+  (function () {
+    var D = JSON.parse(document.getElementById("site-data").textContent);
+    var UI = D.ui || {};
+    function t(k, f) { return UI[k] || f; }
+    function tf(k, f, s) { var v = t(k, f); for (var i in s) if (s.hasOwnProperty(i)) v = v.split("{" + i + "}").join(s[i]); return v; }
+    var box = document.getElementById("gq"), res = document.getElementById("gres"),
+        q = document.getElementById("q"), tag = document.getElementById("qtag");
+    var KIND = { papers: t("kindPaper", "Paper"), toolkits: t("kindToolkit", "Toolkit"),
+        datasets: t("kindDataset", "Dataset"), benchmarks: t("kindBenchmark", "Benchmark"),
+        learning: t("kindLearning", "Learning") };
+    var idx = [];
+    function strip(t) { return String(t || "").replace(/\$([^$]+)\$/g, "$1"); }
+    D.papers.forEach(function (p) {
+      var l = p.links || {};
+      idx.push({ k: "papers", t: strip(p.title), s: [p.venue, p.year].filter(Boolean).join(" · "),
+        u: l.paper || l.project || l.code, h: (p._q || (p.title + " " + p.venue)).toLowerCase() });
+    });
+    ["toolkits", "datasets", "benchmarks", "learning"].forEach(function (k) {
+      (D[k] || []).forEach(function (r) {
+        var sub = r.language || r.modality || r.year || r.type || "";
+        idx.push({ k: k, t: r.name, s: String(sub), u: r.url,
+          h: [r.name, sub, (r.tags || []).join(" "), (r.tasks || []).join(" "), r.note || ""].join(" ").toLowerCase() });
+      });
+    });
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+    var cur = [], sel = -1;
+    function search(text) {
+      var toks = text.toLowerCase().split(/\s+/).filter(Boolean);
+      if (!toks.length) return [];
+      var out = [];
+      idx.forEach(function (it) {
+        var ok = toks.every(function (t) { return it.h.indexOf(t) >= 0; });
+        if (!ok) return;
+        var tl = it.t.toLowerCase(), sc = 0;
+        toks.forEach(function (t) { if (tl.indexOf(t) >= 0) sc += 2; if (tl.indexOf(t) === 0) sc += 1; });
+        out.push({ it: it, sc: sc });
+      });
+      out.sort(function (a, b) { return b.sc - a.sc; });
+      return out.map(function (o) { return o.it; });
+    }
+    function render() {
+      var text = box.value.trim();
+      cur = search(text); sel = -1;
+      if (!text) { res.hidden = true; box.setAttribute("aria-expanded", "false"); return; }
+      var shown = cur.slice(0, 8), nPapers = cur.filter(function (i) { return i.k === "papers"; }).length;
+      var html = shown.map(function (it, i) {
+        return '<a role="option" class="gr" data-i="' + i + '" href="' + esc(it.u || "#") + '" target="_blank" rel="noopener">' +
+          '<span class="gk">' + KIND[it.k] + '</span><span class="gt">' + esc(it.t) + '</span>' +
+          (it.s ? '<span class="gs">' + esc(it.s) + '</span>' : "") + '</a>';
+      }).join("");
+      if (!cur.length) html = '<p class="gnone">' + esc(tf("noMatch", "No match for “{q}”", { q: text })) + '</p>';
+      else if (nPapers) html += '<button type="button" class="gall">' + esc(tf("showAll", "Show all {n} matching papers ↵", { n: nPapers })) + '</button>';
+      res.innerHTML = html; res.hidden = false; box.setAttribute("aria-expanded", "true");
+      var all = res.querySelector(".gall"); if (all) all.addEventListener("mousedown", function (e) { e.preventDefault(); commit(); });
+    }
+    function commit() {
+      var text = box.value.trim();
+      var tab = document.querySelector('#tabs [data-tab="papers"]'); if (tab) tab.click();
+      q.value = text; q.dispatchEvent(new Event("input"));
+      tag.hidden = !text; tag.textContent = text ? "“" + text + "”" : "";
+      res.hidden = true; box.blur();
+      document.getElementById("panel-papers").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    function move(d) {
+      var opts = res.querySelectorAll(".gr"); if (!opts.length) return;
+      sel = (sel + d + opts.length) % opts.length;
+      opts.forEach(function (o, i) { o.classList.toggle("on", i === sel); });
+    }
+    var t; box.addEventListener("input", function () { clearTimeout(t); t = setTimeout(render, 80); });
+    box.addEventListener("focus", function () { if (box.value.trim()) render(); });
+    box.addEventListener("blur", function () { setTimeout(function () { res.hidden = true; }, 150); });
+    box.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
+      else if (e.key === "Enter") {
+        e.preventDefault();
+        var o = res.querySelectorAll(".gr")[sel];
+        if (o) window.open(o.href, "_blank", "noopener"); else commit();
+      } else if (e.key === "Escape") { res.hidden = true; box.blur(); }
+    });
+    document.getElementById("reset").addEventListener("click", function () { box.value = ""; tag.hidden = true; });
+    window.addEventListener("load", function () {
+      if (q.value) { box.value = q.value; tag.hidden = false; tag.textContent = "“" + q.value + "”"; }
+    });
+  })();
+</script>
+</body>
+</html>

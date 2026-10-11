@@ -1,0 +1,35 @@
+Link check for the 17 papers added on 2026-10-10 (plus the scatter-rev DOI fix).
+Status handling follows scripts/check_links.py: 2xx/3xx = OK, 403/405/429 = BLOCKED
+(reachable but refusing automated clients), anything else = PROBLEM.
+
+Direct HTTPS from this machine is unreliable (it returned URLError /
+RemoteDisconnected / 502 for 8 of these, including one IOP DOI while another IOP DOI
+succeeded on the same pass). Every one of those 8 resolved to OK or BLOCKED when the
+check was repeated through the local proxy 127.0.0.1:7890. Nothing failed twice, so
+there is no PROBLEM entry. Measurement noise, not dead links.
+
+The stronger check is the one already recorded in classics-verify.json: every DOI was
+fetched through the Crossref API and its returned title compared with the paper it is
+meant to be. All 18 matched, and three year/identity errors were caught that way.
+
+DOI                              STATUS   RESOLVES-TO
+10.1088/0031-9155/21/5/002       OK       200  validate.perfdrive.com (IOP bot check)
+10.1109/42.959297                OK       202  ieeexplore.ieee.org
+10.1109/42.993128                OK       202  ieeexplore.ieee.org
+10.1088/0031-9155/52/15/020      OK       200  validate.perfdrive.com
+10.1088/0031-9155/53/15/002      OK       200  validate.perfdrive.com
+10.1088/0031-9155/53/20/006      OK       200  validate.perfdrive.com
+10.1109/tmi.2006.872328          OK       202  ieeexplore.ieee.org
+10.1109/tmi.2006.884636          OK       202  ieeexplore.ieee.org
+10.1148/radiol.2015142631        BLOCKED  403  (RSNA refuses bots)
+10.1118/1.1339879                BLOCKED  403  (AIP refuses bots)
+10.1118/1.3589140                BLOCKED  403
+10.1118/1.3599033                BLOCKED  403
+10.1118/1.1869074                BLOCKED  403
+10.1118/1.2836423                BLOCKED  403
+10.1118/1.3115691                BLOCKED  403
+10.1118/1.3480986                BLOCKED  403
+10.1118/1.4762288                BLOCKED  403
+10.1002/mp.13274                 BLOCKED  403  (Wiley refuses bots)
+
+Summary: 8 OK, 10 BLOCKED, 0 PROBLEM.

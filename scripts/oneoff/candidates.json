@@ -1,0 +1,122 @@
+[
+  {
+    "kind": "toolkit",
+    "name": "PyLops",
+    "url": "https://github.com/equinor/pylops",
+    "status": 200,
+    "final": "https://github.com/PyLops/pylops",
+    "title": "GitHub - PyLops/pylops: PyLops – A Linear-Operator Library for Python · GitHub",
+    "error": null,
+    "reachable": true
+  },
+  {
+    "kind": "toolkit",
+    "name": "mumott",
+    "url": "https://github.com/mumott/mumott",
+    "status": 404,
+    "final": "https://github.com/mumott/mumott",
+    "title": null,
+    "error": "HTTP 404",
+    "reachable": false
+  },
+  {
+    "kind": "toolkit",
+    "name": "Ettention",
+    "url": "https://github.com/c3di/ettention",
+    "status": 200,
+    "final": "https://github.com/c3di/ettention",
+    "title": "GitHub - c3di/ettention: Electron Tomography Package · GitHub",
+    "error": null,
+    "reachable": true
+  },
+  {
+    "kind": "toolkit",
+    "name": "XrayPhysics",
+    "url": "https://github.com/hoelzer/xrayphysics",
+    "status": 404,
+    "final": "https://github.com/hoelzer/xrayphysics",
+    "title": null,
+    "error": "HTTP 404",
+    "reachable": false
+  },
+  {
+    "kind": "toolkit",
+    "name": "pyHST2",
+    "url": "https://gitlab.esrf.fr/tomotools/pyhst2",
+    "status": 200,
+    "final": "https://check.gitlab-pages.esrf.fr/.within.website/?redir=https%3A%2F%2Fgitlab.esrf.fr%2Ftomotools%2Fpyhst2",
+    "title": "Making sure you&#39;re not a bot!",
+    "error": null,
+    "reachable": true
+  },
+  {
+    "kind": "toolkit",
+    "name": "TomoPy (docs)",
+    "url": "https://tomopy.readthedocs.io/en/latest/",
+    "status": 200,
+    "final": "https://tomopy.readthedocs.io/en/latest/",
+    "title": "Features &mdash; TomoPy 3377fed68103959e37a849309a096a9919b0bc97 documentation",
+    "error": null,
+    "reachable": true
+  },
+  {
+    "kind": "learning",
+    "name": "NIST X-Ray Mass Attenuation Coefficients",
+    "url": "https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients",
+    "status": 200,
+    "final": "https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients",
+    "title": "X-Ray Mass Attenuation Coefficients | NIST",
+    "error": null,
+    "reachable": true
+  },
+  {
+    "kind": "learning",
+    "name": "X-Ray Data Booklet (LBNL)",
+    "url": "https://xdb.lbl.gov/",
+    "status": 200,
+    "final": "https://xdb.lbl.gov/",
+    "title": "X-Ray Data Booklet",
+    "error": null,
+    "reachable": true
+  },
+  {
+    "kind": "learning",
+    "name": "CT Principles and Algorithms (Zhuang Tiange)",
+    "url": "https://www.google.com/search?q=%E5%BA%84%E5%A4%A9%E6%88%88+CT%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%97%E6%B3%95",
+    "status": 429,
+    "final": "https://www.google.com/search?q=%E5%BA%84%E5%A4%A9%E6%88%88+CT%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%97%E6%B3%95",
+    "title": null,
+    "error": "HTTP 429",
+    "reachable": true
+  },
+  {
+    "kind": "learning",
+    "name": "Industrial CT Technology and Principles (Zhang Chaozong)",
+    "url": "https://www.google.com/search?q=%E5%BC%A0%E6%9C%9D%E5%AE%97+%E5%B7%A5%E4%B8%9ACT%E6%8A%80%E6%9C%AF%E5%92%8C%E5%8E%9F%E7%90%86",
+    "status": 429,
+    "final": "https://www.google.com/search?q=%E5%BC%A0%E6%9C%9D%E5%AE%97+%E5%B7%A5%E4%B8%9ACT%E6%8A%80%E6%9C%AF%E5%92%8C%E5%8E%9F%E7%90%86",
+    "title": null,
+    "error": "HTTP 429",
+    "reachable": true
+  },
+  {
+    "kind": "learning",
+    "name": "Medical Tomographic Image Reconstruction Simulation Experiments (Huang Liyu)",
+    "url": "https://www.google.com/search?q=%E9%BB%84%E5%8A%9B%E5%AE%87+%E5%8C%BB%E5%AD%A6%E6%96%AD%E5%B1%82%E5%9B%BE%E5%83%8F%E9%87%8D%E5%BB%BA%E4%BB%BF%E7%9C%9F%E5%AE%9E%E9%AA%8C",
+    "status": 429,
+    "final": "https://www.google.com/search?q=%E9%BB%84%E5%8A%9B%E5%AE%87+%E5%8C%BB%E5%AD%A6%E6%96%AD%E5%B1%82%E5%9B%BE%E5%83%8F%E9%87%8D%E5%BB%BA%E4%BB%BF%E7%9C%9F%E5%AE%9E%E9%AA%8C",
+    "title": null,
+    "error": "HTTP 429",
+    "reachable": true
+  },
+  {
+    "kind": "learning",
+    "name": "Tomography notes (Tom Roelandts)",
+    "url": "https://tomroelandts.com/tags/tomography",
+    "status": 200,
+    "final": "https://tomroelandts.com/tags/tomography",
+    "title": "Tomography | TomRoelandts.com",
+    "error": null,
+    "reachable": true
+  }
+]

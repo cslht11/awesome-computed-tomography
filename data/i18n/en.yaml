@@ -1,0 +1,406 @@
+# English interface strings and README prose.
+#
+# This file is the source of truth for everything that is *not* in data/*.yaml:
+# the wording of the site chrome and the prose that scripts/build.py writes into
+# the README. It exists so that a translation can replace any single string
+# without a template carrying hard-coded English.
+#
+# Other languages live beside it as data/i18n/<code>.yaml and only carry the
+# keys they have actually translated; anything missing falls back to the value
+# here. See scripts/i18n.py.
+#
+# Conventions
+#   ui.*      plain text, HTML-escaped on the way out. Used by web/index.html
+#             (via {{UI_*}} placeholders) and by web/app.js (via payload.ui).
+#   ui.* with a name in scripts/build_site.py's RAW_UI set is inserted verbatim
+#             and may contain HTML, e.g. the <kbd> in `pressSlash`.
+#   ui.* with a name in MD_UI is rendered as inline Markdown, so it may contain
+#             `code`, **bold** and [links](url). Absolute http(s) links are
+#             given target="_blank" rel="noopener".
+#   readme.*  Markdown, written into the README as-is, except that {placeholders}
+#             are filled from the data counts first.
+#
+# Placeholders available in both: {papers} {peer} {peer_pct} {preprints}
+# {toolkits} {datasets} {benchmarks} {learning} {year_min} {year_max}
+# {title} {tagline} {repo} {repo_url} {build_date} {code_license}
+# {code_license_url} {content_license} {content_license_url} {license_year}
+
+lang: en
+
+tagline: "A curated, verified list of CT reconstruction research"
+description: >-
+  A curated list of computed tomography (CT / CBCT / micro-CT) reconstruction
+  resources: 333 papers from 1971 to 2026, 44 toolkits, 40 datasets,
+  19 benchmarks and 29 learning resources, covering sparse-view, limited-angle,
+  low-dose, metal-artifact, spectral, cone-beam and 4D/dynamic CT.
+
+# <meta name="keywords">. Technical terms read the same in both languages, so
+# the list is worth localising rather than translating word for word.
+keywords: >-
+  computed tomography, CT reconstruction, sparse-view CT, limited-angle tomography,
+  low-dose CT, metal artifact reduction, cone-beam CT, deep learning, awesome list
+
+ui:
+  # ---- header
+  badge: "awesome list"
+  navReadme: "README"
+  copyLink: "copy link"
+  copied: "copied"
+  copyLinkTitle: "Copy this URL"
+  theme: "theme"
+  themeAria: "Toggle colour theme"
+  langSwitchAria: "Language"
+
+  # ---- hero
+  eyebrow: "Computed tomography · reconstruction"
+  heroTitle: "A verified map of CT reconstruction research"
+  # The one-line summary under the hero. Same numbers as the README's
+  # `readme.coverage`, phrased as a bare list rather than a sentence. Carries
+  # its own full stop, because the terminator differs by language.
+  coverage: "{papers} papers ({year_min}–{year_max}), {toolkits} toolkits, {datasets} datasets, {benchmarks} benchmarks, {learning} learning resources."
+  browsePapers: "Browse papers"
+  contribute: "Contribute"
+
+  # ---- stat tiles
+  statsAria: "What is in the list"
+  statPapers: "papers"
+  statPeer: "peer-reviewed"
+  statToolkits: "toolkits"
+  statDatasets: "datasets"
+  statBenchmarks: "benchmarks"
+  statLearning: "learning resources"
+
+  # ---- finder
+  searchPlaceholder: "Search titles, abbreviations, venues, topics, arXiv ids, repositories…"
+  searchAria: "Search papers"
+  statusAria: "Publication status"
+  all: "All"
+  peerReviewed: "Peer-reviewed"
+  preprints: "Preprints"
+  hasCode: "has code"
+  from: "from"
+  anyYear: "any year"
+  sort: "sort"
+  sortNew: "newest first"
+  sortOld: "oldest first"
+  sortTitle: "title A–Z"
+  topicsAria: "Filter by topic"
+  countOf: "of"
+  countPapers: "papers"
+  reset: "reset"
+  pressSlash: "press <kbd>/</kbd> to search"
+
+  # ---- tabs
+  sectionsAria: "Sections"
+  tabPapers: "Papers"
+  tabToolkits: "Toolkits"
+  tabDatasets: "Datasets"
+  tabBenchmarks: "Benchmarks"
+  tabLearning: "Learning"
+
+  # ---- papers panel
+  emptyText: "No paper matches these filters."
+  emptyReset: "Reset filters"
+  venuePreprint: "preprint"
+  yearAndLater: "{year} and later"
+
+  # ---- table headers (site only; the README carries its own)
+  tableToolkit: "Toolkit"
+  tableLanguage: "Language"
+  tableLicense: "License"
+  tableStars: "Stars"
+  tableNotes: "Notes"
+  tableDataset: "Dataset"
+  tableModality: "Modality"
+  tableTasks: "Tasks"
+  tableBenchmark: "Benchmark / Challenge"
+  tableYear: "Year"
+  tableResource: "Resource"
+  tableType: "Type"
+
+  # ---- footer and no-script fallback
+  footer1: >-
+    **{title}** — {tagline}. {papers} papers ({year_min}–{year_max}),
+    {peer} of them at a peer-reviewed venue ({peer_pct}%), {preprints} preprints;
+    {toolkits} toolkits, {datasets} datasets, {benchmarks} benchmarks,
+    {learning} learning resources.
+  footer2: >-
+    Every paper link was resolved against Crossref, arXiv or the publisher's own
+    record, and every URL was checked. Source of truth: `data/*.yaml` in
+    [{repo}]({repo_url}); the README is generated from the same files, so the
+    two never disagree.
+  footer3: >-
+    Contributions welcome — see
+    [CONTRIBUTING.md]({repo_url}/blob/main/CONTRIBUTING.md). Content
+    [{content_license}]({content_license_url}), code
+    [{code_license}]({code_license_url}). Page generated {build_date}.
+  noscript: >-
+    JavaScript is disabled, so search and filters are unavailable. The full list
+    of {papers} papers is still shown above in plain HTML, and
+    [data.json](./data.json) holds the complete dataset.
+
+  # ---- site chrome for the About / Contact / Privacy pages and the
+  # rewritten header and footer (remote 9b9ab43). English copied verbatim
+  # out of web/ so a template edit cannot silently diverge.
+  menuAria: "Open navigation"
+  search: "Search"
+  searchWholeAria: "Search the whole list"
+  themeTitle: "Light / dark"
+  star: "Star on GitHub"
+  drawerTitle: "Sections"
+  github: "GitHub"
+  heroLead: "{tagline} — {coverage} Every paper link resolved against Crossref, arXiv or the publisher’s own record."
+  statLabelPeer: "Peer-reviewed"
+  statLabelYears: "Years"
+  labelHasCode: "Has code"
+  labelFrom: "From"
+  labelSort: "Sort"
+  labelReset: "Reset"
+  labelShare: "Copy link"
+  footNote: "Hand-curated and link-checked. Found an error? Corrections are welcome."
+  footSiteAria: "Site"
+  footAbout: "About"
+  footContact: "Contact"
+  footPrivacy: "Privacy"
+  footLegal: "Content <a href=\"{content_license_url}\" target=\"_blank\" rel=\"noopener license\">{content_license}</a> · code <a href=\"{code_license_url}\" target=\"_blank\" rel=\"noopener\">{code_license}</a> · updated {build_date}"
+  kindPaper: "Paper"
+  kindToolkit: "Toolkit"
+  kindDataset: "Dataset"
+  kindBenchmark: "Benchmark"
+  kindLearning: "Learning"
+  noMatch: "No match for “{q}”"
+  showAll: "Show all {n} matching papers ↵"
+  homepageTitle: "homepage"
+  pageAboutTitle: "About"
+  pageAboutDesc: "What Awesome Computed Tomography is, how entries are chosen and verified, and how the content may be reused."
+  pageContactTitle: "Contact"
+  pageContactDesc: "How to report an error, suggest a paper, or reach the maintainers privately."
+  pagePrivacyTitle: "Privacy"
+  pagePrivacyDesc: "What happens to your information when you visit {host}."
+
+readme:
+  blurb: >-
+    Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam
+    and 4D CT — from FBP and iterative solvers to unrolled networks, diffusion
+    priors, neural fields and Gaussian splatting. Every paper link is resolved
+    against Crossref, arXiv or the publisher's record. For search and filters,
+    use the **[website]({site_url})**.
+  coverage: >-
+    Coverage: {papers} papers ({year_min}–{year_max}), {toolkits} toolkits, {datasets} datasets,
+    {benchmarks} benchmarks/challenges, {learning} learning resources. Every paper link
+    was resolved against Crossref, arXiv or the publisher's own record, and every URL was checked.
+  peerLine: >-
+    {peer} of {papers} papers ({peer_pct}%) are published at a peer-reviewed venue; the
+    other {preprints} are preprints, marked `(preprint, year)`.
+  contribLine: "Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)."
+  siteLine: >-
+    The same corpus renders as a searchable single page (`python scripts/build_site.py`)
+    — described in [SITE.md](SITE.md).
+  contentsHeading: "Contents"
+  papersHeading: "Papers"
+  # The JSON-LD ItemList's `name` — the machine-readable title of the paper
+  # collection, which needs to be more explicit than the section heading.
+  papersListName: "CT reconstruction papers"
+  legendPapers: >-
+    Newest first within each topic. Each entry gives its venue and year in
+    italics; _preprint_ marks work not (yet) published at a peer-reviewed venue,
+    dated by its first public posting.
+  toolkitsHeading: "Toolkits"
+  datasetsHeading: "Datasets"
+  legendDatasets: >-
+    **Data** says what a release contains: _proj + image_ has raw projections and
+    a reference volume, so a forward model can be scored end to end;
+    _projections_ has raw data only; _image_ is image-domain only and cannot test
+    a projection model.
+  benchmarksHeading: "Benchmarks"
+  learningHeading: "Learning"
+  entriesCount: "<sub>{n} entries</sub>"
+  preprintLabel: "preprint"
+  contributingHeading: "Contributing"
+  contributingBody: >-
+    See [CONTRIBUTING.md](CONTRIBUTING.md). The short version: add an entry to the relevant
+    file under `data/`, run `python scripts/build.py`, and open a pull request. CI validates
+    the YAML for you.
+  licenseHeading: "License"
+  licenseBody1: >-
+    **Code** (`scripts/`, `web/`, `.github/`) is [MIT](LICENSE). **Content** (`data/`,
+    this README, and the generated site) is [CC BY 4.0](LICENSE-content) — reuse it
+    freely, including commercially, as long as you credit the list.
+  licenseBody2: >-
+    The `License` column in the toolkit and dataset tables describes **those projects**,
+    not this one. A paper's title, venue and links are facts about someone else's work and
+    remain theirs; an entry here is a pointer to a paper, never a copy of it.
+
+  # ---- hero / navigation
+  heroTagline: >-
+    **A curated, verified list of CT reconstruction research** — papers, toolkits,
+    datasets and benchmarks for CT, CBCT and micro-CT.
+  navWebsite: "Website"
+  badgeWebsite: "website"
+  badgePapers: "papers"
+  badgeLicense: "license"
+
+  # ---- stats strip. Each cell carries its own unit wording so a language can
+  # put the unit first, or drop the plural, without touching the renderer.
+  statPapersCell: "{papers} papers"
+  statPeerCell: "{peer_pct}% peer-reviewed"
+  statCodeCell: "{ncode} with code"
+  statToolkitsCell: "{toolkits} toolkits"
+  statDatasetsCell: "{datasets} datasets"
+  statBenchmarksCell: "{benchmarks} benchmarks"
+  statSpanCell: "{year_min}\u2013{year_max}"
+
+  # ---- paper list
+  topicCount: "<sub>{desc} \u00b7 {n} papers</sub>"
+  linkPaper: "Paper"
+  linkCode: "Code"
+  linkProject: "Project"
+  linkData: "Data"
+
+  # ---- dataset Data column. The three kinds come from the marker at the head
+  # of each note; see scripts/build.py's _MARKERS.
+  colData: "Data"
+  kindProjImage: "proj + image"
+  kindProjections: "projections"
+  kindImage: "image"
+
+  # ---- learning group labels
+  learnBooks: "Books"
+  learnCourses: "Courses"
+  learnTutorials: "Tutorials"
+  learnTools: "Tools"
+  learnLists: "Other lists"
+  learnMore: "More"
+
+  # ---- shared
+  tableDescription: "Description"
+  backToTop: "back to top"
+
+  # ---- contact replaces the old Contributing section
+  contactHeading: "Contact"
+  contactBody: >-
+    This list is curated and maintained by its authors; pull requests are not
+    accepted. Questions, corrections, or a paper you want added or removed: open
+    an [issue](https://github.com/{repo}/issues) or email
+    **[heitieya@163.com](mailto:heitieya@163.com)**.
+
+  # ---- licence block, itemised so each clause can stand alone
+  licenseIntro: >-
+    The content (`data/`, this README and the website) is licensed under
+    [CC BY-NC-SA 4.0](LICENSE-content):
+  licenseAttribution: "**Attribution**: credit this list when you use it."
+  licenseNonCommercial: "**NonCommercial**: no commercial use. For commercial use, ask first."
+  licenseShareAlike: "**ShareAlike**: adaptations must be shared under the same licence."
+  licenseCodeColumn: >-
+    Code (`scripts/`, `web/`, `.github/`) is [MIT](LICENSE). License columns
+    describe the listed projects, not this one, and each entry points to a
+    paper rather than copying it.
+
+
+# ---------------------------------------------------------------- pages
+# Bodies of the static pages under web/pages/. Kept here rather than in the
+# template so a translation can replace a whole page, and so build_site.py
+# can warn when web/pages/ and this file disagree.
+pages:
+  about: |-
+    <p class="kicker">About</p>
+    <h1>About this list</h1>
+    <p class="lede">Awesome Computed Tomography is an independent, hand-curated map of research on CT image reconstruction: the papers, open-source toolkits, datasets, benchmarks and learning material a researcher needs to find their way into the field, kept in one place and checked by hand.</p>
+
+    <h2>What it covers</h2>
+    <p>The list currently holds {{N_PAPERS}} papers from {{YEAR_MIN}} to {{YEAR_MAX}}, {{N_TOOLKITS}} toolkits, {{N_DATASETS}} datasets, {{N_BENCHMARKS}} benchmarks and {{N_LEARNING}} learning resources. Papers are grouped by problem (sparse-view, limited-angle, low-dose, metal artifacts, spectral, cone-beam, dynamic and 4D CT, scatter, calibration and motion) and by method family (classical and iterative solvers, deep unrolling, self-supervised methods, diffusion and generative priors, implicit neural representations, Gaussian splatting).</p>
+    <p>It is a reading list, not a database of everything. An entry is included because it is useful to someone working on CT reconstruction: a method people build on, a strong baseline, a dataset or benchmark that results are reported on, or a clear introduction.</p>
+
+    <h2>How entries are verified</h2>
+    <ul>
+      <li><strong>Identity.</strong> Every paper link is resolved against Crossref, arXiv or the publisher’s own record, and the title is matched against that record, so an entry cannot quietly point at a different paper.</li>
+      <li><strong>Venue.</strong> {{N_PEER}} papers ({{PEER_PCT}}%) carry a peer-reviewed venue, confirmed from the DOI rather than from search results. The other {{N_PREPRINT}} are marked <em>preprint</em> and dated by their first public posting.</li>
+      <li><strong>Links.</strong> Every URL is checked. Code links point at the authors’ own repositories where they exist.</li>
+    </ul>
+    <p>Checks catch broken links and mismatched records, not every mistake. A venue, a year or a category can still be wrong. If a detail matters for your work, follow the link and rely on the original paper.</p>
+
+    <h2>What it is not</h2>
+    <p>An entry is a pointer to someone else’s work, never a copy of it. Titles, venues and links are facts about papers that belong to their authors and publishers; inclusion is not an endorsement by them, and is not a claim that results have been reproduced here. Nothing on this site is medical advice.</p>
+
+    <h2>Maintenance</h2>
+    <p>The list is curated and maintained by its authors and updated continuously, with new arXiv papers, corrected venues and repaired links. It does not accept outside pull requests. Suggestions and corrections are welcome through the <a href="{{ROOT}}contact/">contact page</a>, and each one is checked before anything is added.</p>
+    <p>The same data is published as the <a href="{{REPO_URL}}" target="_blank" rel="noopener">GitHub README</a> and as <a href="{{ROOT}}data.json">data.json</a>. Both are generated from the same source files, so they never disagree with this site.</p>
+
+    <h2>Licence and reuse</h2>
+    <p>The content (the curated records, the README and this website) is licensed under <a href="{{CONTENT_LICENSE_URL}}" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>:</p>
+    <ul>
+      <li><strong>Attribution.</strong> Credit “Awesome Computed Tomography” and link to computedtomography.org.</li>
+      <li><strong>NonCommercial.</strong> No commercial use. For commercial use, email <a href="mailto:heitieya@163.com">heitieya@163.com</a> first.</li>
+      <li><strong>ShareAlike.</strong> If you adapt the list, share your version under the same licence.</li>
+    </ul>
+    <p>The site’s code is MIT. Licence columns in the toolkit and dataset tables describe those projects, not this list.</p>
+
+    <h2>Citing</h2>
+    <p>The list changes continuously, so cite a fixed snapshot: the repository URL together with a commit hash, or the page URL with the date you accessed it.</p>
+
+  contact: |-
+    <p class="kicker">Contact</p>
+    <h1>Contact</h1>
+    <p class="lede">Corrections and suggestions make the list better. Public feedback goes through GitHub Issues; anything private goes by email.</p>
+
+    <div class="cards">
+      <a class="card" href="{{REPO_URL}}/issues/new/choose" target="_blank" rel="noopener">
+        <span class="card-k">Public</span>
+        <span class="card-t">GitHub Issues</span>
+        <span class="card-d">Suggest a paper, report a wrong venue or a broken link. Needs a GitHub account.</span>
+      </a>
+      <a class="card" href="mailto:heitieya@163.com">
+        <span class="card-k">Private</span>
+        <span class="card-t">heitieya@163.com</span>
+        <span class="card-d">Copyright, attribution, removal requests, commercial licensing, anything not for a public thread.</span>
+      </a>
+    </div>
+
+    <h2>Suggesting a paper</h2>
+    <p>Send the DOI or arXiv link, and say where it belongs: the problem it addresses (for example sparse-view or metal artifacts) and, if there is one, the code repository. Every suggestion is verified against Crossref or arXiv before it is added, so you don’t need to write anything else.</p>
+
+    <h2>Reporting an error</h2>
+    <ul>
+      <li>The entry’s title, and the section or page it appears on.</li>
+      <li>What is wrong: the venue, the year, a link, or the category.</li>
+      <li>The evidence: a DOI, the publisher’s page, or the arXiv record.</li>
+    </ul>
+    <p>For a website problem (search, navigation, display on a phone), give the page address, what you did, what you expected and what happened, and your browser and device.</p>
+
+    <h2>Authors</h2>
+    <p>If your paper is listed and a detail is wrong, or you would like it added, removed or moved to another topic, open an issue or email. Requests from authors are handled first.</p>
+
+    <h2>What to expect</h2>
+    <p>Feedback is checked against the original sources. A suggestion may not be adopted, and there is no fixed reply time. You will never be asked for a password, a verification code or payment details. Please don’t post private material in a public issue.</p>
+
+  privacy: |-
+    <p class="kicker">Privacy</p>
+    <h1>Privacy policy</h1>
+    <p class="lede">Last updated 10 October 2026. This policy covers https://computedtomography.org/, a personal, non-commercial project maintained by its authors.</p>
+
+    <h2>In short</h2>
+    <p>There are no accounts, no advertising, no tracking scripts and no cookies set by this site. Reading it requires nothing from you.</p>
+
+    <h2>Hosting</h2>
+    <p>The site is static and is hosted by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a>; the domain’s DNS is managed by <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare</a>. Like any web server, GitHub receives the technical details of each request (IP address, browser, the page requested and the time) and may keep them in its logs under its own policy. This site does not receive or keep those logs.</p>
+
+    <h2>Analytics</h2>
+    <p>None. The site loads no analytics, advertising or social-media scripts. If that ever changes, this page will be updated first.</p>
+
+    <h2>Storage in your browser</h2>
+    <p>Your light or dark theme choice is saved in your browser’s local storage under the key <code>ct-theme</code>, so the site remembers it on your next visit. It never leaves your device. You can clear it with your browser’s site-data settings.</p>
+
+    <h2>Search</h2>
+    <p>Search and filters run entirely in your browser against a copy of the list loaded with the page; queries are not sent anywhere. Filters you apply are written into the address bar (for example <code>?q=diffusion</code>) so that a view can be shared, which means they can appear in your browser history.</p>
+
+    <h2>External links</h2>
+    <p>Entries link to publishers, arXiv, GitHub and other sites. Once you follow a link, that site’s own privacy policy applies.</p>
+
+    <h2>Email</h2>
+    <p>If you write to <a href="mailto:heitieya@163.com">heitieya@163.com</a>, the message and your address are used only to handle your request. Ordinary messages are deleted at most 12 months after the matter is closed. Please send only what is needed, and never a password, a verification code or payment details. GitHub Issues are public and governed by GitHub’s terms.</p>
+
+    <h2>Your rights</h2>
+    <p>Depending on where you live, you may have the right to access, correct or delete personal information about you, and to complain to a data-protection authority. Email <a href="mailto:heitieya@163.com">heitieya@163.com</a> to make a request. For data held by GitHub or Cloudflare, you may need to contact them directly.</p>
+
+    <h2>Changes</h2>
+    <p>When this policy changes, the date at the top of this page changes with it.</p>

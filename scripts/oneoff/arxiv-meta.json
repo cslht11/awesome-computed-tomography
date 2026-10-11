@@ -1,0 +1,782 @@
+{
+ "1902.03362": {
+  "title": "Sinogram interpolation for sparse-view micro-CT with deep learning neural network",
+  "doi": "",
+  "journal": "",
+  "year": 2019
+ },
+ "2005.06001": {
+  "title": "Deep Learning Techniques for Inverse Problems in Imaging",
+  "doi": "",
+  "journal": "",
+  "year": 2020
+ },
+ "2104.11745": {
+  "title": "Dynamic CT Reconstruction from Limited Views with Implicit Neural Representations and Parametric Motion Fields",
+  "doi": "",
+  "journal": "",
+  "year": 2021
+ },
+ "1801.09533": {
+  "title": "Statistical Image Reconstruction Using Mixed Poisson-Gaussian Noise Model for X-Ray CT",
+  "doi": "",
+  "journal": "",
+  "year": 2018
+ },
+ "2012.04743": {
+  "title": "2-Step Sparse-View CT Reconstruction with a Domain-Specific Perceptual Network",
+  "doi": "",
+  "journal": "",
+  "year": 2020
+ },
+ "2203.15725": {
+  "title": "Physics-/Model-Based and Data-Driven Methods for Low-Dose Computed Tomography: A survey",
+  "doi": "10.1109/msp.2022.3204407",
+  "journal": "IEEE Signal Processing Magazine, 40(2), 89-100, 2023",
+  "year": 2022
+ },
+ "2012.06448": {
+  "title": "An Unsupervised Reconstruction Method For Low-Dose CT Using Deep Generative Regularization Prior",
+  "doi": "10.1016/j.bspc.2022.103598",
+  "journal": "Biomedical Signal Processing and Control 75 (2022) 103598",
+  "year": 2020
+ },
+ "1808.03015": {
+  "title": "Radon Inversion via Deep Learning",
+  "doi": "",
+  "journal": "",
+  "year": 2018
+ },
+ "2109.05298": {
+  "title": "InDuDoNet: An Interpretable Dual Domain Network for CT Metal Artifact Reduction",
+  "doi": "",
+  "journal": "International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI) 2021",
+  "year": 2021
+ },
+ "2202.10847": {
+  "title": "UncertaINR: Uncertainty Quantification of End-to-End Implicit Neural Representations for Computed Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2022
+ },
+ "1708.08333": {
+  "title": "Framing U-Net via Deep Convolutional Framelets: Application to Sparse-view CT",
+  "doi": "",
+  "journal": "",
+  "year": 2017
+ },
+ "1910.05375": {
+  "title": "Extreme Few-view CT Reconstruction using Deep Inference",
+  "doi": "",
+  "journal": "",
+  "year": 2019
+ },
+ "2008.00406": {
+  "title": "MAGIC: Manifold and Graph Integrative Convolutional Network for Low-Dose CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2020
+ },
+ "1707.09938": {
+  "title": "Deep Convolutional Framelet Denosing for Low-Dose CT via Wavelet Residual Network",
+  "doi": "",
+  "journal": "",
+  "year": 2017
+ },
+ "1610.09736": {
+  "title": "A deep convolutional neural network using directional wavelets for low-dose X-ray CT reconstruction",
+  "doi": "10.1002/mp.12344",
+  "journal": "",
+  "year": 2016
+ },
+ "2009.01782": {
+  "title": "Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency",
+  "doi": "",
+  "journal": "",
+  "year": 2020
+ },
+ "2008.02839": {
+  "title": "Learned convex regularizers for inverse problems",
+  "doi": "",
+  "journal": "",
+  "year": 2020
+ },
+ "2103.16151": {
+  "title": "Adversarially learned iterative reconstruction for imaging inverse problems",
+  "doi": "",
+  "journal": "",
+  "year": 2021
+ },
+ "1906.10643": {
+  "title": "A Review on Deep Learning in Medical Image Reconstruction",
+  "doi": "10.1007/s40305-019-00287-4",
+  "journal": "J. Oper. Res. Soc. China 8(2020) 311-340",
+  "year": 2019
+ },
+ "2010.02761": {
+  "title": "Unified Supervised-Unsupervised (SUPER) Learning for X-ray CT Image Reconstruction",
+  "doi": "10.1109/tmi.2021.3095310",
+  "journal": "IEEE Transactions on Medical Imaging, vol. 40, no. 11, pp. 2986-3001, Nov. 2021",
+  "year": 2020
+ },
+ "2306.15203": {
+  "title": "Unsupervised Polychromatic Neural Representation for CT Metal Artifact Reduction",
+  "doi": "",
+  "journal": "",
+  "year": 2023
+ },
+ "2405.20693": {
+  "title": "R$^2$-Gaussian: Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2024
+ },
+ "2412.03036": {
+  "title": "Fan-Beam CT Reconstruction for Unaligned Sparse-View X-ray Baggage Dataset",
+  "doi": "",
+  "journal": "",
+  "year": 2024
+ },
+ "2501.13128": {
+  "title": "A Learnt Half-Quadratic Splitting-Based Algorithm for Fast and High-Quality Industrial Cone-beam CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2211.17048": {
+  "title": "SNAF: Sparse-view CBCT Reconstruction with Neural Attenuation Fields",
+  "doi": "",
+  "journal": "",
+  "year": 2022
+ },
+ "2205.00463": {
+  "title": "A Dataset-free Deep learning Method for Low-Dose CT Image Reconstruction",
+  "doi": "10.1088/1361-6420/ac8ac6",
+  "journal": "",
+  "year": 2022
+ },
+ "2501.13972": {
+  "title": "Synthetic CT image generation from CBCT: A Systematic Review",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2501.02992": {
+  "title": "GLFC: Unified Global-Local Feature and Contrast Learning with Mamba-Enhanced UNet for Synthetic CT Generation from CBCT",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2401.16039": {
+  "title": "Data-Driven Filter Design in FBP: Transforming CT Reconstruction with Trainable Fourier Series",
+  "doi": "",
+  "journal": "",
+  "year": 2024
+ },
+ "2209.15136": {
+  "title": "Low-Dose CT Using Denoising Diffusion Probabilistic Model for 20$\\times$ Speedup",
+  "doi": "",
+  "journal": "",
+  "year": 2022
+ },
+ "2211.13926": {
+  "title": "Generative Modeling in Sinogram Domain for Sparse-view CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2022
+ },
+ "2403.10695": {
+  "title": "EAGLE: An Edge-Aware Gradient Localization Enhanced Loss for CT Image Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2024
+ },
+ "2501.07376": {
+  "title": "Bigger Isn't Always Better: Towards a General Prior for Medical Image Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2209.14540": {
+  "title": "NAF: Neural Attenuation Fields for Sparse-View CBCT Reconstruction",
+  "doi": "10.1007/978-3-031-16446-0_42",
+  "journal": "",
+  "year": 2022
+ },
+ "2211.07804": {
+  "title": "Diffusion Models for Medical Image Analysis: A Comprehensive Survey",
+  "doi": "",
+  "journal": "",
+  "year": 2022
+ },
+ "2501.05085": {
+  "title": "End-to-End Deep Learning for Interior Tomography with Low-Dose X-ray CT",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2502.02771": {
+  "title": "When are Diffusion Priors Helpful in Sparse Reconstruction? A Study with Sparse-view CT",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2501.04140": {
+  "title": "Spatiotemporal Gaussian Optimization for 4D Cone Beam CT Reconstruction from Sparse Projections",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2405.02509": {
+  "title": "Implicit Neural Representations for Robust Joint Sparse-View CT Reconstruction",
+  "doi": "",
+  "journal": "Transactions on Machine Learning Research (2024)",
+  "year": 2024
+ },
+ "2411.06181": {
+  "title": "Epi-NAF: Enhancing Neural Attenuation Fields for Limited-Angle CT with Epipolar Consistency Conditions",
+  "doi": "",
+  "journal": "",
+  "year": 2024
+ },
+ "2504.13390": {
+  "title": "Accelerated Optimization of Implicit Neural Representations for CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2506.22280": {
+  "title": "DIGS: Dynamic CBCT Reconstruction using Deformation-Informed 4D Gaussian Splatting and a Low-Rank Free-Form Deformation Model",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2505.22187": {
+  "title": "MONSTR: Model-Oriented Neutron Strain Tomographic Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2503.18342": {
+  "title": "Limited-angle SPECT image reconstruction using deep image prior",
+  "doi": "10.1088/1361-6560/adea09",
+  "journal": "Phys. Med. Biol. 70 (2025) 145005",
+  "year": 2025
+ },
+ "2503.17804": {
+  "title": "DVG-Diffusion: Dual-View Guided Diffusion Model for CT Reconstruction from X-Rays",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2502.06125": {
+  "title": "A CT Geometry With Multiple Centers Of Rotation For Solving Sparse View Problem",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2503.22139": {
+  "title": "Time-resolved dynamic CBCT reconstruction using prior-model-free spatiotemporal Gaussian representation (PMF-STGR)",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2502.12293": {
+  "title": "Data-Efficient Limited-Angle CT Using Deep Priors and Regularization",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2504.07927": {
+  "title": "Zero-Shot Low-dose CT Denoising via Sinogram Flicking",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2505.09985": {
+  "title": "Ordered-subsets Multi-diffusion Model for Sparse-view CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2505.19385": {
+  "title": "Advancing Limited-Angle CT Reconstruction Through Diffusion-Based Sinogram Completion",
+  "doi": "10.1109/icip55913.2025.11084640",
+  "journal": "",
+  "year": 2025
+ },
+ "2504.14033": {
+  "title": "Adaptive Diffusion Models for Sparse-View Motion-Corrected Head Cone-beam CT",
+  "doi": "10.1109/trpms.2025.3637124",
+  "journal": "",
+  "year": 2025
+ },
+ "2505.15235": {
+  "title": "X-GRM: Large Gaussian Reconstruction Model for Sparse-view X-rays to Computed Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2506.22012": {
+  "title": "Noise-Inspired Diffusion Model for Generalizable Low-Dose CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2504.18700": {
+  "title": "Prior-Adapted Progressive Time-Resolved CBCT Reconstruction Using a Dynamic Reconstruction and Motion Estimation Method",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2506.19531": {
+  "title": "ReMAR-DS: Recalibrated Feature Learning for Metal Artifact Reduction and CT Domain Transformation",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2506.13545": {
+  "title": "Limited-Angle CBCT Reconstruction via Geometry-Integrated Cycle-domain Denoising Diffusion Probabilistic Models",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2506.08716": {
+  "title": "Enhancing Synthetic CT from CBCT via Multimodal Fusion: A Study on the Impact of CBCT Quality and Alignment",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2505.13579": {
+  "title": "Learning Wavelet-Sparse FDK for 3D Cone-Beam CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2505.03463": {
+  "title": "Nonperiodic dynamic CT reconstruction using backward-warping INR with regularization of diffeomorphism (BIRD)",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2509.21913": {
+  "title": "Equivariant Conditional Diffusion Model for Head and Neck CT Image Synthesis from CBCT",
+  "doi": "10.1002/mp.70617",
+  "journal": "",
+  "year": 2025
+ },
+ "2507.11152": {
+  "title": "Latent Space Consistency for Sparse-View CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2509.08973": {
+  "title": "Ultrafast Deep Learning-Based Scatter Estimation in Cone-Beam Computed Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2510.17864": {
+  "title": "InsideOut: Integrated RGB-Radiative Gaussian Splatting for Comprehensive 3D Object Representation",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2510.22605": {
+  "title": "Projection Embedded Diffusion Bridge for CT Reconstruction from Incomplete Data",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2511.14310": {
+  "title": "Iterative Diffusion-Refined Neural Attenuation Fields for Multi-Source Stationary CT Reconstruction: NAF Meets Diffusion Model",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2512.22674": {
+  "title": "Semantic contrastive learning for orthogonal X-ray computed tomography reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2510.24579": {
+  "title": "Physics-Inspired Gaussian Kolmogorov-Arnold Networks for X-ray Scatter Correction in Cone-Beam CT",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2512.21180": {
+  "title": "Equivariant Multiscale Learned Invertible Reconstruction for Cone Beam CT: From Simulated to Real Data",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2512.00873": {
+  "title": "Neural Discrete Representation Learning for Sparse-View CBCT Reconstruction: From Algorithm Design to Prospective Multicenter Clinical Evaluation",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2508.07618": {
+  "title": "An Iterative Reconstruction Method for Dental Cone-Beam Computed Tomography with a Truncated Field of View",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2509.13576": {
+  "title": "Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT",
+  "doi": "10.1109/tmi.2026.3687173",
+  "journal": "IEEE Transactions on Medical Imaging, 2026 (early access)",
+  "year": 2025
+ },
+ "2510.23317": {
+  "title": "Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data",
+  "doi": "10.1109/tci.2026.3684416",
+  "journal": "IEEE Transactions on Computational Imaging (Volume 12, year 2026, pages 800-811)",
+  "year": 2025
+ },
+ "2508.15151": {
+  "title": "Zero-shot CT Super-Resolution using Diffusion-based 2D Projection Priors and Signed 3D Gaussians",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2507.05647": {
+  "title": "Diffusion-Based Limited-Angle CT Reconstruction under Noisy Conditions",
+  "doi": "10.1109/icipw68931.2025.11386431",
+  "journal": "",
+  "year": 2025
+ },
+ "2512.12236": {
+  "title": "Resolution-Agnostic Neural Operators for Multi-Rate Sparse-View CT",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2507.06067": {
+  "title": "Enhancing Synthetic CT from CBCT via Multimodal Fusion and End-To-End Registration",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2508.09616": {
+  "title": "MInDI-3D: Iterative Deep Learning in 3D for Sparse-view Cone Beam Computed Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2508.10617": {
+  "title": "FIND-Net -- Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2512.19336": {
+  "title": "GANeXt: A Fully ConvNeXt-Enhanced Generative Adversarial Network for MRI- and CBCT-to-CT Synthesis",
+  "doi": "",
+  "journal": "",
+  "year": 2025
+ },
+ "2603.06852": {
+  "title": "Active View Selection with Perturbed Gaussian Ensemble for Tomographic Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2602.01057": {
+  "title": "Radioactive 3D Gaussian Ray Tracing for Tomographic Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2602.22544": {
+  "title": "HARU-Net: Hybrid Attention Residual U-Net for Edge-Preserving Denoising in Cone-Beam Computed Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2602.07980": {
+  "title": "Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2604.21518": {
+  "title": "DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2602.12755": {
+  "title": "Towards reconstructing experimental sparse-view X-ray CT data with diffusion models",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2601.15358": {
+  "title": "High-Fidelity 3D Tooth Reconstruction by Fusing Intraoral Scans and CBCT Data via a Deep Implicit Representation",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2602.11705": {
+  "title": "TG-Field: Geometry-Aware Radiative Gaussian Fields for Tomographic Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2603.06300": {
+  "title": "3D CBCT Artefact Removal Using Perpendicular Score-Based Diffusion Models",
+  "doi": "10.1007/978-3-032-05472-2",
+  "journal": "Lecture Notes in Computer Science, vol. 16128, Springer, 2025, pp. 244-253",
+  "year": 2026
+ },
+ "2603.26014": {
+  "title": "Cone-Beam CT Image Quality Enhancement Using A Latent Diffusion Model Trained with Simulated CBCT Artifacts",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2603.26509": {
+  "title": "Conditional Diffusion for 3D CT Volume Reconstruction from 2D X-rays",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2602.18589": {
+  "title": "DM4CT: Benchmarking Diffusion Models for Computed Tomography Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2603.13447": {
+  "title": "MGMAR: Metal-Guided Metal Artifact Reduction for X-ray Computed Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2604.06622": {
+  "title": "Balancing Efficiency and Restoration: Lightweight Mamba-Based Model for CT Metal Artifact Reduction",
+  "doi": "10.1109/trpms.2026.3674764",
+  "journal": "",
+  "year": 2026
+ },
+ "2602.14315": {
+  "title": "Complex Wavelet-Based Sinogram Segmentation for Metal Artifact Reduction in Cone-Beam CT",
+  "doi": "10.1088/1361-6560/ae8fb3",
+  "journal": "",
+  "year": 2026
+ },
+ "2603.14915": {
+  "title": "ILV: Iterative Latent Volumes for Fast and Accurate Sparse-View CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2604.01844": {
+  "title": "FaCT-GS: Fast and Scalable CT Reconstruction with Gaussian Splatting",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2603.05796": {
+  "title": "CBCT-Based Synthetic CT Generation Using Conditional Flow Matching Model",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2604.05934": {
+  "title": "Leveraging Image Editing Foundation Models for Data-Efficient CT Metal Artifact Reduction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2603.01253": {
+  "title": "Cross-Modal Guidance for Fast Diffusion-Based Computed Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2606.16212": {
+  "title": "LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2605.12252": {
+  "title": "H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2606.22525": {
+  "title": "Projection-Volume Fidelity Divergence: Diagnosing and Controlling Optimization Drift in Sparse-View 3D Gaussian Tomography",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2607.20977": {
+  "title": "Unsupervised Metal Artifact Reduction in Dental CBCT using Fine-tuned Cycle-Consistent Adversarial Networks",
+  "doi": "10.3390/digital6020031",
+  "journal": "Chamika, T.; Dhanapala, S.N.A.; Nimalaweera, S.; Dissanayake, M.B.; Jayasinghe, R.D. Unsupervised Metal Artifact Reduction in Dental CBCT Using Fine-Tuned Cycle-Consistent Adversarial Networks. Digital 2026, 6, 31",
+  "year": 2026
+ },
+ "2608.04764": {
+  "title": "Splat-Based Metal Artifact Reduction in Cone-Beam CT via Compact Attenuation Modeling",
+  "doi": "",
+  "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2026",
+  "year": 2026
+ },
+ "2604.21960": {
+  "title": "Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2607.09828": {
+  "title": "Robustness and Stability Analysis of Differentiable Shift-Variant FBP for Cone-Beam CT under Challenging Acquisition Settings",
+  "doi": "10.59275/j.melba.2026-252c",
+  "journal": "Machine.Learning.for.Biomedical.Imaging. 2026 (2026)",
+  "year": 2026
+ },
+ "2608.17255": {
+  "title": "Learning Where and What to Lift for Bi-planar X-ray-to-CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2606.20763": {
+  "title": "From Sparse X-rays to 3D CT: Training-Free Reconstruction with Diffusion Priors",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2608.03430": {
+  "title": "Dual-domain U-Nets with embedded back projection operators for motion-resolved 4D CBCT reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2605.11637": {
+  "title": "Computed Tomography Reconstruction Algorithm Using Markov Random Field Model",
+  "doi": "10.7566/jpsj.95.104001",
+  "journal": "J. Phys. Soc. Jpn. 95, 104001 (2026)",
+  "year": 2026
+ },
+ "2607.15812": {
+  "title": "Joint-decoupled iterative CBCT reconstruction with hybrid scatter estimation and voxel-adaptive beam hardening correction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2608.13159": {
+  "title": "Splat-based Metal Artifact Reduction in Cone-Beam CT via Polychromatic Modeling",
+  "doi": "10.1111/cgf.70339",
+  "journal": "Computer Graphics forum, Volume 45 (2026), Number 2",
+  "year": 2026
+ },
+ "2605.30893": {
+  "title": "Foundation VAEs for 3D CT Reconstruction, Augmentation, and Generation",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2607.11584": {
+  "title": "GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2606.06039": {
+  "title": "Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2608.08919": {
+  "title": "Toward CT-Equivalent Image Quality in Low-Dose Radiotherapy Planning: Conditional Diffusion-Based CBCT-to-CT Synthesis and the Impact of CBCT Input Representation",
+  "doi": "10.26044/ecr2026/c-28213",
+  "journal": "",
+  "year": 2026
+ },
+ "2608.15246": {
+  "title": "CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2608.04752": {
+  "title": "Revisiting Pose Sensitivity in Splat-based Computed Tomography under Sparse-view Reconstruction",
+  "doi": "",
+  "journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2026",
+  "year": 2026
+ },
+ "2607.14415": {
+  "title": "$K$-NeAS: Scalable Multi-Material CT Reconstruction Using Neural SDFs",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2609.18943": {
+  "title": "Dose-Aware Cold Diffusion with Physics Consistency for Generalizable Low-Dose CT Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2608.23190": {
+  "title": "Toward a Foundation Plug-and-Play Prior for Computed Tomography Reconstruction via a Multimodal Diffusion Model",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2610.01512": {
+  "title": "VoxelSynth3D: Interpretable Volumetric Image-Domain Metal Artifact Reduction with a Paired Synthetic CLINIC-Metal Benchmark",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2609.30169": {
+  "title": "Cone-beam artifact reduction in Gamma Knife CBCT images using a line-arc-line scan trajectory",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2609.27398": {
+  "title": "Integration of Spectral CT with PET and SPECT: Bringing Tissue Composition Information to Molecular Imaging",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2609.28232": {
+  "title": "Non-circular scan trajectories for reducing cone-beam artifacts in Gamma Knife CBCT images: a simulation study",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2609.28110": {
+  "title": "Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2610.06094": {
+  "title": "Anatomy-preserving unpaired cone-beam CT refinement for image-guided radiotherapy using pseudo-label guided diffusion",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2609.10376": {
+  "title": "Shape-guided Gaussian Splatting for Sparse-View X-ray 3D Reconstruction",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ },
+ "2610.08866": {
+  "title": "Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT",
+  "doi": "",
+  "journal": "",
+  "year": 2026
+ }
+}

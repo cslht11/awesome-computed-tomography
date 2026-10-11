@@ -1,0 +1,414 @@
+{
+ "10.1002/mp.12523": {
+  "container": "Medical Physics",
+  "year": 2017
+ },
+ "10.1002/mp.14319": {
+  "container": "Medical Physics",
+  "year": 2020
+ },
+ "10.1002/mp.15183": {
+  "container": "Medical Physics",
+  "year": 2021
+ },
+ "10.1002/mp.15952": {
+  "container": "Medical Physics",
+  "year": 2023
+ },
+ "10.1007/978-3-030-87231-1_24": {
+  "container": "Lecture Notes in Computer Science",
+  "year": 2021
+ },
+ "10.1007/978-3-030-87231-1_28": {
+  "container": "Lecture Notes in Computer Science",
+  "year": 2021
+ },
+ "10.1007/978-3-031-17247-2_9": {
+  "container": "Lecture Notes in Computer Science",
+  "year": 2022
+ },
+ "10.1007/978-3-031-43999-5_24": {
+  "container": "Lecture Notes in Computer Science",
+  "year": 2023
+ },
+ "10.1007/978-3-031-43999-5_34": {
+  "container": "Lecture Notes in Computer Science",
+  "year": 2023
+ },
+ "10.1007/978-3-031-72104-5_41": {
+  "container": "Lecture Notes in Computer Science",
+  "year": 2024
+ },
+ "10.1007/978-3-031-75653-5_6": {
+  "container": "Deep Learning for Advanced X-ray Detection and Imaging Applications",
+  "year": 2024
+ },
+ "10.1007/978-3-032-05325-1_14": {
+  "container": "Lecture Notes in Computer Science",
+  "year": 2026
+ },
+ "10.1007/s10278-018-0056-0": {
+  "container": "Journal of Digital Imaging",
+  "year": 2018
+ },
+ "10.1016/j.bspc.2022.104204": {
+  "container": "Biomedical Signal Processing and Control",
+  "year": 2023
+ },
+ "10.1016/j.cmpb.2022.107167": {
+  "container": "Computer Methods and Programs in Biomedicine",
+  "year": 2022
+ },
+ "10.1016/j.compbiomed.2022.105759": {
+  "container": "Computers in Biology and Medicine",
+  "year": 2022
+ },
+ "10.1016/j.compbiomed.2023.106803": {
+  "container": "Computers in Biology and Medicine",
+  "year": 2023
+ },
+ "10.1016/j.patcog.2019.03.009": {
+  "container": "Pattern Recognition",
+  "year": 2019
+ },
+ "10.1016/j.patter.2022.100474": {
+  "container": "Patterns",
+  "year": 2022
+ },
+ "10.1016/j.patter.2022.100475": {
+  "container": "Patterns",
+  "year": 2022
+ },
+ "10.1017/S0962492919000059": {
+  "container": "Acta Numerica",
+  "year": 2019
+ },
+ "10.1038/nature25988": {
+  "container": "Nature",
+  "year": 2018
+ },
+ "10.1038/s41551-019-0466-4": {
+  "container": "Nature Biomedical Engineering",
+  "year": 2019
+ },
+ "10.1038/s42256-019-0057-9": {
+  "container": "Nature Machine Intelligence",
+  "year": 2019
+ },
+ "10.1038/s42256-020-00273-z": {
+  "container": "Nature Machine Intelligence",
+  "year": 2020
+ },
+ "10.1088/1361-6420/aba415": {
+  "container": "Inverse Problems",
+  "year": 2020
+ },
+ "10.1088/1361-6560/ab9066": {
+  "container": "Physics in Medicine &amp; Biology",
+  "year": 2020
+ },
+ "10.1088/1361-6560/acc000": {
+  "container": "Physics in Medicine &amp; Biology",
+  "year": 2023
+ },
+ "10.1088/1361-6560/acf90e": {
+  "container": "Physics in Medicine &amp; Biology",
+  "year": 2023
+ },
+ "10.1093/bjrai/ubae013": {
+  "container": "BJR|Artificial Intelligence",
+  "year": 2024
+ },
+ "10.1109/ACCESS.2016.2608621": {
+  "container": "IEEE Access",
+  "year": 2016
+ },
+ "10.1109/JPROC.2019.2936204": {
+  "container": "Proceedings of the IEEE",
+  "year": 2020
+ },
+ "10.1109/MSP.2017.2739299": {
+  "container": "IEEE Signal Processing Magazine",
+  "year": 2017
+ },
+ "10.1109/access.2020.2982229": {
+  "container": "IEEE Access",
+  "year": 2020
+ },
+ "10.1109/access.2020.3033795": {
+  "container": "IEEE Access",
+  "year": 2020
+ },
+ "10.1109/cvpr.2018.00664": {
+  "container": "2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+  "year": 2018
+ },
+ "10.1109/cvpr52729.2023.02159": {
+  "container": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "year": 2023
+ },
+ "10.1109/cvpr52733.2024.01062": {
+  "container": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "year": 2024
+ },
+ "10.1109/iccv48922.2021.00197": {
+  "container": "2021 IEEE/CVF International Conference on Computer Vision (ICCV)",
+  "year": 2021
+ },
+ "10.1109/iccv51701.2025.02325": {
+  "container": "2025 IEEE/CVF International Conference on Computer Vision (ICCV)",
+  "year": 2025
+ },
+ "10.1109/iccvw.2019.00490": {
+  "container": "2019 IEEE/CVF International Conference on Computer Vision Workshop (ICCVW)",
+  "year": 2019
+ },
+ "10.1109/icsp48669.2020.9320928": {
+  "container": "2020 15th IEEE International Conference on Signal Processing (ICSP)",
+  "year": 2020
+ },
+ "10.1109/jbhi.2021.3061758": {
+  "container": "IEEE Journal of Biomedical and Health Informatics",
+  "year": 2021
+ },
+ "10.1109/jbhi.2022.3155788": {
+  "container": "IEEE Journal of Biomedical and Health Informatics",
+  "year": 2022
+ },
+ "10.1109/jbhi.2022.3213595": {
+  "container": "IEEE Journal of Biomedical and Health Informatics",
+  "year": 2023
+ },
+ "10.1109/jbhi.2022.3225697": {
+  "container": "IEEE Journal of Biomedical and Health Informatics",
+  "year": 2023
+ },
+ "10.1109/jbhi.2023.3312292": {
+  "container": "IEEE Journal of Biomedical and Health Informatics",
+  "year": 2023
+ },
+ "10.1109/jbhi.2025.3629034": {
+  "container": "IEEE Journal of Biomedical and Health Informatics",
+  "year": 2026
+ },
+ "10.1109/tci.2020.3039385": {
+  "container": "IEEE Transactions on Computational Imaging",
+  "year": 2020
+ },
+ "10.1109/tim.2021.3128703": {
+  "container": "IEEE Transactions on Instrumentation and Measurement",
+  "year": 2022
+ },
+ "10.1109/tmi.2017.2715284": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2017
+ },
+ "10.1109/tmi.2017.2753138": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2017
+ },
+ "10.1109/tmi.2017.2767290": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2017
+ },
+ "10.1109/tmi.2018.2799231": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2805692": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2823338": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2823679": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2827462": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2832656": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2833499": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2847250": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2018
+ },
+ "10.1109/tmi.2018.2865202": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2019
+ },
+ "10.1109/tmi.2018.2878226": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2019
+ },
+ "10.1109/tmi.2019.2910760": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2019
+ },
+ "10.1109/tmi.2019.2934933": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2020
+ },
+ "10.1109/tmi.2019.2935187": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2020
+ },
+ "10.1109/tmi.2020.2968472": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2020
+ },
+ "10.1109/tmi.2020.2976692": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2020
+ },
+ "10.1109/tmi.2020.2983414": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2020
+ },
+ "10.1109/tmi.2020.3033541": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2021.3054167": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2021.3066318": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2021.3074783": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2021.3078067": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2021.3085839": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2021.3090257": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2021.3097808": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2021
+ },
+ "10.1109/tmi.2022.3156270": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2022
+ },
+ "10.1109/tmi.2022.3197400": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2022
+ },
+ "10.1109/tmi.2024.3351201": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2024
+ },
+ "10.1109/tmi.2024.3355455": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2024
+ },
+ "10.1109/tmi.2024.3474250": {
+  "container": "IEEE Transactions on Medical Imaging",
+  "year": 2025
+ },
+ "10.1109/tnnls.2023.3319408": {
+  "container": "IEEE Transactions on Neural Networks and Learning Systems",
+  "year": 2024
+ },
+ "10.1109/tpami.2020.3012955": {
+  "container": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+  "year": 2023
+ },
+ "10.1109/trpms.2018.2867611": {
+  "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+  "year": 2019
+ },
+ "10.1109/trpms.2020.2989634": {
+  "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+  "year": 2021
+ },
+ "10.1109/trpms.2020.2991887": {
+  "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+  "year": 2021
+ },
+ "10.1109/trpms.2020.3011413": {
+  "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+  "year": 2021
+ },
+ "10.1109/trpms.2021.3083361": {
+  "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+  "year": 2022
+ },
+ "10.1109/trpms.2022.3148373": {
+  "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+  "year": 2022
+ },
+ "10.1109/trpms.2022.3171440": {
+  "container": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+  "year": 2022
+ },
+ "10.1109/wacv56688.2023.00197": {
+  "container": "2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+  "year": 2023
+ },
+ "10.1109/wacv57701.2024.00133": {
+  "container": "2024 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+  "year": 2024
+ },
+ "10.1117/12.2254244": {
+  "container": "SPIE Proceedings",
+  "year": 2017
+ },
+ "10.1117/12.2512894": {
+  "container": "Medical Imaging 2019: Image Processing",
+  "year": 2019
+ },
+ "10.1117/12.2558953": {
+  "container": "Algorithms for Synthetic Aperture Radar Imagery XXVII",
+  "year": 2020
+ },
+ "10.1117/12.2634939": {
+  "container": "Developments in X-Ray Tomography XIV",
+  "year": 2022
+ },
+ "10.1117/12.2646639": {
+  "container": "7th International Conference on Image Formation in X-Ray Computed Tomography",
+  "year": 2022
+ },
+ "10.1145/3503161.3548204": {
+  "container": "Proceedings of the 30th ACM International Conference on Multimedia",
+  "year": 2022
+ },
+ "10.1609/aaai.v39i7.32794": {
+  "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "year": 2025
+ },
+ "10.24963/ijcai.2022/195": {
+  "container": "Proceedings of the Thirty-First International Joint Conference on Artificial Intelligence",
+  "year": 2022
+ },
+ "10.3390/tomography7040077": {
+  "container": "Tomography",
+  "year": 2021
+ },
+ "10.36227/techrxiv.23726703": {
+  "container": "",
+  "year": 2023
+ }
+}

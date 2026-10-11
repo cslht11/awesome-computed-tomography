@@ -1,0 +1,830 @@
+[
+  {
+    "abbr": "",
+    "title": "EAGLE: An Edge-Aware Gradient Localization Enhanced Loss for CT Image Reconstruction",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2403.10695v1",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "Generative Modeling in Sinogram Domain for Sparse-view CT Reconstruction",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2211.13926v1",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "CoCoDiff: A Contextual Conditional Diffusion Model for Low-dose CT Image Denoising",
+    "year": 0,
+    "paper": null,
+    "venue": null,
+    "sim": 0.0,
+    "via": "none"
+  },
+  {
+    "abbr": "",
+    "title": "Low-Dose CT Using Denoising Diffusion Probabilistic Model for 20× Speedup",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2209.15136v1",
+    "venue": null,
+    "sim": 0.92,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "Synergizing Physics/Model-based and Data-driven Methods for Low-Dose CT",
+    "year": 0,
+    "paper": null,
+    "venue": null,
+    "sim": 0.0,
+    "via": "none"
+  },
+  {
+    "abbr": "",
+    "title": "UncertaINR: Uncertainty Quantification of End-to-End Implicit Neural Representations for Computed Tomography",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2202.10847v3",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2009.01782v1",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "Learned convex regularizers for inverse problems",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2008.02839v2",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "Extreme Few-view CT Reconstruction using Deep Inference",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/1910.05375v1",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "Statistical Image Reconstruction Using Mixed Poisson-Gaussian Noise Model for X-Ray CT",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/1801.09533v1",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "2-Step Sparse-View CT Reconstruction with a Domain-Specific Perceptual Network",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2012.04743v1",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "",
+    "title": "Data-Driven Filter Design in FBP: Transforming CT Reconstruction with Trainable Fourier Series",
+    "year": 0,
+    "paper": "https://arxiv.org/abs/2401.16039v2",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "IRDS",
+    "title": "Iterative reconstruction of low-dose CT based on differential sparse",
+    "year": 2023,
+    "paper": "https://doi.org/10.1016/j.bspc.2022.104204",
+    "venue": "Biomedical Signal Processing and Control",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DADN",
+    "title": "Domain-adaptive denoising network for low-dose CT via noise estimation and transfer learning",
+    "year": 2023,
+    "paper": "https://doi.org/10.1002/mp.15952",
+    "venue": "Medical Physics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SPQI",
+    "title": "Structure-preserving quality improvement of cone beam CT images using contrastive learning",
+    "year": 2023,
+    "paper": "https://doi.org/10.1016/j.compbiomed.2023.106803",
+    "venue": "Computers in Biology and Medicine",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "3DIP",
+    "title": "Solving 3D Inverse Problems Using Pre-Trained 2D Diffusion Models",
+    "year": 2023,
+    "paper": "https://doi.org/10.1109/cvpr52729.2023.02159",
+    "venue": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "GGLF",
+    "title": "Gradient-based geometry learning for fan-beam CT reconstruction",
+    "year": 2023,
+    "paper": "https://doi.org/10.1088/1361-6560/acf90e",
+    "venue": "Physics in Medicine &amp; Biology",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "GMM-unNet",
+    "title": "Noise Characteristics Modeled Unsupervised Network for Robust CT Image Reconstruction",
+    "year": 2022,
+    "paper": "https://doi.org/10.1109/tmi.2022.3197400",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DREAM-Net",
+    "title": "DREAM-Net: Deep Residual Error Iterative Minimization Network for Sparse-View CT Reconstruction",
+    "year": 2023,
+    "paper": "https://doi.org/10.1109/jbhi.2022.3225697",
+    "venue": "IEEE Journal of Biomedical and Health Informatics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "FONT-SIR",
+    "title": "FONT-SIR: Fourth-Order Nonlocal Tensor Decomposition Model for Spectral CT Image Reconstruction",
+    "year": 2022,
+    "paper": "https://doi.org/10.1109/tmi.2022.3156270",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DDCL",
+    "title": "Dual domain closed-loop learning for sparse-view CT reconstruction",
+    "year": 2022,
+    "paper": "https://doi.org/10.1117/12.2646639",
+    "venue": "7th International Conference on Image Formation in X-Ray Computed Tomography",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DGR",
+    "title": "An Unsupervised Reconstruction Method For Low-Dose CT Using Deep Generative Regularization Prior",
+    "year": 2022,
+    "paper": "https://doi.org/10.1016/j.bspc.2022.103598",
+    "venue": "Biomedical Signal Processing and Control",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "PLANet",
+    "title": "Learning Projection Views for Sparse-View CT Reconstruction",
+    "year": 2022,
+    "paper": "https://doi.org/10.1145/3503161.3548204",
+    "venue": "Proceedings of the 30th ACM International Conference on Multimedia",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "UNDIP",
+    "title": "Sparse-view and limited-angle CT reconstruction with untrained networks and deep image prior",
+    "year": 2022,
+    "paper": "https://doi.org/10.1016/j.cmpb.2022.107167",
+    "venue": "Computer Methods and Programs in Biomedicine",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "ACID-B",
+    "title": "Stabilizing deep tomographic reconstruction: Part B. Convergence analysis and adversarial attacks",
+    "year": 2022,
+    "paper": "https://doi.org/10.1016/j.patter.2022.100475",
+    "venue": "Patterns",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "ACID-A",
+    "title": "Stabilizing deep tomographic reconstruction: Part A. Hybrid framework and experimental results",
+    "year": 2022,
+    "paper": "https://doi.org/10.1016/j.patter.2022.100474",
+    "venue": "Patterns",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DFDLM",
+    "title": "A Dataset-free Deep Learning Method for Low-Dose CT Image Reconstruction",
+    "year": 2022,
+    "paper": "https://doi.org/10.1088/1361-6420/ac8ac6",
+    "venue": "Inverse Problems",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "EASEL",
+    "title": "Iterative Reconstruction for Low-Dose CT using Deep Gradient Priors of Generative Model",
+    "year": 2022,
+    "paper": "https://doi.org/10.1109/trpms.2022.3148373",
+    "venue": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "MALAR",
+    "title": "Multiple Adversarial Learning based Angiography Reconstruction for Ultra-low-dose Contrast Medium CT",
+    "year": 2023,
+    "paper": "https://doi.org/10.1109/jbhi.2022.3213595",
+    "venue": "IEEE Journal of Biomedical and Health Informatics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DESDGAN",
+    "title": "A Dual-Encoder-Single-Decoder Based Low-Dose CT Denoising Network",
+    "year": 2022,
+    "paper": "https://doi.org/10.1109/jbhi.2022.3155788",
+    "venue": "IEEE Journal of Biomedical and Health Informatics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "CCN-CL",
+    "title": "CCN-CL: A content-noise complementary network with contrastive learning for low-dose computed tomography denoising",
+    "year": 2022,
+    "paper": "https://doi.org/10.1016/j.compbiomed.2022.105759",
+    "venue": "Computers in Biology and Medicine",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "CLEAR",
+    "title": "CLEAR: Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-Dose CT Imaging",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/tmi.2021.3097808",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "PDF",
+    "title": "CT Reconstruction With PDF: Parameter-Dependent Framework for Data From Multiple Geometries and Dose Levels",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/tmi.2021.3085839",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "MAGIC",
+    "title": "MAGIC: Manifold and graph integrative convolutional network for low-dose CT reconstruction",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/tmi.2021.3088344",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "CasRedSCAN",
+    "title": "Limited View Tomographic Reconstruction Using a Cascaded Residual Dense Spatial-Channel Attention Network With Projection Data Fidelity Layer",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/tmi.2021.3066318",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SUPER",
+    "title": "Unified Supervised-Unsupervised (SUPER) Learning for X-ray CT Image Reconstruction",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/tmi.2021.3095310",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "Tensor-Net",
+    "title": "Learning to Reconstruct CT Images From the VVBP-Tensor",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/tmi.2021.3090257",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "FISTA-Net",
+    "title": "FISTA-Net: Learning a Fast Iterative Shrinkage Thresholding Network for Inverse Problems in Imaging",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/tmi.2021.3054167",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "IntraTomo",
+    "title": "IntraTomo: Self-supervised Learning-based Tomography via Sinogram Synthesis and Prediction",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/iccv48922.2021.00197",
+    "venue": "2021 IEEE/CVF International Conference on Computer Vision (ICCV)",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "LMFI",
+    "title": "Learnable Multi-scale Fourier Interpolation for Sparse View CT Image Reconstruction",
+    "year": 2021,
+    "paper": "https://doi.org/10.1007/978-3-030-87231-1_28",
+    "venue": "Lecture Notes in Computer Science",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SinoNet",
+    "title": "Noise-Generating-Mechanism-Driven Unsupervised Learning for Low-Dose CT Sinogram Recovery",
+    "year": 2022,
+    "paper": "https://doi.org/10.1109/trpms.2021.3083361",
+    "venue": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "N2S",
+    "title": "Self-Supervised Training For Low-Dose Ct Reconstruction",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/isbi48211.2021.9433944",
+    "venue": "2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI)",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "ALPD",
+    "title": "Adversarially learned iterative reconstruction for imaging inverse problems",
+    "year": 2021,
+    "paper": "https://doi.org/10.1007/978-3-030-75549-2_43",
+    "venue": "Lecture Notes in Computer Science",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "FDM",
+    "title": "Degradation-Aware Deep Learning Framework for Sparse-View CT Reconstruction",
+    "year": 2021,
+    "paper": "https://doi.org/10.3390/tomography7040077",
+    "venue": "Tomography",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "MAP-NN",
+    "title": "Competitive performance of a modularized deep neural network compared to commercial algorithms for low-dose CT image reconstruction",
+    "year": 2019,
+    "paper": "https://doi.org/10.1038/s42256-019-0057-9",
+    "venue": "Nature Machine Intelligence",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DeACNN",
+    "title": "Learning a Deep CNN Denoising Approach Using Anatomical Prior Information Implemented With Attention Mechanism for Low-Dose CT Imaging on Clinical Patient Data From Multiple Anatomical Sites",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/jbhi.2021.3061758",
+    "venue": "IEEE Journal of Biomedical and Health Informatics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DCTR",
+    "title": "Dynamic CT Reconstruction From Limited Views With Implicit Neural Representations",
+    "year": 2021,
+    "paper": null,
+    "venue": null,
+    "sim": 0.0,
+    "via": "none"
+  },
+  {
+    "abbr": "iRadonMAP",
+    "title": "Radon Inversion via Deep Learning",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/tmi.2020.2964266",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "LRTP",
+    "title": "Spectral CT reconstruction via low-rank representation and region-specific texture preserving Markov random field regularization",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/tmi.2020.2983414",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "FSTensor",
+    "title": "FSTensorFull-spectrum-knowledge-aware tensor model for energy-resolved CT iterative reconstruction",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/tmi.2020.2976692",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 0.92,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SACNN",
+    "title": "SACNN: Self-Attention Convolutional Neural Network for Low-Dose CT Denoising With Self-Supervised Perceptual Loss Network",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/tmi.2020.2968472",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "Momentum-Net",
+    "title": "Momentum-Net: Fast and convergent iterative neural network for inverse problems",
+    "year": 2023,
+    "paper": "https://doi.org/10.1109/tpami.2020.3012955",
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "ETEDN",
+    "title": "An End-to-End Deep Network for Reconstructing CT Images Directly From Sparse Sinograms",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/tci.2020.3039385",
+    "venue": "IEEE Transactions on Computational Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DIP",
+    "title": "Computed Tomography Reconstruction Using Deep Image Prior and Learned Reconstruction Methods",
+    "year": 2020,
+    "paper": "https://doi.org/10.1088/1361-6420/aba415",
+    "venue": "Inverse Problems",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "HD-CNN",
+    "title": "Artifact removal using a hybrid-domain convolutional neural network for limited-angle computed tomography imaging",
+    "year": 2020,
+    "paper": "https://doi.org/10.1088/1361-6560/ab9066",
+    "venue": "Physics in Medicine &amp; Biology",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DLMIR",
+    "title": "Deep learning methods for image reconstruction from angularly sparse data for CT and SAR imaging",
+    "year": 2020,
+    "paper": "https://doi.org/10.1117/12.2558953",
+    "venue": "Algorithms for Synthetic Aperture Radar Imagery XXVII",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DEER",
+    "title": "Deep efficient end-to-end reconstruction (DEER) network for few-view breast CT image reconstruction",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/access.2020.3033795",
+    "venue": "IEEE Access",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "TVWFR",
+    "title": "Sparse View CT Image Reconstruction Based on Total Variation and Wavelet Frame Regularization",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/access.2020.2982229",
+    "venue": "IEEE Access",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "HDNet",
+    "title": "Hybrid-domain neural network processing for sparse-view CT reconstruction",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/trpms.2020.3011413",
+    "venue": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "ℓ₀DL",
+    "title": "Limited-Angle X-Ray CT Reconstruction Using Image Gradient ℓ₀-Norm With Dictionary Learning",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/trpms.2020.2991887",
+    "venue": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+    "sim": 0.93,
+    "via": "crossref"
+  },
+  {
+    "abbr": "REDAEP",
+    "title": "REDAEP: Robust and Enhanced Denoising Autoencoding Prior for Sparse-View CT Reconstruction",
+    "year": 2021,
+    "paper": "https://doi.org/10.1109/trpms.2020.2989634",
+    "venue": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "CADL",
+    "title": "Noise and spatial resolution properties of a commercially available deep learning‐based CT reconstruction algorithm",
+    "year": 2020,
+    "paper": "https://doi.org/10.1002/mp.14319",
+    "venue": "Medical Physics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SISVM",
+    "title": "Learning to Reconstruct Computed Tomography Images Directly From Sinogram Data Under A Variety of Data Acquisition Conditions",
+    "year": 2019,
+    "paper": "https://doi.org/10.1109/tmi.2019.2910760",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SPULTRA",
+    "title": "SPULTRA: Low-Dose CT Image Reconstruction with Joint Statistical and Learned Image Models",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/tmi.2019.2934933",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "VVBP-tSVD",
+    "title": "VVBP-Tensor in the FBP Algorithm: Its Properties and Application in Low-Dose CT Reconstruction",
+    "year": 2020,
+    "paper": "https://doi.org/10.1109/tmi.2019.2935187",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "PDE",
+    "title": "A regional adaptive variational PDE model for computed tomography image reconstruction",
+    "year": 2019,
+    "paper": "https://doi.org/10.1016/j.patcog.2019.03.009",
+    "venue": "Pattern Recognition",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DNNSS",
+    "title": "Deep-neural-network-based sinogram synthesis for sparse-view CT image reconstruction",
+    "year": 2019,
+    "paper": "https://doi.org/10.1109/trpms.2018.2867611",
+    "venue": "IEEE Transactions on Radiation and Plasma Medical Sciences",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DL-PICCS",
+    "title": "Accurate and robust sparse-view angle CT image reconstruction using deep learning and prior image constrained compressed sensing (DL-PICCS)",
+    "year": 2021,
+    "paper": "https://doi.org/10.1002/mp.15183",
+    "venue": "Medical Physics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SPSS",
+    "title": "Sharpness preserved sinogram synthesis using convolutional neural network for sparse-view CT imaging",
+    "year": 2019,
+    "paper": "https://doi.org/10.1117/12.2512894",
+    "venue": "Medical Imaging 2019: Image Processing",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "iCTNet",
+    "title": "Sinogram interpolation for sparse-view micro-CT with deep learning neural network",
+    "year": 2019,
+    "paper": "https://doi.org/10.1117/12.2512979",
+    "venue": "Medical Imaging 2019: Physics of Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "PSRV",
+    "title": "Patient-specific reconstruction of volumetric computed tomography images from a single projection view via deep learning",
+    "year": 2019,
+    "paper": "https://doi.org/10.1038/s41551-019-0466-4",
+    "venue": "Nature Biomedical Engineering",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SUPER",
+    "title": "SUPER Learning: A Supervised-Unsupervised Framework for Low-Dose CT Image Reconstruction",
+    "year": 2019,
+    "paper": "https://doi.org/10.1109/iccvw.2019.00490",
+    "venue": "2019 IEEE/CVF International Conference on Computer Vision Workshop (ICCVW)",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "LEARN",
+    "title": "LEARN: Learned Experts’ Assessment-Based Reconstruction Network for Sparse-Data CT",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2805692",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "LPD",
+    "title": "Learned Primal-Dual Reconstruction",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2799231",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "CNNRPGD",
+    "title": "CNN-Based Projected Gradient Descent for Consistent CT Image Reconstruction",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2832656",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "RAD",
+    "title": "Regularization analysis and design for prior-image-based X-ray CT reconstruction",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2847250",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "3pADMM",
+    "title": "Optimizing a parameterized plug-and-play ADMM for iterative low-dose CT reconstruction",
+    "year": 2019,
+    "paper": "https://doi.org/10.1109/tmi.2018.2865202",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DD-Net",
+    "title": "A Sparse-View CT Reconstruction Method Based on Combination of DenseNet and Deconvolution",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2823338",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "TFU-Net",
+    "title": "Framing U-Net via Deep Convolutional Framelets: Application to Sparse-view CT",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2823768",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DLCT",
+    "title": "Deep Learning Computed Tomography: Learning Projection-Domain Weights From Image Domain in Limited Angle Problems",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2833499",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "PTPN",
+    "title": "Intelligent Parameter Tuning in Optimization-Based Iterative CT Reconstruction via Deep Reinforcement Learning",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2823679",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "NLCTF",
+    "title": "Non-Local Low-Rank Cube-Based Tensor Factorization for Spectral CT Reconstruction",
+    "year": 2019,
+    "paper": "https://doi.org/10.1109/tmi.2018.2878226",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "WavResNet",
+    "title": "Deep Convolutional Framelet Denosing for Low-Dose CT via Wavelet Residual Network",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/tmi.2018.2823756",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "CTNet",
+    "title": "Lose The Views: Limited Angle CT Reconstruction via Implicit Sinogram Completion",
+    "year": 2018,
+    "paper": "https://doi.org/10.1109/cvpr.2018.00664",
+    "venue": "2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "AUTOMAP",
+    "title": "Image reconstruction by domain-transform manifold learning",
+    "year": 2018,
+    "paper": "https://doi.org/10.1038/nature25988",
+    "venue": "Nature",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "IMAP-TV",
+    "title": "Robust low-dose CT sinogram preprocessing via exploiting noise-generating mechanism",
+    "year": 2017,
+    "paper": "https://doi.org/10.1109/tmi.2017.2767290",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "KSAE",
+    "title": "Iterative Low-dose CT Reconstruction with Priors Trained by Artificial Neural Network",
+    "year": 2017,
+    "paper": "https://doi.org/10.1109/tmi.2017.2753138",
+    "venue": "IEEE Transactions on Medical Imaging",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "DeepCNN",
+    "title": "A deep convolutional neural network using directional wavelets for low‐dose X‐ray CT reconstruction",
+    "year": 2017,
+    "paper": "https://doi.org/10.1002/mp.12344",
+    "venue": "Medical Physics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "SENP",
+    "title": "Low‐dose CT reconstruction using spatially encoded nonlocal penalty",
+    "year": 2017,
+    "paper": "https://doi.org/10.1002/mp.12523",
+    "venue": "Medical Physics",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "VISS",
+    "title": "View-interpolation of sparsely sampled sinogram using convolutional neural network",
+    "year": 2017,
+    "paper": "https://doi.org/10.1117/12.2254244",
+    "venue": "SPIE Proceedings",
+    "sim": 1.0,
+    "via": "crossref"
+  },
+  {
+    "abbr": "",
+    "title": "A review on deep learning in medical image reconstruction",
+    "year": 2017,
+    "paper": "https://arxiv.org/abs/1906.10643v3",
+    "venue": null,
+    "sim": 1.0,
+    "via": "arxiv"
+  },
+  {
+    "abbr": "LoDoPaB-CT",
+    "title": "LoDoPaB-CT, a benchmark dataset for low-dose computed tomography reconstruction (**Scientific Data**) -->",
+    "year": 2017,
+    "paper": null,
+    "venue": null,
+    "sim": 0.0,
+    "via": "none"
+  }
+]

@@ -1,0 +1,192 @@
+DUPLICATE CLUSTERS: 88   entries removed: 88
+
+KEEP 2-step-sparse-view-ct-reconstruction-with-a-do year=2012  
+  drop 2-step-sparse-view-ct-reconstruction-with-a- year=2020  
+       year  2012 -> 2020   (matches arXiv publication year)
+KEEP dfdlm                                          year=2022  venue=Inverse Problems
+  drop dfdlm-2                                      year=2022  venue=Inverse Problems
+KEEP deepcnn                                        year=2017  venue=Med Phys
+  drop deepcnn-2                                    year=2017  venue=Medical Physics
+KEEP desdgan                                        year=2022  venue=JBHI
+  drop desdgan-2                                    year=2022  venue=IEEE Journal of Biomedical and Health Informatics
+KEEP pde                                            year=2019  venue=PR
+  drop pde-2                                        year=2019  venue=Pattern Recognition
+KEEP a-review-on-deep-learning-in-medical-image-rec year=2017  venue=JORSC
+  drop a-review-on-deep-learning-in-medical-image-r year=2017  
+       FIX  year: 2017 -> 2020   (contradicts arXiv journal_ref)
+KEEP dd-net                                         year=2018  venue=TMI
+  drop dd-net-2                                     year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP dl-piccs                                       year=2019  venue=Med Phys
+  drop dl-piccs-2                                   year=2021  venue=Medical Physics
+KEEP alpd                                           year=2021  venue=SSVM
+  drop alpd-2                                       year=2021  venue=Lecture Notes in Computer Science
+KEEP etedn                                          year=2020  venue=TCI
+  drop etedn-2                                      year=2020  venue=IEEE Transactions on Computational Imaging
+KEEP dgr-2                                          year=2025  venue=ICCV
+  drop dgr-3                                        year=2022  venue=Biomedical Signal Processing and Control
+       FIX  year: 2025 -> 2022   (contradicts arXiv journal_ref)
+       FIX  venue: ICCV -> Biomedical Signal Processing and Control   (contradicts arXiv journal_ref)
+KEEP hd-cnn                                         year=2020  venue=PMB
+  drop hd-cnn-2                                     year=2020  venue=Physics in Medicine &amp; Biology
+KEEP ccn-cl                                         year=2022  venue=CBM
+  drop ccn-cl-2                                     year=2022  venue=Computers in Biology and Medicine
+KEEP clear                                          year=2021  venue=TMI
+  drop clear-2                                      year=2021  venue=IEEE Transactions on Medical Imaging
+KEEP cnnrpgd                                        year=2018  venue=TMI
+  drop cnnrpgd-2                                    year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP map-nn                                         year=2021  venue=Nat Mach Intell
+  drop map-nn-2                                     year=2019  venue=Nature Machine Intelligence
+KEEP dip                                            year=2020  venue=Inverse Problems
+  drop dip-2                                        year=2020  venue=Inverse Problems
+KEEP pdf                                            year=2021  venue=TMI
+  drop pdf-2                                        year=2021  venue=IEEE Transactions on Medical Imaging
+KEEP data-driven-filter-design-in-fbp-transforming- year=2024  
+  drop data-driven-filter-design-in-fbp-transformin year=2024  
+KEEP wavresnet                                      year=2018  venue=Medical Imaging
+  drop wavresnet-2                                  year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP deer                                           year=2020  venue=IEEE Access
+  drop deer-2                                       year=2020  venue=IEEE Access
+KEEP dlct                                           year=2018  venue=TMI
+  drop dlct-2                                       year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP dlmir                                          year=2020  venue=ASARI
+  drop dlmir-2                                      year=2020  venue=Algorithms for Synthetic Aperture Radar Imagery XXVII
+KEEP dnnss                                          year=2019  venue=TRPMS
+  drop dnnss-2                                      year=2019  venue=IEEE Transactions on Radiation and Plasma Medical Sciences
+KEEP fdm                                            year=2021  venue=Tomography
+  drop fdm-2                                        year=2021  venue=Tomography
+KEEP dadn                                           year=2023  venue=Med Phys
+  drop dadn-2                                       year=2023  venue=Medical Physics
+KEEP dream-net                                      year=2022  venue=TMI
+  drop dream-net-2                                  year=2023  venue=IEEE Journal of Biomedical and Health Informatics
+KEEP ddcl                                           year=2022  venue=ICIFXCT
+  drop ddcl-2                                       year=2022  venue=7th International Conference on Image Formation in X-Ray Computed Tomography
+KEEP dctr                                           year=2021  venue=ICCV
+  drop dctr-2                                       year=2021  venue=ICCV
+KEEP eagle-an-edge-aware-gradient-localization-enha year=2024  
+  drop eagle-an-edge-aware-gradient-localization-en year=2024  
+KEEP extreme-few-view-ct-reconstruction-using-deep- year=2024  
+  drop extreme-few-view-ct-reconstruction-using-dee year=2019  
+       year  2024 -> 2019   (matches arXiv publication year)
+KEEP fista-net                                      year=2021  venue=TMI
+  drop fista-net-2                                  year=2021  venue=IEEE Transactions on Medical Imaging
+KEEP font-sir                                       year=2022  venue=TMI
+  drop font-sir-2                                   year=2022  venue=IEEE Transactions on Medical Imaging
+KEEP tfu-net                                        year=2018  venue=TMI
+  drop tfu-net-2                                    year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP fstensor                                       year=2020  venue=TMI
+  drop fstensor-2                                   year=2020  venue=IEEE Transactions on Medical Imaging
+KEEP generative-modeling-in-sinogram-domain-for-spa year=2024  
+  drop generative-modeling-in-sinogram-domain-for-s year=2022  
+       year  2024 -> 2022   (matches arXiv publication year)
+KEEP gglf                                           year=2023  venue=PMB
+  drop gglf-2                                       year=2023  venue=Physics in Medicine &amp; Biology
+KEEP hdnet                                          year=2020  venue=TRPMS
+  drop hdnet-2                                      year=2021  venue=IEEE Transactions on Radiation and Plasma Medical Sciences
+KEEP automap                                        year=2018  venue=Nature
+  drop automap-2                                    year=2018  venue=Nature
+KEEP ptpn                                           year=2018  venue=TMI
+  drop ptpn-2                                       year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP intratomo                                      year=2021  venue=ICCV
+  drop intratomo-2                                  year=2021  venue=CVF International Conference on Computer Vision (ICCV)
+KEEP ksae                                           year=2017  venue=TMI
+  drop ksae-2                                       year=2017  venue=IEEE Transactions on Medical Imaging
+KEEP easel                                          year=2022  venue=TRPMS
+  drop easel-2                                      year=2022  venue=IEEE Transactions on Radiation and Plasma Medical Sciences
+KEEP irds                                           year=2023  venue=BSPC
+  drop irds-2                                       year=2023  venue=Biomedical Signal Processing and Control
+KEEP learn                                          year=2018  venue=TMI
+  drop learn-2                                      year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP lmfi                                           year=2021  venue=MICCAI
+  drop lmfi-2                                       year=2021  venue=Lecture Notes in Computer Science
+KEEP learned-convex-regularizers-for-inverse-proble year=2008  
+  drop learned-convex-regularizers-for-inverse-prob year=2020  
+       year  2008 -> 2020   (matches arXiv publication year)
+KEEP lpd                                            year=2018  venue=TMI
+  drop lpd-2                                        year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP deacnn                                         year=2021  venue=JBHI
+  drop deacnn-2                                     year=2021  venue=IEEE Journal of Biomedical and Health Informatics
+KEEP planet                                         year=2022  venue=ACM MM
+  drop planet-2                                     year=2022  venue=Proceedings of the 30th ACM International Conference on Multimedia
+KEEP sisvm                                          year=2019  venue=TMI
+  drop sisvm-2                                      year=2019  venue=IEEE Transactions on Medical Imaging
+KEEP tensor-net                                     year=2021  venue=TMI
+  drop tensor-net-2                                 year=2021  venue=IEEE Transactions on Medical Imaging
+KEEP casredscan                                     year=2021  venue=TMI
+  drop casredscan-2                                 year=2021  venue=IEEE Transactions on Medical Imaging
+KEEP limited-view-tomographic-reconstruction-using- year=2009  
+  drop limited-view-tomographic-reconstruction-usin year=2020  
+       year  2009 -> 2020   (matches arXiv publication year)
+KEEP dl                                             year=2020  venue=TRPMS
+  drop dl-2                                         year=2021  venue=IEEE Transactions on Radiation and Plasma Medical Sciences
+KEEP ctnet                                          year=2018  venue=CVPR
+  drop ctnet-2                                      year=2018  venue=CVF Conference on Computer Vision and Pattern Recognition
+KEEP low-dose-ct-using-denoising-diffusion-probabil year=2024  
+  drop low-dose-ct-using-denoising-diffusion-probab year=2022  
+       year  2024 -> 2022   (matches arXiv publication year)
+KEEP senp                                           year=2017  venue=Med Phys
+  drop senp-2                                       year=2017  venue=Medical Physics
+KEEP magic                                          year=2021  venue=TMI
+  drop magic-2                                      year=2021  venue=IEEE Transactions on Medical Imaging
+KEEP momentum-net                                   year=2020  venue=TPAMI
+  drop momentum-net-2                               year=2023  venue=IEEE Transactions on Pattern Analysis and Machine Intelligence
+KEEP malar                                          year=2022  venue=JBHI
+  drop malar-2                                      year=2023  venue=IEEE Journal of Biomedical and Health Informatics
+KEEP cadl                                           year=2020  venue=Med Phys
+  drop cadl-2                                       year=2020  venue=Medical Physics
+KEEP gmm-unnet                                      year=2022  venue=TMI
+  drop gmm-unnet-2                                  year=2022  venue=IEEE Transactions on Medical Imaging
+KEEP sinonet                                        year=2021  venue=TRPMS
+  drop sinonet-2                                    year=2022  venue=IEEE Transactions on Radiation and Plasma Medical Sciences
+KEEP nlctf                                          year=2018  venue=TMI
+  drop nlctf-2                                      year=2019  venue=IEEE Transactions on Medical Imaging
+KEEP 3padmm                                         year=2018  venue=TMI
+  drop 3padmm-2                                     year=2019  venue=IEEE Transactions on Medical Imaging
+KEEP psrv                                           year=2019  
+  drop psrv-2                                       year=2019  venue=Nature Biomedical Engineering
+       +venue Nature Biomedical Engineering
+KEEP iradonmap                                      year=2020  venue=TMI
+  drop iradonmap-2                                  year=2020  venue=IEEE Transactions on Medical Imaging
+KEEP redaep                                         year=2020  venue=TRPMS
+  drop redaep-2                                     year=2021  venue=IEEE Transactions on Radiation and Plasma Medical Sciences
+KEEP rad                                            year=2018  venue=TMI
+  drop rad-2                                        year=2018  venue=IEEE Transactions on Medical Imaging
+KEEP imap-tv                                        year=2017  venue=TMI
+  drop imap-tv-2                                    year=2017  venue=IEEE Transactions on Medical Imaging
+KEEP sacnn                                          year=2020  venue=TMI
+  drop sacnn-2                                      year=2020  venue=IEEE Transactions on Medical Imaging
+KEEP spss                                           year=2019  venue=Medical Imaging
+  drop spss-2                                       year=2019  venue=Medical Imaging 2019: Image Processing
+KEEP ictnet                                         year=2019  venue=Medical Imaging
+  drop ictnet-2                                     year=2019  venue=Medical Imaging 2019: Physics of Medical Imaging
+KEEP 3dip                                           year=2023  venue=CVPR
+  drop 3dip-2                                       year=2023  venue=CVF Conference on Computer Vision and Pattern Recognition (CVPR)
+KEEP tvwfr                                          year=2020  venue=IEEE Access
+  drop tvwfr-2                                      year=2020  venue=IEEE Access
+KEEP undip                                          year=2022  venue=CMPB
+  drop undip-2                                      year=2022  venue=Computer Methods and Programs in Biomedicine
+KEEP lrtp                                           year=2020  venue=TMI
+  drop lrtp-2                                       year=2020  venue=IEEE Transactions on Medical Imaging
+KEEP spultra                                        year=2019  venue=TMI
+  drop spultra-2                                    year=2020  venue=IEEE Transactions on Medical Imaging
+KEEP acid-a                                         year=2022  venue=Patterns
+  drop acid-a-2                                     year=2022  venue=Patterns
+KEEP acid-b                                         year=2022  venue=Patterns
+  drop acid-b-2                                     year=2022  venue=Patterns
+KEEP statistical-image-reconstruction-using-mixed-p year=2024  
+  drop statistical-image-reconstruction-using-mixed year=2018  
+       year  2024 -> 2018   (matches arXiv publication year)
+KEEP spqi                                           year=2023  venue=CBM
+  drop spqi-2                                       year=2023  venue=Computers in Biology and Medicine
+KEEP super-2                                        year=2019  venue=ICCVW
+  drop super-4                                      year=2019  venue=CVF International Conference on Computer Vision Workshop (ICCVW)
+KEEP uncertainr-uncertainty-quantification-of-end-t year=2024  
+  drop uncertainr-uncertainty-quantification-of-end year=2022  
+       year  2024 -> 2022   (matches arXiv publication year)
+KEEP super                                          year=2021  venue=TMI
+  drop super-3                                      year=2021  venue=IEEE Transactions on Medical Imaging
+KEEP viss                                           year=2017  venue=Medical Imaging
+  drop viss-2                                       year=2017  venue=SPIE Proceedings
+KEEP vvbp-tsvd                                      year=2019  venue=TMI
+  drop vvbp-tsvd-2                                  year=2020  venue=IEEE Transactions on Medical Imaging
+
+clusters whose keeper is not in HEAD: 0

@@ -1,0 +1,52 @@
+# Website configuration for awesome-computed-tomography.
+#
+# Everything that depends on the site's address is derived from `url` below,
+# so switching to a custom domain is a one-line change here followed by
+#   python scripts/build_site.py
+# That rebuilds index.html, robots.txt and sitemap.xml with the new origin.
+#
+# Leave `url` empty to use the free GitHub Pages address
+#   https://<owner>.github.io/<repo>/
+#
+# Canonical-URL rule (learned from Paper-Notes): the deployed site must expose
+# exactly ONE origin. build_site.py asserts this after writing, so a stale
+# github.io URL can never leak into a custom-domain deployment.
+
+title: "Awesome Computed Tomography"
+tagline: "A curated list of CT reconstruction resources"
+
+description: >-
+  A curated list of computed tomography (CT / CBCT / micro-CT) reconstruction
+  resources: 289 papers from 1976 to 2026, 43 toolkits, 34 datasets,
+  19 benchmarks and 29 learning resources, covering sparse-view, limited-angle,
+  low-dose, metal-artifact, spectral, cone-beam and 4D/dynamic CT.
+
+# Site origin. Empty -> fall back to GitHub Pages for `repo` below.
+#
+# A custom domain here also writes site/CNAME, and turns on the build's check
+# that this repository's own <owner>.github.io address appears nowhere in the
+# output. The address only resolves once DNS points at GitHub Pages — see
+# SITE.md, section "Switching to a custom domain".
+url: "https://computedtomography.org/"
+
+repo: "cslht11/awesome-computed-tomography"
+author: "cslht11"
+
+# Code and content are licensed separately. These keys drive the site footer,
+# the JSON-LD `license` field and the <link rel="license"> tag.
+# See LICENSE (code) and LICENSE-content (content) at the repository root.
+#
+# CC BY-NC-SA 4.0 (since 2026-10-10, the maintainers' choice): credit is
+# required, commercial reuse of the content is not allowed without asking, and
+# adaptations stay under the same licence. MIT is not an option for the content
+# - the awesome standard is explicit that code licences are not acceptable for
+# list content; any Creative Commons licence is.
+code_license: "MIT"
+content_license: "CC BY-NC-SA 4.0"
+content_license_url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+# Optional: Cloudflare Web Analytics token (cookieless, no consent banner).
+# Left empty on purpose — the script is only emitted when this is set.
+analytics_token: ""
+
+contact_email: "heitieya@163.com"

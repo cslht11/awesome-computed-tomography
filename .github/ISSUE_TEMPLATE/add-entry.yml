@@ -1,0 +1,64 @@
+name: Suggest a paper, toolkit, dataset or benchmark
+description: Propose something for the list.
+title: "[Entry] "
+labels: ["new entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. Filling this in is enough — you do **not** need to
+        write the YAML yourself. A maintainer will verify the record against Crossref
+        or arXiv before adding it, because the interesting failure mode here is a
+        plausible-looking entry that turns out to be a different paper.
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: A DOI, an arXiv abs URL, or a repository URL.
+      placeholder: https://arxiv.org/abs/2411.06181
+    validations:
+      required: true
+  - type: input
+    id: venue
+    attributes:
+      label: Venue and year, if it is published
+      description: >
+        Journal or conference plus the year **at that venue** — not the arXiv posting
+        year. Leave empty if it is still a preprint; it will be listed as one.
+      placeholder: ISBI 2025
+    validations:
+      required: false
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which section fits best?
+      description: Pick the closest; a maintainer will confirm or move it.
+      options:
+        - Surveys & Reviews
+        - Classical & Iterative Reconstruction
+        - Sparse-View CT
+        - Limited-Angle Tomography
+        - Low-Dose CT Denoising
+        - Metal Artifact Reduction
+        - Spectral & Dual-Energy CT
+        - Cone-Beam CT
+        - Dynamic & 4D CT
+        - Scatter Correction
+        - Geometry Calibration & Motion Compensation
+        - Deep Unrolling & Model-Based Learning
+        - Self-Supervised & Untrained Methods
+        - Diffusion & Generative Priors
+        - Implicit Neural Representations
+        - Gaussian Splatting
+        - Other Topics
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it belong in a CT reconstruction list?
+      description: >
+        One or two sentences on the CT-reconstruction angle. Being specific here is
+        what gets a suggestion merged fastest.
+    validations:
+      required: true

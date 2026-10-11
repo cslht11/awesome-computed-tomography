@@ -1,0 +1,116 @@
+# Benchmarks, challenges and standard evaluation protocols.
+# Fields: name (required), url | repo (required), year, tasks, note
+
+- name: AAPM Low-Dose CT Grand Challenge
+  url: https://www.aapm.org/grandchallenge/lowdosect/
+  year: 2016
+  tasks: [low-dose, denoising, reconstruction]
+  note: "The challenge that established the quarter-dose / 10% / 5% protocol and the Mayo abdominal cohort. Nearly every low-dose CT paper still reports on this split."
+
+- name: AAPM DL-Sparse-View CT Challenge
+  url: https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/
+  year: 2022
+  tasks: [sparse-view, reconstruction]
+  note: "Fixed sparse-view protocols (2/4/8/16/32/64 views) on re-projected clinical data, with official metrics and a public leaderboard. The standard reference point for sparse-view CT."
+
+- name: Helsinki Tomography Challenge
+  url: https://www.fips.fi/HTC2022.php
+  year: 2022
+  tasks: [limited-angle, reconstruction]
+  note: "Real measured limited-angle sinograms. Notable because the winning entries were classical / model-based rather than purely learned — a useful counterweight."
+
+- name: LoDoPaB-CT benchmark
+  url: https://lodopab.grand-challenge.org/
+  year: 2021
+  tasks: [low-dose, reconstruction]
+  note: "Grand-challenge style evaluation on the LoDoPaB-CT split, with a published, tuned FBP+U-Net reference baseline so improvements are measurable."
+
+- name: SPARE Challenge
+  url: https://image-x.sydney.edu.au/spare-challenge/
+  year: 2024
+  tasks: [dynamic, cbct, reconstruction]
+  note: "Thoracic 4D cone-beam CT reconstruction from a one-minute scan. The first widely adopted benchmark for breathing-resolved dynamic CBCT; run by the Image X Institute at the University of Sydney."
+
+- name: MICCAI FLARE
+  url: https://flare.grand-challenge.org/
+  year: 2021
+  tasks: [segmentation]
+  note: "Multi-organ abdominal CT segmentation across four editions (FLARE21/22/23/24); the standard downstream-robustness target for CT reconstruction outputs."
+
+- name: Medical Segmentation Decathlon
+  url: http://medicaldecathlon.com/
+  year: 2018
+  tasks: [segmentation]
+  note: "Ten tasks with a fixed, hidden test set and a strict rule that no task-specific tuning is allowed — a genuinely fair generalisation benchmark."
+
+- name: KiTS Challenge
+  url: https://kits-challenge.org/
+  year: 2019
+  tasks: [segmentation]
+  note: "Kidney tumour segmentation, three editions (2019/2021/2023) with strictly controlled annotation quality and a strong emphasis on cross-institution generalisation."
+
+- name: VerSe Challenge
+  url: https://verse2019.grand-challenge.org/
+  year: 2019
+  tasks: [segmentation, cbct]
+  note: "Vertebra labelling on both CT and CBCT, with a large hidden test set; the CBCT half makes it a natural stress test for artefact-heavy inputs."
+
+- name: CHAOS Challenge
+  url: https://chaos.grand-challenge.org/
+  year: 2019
+  tasks: [segmentation]
+  note: "Abdominal CT and MRI organ segmentation including low-dose and unenhanced protocols, with explicit cross-modality evaluation."
+
+- name: SPIE-AAPM-NCI LungX Challenge
+  url: https://www.cancerimagingarchive.net/collection/spie-aapm-lung-ct-challenge/
+  year: 2015
+  tasks: [detection, low-dose]
+  note: "Lung nodule detection on low-dose screening CT; an early demonstration that reader-level performance on low-dose data is attainable. Data is distributed through TCIA."
+
+- name: AutoPET Challenge
+  url: https://autopet.grand-challenge.org/
+  year: 2022
+  tasks: [segmentation]
+  note: "Whole-body PET/CT lesion segmentation across three editions, with a deliberately hidden multi-centre test cohort."
+
+- name: HECKTOR Challenge
+  url: https://hecktor.grand-challenge.org/
+  year: 2020
+  tasks: [segmentation, prognosis]
+  note: "Head-and-neck PET/CT tumour delineation; five editions make it one of the longer-running medical imaging challenges."
+
+- name: CTooth / CTooth+
+  url: https://github.com/liangjiubujiu/CTooth
+  year: 2022
+  tasks: [segmentation, cbct]
+  note: "Fully annotated 3D dental CBCT dataset and benchmark for tooth segmentation (5,803 CBCT slices), later extended to CTooth+. A small but well-annotated CBCT benchmark in a domain where artefacts are severe."
+
+- name: Noise2Noise denoising protocol
+  url: https://github.com/NVlabs/noise2noise
+  year: 2018
+  tasks: [denoising, self-supervised]
+  note: "The reference implementation that popularised training a denoiser without clean targets. On CT it became the standard 'no clean ground truth' evaluation protocol — most unsupervised CT denoising papers report on a Mayo-LDCT-style split under this setting."
+
+- name: SynthRAD2023 Challenge
+  url: https://synthrad2023.grand-challenge.org/
+  year: 2023
+  tasks: [cbct, synthetic-ct, reconstruction]
+  note: "Synthetic CT generation from CBCT and MRI. Relevant here because the CBCT-to-CT task is exactly where reconstruction artefacts (scatter, truncation, beam hardening) dominate — the challenge forces methods to handle them rather than assume clean input."
+
+- name: DeepInverse benchmark suite
+  url: https://deepinv.github.io/
+  year: 2024
+  tasks: [reconstruction, benchmarking]
+  note: "A unified PyTorch benchmark harness covering CT, MRI, deblurring and inpainting, with reproducible metrics and pretrained baselines — the most practical way to compare a new CT method against strong generic solvers."
+
+- name: "Generating synthetic computed tomography for radiotherapy: SynthRAD2025 challenge report"
+  url: "https://arxiv.org/abs/2605.13555"
+  year: 2026
+  tasks: [reconstruction]
+  note: "59 pages total: 26 pages main article + supplementary material; 8 figures in the main manuscript and 3 supplementary figures. Currently under review at the journal Medical Image An"
+
+- name: "CT-DegradBench: A Physics-Informed Benchmark for CT Degradation Detection and Severity Estimation"
+  url: "https://arxiv.org/abs/2605.16431"
+  year: 2026
+  tasks: [reconstruction]
+  note: "Accepted in CVPR 2026 VISION Workshop (DEXTER track)"

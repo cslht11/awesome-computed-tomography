@@ -1,0 +1,82 @@
+entries            : 240
+venue set          : 170
+venues rewritten   : 52
+venues dropped     : 6  ['TechRxiv', 'arXiv']
+years corrected    : 4
+
+== rewritten ==
+  3d-cbct-artefact-removal-using-perpendicular-score-based-d DGM4MICCAI 2025  ->  DGM4MICCAI
+  active-view-selection-with-perturbed-gaussian-ensemble-for ECCV 2026  ->  ECCV
+  adaptive-diffusion-models-for-sparse-view-motion-corrected None  ->  TRPMS
+  advancing-limited-angle-ct-reconstruction-through-diffusio the 2025 IEEE International Conference on Image Processing (  ->  ICIP
+  balancing-efficiency-and-restoration-lightweight-mamba-bas IEEE Transactions on Radiation and Plasma Medical Sciences  ->  TRPMS
+  bigger-isn-t-always-better-towards-a-general-prior-for-med the German Conference on Pattern Recognition proceedings  ->  GCPR
+  cg-glore-a-conjugate-gradient-based-global-local-regulariz BMVC2026  ->  BMVC
+  complex-wavelet-based-sinogram-segmentation-for-metal-arti None  ->  PMB
+  computed-tomography-reconstruction-algorithm-using-markov- None  ->  J. Phys. Soc. Jpn.
+  conditional-diffusion-for-3d-ct-volume-reconstruction-from BMVC 2026  ->  BMVC
+  cross-distribution-diffusion-priors-driven-iterative-recon IEEE Transactions on Medical Imaging  ->  TMI
+  cross-modal-guidance-for-fast-diffusion-based-computed-tom the IEEE International Conference on Acoustics  ->  ICASSP
+  dgr-2                                                      Biomedical Signal Processing and Control  ->  BSPC
+  diffnr-diffusion-enhanced-neural-representation-optimizati AAAI 2026  ->  AAAI
+  diffusion-based-limited-angle-ct-reconstruction-under-nois the 2025 IEEE International Conference on Image Processing (  ->  ICIP
+  digs-dynamic-cbct-reconstruction-using-deformation-informe MICCAI 2025  ->  MICCAI
+  dose-aware-cold-diffusion-with-physics-consistency-for-gen International Joint Conference on Neural Networks (IJCNN 202  ->  IJCNN
+  end-to-end-deep-learning-for-interior-tomography-with-low- Physics in Medicine &amp  ->  PMB
+  enhancing-synthetic-ct-from-cbct-via-multimodal-fusion-and CAIP 2025  ->  CAIP
+  equivariance2inverse-a-practical-self-supervised-ct-recons None  ->  TCI
+  equivariant-conditional-diffusion-model-for-head-and-neck- Medical Physics  ->  Med Phys
+  fact-gs-fast-and-scalable-ct-reconstruction-with-gaussian- the European Conference on Computer Vision (ECCV) 2026  ->  ECCV
+  field-of-view-extension-in-dental-cone-beam-ct-via-implici MICAD 2026  ->  MICAD
+  find-net-fourier-integrated-network-with-dictionary-kernel MICCAI 2025  ->  MICCAI
+  from-sparse-x-rays-to-3d-ct-training-free-reconstruction-w DGM4MICCAI 2026  ->  DGM4MICCAI
+  glfc-unified-global-local-feature-and-contrast-learning-wi ISBI2025  ->  ISBI
+  h3d-marnet-wavelet-guided-dual-path-learning-for-metal-art the 28th International Conference on Pattern Recognition  ->  ICPR
+  high-fidelity-3d-tooth-reconstruction-by-fusing-intraoral- IEEE International Symposium on Biomedical Imaging (ISBI) 20  ->  ISBI
+  ictnet                                                     Medical Imaging  ->  SPIE MI
+  insideout-integrated-rgb-radiative-gaussian-splatting-for- ICCV 2025  ->  ICCV
+  learning-wavelet-sparse-fdk-for-3d-cone-beam-ct-reconstruc Fully3D 2025  ->  Fully3D
+  leveraging-image-editing-foundation-models-for-data-effici CVPRW 2026 Med-Reasoner  ->  CVPRW
+  limited-angle-spect-image-reconstruction-using-deep-image- None  ->  PMB
+  n2s                                                        IEEE 18th International Symposium on Biomedical Imaging (ISBI)  ->  ISBI
+  noise-inspired-diffusion-model-for-generalizable-low-dose- Medical Image Analysis  ->  Med Image Anal
+  psrv                                                       Nature Biomedical Engineering  ->  Nat Biomed Eng
+  remar-ds-recalibrated-feature-learning-for-metal-artifact- 23rd International Conference on Image Analysis and Processi  ->  ICIAP
+  revisiting-pose-sensitivity-in-splat-based-computed-tomogr None  ->  CVPR
+  robustness-and-stability-analysis-of-differentiable-shift- the Journal of Machine Learning for Biomedical Imaging (MELB  ->  MELBA
+  semantic-contrastive-learning-for-orthogonal-x-ray-compute Fully3D 2025  ->  Fully3D
+  splat-based-metal-artifact-reduction-in-cone-beam-ct-via-c None  ->  CVPR
+  splat-based-metal-artifact-reduction-in-cone-beam-ct-via-p None  ->  CGF
+  spss                                                       Medical Imaging  ->  SPIE MI
+  synergizing-physics-model-based-and-data-driven-methods-fo None  ->  IEEE SPM
+  synthetic-ct-image-generation-from-cbct-a-systematic-revie the IEEE Transactions on Radiation and Plasma Medical Scienc  ->  TRPMS
+  tg-field-geometry-aware-radiative-gaussian-fields-for-tomo AAAI 2026  ->  AAAI
+  toward-a-foundation-plug-and-play-prior-for-computed-tomog SC26 Workshops proceedings  ->  SC Workshops
+  unsupervised-metal-artifact-reduction-in-dental-cbct-using None  ->  Digital
+  viss                                                       Medical Imaging  ->  SPIE MI
+  voxelsynth3d-interpretable-volumetric-image-domain-metal-a BHI 2026  ->  BHI
+  wavresnet                                                  Medical Imaging  ->  TMI
+  when-are-diffusion-priors-helpful-in-sparse-reconstruction IEEE ISBI 2025  ->  ISBI
+
+== dropped (preprint server is not a venue) ==
+  baggagect                                                  arXiv
+  dddm                                                       TechRxiv
+  diffmed                                                    arXiv
+  diffnaf                                                    arXiv
+  epi-naf                                                    arXiv
+  snaf                                                       arXiv
+
+== years corrected ==
+  3d-cbct-artefact-removal-using-perpendicular-score-based-d 2026 -> 2025
+  cross-distribution-diffusion-priors-driven-iterative-recon 2025 -> 2026
+  equivariance2inverse-a-practical-self-supervised-ct-recons 2025 -> 2026
+  synergizing-physics-model-based-and-data-driven-methods-fo 2024 -> 2023
+
+== venue strings not in the known vocabulary (4) ==
+  CVPR
+  ICCVW
+  Nature
+  NeurIPS
+
+== left unverified (flagged, not filled) ==
+  toward-ct-equivalent-image-quality-in-low-dose-radiotherapy-

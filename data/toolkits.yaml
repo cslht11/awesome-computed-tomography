@@ -1,0 +1,377 @@
+# Toolkits & libraries for CT / tomographic reconstruction.
+# Fields: name, repo | url, homepage?, language, license, stars, tags, note
+# `stars` is a snapshot taken on 2026-10-09 and is refreshed by hand.
+
+# ---------------------------------------------------------------- reconstruction engines
+- name: TIGRE
+  repo: CERN/TIGRE
+  language: MATLAB / Python
+  license: BSD-3-Clause
+  stars: 812
+  tags: [CBCT, micro-CT, GPU, iterative, FDK]
+  note: GPU-accelerated (CUDA) toolbox for cone-beam and parallel-beam CT; FDK, SART, SIRT, CGLS and TV variants.
+
+- name: ASTRA Toolbox
+  repo: astra-toolbox/astra-toolbox
+  homepage: https://astra-toolbox.com/
+  language: C++ / Python / MATLAB
+  license: GPL-3.0
+  stars: 637
+  tags: [parallel-beam, fan-beam, cone-beam, GPU, iterative]
+  note: Long-standing research toolbox with a large set of projectors and algorithms; the reference CPU/GPU baseline.
+
+- name: tomosipo
+  repo: cicwi/tomosipo
+  language: Python
+  license: GPL-3.0
+  stars: 107
+  tags: [geometry, cone-beam, differentiable, PyTorch]
+  note: Painless specification of 2D/3D projection geometries; wraps ASTRA and integrates with PyTorch.
+
+- name: ODL
+  repo: odlgroup/odl
+  homepage: https://odlgroup.github.io/odl/
+  language: Python
+  license: MPL-2.0
+  stars: 434
+  tags: [operator-discretisation, variational, iterative]
+  note: Operator Discretization Library — a functional-analytic framework for inverse problems, with CT geometries built in.
+
+- name: Core Imaging Library (CIL)
+  repo: TomographicImaging/CIL
+  homepage: https://www.ccpi.ac.uk/cil
+  language: Python
+  license: Apache-2.0
+  stars: 155
+  tags: [variational, regularisation, optimisation]
+  note: CCPi framework for variational CT reconstruction with a large catalogue of optimisation algorithms.
+
+- name: CCPi Regularisation Toolkit
+  repo: TomographicImaging/CCPi-Regularisation-Toolkit
+  language: C / Python
+  license: Apache-2.0
+  stars: 63
+  tags: [TV, TGV, regularisation, GPU]
+  note: CPU/GPU implementations of TV, TGV, directional TV and other regularisers used by CIL.
+
+- name: LEAP
+  repo: llnl/LEAP
+  language: CUDA / Python
+  license: MIT
+  stars: 254
+  tags: [CBCT, MBIR, GPU, high-performance]
+  note: LLNL's Livermore Energy-Aware Processor for 3D transmission CT; production-grade model-based reconstruction.
+
+- name: svmbir
+  repo: cabouman/svmbir
+  language: C / Python
+  license: BSD-3-Clause
+  stars: 28
+  tags: [MBIR, parallel-beam, fan-beam, proximal]
+  note: Fast Super-Voxel Model Based Iterative Reconstruction with proximal-map plug-ins.
+
+- name: RTK
+  repo: RTKConsortium/RTK
+  homepage: https://www.openrtk.org/
+  language: C++
+  license: Apache-2.0
+  stars: 298
+  tags: [CBCT, ITK, filtering, FDK]
+  note: Reconstruction Toolkit built on ITK; widely used in clinical CBCT and interventional research.
+
+- name: PyTomography
+  repo: PyTomography/PyTomography
+  language: Python
+  license: MIT
+  stars: 173
+  tags: [SPECT, PET, CT, quantification]
+  note: End-to-end medical image reconstruction with quantification, including CT-based attenuation correction.
+
+- name: OMEGA
+  repo: villekf/OMEGA
+  language: MATLAB / Python
+  license: GPL-3.0
+  stars: 111
+  tags: [PET, SPECT, CT, iterative]
+  note: Open-source multi-dimensional tomographic reconstruction software covering PET/SPECT/CT.
+
+- name: TomoPy
+  repo: tomopy/tomopy
+  language: Python
+  license: BSD-3-Clause
+  stars: 397
+  tags: [synchrotron, gridrec, phase-contrast]
+  note: Reference toolkit for synchrotron micro/nano tomography; gridrec, FBP and phase retrieval.
+
+- name: RadIO
+  repo: analysiscenter/radio
+  language: Python
+  license: Apache-2.0
+  stars: 227
+  tags: [radon, filtered-backprojection, teaching]
+  note: Radon transforms and FBP in a compact, readable Python package.
+
+- name: pySART
+  repo: djvine/pySART
+  language: Python
+  license: GPL-2.0
+  stars: 33
+  tags: [SART, iterative, teaching]
+  note: Compact reference implementation of the Simultaneous Algebraic Reconstruction Technique.
+
+- name: libcbct
+  repo: tatsy/libcbct
+  language: C++
+  license: See repository
+  stars: 10
+  tags: [CBCT, FDK, iterative]
+  note: Lightweight cone-beam CT reconstruction library with FDK and iterative solvers.
+
+- name: tofu
+  repo: ufo-kit/tofu
+  language: Python
+  license: LGPL-3.0
+  stars: 20
+  tags: [GPU, filtering, pipeline]
+  note: Helper layer on top of the UFO framework for fast GPU tomographic reconstruction pipelines.
+
+- name: sigpy
+  repo: mikgroup/sigpy
+  language: Python
+  license: BSD-3-Clause
+  stars: 339
+  tags: [iterative, proximal, GPU, MRI]
+  note: Signal-processing package for iterative image reconstruction; proximal operators and NUFFT/radon primitives.
+
+# ---------------------------------------------------------------- differentiable / learning
+- name: DeepInverse
+  repo: deepinv/deepinv
+  homepage: https://deepinv.github.io/
+  language: Python
+  license: BSD-3-Clause
+  stars: 827
+  tags: [PyTorch, plug-and-play, unrolling, benchmark]
+  note: PyTorch library for imaging inverse problems — physics operators, learned denoisers, unrolled networks and benchmarks.
+
+- name: torch-radon
+  repo: matteo-ronchetti/torch-radon
+  language: Python
+  license: GPL-3.0
+  stars: 280
+  tags: [differentiable, PyTorch, radon]
+  note: Differentiable Radon transform and filtered backprojection in PyTorch.
+
+- name: LION
+  repo: CambridgeCIA/LION
+  language: Python
+  license: GPL-3.0
+  stars: 63
+  tags: [learned-iterative, unrolling, PET, CT]
+  note: Learned Iterative Optimization Networks — unrolled reconstruction with PyTorch, used in CT and PET.
+
+# ---------------------------------------------------------------- simulation & physics
+- name: TomoPhantom
+  repo: dkazanc/TomoPhantom
+  language: Python
+  license: Apache-2.0
+  stars: 135
+  tags: [phantom, simulation, 2D, 3D, 4D]
+  note: Analytical 2D/3D/4D phantom generation plus forward projection for controlled reconstruction experiments.
+
+- name: xraylib
+  repo: tschoonj/xraylib
+  homepage: https://github.com/tschoonj/xraylib/wiki
+  language: C / Python
+  license: See repository
+  stars: 173
+  tags: [physics, cross-sections, spectroscopy]
+  note: X-ray matter interaction cross sections, fluorescence yields and Compton profiles; the physics layer for realistic simulation.
+
+# ---------------------------------------------------------------- I/O, frameworks, visualisation
+- name: pydicom
+  repo: pydicom/pydicom
+  homepage: https://pydicom.github.io/
+  language: Python
+  license: MIT
+  stars: 2219
+  tags: [DICOM, I/O]
+  note: Read, modify and write DICOM files — the standard entry point for clinical CT data.
+
+- name: MONAI
+  repo: Project-MONAI/MONAI
+  homepage: https://monai.dev/
+  language: Python
+  license: Apache-2.0
+  stars: 8760
+  tags: [PyTorch, medical-imaging, deep-learning]
+  note: PyTorch-based framework for medical imaging with CT reconstruction transforms and pretrained models.
+
+- name: tomviz
+  repo: OpenChemistry/tomviz
+  homepage: https://tomviz.org/
+  language: C++
+  license: BSD-3-Clause
+  stars: 367
+  tags: [visualisation, tomography]
+  note: Cross-platform application for tomographic data visualisation and processing.
+
+# ---------------------------------------------------------------- classical / statistical
+- name: MIRT
+  repo: JeffFessler/MIRT.jl
+  language: Julia
+  license: MIT
+  stars: 126
+  tags: [statistical, MBIR, regularisation, teaching]
+  note: Michigan Image Reconstruction Toolbox. Reference implementations of a very wide range of classical, statistical and penalised-likelihood reconstruction methods; the Julia port of the long-standing MATLAB MIRT.
+
+- name: IRtools
+  repo: jnagy1/IRtools
+  language: MATLAB
+  license: See repository
+  stars: 91
+  tags: [regularisation, Krylov, hybrid-methods, teaching]
+  note: Iterative Regularization Tools — hybrid Krylov methods, Tikhonov, TV and general-form regularisation, shipped with large-scale tomography test problems. From Hansen's group.
+
+- name: leehoy/CTReconstruction
+  repo: leehoy/CTReconstruction
+  language: Python
+  license: GPL-2.0
+  stars: 96
+  tags: [FBP, iterative, teaching]
+  note: Compact, readable Python implementations of FBP and iterative CT reconstruction algorithms — useful as a from-scratch reference.
+
+- name: Algotom
+  repo: algotom/algotom
+  language: Python
+  license: Apache-2.0
+  stars: 69
+  tags: [synchrotron, artefact-removal, ring-artifact, denoising]
+  note: "Data-processing algorithms for tomography — ring and artefact removal, distortion correction, denoising, phase retrieval and reconstruction. Developed for synchrotron beamlines."
+
+- name: Sarepy
+  repo: nghia-vo/sarepy
+  language: Python
+  license: See repository
+  stars: 63
+  tags: [ring-artifact, post-processing]
+  note: Numerical techniques for ring-artefact removal in tomography — the most complete open collection of stripe/ring filters.
+
+- name: DBT-Reconstruction
+  repo: LAVI-USP/DBT-Reconstruction
+  language: MATLAB
+  license: GPL-3.0
+  stars: 62
+  tags: [breast-tomosynthesis, FBP, iterative, geometry]
+  note: Open-source reconstruction toolbox for digital breast tomosynthesis, covering DBT-specific geometry alongside FBP and iterative solvers.
+
+- name: Discorpy
+  repo: DiamondLightSource/discorpy
+  language: Python
+  license: Apache-2.0
+  stars: 93
+  tags: [geometry, calibration, distortion]
+  note: Sub-pixel camera and lens distortion calibration; used to correct detector/geometry distortions before reconstruction.
+
+# ---------------------------------------------------------------- reference implementations
+- name: Learned Primal-Dual
+  repo: adler-j/learned_primal_dual
+  language: Python
+  license: See repository
+  stars: 110
+  tags: [unrolling, primal-dual, reference]
+  note: Reference implementation of Learned Primal-Dual reconstruction — the canonical unrolled primal-dual scheme, originally applied to CT.
+
+- name: Learned Gradient Tomography
+  repo: adler-j/learned_gradient_tomography
+  language: Python
+  license: See repository
+  stars: 97
+  tags: [unrolling, learned-gradient, reference]
+  note: Reference implementation of learned gradient descent for ill-posed tomography (Adler & Öktem); the origin of many later unrolled CT networks.
+
+# ---------------------------------------------------------------- simulation & physics
+- name: Physics-ArX
+  repo: nadeemlab/Physics-ArX
+  language: Python
+  license: See repository
+  stars: 79
+  tags: [augmentation, noise-model, artefact-model, radiotherapy]
+  note: Physics-based data-augmentation library that injects realistic CT/CBCT noise, scatter and artefact models into existing images to build paired training data.
+
+- name: LD-CT simulator
+  repo: smuzd/LD-CT-simulation
+  language: MATLAB
+  license: See repository
+  stars: 59
+  tags: [low-dose, simulation, noise]
+  note: Low-dose CT simulator that converts high-dose images into realistic low-dose counterparts using a validated noise model.
+
+- name: CBCT Scatter Correction Tool
+  repo: YangkangJiang/Cone-beam-CT-scatter-correction-tool
+  language: Python
+  license: See repository
+  stars: 15
+  tags: [scatter, cbct, correction]
+  note: One of the very few open implementations of cone-beam CT scatter estimation and correction.
+
+# ---------------------------------------------------------------- platforms & viewers
+- name: 3D Slicer
+  repo: Slicer/Slicer
+  homepage: https://www.slicer.org/
+  language: C++
+  license: BSD-style (see repository)
+  stars: 2652
+  tags: [platform, visualisation, DICOM, segmentation]
+  note: The dominant open platform for medical image computing; used to inspect, segment and register CT volumes and to prototype reconstruction pipelines as extensions.
+
+- name: voxenra
+  repo: l5769389/voxenra
+  language: Python
+  license: See repository
+  stars: 299
+  tags: [viewer, DICOM, visualisation]
+  note: Cross-platform DICOM viewer for CT, MRI and PET/CT with multiplanar reformatting, 3D volume rendering and fusion — handy for eyeballing reconstruction output.
+
+# ---------------------------------------------------------------- operators, physics & synchrotron
+- name: PyLops
+  repo: equinor/pylops
+  homepage: https://pylops.readthedocs.io/
+  language: Python
+  license: LGPL-3.0
+  stars: 540
+  tags: [operator, solver, radon, PyTorch, JAX]
+  note: Linear-operator library with a Radon transform and a large set of solvers (CGLS, LSQR, TV, sparsity-promoting). The cleanest way to prototype a variational CT problem without writing your own matrix-free operators.
+
+- name: mumott
+  url: https://gitlab.com/liebi-group/software/mumott
+  homepage: https://mumott.org/
+  language: Python
+  license: GPL-3.0
+  stars: 4
+  tags: [tensor-tomography, diffraction, reconstruction]
+  note: Tensor-tomography reconstruction for reciprocal-space data, developed at DTU. Specialised rather than general-purpose, but it is the most complete open implementation of the tensor-tomography model.
+
+- name: XrayPhysics
+  repo: kylechampley/XrayPhysics
+  homepage: https://xrayphysics.readthedocs.io/
+  language: C++ / Python
+  license: MIT
+  stars: 56
+  tags: [physics, spectra, cross-sections, dual-energy, beam-hardening]
+  note: X-ray cross sections, source-spectrum modelling, multi-material beam-hardening correction and dual-energy decomposition. From the LEAP author, and it pairs naturally with a simulator when you need a physically honest spectrum.
+
+- name: pyHST2
+  url: https://gitlab.esrf.fr/tomotools/pyhst2
+  homepage: http://ftp.esrf.fr/scisoft/PYHST2/
+  language: C / Python
+  license: See repository
+  stars: 0
+  tags: [synchrotron, phase-contrast, reconstruction]
+  note: The ESRF beamline reconstruction code — gridrec, FBP and iterative methods with phase retrieval for propagation-based phase-contrast tomography. Long-standing workhorse of the synchrotron community.
+- name: DIRECTT Reconstruction GUI
+  repo: BAMresearch/DIRECTT
+  language: Python
+  license: GPL-2.0
+  stars: 1
+  tags: [GUI, ASTRA, iterative, limited-projections, trajectories]
+  note: A Python GUI built on the ASTRA toolbox for reconstructing X-ray CT data, with the DIRECTT algorithm included. DIRECTT targets the regime where only a handful of projections are available along an arbitrary scanning trajectory and folds the acquisition path itself into the inverse problem - a corner that operator-based toolboxes mostly leave untouched. From BAM and published in Review of Scientific Instruments 2020; run Main.py to launch. Niche and lightly starred, but there is little else that covers trajectories explicitly.

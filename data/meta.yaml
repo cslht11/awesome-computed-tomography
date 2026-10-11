@@ -1,0 +1,109 @@
+# Topic taxonomy and language registry.
+#
+# `topics` order defines the order of sections in README.md, and each topic's
+# `name` is the section heading there and the filter label on the site. Both
+# `name` and `desc` may be translated — see data/i18n/.
+#
+# `languages` declares every language the README and the site are published in.
+# English is the source of truth and merely has to be listed here; the others
+# are overlays in data/i18n/<code>.yaml. Adding a language therefore means two
+# edits: create data/i18n/<code>.yaml, and add one entry below. Nothing else.
+topics:
+  - id: survey
+    name: Surveys & Reviews
+    desc: Overview papers, tutorials and comparative studies.
+
+  - id: classical
+    name: Classical & Iterative Reconstruction
+    desc: Analytical (FBP/FDK) and iterative (SART/SIRT/CGLS) reconstruction, hand-crafted regularizers (TV, TGV, non-local).
+
+  - id: sparse-view
+    name: Sparse-View CT
+    desc: Reconstruction from a reduced number of projection angles.
+
+  - id: limited-angle
+    name: Limited-Angle Tomography
+    desc: Missing angular wedge, where the null space makes the problem severely ill-posed.
+
+  - id: low-dose
+    name: Low-Dose CT Denoising
+    desc: Noise suppression at reduced tube current, in image, projection or dual domain.
+
+  - id: metal-artifact
+    name: Metal Artifact Reduction
+    desc: Beam hardening, photon starvation and scatter caused by high-density implants.
+
+  - id: spectral
+    name: Spectral & Dual-Energy CT
+    desc: Multi-energy acquisition, material decomposition, photon-counting CT.
+
+  - id: cbct
+    name: Cone-Beam CT
+    desc: Circular, helical and non-standard CBCT geometries; on-board imaging.
+
+  - id: dynamic
+    name: Dynamic & 4D CT
+    desc: Time-resolved reconstruction, motion modelling, perfusion and cardiac CT.
+
+  - id: scatter
+    name: Scatter Correction
+    desc: Scatter estimation and removal, both hardware- and software-based.
+
+  - id: geometry
+    name: Geometry Calibration & Motion Compensation
+    desc: Geometric self-calibration, marker-free alignment, rigid and non-rigid motion correction.
+
+  - id: unrolling
+    name: Deep Unrolling & Model-Based Learning
+    desc: Learned iterative schemes that unroll a classical solver, with or without data consistency.
+
+  - id: self-supervised
+    name: Self-Supervised & Untrained Methods
+    desc: Training without paired data — deep image prior, noise2noise-style, unsupervised regularization.
+
+  - id: diffusion
+    name: Diffusion & Generative Priors
+    desc: Score-based and diffusion models used as priors or samplers for tomographic inversion.
+
+  - id: inr
+    name: Implicit Neural Representations
+    desc: Coordinate-based networks (INR / NeRF) that represent the volume itself as the unknown.
+
+  - id: gaussian
+    name: Gaussian Splatting
+    desc: Explicit Gaussian primitives as a differentiable tomographic representation.
+
+  - id: other
+    name: Other Topics
+    desc: Industrial NDT, phase-contrast, quantitative CT, reconstruction software and anything that does not fit above.
+
+# ---------------------------------------------------------------- languages
+# code      the overlay's filename under data/i18n/, and the key used everywhere
+# label     what the language switcher shows for this language
+# html      <html lang="...">
+# hreflang  the hreflang value of the <link rel="alternate"> pointing at it
+# og_locale open-graph locale, language_TERRITORY per the ogp.me spec
+# path      URL prefix under the site root ("" = the default language)
+# readme    the file scripts/build.py writes for this language
+# default   the language served at the site root and shown at the top of a
+#           GitHub repo page; exactly one entry should carry it
+languages:
+  - code: en
+    label: EN
+    html: en
+    hreflang: en
+    og_locale: en
+    path: ""
+    readme: README.md
+    default: true
+
+  # zh-Hans rather than zh-CN: the text is Simplified Chinese as a writing
+  # system, not Chinese as served to one region. One line to change if the
+  # other is ever wanted.
+  - code: zh
+    label: 中文
+    html: zh-Hans
+    hreflang: zh-Hans
+    og_locale: zh_CN
+    path: "zh/"
+    readme: README.zh-CN.md

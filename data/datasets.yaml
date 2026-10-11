@@ -1,0 +1,291 @@
+# CT reconstruction datasets.
+# Fields: name (required), url | repo (required, at least one),
+#         modality, tasks, license, note
+# Projection-domain data (raw sinograms) is marked in `note` — it is the most
+# valuable kind for reconstruction research, but far rarer than image-domain data.
+
+# ---------------------------------------------------------------- projection domain
+- name: LoDoPaB-CT
+  url: https://zenodo.org/records/3384092
+  homepage: https://lodopab.grand-challenge.org/
+  modality: 2D fan-beam
+  tasks: [low-dose, sparse-view, denoising, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** 41,000 simulated human thorax slices (LIDC/IDRI), two dose levels. The de-facto standard low-dose CT benchmark; ships a well-tuned FBP/U-Net reference pipeline."
+
+- name: LDCT-and-Projection-data
+  url: https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/
+  modality: helical CT
+  tasks: [low-dose, reconstruction, denoising]
+  license: CC BY-NC 4.0
+  note: "**Projection + image.** Mayo Clinic, released through TCIA. 299 thoracic / abdominal / head exams at four dose levels (full / quarter / 10% / 5%), with raw sinograms in the open **DICOM-CT-PD** format. It grew out of the 2016 AAPM Low Dose CT Grand Challenge and is now the best real-data source for projection-domain methods."
+
+- name: 2DeteCT
+  url: https://zenodo.org/records/6984866
+  modality: 2D fan-beam
+  tasks: [reconstruction, limited-angle, sparse-view, denoising]
+  license: CC BY 4.0
+  note: "**Projection + image.** 5,000 real experimental 2D slices of mixed objects, 3 dose levels, multiple source-detector geometries. Excellent for reproducible real-data CT benchmarking."
+
+- name: Walnut-CBCT
+  url: https://www.fips.fi/dataset.php
+  modality: cone-beam
+  tasks: [reconstruction, geometry]
+  license: CC BY 4.0
+  note: "**Projection only.** Finnish Inverse Problems Society. Real cone-beam projections of a walnut at several angular samplings — a standard test bed for sparse-view and limited-angle CBCT."
+
+- name: Helsinki Tomography Challenge 2022
+  url: https://www.fips.fi/HTC2022.php
+  modality: 2D fan-beam
+  tasks: [limited-angle, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** Real limited-angle sinograms of phantoms and of a lotus root; the accompanying challenge defines the standard limited-angle protocol."
+
+- name: SPARE 4D-CBCT
+  url: https://image-x.sydney.edu.au/spare-challenge/
+  modality: cone-beam, 4D
+  tasks: [dynamic, cbct, reconstruction]
+  license: research use
+  note: "**Projection + image.** Thoracic 4D cone-beam CT for breathing-motion-resolved reconstruction; the reference benchmark for dynamic CBCT."
+
+- name: ToothFairy2
+  url: https://doi.org/10.5281/zenodo.10990960
+  homepage: https://toothfairy2.grand-challenge.org/
+  modality: cone-beam, dental
+  tasks: [cbct, reconstruction, segmentation]
+  license: CC BY 4.0
+  note: "480 dental CBCT scans with 3D tooth and jaw annotations; large-scale and useful for CBCT-domain pretraining. **Image domain only** — volumes are released without raw projections."
+
+- name: Cone-Beam CT (CBCT) Head & Neck
+  url: https://www.cancerimagingarchive.net/collection/head-neck/
+  modality: cone-beam
+  tasks: [cbct, reconstruction]
+  license: CC BY-NC 3.0
+  note: "Paired planning CT and on-board CBCT — the standard setting for CBCT correction and synthetic-CT work in radiotherapy."
+
+# ---------------------------------------------------------------- image domain
+- name: LIDC-IDRI
+  url: https://www.cancerimagingarchive.net/collection/lidc-idri/
+  modality: helical CT
+  tasks: [denoising, segmentation, low-dose]
+  license: CC BY 3.0
+  note: "1,018 thoracic CT scans with four-radiologist nodule annotations. The source anatomy behind LoDoPaB-CT and most simulated low-dose data."
+
+- name: DeepLesion
+  url: https://nihcc.app.box.com/v/DeepLesion
+  modality: helical CT
+  tasks: [detection, denoising]
+  license: CC BY 3.0
+  note: "32,735 lesion annotations across 10,594 studies from 4,427 patients — a large-scale pretraining corpus for CT-domain backbones."
+
+- name: LUNA16
+  url: https://luna16.grand-challenge.org/
+  modality: helical CT
+  tasks: [detection, denoising]
+  license: CC BY 3.0
+  note: "888 thin-slice chest CT scans with unified 1 mm resampling and nodule annotations; a clean, well-curated denoising/detection benchmark."
+
+- name: KiTS23
+  url: https://kits-challenge.org/kits23/
+  modality: contrast CT
+  tasks: [segmentation, reconstruction]
+  license: CC BY-NC 4.0
+  note: "489 abdominal CT scans with kidney-tumour and cyst annotations across three challenge editions."
+
+- name: Pancreas-CT (NIH)
+  url: https://www.cancerimagingarchive.net/collection/pancreas-ct/
+  modality: contrast CT
+  tasks: [segmentation]
+  license: CC BY 3.0
+  note: "82 abdominal contrast CT scans with expert pancreas masks; a small but very widely used reference set."
+
+- name: BTCV (Beyond the Cranial Vault)
+  url: https://www.synapse.org/#!Synapse:syn3193805/wiki/217789
+  modality: contrast CT
+  tasks: [segmentation]
+  license: CC BY-NC 4.0
+  note: "30 abdominal CT scans with 13-organ annotations; the origin of the FLARE/AMOS lineage of multi-organ benchmarks."
+
+- name: TotalSegmentator
+  url: https://zenodo.org/records/10047292
+  modality: contrast CT
+  tasks: [segmentation, reconstruction]
+  license: CC BY 4.0
+  note: "1,228 CT scans with 104 anatomical structures — the largest open CT structure set, and a strong pretraining target."
+
+- name: AMOS22
+  url: https://amos22.grand-challenge.org/
+  modality: CT / MRI
+  tasks: [segmentation]
+  license: CC BY-NC-SA 4.0
+  note: "500 CT + 100 MRI abdominal scans, 15 organs; deliberately heterogeneous scanners, so it stresses robustness."
+
+- name: Medical Segmentation Decathlon
+  url: http://medicaldecathlon.com/
+  modality: CT / MRI
+  tasks: [segmentation, reconstruction]
+  license: CC BY-SA 4.0
+  note: "Ten tasks, four of them CT (lung, pancreas, colon, hepatic vessels). The single most cited multi-task medical segmentation benchmark."
+
+- name: VerSe
+  url: https://github.com/anjany/verse
+  modality: CT / CBCT
+  tasks: [segmentation, cbct]
+  license: CC BY-SA 4.0
+  note: "3,741 CT/CBCT spine scans with vertebra and disc labels; mixes clinical CT with CBCT, which makes it relevant for artefact robustness."
+
+- name: RibFrac
+  url: https://ribfrac.grand-challenge.org/
+  modality: CT
+  tasks: [detection, segmentation]
+  license: CC BY-NC 4.0
+  note: "5,000 CT scans with 660 rib-fracture annotations; large, and often used as an auxiliary CT corpus."
+
+- name: CT-ORG
+  url: https://www.cancerimagingarchive.net/collection/ct-org/
+  modality: contrast CT
+  tasks: [segmentation]
+  license: CC BY 3.0
+  note: "140 CT scans with multi-organ masks, including a subset of the Liver Tumor Segmentation benchmark."
+
+- name: STOIC 2021
+  url: https://portal.imaging.datacommons.cancer.gov/collections/stoic/
+  modality: CT
+  tasks: [diagnosis, low-dose]
+  license: CC BY-NC 3.0
+  note: "23,000+ COVID-19 chest CT scans from a multi-centre international study; a very large real-clinical distribution shift test. Listed here through the NCI Imaging Data Commons mirror, which exposes the same collection with a queryable API."
+
+- name: MosMedData
+  url: https://mosmed.ai/en/datasets/datasets/covid191110/
+  modality: CT
+  tasks: [diagnosis, low-dose]
+  license: CC BY-NC-ND 3.0
+  note: "1,110 chest CT scans with COVID-19 severity grades; frequently reused as a low-quality / low-dose robustness set."
+
+- name: HNSCC (Head & Neck)
+  url: https://www.cancerimagingarchive.net/collection/hnscc/
+  modality: contrast CT + PET
+  tasks: [segmentation, reconstruction]
+  license: CC BY-NC 3.0
+  note: "Multi-institution head-and-neck CT with GTV/CTV delineations; pairs with the HECKTOR challenge."
+
+- name: CTPelvic1K
+  url: https://github.com/MIRACLE-Center/CTPelvic1K
+  modality: contrast CT
+  tasks: [segmentation, metal-artifact]
+  license: CC BY-NC 4.0
+  note: "1,184 pelvic CT scans across 7 sub-datasets; notably includes **metal-implant** cases, one of the few open sources of real metal artefacts."
+
+- name: FLARE22
+  url: https://flare22.grand-challenge.org/
+  modality: contrast CT
+  tasks: [segmentation]
+  license: CC BY-NC-SA 4.0
+  note: "2,000 abdominal CT scans with 13-organ labels across 20+ scanners; a large-scale robustness benchmark."
+
+- name: AutoPET-II
+  url: https://autopet-ii.grand-challenge.org/
+  modality: PET/CT
+  tasks: [segmentation, reconstruction]
+  license: CC BY-NC 4.0
+  note: "1,014 whole-body PET/CT studies with lesion masks; relevant when CT reconstruction feeds a downstream task."
+
+- name: HECKTOR
+  url: https://hecktor.grand-challenge.org/
+  modality: PET/CT
+  tasks: [segmentation, prognosis]
+  license: CC BY-NC 4.0
+  note: "Head-and-neck PET/CT with primary-tumour delineations; five editions of consistent annotations."
+
+- name: CT Lymph Nodes
+  url: https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/
+  modality: contrast CT
+  tasks: [detection, segmentation]
+  license: CC BY 3.0
+  note: "176 abdominal CT scans with mediastinal and abdominal lymph-node annotations."
+
+- name: NLST
+  url: https://www.cancerimagingarchive.net/collection/nlst/
+  modality: low-dose CT
+  tasks: [denoising, detection]
+  license: restricted (TCIA NCI)
+  note: "26,254 baseline low-dose screening CT scans — by far the largest real low-dose CT collection, though access is gated."
+
+- name: AAPM DL-Sparse-View CT data
+  url: https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/
+  modality: helical CT (re-projected)
+  tasks: [sparse-view, reconstruction]
+  license: CC BY 3.0
+  note: "**Projection + image.** The 2016 challenge cohort re-projected to 2/4/8/16/32/64 views per rotation, giving a controlled sparse-view axis with a fixed anatomical ground truth."
+
+- name: Finnish Inverse Problems Society (FIPS) datasets
+  url: https://www.fips.fi/dataset.php
+  modality: fan-beam / cone-beam
+  tasks: [reconstruction, geometry, calibration]
+  license: CC BY 4.0
+  note: "**Projection only.** A family of real measured sinograms (walnut, lotus root, apple, carrot, phantoms) with carefully documented acquisition geometry — the cleanest public source for testing reconstruction operators."
+
+- name: LoDoPaB-CT (benchmark release paper)
+  url: https://doi.org/10.1038/s41597-021-00893-z
+  homepage: https://lodopab.grand-challenge.org/
+  modality: 2D fan-beam
+  tasks: [low-dose, reconstruction, benchmarking]
+  license: CC BY 4.0
+  note: "The **Scientific Data** descriptor for the LoDoPaB-CT dataset — the citation to use when you report results on this split. Documents the simulation protocol and the FBP/U-Net reference baseline."
+
+- name: "COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset"
+  url: "https://arxiv.org/abs/2607.20037"
+  year: 2026
+  tasks: [reconstruction, benchmarking]
+  note: "Released as a public projection dataset (see the paper for access). "
+
+- name: "MORE: Multi-Organ Medical Image REconstruction Dataset"
+  url: "https://arxiv.org/abs/2510.26759"
+  year: 2025
+  tasks: [reconstruction, benchmarking]
+  note: "Released as a public projection dataset (see the paper for access). Accepted to ACMMM 2025"
+
+
+# ---- recovered from the review bibliography (landing pages checked before writing)
+- name: TomoBank
+  url: https://tomobank.readthedocs.io/en/latest/
+  modality: synchrotron micro-CT
+  tasks: [reconstruction, denoising, segmentation]
+  license: see source
+  note: "**Projection + image.** A repository of experimental and simulated tomographic datasets curated at the Advanced Photon Source, covering a wide range of instruments and specimen types. Built for validating and comparing reconstruction methods on data that actually looks like what a beamline produces, rather than on phantoms."
+
+- name: SparseBeads
+  url: https://zenodo.org/records/290117
+  modality: micro-CT
+  tasks: [sparse-view, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** 48 measured scans of bead phantoms whose image sparsity varies systematically, released specifically as a benchmark for sparsity-regularised reconstruction. Inspired by SophiaBeads, and the reference point for comparing a regulariser across known ground truth."
+
+- name: Walnut-21 (two dose levels)
+  url: https://zenodo.org/records/3763412
+  modality: cone-beam
+  tasks: [low-dose, denoising, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** High-resolution cone-beam scans of 21 walnuts, each acquired at two radiation dose levels - a good and a noisy version of the same object. The paired acquisition is what makes it useful: the noise level can be compared against known anatomy instead of being inferred."
+- name: FleX-ray Walnut CBCT Collection (CWI)
+  url: https://zenodo.org/records/2686726
+  homepage: https://doi.org/10.1038/s41597-019-0235-y
+  modality: cone-beam micro-CT
+  tasks: [reconstruction, limited-angle, sparse-view, cone-beam, segmentation]
+  license: CC BY 4.0
+  note: "**Projection + image.** 42 walnuts scanned on three different orbits each, so that artefact-free reference volumes can be computed from the combined views and used as supervised-learning ground truth. Worth noting that this is not another single-object phantom: the intent is natural variability across a class of objects. Ships the complete pipeline - raw projections, scanning geometry, pre-processing and reconstruction scripts (open software) and the reconstructed volumes - which makes it usable for high cone-angle artefact reduction, sparse and limited-angle reconstruction, super-resolution and segmentation alike. Split across six Zenodo deposits covering Samples 1-42."
+
+- name: LoDoInd
+  url: https://zenodo.org/records/10356955
+  homepage: https://doi.org/10.58286/29228
+  modality: industrial cone-beam CT
+  tasks: [low-dose, denoising, reconstruction]
+  license: CC BY-NC 4.0
+  note: "Five dose levels of the same industrial CT specimens, including a near-noise-free reference scan, all pre-registered so slices line up across levels. What sets it apart from the medical low-dose sets is the geometry and the specimens - this is inspection data from industrial hardware, not clinical anatomy, so it is the reference to use when the target is an NDT pipeline rather than a diagnostic one. 4000 slices at 1250x1250 per level, spread over three Zenodo deposits because of the 50 GB per-upload cap."
+
+- name: Carved cheese (FIPS)
+  url: https://zenodo.org/records/1254210
+  modality: 2D fan-beam
+  tasks: [reconstruction, sparse-view, limited-angle]
+  license: CC BY 4.0
+  note: "**Projection only.** A single 2D slice of a carved cheese from the Finnish Inverse Problems Society, published at three resolutions together with the measurement matrices that encode the X-ray transform as an explicit linear operator. Getting the forward operator handed to you alongside the sinogram removes an entire class of geometry-matching bugs, which is why it stays a standard first test whenever a reconstruction method is ported onto real measured data. Documentation lives at arXiv:1705.05732."

@@ -1,0 +1,40 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate data files
+        run: python scripts/build.py --check
+
+      - name: Ensure README.md is up to date
+        run: |
+          python scripts/build.py
+          if ! git diff --quiet README.md; then
+            echo "::error::README.md is out of date. Run 'python scripts/build.py' and commit the result."
+            git diff --stat README.md
+            exit 1
+          fi
+
+      # The site is a second rendering of the same data, so it is checked here
+      # too — a change that breaks it should fail this run, not the deploy. This
+      # also exercises build_site.py's canonical/CNAME self-check against the
+      # origin configured in site.config.yml. site/ is git-ignored, so there is
+      # nothing to diff afterwards.
+      - name: Build the site
+        run: python scripts/build_site.py
