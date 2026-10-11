@@ -17,7 +17,7 @@ tagline: "A curated list of CT reconstruction resources"
 
 description: >-
   A curated list of computed tomography (CT / CBCT / micro-CT) reconstruction
-  resources: 289 papers from 1976 to 2026, 43 toolkits, 34 datasets,
+  resources: 390 papers from 1971 to 2026, 44 toolkits, 40 datasets,
   19 benchmarks and 29 learning resources, covering sparse-view, limited-angle,
   low-dose, metal-artifact, spectral, cone-beam and 4D/dynamic CT.
 
@@ -27,9 +27,15 @@ description: >-
 # that this repository's own <owner>.github.io address appears nowhere in the
 # output. The address only resolves once DNS points at GitHub Pages — see
 # SITE.md, section "Switching to a custom domain".
-url: "https://computedtomography.org/"
+#
+# STAGING: left empty on purpose while this repository is still a preview.
+# Filling it in now would write `CNAME: computedtomography.org` into the build,
+# and deploying that file would claim the custom domain away from the older
+# repository that currently serves it. Set it to "https://computedtomography.org/"
+# only in the cut-over step, once the old repository has released the domain.
+url: ""
 
-repo: "cslht11/awesome-computed-tomography"
+repo: "cslht11/awesome-computed-tomography-cn"
 author: "cslht11"
 
 # Code and content are licensed separately. These keys drive the site footer,
