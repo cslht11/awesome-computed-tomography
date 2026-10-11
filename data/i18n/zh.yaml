@@ -23,10 +23,18 @@
 lang: zh-Hans
 
 tagline: "CT 重建资源精选列表"
+# {papers} / {toolkits} / {year_min} 等在构建时填入——这里不要写死数字，
+# 加一篇论文就会变陈旧。
 description: >-
-  计算机断层成像（CT / CBCT / 显微 CT）重建资源精选列表：289 篇论文（1976–2026）、43 个工具包、34 个数据集、19 个基准与挑战赛、29 项学习资源，覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D/动态 CT。
+  计算机断层成像（CT / CBCT / 显微 CT）重建资源精选列表：{papers} 篇论文（{year_min}–{year_max}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准与挑战赛、{learning} 项学习资源，覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D/动态 CT。
 keywords: >-
-  计算机断层成像, CT 重建, 稀疏视角 CT, 有限角层析, 低剂量 CT, 金属伪影校正, 锥束 CT, 深度学习, 精选列表
+  计算机断层成像, CT 重建, 断层重建, CT 成像, 稀疏视角 CT, 有限角层析,
+  低剂量 CT 去噪, 金属伪影校正, 锥束 CT, CBCT, 显微 CT,
+  能谱 CT, 双能 CT, 光子计数 CT, 散射校正, 4D CT, 动态 CT,
+  正弦图, 滤波反投影, FBP, FDK, 迭代重建, SART, SIRT, CGLS, 全变分,
+  解析重建, Radon 变换, 反问题, 深度展开, 模型驱动深度学习, 扩散模型,
+  隐式神经表示, 神经场, 高斯溅射, ASTRA, TIGRE, ODL, CIL, LoDoPaB,
+  深度学习, 精选列表, 论文列表
 
 ui:
   # ---- 页头
@@ -152,6 +160,10 @@ ui:
 
 readme:
   blurb: "覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D CT——从 FBP 与迭代求解器，到展开式网络、扩散先验、神经场与高斯溅射。每条论文链接均对照 Crossref、arXiv 或出版方记录核验。检索与筛选请使用 **[网站]({site_url})**。"
+  # 渲染在引言下方。GitHub 会索引本文件，这里的词决定了别人能不能搜到本列表；
+  # 与文件顶部的 `keywords` 保持一致。
+  keywordsLine: >-
+    **关键词** — {keywords}
   coverage: >-
     覆盖范围：{papers} 篇论文（{year_min}–{year_max}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准/挑战赛、{learning} 项学习资源。每条论文链接均已对照 Crossref、arXiv 或出版社官方记录核验，每个 URL 也都检查过。
   peerLine: >-

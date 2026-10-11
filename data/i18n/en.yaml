@@ -28,17 +28,29 @@
 lang: en
 
 tagline: "A curated, verified list of CT reconstruction research"
+# {papers} / {toolkits} / {year_min} and friends are filled in at build time —
+# never write a count out here, it is stale the moment a paper is added.
 description: >-
   A curated list of computed tomography (CT / CBCT / micro-CT) reconstruction
-  resources: 333 papers from 1971 to 2026, 44 toolkits, 40 datasets,
-  19 benchmarks and 29 learning resources, covering sparse-view, limited-angle,
-  low-dose, metal-artifact, spectral, cone-beam and 4D/dynamic CT.
+  resources: {papers} papers from {year_min} to {year_max}, {toolkits} toolkits,
+  {datasets} datasets, {benchmarks} benchmarks and {learning} learning
+  resources, covering sparse-view, limited-angle, low-dose, metal-artifact,
+  spectral, cone-beam and 4D/dynamic CT.
 
 # <meta name="keywords">. Technical terms read the same in both languages, so
 # the list is worth localising rather than translating word for word.
 keywords: >-
-  computed tomography, CT reconstruction, sparse-view CT, limited-angle tomography,
-  low-dose CT, metal artifact reduction, cone-beam CT, deep learning, awesome list
+  computed tomography, CT reconstruction, tomographic reconstruction, CT imaging,
+  sparse-view CT, limited-angle tomography, low-dose CT denoising,
+  metal artifact reduction, cone-beam CT, CBCT, micro-CT,
+  spectral CT, dual-energy CT, photon-counting CT, scatter correction,
+  4D CT, dynamic CT, sinogram, FBP, FDK, filtered back projection,
+  iterative reconstruction, SART, SIRT, CGLS, total variation,
+  analytic reconstruction, Radon transform, inverse problems,
+  deep unrolling, model-based deep learning, diffusion models,
+  implicit neural representations, neural fields, Gaussian splatting,
+  ASTRA toolbox, TIGRE, ODL, CIL, LoDoPaB, AAPM challenge,
+  deep learning, awesome list, curated list
 
 ui:
   # ---- header
@@ -185,6 +197,11 @@ readme:
     priors, neural fields and Gaussian splatting. Every paper link is resolved
     against Crossref, arXiv or the publisher's record. For search and filters,
     use the **[website]({site_url})**.
+  # Rendered as a paragraph right under the blurb. GitHub indexes this file, so
+  # the terms here are what makes the list findable; keep them the same as
+  # `keywords` at the top of this file.
+  keywordsLine: >-
+    **Keywords** — {keywords}
   coverage: >-
     Coverage: {papers} papers ({year_min}–{year_max}), {toolkits} toolkits, {datasets} datasets,
     {benchmarks} benchmarks/challenges, {learning} learning resources. Every paper link

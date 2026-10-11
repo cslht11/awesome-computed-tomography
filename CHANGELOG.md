@@ -13,6 +13,41 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-11 — 101 more papers, the whole list in Chinese, and a new home
+
+The largest single addition so far. The list moves to a repository of its own and
+becomes bilingual end to end.
+
+### Content
+
+- **390 papers** (was 289), spanning **1971–2026** (was 1976) across 17 topics, plus
+  **44 toolkits** (was 43), **40 datasets** (was 34), 19 benchmarks/challenges and
+  29 learning resources. **327 of 390 (84%)** carry a peer-reviewed venue.
+- 57 papers added from a Web of Science export, kept only where Crossref confirmed a
+  journal article and the work is a reconstruction method rather than an application
+  that merely uses CT. A further 44 came from cross-checking a review manuscript's
+  bibliography.
+
+### Language
+
+- The list, the site chrome, the static pages and both READMEs now exist in English
+  and Chinese. Interface strings live in `data/i18n/`; English is the source of truth
+  and every other language is an overlay that falls back to it.
+- `/zh/` serves the Chinese site, with its own canonical URL, `hreflang` pair and
+  sitemap entries.
+
+### Site
+
+- **`description` is now filled in at build time.** It used to spell out "289 papers",
+  which went stale the moment a paper was added — and this is the text search engines
+  show.
+- Fixed the light/dark toggle: it had one listener in `app.js` and another in
+  `chrome.js`, so a click switched the theme twice. It now lives in one inline script
+  in `<head>`, applies the saved choice before first paint, and the button shows the
+  icon for the theme it will switch to.
+- The EN / 中文 switch moves from the footer to the header, next to the theme toggle.
+- The site is served from `computedtomography.org`, now published from this repository.
+
 ## 2026-10-10 — About, Contact and Privacy pages
 
 - New static pages at `/about/`, `/contact/` and `/privacy/` (scope and verification method, how to suggest or correct an entry, what the site does and doesn't collect).

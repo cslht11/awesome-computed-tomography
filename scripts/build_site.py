@@ -209,13 +209,19 @@ def render_static_papers(payload, ov):
     return "\n".join(rows)
 
 
-def render_head(cfg, payload, base, root, entry, langs, ov):
+def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
     """``base`` is this language's own canonical URL, ``root`` the site origin
-    the hreflang alternates are built from."""
+    the hreflang alternates are built from. ``tokens`` holds the live counts,
+    so a description can say {papers} instead of a number that goes stale."""
     c = payload["counts"]
     title = top_for(ov, entry["code"], "title", cfg["title"])
+    # Counts are filled in rather than written out: a description that spells
+    # out "289 papers" is stale the moment the next paper lands, and this text
+    # is what search engines show. site.config.yml's own description carries no
+    # placeholders, so filling it is a no-op.
     desc = re.sub(r"\s+", " ",
-                  top_for(ov, entry["code"], "description", cfg["description"])).strip()
+                  fill(top_for(ov, entry["code"], "description",
+                               cfg["description"]), tokens)).strip()
     canonical = base
     default = i18n.default_language(langs)
     hreflang = "".join(
@@ -434,7 +440,8 @@ def main():
             for e in langs if e["code"] != code)
 
         subs = {
-            "{{HEAD}}": render_head(cfg, payload, lang_base, base, entry, langs, ov),
+            "{{HEAD}}": render_head(cfg, payload, lang_base, base, entry, langs,
+                                   ov, tokens),
             "{{DATA}}": safe_json(payload),
             "{{PAPERS_STATIC}}": render_static_papers(payload, ov),
             "{{PAPERS_LEGEND}}": md_inline(ov.readme("legendPapers", PAPERS_LEGEND)),
