@@ -31,6 +31,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build import load, url_of, validate, REPO, ROOT  # noqa: E402
+import i18n  # noqa: E402
 
 SCHEMA = 1
 OUT_DEFAULT = os.path.join(ROOT, "site", "data.json")
@@ -51,7 +52,18 @@ def link_host(url):
     return "%s %s" % (host, tail)
 
 
-def build_payload():
+def build_payload(lang=None):
+    """The site payload for one language.
+
+    ``lang`` selects the i18n overlay used for the per-entry ``note`` text.
+    Every note lives in English in data/*.yaml and may be overridden in
+    data/i18n/<code>.yaml under the table's own section, exactly like the
+    README build, so a translated site shows translated notes instead of
+    silently falling back. ``None`` means the source language (English).
+    """
+    code = lang or i18n.SOURCE
+    ov = i18n.load(code)
+
     meta = load("meta.yaml")
     if not meta:
         sys.exit("data/meta.yaml is required")
@@ -95,23 +107,26 @@ def build_payload():
         }
         if e.get("abbr"):
             rec["abbr"] = e["abbr"]
-        # Landmark entries carry a note; it is shown under the entry and folded
-        # into the search blob, so its words are findable too.
-        if e.get("note"):
-            rec["note"] = re.sub(r"\s+", " ", e["note"]).strip()
+        # A landmark entry may carry a note; it is shown under the entry and
+        # folded into the search blob, so its words are findable too. The
+        # overlay is consulted first so a translated site shows the note in
+        # its own language; the English in data/papers.yaml is the fallback.
+        note = ov.item("papers", e["id"]).get("note") or e.get("note")
+        if note:
+            rec["note"] = re.sub(r"\s+", " ", note).strip()
         for k in PAPER_URL_FIELDS:
             if e.get(k):
                 rec["links"][k] = e[k]
 
         blob = [e["title"], e.get("abbr") or "", venue or "preprint"]
-        if e.get("note"):
-            blob.append(e["note"])
+        if note:
+            blob.append(note)
         blob += [topic_name.get(t, t) for t in e["topics"]]
         blob += [link_host(e.get(k)) for k in PAPER_URL_FIELDS if e.get(k)]
         rec["_q"] = re.sub(r"\s+", " ", " ".join(blob)).strip().lower()
         out_papers.append(rec)
 
-    def side(items, key, urlkeys, extra):
+    def side(items, table, key, urlkeys, extra):
         rows = []
         for e in items:
             r = {key: e[key]}
@@ -119,7 +134,13 @@ def build_payload():
             if u:
                 r["url"] = u
             for f in extra:
-                if e.get(f):
+                if f == "note":
+                    # Same overlay-first rule as papers: a translation may
+                    # override just the note and keep the English name.
+                    n = ov.item(table, e[key]).get("note") or e.get("note")
+                    if n:
+                        r["note"] = n
+                elif e.get(f):
                     r[f] = e[f]
             rows.append(r)
         return rows
@@ -146,13 +167,13 @@ def build_payload():
         "topics": [{"id": t["id"], "name": t["name"], "desc": t.get("desc", ""),
                     "count": counts.get(t["id"], 0)} for t in topics],
         "papers": out_papers,
-        "toolkits": side(toolkits, "name", ("repo", "url"),
+        "toolkits": side(toolkits, "toolkits", "name", ("repo", "url"),
                          ("language", "license", "stars", "tags", "note", "homepage")),
-        "datasets": side(datasets, "name", ("url", "repo"),
+        "datasets": side(datasets, "datasets", "name", ("url", "repo"),
                          ("modality", "tasks", "license", "note", "homepage", "year")),
-        "benchmarks": side(benchmarks, "name", ("url", "repo"),
+        "benchmarks": side(benchmarks, "benchmarks", "name", ("url", "repo"),
                            ("year", "tasks", "note")),
-        "learning": side(learning, "name", ("url", "repo"), ("type", "note")),
+        "learning": side(learning, "learning", "name", ("url", "repo"), ("type", "note")),
     }
 
 
@@ -160,11 +181,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=OUT_DEFAULT,
                     help="output path (default: site/data.json)")
+    ap.add_argument("--lang", default=i18n.SOURCE,
+                    help="language code whose overlay supplies the notes "
+                         "(default: %s)" % i18n.SOURCE)
     ap.add_argument("--compact", action="store_true", help="minified JSON")
     ap.add_argument("--stdout", action="store_true", help="write to stdout only")
     args = ap.parse_args()
 
-    payload = build_payload()
+    payload = build_payload(args.lang)
     if args.compact:
         text = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     else:

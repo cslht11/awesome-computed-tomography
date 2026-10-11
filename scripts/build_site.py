@@ -371,7 +371,10 @@ def main():
     base = resolve_base(cfg, args.url)
     cfg["repo_url"] = "https://github.com/" + cfg["repo"]
 
-    payload = build_payload()
+    # Counts are language-independent, so one build of the source-language
+    # payload is enough to size the page tokens. The per-language loop below
+    # rebuilds the payload so each language's data.json carries its own notes.
+    payload = build_payload(i18n.SOURCE)
     c = payload["counts"]
     today = datetime.date.today().isoformat()
 
@@ -421,6 +424,11 @@ def main():
         ov = i18n.load(code)
         lang_base = i18n.url_for(base, entry)
         sub = os.path.join(out, entry.get("path") or "")
+
+        # Rebuild per language rather than mutating one shared payload: the
+        # notes (and the topic names below) differ by language, and the
+        # previous iteration's edits would otherwise leak into this one.
+        payload = build_payload(code)
 
         shared = dict(tokens)
         shared["coverage"] = fill(ov.ui("coverage"), tokens)
@@ -546,6 +554,31 @@ def main():
         cname = os.path.join(out, "CNAME")
         if not os.path.exists(cname) or read(cname).strip() != host_of(base):
             problems.append("CNAME is missing or does not match the configured origin")
+    # ------------------------------------------------------- note translation
+    # A note lives in English in data/*.yaml and may be translated in
+    # data/i18n/<code>.yaml. The overlay is merged at export time, so a
+    # translated note has to appear in that language's data.json. This used to
+    # silently fall back to English because export_site_data read the raw
+    # field; asserting it here keeps that from coming back. Missing *entire*
+    # translations are fine (that is a normal fallback), but a translation
+    # that exists and gets dropped is a bug.
+    for entry in langs:
+        code = entry["code"]
+        if code == i18n.SOURCE:
+            continue
+        ov = i18n.load(code)
+        sub = os.path.join(out, entry.get("path") or "")
+        data = json.load(io.open(os.path.join(sub, "data.json"), encoding="utf-8"))
+        for table, key_field in (("papers", "id"), ("toolkits", "name"),
+                                 ("datasets", "name"), ("benchmarks", "name"),
+                                 ("learning", "name")):
+            for rec in data.get(table) or []:
+                want = ov.item(table, rec[key_field]).get("note")
+                if want and rec.get("note") != want:
+                    problems.append(
+                        "%s/%s: %s %r has a translated note that did not reach "
+                        "data.json" % (code, table, key_field, rec[key_field]))
+
     if problems:
         print("SITE CHECK FAILED:")
         for x in problems:

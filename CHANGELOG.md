@@ -51,6 +51,11 @@ becomes bilingual end to end.
   icon for the theme it will switch to.
 - The EN / 中文 switch moves from the footer to the header, next to the theme toggle.
 - The site is served from `computedtomography.org`, now published from this repository.
+- **Entry notes now translate.** The 132 notes (and the Radon entry's) were rendered
+  in English on the Chinese site even where a translation existed, because the site
+  export read the English field directly and never consulted the overlay. Each
+  language now builds its own payload, and `build_site.py` fails if a translated
+  note does not reach that language's `data.json`.
 
 ## 2026-10-10
 

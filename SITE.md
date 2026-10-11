@@ -40,8 +40,8 @@ separately — the reasoning is in [MAINTENANCE.md](MAINTENANCE.md).
 ## Languages
 
 The site is bilingual, English at `/` and Chinese at `/zh/`. Both are rendered by
-the same `build_site.py` run from the same payload; a language only changes which
-strings are looked up and which canonical URL is written.
+the same `build_site.py` run; each language builds its own payload so the
+per-entry notes (and topic names) read in that language.
 
 - `data/i18n/en.yaml` is the **source of truth** for every user-visible string.
 - `data/i18n/zh.yaml` is an **overlay**. For `zh` a key is looked up in the overlay
@@ -50,6 +50,13 @@ strings are looked up and which canonical URL is written.
 - The one error case is an **orphan key**: a key in `zh.yaml` that does not exist in
   `en.yaml`. That fails `build.py --check` (exit 1). A *missing* translation is not
   an error.
+
+An entry's `note` follows the same rule. It lives in English in `data/*.yaml`, and
+`data/i18n/zh.yaml` carries a per-table override — `papers.<id>.note`,
+`toolkits.<name>.note`, and so on — which the site export merges in. A translated
+note that exists but does not reach `site/<lang>/data.json` **fails**
+`build_site.py` (it used to fall back to English silently; the assertion keeps that
+from coming back).
 
 Each language gets its own `<html lang>`, canonical URL and og:url, and the two are
 wired together with `hreflang` alternates plus an `x-default` pointing at the
@@ -216,6 +223,8 @@ raw**, the largest part of it the inlined JSON. Run `python scripts/build_site.p
 the size it prints rather than trusting a number here — this figure goes stale every time
 papers are added. `site/data.json` is written as well, for anything that wants the data
 programmatically, and it is what the callers of `export_site_data.py` should use.
+That script takes `--lang <code>` and defaults to `en`; pass a language to get a
+payload whose notes are already in it.
 
 If you ever want the smaller `index.html` more than you want double-click preview, switch
 `app.js` to read `./data.json` — but then the site only works over HTTP, and the
