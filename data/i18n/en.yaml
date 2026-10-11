@@ -37,20 +37,19 @@ description: >-
   resources, covering sparse-view, limited-angle, low-dose, metal-artifact,
   spectral, cone-beam and 4D/dynamic CT.
 
-# <meta name="keywords">. Technical terms read the same in both languages, so
-# the list is worth localising rather than translating word for word.
+# <meta name="keywords"> on the website. Search engines effectively ignore this
+# tag, so it is kept short on purpose: roughly one term per direction the list
+# actually covers, mirroring the topic ids in meta.yaml. GitHub does not read it
+# either — being findable there comes from the repository description and the
+# topic list, not from a keyword dump.
 keywords: >-
-  computed tomography, CT reconstruction, tomographic reconstruction, CT imaging,
-  sparse-view CT, limited-angle tomography, low-dose CT denoising,
-  metal artifact reduction, cone-beam CT, CBCT, micro-CT,
-  spectral CT, dual-energy CT, photon-counting CT, scatter correction,
-  4D CT, dynamic CT, sinogram, FBP, FDK, filtered back projection,
-  iterative reconstruction, SART, SIRT, CGLS, total variation,
-  analytic reconstruction, Radon transform, inverse problems,
-  deep unrolling, model-based deep learning, diffusion models,
-  implicit neural representations, neural fields, Gaussian splatting,
-  ASTRA toolbox, TIGRE, ODL, CIL, LoDoPaB, AAPM challenge,
-  deep learning, awesome list, curated list
+  computed tomography, CT reconstruction, tomographic reconstruction,
+  sparse-view CT, limited-angle tomography, low-dose CT,
+  metal artifact reduction, cone-beam CT, CBCT, spectral CT,
+  photon-counting CT, scatter correction, dynamic and 4D CT,
+  filtered back projection, iterative reconstruction, Radon transform,
+  deep unrolling, diffusion models, implicit neural representations,
+  Gaussian splatting, awesome list
 
 ui:
   # ---- header
@@ -197,11 +196,6 @@ readme:
     priors, neural fields and Gaussian splatting. Every paper link is resolved
     against Crossref, arXiv or the publisher's record. For search and filters,
     use the **[website]({site_url})**.
-  # Rendered as a paragraph right under the blurb. GitHub indexes this file, so
-  # the terms here are what makes the list findable; keep them the same as
-  # `keywords` at the top of this file.
-  keywordsLine: >-
-    **Keywords** — {keywords}
   coverage: >-
     Coverage: {papers} papers ({year_min}–{year_max}), {toolkits} toolkits, {datasets} datasets,
     {benchmarks} benchmarks/challenges, {learning} learning resources. Every paper link

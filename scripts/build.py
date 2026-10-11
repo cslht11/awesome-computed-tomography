@@ -391,9 +391,6 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
     subs["content_license"] = "CC BY-NC-SA 4.0"
     subs["code_license"] = "MIT"
     subs["ncode"] = sum(1 for e in papers if e.get("code"))
-    # Same list as the site's <meta name="keywords">, so the terms people
-    # search for are in the README too — GitHub indexes this file.
-    subs["keywords"] = re.sub(r"\s+", " ", ov.top("keywords")).strip()
 
     def badge(label, msg, color):
         q = lambda x: str(x).replace("-", "--").replace(" ", "%20").replace("_", "__")
@@ -453,14 +450,11 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
         parts.append(switcher(langs, ov.code) + "\n")
     parts.append(strip)
     parts.append(fill(ov.readme("blurb", ""), subs) + "\n")
-
-    # A visible keyword block. GitHub indexes the README and surfaces this
-    # repository in searches for these terms, which is the whole point of an
-    # awesome list being findable.
-    kw = fill(ov.readme("keywordsLine", ""), subs).strip()
-    if kw:
-        parts.append(kw + "\n")
-
+    # No keyword block here on purpose. GitHub's repository search only reads
+    # the name, the description and the topics — it does not index README
+    # bodies (measured: terms living only in this file return zero hits), so a
+    # pasted wall of keywords buys nothing and just breaks up the page. The
+    # findable words live in the repository description and the topic list.
     parts.append(head("papersHeading"))
     parts.append(render_topic_grid(papers, meta, ov))
     parts.append(ov.readme("legendPapers", "") + "\n")

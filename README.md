@@ -20,8 +20,6 @@
 
 Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D CT — from FBP and iterative solvers to unrolled networks, diffusion priors, neural fields and Gaussian splatting. Every paper link is resolved against Crossref, arXiv or the publisher's record. For search and filters, use the **[website](https://computedtomography.org/)**.
 
-**Keywords** — computed tomography, CT reconstruction, tomographic reconstruction, CT imaging, sparse-view CT, limited-angle tomography, low-dose CT denoising, metal artifact reduction, cone-beam CT, CBCT, micro-CT, spectral CT, dual-energy CT, photon-counting CT, scatter correction, 4D CT, dynamic CT, sinogram, FBP, FDK, filtered back projection, iterative reconstruction, SART, SIRT, CGLS, total variation, analytic reconstruction, Radon transform, inverse problems, deep unrolling, model-based deep learning, diffusion models, implicit neural representations, neural fields, Gaussian splatting, ASTRA toolbox, TIGRE, ODL, CIL, LoDoPaB, AAPM challenge, deep learning, awesome list, curated list
-
 ## Papers
 
 | | | |
