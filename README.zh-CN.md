@@ -574,7 +574,7 @@
 - **Prior-Adapted Progressive Time-Resolved CBCT Reconstruction Using a Dynamic Reconstruction and Motion Estimation Method** — _预印本 2025_ · [论文](https://arxiv.org/abs/2504.18700)
 - **BaggageCT: Fan-Beam CT Reconstruction for Unaligned Sparse-View X-Ray Baggage Data** — _预印本 2024_ · [论文](https://arxiv.org/abs/2412.03036)
 - **GGLF: Gradient-based geometry learning for fan-beam CT reconstruction** — _PMB 2023_ · [论文](https://doi.org/10.1088/1361-6560/acf90e)
-- **DSigNet: Downsampled Imaging Geometric Modeling for Accurate CT Reconstruction via Deep Learning** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3074783) · [代码](https://github.com/hejipro/DSigNet)
+- **DSigNet: Downsampled Imaging Geometric Modeling for Accurate CT Reconstruction via Deep Learning** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3074783) · [代码](https://github.com/hejipro/iRadonMAP-DSigNet)
 - **PDF: CT Reconstruction With PDF: Parameter-Dependent Framework for Data From Multiple Geometries and Dose Levels** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3085839)
 - **Artifact-resistant motion estimation with a patient-specific artifact model for motion-compensated cone-beam CT** — _Med Phys 2013_ · [论文](https://doi.org/10.1118/1.4820537)
 - **A novel digital tomosynthesis (DTS) reconstruction method using a deformation field map** — _Med Phys 2008_ · [论文](https://doi.org/10.1118/1.2940725)
@@ -623,7 +623,7 @@
 - **DAN-Net: Dual-Domain Adaptive-Scaling Non-Local Network for CT Metal Artifact Reduction** — _MICCAI 2021_ · [论文](https://doi.org/10.1007/978-3-030-87231-1_24) · [代码](https://github.com/zjk1988/DAN-Net)
 - **DeACNN: Learning a Deep CNN Denoising Approach Using Anatomical Prior Information Implemented With Attention Mechanism for Low-Dose CT Imaging on Clinical Patient Data From Multiple Anatomical Sites** — _JBHI 2021_ · [论文](https://doi.org/10.1109/jbhi.2021.3061758)
 - **DRONE: Dual-Domain Residual-Based Optimization Network for Sparse-View CT Reconstruction** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3078067) · [代码](https://github.com/weiwenwu12/DRONE)
-- **DSigNet: Downsampled Imaging Geometric Modeling for Accurate CT Reconstruction via Deep Learning** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3074783) · [代码](https://github.com/hejipro/DSigNet)
+- **DSigNet: Downsampled Imaging Geometric Modeling for Accurate CT Reconstruction via Deep Learning** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3074783) · [代码](https://github.com/hejipro/iRadonMAP-DSigNet)
 - **FISTA-Net: Learning a Fast Iterative Shrinkage Thresholding Network for Inverse Problems in Imaging** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3054167) · [代码](https://github.com/jinxixiang/FISTA-Net)
 - **InDuDoNet: An Interpretable Dual Domain Network for CT Metal Artifact Reduction** — _MICCAI 2021_ · [论文](https://arxiv.org/abs/2109.05298) · [代码](https://github.com/hongwang01/InDuDoNet)
 - **MetaInv-Net: Meta Inversion Network for Sparse View CT Image Reconstruction** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2020.3033541) · [代码](https://github.com/haimiaozh/MetaInv-Net)
@@ -858,7 +858,7 @@
 | [**DeepInverse**](https://github.com/deepinv/deepinv) | Python | 827 | 面向成像逆问题的 PyTorch 库——物理算子、学习型去噪器、展开网络与基准测试。 |
 | [**TIGRE**](https://github.com/CERN/TIGRE) | MATLAB / Python | 812 | GPU 加速（CUDA）的锥束与平行束 CT 工具箱；提供 FDK、SART、SIRT、CGLS 及 TV 变体。 |
 | [**ASTRA Toolbox**](https://github.com/astra-toolbox/astra-toolbox) | C++ / Python / MATLAB | 637 | 历史悠久的研究型工具箱，投影算子与算法覆盖面很广；CPU/GPU 上的参照基线。 |
-| [**PyLops**](https://github.com/equinor/pylops) | Python | 540 | 线性算子库，含 Radon 变换与一整套求解器（CGLS、LSQR、TV、稀疏性促进）。不想自己写无矩阵算子时，做变分 CT 原型最干净的选择。 |
+| [**PyLops**](https://github.com/PyLops/pylops) | Python | 540 | 线性算子库，含 Radon 变换与一整套求解器（CGLS、LSQR、TV、稀疏性促进）。不想自己写无矩阵算子时，做变分 CT 原型最干净的选择。 |
 | [**ODL**](https://github.com/odlgroup/odl) | Python | 434 | 算子离散化库——以泛函分析的框架组织逆问题，内置 CT 几何。 |
 | [**TomoPy**](https://github.com/tomopy/tomopy) | Python | 397 | 同步辐射显微/纳米层析的参照工具箱；gridrec、FBP 与相位恢复。 |
 | [**tomviz**](https://github.com/OpenChemistry/tomviz) | C++ | 367 | 跨平台应用层析数据可视化与处理。 |
@@ -926,7 +926,7 @@
 | [**RibFrac**](https://ribfrac.grand-challenge.org/) | CT | 仅图像域 | CC BY-NC 4.0 | 5,000 例 CT、660 处肋骨骨折标注；规模大，常被用作 CT 辅助语料。 |
 | [**CT-ORG**](https://www.cancerimagingarchive.net/collection/ct-org/) | contrast CT | 仅图像域 | CC BY 3.0 | 140 例 CT，带多器官掩膜，其中含 Liver Tumor Segmentation 基准的一个子集。 |
 | [**STOIC 2021**](https://portal.imaging.datacommons.cancer.gov/collections/stoic/) | CT | 仅图像域 | CC BY-NC 3.0 | 来自多中心国际研究的 23,000 余例 COVID-19 胸部 CT；规模极大的真实临床分布偏移测试。此处通过 NCI Imaging Data Commons 镜像收录，同一批数据提供可查询 API。 |
-| [**MosMedData**](https://mosmed.ai/en/datasets/datasets/covid191110/) | CT | 仅图像域 | CC BY-NC-ND 3.0 | 1,110 例胸部 CT，带 COVID-19 严重程度分级；常被复用为低质量/低剂量鲁棒性测试集。 |
+| [**MosMedData**](https://mosmed.ai/en/datasets/datasets/covid191110/) | CT | 仅图像域 | CC BY-NC-ND 3.0 | 1,110 例胸部 CT，带 COVID-19 严重程度分级；常被复用为低质量/低剂量鲁棒性测试集。原站目前无法访问——Kaggle 镜像收录了同一批数据。 |
 | [**HNSCC (Head & Neck)**](https://www.cancerimagingarchive.net/collection/hnscc/) | contrast CT + PET | 仅图像域 | CC BY-NC 3.0 | 多机构的头颈部 CT，带 GTV/CTV 勾画；与 HECKTOR 挑战赛配套。 |
 | [**CTPelvic1K**](https://github.com/MIRACLE-Center/CTPelvic1K) | contrast CT | 仅图像域 | CC BY-NC 4.0 | 跨 7 个子集的 1,184 例盆腔 CT；值得注意的是含**金属植入物**病例，是真实金属伪影的少数开放来源之一。 |
 | [**FLARE22**](https://flare22.grand-challenge.org/) | contrast CT | 仅图像域 | CC BY-NC-SA 4.0 | 2,000 例腹部 CT、13 个器官标签，来自 20 余台设备；大规模鲁棒性基准。 |
@@ -937,8 +937,8 @@
 | [**AAPM DL-Sparse-View CT data**](https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/) | helical CT (re-projected) | 投影域 + 图像域 | CC BY 3.0 | 2016 年挑战赛队列重新投影为每圈 2/4/8/16/32/64 个视角，在固定解剖真值下给出可控的稀疏视角轴。 |
 | [**Finnish Inverse Problems Society (FIPS) datasets**](https://www.fips.fi/dataset.php) | fan-beam / cone-beam | 仅投影域 | CC BY 4.0 | 一批真实测量的正弦图（核桃、莲藕、苹果、胡萝卜、体模），采集几何记录详尽——检验重建算子最干净的公开来源。 |
 | [**LoDoPaB-CT (benchmark release paper)**](https://doi.org/10.1038/s41597-021-00893-z) | 2D fan-beam | 仅图像域 | CC BY 4.0 | LoDoPaB-CT 数据集在 **Scientific Data** 上的数据描述论文——在该切分上报告结果时应引用的文献。记录了仿真协议与 FBP/U-Net 参照基线。 |
-| [**COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset**](https://arxiv.org/abs/2607.20037) | - | 仅图像域 | - | 以公开投影数据集的形式发布（获取方式见论文）。 |
-| [**MORE: Multi-Organ Medical Image REconstruction Dataset**](https://arxiv.org/abs/2510.26759) | - | 仅图像域 | - | 以公开投影数据集的形式发布（获取方式见论文）。已被 ACMMM 2025 接收。 |
+| [**COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset**](https://arxiv.org/abs/2607.20037) | cone-beam | 投影域 + 图像域 | CC BY-NC 4.0 | 来自六家欧洲中心的 867 例骨盆放疗 CBCT 扫描（Elekta 与 Varian 系统），含原始投影、采集几何、临床 CBCT 与计划 CT。约 950 GB，按 692/52/123 划分，以 CC BY-NC 4.0 发布于 Zenodo（doi:10.5281/zenodo.21322350）。也是 COBRA2026 重建挑战赛的数据基础。 |
+| [**MORE: Multi-Organ Medical Image REconstruction Dataset**](https://arxiv.org/abs/2510.26759) | CT | 仅图像域 | CC BY-NC 4.0 | 覆盖 9 个解剖部位、15 类病灶的 CT 扫描，用途是检验模型对**未见解剖部位**的泛化能力，而非单一器官。以 CC BY-NC 4.0 发布；已被 ACM MM 2025 接收。 |
 | [**TomoBank**](https://tomobank.readthedocs.io/en/latest/) | synchrotron micro-CT | 投影域 + 图像域 | see source | 由美国阿贡国家实验室 Advanced Photon Source 维护的层析数据仓库，收录大量实验采集与仿真的层析数据，覆盖多种仪器与样品类型。它的价值在于用真正来自光束线的数据来检验和比较重建方法，而不是只靠体模。 |
 | [**SparseBeads**](https://zenodo.org/records/290117) | micro-CT | 投影域 + 图像域 | CC BY 4.0 | 48 组真实采集的珠体体模扫描，图像稀疏程度被系统地拉开梯度，专为稀疏正则化重建的基准评测而发布。灵感来自 SophiaBeads，是在已知真值下横比不同正则项时的参照点。 |
 | [**Walnut-21 (two dose levels)**](https://zenodo.org/records/3763412) | cone-beam | 仅投影域 | CC BY 4.0 | 21 颗核桃的高分辨率锥束扫描，每颗都以两个辐射剂量水平各采一次——同一物体的一版「干净」与一版「带噪」。这种配对采集正是它的用处：噪声水平可以直接对照已知解剖结构来比较，而不是靠推测。 |

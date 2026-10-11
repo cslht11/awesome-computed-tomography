@@ -174,6 +174,10 @@ def build_payload(lang=None):
         "benchmarks": side(benchmarks, "benchmarks", "name", ("url", "repo"),
                            ("year", "tasks", "note")),
         "learning": side(learning, "learning", "name", ("url", "repo"), ("type", "note")),
+        # web/app.js reads DATA.ui and falls back to {} — omit it and every
+        # label it renders goes blank. build_site.py adds the same block, so
+        # both producers emit one identical payload shape.
+        "ui": i18n.js_ui(ov),
     }
 
 

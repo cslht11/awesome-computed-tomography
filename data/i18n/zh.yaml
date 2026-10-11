@@ -420,7 +420,7 @@ datasets:
   "STOIC 2021":
     note: "来自多中心国际研究的 23,000 余例 COVID-19 胸部 CT；规模极大的真实临床分布偏移测试。此处通过 NCI Imaging Data Commons 镜像收录，同一批数据提供可查询 API。"
   "MosMedData":
-    note: "1,110 例胸部 CT，带 COVID-19 严重程度分级；常被复用为低质量/低剂量鲁棒性测试集。"
+    note: "1,110 例胸部 CT，带 COVID-19 严重程度分级；常被复用为低质量/低剂量鲁棒性测试集。原站目前无法访问——Kaggle 镜像收录了同一批数据。"
   "HNSCC (Head & Neck)":
     note: "多机构的头颈部 CT，带 GTV/CTV 勾画；与 HECKTOR 挑战赛配套。"
   "CTPelvic1K":
@@ -442,9 +442,9 @@ datasets:
   "LoDoPaB-CT (benchmark release paper)":
     note: "LoDoPaB-CT 数据集在 **Scientific Data** 上的数据描述论文——在该切分上报告结果时应引用的文献。记录了仿真协议与 FBP/U-Net 参照基线。"
   "COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset":
-    note: "以公开投影数据集的形式发布（获取方式见论文）。"
+    note: "**Projection + image.** 来自六家欧洲中心的 867 例骨盆放疗 CBCT 扫描（Elekta 与 Varian 系统），含原始投影、采集几何、临床 CBCT 与计划 CT。约 950 GB，按 692/52/123 划分，以 CC BY-NC 4.0 发布于 Zenodo（doi:10.5281/zenodo.21322350）。也是 COBRA2026 重建挑战赛的数据基础。"
   "MORE: Multi-Organ Medical Image REconstruction Dataset":
-    note: "以公开投影数据集的形式发布（获取方式见论文）。已被 ACMMM 2025 接收。"
+    note: "覆盖 9 个解剖部位、15 类病灶的 CT 扫描，用途是检验模型对**未见解剖部位**的泛化能力，而非单一器官。以 CC BY-NC 4.0 发布；已被 ACM MM 2025 接收。"
 
   "TomoBank":
     note: "**Projection + image.** 由美国阿贡国家实验室 Advanced Photon Source 维护的层析数据仓库，收录大量实验采集与仿真的层析数据，覆盖多种仪器与样品类型。它的价值在于用真正来自光束线的数据来检验和比较重建方法，而不是只靠体模。"

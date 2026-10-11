@@ -61,16 +61,8 @@ RAW_UI = {"footLegal", "pressSlash"}
 # ui.* keys written as inline Markdown, so they may use `code`, **bold**,
 # [link](url).
 MD_UI = {"noscript"}
-# ui.* keys handed to web/app.js through payload.ui. These must stay
-# unfilled: noMatch/showAll carry {q}/{n} that the script substitutes itself.
-JS_UI = {
-    "kindPaper", "kindToolkit", "kindDataset", "kindBenchmark", "kindLearning",
-    "noMatch", "showAll", "copyLink", "copied", "copyLinkTitle",
-    "homepageTitle", "venuePreprint", "yearAndLater", "labelShare", "reset",
-    "tableToolkit", "tableLanguage", "tableLicense", "tableStars", "tableNotes",
-    "tableDataset", "tableModality", "tableTasks", "tableBenchmark",
-    "tableYear", "tableResource", "tableType",
-}
+# The payload.ui key set (JS_UI) now lives in i18n.py, so the site build and
+# the standalone data export publish identical `ui` dictionaries.
 
 # <meta name="keywords"> when an overlay does not carry its own.
 DEFAULT_KEYWORDS = ("computed tomography, CT reconstruction, sparse-view CT, "
@@ -141,7 +133,7 @@ def ui_subs(ov, shared):
 
 def js_ui(ov):
     """payload.ui: the strings web/app.js renders at run time."""
-    return dict((k, ov.ui(k)) for k in sorted(JS_UI))
+    return i18n.js_ui(ov)
 
 
 def abbr_title(p):
@@ -587,7 +579,14 @@ def main():
 
     total = sum(os.path.getsize(os.path.join(out, f))
                 for f in os.listdir(out) if os.path.isfile(os.path.join(out, f)))
-    print("built %s for %s" % (os.path.relpath(out, ROOT), base))
+    # `--out` may point at another drive (H: project, C: scratch). relpath
+    # raises ValueError across drives rather than returning a path, so fall
+    # back to the absolute one. Same guard as export_site_data.py.
+    try:
+        out_label = os.path.relpath(out, ROOT)
+    except ValueError:
+        out_label = out
+    print("built %s for %s" % (out_label, base))
     print("  index.html %.0f KB, data.json %.0f KB, whole site %.0f KB"
           % (os.path.getsize(os.path.join(out, "index.html")) / 1024.0,
              os.path.getsize(os.path.join(out, "data.json")) / 1024.0,

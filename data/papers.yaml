@@ -609,7 +609,8 @@
   venue: "TMI"
   topics: [geometry, unrolling]
   paper: "https://doi.org/10.1109/tmi.2021.3074783"
-  code: "https://github.com/hejipro/DSigNet"
+  # The author renamed the repo; the old path 301s here (verified 2026-10-11).
+  code: "https://github.com/hejipro/iRadonMAP-DSigNet"
 
 - id: "fdm"
   abbr: "FDM"

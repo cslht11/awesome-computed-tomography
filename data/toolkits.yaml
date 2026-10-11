@@ -334,7 +334,8 @@
 
 # ---------------------------------------------------------------- operators, physics & synchrotron
 - name: PyLops
-  repo: equinor/pylops
+  # Moved from `equinor/pylops`, which now 301s here (verified 2026-10-11).
+  repo: PyLops/pylops
   homepage: https://pylops.readthedocs.io/
   language: Python
   license: LGPL-3.0

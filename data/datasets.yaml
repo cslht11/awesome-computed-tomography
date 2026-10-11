@@ -159,10 +159,15 @@
 
 - name: MosMedData
   url: https://mosmed.ai/en/datasets/datasets/covid191110/
+  # mosmed.ai is unreachable as of 2026-10-11: the TLS handshake drops with
+  # UNEXPECTED_EOF even when certificate checks are skipped, so the whole host
+  # is down rather than just misconfigured. The official URL is kept in case it
+  # returns; this mirror is the same collection and answers 200.
+  homepage: https://www.kaggle.com/datasets/andrewmvd/mosmed-covid19-ct-scans
   modality: CT
   tasks: [diagnosis, low-dose]
   license: CC BY-NC-ND 3.0
-  note: "1,110 chest CT scans with COVID-19 severity grades; frequently reused as a low-quality / low-dose robustness set."
+  note: "1,110 chest CT scans with COVID-19 severity grades; frequently reused as a low-quality / low-dose robustness set. The original site is currently down — the Kaggle mirror carries the same collection."
 
 - name: HNSCC (Head & Neck)
   url: https://www.cancerimagingarchive.net/collection/hnscc/
@@ -237,15 +242,20 @@
 
 - name: "COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset"
   url: "https://arxiv.org/abs/2607.20037"
+  modality: cone-beam
+  tasks: [reconstruction, benchmarking, low-dose, scatter]
+  license: CC BY-NC 4.0
   year: 2026
-  tasks: [reconstruction, benchmarking]
-  note: "Released as a public projection dataset (see the paper for access). "
+  note: "**Projection + image.** 867 pelvic radiotherapy CBCT exams from six European centres (Elekta and Varian systems), with raw projections, acquisition geometry, clinical CBCT and planning CT. ~950 GB, split 692/52/123; released under CC BY-NC 4.0 on Zenodo (doi:10.5281/zenodo.21322350). Also the basis of the COBRA2026 reconstruction challenge."
 
 - name: "MORE: Multi-Organ Medical Image REconstruction Dataset"
   url: "https://arxiv.org/abs/2510.26759"
-  year: 2025
+  homepage: "https://more-med.github.io/"
+  modality: CT
   tasks: [reconstruction, benchmarking]
-  note: "Released as a public projection dataset (see the paper for access). Accepted to ACMMM 2025"
+  license: CC BY-NC 4.0
+  year: 2025
+  note: "CT scans across 9 anatomies and 15 lesion types, built to test generalisation to unseen anatomy rather than a single organ. Released under CC BY-NC 4.0; accepted to ACM MM 2025."
 
 
 # ---- recovered from the review bibliography (landing pages checked before writing)

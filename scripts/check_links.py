@@ -44,15 +44,45 @@ def similar(a, b):
     return len(wa & wb) / max(len(wa), len(wb))
 
 
+# arXiv's API guidelines ask for at least 3 seconds between requests. Going
+# faster gets a *silently empty* feed rather than an error, which this script
+# used to read as "id not found" — that produced 70+ phantom dead links in
+# scripts/oneoff/link-report.txt. The delay below is deliberately above the
+# documented floor, and arxiv_title() now distinguishes the two cases so a
+# throttle can never be reported as a missing paper.
+ARXIV_DELAY = 3.1
+
+
 def arxiv_title(aid):
+    """Title for an arXiv id, or None when the id genuinely has none.
+
+    Returns a ``(title, unreachable)`` pair: on a throttle or transport error
+    ``unreachable`` is True and the caller must NOT treat the entry as broken.
+    A well-formed feed with no entry for the id is a real miss (True is False).
+    """
     url = "https://export.arxiv.org/api/query?id_list=%s" % aid
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=30, context=CTX) as r:
-        xml = r.read().decode("utf-8", "replace")
+    try:
+        with urllib.request.urlopen(req, timeout=30, context=CTX) as r:
+            xml = r.read().decode("utf-8", "replace")
+    except Exception:
+        return None, True
+    if "<entry>" not in xml:
+        # The feed came back without an entry. That is either a genuinely
+        # absent id or an empty throttle response; the two are indistinguishable
+        # by body alone, so confirm with one slower retry before calling it gone.
+        time.sleep(ARXIV_DELAY)
+        try:
+            with urllib.request.urlopen(req, timeout=30, context=CTX) as r:
+                xml = r.read().decode("utf-8", "replace")
+        except Exception:
+            return None, True
+        if "<entry>" not in xml:
+            return None, False
     ts = re.findall(r"<title>([^<]*)</title>", xml)
     if len(ts) < 2:
-        return None
-    return re.sub(r"\s+", " ", ts[1]).strip()
+        return None, False
+    return re.sub(r"\s+", " ", ts[1]).strip(), False
 
 
 def http_status(url, tries=3):
@@ -97,11 +127,15 @@ def main():
         if m:
             aid = m.group(1)
             try:
-                got = arxiv_title(aid)
+                got, unreachable = arxiv_title(aid)
             except Exception as e:
-                got = None
+                got, unreachable = None, True
                 warn.append((fn, i, title, url, "arxiv api %s" % type(e).__name__))
-            if got is None:
+            if unreachable:
+                # Throttled or unreachable: say so instead of inventing a dead
+                # link, and keep it out of the PROBLEM list entirely.
+                warn.append((fn, i, title, url, "arxiv api unreachable (not a dead link)"))
+            elif got is None:
                 bad.append((fn, i, title, url, "arxiv id not found"))
             else:
                 s = similar(title, got)
@@ -109,7 +143,7 @@ def main():
                     bad.append((fn, i, title, url, "title mismatch (%.2f): %s" % (s, got[:60])))
                 else:
                     ok += 1
-            time.sleep(1.2)
+            time.sleep(ARXIV_DELAY)
             continue
 
         st = http_status(url)

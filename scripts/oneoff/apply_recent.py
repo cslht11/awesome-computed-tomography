@@ -83,7 +83,11 @@ def topics_for(title, venue):
 
 def slug(s):
     s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
-    return s[:60] or "entry"
+    # Truncate first, *then* trim: cutting at 60 can land on a word-joining
+    # hyphen and leave it dangling (17 ids in data/papers.yaml, e.g.
+    # "...-model-for-low-"). Those existing ids must not change — `id` is the
+    # permanent /p/<id> key — but new ones should not repeat the mistake.
+    return s[:60].rstrip("-") or "entry"
 
 
 def clean_venue(c):

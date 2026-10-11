@@ -60,6 +60,19 @@ SOURCE = "en"
 
 _SECTIONS = ("topics", "toolkits", "datasets", "benchmarks", "learning")
 
+#: ``ui.*`` keys handed to ``web/app.js`` through ``payload.ui``. These must
+#: stay unfilled: ``noMatch`` / ``showAll`` carry ``{q}`` / ``{n}`` that the
+#: script substitutes itself. Kept here rather than in build_site.py so the
+#: site build and the standalone data export publish an identical key set.
+JS_UI = {
+    "kindPaper", "kindToolkit", "kindDataset", "kindBenchmark", "kindLearning",
+    "noMatch", "showAll", "copyLink", "copied", "copyLinkTitle",
+    "homepageTitle", "venuePreprint", "yearAndLater", "labelShare", "reset",
+    "tableToolkit", "tableLanguage", "tableLicense", "tableStars", "tableNotes",
+    "tableDataset", "tableModality", "tableTasks", "tableBenchmark",
+    "tableYear", "tableResource", "tableType",
+}
+
 
 def path_of(code):
     return os.path.join(I18N_DIR, "%s.yaml" % code)
@@ -164,6 +177,11 @@ class Overlay(object):
 
 def load(code):
     return Overlay(code)
+
+
+def js_ui(overlay):
+    """``payload.ui``: the strings ``web/app.js`` renders at run time."""
+    return dict((k, overlay.ui(k)) for k in sorted(JS_UI))
 
 
 def available():
