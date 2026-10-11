@@ -28,12 +28,14 @@ description: >-
 # output. The address only resolves once DNS points at GitHub Pages — see
 # SITE.md, section "Switching to a custom domain".
 #
-# STAGING: left empty on purpose while this repository is still a preview.
-# Filling it in now would write `CNAME: computedtomography.org` into the build,
-# and deploying that file would claim the custom domain away from the older
-# repository that currently serves it. Set it to "https://computedtomography.org/"
-# only in the cut-over step, once the old repository has released the domain.
-url: ""
+# The domain is served by this repository. GitHub Pages resolves
+# computedtomography.org here because the DNS A records already point at
+# 185.199.108/109/110/111.153; no registrar change was needed. The build
+# writes site/CNAME, so the deployed copy always records its own origin.
+#
+# Rollback: clear this back to "" and re-bind the domain on the older
+# repository (see the local mirror backup of its history).
+url: "https://computedtomography.org/"
 
 repo: "cslht11/awesome-computed-tomography-cn"
 author: "cslht11"
