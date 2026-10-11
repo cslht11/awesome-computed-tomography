@@ -445,8 +445,8 @@
 - id: "dream-net"
   abbr: "DREAM-Net"
   title: "DREAM-Net: Deep Residual Error Iterative Minimization Network for Sparse-View CT Reconstruction"
-  year: 2022
-  venue: "TMI"
+  year: 2023
+  venue: "JBHI"
   topics: [sparse-view, unrolling]
   paper: "https://doi.org/10.1109/jbhi.2022.3225697"
 
@@ -667,7 +667,7 @@
 - id: "map-nn"
   abbr: "MAP-NN"
   title: "Competitive performance of a modularized deep neural network compared to commercial algorithms for low-dose CT image reconstruction"
-  year: 2021
+  year: 2019
   venue: "Nat Mach Intell"
   topics: [low-dose]
   paper: "https://doi.org/10.1038/s42256-019-0057-9"
@@ -784,7 +784,7 @@
 
 - id: "fstensor"
   abbr: "FSTensor"
-  title: "FSTensorFull-spectrum-knowledge-aware tensor model for energy-resolved CT iterative reconstruction"
+  title: "FSTensor: Full-spectrum-knowledge-aware tensor model for energy-resolved CT iterative reconstruction"
   year: 2020
   venue: "TMI"
   topics: [classical]
@@ -889,7 +889,7 @@
 - id: "dl-piccs"
   abbr: "DL-PICCS"
   title: "Accurate and robust sparse-view angle CT image reconstruction using deep learning and prior image constrained compressed sensing (DL-PICCS)"
-  year: 2019
+  year: 2021
   venue: "Med Phys"
   topics: [sparse-view, classical]
   paper: "https://doi.org/10.1002/mp.15183"
@@ -1139,8 +1139,8 @@
 
 - id: "lodopab-ct"
   abbr: "LoDoPaB-CT"
-  title: "LoDoPaB-CT, a benchmark dataset for low-dose computed tomography reconstruction (**Scientific Data**) -->"
-  year: 2017
+  title: "LoDoPaB-CT, a benchmark dataset for low-dose computed tomography reconstruction (Scientific Data)"
+  year: 2021
   venue: "Scientific Data"
   topics: [low-dose]
   paper: "https://doi.org/10.1038/s41597-021-00893-z"
@@ -1192,12 +1192,6 @@
   venue: "Med Phys"
   topics: [scatter, survey, cbct]
   paper: "https://doi.org/10.1118/1.3599033"
-
-- id: "limited-view-tomographic-reconstruction-using-a-deep-recur"
-  title: "Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency"
-  year: 2020
-  topics: [limited-angle, unrolling]
-  paper: "https://arxiv.org/abs/2009.01782"
 
 - id: "learned-convex-regularizers-for-inverse-problems"
   title: "Learned convex regularizers for inverse problems"
@@ -1263,12 +1257,6 @@
   year: 2025
   topics: [diffusion]
   paper: "https://arxiv.org/abs/2503.17804"
-
-- id: "enhancing-synthetic-ct-from-cbct-via-multimodal-fusion-a-stu"
-  title: "Enhancing Synthetic CT from CBCT via Multimodal Fusion: A Study on the Impact of CBCT Quality and Alignment"
-  year: 2025
-  topics: [geometry, cbct]
-  paper: "https://arxiv.org/abs/2506.08716"
 
 - id: "data-efficient-limited-angle-ct-using-deep-priors-and-regula"
   title: "Data-Efficient Limited-Angle CT Using Deep Priors and Regularization"

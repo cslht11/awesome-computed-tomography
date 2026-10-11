@@ -18,7 +18,7 @@
   modality: helical CT
   tasks: [low-dose, reconstruction, denoising]
   license: CC BY-NC 4.0
-  note: "**Projection + image.** Mayo Clinic, released through TCIA. 299 thoracic / abdominal / head exams at four dose levels (full / quarter / 10% / 5%), with raw sinograms in the open **DICOM-CT-PD** format. It grew out of the 2016 AAPM Low Dose CT Grand Challenge and is now the best real-data source for projection-domain methods."
+  note: "**Projection + image.** Mayo Clinic, released through TCIA. 299 head / chest / abdomen exams (99 / 100 / 100), each with a routine-dose scan plus one simulated lower-dose projection set — head and abdomen at 25% of routine dose, chest at 10%. Raw sinograms in the open **DICOM-CT-PD** format. It grew out of the 2016 AAPM Low Dose CT Grand Challenge and is now the best real-data source for projection-domain methods."
 
 - name: 2DeteCT
   url: https://zenodo.org/records/6984866
@@ -131,10 +131,10 @@
 
 - name: VerSe
   url: https://github.com/anjany/verse
-  modality: CT / CBCT
-  tasks: [segmentation, cbct]
+  modality: CT
+  tasks: [segmentation]
   license: CC BY-SA 4.0
-  note: "3,741 CT/CBCT spine scans with vertebra and disc labels; mixes clinical CT with CBCT, which makes it relevant for artefact robustness."
+  note: "374 multi-detector CT spine scans from 355 patients, with vertebral labelling and instance segmentation (C1–L6 plus T13 variants). Multi-vendor, multi-site, and deliberately varied in field of view and pathology — a robust segmentation benchmark."
 
 - name: RibFrac
   url: https://ribfrac.grand-challenge.org/

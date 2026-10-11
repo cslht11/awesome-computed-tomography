@@ -7,7 +7,7 @@
 
 **一份经过核验的 CT 重建研究精选列表**——涵盖 CT、CBCT 与显微 CT 的论文、工具包、数据集与基准。
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-391-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-389-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
 
 **[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源)
 
@@ -15,7 +15,7 @@
 
 [EN](README.md) · **中文**
 
-| 391 篇论文 | 84% 同行评议 | 87 项附代码 | 44 个工具包 | 40 个数据集 | 19 个基准 | 1917–2026 |
+| 389 篇论文 | 84% 同行评议 | 87 项附代码 | 44 个工具包 | 40 个数据集 | 19 个基准 | 1917–2026 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 
 覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D CT——从 FBP 与迭代求解器，到展开式网络、扩散先验、神经场与高斯溅射。每条论文链接均对照 Crossref、arXiv 或出版方记录核验。检索与筛选请使用 **[网站](https://computedtomography.org/)**。
@@ -25,9 +25,9 @@
 | | | |
 | --- | --- | --- |
 | [综述与回顾](#综述与回顾) <sub>23</sub> | [经典与迭代重建](#经典与迭代重建) <sub>70</sub> | [稀疏视角 CT](#稀疏视角-ct) <sub>133</sub> |
-| [有限角层析](#有限角层析) <sub>44</sub> | [低剂量 CT 去噪](#低剂量-ct-去噪) <sub>57</sub> | [金属伪影校正](#金属伪影校正) <sub>21</sub> |
-| [能谱与双能 CT](#能谱与双能-ct) <sub>17</sub> | [锥束 CT](#锥束-ct) <sub>66</sub> | [动态与 4D CT](#动态与-4d-ct) <sub>21</sub> |
-| [散射校正](#散射校正) <sub>11</sub> | [几何标定与运动补偿](#几何标定与运动补偿) <sub>26</sub> | [深度展开与模型驱动学习](#深度展开与模型驱动学习) <sub>72</sub> |
+| [有限角层析](#有限角层析) <sub>43</sub> | [低剂量 CT 去噪](#低剂量-ct-去噪) <sub>57</sub> | [金属伪影校正](#金属伪影校正) <sub>21</sub> |
+| [能谱与双能 CT](#能谱与双能-ct) <sub>17</sub> | [锥束 CT](#锥束-ct) <sub>65</sub> | [动态与 4D CT](#动态与-4d-ct) <sub>21</sub> |
+| [散射校正](#散射校正) <sub>11</sub> | [几何标定与运动补偿](#几何标定与运动补偿) <sub>25</sub> | [深度展开与模型驱动学习](#深度展开与模型驱动学习) <sub>71</sub> |
 | [自监督与免训练方法](#自监督与免训练方法) <sub>32</sub> | [扩散与生成式先验](#扩散与生成式先验) <sub>56</sub> | [隐式神经表示](#隐式神经表示) <sub>24</sub> |
 | [高斯溅射](#高斯溅射) <sub>25</sub> | [其他主题](#其他主题) <sub>28</sub> |  |
 
@@ -82,6 +82,7 @@
 - **IRDS: Iterative reconstruction of low-dose CT based on differential sparse** — _BSPC 2023_ · [论文](https://doi.org/10.1016/j.bspc.2022.104204)
 - **EASEL: Iterative Reconstruction for Low-Dose CT using Deep Gradient Priors of Generative Model** — _TRPMS 2022_ · [论文](https://doi.org/10.1109/trpms.2022.3148373) · [代码](https://github.com/yqx7150/EASEL)
 - **ALPD: Adversarially learned iterative reconstruction for imaging inverse problems** — _SSVM 2021_ · [论文](https://arxiv.org/abs/2103.16151) · [代码](https://github.com/Subhadip-1/adversarial_primal_dual_tomography)
+- **DL-PICCS: Accurate and robust sparse-view angle CT image reconstruction using deep learning and prior image constrained compressed sensing (DL-PICCS)** — _Med Phys 2021_ · [论文](https://doi.org/10.1002/mp.15183)
 - **FISTA-Net: Learning a Fast Iterative Shrinkage Thresholding Network for Inverse Problems in Imaging** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3054167) · [代码](https://github.com/jinxixiang/FISTA-Net)
 - **Limited-Angle CT Reconstruction via the L1/L2 Minimization** — _SIAM J. Imaging Sci. 2021_ · [论文](https://doi.org/10.1137/20m1341490)
 - **Tensor-Net: Learning to Reconstruct CT Images From the VVBP-Tensor** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3090257)
@@ -94,7 +95,6 @@
 - **TVWFR: Sparse View CT Image Reconstruction Based on Total Variation and Wavelet Frame Regularization** — _IEEE Access 2020_ · [论文](https://doi.org/10.1109/access.2020.2982229)
 - **CT-Evolution: The Evolution of Image Reconstruction for CT: From Filtered Back Projection to Artificial Intelligence** — _Eur Radiol 2019_ · [论文](https://doi.org/10.1007/s00330-018-5810-7)
 - **DataDriven: Solving Inverse Problems Using Data-Driven Models** — _Acta Numerica 2019_ · [论文](https://doi.org/10.1017/S0962492919000059)
-- **DL-PICCS: Accurate and robust sparse-view angle CT image reconstruction using deep learning and prior image constrained compressed sensing (DL-PICCS)** — _Med Phys 2019_ · [论文](https://doi.org/10.1002/mp.15183)
 - **PDE: A regional adaptive variational PDE model for computed tomography image reconstruction** — _PR 2019_ · [论文](https://doi.org/10.1016/j.patcog.2019.03.009)
 - **PSRV: Patient-specific reconstruction of volumetric computed tomography images from a single projection view via deep learning** — _Nat Biomed Eng 2019_ · [论文](https://doi.org/10.1038/s41551-019-0466-4)
 - **SISVM: Learning to Reconstruct Computed Tomography Images Directly From Sinogram Data Under A Variety of Data Acquisition Conditions** — _TMI 2019_ · [论文](https://doi.org/10.1109/tmi.2019.2910760)
@@ -201,6 +201,7 @@
 - **Wavelet-Improved Score-Based Generative Model for Medical Imaging** — _TMI 2024_ · [论文](https://doi.org/10.1109/tmi.2023.3325824)
 - **DDDM: Dual-Domain Diffusion Model for Sparse-View CT Reconstruction** — _预印本 2023_ · [论文](https://doi.org/10.36227/techrxiv.23726703) · [代码](https://github.com/YC-Markus/code-for-DDDM)
 - **DEAR: Deep Embedding-Attention-Refinement for Sparse-View CT Reconstruction** — _TIM 2023_ · [论文](https://doi.org/10.1109/tim.2022.3221136)
+- **DREAM-Net: Deep Residual Error Iterative Minimization Network for Sparse-View CT Reconstruction** — _JBHI 2023_ · [论文](https://doi.org/10.1109/jbhi.2022.3225697)
 - **Fast algorithms based on Empirical Interpolation Methods for selecting best projections in Sparse-View X-ray Computed Tomography using a priori information** — _NDT&E Int. 2023_ · [论文](https://doi.org/10.1016/j.ndteint.2022.102768)
 - **FreeSeed: Frequency-Band-Aware and Self-Guided Network for Sparse-View CT Reconstruction** — _MICCAI 2023_ · [论文](https://doi.org/10.1007/978-3-031-43999-5_24) · [代码](https://github.com/Masaaki-75/freeseed)
 - **LEARN++: Recurrent Dual-Domain Reconstruction Network for Compressed Sensing CT** — _TRPMS 2023_ · [论文](https://doi.org/10.1109/trpms.2022.3222213)
@@ -211,7 +212,6 @@
 - **The realisation of fast X-ray computed tomography using a limited number of projection images for dimensional metrology** — _NDT&E Int. 2023_ · [论文](https://doi.org/10.1016/j.ndteint.2023.102852)
 - **An Educated Warm Start for Deep Image Prior-Based Micro CT Reconstruction** — _TCI 2022_ · [论文](https://doi.org/10.1109/tci.2022.3233188)
 - **DDCL: Dual domain closed-loop learning for sparse-view CT reconstruction** — _ICIFXCT 2022_ · [论文](https://doi.org/10.1117/12.2646639)
-- **DREAM-Net: Deep Residual Error Iterative Minimization Network for Sparse-View CT Reconstruction** — _TMI 2022_ · [论文](https://doi.org/10.1109/jbhi.2022.3225697)
 - **DuDoDR-Net: Dual-domain data consistent recurrent network for simultaneous sparse view and metal artifact reduction in computed tomography** — _MedIA 2022_ · [论文](https://doi.org/10.1016/j.media.2021.102289)
 - **DuDoTrans: Dual-Domain Transformer for Sparse-View CT Reconstruction** — _MLMIR 2022_ · [论文](https://doi.org/10.1007/978-3-031-17247-2_9) · [代码](https://github.com/cewang-sysu/DuDoTrans)
 - **NAF: Neural Attenuation Fields for Sparse-View CBCT Reconstruction** — _MICCAI 2022_ · [论文](https://arxiv.org/abs/2209.14540) · [代码](https://github.com/Ruyi-Zha/naf_cbct)
@@ -219,6 +219,7 @@
 - **SNAF: Sparse-View CBCT Reconstruction with Neural Attenuation Fields** — _预印本 2022_ · [论文](https://arxiv.org/abs/2211.17048)
 - **UNDIP: Sparse-view and limited-angle CT reconstruction with untrained networks and deep image prior** — _CMPB 2022_ · [论文](https://doi.org/10.1016/j.cmpb.2022.107167)
 - **CD-Net: Comprehensive Domain Network With Spectral Complementary for DECT Sparse-View Reconstruction** — _TCI 2021_ · [论文](https://doi.org/10.1109/tci.2021.3070184)
+- **DL-PICCS: Accurate and robust sparse-view angle CT image reconstruction using deep learning and prior image constrained compressed sensing (DL-PICCS)** — _Med Phys 2021_ · [论文](https://doi.org/10.1002/mp.15183)
 - **DRONE: Dual-Domain Residual-Based Optimization Network for Sparse-View CT Reconstruction** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3078067) · [代码](https://github.com/weiwenwu12/DRONE)
 - **FDM: Degradation-Aware Deep Learning Framework for Sparse-View CT Reconstruction** — _Tomography 2021_ · [论文](https://doi.org/10.3390/tomography7040077) · [代码](https://github.com/sunchang2017/degradation-aware-sparse-CT-reconstruction)
 - **LMFI: Learnable Multi-scale Fourier Interpolation for Sparse View CT Image Reconstruction** — _MICCAI 2021_ · [论文](https://doi.org/10.1007/978-3-030-87231-1_28)
@@ -237,7 +238,6 @@
 - **TVWFR: Sparse View CT Image Reconstruction Based on Total Variation and Wavelet Frame Regularization** — _IEEE Access 2020_ · [论文](https://doi.org/10.1109/access.2020.2982229)
 - **A deep learning reconstruction framework for X-ray computed tomography with incomplete data** — _PLoS One 2019_ · [论文](https://doi.org/10.1371/journal.pone.0224426)
 - **Convolutional Sparse Coding for Compressed Sensing CT Reconstruction** — _TMI 2019_ · [论文](https://doi.org/10.1109/tmi.2019.2906853)
-- **DL-PICCS: Accurate and robust sparse-view angle CT image reconstruction using deep learning and prior image constrained compressed sensing (DL-PICCS)** — _Med Phys 2019_ · [论文](https://doi.org/10.1002/mp.15183)
 - **DNNSS: Deep-neural-network-based sinogram synthesis for sparse-view CT image reconstruction** — _TRPMS 2019_ · [论文](https://doi.org/10.1109/trpms.2018.2867611)
 - **Extreme Few-view CT Reconstruction using Deep Inference** — _预印本 2019_ · [论文](https://arxiv.org/abs/1910.05375)
 - **iCTNet: Sinogram interpolation for sparse-view micro-CT with deep learning neural network** — _SPIE MI 2019_ · [论文](https://arxiv.org/abs/1902.03362) · [代码](https://github.com/Swapneel7/Sparse-CT-Reconstruction-using-Deep-learning)
@@ -278,7 +278,7 @@
 
 ### 有限角层析
 
-<sub>角度楔形缺失，零空间使问题严重病态 · 44 篇论文</sub>
+<sub>角度楔形缺失，零空间使问题严重病态 · 43 篇论文</sub>
 
 - **CryoDeRec: A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation** — _CVPR 2026_ · [论文](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html) · [代码](https://github.com/ZhidongYang/CryoDeRec)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [论文](https://arxiv.org/abs/2510.23317)
@@ -306,7 +306,6 @@
 - **SPECIAL: Single-Shot Projection Error Correction Integrated Adversarial Learning for Limited-Angle CT** — _TCI 2021_ · [论文](https://doi.org/10.1109/tci.2021.3098922)
 - **Deep learning based image reconstruction algorithm for limited-angle translational computed tomography** — _PLoS One 2020_ · [论文](https://doi.org/10.1371/journal.pone.0226963)
 - **HD-CNN: Artifact removal using a hybrid-domain convolutional neural network for limited-angle computed tomography imaging** — _PMB 2020_ · [论文](https://doi.org/10.1088/1361-6560/ab9066)
-- **Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency** — _预印本 2020_ · [论文](https://arxiv.org/abs/2009.01782)
 - **ℓ₀DL: Limited-Angle X-Ray CT Reconstruction Using Image Gradient ℓ₀-Norm With Dictionary Learning** — _TRPMS 2020_ · [论文](https://doi.org/10.1109/trpms.2020.2991887)
 - **A deep learning reconstruction framework for X-ray computed tomography with incomplete data** — _PLoS One 2019_ · [论文](https://doi.org/10.1371/journal.pone.0224426)
 - **ADMM-based deep reconstruction for limited-angle CT** — _PMB 2019_ · [论文](https://doi.org/10.1088/1361-6560/ab1aba)
@@ -355,14 +354,15 @@
 - **MALAR: Multiple Adversarial Learning based Angiography Reconstruction for Ultra-low-dose Contrast Medium CT** — _JBHI 2022_ · [论文](https://doi.org/10.1109/jbhi.2022.3213595) · [代码](https://github.com/HIC-SYSU/MALAR)
 - **CLEAR: Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-Dose CT Imaging** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3097808)
 - **DeACNN: Learning a Deep CNN Denoising Approach Using Anatomical Prior Information Implemented With Attention Mechanism for Low-Dose CT Imaging on Clinical Patient Data From Multiple Anatomical Sites** — _JBHI 2021_ · [论文](https://doi.org/10.1109/jbhi.2021.3061758)
+- **LoDoPaB-CT: a benchmark dataset for low-dose computed tomography reconstruction (Scientific Data)** — _Scientific Data 2021_ · [论文](https://doi.org/10.1038/s41597-021-00893-z) · [代码](https://github.com/jleuschn/lodopab_tech_ref)
 - **MAGIC: Manifold and graph integrative convolutional network for low-dose CT reconstruction** — _TMI 2021_ · [论文](https://arxiv.org/abs/2008.00406)
-- **MAP-NN: Competitive performance of a modularized deep neural network compared to commercial algorithms for low-dose CT image reconstruction** — _Nat Mach Intell 2021_ · [论文](https://doi.org/10.1038/s42256-019-0057-9)
 - **N2S: Self-Supervised Training For Low-Dose Ct Reconstruction** — _ISBI 2021_ · [论文](https://doi.org/10.1109/isbi48211.2021.9433944)
 - **SinoNet: Noise-Generating-Mechanism-Driven Unsupervised Learning for Low-Dose CT Sinogram Recovery** — _TRPMS 2021_ · [论文](https://doi.org/10.1109/trpms.2021.3083361)
 - **CADL: Noise and spatial resolution properties of a commercially available deep learning‐based CT reconstruction algorithm** — _Med Phys 2020_ · [论文](https://doi.org/10.1002/mp.14319)
 - **EDCNN: Edge Enhancement-Based Densely Connected Network with Compound Loss for Low-Dose CT Denoising** — _ICSP 2020_ · [论文](https://doi.org/10.1109/icsp48669.2020.9320928) · [代码](https://github.com/workingcoder/EDCNN)
 - **REDAEP: Robust and Enhanced Denoising Autoencoding Prior for Sparse-View CT Reconstruction** — _TRPMS 2020_ · [论文](https://doi.org/10.1109/trpms.2020.2989634)
 - **SACNN: Self-Attention Convolutional Neural Network for Low-Dose CT Denoising With Self-Supervised Perceptual Loss Network** — _TMI 2020_ · [论文](https://doi.org/10.1109/tmi.2020.2968472)
+- **MAP-NN: Competitive performance of a modularized deep neural network compared to commercial algorithms for low-dose CT image reconstruction** — _Nat Mach Intell 2019_ · [论文](https://doi.org/10.1038/s42256-019-0057-9)
 - **SPULTRA: Low-Dose CT Image Reconstruction with Joint Statistical and Learned Image Models** — _TMI 2019_ · [论文](https://doi.org/10.1109/tmi.2019.2934933)
 - **SUPER-2: SUPER Learning: A Supervised-Unsupervised Framework for Low-Dose CT Image Reconstruction** — _ICCVW 2019_ · [论文](https://doi.org/10.1109/iccvw.2019.00490)
 - **VVBP-tSVD: VVBP-Tensor in the FBP Algorithm: Its Properties and Application in Low-Dose CT Reconstruction** — _TMI 2019_ · [论文](https://doi.org/10.1109/tmi.2019.2935187)
@@ -376,7 +376,6 @@
 - **Deep Convolutional Neural Network for Inverse Problems in Imaging** — _TIP 2017_ · [论文](https://doi.org/10.1109/tip.2017.2713099)
 - **IMAP-TV: Robust low-dose CT sinogram preprocessing via exploiting noise-generating mechanism** — _TMI 2017_ · [论文](https://doi.org/10.1109/tmi.2017.2767290)
 - **KSAE: Iterative Low-dose CT Reconstruction with Priors Trained by Artificial Neural Network** — _TMI 2017_ · [论文](https://doi.org/10.1109/tmi.2017.2753138)
-- **LoDoPaB-CT: , a benchmark dataset for low-dose computed tomography reconstruction (**Scientific Data**) -->** — _Scientific Data 2017_ · [论文](https://doi.org/10.1038/s41597-021-00893-z) · [代码](https://github.com/jleuschn/lodopab_tech_ref)
 - **Low-dose CT via convolutional neural network** — _BOE 2017_ · [论文](https://doi.org/10.1364/boe.8.000679)
 - **Low-Dose Dynamic Cerebral Perfusion Computed Tomography Reconstruction via Kronecker-Basis-Representation Tensor Sparsity Regularization** — _TMI 2017_ · [论文](https://doi.org/10.1109/tmi.2017.2749212)
 - **RED-CNN: Low-Dose CT with a Residual Encoder-Decoder Convolutional Neural Network** — _TMI 2017_ · [论文](https://doi.org/10.1109/tmi.2017.2715284) · [代码](https://github.com/SSinyu/RED-CNN)
@@ -437,7 +436,7 @@
 
 ### 锥束 CT
 
-<sub>圆周、螺旋与非标准 CBCT 几何；在轨成像 · 66 篇论文</sub>
+<sub>圆周、螺旋与非标准 CBCT 几何；在轨成像 · 65 篇论文</sub>
 
 - **Anatomy-preserving unpaired cone-beam CT refinement for image-guided radiotherapy using pseudo-label guided diffusion** — _预印本 2026_ · [论文](https://arxiv.org/abs/2610.06094)
 - **CBCT-Based Synthetic CT Generation Using Conditional Flow Matching Model** — _预印本 2026_ · [论文](https://arxiv.org/abs/2603.05796)
@@ -469,7 +468,6 @@
 - **An Iterative Reconstruction Method for Dental Cone-Beam Computed Tomography with a Truncated Field of View** — _预印本 2025_ · [论文](https://arxiv.org/abs/2508.07618)
 - **DIGS: Dynamic CBCT Reconstruction using Deformation-Informed 4D Gaussian Splatting and a Low-Rank Free-Form Deformation Model** — _MICCAI 2025_ · [论文](https://arxiv.org/abs/2506.22280) · [代码](https://github.com/Yuliang-Huang/DIGS)
 - **Enhancing Synthetic CT from CBCT via Multimodal Fusion and End-To-End Registration** — _CAIP 2025_ · [论文](https://arxiv.org/abs/2507.06067)
-- **Enhancing Synthetic CT from CBCT via Multimodal Fusion: A Study on the Impact of CBCT Quality and Alignment** — _预印本 2025_ · [论文](https://arxiv.org/abs/2506.08716)
 - **Equivariant Conditional Diffusion Model for Head and Neck CT Image Synthesis from CBCT** — _Med Phys 2025_ · [论文](https://arxiv.org/abs/2509.21913)
 - **Equivariant Multiscale Learned Invertible Reconstruction for Cone Beam CT: From Simulated to Real Data** — _预印本 2025_ · [论文](https://arxiv.org/abs/2512.21180)
 - **GANeXt: A Fully ConvNeXt-Enhanced Generative Adversarial Network for MRI- and CBCT-to-CT Synthesis** — _预印本 2025_ · [论文](https://arxiv.org/abs/2512.19336)
@@ -550,7 +548,7 @@
 
 ### 几何标定与运动补偿
 
-<sub>几何自标定、无标记配准、刚性与非刚性运动校正 · 26 篇论文</sub>
+<sub>几何自标定、无标记配准、刚性与非刚性运动校正 · 25 篇论文</sub>
 
 - **Active View Selection with Perturbed Gaussian Ensemble for Tomographic Reconstruction** — _ECCV 2026_ · [论文](https://arxiv.org/abs/2603.06852)
 - **Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2604.21960)
@@ -567,7 +565,6 @@
 - **A CT Geometry With Multiple Centers Of Rotation For Solving Sparse View Problem** — _预印本 2025_ · [论文](https://arxiv.org/abs/2502.06125)
 - **An Iterative Reconstruction Method for Dental Cone-Beam Computed Tomography with a Truncated Field of View** — _预印本 2025_ · [论文](https://arxiv.org/abs/2508.07618)
 - **Enhancing Synthetic CT from CBCT via Multimodal Fusion and End-To-End Registration** — _CAIP 2025_ · [论文](https://arxiv.org/abs/2507.06067)
-- **Enhancing Synthetic CT from CBCT via Multimodal Fusion: A Study on the Impact of CBCT Quality and Alignment** — _预印本 2025_ · [论文](https://arxiv.org/abs/2506.08716)
 - **Epi-NAF: Enhancing Neural Attenuation Fields for Limited-Angle CT with Epipolar Consistency** — _ISBI 2025_ · [论文](https://arxiv.org/abs/2411.06181)
 - **Limited-Angle CBCT Reconstruction via Geometry-Integrated Cycle-domain Denoising Diffusion Probabilistic Models** — _预印本 2025_ · [论文](https://arxiv.org/abs/2506.13545)
 - **Motion-Grad: A Gradient-Based Approach to Fast and Accurate Head Motion Compensation in Cone-Beam CT** — _TMI 2025_ · [论文](https://doi.org/10.1109/tmi.2024.3474250) · [代码](https://github.com/mareikethies/geometry_gradients_CT)
@@ -581,7 +578,7 @@
 
 ### 深度展开与模型驱动学习
 
-<sub>把经典求解器展开成网络的学习型迭代方案，可带或不带数据一致性约束 · 72 篇论文</sub>
+<sub>把经典求解器展开成网络的学习型迭代方案，可带或不带数据一致性约束 · 71 篇论文</sub>
 
 - **CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction** — _BMVC 2026_ · [论文](https://arxiv.org/abs/2608.15246)
 - **Dose-Aware Cold Diffusion with Physics Consistency for Generalizable Low-Dose CT Reconstruction** — _IJCNN 2026_ · [论文](https://arxiv.org/abs/2609.18943)
@@ -607,6 +604,7 @@
 - **Plug-and-Play Learned Proximal Trajectory for 3D Sparse-View X-Ray Computed Tomography** — _ECCV 2024_ · [论文](https://doi.org/10.1007/978-3-031-72761-0_13)
 - **SOUL-Net: A Sparse and Low-Rank Unrolling Network for Spectral CT Image Reconstruction** — _TNNLS 2024_ · [论文](https://doi.org/10.1109/tnnls.2023.3319408) · [代码](https://github.com/scuchenxiang/SOUL-Net)
 - **DEAR: Deep Embedding-Attention-Refinement for Sparse-View CT Reconstruction** — _TIM 2023_ · [论文](https://doi.org/10.1109/tim.2022.3221136)
+- **DREAM-Net: Deep Residual Error Iterative Minimization Network for Sparse-View CT Reconstruction** — _JBHI 2023_ · [论文](https://doi.org/10.1109/jbhi.2022.3225697)
 - **FreeSeed: Frequency-Band-Aware and Self-Guided Network for Sparse-View CT Reconstruction** — _MICCAI 2023_ · [论文](https://doi.org/10.1007/978-3-031-43999-5_24) · [代码](https://github.com/Masaaki-75/freeseed)
 - **LEARN++: Recurrent Dual-Domain Reconstruction Network for Compressed Sensing CT** — _TRPMS 2023_ · [论文](https://doi.org/10.1109/trpms.2022.3222213)
 - **MDST: multi-domain sparse-view CT reconstruction based on convolution and swin transformer** — _PMB 2023_ · [论文](https://doi.org/10.1088/1361-6560/acc2ab)
@@ -616,7 +614,6 @@
 - **ACID-B: Stabilizing deep tomographic reconstruction - Part B. Convergence analysis and adversarial attacks** — _Patterns 2022_ · [论文](https://doi.org/10.1016/j.patter.2022.100475)
 - **DDCL: Dual domain closed-loop learning for sparse-view CT reconstruction** — _ICIFXCT 2022_ · [论文](https://doi.org/10.1117/12.2646639)
 - **DIOR: Deep Iterative Optimization-Based Residual-Learning for Limited-Angle CT Reconstruction** — _TMI 2022_ · [论文](https://doi.org/10.1109/tmi.2022.3148110)
-- **DREAM-Net: Deep Residual Error Iterative Minimization Network for Sparse-View CT Reconstruction** — _TMI 2022_ · [论文](https://doi.org/10.1109/jbhi.2022.3225697)
 - **DuDoTrans: Dual-Domain Transformer for Sparse-View CT Reconstruction** — _MLMIR 2022_ · [论文](https://doi.org/10.1007/978-3-031-17247-2_9) · [代码](https://github.com/cewang-sysu/DuDoTrans)
 - **IDOL-Net: An Interactive Dual-Domain Parallel Network for CT Metal Artifact Reduction** — _TRPMS 2022_ · [论文](https://doi.org/10.1109/trpms.2022.3171440) · [代码](https://github.com/zjk1988/IDOL-Net)
 - **CasRedSCAN: Limited View Tomographic Reconstruction Using a Cascaded Residual Dense Spatial-Channel Attention Network With Projection Data Fidelity Layer** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3066318)
@@ -637,7 +634,6 @@
 - **HD-CNN: Artifact removal using a hybrid-domain convolutional neural network for limited-angle computed tomography imaging** — _PMB 2020_ · [论文](https://doi.org/10.1088/1361-6560/ab9066)
 - **iRadonMAP: Radon Inversion via Deep Learning** — _TMI 2020_ · [论文](https://arxiv.org/abs/1808.03015)
 - **Learned convex regularizers for inverse problems** — _预印本 2020_ · [论文](https://arxiv.org/abs/2008.02839)
-- **Limited View Tomographic Reconstruction Using a Deep Recurrent Framework with Residual Dense Spatial-Channel Attention Network and Sinogram Consistency** — _预印本 2020_ · [论文](https://arxiv.org/abs/2009.01782)
 - **Momentum-Net: Fast and convergent iterative neural network for inverse problems** — _TPAMI 2020_ · [论文](https://doi.org/10.1109/tpami.2020.3012955)
 - **Multi-Scale Learned Iterative Reconstruction** — _TCI 2020_ · [论文](https://doi.org/10.1109/TCI.2020.2990299)
 - **SACNN: Self-Attention Convolutional Neural Network for Low-Dose CT Denoising With Self-Supervised Perceptual Loss Network** — _TMI 2020_ · [论文](https://doi.org/10.1109/tmi.2020.2968472)
@@ -922,7 +918,7 @@
 | [**TotalSegmentator**](https://zenodo.org/records/10047292) | contrast CT | 仅图像域 | CC BY 4.0 | 1,228 例 CT、104 个解剖结构——规模最大的开源 CT 结构集，也是很强的预训练目标。 |
 | [**AMOS22**](https://amos22.grand-challenge.org/) | CT / MRI | 仅图像域 | CC BY-NC-SA 4.0 | 500 例 CT 加 100 例 MRI 腹部扫描、15 个器官；刻意采用异构设备，因此很考验鲁棒性。 |
 | [**Medical Segmentation Decathlon**](http://medicaldecathlon.com/) | CT / MRI | 仅图像域 | CC BY-SA 4.0 | 十个任务，其中四个是 CT（肺、胰腺、结肠、肝血管）。被引用最多的多任务医学分割基准。 |
-| [**VerSe**](https://github.com/anjany/verse) | CT / CBCT | 仅图像域 | CC BY-SA 4.0 | 3,741 例 CT/CBCT 脊柱扫描，带椎体与椎间盘标签；临床 CT 与 CBCT 混合，因此与伪影鲁棒性相关。 |
+| [**VerSe**](https://github.com/anjany/verse) | CT | 仅图像域 | CC BY-SA 4.0 | 355 例患者的 374 例多探测器 CT 脊柱扫描，提供椎体定位与实例分割标注（C1–L6，另含 T13 变异）。多厂商、多中心，且刻意拉开视野与病理差异——一个稳健的分割基准。 |
 | [**RibFrac**](https://ribfrac.grand-challenge.org/) | CT | 仅图像域 | CC BY-NC 4.0 | 5,000 例 CT、660 处肋骨骨折标注；规模大，常被用作 CT 辅助语料。 |
 | [**CT-ORG**](https://www.cancerimagingarchive.net/collection/ct-org/) | contrast CT | 仅图像域 | CC BY 3.0 | 140 例 CT，带多器官掩膜，其中含 Liver Tumor Segmentation 基准的一个子集。 |
 | [**STOIC 2021**](https://portal.imaging.datacommons.cancer.gov/collections/stoic/) | CT | 仅图像域 | CC BY-NC 3.0 | 来自多中心国际研究的 23,000 余例 COVID-19 胸部 CT；规模极大的真实临床分布偏移测试。此处通过 NCI Imaging Data Commons 镜像收录，同一批数据提供可查询 API。 |
@@ -965,7 +961,7 @@
 | [**MICCAI FLARE**](https://flare.grand-challenge.org/) | 2021 | segmentation | 跨四届（FLARE21/22/23/24）的多器官腹部 CT 分割；是 CT 重建输出的标准下游鲁棒性检验目标。 |
 | [**HECKTOR Challenge**](https://hecktor.grand-challenge.org/) | 2020 | segmentation, prognosis | 头颈部 PET/CT 肿瘤勾画；五届使其成为运行时间较长的医学影像挑战赛之一。 |
 | [**KiTS Challenge**](https://kits-challenge.org/) | 2019 | segmentation | 肾肿瘤分割，三届（2019/2021/2023），标注质量严格受控，并高度强调跨机构泛化。 |
-| [**VerSe Challenge**](https://verse2019.grand-challenge.org/) | 2019 | segmentation, cbct | 同时覆盖 CT 与 CBCT 的椎体标注，带大规模隐藏测试集；CBCT 那一半天然适合作为伪影严重输入的压力测试。 |
+| [**VerSe Challenge**](https://verse2019.grand-challenge.org/) | 2019 | segmentation | 多探测器 CT 上的椎体定位与分割，与 MICCAI 2019、2020 同期举办两届（374 例扫描、355 例患者）；隐藏测试集是结果可比的关键。 |
 | [**CHAOS Challenge**](https://chaos.grand-challenge.org/) | 2019 | segmentation | 腹部 CT 与 MRI 器官分割，包含低剂量与平扫协议，并明确做跨模态评测。 |
 | [**Medical Segmentation Decathlon**](http://medicaldecathlon.com/) | 2018 | segmentation | 十个任务，测试集固定且隐藏，并严格禁止针对单一任务调优——真正公平的泛化基准。 |
 | [**Noise2Noise denoising protocol**](https://github.com/NVlabs/noise2noise) | 2018 | denoising, self-supervised | 让「无需干净真值即可训练去噪器」流行起来的参照实现。在 CT 上它成为标准的「无干净真值」评测协议——多数无监督 CT 去噪论文都在此设定下、用 Mayo-LDCT 式切分报告结果。 |
@@ -1013,7 +1009,7 @@
 
 **其他列表**
 
-- [Awesome 3D Gaussian Splatting](https://github.com/MrNeRF/awesome-3D-gaussian-splatting) — 3DGS 的参照列表。其中贴近层析的条目（r2_gaussian、X-Gaussian、X2-Gaussian）是通往高斯泼溅 CT 的桥梁。
+- [Awesome 3D Gaussian Splatting](https://github.com/MrNeRF/awesome-3D-gaussian-splatting) — 3DGS 的参照列表。其中贴近层析的条目（r2_gaussian、X-Gaussian、X2-Gaussian）是通往高斯溅射 CT 的桥梁。
 - [Awesome CT Reconstruction (LoraLinH)](https://github.com/LoraLinH/Awesome-CT-Reconstruction) — 最知名的前作 CT 重建列表。适合交叉核对 2020–2024 年文献的覆盖情况。
 - [Awesome Medical Imaging](https://github.com/fepegar/awesome-medical-imaging) — 更宽泛的医学影像分析资源：数据集、工具包与预训练模型，在 CT 流程中常被复用。
 - [Awesome NeRF and 3DGS for SLAM](https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM) — 机器人/视觉社区的神经场文献；当前被移植到 CT 的隐式表示技术即源自此处。

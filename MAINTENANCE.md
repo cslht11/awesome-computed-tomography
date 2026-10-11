@@ -153,6 +153,13 @@ A reader who needs a fixed point to cite should use a commit hash, or `main` as 
 date. If a tag is ever reintroduced, this is the wrong decision to make quietly — it
 imposes a compatibility contract on the `id` fields that nothing currently promises.
 
+**Do not tag or release, for a second reason too** (learned the hard way,
+2026-10-11): a tag is a *ref* to a commit, and a tag that outlives a history rewrite
+keeps the rewritten-away commits reachable. GitHub counts contributors over every
+reachable commit, so a stale tag made a deleted author reappear in Insights long
+after the branch itself was clean. Tags are not free bookkeeping here; they are
+anchors into history. See `HANDOFF.md` §5.9b.
+
 ## Failure modes seen so far
 
 Worth knowing, because each of these was silent:

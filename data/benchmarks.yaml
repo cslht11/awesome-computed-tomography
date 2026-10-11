@@ -54,8 +54,8 @@
 - name: VerSe Challenge
   url: https://verse2019.grand-challenge.org/
   year: 2019
-  tasks: [segmentation, cbct]
-  note: "Vertebra labelling on both CT and CBCT, with a large hidden test set; the CBCT half makes it a natural stress test for artefact-heavy inputs."
+  tasks: [segmentation]
+  note: "Vertebra labelling and segmentation on multi-detector CT, run in two editions with MICCAI 2019 and 2020 (374 scans, 355 patients); the hidden test set is what makes results comparable."
 
 - name: CHAOS Challenge
   url: https://chaos.grand-challenge.org/

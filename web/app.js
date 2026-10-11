@@ -66,13 +66,39 @@
     return p.links.paper || p.links.project || p.links.code || "";
   }
 
+  /* First whitespace-delimited token of a title, punctuation trimmed. An
+     abbreviation only heads the title if it IS that token: abbr "A" matches
+     "A benchmark ...", abbr "AR" does not match "ART ...". Mirrors
+     scripts/build.py:head_token so the site and README never disagree. */
+  function headToken(title) {
+    var first = title.trim().split(/\s+/)[0] || "";
+    return first.replace(/[.,:;]+$/, "").toLowerCase();
+  }
+
+  /* Titles harvested from Crossref often repeat the abbreviation in trailing
+     parentheses ("... reconstruction (LoDoPaB-CT)"). The head already shows
+     it, so drop that group. Mirrors scripts/build.py:drop_trailing_parens. */
+  function dropTrailingParens(rest, name) {
+    var m = rest.match(/\(([^()]*)\)\s*$/);
+    if (!m) { return rest; }
+    var body = m[1].trim().toLowerCase();
+    var low = name.toLowerCase();
+    if (body === low || body.slice(-(low.length + 2)) === ": " + low ||
+        body.split(", ").pop() === low) {
+      return rest.slice(0, m.index).replace(/[ ,;]+$/, "");
+    }
+    return rest;
+  }
+
   /* Title with the leading abbreviation stripped, mirroring README.md:
      "DM4CT: Benchmarking ..." renders as [DM4CT] Benchmarking ... */
   function titleParts(p) {
     // Inline TeX like "$K$-NeAS" shows as plain text: drop the $ delimiters.
     var title = p.title.replace(/\$([^$]+)\$/g, "$1");
-    if (p.abbr && title.toLowerCase().indexOf(p.abbr.toLowerCase()) === 0) {
-      var rest = title.slice(p.abbr.length).replace(/^[\s:\u2014\u2013-]+/, "");
+    if (p.abbr && title.toLowerCase().indexOf(p.abbr.toLowerCase()) === 0 &&
+        headToken(title) === p.abbr.toLowerCase()) {
+      var rest = title.slice(p.abbr.length).replace(/^[\s:,\u2014\u2013-]+/, "");
+      rest = dropTrailingParens(rest, p.abbr);
       return { abbr: p.abbr, text: rest || title };
     }
     return { abbr: p.abbr || "", text: title };

@@ -412,7 +412,7 @@ datasets:
   "Medical Segmentation Decathlon":
     note: "十个任务，其中四个是 CT（肺、胰腺、结肠、肝血管）。被引用最多的多任务医学分割基准。"
   "VerSe":
-    note: "3,741 例 CT/CBCT 脊柱扫描，带椎体与椎间盘标签；临床 CT 与 CBCT 混合，因此与伪影鲁棒性相关。"
+    note: "355 例患者的 374 例多探测器 CT 脊柱扫描，提供椎体定位与实例分割标注（C1–L6，另含 T13 变异）。多厂商、多中心，且刻意拉开视野与病理差异——一个稳健的分割基准。"
   "RibFrac":
     note: "5,000 例 CT、660 处肋骨骨折标注；规模大，常被用作 CT 辅助语料。"
   "CT-ORG":
@@ -478,7 +478,7 @@ benchmarks:
   "KiTS Challenge":
     note: "肾肿瘤分割，三届（2019/2021/2023），标注质量严格受控，并高度强调跨机构泛化。"
   "VerSe Challenge":
-    note: "同时覆盖 CT 与 CBCT 的椎体标注，带大规模隐藏测试集；CBCT 那一半天然适合作为伪影严重输入的压力测试。"
+    note: "多探测器 CT 上的椎体定位与分割，与 MICCAI 2019、2020 同期举办两届（374 例扫描、355 例患者）；隐藏测试集是结果可比的关键。"
   "CHAOS Challenge":
     note: "腹部 CT 与 MRI 器官分割，包含低剂量与平扫协议，并明确做跨模态评测。"
   "SPIE-AAPM-NCI LungX Challenge":
@@ -543,7 +543,7 @@ learning:
   "CT Denoising Review":
     note: "专注低剂量 CT 去噪，侧重 SSinyu/Mayo 一脉的方法。"
   "Awesome 3D Gaussian Splatting":
-    note: "3DGS 的参照列表。其中贴近层析的条目（r2_gaussian、X-Gaussian、X2-Gaussian）是通往高斯泼溅 CT 的桥梁。"
+    note: "3DGS 的参照列表。其中贴近层析的条目（r2_gaussian、X-Gaussian、X2-Gaussian）是通往高斯溅射 CT 的桥梁。"
   "Awesome NeRF and 3DGS for SLAM":
     note: "机器人/视觉社区的神经场文献；当前被移植到 CT 的隐式表示技术即源自此处。"
   "Low-Dose CT Denoising (code collection)":
@@ -572,7 +572,7 @@ pages:
     <p class="lede">Awesome Computed Tomography 是一份独立、人工精选的 CT 图像重建研究地图：研究人员进入这一领域所需要的论文、开源工具库、数据集、基准与学习资料，集中在一处并逐条人工核对。</p>
 
     <h2>收录范围</h2>
-    <p>本列表目前收录 {{N_PAPERS}} 篇论文（{{YEAR_MIN}}–{{YEAR_MAX}} 年）、{{N_TOOLKITS}} 个工具库、{{N_DATASETS}} 个数据集、{{N_BENCHMARKS}} 个基准和 {{N_LEARNING}} 项学习资源。论文按问题（稀疏视角、有限角、低剂量、金属伪影、能谱、锥束、动态与 4D CT、散射、标定与运动）和方法族（经典与迭代求解器、深度展开、自监督方法、扩散与生成式先验、隐式神经表示、高斯泼澅）分组。</p>
+    <p>本列表目前收录 {{N_PAPERS}} 篇论文（{{YEAR_MIN}}–{{YEAR_MAX}} 年）、{{N_TOOLKITS}} 个工具库、{{N_DATASETS}} 个数据集、{{N_BENCHMARKS}} 个基准和 {{N_LEARNING}} 项学习资源。论文按问题（稀疏视角、有限角、低剂量、金属伪影、能谱、锥束、动态与 4D CT、散射、标定与运动）和方法族（经典与迭代求解器、深度展开、自监督方法、扩散与生成式先验、隐式神经表示、高斯溅射）分组。</p>
     <p>这是一份阅读清单，而不是包罗万象的数据库。一个条目之所以被收录，是因为它对从事 CT 重建的人有用：别人会在此基础上继续做的方法、一个强有力的基线、结果所基于的数据集或基准，或一份清晰的入门介绍。</p>
 
     <h2>条目如何核验</h2>

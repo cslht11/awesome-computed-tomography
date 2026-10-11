@@ -216,12 +216,43 @@ def top_link(ov):
             % ov.readme("backToTop", "back to top"))
 
 
+def head_token(title):
+    """First whitespace-delimited token of a title, punctuation trimmed.
+
+    Used to decide whether an abbreviation is really the head of the title.
+    "A benchmark ..." has head token "A", so abbr "A" qualifies; "ART ..."
+    has head token "ART", so abbr "AR" does not.
+    """
+    first = title.strip().split()
+    return first[0].rstrip(".,:;").lower() if first else ""
+
+
+def drop_trailing_parens(rest, name):
+    """Remove an abbreviation repeated in trailing parentheses.
+
+    Titles harvested from Crossref often end with the abbreviation again
+    ("... reconstruction (LoDoPaB-CT)"). The head already prints it, so the
+    parentheses are pure clutter. Only drops a trailing group whose body is
+    the abbreviation, optionally prefixed by a venue.
+    """
+    m = re.search(r"\(([^()]*)\)\s*$", rest)
+    if not m:
+        return rest
+    body = m.group(1).strip()
+    if body.lower() == name.lower() or body.lower().endswith(": " + name.lower()) \
+            or body.lower().split(", ")[-1] == name.lower():
+        return rest[:m.start()].rstrip(" ,;")
+    return rest
+
+
 def paper_head(e):
     name = e.get("abbr")
     title = e["title"]
-    if name and title.lower().startswith(name.lower()):
+    if name and title.lower().startswith(name.lower()) \
+            and head_token(title) == name.lower():
         # avoid "**[DM4CT]** DM4CT: ..." duplication
-        rest = title[len(name):].lstrip(" :—–-")
+        rest = title[len(name):].lstrip(" :—–-,")
+        rest = drop_trailing_parens(rest, name)
         return "**%s: %s**" % (name, rest) if rest else "**%s**" % name
     if name:
         return "**%s: %s**" % (name, title)
