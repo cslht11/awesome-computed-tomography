@@ -1,15 +1,7 @@
-/* Header behaviour for the static pages (About, Contact, Privacy):
-   the colour-theme toggle and the phone drawer. The main page does the same in app.js. */
+/* Phone drawer for the static pages (About, Contact, Privacy).
+   The colour theme is NOT handled here: page.html wires it in an inline head
+   script, and a second listener would toggle the theme twice per click. */
 (function () {
-  var root = document.documentElement;
-  var theme = document.getElementById("theme");
-  if (theme) theme.addEventListener("click", function () {
-    var cur = root.getAttribute("data-theme");
-    if (!cur) cur = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    var next = cur === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("ct-theme", next); } catch (e) {}
-  });
   var menu = document.getElementById("menu"), scrim = document.getElementById("scrim");
   function set(open) {
     document.body.classList.toggle("drawer-open", open);

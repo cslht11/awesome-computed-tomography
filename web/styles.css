@@ -70,6 +70,28 @@
     color-scheme: dark;
   }
 }
+/* An explicit light pin. Without it the light choice is only expressed as
+   "not dark" through the media query above, which reads as if the toggle
+   failed whenever the OS itself prefers dark. */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #f5f5f7;
+  --surface-2: #ebebef;
+  --panel: #ffffff;
+  --fg: #1d1d1f;
+  --fg-muted: #515154;
+  --fg-faint: #636366;
+  --border: #e3e3e8;
+  --border-strong: #d2d2d7;
+  --accent: #3f51b5;
+  --accent-hover: #0051a3;
+  --accent-soft: #e8eaf6;
+  --mark: #fff0a8;
+  --header: rgba(255, 255, 255, .78);
+  --hdr: #3f51b5; --hdr-fg: #fff;
+  --shadow-pop: 0 10px 40px rgba(0, 0, 0, .12);
+  color-scheme: light;
+}
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 64px; }
@@ -147,6 +169,26 @@ header .gres { color: var(--fg); width: max(100%, 380px); }
 .icon-btn:hover { color: var(--fg); background: var(--surface); }
 #theme { width: 36px; height: 36px; padding: 0; color: var(--hdr-fg); }
 #theme:hover { background: rgba(255, 255, 255, .14); }
+
+/* Show the icon for the theme you are switching TO, so pressing the button
+   always gives visible feedback. */
+#theme .i-sun { display: none; }
+:root[data-theme="dark"] #theme .i-moon { display: none; }
+:root[data-theme="dark"] #theme .i-sun { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) #theme .i-moon { display: none; }
+  :root:not([data-theme="light"]) #theme .i-sun { display: block; }
+}
+
+/* Language switch, sitting in the header next to the theme toggle. */
+.lang-switch { display: inline-flex; align-items: center; }
+.lang-switch a {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 30px; padding: 0 11px; border-radius: 99px;
+  font: inherit; font-size: 12.5px; line-height: 1; white-space: nowrap;
+  color: var(--hdr-fg); text-decoration: none; opacity: .92;
+}
+.lang-switch a:hover { opacity: 1; background: rgba(255, 255, 255, .14); text-decoration: none; }
 
 .menu-btn { display: none; }
 .scrim { display: none; }

@@ -8,7 +8,33 @@
 <link rel="canonical" href="{{PAGE_URL}}">
 <link rel="license" href="{{CONTENT_LICENSE_URL}}">
 <link rel="stylesheet" href="{{ROOT}}styles.css">
-<script>try{var t=localStorage.getItem("ct-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script>
+/* Colour theme. Applied before first paint so a saved choice never flashes,
+   and wired with a delegated listener so it does not depend on chrome.js. */
+(function () {
+  var root = document.documentElement, KEY = "ct-theme";
+  function current() {
+    var a = root.getAttribute("data-theme");
+    if (a) return a;
+    try {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    } catch (e) { return "light"; }
+  }
+  function set(v) {
+    root.setAttribute("data-theme", v);
+    try { localStorage.setItem(KEY, v); } catch (e) {}
+  }
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved) root.setAttribute("data-theme", saved);
+  } catch (e) {}
+  document.addEventListener("click", function (e) {
+    for (var el = e.target; el && el !== document; el = el.parentNode) {
+      if (el.id === "theme") { set(current() === "dark" ? "light" : "dark"); return; }
+    }
+  });
+})();
+</script>
 </head>
 <body class="subpage">
 
@@ -20,8 +46,10 @@
     <a class="brand" href="{{ROOT}}"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="2" stroke-dasharray="2 3"/><g stroke="currentColor" stroke-opacity=".6" stroke-width="2"><line x1="32" y1="5" x2="14" y2="52"/><line x1="32" y1="5" x2="32" y2="59"/><line x1="32" y1="5" x2="50" y2="52"/></g><circle cx="32" cy="5" r="4" fill="currentColor"/><ellipse cx="32" cy="34" rx="9" ry="11" fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="2"/></svg><span>{{TITLE}}</span></a>
     <span class="spacer"></span>
     <button type="button" id="theme" class="icon-btn" aria-label="{{UI_THEME_ARIA}}" title="{{UI_THEME_TITLE}}">
-      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.3" y1="5.3" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.7" y2="18.7"/><line x1="5.3" y1="18.7" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.7" y2="5.3"/></g></svg>
     </button>
+    <span class="lang-switch">{{LANG_SWITCH}}</span>
     <a class="star" href="{{REPO_URL}}" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span>{{UI_STAR}}</span></a>
   </div>
   <div class="tabrow">
@@ -49,7 +77,6 @@
       <a href="{{ROOT}}about/">{{UI_FOOT_ABOUT}}</a>
       <a href="{{ROOT}}contact/">{{UI_FOOT_CONTACT}}</a>
       <a href="{{ROOT}}privacy/">{{UI_FOOT_PRIVACY}}</a>
-      {{LANG_SWITCH}}
     </nav>
   </div>
   <div class="wrap foot-legal">

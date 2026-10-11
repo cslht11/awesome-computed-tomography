@@ -37,7 +37,7 @@ description: >-
 # repository (see the local mirror backup of its history).
 url: "https://computedtomography.org/"
 
-repo: "cslht11/awesome-computed-tomography-cn"
+repo: "cslht11/awesome-computed-tomography"
 author: "cslht11"
 
 # Code and content are licensed separately. These keys drive the site footer,

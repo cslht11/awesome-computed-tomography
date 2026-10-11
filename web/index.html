@@ -5,6 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{HEAD}}
 <link rel="stylesheet" href="./styles.css">
+<script>
+/* Colour theme. Kept in its own inline script, deliberately NOT inside app.js:
+   it is applied before first paint (no flash of the wrong theme) and it stays
+   wired through a delegated listener even if app.js never gets to run. */
+(function () {
+  var root = document.documentElement, KEY = "ct-theme";
+  function current() {
+    var a = root.getAttribute("data-theme");
+    if (a) return a;
+    try {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    } catch (e) { return "light"; }
+  }
+  function set(v) {
+    root.setAttribute("data-theme", v);
+    try { localStorage.setItem(KEY, v); } catch (e) {}
+  }
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved) root.setAttribute("data-theme", saved);
+  } catch (e) {}
+  document.addEventListener("click", function (e) {
+    for (var el = e.target; el && el !== document; el = el.parentNode) {
+      if (el.id === "theme") { set(current() === "dark" ? "light" : "dark"); return; }
+    }
+  });
+})();
+</script>
 </head>
 <body>
 
@@ -21,8 +49,10 @@
       <div id="gres" class="gres" role="listbox" hidden></div>
     </div>
     <button type="button" id="theme" class="icon-btn" aria-label="{{UI_THEME_ARIA}}" title="{{UI_THEME_TITLE}}">
-      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.3" y1="5.3" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.7" y2="18.7"/><line x1="5.3" y1="18.7" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.7" y2="5.3"/></g></svg>
     </button>
+    <span class="lang-switch">{{LANG_SWITCH}}</span>
     <a class="star" href="{{REPO_URL}}" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span>{{UI_STAR}}</span></a>
   </div>
   <div class="tabrow">
@@ -105,7 +135,6 @@
       <a href="{{ROOT}}about/">{{UI_FOOT_ABOUT}}</a>
       <a href="{{ROOT}}contact/">{{UI_FOOT_CONTACT}}</a>
       <a href="{{ROOT}}privacy/">{{UI_FOOT_PRIVACY}}</a>
-      {{LANG_SWITCH}}
     </nav>
   </div>
   <div class="wrap foot-legal">

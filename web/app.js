@@ -555,21 +555,9 @@
       (document.getElementById("gq") || document.getElementById("q")).focus();
     });
 
-    var theme = document.getElementById("theme");
-    if (theme) {
-      var saved = null;
-      try { saved = localStorage.getItem("ct-theme"); } catch (err) { saved = null; }
-      if (saved) document.documentElement.setAttribute("data-theme", saved);
-      theme.addEventListener("click", function () {
-        var cur = document.documentElement.getAttribute("data-theme");
-        if (!cur) {
-          cur = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        var next = cur === "dark" ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", next);
-        try { localStorage.setItem("ct-theme", next); } catch (err) {}
-      });
-    }
+    /* The colour-theme toggle is deliberately NOT wired here. index.html owns
+       it in an inline head script, so the theme still works when this file
+       never runs, and a second listener cannot cancel the first one out. */
   }
 
   if (document.readyState === "loading") {
