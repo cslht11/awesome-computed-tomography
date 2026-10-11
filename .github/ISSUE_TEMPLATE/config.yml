@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Email the maintainers
-    url: mailto:heitieya@163.com
+  # GitHub only accepts http(s) here — a `mailto:` URL fails schema validation
+  # and the whole link is dropped silently, so this points at the contact page
+  # (which publishes the same address) instead.
+  - name: Contact the maintainers
+    url: https://computedtomography.org/contact/
     about: For anything that is not a new entry or a broken link.

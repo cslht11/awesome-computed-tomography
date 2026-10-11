@@ -3,9 +3,10 @@
 The **content** of this repository is licensed under the Creative Commons
 Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
 
-    data/*.yaml        the curated records
-    README.md          generated from the above
-    site/              the generated website (not committed)
+    data/*.yaml          the curated records
+    README.md            generated from the above
+    README.zh-CN.md      generated from the above
+    site/                the generated website (not committed)
 
 **Code** is licensed separately under the MIT License — see [LICENSE](LICENSE).
 That covers `scripts/`, `web/` and `.github/`.

@@ -278,6 +278,13 @@ topics:
     name: 其他主题
     desc: 工业无损检测、相位衬度、定量 CT、重建软件，以及不属于以上各类的工作。
 # ------------------------------------------------------------------ 工具包
+# Per-paper overrides, keyed by the paper's `id`. Same mechanism as the
+# toolkits/datasets/benchmarks/learning tables below: what is listed here wins,
+# anything missing falls back to the English text in data/papers.yaml.
+papers:
+  "radon-1917":
+    note: "定义了 Radon 变换的论文——本列表中所有解析方法（FBP、FDK、傅里叶切片定理）所要反演的正是这个前向算子，它比第一台 CT 扫描仪早了 54 年。原文发表于莱比锡科学院报告第 69 卷 262–277 页；这里的链接是 P. C. Parks 的英译本《On the determination of functions from their integral values along certain manifolds》，IEEE Transactions on Medical Imaging 5(4):170–176, 1986。"
+
 toolkits:
   "TIGRE":
     note: "GPU 加速（CUDA）的锥束与平行束 CT 工具箱；提供 FDK、SART、SIRT、CGLS 及 TV 变体。"

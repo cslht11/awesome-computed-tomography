@@ -263,6 +263,15 @@ def render_papers(papers, meta, ov):
                     links.append("[%s](%s)" % (ov.readme(ikey, lab), e[k]))
             out.append("- %s — %s%s" % (paper_head(e), where,
                                          (" · " + " · ".join(links)) if links else ""))
+            # A few landmark entries carry a `note`. It is rendered as an
+            # indented paragraph tied to the bullet above, so an entry can say
+            # why it matters without breaking the one-line-per-paper rhythm.
+            # Only entries that actually have one emit the blank line, so the
+            # ordinary one-line-per-paper spacing stays untouched.
+            note = ov.item("papers", e["id"]).get("note") or e.get("note")
+            if note:
+                out.append("")
+                out.append("  " + " ".join(note.split()))
         out.append("")
     return "\n".join(out)
 

@@ -20,11 +20,16 @@ PyYAML.
 | Path | Committed? | What it is |
 | --- | --- | --- |
 | `site.config.yml` | yes | Title, tagline, description, repository, and the one `url` that drives every absolute address. **This is where the domain goes.** |
-| `web/index.html` | yes | Template with `{{PLACEHOLDER}}` markers. Not served directly. |
+| `web/index.html` | yes | Home-page template with `{{PLACEHOLDER}}` markers. Not served directly. |
+| `web/page.html` | yes | Template for the standalone pages (About / Contact / Privacy). |
+| `web/pages/{about,contact,privacy}.html` | yes | Body content for those three pages. |
 | `web/styles.css` | yes | All styling. Light and dark token sets. |
 | `web/app.js` | yes | Client-side search and filtering. |
+| `web/chrome.js` | yes | Phone drawer for the standalone pages. (The colour theme is wired in an inline `<head>` script instead, so it still works if a script fails to load.) |
+| `data/i18n/en.yaml` | yes | English strings — the source of truth for every user-visible string. |
+| `data/i18n/zh.yaml` | yes | Chinese overlay. Looked up first for `zh`; missing keys fall back to English. |
 | `scripts/export_site_data.py` | yes | `data/*.yaml` -> the JSON payload. Also usable on its own. |
-| `scripts/build_site.py` | yes | Assembles template + payload + origin into `site/`. |
+| `scripts/build_site.py` | yes | Assembles templates + payload + origin into `site/`, once per language. |
 | `site/` | **no** | Build output. Git-ignored. Delete it freely; it is regenerated. |
 
 The licence in the page footer, the JSON-LD `license` field and the
@@ -32,13 +37,44 @@ The licence in the page footer, the JSON-LD `license` field and the
 `content_license_url` in `site.config.yml`. Content and code are licensed
 separately — the reasoning is in [MAINTENANCE.md](MAINTENANCE.md).
 
+## Languages
+
+The site is bilingual, English at `/` and Chinese at `/zh/`. Both are rendered by
+the same `build_site.py` run from the same payload; a language only changes which
+strings are looked up and which canonical URL is written.
+
+- `data/i18n/en.yaml` is the **source of truth** for every user-visible string.
+- `data/i18n/zh.yaml` is an **overlay**. For `zh` a key is looked up in the overlay
+  first and falls back to English when it is missing — so a partial translation is
+  valid and degrades gracefully.
+- The one error case is an **orphan key**: a key in `zh.yaml` that does not exist in
+  `en.yaml`. That fails `build.py --check` (exit 1). A *missing* translation is not
+  an error.
+
+Each language gets its own `<html lang>`, canonical URL and og:url, and the two are
+wired together with `hreflang` alternates plus an `x-default` pointing at the
+English page. `sitemap.xml` lists every page in both languages. The language
+switcher lives in the header, after the colour-theme button.
+
+> **The source-language trap.** English values come from `site.config.yml`, *not*
+> from `en.yaml` — the overlay is only consulted for non-source languages. So when
+> a value gets templated (a description, a count), editing `en.yaml` alone changes
+> only the Chinese page and leaves English on the old text. Change both, or change
+> `site.config.yml` and let the overlay inherit.
+
 ## Build and preview
 
 ```bash
-python scripts/build_site.py            # writes site/
+python scripts/build_site.py            # writes site/, all languages
 python scripts/build_site.py --url https://example.org/   # one-off origin override
+python scripts/build_site.py --lang zh  # just one language
 python -m http.server 8899 -d site      # then open http://127.0.0.1:8899/
 ```
+
+**Stop the preview server when you are done with it.** `http.server` holds the
+directory it was started in, and on Windows that alone is enough to make the folder
+impossible to rename or move until the process is killed. (This actually bit us once —
+see `local/docs/2026-10-11-目录整理与备份清单.md`.)
 
 `site/index.html` also opens correctly by **double-clicking** it — see the two design
 constraints below, which exist specifically to keep that working.
@@ -79,9 +115,9 @@ gh api repos/cslht11/awesome-computed-tomography/pages \
 ```
 
 The workflow runs `build.py --check` before building the site, so a PR that leaves
-`README.md` stale fails here too. `.github/workflows/validate.yml` *also* runs
-`build_site.py` on every push, so a change that breaks the site fails
-CI rather than surfacing at the next deploy.
+either generated README (`README.md`, `README.zh-CN.md`) stale fails here too.
+`.github/workflows/validate.yml` *also* runs `build_site.py` on every push, so a change
+that breaks the site fails CI rather than surfacing at the next deploy.
 
 ## Switching to a custom domain
 
@@ -175,9 +211,10 @@ refuse to load ES modules over `file://` (CORS), which would break double-click 
 for every future maintainer.
 
 **2. The payload is inlined into `index.html`; it is not fetched.** Same reason — `fetch`
-is blocked on `file://`. The cost is size: `index.html` is ~404 KB raw, **73 KB gzipped**,
-and the largest part of it is the inlined JSON. First paint is about 82 KB gzipped across
-three files. `site/data.json` is written as well, for anything that wants the data
+is blocked on `file://`. The cost is size: at 391 papers `index.html` is about **540 KB
+raw**, the largest part of it the inlined JSON. Run `python scripts/build_site.py` and read
+the size it prints rather than trusting a number here — this figure goes stale every time
+papers are added. `site/data.json` is written as well, for anything that wants the data
 programmatically, and it is what the callers of `export_site_data.py` should use.
 
 If you ever want the smaller `index.html` more than you want double-click preview, switch
@@ -186,11 +223,15 @@ no-JavaScript rendering below becomes the only thing a `file://` visitor sees.
 
 ## Maintaining the data side
 
-`id` is the permanent URL key for a paper. All 391 existing ids are already unique,
-kebab-case ASCII, so nothing needed to be added to the data. Two rules follow:
+`id` is the permanent URL key for a paper. All 391 existing ids are already unique
+lower-case ASCII, so nothing needed to be added to the data. Two rules follow:
 
 - **Never rename an existing `id`.** External links and the JSON payload both key on it.
-- New ids must be lower-case kebab-case ASCII and globally unique.
+- New ids must be lower-case ASCII and globally unique.
+
+(A handful of existing ids are truncated slugs and end in a hyphen, like
+`...-for-low-`. They are ugly but deliberate: the id is permanent, so a tidier
+spelling would mean a broken external reference. New ids should not do this.)
 
 `abbr` and `title` are display text and may change freely.
 

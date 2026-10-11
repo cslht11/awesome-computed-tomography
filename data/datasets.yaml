@@ -121,6 +121,8 @@
   note: "500 CT + 100 MRI abdominal scans, 15 organs; deliberately heterogeneous scanners, so it stresses robustness."
 
 - name: Medical Segmentation Decathlon
+  # http, not https: the site serves a certificate that does not match
+  # medicaldecathlon.com, so https fails the handshake (verified 2026-10-11).
   url: http://medicaldecathlon.com/
   modality: CT / MRI
   tasks: [segmentation, reconstruction]

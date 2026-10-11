@@ -13,7 +13,7 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
-## 2026-10-11 — 101 more papers, the whole list in Chinese, and a new home
+## 2026-10-11 — 102 more papers, the whole list in Chinese, and a new home
 
 The largest single addition so far. The list moves to a repository of its own and
 becomes bilingual end to end.
@@ -52,13 +52,13 @@ becomes bilingual end to end.
 - The EN / 中文 switch moves from the footer to the header, next to the theme toggle.
 - The site is served from `computedtomography.org`, now published from this repository.
 
-## 2026-10-10 — About, Contact and Privacy pages
+## 2026-10-10
+
+### Added (About, Contact and Privacy pages)
 
 - New static pages at `/about/`, `/contact/` and `/privacy/` (scope and verification method, how to suggest or correct an entry, what the site does and doesn't collect).
 - Compact footer on every page linking to them; licence line kept.
 - `build_site.py` renders the pages from `web/pages/` and adds them to the sitemap.
-
-## 2026-10-10
 
 ### Changed (maintenance)
 
@@ -87,8 +87,8 @@ First public state. The list is stable enough to cite.
 - Every paper link was resolved against Crossref, arXiv or the publisher's own record,
   and every URL was checked.
 - **226 of 289 papers (78%)** carry a peer-reviewed venue. Entries without one render
-  as `(preprint, year)`, so the reviewed/unreviewed split is visible in the README
-  itself rather than left for the reader to guess.
+  as `preprint year` in italics, so the reviewed/unreviewed split is visible in the
+  README itself rather than left for the reader to guess.
 
 ### Added
 
@@ -119,7 +119,9 @@ First public state. The list is stable enough to cite.
   to ignore red — and the push trigger was added once Pages was enabled. `SITE.md`
   documents the file map, the four Settings-side steps to reproduce the setup, the DNS
   records, the one-line domain switch, and the failure modes seen while writing it.
-  `README.md`, `CONTRIBUTING.md` and `MAINTENANCE.md` now point at it.
+  `CONTRIBUTING.md` and `MAINTENANCE.md` pointed at it when it was written;
+  `CONTRIBUTING.md` was dropped the same day and the README does not link it, so in
+  practice `MAINTENANCE.md` is the surviving entry point.
 
 - **The page itself: a hero, six stat tiles and a framed finder panel.** The stat tiles
   read from the same counts as the README coverage line (`{{N_PAPERS}}`, `{{PEER_PCT}}`,
@@ -228,8 +230,9 @@ First public state. The list is stable enough to cite.
   no field over 300 characters.
 - `README.md` is now generated from `data/*.yaml`. CI fails if the committed copy
   differs from a fresh build, so the README can no longer drift from the data.
-- Entries without a venue render as `(preprint, 2025)` instead of a bare year, and the
-  coverage line reports the reviewed/preprint split.
+- Entries without a venue render as `preprint 2025` in italics instead of a bare year, and
+  the coverage line reports the reviewed/preprint split. (The wording was later shortened
+  to the bare year inside the italics; see the 2026-10-11 entry.)
 - Renamed the repository to `awesome-computed-tomography`, and reworked the description,
   topics and the README scope paragraph so the project is findable by the vocabulary of
   the field rather than by the project name alone.

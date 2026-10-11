@@ -134,7 +134,9 @@
 - **MLEM: Maximum Likelihood Reconstruction for Emission Tomography** — _TMI 1982_ · [论文](https://doi.org/10.1109/tmi.1982.4307558)
 - **Shepp-Logan: The Fourier reconstruction of a head section** — _IEEE TNS 1974_ · [论文](https://doi.org/10.1109/tns.1974.6499235)
 - **Three-dimensional Reconstruction from Radiographs and Electron Micrographs: Application of Convolutions instead of Fourier Transforms** — _PNAS 1971_ · [论文](https://doi.org/10.1073/pnas.68.9.2236)
-- **Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten** — _Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl. 1917_ · [论文](https://doi.org/10.1109/TMI.1986.4307775)
+- **Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten (Johann Radon)** — _Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl. 1917_ · [论文](https://doi.org/10.1109/TMI.1986.4307775)
+
+  定义了 Radon 变换的论文——本列表中所有解析方法（FBP、FDK、傅里叶切片定理）所要反演的正是这个前向算子，它比第一台 CT 扫描仪早了 54 年。原文发表于莱比锡科学院报告第 69 卷 262–277 页；这里的链接是 P. C. Parks 的英译本《On the determination of functions from their integral values along certain manifolds》，IEEE Transactions on Medical Imaging 5(4):170–176, 1986。
 
 ### 稀疏视角 CT
 

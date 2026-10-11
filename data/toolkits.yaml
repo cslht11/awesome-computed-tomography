@@ -362,7 +362,7 @@
 
 - name: pyHST2
   url: https://gitlab.esrf.fr/tomotools/pyhst2
-  homepage: http://ftp.esrf.fr/scisoft/PYHST2/
+  homepage: https://ftp.esrf.fr/scisoft/PYHST2/
   language: C / Python
   license: See repository
   stars: 0

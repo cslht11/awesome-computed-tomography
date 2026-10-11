@@ -95,11 +95,17 @@ def build_payload():
         }
         if e.get("abbr"):
             rec["abbr"] = e["abbr"]
+        # Landmark entries carry a note; it is shown under the entry and folded
+        # into the search blob, so its words are findable too.
+        if e.get("note"):
+            rec["note"] = re.sub(r"\s+", " ", e["note"]).strip()
         for k in PAPER_URL_FIELDS:
             if e.get(k):
                 rec["links"][k] = e[k]
 
         blob = [e["title"], e.get("abbr") or "", venue or "preprint"]
+        if e.get("note"):
+            blob.append(e["note"])
         blob += [topic_name.get(t, t) for t in e["topics"]]
         blob += [link_host(e.get(k)) for k in PAPER_URL_FIELDS if e.get(k)]
         rec["_q"] = re.sub(r"\s+", " ", " ".join(blob)).strip().lower()

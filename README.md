@@ -134,7 +134,9 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **MLEM: Maximum Likelihood Reconstruction for Emission Tomography** — _TMI 1982_ · [Paper](https://doi.org/10.1109/tmi.1982.4307558)
 - **Shepp-Logan: The Fourier reconstruction of a head section** — _IEEE TNS 1974_ · [Paper](https://doi.org/10.1109/tns.1974.6499235)
 - **Three-dimensional Reconstruction from Radiographs and Electron Micrographs: Application of Convolutions instead of Fourier Transforms** — _PNAS 1971_ · [Paper](https://doi.org/10.1073/pnas.68.9.2236)
-- **Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten** — _Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl. 1917_ · [Paper](https://doi.org/10.1109/TMI.1986.4307775)
+- **Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten (Johann Radon)** — _Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl. 1917_ · [Paper](https://doi.org/10.1109/TMI.1986.4307775)
+
+  The paper that defines the Radon transform — the forward operator every analytic method here inverts, published 54 years before the first CT scanner. The original appeared in the Leipzig academy reports, volume 69, pages 262–277; the link is P. C. Parks's English translation, "On the determination of functions from their integral values along certain manifolds", IEEE Transactions on Medical Imaging 5(4):170–176, 1986.
 
 ### Sparse-View CT
 

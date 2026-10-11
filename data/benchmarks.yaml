@@ -38,6 +38,8 @@
   note: "Multi-organ abdominal CT segmentation across four editions (FLARE21/22/23/24); the standard downstream-robustness target for CT reconstruction outputs."
 
 - name: Medical Segmentation Decathlon
+  # http, not https: the site serves a certificate that does not match
+  # medicaldecathlon.com, so https fails the handshake (verified 2026-10-11).
   url: http://medicaldecathlon.com/
   year: 2018
   tasks: [segmentation]

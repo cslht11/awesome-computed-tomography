@@ -29,10 +29,24 @@ body:
     validations:
       required: false
   - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of entry is it?
+      description: The section list below only covers papers. Pick "not a paper" for anything else.
+      options:
+        - Paper
+        - Toolkit or library
+        - Dataset
+        - Benchmark or challenge
+        - Learning resource (course, book, tutorial)
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
     id: section
     attributes:
-      label: Which section fits best?
-      description: Pick the closest; a maintainer will confirm or move it.
+      label: For a paper, which section fits best?
+      description: Pick the closest; a maintainer will confirm or move it. Ignore this if the entry is not a paper.
       options:
         - Surveys & Reviews
         - Classical & Iterative Reconstruction
@@ -52,7 +66,7 @@ body:
         - Gaussian Splatting
         - Other Topics
     validations:
-      required: true
+      required: false
   - type: textarea
     id: why
     attributes:
