@@ -7,7 +7,7 @@
 
 **一份经过核验的 CT 重建研究精选列表**——涵盖 CT、CBCT 与显微 CT 的论文、工具包、数据集与基准。
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-390-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-391-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
 
 **[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源)
 
@@ -15,7 +15,7 @@
 
 [EN](README.md) · **中文**
 
-| 390 篇论文 | 84% 同行评议 | 87 项附代码 | 44 个工具包 | 40 个数据集 | 19 个基准 | 1971–2026 |
+| 391 篇论文 | 84% 同行评议 | 87 项附代码 | 44 个工具包 | 40 个数据集 | 19 个基准 | 1917–2026 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 
 覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D CT——从 FBP 与迭代求解器，到展开式网络、扩散先验、神经场与高斯溅射。每条论文链接均对照 Crossref、arXiv 或出版方记录核验。检索与筛选请使用 **[网站](https://computedtomography.org/)**。
@@ -26,7 +26,7 @@
 
 | | | |
 | --- | --- | --- |
-| [综述与回顾](#综述与回顾) <sub>23</sub> | [经典与迭代重建](#经典与迭代重建) <sub>69</sub> | [稀疏视角 CT](#稀疏视角-ct) <sub>133</sub> |
+| [综述与回顾](#综述与回顾) <sub>23</sub> | [经典与迭代重建](#经典与迭代重建) <sub>70</sub> | [稀疏视角 CT](#稀疏视角-ct) <sub>133</sub> |
 | [有限角层析](#有限角层析) <sub>44</sub> | [低剂量 CT 去噪](#低剂量-ct-去噪) <sub>57</sub> | [金属伪影校正](#金属伪影校正) <sub>21</sub> |
 | [能谱与双能 CT](#能谱与双能-ct) <sub>17</sub> | [锥束 CT](#锥束-ct) <sub>66</sub> | [动态与 4D CT](#动态与-4d-ct) <sub>21</sub> |
 | [散射校正](#散射校正) <sub>11</sub> | [几何标定与运动补偿](#几何标定与运动补偿) <sub>26</sub> | [深度展开与模型驱动学习](#深度展开与模型驱动学习) <sub>72</sub> |
@@ -65,7 +65,7 @@
 
 ### 经典与迭代重建
 
-<sub>解析法（FBP/FDK）与迭代法（SART/SIRT/CGLS），以及手工设计的正则项（TV、TGV、非局部） · 69 篇论文</sub>
+<sub>解析法（FBP/FDK）与迭代法（SART/SIRT/CGLS），以及手工设计的正则项（TV、TGV、非局部） · 70 篇论文</sub>
 
 - **Complex Wavelet-Based Sinogram Segmentation for Metal Artifact Reduction in Cone-Beam CT** — _PMB 2026_ · [论文](https://arxiv.org/abs/2602.14315)
 - **Computed Tomography Reconstruction Algorithm Using Markov Random Field Model** — _J. Phys. Soc. Jpn. 2026_ · [论文](https://arxiv.org/abs/2605.11637)
@@ -136,6 +136,7 @@
 - **MLEM: Maximum Likelihood Reconstruction for Emission Tomography** — _TMI 1982_ · [论文](https://doi.org/10.1109/tmi.1982.4307558)
 - **Shepp-Logan: The Fourier reconstruction of a head section** — _IEEE TNS 1974_ · [论文](https://doi.org/10.1109/tns.1974.6499235)
 - **Three-dimensional Reconstruction from Radiographs and Electron Micrographs: Application of Convolutions instead of Fourier Transforms** — _PNAS 1971_ · [论文](https://doi.org/10.1073/pnas.68.9.2236)
+- **Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten** — _Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl. 1917_ · [论文](https://doi.org/10.1109/TMI.1986.4307775)
 
 ### 稀疏视角 CT
 

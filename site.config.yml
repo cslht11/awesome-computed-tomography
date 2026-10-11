@@ -15,11 +15,15 @@
 title: "Awesome Computed Tomography"
 tagline: "A curated list of CT reconstruction resources"
 
+# The counts are placeholders, filled in by build_site.py from the same tokens
+# as the i18n overlay. Do not write numbers here: this is the text search
+# engines show, and it goes stale the moment a paper is added.
 description: >-
   A curated list of computed tomography (CT / CBCT / micro-CT) reconstruction
-  resources: 390 papers from 1971 to 2026, 44 toolkits, 40 datasets,
-  19 benchmarks and 29 learning resources, covering sparse-view, limited-angle,
-  low-dose, metal-artifact, spectral, cone-beam and 4D/dynamic CT.
+  resources: {papers} papers from {year_min} to {year_max}, {toolkits} toolkits,
+  {datasets} datasets, {benchmarks} benchmarks and {learning} learning
+  resources, covering sparse-view, limited-angle, low-dose, metal-artifact,
+  spectral, cone-beam and 4D/dynamic CT.
 
 # Site origin. Empty -> fall back to GitHub Pages for `repo` below.
 #

@@ -7,7 +7,7 @@
 
 **A curated, verified list of CT reconstruction research** — papers, toolkits, datasets and benchmarks for CT, CBCT and micro-CT.
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-390-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-391-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
 
 **[Website](https://computedtomography.org/)** · [Papers](#papers) · [Toolkits](#toolkits) · [Datasets](#datasets) · [Benchmarks](#benchmarks) · [Learning](#learning)
 
@@ -15,7 +15,7 @@
 
 **EN** · [中文](README.zh-CN.md)
 
-| 390 papers | 84% peer-reviewed | 87 with code | 44 toolkits | 40 datasets | 19 benchmarks | 1971–2026 |
+| 391 papers | 84% peer-reviewed | 87 with code | 44 toolkits | 40 datasets | 19 benchmarks | 1917–2026 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 
 Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D CT — from FBP and iterative solvers to unrolled networks, diffusion priors, neural fields and Gaussian splatting. Every paper link is resolved against Crossref, arXiv or the publisher's record. For search and filters, use the **[website](https://computedtomography.org/)**.
@@ -26,7 +26,7 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 | | | |
 | --- | --- | --- |
-| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>69</sub> | [Sparse-View CT](#sparse-view-ct) <sub>133</sub> |
+| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>70</sub> | [Sparse-View CT](#sparse-view-ct) <sub>133</sub> |
 | [Limited-Angle Tomography](#limited-angle-tomography) <sub>44</sub> | [Low-Dose CT Denoising](#low-dose-ct-denoising) <sub>57</sub> | [Metal Artifact Reduction](#metal-artifact-reduction) <sub>21</sub> |
 | [Spectral & Dual-Energy CT](#spectral--dual-energy-ct) <sub>17</sub> | [Cone-Beam CT](#cone-beam-ct) <sub>66</sub> | [Dynamic & 4D CT](#dynamic--4d-ct) <sub>21</sub> |
 | [Scatter Correction](#scatter-correction) <sub>11</sub> | [Geometry Calibration & Motion Compensation](#geometry-calibration--motion-compensation) <sub>26</sub> | [Deep Unrolling & Model-Based Learning](#deep-unrolling--model-based-learning) <sub>72</sub> |
@@ -65,7 +65,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Classical & Iterative Reconstruction
 
-<sub>Analytical (FBP/FDK) and iterative (SART/SIRT/CGLS) reconstruction, hand-crafted regularizers (TV, TGV, non-local) · 69 papers</sub>
+<sub>Analytical (FBP/FDK) and iterative (SART/SIRT/CGLS) reconstruction, hand-crafted regularizers (TV, TGV, non-local) · 70 papers</sub>
 
 - **Complex Wavelet-Based Sinogram Segmentation for Metal Artifact Reduction in Cone-Beam CT** — _PMB 2026_ · [Paper](https://arxiv.org/abs/2602.14315)
 - **Computed Tomography Reconstruction Algorithm Using Markov Random Field Model** — _J. Phys. Soc. Jpn. 2026_ · [Paper](https://arxiv.org/abs/2605.11637)
@@ -136,6 +136,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **MLEM: Maximum Likelihood Reconstruction for Emission Tomography** — _TMI 1982_ · [Paper](https://doi.org/10.1109/tmi.1982.4307558)
 - **Shepp-Logan: The Fourier reconstruction of a head section** — _IEEE TNS 1974_ · [Paper](https://doi.org/10.1109/tns.1974.6499235)
 - **Three-dimensional Reconstruction from Radiographs and Electron Micrographs: Application of Convolutions instead of Fourier Transforms** — _PNAS 1971_ · [Paper](https://doi.org/10.1073/pnas.68.9.2236)
+- **Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten** — _Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl. 1917_ · [Paper](https://doi.org/10.1109/TMI.1986.4307775)
 
 ### Sparse-View CT
 

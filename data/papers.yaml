@@ -2955,3 +2955,22 @@
   venue: "Chinese Phys. B"
   topics: [sparse-view, classical]
   paper: "https://doi.org/10.1088/1674-1056/23/7/078703"
+
+# --- the origin of the forward model. Everything analytic in this list (FBP,
+# FDK, the Fourier slice theorem) inverts the transform introduced here, 54
+# years before the first CT scanner. The 1917 original has no DOI; `paper`
+# points at P. C. Parks's English translation, which does.
+- id: "radon-1917"
+  title: "Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten"
+  authors: "Johann Radon"
+  year: 1917
+  venue: "Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl."
+  topics: [classical]
+  paper: "https://doi.org/10.1109/TMI.1986.4307775"
+  note: >-
+    The paper that defines the Radon transform — the forward operator every
+    analytic method here inverts, published 54 years before the first CT
+    scanner. The original appeared in the Leipzig academy reports, volume 69,
+    pages 262–277; the link is P. C. Parks's English translation, "On the
+    determination of functions from their integral values along certain
+    manifolds", IEEE Transactions on Medical Imaging 5(4):170–176, 1986.

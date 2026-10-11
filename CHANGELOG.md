@@ -20,9 +20,13 @@ becomes bilingual end to end.
 
 ### Content
 
-- **390 papers** (was 289), spanning **1971–2026** (was 1976) across 17 topics, plus
+- **391 papers** (was 289), spanning **1917–2026** (was 1976) across 17 topics, plus
   **44 toolkits** (was 43), **40 datasets** (was 34), 19 benchmarks/challenges and
-  29 learning resources. **327 of 390 (84%)** carry a peer-reviewed venue.
+  29 learning resources. **328 of 391 (84%)** carry a peer-reviewed venue.
+- **Radon 1917** added: the paper that introduces the transform every analytic
+  method here inverts, published 54 years before the first CT scanner. No DOI
+  exists for the original, so the entry links P. C. Parks's English translation
+  in IEEE TMI (1986) and records the original Leipzig imprint as its venue.
 - 57 papers added from a Web of Science export, kept only where Crossref confirmed a
   journal article and the work is a reconstruction method rather than an application
   that merely uses CT. A further 44 came from cross-checking a review manuscript's
