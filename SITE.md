@@ -205,7 +205,7 @@ exists.
 - **`/`** focuses the search box.
 - **Light and dark**, following the system, with a manual toggle remembered in
   `localStorage`.
-- **Works without JavaScript.** The 391 paper rows are rendered into the HTML at build
+- **Works without JavaScript.** Every paper row is rendered into the HTML at build
   time, so a crawler — or a reader with JS off — still gets the complete list. Search and
   filters are progressive enhancement on top.
 
@@ -222,10 +222,10 @@ refuse to load ES modules over `file://` (CORS), which would break double-click 
 for every future maintainer.
 
 **2. The payload is inlined into `index.html`; it is not fetched.** Same reason — `fetch`
-is blocked on `file://`. The cost is size: at 391 papers `index.html` is about **540 KB
-raw**, the largest part of it the inlined JSON. Run `python scripts/build_site.py` and read
-the size it prints rather than trusting a number here — this figure goes stale every time
-papers are added. `site/data.json` is written as well, for anything that wants the data
+is blocked on `file://`. The cost is size: the inlined JSON makes `index.html` the largest
+file the build produces. Run `python scripts/build_site.py` and read the size it prints
+rather than trusting a number here — this figure goes stale every time papers are added.
+`site/data.json` is written as well, for anything that wants the data
 programmatically, and it is what the callers of `export_site_data.py` should use.
 That script takes `--lang <code>` and defaults to `en`; pass a language to get a
 payload whose notes are already in it.
@@ -236,7 +236,7 @@ no-JavaScript rendering below becomes the only thing a `file://` visitor sees.
 
 ## Maintaining the data side
 
-`id` is the permanent URL key for a paper. All 391 existing ids are already unique
+`id` is the permanent URL key for a paper. Every existing `id` is already unique
 lower-case ASCII, so nothing needed to be added to the data. Two rules follow:
 
 - **Never rename an existing `id`.** External links and the JSON payload both key on it.
@@ -256,7 +256,7 @@ validator to keep in sync.
 
 | Symptom | Cause |
 | --- | --- |
-| Tabs switch, but a `?q=` deep link shows all 391 papers | The initial state was read from the URL but nothing re-rendered. The served HTML already contains all 391 rows, so the page *looks* fine — this is why it hid. `init()` must call `apply()` after `readUrl()`. |
+| Tabs switch, but a `?q=` deep link shows every paper | The initial state was read from the URL but nothing re-rendered. The served HTML already contains every row, so the page *looks* fine — this is why it hid. `init()` must call `apply()` after `readUrl()`. |
 | `init()` dies silently and nothing is interactive | `history.replaceState` throws on `file://`. It is wrapped in `try/catch`; keep it that way. |
 | A custom-domain deploy is rejected at build time | Working as intended: a `github.io` URL leaked into the output. Fix the value that produced it rather than removing the check. |
 | Empty topic chips, or a table with no rows | The corresponding `data/*.yaml` list is empty. `build_site.py` renders whatever is there. |

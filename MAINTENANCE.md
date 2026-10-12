@@ -435,7 +435,7 @@ serves, and the gap only shows up as a stale number somewhere.
 | 1 | Add the entry to `data/papers.yaml` | The only source of truth | — |
 | 2 | **Resolve the identifiers first** — Crossref by exact title (accept at ≥ 0.90 similarity), arXiv only as a fallback | A PDF-to-markdown conversion keeps the arXiv ids of the *bibliography*, not of the paper. Two entries in this list got a wrong DOI that way | A plausible-looking link to a different paper |
 | 3 | If the entry has a `note`, add `zh.yaml` → `papers: "<id>": note:` | The list is bilingual; `build.py` prints the shortfall rather than failing | `README.zh-CN.md` prints one English paragraph among 500 Chinese ones |
-| 4 | Run `python scripts/build.py` | Rewrites both READMEs and re-validates | The README says 391 papers while the data says 392 |
+| 4 | Run `python scripts/build.py` | Rewrites both READMEs and re-validates | Both READMEs keep the previous count while the data has moved on |
 | 5 | Run `python scripts/build_site.py` | Rewrites `site/`, including `data.json`, `sitemap.xml` and the cover counts | Local preview stale — harmless locally, but it is how you notice step 4 was skipped |
 | 6 | Run `node tests/test_search.js` | The search index is built from the payload in the browser | Nothing breaks; you just stop noticing when it does |
 | 7 | Add a dated entry to `CHANGELOG.md` | There are no version numbers, so the changelog *is* the history | The change is invisible to anyone not reading diffs |
