@@ -315,6 +315,22 @@
     return String(url || "").replace(/^[a-z]+:\/\//i, "").split("/")[0];
   }
 
+  /* An arXiv id is worth searching for in its own right — 151 of the papers
+     link to one — but only as the bare id. Indexing the whole URL would let
+     every other number in it (a record id, a version) match too, which is how
+     typing one id used to land on an unrelated record. It goes in `meta`, not
+     `body`: an identifier is metadata, and the higher weight is what makes a
+     real id clear the "open the top hit" threshold while a partial one does
+     not. */
+  function arxivIds() {
+    var out = [];
+    for (var i = 0; i < arguments.length; i++) {
+      var m = /arxiv\.org\/(?:abs|pdf)\/([0-9]{4}\.[0-9]{4,5})/.exec(String(arguments[i] || ""));
+      if (m) { out.push(m[1]); }
+    }
+    return out.join(" ");
+  }
+
   /* A title is both displayed and indexed, so drop inline TeX delimiters once,
      here: "$K$-NeAS" shows as "K-NeAS". Tokenising is unaffected (fold does the
      same unwrap), but highlighting needs the displayed string to be the one the
@@ -337,7 +353,8 @@
       return {
         title: plain(p.title),
         abbr: p.abbr,
-        meta: join([p.venue, p.year, topics, p.preprint ? "preprint" : ""]),
+        meta: join([p.venue, p.year, topics, p.preprint ? "preprint" : "",
+                    arxivIds(links.paper, links.project, links.code)]),
         /* Everything below the fields above still has to be findable: the
            landmark note, and the link host so "github" or "arxiv" narrows.
            These used to arrive pre-joined as a `_q` blob from the exporter;
@@ -350,32 +367,44 @@
     function toolkit(r) {
       return {
         title: plain(r.name),
-        meta: join([r.language, r.license, (r.tags || []).join(" ")]),
-        body: join([r.note, r.url, hostOf(r.url)])
+        meta: join([r.language, r.license, (r.tags || []).join(" "), arxivIds(r.url)]),
+        /* Host only, not the whole URL: the URL's own digits (an arXiv id, a
+           Zenodo record number) would otherwise become searchable tokens and
+           an id typed into the box would match an unrelated record. */
+        body: join([r.note, hostOf(r.url)])
       };
     }
 
     function dataset(r) {
       return {
         title: plain(r.name),
-        meta: join([r.modality, (r.tasks || []).join(" "), r.license]),
-        body: join([r.note, r.url, hostOf(r.url)])
+        meta: join([r.modality, (r.tasks || []).join(" "), r.license, arxivIds(r.url)]),
+        /* Host only, not the whole URL: the URL's own digits (an arXiv id, a
+           Zenodo record number) would otherwise become searchable tokens and
+           an id typed into the box would match an unrelated record. */
+        body: join([r.note, hostOf(r.url)])
       };
     }
 
     function benchmark(r) {
       return {
         title: plain(r.name),
-        meta: join([r.year, (r.tasks || []).join(" ")]),
-        body: join([r.note, r.url, hostOf(r.url)])
+        meta: join([r.year, (r.tasks || []).join(" "), arxivIds(r.url)]),
+        /* Host only, not the whole URL: the URL's own digits (an arXiv id, a
+           Zenodo record number) would otherwise become searchable tokens and
+           an id typed into the box would match an unrelated record. */
+        body: join([r.note, hostOf(r.url)])
       };
     }
 
     function learning(r) {
       return {
         title: plain(r.name),
-        meta: r.type,
-        body: join([r.note, r.url, hostOf(r.url)])
+        meta: join([r.type, arxivIds(r.url)]),
+        /* Host only, not the whole URL: the URL's own digits (an arXiv id, a
+           Zenodo record number) would otherwise become searchable tokens and
+           an id typed into the box would match an unrelated record. */
+        body: join([r.note, hostOf(r.url)])
       };
     }
 
@@ -399,6 +428,7 @@
     markHtml: markHtml,
     build: build,
     mappers: mappers,
+    plain: plain,
     weights: W
   };
 })(typeof window !== "undefined" ? window : this);

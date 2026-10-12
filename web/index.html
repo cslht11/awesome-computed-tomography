@@ -151,6 +151,7 @@
 <script id="site-data" type="application/json">{{DATA}}</script>
 <script src="./search.js"></script>
 <script src="./app.js"></script>
+<script src="./lang.js"></script>
 <script>
   // Phone: the section nav lives in a left drawer opened by the menu button.
   (function () {
@@ -214,6 +215,10 @@
       return l.paper || l.project || l.code || "";
     }
 
+    /* Minimum score for Enter to open the top match instead of filtering.
+       See the Enter handler for why this exists. */
+    var OPEN_MIN = 2;
+
     var cur = [], sel = -1, nPapers = 0;
 
     function render() {
@@ -263,9 +268,19 @@
         // An explicitly selected row opens; otherwise filter the paper list when
         // the query found papers, and fall back to the best match when it did
         // not (searching "LoDoPaB" is about the dataset, not about papers).
+        //
+        // That fallback needs a floor. Enter is the one keystroke that can send
+        // someone off-site, so it should only fire on a hit worth opening:
+        // 2 is what a name/metadata match scores, while a lone weak body hit is
+        // ~0.7 — enough to rank in the dropdown (where a click is deliberate
+        // and the row is visible) but not enough to navigate by. Without the
+        // floor, typing an arXiv id whose number happens to occur inside some
+        // other record's URL jumps to the wrong page. Anything below it filters
+        // instead, which keeps the user on this site with a visible result.
         if (o) { window.open(o.href, "_blank", "noopener"); }
         else if (nPapers) { commit(); }
-        else if (cur.length) { window.open(urlOf(cur[0].item) || "#", "_blank", "noopener"); }
+        else if (cur.length && cur[0].s >= OPEN_MIN) { window.open(urlOf(cur[0].item) || "#", "_blank", "noopener"); }
+        else { commit(); }
       } else if (e.key === "Escape") { res.hidden = true; box.blur(); }
     });
     document.getElementById("reset").addEventListener("click", function () { box.value = ""; tag.hidden = true; });

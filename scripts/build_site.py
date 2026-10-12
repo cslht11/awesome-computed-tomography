@@ -489,6 +489,7 @@ def main():
         write(os.path.join(sub, "search.js"), read(os.path.join(WEB, "search.js")))
         write(os.path.join(sub, "app.js"), read(os.path.join(WEB, "app.js")))
         write(os.path.join(sub, "chrome.js"), read(os.path.join(WEB, "chrome.js")))
+        write(os.path.join(sub, "lang.js"), read(os.path.join(WEB, "lang.js")))
         sitemap_urls.append((lang_base, "weekly", "1.0"))
 
         for name in PAGES:

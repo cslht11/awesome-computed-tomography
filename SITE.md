@@ -194,8 +194,15 @@ exists.
 
 ## What the page does
 
-- **Search** — filters as you type (120 ms debounce). Multiple words are AND-ed. Matches
-  are highlighted in the titles.
+- **Search** — typing in the top box (80 ms debounce) shows a dropdown of the best
+  matches across all five sections; **Enter** is what filters the paper list. A query is
+  scored and ranked rather than AND-ed: a record matching one word out of three is ranked
+  lower instead of being dropped, and only records matching nothing disappear. Matches are
+  highlighted in the titles.
+- **Enter's fallback** — when the query finds no paper, Enter opens the top-ranked match
+  only if it scored at least 2 (i.e. it hit a name or the metadata); a weaker lone body hit
+  filters instead. Without that floor, typing an arXiv id whose digits also occur inside
+  some other record's URL would navigate to the wrong page.
 - **Filters** — 17 topic chips (multi-select, with counts), `All / Peer-reviewed /
   Preprints`, `has code`, `from <year>`, and sorting by newest, oldest or title.
 - **Tabs** — Papers, Toolkits, Datasets, Benchmarks, Learning.

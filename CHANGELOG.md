@@ -13,6 +13,41 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — Search, sorting and language-switch fixes
+
+### Fixed
+
+- **An arXiv id typed into the search box no longer jumps to the wrong page.**
+  Toolkit, dataset, benchmark and learning records indexed their whole URL, so
+  every number inside it became a searchable token and an id matched an
+  unrelated record. They now index the host only, which is what the code always
+  said it did. The bare arXiv id is indexed separately — 151 of the papers link
+  to one — so searching `2607.14415` finds `$K$-NeAS`, the paper it belongs to,
+  instead of a dataset whose URL happens to contain `2607`.
+- **Enter needs a real hit before it navigates.** With no paper match, Enter
+  opened the top-ranked result however weak it was. It now opens only at a
+  score of 2 or more, which is what a name or metadata hit earns; a lone weak
+  body hit (~0.7) filters the list instead, so a stray keystroke cannot send
+  someone off-site.
+- **Title sort no longer files `$K$-NeAS` first.** The sort used the raw title,
+  and `$` sorts ahead of every digit and letter; it now sorts on the title as
+  displayed, with the inline TeX delimiters stripped. The comparator also
+  returns 0 for equal keys, which a `-1/1`-only comparator never did.
+- **The year filter's "and later" label is translated.** It was built as a
+  hardcoded English string; it now reads the existing `yearAndLater` key, which
+  the Chinese overlay already provides.
+- **Switching language keeps the filters.** The switch links are written at
+  build time and carry no query string, so `/zh/?tab=datasets&q=…` lost every
+  filter on switching. `web/lang.js` appends the current query once at load;
+  both templates load it.
+
+### Docs
+
+- `SITE.md` still described the search as "filters as you type … multiple words
+  are AND-ed", which stopped being true when ranking replaced the strict AND.
+  It now describes the dropdown-then-Enter behaviour and why Enter has a
+  threshold.
+
 ## 2026-10-12 — Corrected two challenge descriptions and two dataset records
 
 ### Fixed

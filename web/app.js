@@ -176,8 +176,16 @@
       rows.push({ p: p, s: rel ? rel[i] : 0 });
     }
 
+    /* Sort on the title as it is *displayed*: "$K$-NeAS" shows as "K-NeAS",
+       and sorting on the raw string would file it under "$" (0x24), ahead of
+       every digit and letter. Also returns 0 for equal keys — a comparator
+       that only ever returns -1/1 is not a valid ordering. */
+    function nameKey(p) {
+      return (p.abbr || S.plain(p.title)).toLowerCase();
+    }
     function byName(a, b) {
-      return (a.p.abbr || a.p.title).toLowerCase() < (b.p.abbr || b.p.title).toLowerCase() ? -1 : 1;
+      var x = nameKey(a.p), y = nameKey(b.p);
+      return x < y ? -1 : x > y ? 1 : 0;
     }
     if (state.sort === "title") { rows.sort(byName); }
     else if (state.sort === "old") {
@@ -527,7 +535,7 @@
       .forEach(function (y) {
         var o = document.createElement("option");
         o.value = String(y);
-        o.textContent = y + " and later";
+        o.textContent = tf("yearAndLater", "{year} and later", { year: y });
         fromSel.appendChild(o);
       });
 
