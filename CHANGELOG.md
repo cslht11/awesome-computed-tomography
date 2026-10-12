@@ -13,6 +13,15 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — DC-PnPDP findable by its name
+
+### Fixed
+
+- **DC-PnPDP** (ICML 2026) was already listed, but only under its full title, so
+  a search for "DC-PnPDP" missed it. It now carries the abbreviation, its project
+  page, and the sparse-view and limited-angle topics its CT results cover
+  (SVCT-20, LACT-90).
+
 ## 2026-10-12 — Cloudflare Web Analytics, and the privacy page that says so
 
 ### Changed

@@ -24,8 +24,8 @@
 
 | | | |
 | --- | --- | --- |
-| [综述与回顾](#综述与回顾) <sub>23</sub> | [经典与迭代重建](#经典与迭代重建) <sub>68</sub> | [稀疏视角 CT](#稀疏视角-ct) <sub>136</sub> |
-| [有限角层析](#有限角层析) <sub>44</sub> | [低剂量 CT 去噪](#低剂量-ct-去噪) <sub>58</sub> | [金属伪影校正](#金属伪影校正) <sub>21</sub> |
+| [综述与回顾](#综述与回顾) <sub>23</sub> | [经典与迭代重建](#经典与迭代重建) <sub>68</sub> | [稀疏视角 CT](#稀疏视角-ct) <sub>137</sub> |
+| [有限角层析](#有限角层析) <sub>45</sub> | [低剂量 CT 去噪](#低剂量-ct-去噪) <sub>58</sub> | [金属伪影校正](#金属伪影校正) <sub>21</sub> |
 | [能谱与双能 CT](#能谱与双能-ct) <sub>18</sub> | [锥束 CT](#锥束-ct) <sub>66</sub> | [动态与 4D CT](#动态与-4d-ct) <sub>21</sub> |
 | [散射校正](#散射校正) <sub>11</sub> | [几何标定与运动补偿](#几何标定与运动补偿) <sub>25</sub> | [深度展开与基于模型的学习](#深度展开与基于模型的学习) <sub>68</sub> |
 | [自监督与免训练方法](#自监督与免训练方法) <sub>32</sub> | [扩散与生成式先验](#扩散与生成式先验) <sub>55</sub> | [隐式神经表示](#隐式神经表示) <sub>24</sub> |
@@ -68,8 +68,8 @@
 - **Complex Wavelet-Based Sinogram Segmentation for Metal Artifact Reduction in Cone-Beam CT** — _PMB 2026_ · [论文](https://arxiv.org/abs/2602.14315)
 - **Computed Tomography Reconstruction Algorithm Using Markov Random Field Model** — _J. Phys. Soc. Jpn. 2026_ · [论文](https://arxiv.org/abs/2605.11637)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [论文](https://arxiv.org/abs/2509.13576)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [论文](https://arxiv.org/abs/2602.23214) · [代码](https://github.com/duchenhe/DC-PnPDP) · [项目页](https://duchenhe.com/project/DCPnPDP/)
 - **H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows** — _ICPR 2026_ · [论文](https://arxiv.org/abs/2605.12252)
-- **Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [论文](https://arxiv.org/abs/2602.23214) · [代码](https://github.com/duchenhe/DC-PnPDP)
 - **Robustness and Stability Analysis of Differentiable Shift-Variant FBP for Cone-Beam CT under Challenging Acquisition Settings** — _MELBA 2026_ · [论文](https://arxiv.org/abs/2607.09828) · [项目页](https://melba-journal.org/2026:014)
 - **Variational Garrote for Sparse Inverse Problems** — _J. Comput. Sci. 2026_ · [论文](https://doi.org/10.1016/j.jocs.2026.102980)
 - **An Iterative Reconstruction Method for Dental Cone-Beam Computed Tomography with a Truncated Field of View** — _预印本 2025_ · [论文](https://arxiv.org/abs/2508.07618)
@@ -138,13 +138,14 @@
 
 ### 稀疏视角 CT
 
-<sub>投影角度数量不足时的重建 · 136 篇论文</sub>
+<sub>投影角度数量不足时的重建 · 137 篇论文</sub>
 
 - **3D Field of Junctions: A Noise-Robust, Training-Free Structural Prior for Volumetric Inverse Problems** — _ECCV 2026_ · [论文](https://arxiv.org/abs/2603.02149) · [代码](https://github.com/voilalab/3D-Field-of-Junctions)
 - **CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction** — _BMVC 2026_ · [论文](https://arxiv.org/abs/2608.15246)
 - **Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2604.21960)
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2602.07980)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [论文](https://arxiv.org/abs/2509.13576)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [论文](https://arxiv.org/abs/2602.23214) · [代码](https://github.com/duchenhe/DC-PnPDP) · [项目页](https://duchenhe.com/project/DCPnPDP/)
 - **DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction** — _TMI 2026_ · [论文](https://doi.org/10.1109/tmi.2026.3674948) · [代码](https://github.com/xmed-lab/DeepSparse)
 
   DiCE（双维跨尺度嵌入）由 HyViP（混合视角采样预训练）在稀疏视角与密集视角投影上共同预训练，再经两步微调适配新数据集。作者称其为首个面向稀疏视角 CBCT 重建的基础模型。
@@ -285,9 +286,10 @@
 
 ### 有限角层析
 
-<sub>角度楔形缺失，零空间使问题严重病态 · 44 篇论文</sub>
+<sub>角度楔形缺失，零空间使问题严重病态 · 45 篇论文</sub>
 
 - **CryoDeRec: A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation** — _CVPR 2026_ · [论文](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html) · [代码](https://github.com/ZhidongYang/CryoDeRec)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [论文](https://arxiv.org/abs/2602.23214) · [代码](https://github.com/duchenhe/DC-PnPDP) · [项目页](https://duchenhe.com/project/DCPnPDP/)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [论文](https://arxiv.org/abs/2510.23317)
 - **Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT** — _预印本 2026_ · [论文](https://arxiv.org/abs/2610.08866)
 - **High-Precision Image Reconstruction for Binary-Valued X-Ray CT From Limited-View Projections** — _TIM 2026_ · [论文](https://doi.org/10.1109/tim.2026.3670565)
@@ -723,6 +725,7 @@
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2602.07980)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [论文](https://arxiv.org/abs/2509.13576)
 - **Cross-Modal Guidance for Fast Diffusion-Based Computed Tomography** — _ICASSP 2026_ · [论文](https://arxiv.org/abs/2603.01253)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [论文](https://arxiv.org/abs/2602.23214) · [代码](https://github.com/duchenhe/DC-PnPDP) · [项目页](https://duchenhe.com/project/DCPnPDP/)
 - **DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction** — _AAAI 2026_ · [论文](https://arxiv.org/abs/2604.21518) · [项目页](https://ooonesevennn.github.io/DiffNR/)
 - **DINR: Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data** — _ICASSP 2026_ · [论文](https://arxiv.org/abs/2603.10947)
 - **DM4CT: Benchmarking Diffusion Models for CT Reconstruction** — _ICLR 2026_ · [论文](https://arxiv.org/abs/2602.18589) · [代码](https://github.com/DM4CT/DM4CT)
@@ -734,7 +737,6 @@
 - **ISCS: Improving 2D Diffusion Models for 3D Medical Imaging with Inter-Slice Consistent Stochasticity** — _ICLR 2026_ · [论文](https://arxiv.org/abs/2602.04162) · [代码](https://github.com/duchenhe/ISCS)
 - **KLIP: Localized Distribution Shift Detection via KL-Divergence with Diffusion Priors in Inverse Problems** — _CVPR 2026_ · [论文](https://arxiv.org/abs/2605.31596) · [代码](https://github.com/voilalab/KLIP)
 - **LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2606.16212)
-- **Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [论文](https://arxiv.org/abs/2602.23214) · [代码](https://github.com/duchenhe/DC-PnPDP)
 - **Spectral Consistent Flow for One-Step 3D Medical Image Translation** — _ECCV 2026_ · [论文](https://arxiv.org/abs/2607.10627)
 - **Toward a Foundation Plug-and-Play Prior for Computed Tomography Reconstruction via a Multimodal Diffusion Model** — _SC Workshops 2026_ · [论文](https://arxiv.org/abs/2608.23190)
 - **Toward CT-Equivalent Image Quality in Low-Dose Radiotherapy Planning: Conditional Diffusion-Based CBCT-to-CT Synthesis and the Impact of CBCT Input Representation** — _预印本 2026_ · [论文](https://arxiv.org/abs/2608.08919)

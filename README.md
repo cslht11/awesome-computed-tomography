@@ -24,8 +24,8 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 | | | |
 | --- | --- | --- |
-| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>68</sub> | [Sparse-View CT](#sparse-view-ct) <sub>136</sub> |
-| [Limited-Angle Tomography](#limited-angle-tomography) <sub>44</sub> | [Low-Dose CT Denoising](#low-dose-ct-denoising) <sub>58</sub> | [Metal Artifact Reduction](#metal-artifact-reduction) <sub>21</sub> |
+| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>68</sub> | [Sparse-View CT](#sparse-view-ct) <sub>137</sub> |
+| [Limited-Angle Tomography](#limited-angle-tomography) <sub>45</sub> | [Low-Dose CT Denoising](#low-dose-ct-denoising) <sub>58</sub> | [Metal Artifact Reduction](#metal-artifact-reduction) <sub>21</sub> |
 | [Spectral & Dual-Energy CT](#spectral--dual-energy-ct) <sub>18</sub> | [Cone-Beam CT](#cone-beam-ct) <sub>66</sub> | [Dynamic & 4D CT](#dynamic--4d-ct) <sub>21</sub> |
 | [Scatter Correction](#scatter-correction) <sub>11</sub> | [Geometry Calibration & Motion Compensation](#geometry-calibration--motion-compensation) <sub>25</sub> | [Deep Unrolling & Model-Based Learning](#deep-unrolling--model-based-learning) <sub>68</sub> |
 | [Self-Supervised & Untrained Methods](#self-supervised--untrained-methods) <sub>32</sub> | [Diffusion & Generative Priors](#diffusion--generative-priors) <sub>55</sub> | [Implicit Neural Representations](#implicit-neural-representations) <sub>24</sub> |
@@ -68,8 +68,8 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Complex Wavelet-Based Sinogram Segmentation for Metal Artifact Reduction in Cone-Beam CT** — _PMB 2026_ · [Paper](https://arxiv.org/abs/2602.14315)
 - **Computed Tomography Reconstruction Algorithm Using Markov Random Field Model** — _J. Phys. Soc. Jpn. 2026_ · [Paper](https://arxiv.org/abs/2605.11637)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [Paper](https://arxiv.org/abs/2509.13576)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2602.23214) · [Code](https://github.com/duchenhe/DC-PnPDP) · [Project](https://duchenhe.com/project/DCPnPDP/)
 - **H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows** — _ICPR 2026_ · [Paper](https://arxiv.org/abs/2605.12252)
-- **Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2602.23214) · [Code](https://github.com/duchenhe/DC-PnPDP)
 - **Robustness and Stability Analysis of Differentiable Shift-Variant FBP for Cone-Beam CT under Challenging Acquisition Settings** — _MELBA 2026_ · [Paper](https://arxiv.org/abs/2607.09828) · [Project](https://melba-journal.org/2026:014)
 - **Variational Garrote for Sparse Inverse Problems** — _J. Comput. Sci. 2026_ · [Paper](https://doi.org/10.1016/j.jocs.2026.102980)
 - **An Iterative Reconstruction Method for Dental Cone-Beam Computed Tomography with a Truncated Field of View** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2508.07618)
@@ -138,13 +138,14 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Sparse-View CT
 
-<sub>Reconstruction from a reduced number of projection angles · 136 papers</sub>
+<sub>Reconstruction from a reduced number of projection angles · 137 papers</sub>
 
 - **3D Field of Junctions: A Noise-Robust, Training-Free Structural Prior for Volumetric Inverse Problems** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2603.02149) · [Code](https://github.com/voilalab/3D-Field-of-Junctions)
 - **CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction** — _BMVC 2026_ · [Paper](https://arxiv.org/abs/2608.15246)
 - **Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2604.21960)
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.07980)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [Paper](https://arxiv.org/abs/2509.13576)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2602.23214) · [Code](https://github.com/duchenhe/DC-PnPDP) · [Project](https://duchenhe.com/project/DCPnPDP/)
 - **DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction** — _TMI 2026_ · [Paper](https://doi.org/10.1109/tmi.2026.3674948) · [Code](https://github.com/xmed-lab/DeepSparse)
 
   DiCE (Dual-Dimensional Cross-Scale Embedding) pre-trained by HyViP (Hybrid View Sampling Pretraining) on both sparse- and dense-view projections, then fine-tuned in two steps. Presented as the first foundation model for sparse-view CBCT.
@@ -285,9 +286,10 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Limited-Angle Tomography
 
-<sub>Missing angular wedge, where the null space makes the problem severely ill-posed · 44 papers</sub>
+<sub>Missing angular wedge, where the null space makes the problem severely ill-posed · 45 papers</sub>
 
 - **CryoDeRec: A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html) · [Code](https://github.com/ZhidongYang/CryoDeRec)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2602.23214) · [Code](https://github.com/duchenhe/DC-PnPDP) · [Project](https://duchenhe.com/project/DCPnPDP/)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [Paper](https://arxiv.org/abs/2510.23317)
 - **Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.08866)
 - **High-Precision Image Reconstruction for Binary-Valued X-Ray CT From Limited-View Projections** — _TIM 2026_ · [Paper](https://doi.org/10.1109/tim.2026.3670565)
@@ -723,6 +725,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.07980)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [Paper](https://arxiv.org/abs/2509.13576)
 - **Cross-Modal Guidance for Fast Diffusion-Based Computed Tomography** — _ICASSP 2026_ · [Paper](https://arxiv.org/abs/2603.01253)
+- **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2602.23214) · [Code](https://github.com/duchenhe/DC-PnPDP) · [Project](https://duchenhe.com/project/DCPnPDP/)
 - **DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction** — _AAAI 2026_ · [Paper](https://arxiv.org/abs/2604.21518) · [Project](https://ooonesevennn.github.io/DiffNR/)
 - **DINR: Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data** — _ICASSP 2026_ · [Paper](https://arxiv.org/abs/2603.10947)
 - **DM4CT: Benchmarking Diffusion Models for CT Reconstruction** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2602.18589) · [Code](https://github.com/DM4CT/DM4CT)
@@ -734,7 +737,6 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **ISCS: Improving 2D Diffusion Models for 3D Medical Imaging with Inter-Slice Consistent Stochasticity** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2602.04162) · [Code](https://github.com/duchenhe/ISCS)
 - **KLIP: Localized Distribution Shift Detection via KL-Divergence with Diffusion Priors in Inverse Problems** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2605.31596) · [Code](https://github.com/voilalab/KLIP)
 - **LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2606.16212)
-- **Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2602.23214) · [Code](https://github.com/duchenhe/DC-PnPDP)
 - **Spectral Consistent Flow for One-Step 3D Medical Image Translation** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2607.10627)
 - **Toward a Foundation Plug-and-Play Prior for Computed Tomography Reconstruction via a Multimodal Diffusion Model** — _SC Workshops 2026_ · [Paper](https://arxiv.org/abs/2608.23190)
 - **Toward CT-Equivalent Image Quality in Low-Dose Radiotherapy Planning: Conditional Diffusion-Based CBCT-to-CT Synthesis and the Impact of CBCT Input Representation** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2608.08919)

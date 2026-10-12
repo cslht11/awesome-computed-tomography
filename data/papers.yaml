@@ -2117,12 +2117,14 @@
   project: "https://open-pros.github.io/"
 
 - id: "dc-pnpdp"
+  abbr: "DC-PnPDP"
   title: "Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction"
   year: 2026
   venue: "ICML"
-  topics: [diffusion, classical]
+  topics: [diffusion, sparse-view, limited-angle, classical]
   paper: "https://arxiv.org/abs/2602.23214"
   code: "https://github.com/duchenhe/DC-PnPDP"
+  project: "https://duchenhe.com/project/DCPnPDP/"
 
 - id: "ram"
   abbr: "RAM"
