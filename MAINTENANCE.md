@@ -24,7 +24,11 @@ awesome-computed-tomography/
 │   ├── export_site_data.py      the JSON payload on its own (build_site uses it too)
 │   ├── i18n.py                  overlay lookup and the orphan-key checker
 │   ├── check_links.py           link-health sweep; writes into scripts/oneoff/
+│   ├── install-hooks.sh         copies hooks/ into .git/hooks/ (see below)
 │   └── oneoff/                  the harvest history — how each entry was found
+├── hooks/                       authorship guards — MUST be installed after a clone
+│   ├── pre-commit              rejects any commit whose user.email is not cslht11's
+│   └── pre-push                rejects pushing any commit not authored by cslht11
 ├── web/                         the site's source; no framework, no bundler
 │   ├── index.html               the one page: tabs, filters, the top-bar search
 │   ├── page.html, pages/        About / Contact / Privacy
@@ -53,6 +57,10 @@ To change something, edit the left column and rerun the right one:
 | anything about the website | `web/` | `python scripts/build_site.py` |
 | the site's title, origin or licence | `site.config.yml` | `python scripts/build_site.py` |
 | how the build behaves | `scripts/` | run it; if it is the search, run `tests/` too |
+
+**After cloning, run `sh scripts/install-hooks.sh` once.** Git deliberately never
+enables a repository's own `hooks/` directory, so the authorship guards are inert
+until they are copied into `.git/hooks/`.
 
 **Generated, never hand-edited:** `README.md`, `README.zh-CN.md` and `site/`.
 Editing them by hand produces a change the next build erases, and CI fails the
@@ -267,14 +275,36 @@ So the rule is: **do not let a pull request come into existence on this reposito
 | Apply a dependency bump by hand, as a cslht11 commit, then close the bot's PR unmerged | Merge a bot's pull request "just this once" |
 | Keep Dependabot **security alerts** on — they are a separate setting, need no config file, and create no commits | Assume closing an unmerged pull request keeps the graph clean |
 
-Two guards are in place:
+Three guards are in place. The first two ship in `hooks/` and are installed by
+`sh scripts/install-hooks.sh` — Git never enables a repository's own `hooks/`
+directory on its own, so a fresh clone has no protection until that is run:
 
-1. `.git/hooks/pre-commit` (local, not committed) refuses any commit whose
-   `user.email` is not `cslht11@users.noreply.github.com`.
-2. Before pushing, run `python github_code/local/sync_check.py` and check the
-   contributor line. After pushing, confirm with
-   `curl -s https://github.com/cslht11/awesome-computed-tomography/graphs/contributors-data | grep -o '"login":"[^"]*"'`
-   — it must list `cslht11` and nothing else.
+1. **`hooks/pre-commit`** refuses any commit whose `user.email` is not
+   `cslht11@users.noreply.github.com`. This catches the account-mix-up case:
+   this machine holds two GitHub accounts, and only cslht11 may sign here.
+2. **`hooks/pre-push`** walks every commit about to be pushed and refuses if any
+   author is not `cslht11`. This is the one that actually matters — squash-merging
+   signs with *the pull request author's* identity, which has nothing to do with
+   local `git config`, so `pre-commit` cannot see it coming. It is what would have
+   stopped `dependabot[bot]` at the door.
+3. **Verify after pushing**, because no hook can see what GitHub computed:
+   ```
+   curl -s https://github.com/cslht11/awesome-computed-tomography/graphs/contributors-data \
+     | grep -o '"login":"[^"]*"'
+   ```
+   It must print `"login":"cslht11"` and nothing else. A `202` response means
+   GitHub is still recalculating — wait a minute and retry. This is the same
+   endpoint the Insights page reads, so it is the page's own answer, not a proxy
+   for it. (`gh api repos/.../graphs/contributors-data` will 404: the endpoint has
+   no `/repos/` prefix and is not part of the REST API.)
+
+One thing worth knowing, because it is counter-intuitive and it changes what is
+worth doing about it: **the contributor graph counts commits on the default branch
+and anything a tag can still reach — it does not read `refs/pull/*`.** After the
+`dependabot[bot]` commit was rewritten, `refs/pull/1/head` still pointed at the bot's
+commit and still could not be deleted, and the graph was clean anyway. So a leftover
+pull request ref is untidy but harmless; recreating the repository to get rid of one
+is not worth the custom-domain certificate reissue.
 
 ## Failure modes seen so far
 

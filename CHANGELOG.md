@@ -30,6 +30,18 @@ may be reformatted at any time.
   cslht11 commits from here on. Dependabot **security alerts** are a separate
   setting that needs no configuration file, and stay on.
 
+### Added (authorship guards)
+
+- **`hooks/` and `scripts/install-hooks.sh`.** The two guards that keep this from
+  happening again lived only in one clone's `.git/hooks/`, which is to say they were
+  one recloning away from not existing. Both are now in the repository and installed
+  by one command, which the repository map now says to run after a clone.
+  - `hooks/pre-commit` — refuses a commit whose `user.email` is not cslht11's.
+  - `hooks/pre-push` — refuses any push containing a commit not authored by cslht11.
+    This is the one that would have stopped `dependabot[bot]`: squash-merging signs
+    with the pull request author's identity, which local `git config` never sees, so
+    no `pre-commit` hook can catch it.
+
 ## 2026-10-12 — Licences made precise, structure written down, payload 16% smaller
 
 ### Fixed (licensing)

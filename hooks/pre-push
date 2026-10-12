@@ -1,0 +1,45 @@
+#!/bin/sh
+# 本仓库的贡献者图里只允许出现 cslht11 一个账号。
+#
+# 起因（2026-10-12）：squash 合并 Dependabot 的 PR 后，main 上那笔提交的
+# author 变成了 dependabot[bot]，于是 Insights -> Contributors 里凭空多出
+# 第二个"作者"。而 refs/pull/N/head 是只读的（API 返回
+# "refs/pull/* is read-only"），删不掉 —— 一旦有 PR 存在过，痕迹就在。
+#
+# 光检查 user.email 不够：squash/merge 会用 PR 作者的身份署名，跟本机
+# user.email 无关。所以这道钩子检查的是**将要推上去的每一笔提交的作者**，
+# 而不是本机配置。
+#
+# 由 scripts/install-hooks.sh 安装到 .git/hooks/。
+
+want_name="cslht11"
+want_mail="cslht11@users.noreply.github.com"
+
+zero="0000000000000000000000000000000000000000"
+bad=0
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue          # 删除分支，无需检查
+
+  if [ "$remote_sha" = "$zero" ]; then
+    range="$local_sha"                             # 新分支
+  else
+    range="$remote_sha..$local_sha"                # 增量
+  fi
+
+  offenders=$(git log --format='%h %an <%ae>' "$range" 2>/dev/null |
+    awk -v n="$want_name" -v m="$want_mail" '{ if ($2 != n || $3 != "<" m ">") print }')
+
+  if [ -n "$offenders" ]; then
+    echo "推送被拒绝：$local_ref 上发现非 cslht11 署名的提交：" >&2
+    echo "$offenders" | sed 's/^/    /' >&2
+    echo >&2
+    echo "贡献者图只统计默认分支上的提交，任何一笔非 cslht11 的提交都会" >&2
+    echo "变成一个永久的第二个'作者'。修正办法：" >&2
+    echo "    git rebase --exec 'git commit --amend --reset-author --no-edit' <base>" >&2
+    echo "或见 MAINTENANCE.md「Sole authorship」一节。" >&2
+    bad=1
+  fi
+done
+
+exit $bad
