@@ -423,6 +423,40 @@ Survey papers are **not** listed here — file them under `data/papers.yaml` wit
 the `survey` topic, so they appear in the Papers section instead of being
 duplicated.
 
+### Checklist: adding one paper
+
+One entry is never one edit. `data/papers.yaml` is the only hand-written file,
+but five other things are derived from it or have to be kept beside it, and
+each one is silent when you skip it — the build still succeeds, the site still
+serves, and the gap only shows up as a stale number somewhere.
+
+| # | Do | Why | What happens if you skip it |
+| --- | --- | --- | --- |
+| 1 | Add the entry to `data/papers.yaml` | The only source of truth | — |
+| 2 | **Resolve the identifiers first** — Crossref by exact title (accept at ≥ 0.90 similarity), arXiv only as a fallback | A PDF-to-markdown conversion keeps the arXiv ids of the *bibliography*, not of the paper. Two entries in this list got a wrong DOI that way | A plausible-looking link to a different paper |
+| 3 | If the entry has a `note`, add `zh.yaml` → `papers: "<id>": note:` | The list is bilingual; `build.py` prints the shortfall rather than failing | `README.zh-CN.md` prints one English paragraph among 500 Chinese ones |
+| 4 | Run `python scripts/build.py` | Rewrites both READMEs and re-validates | The README says 391 papers while the data says 392 |
+| 5 | Run `python scripts/build_site.py` | Rewrites `site/`, including `data.json`, `sitemap.xml` and the cover counts | Local preview stale — harmless locally, but it is how you notice step 4 was skipped |
+| 6 | Run `node tests/test_search.js` | The search index is built from the payload in the browser | Nothing breaks; you just stop noticing when it does |
+| 7 | Add a dated entry to `CHANGELOG.md` | There are no version numbers, so the changelog *is* the history | The change is invisible to anyone not reading diffs |
+| 8 | Commit as cslht11 and push | `hooks/pre-push` refuses any commit that is not | Push rejected |
+| 9 | Wait for `validate` **and** `Deploy site to GitHub Pages` | Two workflows; only the second one publishes | GitHub is ahead of the website |
+| 10 | Confirm the live `data.json` counts match the local build | The one check no hook can do, because it is the only one that sees what GitHub actually computed | — |
+
+`site/` is gitignored — it is a build artifact, never committed. That is
+deliberate, and it is why step 9 matters: the website is built from the pushed
+data, not from anyone's working copy.
+
+Two more that are easy to miss because they are not about the new entry:
+
+- **`web/pages/{about,contact,privacy}.html` are the maintainers' copy of the
+  English; `data/i18n/en.yaml` `pages.*` is what the build serves.** Edit one
+  and `build_site.py` prints a note about the drift. A note that always fires
+  is a note nobody reads, so fix it the same day.
+- **Adding a `note` to a paper also changes the count in the status comment at
+  the top of `zh.yaml`** — but only if the note is on a toolkit, dataset,
+  benchmark or learning entry. That count covers the four tables, not papers.
+
 ### How entries are verified
 
 Every link in this list was opened before being added, and papers were resolved
