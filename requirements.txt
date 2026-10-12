@@ -1,1 +1,8 @@
-PyYAML>=6.0
+# The build needs PyYAML and nothing else: no linters, no site tooling, no JS
+# build step. The generator is deliberately stdlib + one library, so a checkout
+# can still be rebuilt years from now.
+#
+# Upper-bounded on purpose. YAML 6.x is the only major this build has been tested
+# against, and a major bump should be a deliberate change with the tests run —
+# not something CI installs on its own the next morning.
+PyYAML>=6.0,<7

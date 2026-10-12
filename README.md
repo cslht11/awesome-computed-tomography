@@ -1030,10 +1030,10 @@ This list is curated and maintained by its authors; pull requests are not accept
 
 ## License
 
-The content (`data/`, this README and the website) is licensed under [CC BY-NC-SA 4.0](LICENSE-content):
+The content (`data/`, this README and the rendered pages) is licensed under [CC BY-NC-SA 4.0](LICENSE-content):
 
 - **Attribution**: credit this list when you use it.
 - **NonCommercial**: no commercial use. For commercial use, ask first.
 - **ShareAlike**: adaptations must be shared under the same licence.
 
-Code (`scripts/`, `web/`, `.github/`) is [MIT](LICENSE). License columns describe the listed projects, not this one, and each entry points to a paper rather than copying it.
+Code (`scripts/`, `web/`, `.github/`, `assets/`, `site.config.yml`) is [MIT](LICENSE) — including the client scripts the build copies into `site/`. License columns describe the listed projects, not this one, and each entry points to a paper rather than copying it.

@@ -1,23 +1,42 @@
-# Content licence
+# Licences
 
-The **content** of this repository is licensed under the Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
+This repository is licensed in two parts, and the split is deliberate: a
+Creative Commons licence is written for **content**, not for software, so the
+code is MIT. The reasoning is in [MAINTENANCE.md](MAINTENANCE.md).
 
-    data/*.yaml          the curated records
-    README.md            generated from the above
-    README.zh-CN.md      generated from the above
-    site/                the generated website (not committed)
+## Content — CC BY-NC-SA 4.0
 
-**Code** is licensed separately under the MIT License — see [LICENSE](LICENSE).
-That covers `scripts/`, `web/` and `.github/`.
+    data/*.yaml                     the curated records
+    data/i18n/*.yaml                translated prose and interface strings
+    README.md, README.zh-CN.md      generated from the above
+    CHANGELOG.md, MAINTENANCE.md, SITE.md
+    site/**/*.html                  the rendered pages
+    site/data.json                  the rendered data payload
+    site/sitemap.xml, site/robots.txt
 
-In short:
+## Code — MIT
 
-- **Attribution** — credit this list when you use it.
+See [LICENSE](LICENSE).
+
+    scripts/                        the build pipeline
+    web/                            templates, stylesheet, client scripts
+    .github/                        CI, issue templates
+    assets/                         logo.svg
+    site.config.yml                 site configuration
+
+`web/*.js` and `web/*.css` are copied into `site/` verbatim by the build, so
+those generated copies — `site/app.js`, `site/search.js`, `site/chrome.js`,
+`site/styles.css` — stay under MIT: they are code, not content. Everything else
+under `site/` is generated from `data/` and is content.
+
+## In short
+
+- **Attribution** — credit this list when you use the content.
 - **NonCommercial** — no commercial use of the content.
-- **ShareAlike** — if you adapt it, share your version under the same licence.
+- **ShareAlike** — if you adapt the content, share your version under the same
+  licence.
 
-For commercial use, ask first: heitieya@163.com.
+For commercial use of the content, ask first: heitieya@163.com.
 
 The `License` columns in the toolkit and dataset tables describe **those
 projects**, not this list. Paper titles, venue names and links are facts about
@@ -28,7 +47,7 @@ never a copy of it.
     Legal code:  https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
     Attribution: "Awesome Computed Tomography" — https://computedtomography.org/
 
-The full legal code follows, verbatim and unmodified.
+The full legal code of the content licence follows, verbatim and unmodified.
 
 ========================================================================
 

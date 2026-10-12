@@ -13,6 +13,55 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — Licences made precise, structure written down, payload 16% smaller
+
+### Fixed (licensing)
+
+- **The content/code boundary was wrong in two places.** `LICENSE-content` listed
+  `site/` as content, but the build copies `web/*.js` and `web/*.css` into it
+  verbatim — so the same bytes were claimed under both licences. It also missed
+  `data/i18n/*.yaml` entirely (`data/*.yaml` does not match a subdirectory), which is
+  where all the translated prose lives. Both files now list their paths explicitly,
+  including the `site/*.js` and `site/*.css` carve-out.
+- `MAINTENANCE.md` explains **why the code is not under the same licence as the
+  content** — CC advises against its licences for software: they say nothing about
+  patents or about source versus object form, NonCommercial is not an open-source
+  licence (the OSI and the DFSG both reject it), and ShareAlike is viral over code.
+  The consequence of NC is stated plainly too, rather than left implied.
+
+### Added (structure)
+
+- **A repository map in `MAINTENANCE.md`** — every directory and file, plus a
+  "to change X, edit Y, then run Z" table. Written for someone arriving with no
+  context, which is what the file is for.
+- **`tests/`, in the repository.** The search tests lived in a private ops
+  directory; a test that is not next to the code it tests is a test that rots.
+  `tests/test_search.js` needs no packages and now runs in `validate.yml` after the
+  site build; `tests/test_site_dom.js` drives the real pages in jsdom and stays a
+  local pre-push check on purpose — a workflow that can go red because a registry
+  was unreachable teaches people to ignore red, which is the argument `SITE.md`
+  already makes for keeping the deploy workflow off pull requests.
+
+### Changed (maintenance)
+
+- **GitHub Actions brought up to current majors**: `checkout` v4 → v7,
+  `setup-python` v5 → v7, `upload-pages-artifact` v3 → v5, `deploy-pages` v4 → v5.
+  The deploy log had been warning that `deploy-pages@v4` still targets Node 20.
+- **Dependabot added** (`.github/dependabot.yml`) for the actions and for PyYAML,
+  grouped so it opens one pull request per ecosystem rather than a stream.
+- `requirements.txt` upper-bounds PyYAML (`>=6.0,<7`): a major bump should be a
+  deliberate change with the tests run, not something CI picks up overnight.
+
+### Changed (payload)
+
+- **The `_q` search blob is gone** (payload schema 1 → 2). It was a lower-cased
+  concatenation of title, abbreviation, venue, topic names, note and link hosts,
+  shipped so the client could substring-match one string. `web/search.js` builds a
+  weighted index in the browser from the structured fields instead, so the blob was
+  duplicated content with no remaining reader — ~68,000 characters of it.
+  `index.html` 541 KB → **472 KB**, `data.json` 263 KB → **192 KB**, the whole site
+  868 KB → **727 KB**, and one less derived field to keep in sync.
+
 ## 2026-10-12 — The site's search actually works now, and stops throwing
 
 Two name collisions were breaking the site's JavaScript. Both were pre-existing, both were

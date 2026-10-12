@@ -33,23 +33,17 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build import load, url_of, validate, REPO, ROOT  # noqa: E402
 import i18n  # noqa: E402
 
-SCHEMA = 1
+# 2 — dropped the per-paper `_q` blob. It was a lower-cased concatenation of
+#     title + abbr + venue + topic names + note + link hosts, shipped purely so
+#     the client could run substring matching over one string. web/search.js now
+#     builds a weighted index in the browser from the structured fields instead,
+#     which is both better (field weights, ranking) and smaller (the blob was
+#     ~68k characters, duplicated content that was also in the payload). A
+#     consumer that still wants a flat haystack should join those fields itself.
+SCHEMA = 2
 OUT_DEFAULT = os.path.join(ROOT, "site", "data.json")
 
 PAPER_URL_FIELDS = ("paper", "code", "project", "data")
-
-
-def link_host(url):
-    """Host plus last path segment, for the client-side search blob."""
-    if not url:
-        return ""
-    m = re.match(r"^https?://([^/]+)/(.*)$", str(url))
-    if not m:
-        return ""
-    host, rest = m.group(1), m.group(2).rstrip("/")
-    tail = rest.split("/")[-1] if rest else ""
-    tail = re.sub(r"v\d+$", "", tail)
-    return "%s %s" % (host, tail)
 
 
 def build_payload(lang=None):
@@ -117,13 +111,6 @@ def build_payload(lang=None):
         for k in PAPER_URL_FIELDS:
             if e.get(k):
                 rec["links"][k] = e[k]
-
-        blob = [e["title"], e.get("abbr") or "", venue or "preprint"]
-        if note:
-            blob.append(note)
-        blob += [topic_name.get(t, t) for t in e["topics"]]
-        blob += [link_host(e.get(k)) for k in PAPER_URL_FIELDS if e.get(k)]
-        rec["_q"] = re.sub(r"\s+", " ", " ".join(blob)).strip().lower()
         out_papers.append(rec)
 
     def side(items, table, key, urlkeys, extra):

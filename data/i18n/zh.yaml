@@ -203,11 +203,11 @@ readme:
   backToTop: "回到顶部"
   contactHeading: "联系方式"
   contactBody: "本列表由作者策展并维护，不接受拉取请求。如有疑问、勘误，或希望增删某篇论文，请提交 [issue](https://github.com/{repo}/issues) 或发送邮件至 **[heitieya@163.com](mailto:heitieya@163.com)**。"
-  licenseIntro: "内容（`data/`、本 README 与生成的网站）采用 [CC BY-NC-SA 4.0](LICENSE-content) 许可："
+  licenseIntro: "内容（`data/`、本 README 与生成的页面）采用 [CC BY-NC-SA 4.0](LICENSE-content) 许可："
   licenseAttribution: "**署名**：使用时请注明出处。"
   licenseNonCommercial: "**非商业性使用**：不得用于商业用途，如需商用请先联系。"
   licenseShareAlike: "**相同方式共享**：改编作品须以相同许可发布。"
-  licenseCodeColumn: "代码（`scripts/`、`web/`、`.github/`）采用 [MIT](LICENSE) 许可。表格中的许可列描述的是**那些项目自身**而非本列表；每条条目都只是指向论文的链接，从不复制论文内容。"
+  licenseCodeColumn: "代码（`scripts/`、`web/`、`.github/`、`assets/`、`site.config.yml`）采用 [MIT](LICENSE) 许可，其中构建时复制进 `site/` 的前端脚本同样属于 MIT。表格中的许可列描述的是**那些项目自身**而非本列表；每条条目都只是指向论文的链接，从不复制论文内容。"
 
 # ----------------------------------------------------------------- 主题（17 个）
 topics:
@@ -581,7 +581,7 @@ pages:
     <p>同样的数据也以 <a href="{{REPO_URL}}" target="_blank" rel="noopener">GitHub README</a> 和 <a href="{{ROOT}}data.json">data.json</a> 发布。两者由同一份源文件生成，因此不会与本站产生分歧。</p>
 
     <h2>许可与复用</h2>
-    <p>内容（精选记录、README 与本网站）采用 <a href="{{CONTENT_LICENSE_URL}}" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可：</p>
+    <p>内容（精选记录、README 与生成的页面）采用 <a href="{{CONTENT_LICENSE_URL}}" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可：</p>
     <ul>
       <li><strong>署名。</strong> 注明“Awesome Computed Tomography”并链接到 computedtomography.org。</li>
       <li><strong>非商业性使用。</strong> 不得用于商业用途。如需商业使用，请先邮件联系 <a href="mailto:heitieya@163.com">heitieya@163.com</a>。</li>

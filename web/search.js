@@ -338,10 +338,12 @@
         title: plain(p.title),
         abbr: p.abbr,
         meta: join([p.venue, p.year, topics, p.preprint ? "preprint" : ""]),
-        /* `_q` is the server's flat blob (title + abbr + venue + topic names +
-           note + link hosts) and is kept as a catch-all at the lowest weight,
-           so anything not named above is still findable. */
-        body: join([p._q, hostOf(links.paper || links.project || links.code)])
+        /* Everything below the fields above still has to be findable: the
+           landmark note, and the link host so "github" or "arxiv" narrows.
+           These used to arrive pre-joined as a `_q` blob from the exporter;
+           building it here instead keeps one source of truth and drops ~68k
+           characters of duplicated payload (payload schema 2). */
+        body: join([p.note, hostOf(links.paper || links.project || links.code)])
       };
     }
 

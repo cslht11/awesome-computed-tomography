@@ -15,9 +15,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
 
@@ -51,3 +51,19 @@ jobs:
       # nothing to diff afterwards.
       - name: Build the site
         run: python scripts/build_site.py
+
+      # The search core is plain JS with no dependencies, so testing it needs
+      # only Node — no npm install, nothing to flake. It runs last because it
+      # reads the payloads the previous step generated (site/ is git-ignored, so
+      # this is the only point at which they exist).
+      #
+      # tests/test_site_dom.js, which drives the real pages in jsdom, is
+      # deliberately NOT here: it needs jsdom from npm, and a job that can go red
+      # because a registry was unreachable teaches people to ignore red. It is a
+      # pre-push check instead; tests/README.md says how to run it.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: Test the search core
+        run: node tests/test_search.js

@@ -4,6 +4,60 @@ Maintainer notes. This list is curated and maintained by its authors only; it do
 not take outside pull requests. Suggestions come in as issues or by email
 (heitieya@163.com), and a maintainer verifies and adds them.
 
+## Repository map
+
+```
+awesome-computed-tomography/
+├── data/                        the only hand-edited content
+│   ├── papers.yaml              papers
+│   ├── toolkits.yaml            toolkits and libraries
+│   ├── datasets.yaml            datasets
+│   ├── benchmarks.yaml          benchmarks and challenges
+│   ├── learning.yaml            books, courses, tutorials
+│   ├── meta.yaml                the topic taxonomy + the language registry
+│   └── i18n/
+│       ├── en.yaml              every user-visible string, English (source of truth)
+│       └── zh.yaml              Chinese overlay; a missing key falls back to English
+├── scripts/                     the build pipeline, all of it
+│   ├── build.py                 data/*.yaml -> both READMEs, and the validator
+│   ├── build_site.py            templates + payload + origin -> site/<lang>/
+│   ├── export_site_data.py      the JSON payload on its own (build_site uses it too)
+│   ├── i18n.py                  overlay lookup and the orphan-key checker
+│   ├── check_links.py           link-health sweep; writes into scripts/oneoff/
+│   └── oneoff/                  the harvest history — how each entry was found
+├── web/                         the site's source; no framework, no bundler
+│   ├── index.html               the one page: tabs, filters, the top-bar search
+│   ├── page.html, pages/        About / Contact / Privacy
+│   ├── styles.css               all styling; light and dark from one token set
+│   ├── search.js                the search core: tokenise, index, rank, highlight
+│   ├── app.js                   filtering and rendering; uses search.js
+│   └── chrome.js                the phone drawer on the standalone pages
+├── tests/                       the search tests (pure ones run in CI)
+├── assets/logo.svg              the mark
+├── site.config.yml              title, origin, licence — the site's single config
+├── requirements.txt             PyYAML, and nothing else
+├── README.md, README.zh-CN.md   GENERATED — never edit by hand
+├── CHANGELOG.md                 what changed, dated; no version numbers
+├── MAINTENANCE.md, SITE.md      this file, and how the site is put together
+├── LICENSE (MIT)                code
+└── LICENSE-content (CC)         the records and the prose
+```
+
+To change something, edit the left column and rerun the right one:
+
+| Change | Edit | Then run |
+| --- | --- | --- |
+| a paper, toolkit, dataset, benchmark or learning resource | the matching `data/*.yaml` | `python scripts/build.py` |
+| a user-visible string, in either language | `data/i18n/<lang>.yaml` | `python scripts/build.py` |
+| a topic's name, description or order | `data/meta.yaml` and the overlays | `python scripts/build.py` |
+| anything about the website | `web/` | `python scripts/build_site.py` |
+| the site's title, origin or licence | `site.config.yml` | `python scripts/build_site.py` |
+| how the build behaves | `scripts/` | run it; if it is the search, run `tests/` too |
+
+**Generated, never hand-edited:** `README.md`, `README.zh-CN.md` and `site/`.
+Editing them by hand produces a change the next build erases, and CI fails the
+push that contains it.
+
 ## The list is data-driven
 
 `README.md` is a **build artefact**, not a source file. It is generated from `data/*.yaml`
@@ -123,13 +177,44 @@ Two licences, split along the code/content line:
 
 | Path | Licence | File |
 | --- | --- | --- |
-| `scripts/`, `web/`, `.github/` | MIT | `LICENSE` |
-| `data/`, `README.md`, `README.zh-CN.md`, the generated site | CC BY-NC-SA 4.0 | `LICENSE-content` |
+| `scripts/`, `web/`, `.github/`, `assets/`, `site.config.yml` | MIT | `LICENSE` |
+| `data/*.yaml`, `data/i18n/*.yaml`, the READMEs, these docs, the rendered site | CC BY-NC-SA 4.0 | `LICENSE-content` |
 
-The split exists because a code licence is the wrong instrument for curated
-content — the awesome standard says so outright. Since 2026-10-10 the content is
-CC BY-NC-SA 4.0 (the maintainers' choice): credit required, no commercial use without
-asking, adaptations under the same licence.
+`web/*.js` and `web/*.css` are copied into `site/` verbatim, so those generated
+copies stay MIT — they are code. Everything else under `site/` is generated from
+`data/` and is content. `LICENSE-content` lists both halves explicitly; if a path
+is added, add it there too.
+
+### Why the content is CC — and the code is not
+
+The awesome standard is explicit that a code licence is the wrong instrument for
+list content ("We strongly recommend the CC0 license … Code licenses like MIT,
+BSD, Apache, GPL, etc, are not acceptable"), so the content is CC.
+
+The reverse matters just as much, and it is the mistake worth naming: **Creative
+Commons advises against using its licences for software**, and a repository that
+puts one licence over code *and* content inherits three concrete problems.
+
+- CC licences say nothing about **patents**, and nothing about **source versus
+  object form** — the two things a software licence exists to settle.
+- **NonCommercial is not an open-source licence.** Neither the OSI nor the Debian
+  Free Software Guidelines accept an NC restriction, so CC BY-NC-SA code is
+  source-available, not open source, however the repository describes itself.
+- **ShareAlike is viral over code.** Copying any part of it forces an entire
+  downstream project onto the same licence, which rules out reuse inside an MIT
+  or Apache project — the normal way infrastructure code travels.
+
+So this repository keeps MIT for the code and CC for the records and prose. If you
+want to reuse the build pipeline, take `scripts/` and `web/` under MIT and leave
+the records behind.
+
+### What NC means here, plainly
+
+NC is a real restriction rather than a formality: the records cannot be merged into
+a permissively licensed collection, and the content would not count as "open" under
+the Open Knowledge Definition. That is the maintainers' deliberate choice (since
+2026-10-10), made to keep commercial re-publication of the list under control, and
+it is written down here so the trade-off is not rediscovered later.
 
 Five places state the licence and must stay in agreement: the `## License` section of
 **both** `README.md` and `README.zh-CN.md` (both generated by `build.py`), the
