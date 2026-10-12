@@ -58,7 +58,7 @@ content_license: "CC BY-NC-SA 4.0"
 content_license_url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
 # Optional: Cloudflare Web Analytics token (cookieless, no consent banner).
-# Left empty on purpose — the script is only emitted when this is set.
-analytics_token: ""
+# The script is only emitted when this is set. Set 2026-10-12 (site computedtomography.org, manual snippet; domain is not proxied).
+analytics_token: "292ebc432b3d4f9899d87241d6212e62"
 
 contact_email: "heitieya@163.com"

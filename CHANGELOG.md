@@ -13,6 +13,19 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — Cloudflare Web Analytics, and the privacy page that says so
+
+### Changed
+
+- `analytics_token` in `site.config.yml` is now set, so the list page (English and Chinese) carries the
+  Cloudflare Web Analytics beacon. The domain is not proxied through Cloudflare,
+  which is why the zone dashboard showed zero visitors; the JS beacon counts
+  visits regardless. It sets no cookies and no local storage.
+- Privacy page (English and Chinese, plus the maintainer copy in
+  `web/pages/privacy.html`): the "Analytics: none" section now describes the
+  beacon, what Cloudflare receives, and that only aggregate numbers are seen.
+  Updated 12 October 2026, as the page promised it would be before any change.
+
 ## 2026-10-12 — Search, sorting and language-switch fixes
 
 ### Fixed

@@ -638,16 +638,16 @@ pages:
   privacy: |-
     <p class="kicker">隐私</p>
     <h1>隐私政策</h1>
-    <p class="lede">最后更新于 2026 年 10 月 10 日。本政策适用于 https://computedtomography.org/，这是由作者维护的个人非商业项目。</p>
+    <p class="lede">最后更新于 2026 年 10 月 12 日。本政策适用于 https://computedtomography.org/，这是由作者维护的个人非商业项目。</p>
 
     <h2>简而言之</h2>
-    <p>本站没有账号、没有广告、没有跟踪脚本，也不设置 cookie。阅读本站不需要你提供任何东西。</p>
+    <p>本站没有账号、没有广告，也不设置 cookie。唯一的外部脚本是 Cloudflare Web Analytics，它不用 cookie、不识别你个人，只统计访问量。阅读本站不需要你提供任何东西。</p>
 
     <h2>托管</h2>
     <p>本站为静态站点，由 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a> 托管；域名的 DNS 由 <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare</a> 管理。与任何 Web 服务器一样，GitHub 会收到每次请求的技术细节（IP 地址、浏览器、请求的页面和时间），并可能按其自身政策保存在日志中。本站不会接收或保存这些日志。</p>
 
     <h2>分析</h2>
-    <p>无。本站不加载任何分析、广告或社交媒体脚本。若将来改变，会先更新本页。</p>
+    <p>本站使用 <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener">Cloudflare Web Analytics</a> 统计页面浏览量，以及哪些页面、哪些来源网站被阅读。它不设置 cookie、不使用本地存储，也不对浏览器做指纹识别。Cloudflare 会收到每次访问的页面地址、来源、浏览器类型与时间，并按其<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">隐私政策</a>处理。我们只能看到汇总数字，看不到单个访客。本站不加载任何广告或社交媒体脚本。</p>
 
     <h2>浏览器中的存储</h2>
     <p>你的浅色/深色主题选择保存在浏览器的本地存储中，键名为 <code>ct-theme</code>，以便下次访问时记住。它绝不会离开你的设备。你可以通过浏览器的站点数据设置清除它。</p>
