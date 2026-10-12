@@ -13,6 +13,23 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — The contributor graph is cslht11-only again
+
+### Fixed (attribution)
+
+- **A merged Dependabot pull request put `dependabot[bot]` in the contributor
+  graph.** Squash-merging attributes the new commit to the pull request's author,
+  so `main` picked up a commit authored by `dependabot[bot]` — ranked second, with
+  one commit, next to cslht11's fourteen. The commit is rewritten as a cslht11
+  commit; the change it carried (the PyYAML floor) is kept exactly as it was.
+- **`.github/dependabot.yml` is deleted.** A `refs/pull/N/head` ref cannot be
+  removed — the API answers `refs/pull/* is read-only` (HTTP 422) — so from the
+  moment Dependabot opens a pull request its author is in that graph for good,
+  whether the pull request is merged, closed or left open. There is no setting
+  that scopes the graph to one author. Version bumps are applied by hand as
+  cslht11 commits from here on. Dependabot **security alerts** are a separate
+  setting that needs no configuration file, and stay on.
+
 ## 2026-10-12 — Licences made precise, structure written down, payload 16% smaller
 
 ### Fixed (licensing)
@@ -47,10 +64,9 @@ may be reformatted at any time.
 - **GitHub Actions brought up to current majors**: `checkout` v4 → v7,
   `setup-python` v5 → v7, `upload-pages-artifact` v3 → v5, `deploy-pages` v4 → v5.
   The deploy log had been warning that `deploy-pages@v4` still targets Node 20.
-- **Dependabot added** (`.github/dependabot.yml`) for the actions and for PyYAML,
-  grouped so it opens one pull request per ecosystem rather than a stream.
-- `requirements.txt` upper-bounds PyYAML (`>=6.0,<7`): a major bump should be a
-  deliberate change with the tests run, not something CI picks up overnight.
+- `requirements.txt` pins PyYAML to `>=6.0.3,<7`. The floor is the first 6.x with
+  the patched loader; the ceiling keeps a major bump a deliberate change with the
+  tests run, not something CI picks up overnight.
 
 ### Changed (payload)
 

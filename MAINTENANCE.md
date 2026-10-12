@@ -245,6 +245,37 @@ reachable commit, so a stale tag made a deleted author reappear in Insights long
 after the branch itself was clean. Tags are not free bookkeeping here; they are
 anchors into history. See `HANDOFF.md` §5.9b.
 
+## Sole authorship: one author, no bots, no pull requests
+
+This repository is authored by **cslht11 and nobody else**. That is a property of the
+commit graph, not just of the prose, and it is easy to break without noticing — GitHub
+never warns you, and the damage cannot be undone:
+
+- **Squash-merging or merge-committing a pull request attributes the commit to the
+  pull request's author.** Merge Dependabot's pull request and `main` gains a commit
+  authored by `dependabot[bot]`, which then appears in Insights → Contributors as a
+  second author. This happened once; it took a history rewrite to undo.
+- **`refs/pull/N/head` cannot be deleted.** `DELETE /repos/{o}/{r}/git/refs/pull/1/head`
+  answers `refs/pull/* is read-only` (HTTP 422). Closing or never merging the pull
+  request does not help — the ref, and the author behind it, stay.
+
+So the rule is: **do not let a pull request come into existence on this repository.**
+
+| Do | Don't |
+| --- | --- |
+| Commit directly to `main` as cslht11 | Enable Dependabot version updates (`.github/dependabot.yml` is deliberately absent) |
+| Apply a dependency bump by hand, as a cslht11 commit, then close the bot's PR unmerged | Merge a bot's pull request "just this once" |
+| Keep Dependabot **security alerts** on — they are a separate setting, need no config file, and create no commits | Assume closing an unmerged pull request keeps the graph clean |
+
+Two guards are in place:
+
+1. `.git/hooks/pre-commit` (local, not committed) refuses any commit whose
+   `user.email` is not `cslht11@users.noreply.github.com`.
+2. Before pushing, run `python github_code/local/sync_check.py` and check the
+   contributor line. After pushing, confirm with
+   `curl -s https://github.com/cslht11/awesome-computed-tomography/graphs/contributors-data | grep -o '"login":"[^"]*"'`
+   — it must list `cslht11` and nothing else.
+
 ## Failure modes seen so far
 
 Worth knowing, because each of these was silent:
