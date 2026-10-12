@@ -9,6 +9,7 @@ README.md can never disagree) plus site.config.yml, and writes:
     site/index.html     the page; paper list is server-rendered so it works
                         without JavaScript and is crawlable
     site/styles.css
+    site/search.js     the search core (shared by the paper tab and the top box)
     site/app.js
     site/data.json      the same payload as a standalone file
     site/robots.txt
@@ -485,6 +486,7 @@ def main():
 
         write(os.path.join(sub, "index.html"), page)
         write(os.path.join(sub, "styles.css"), read(os.path.join(WEB, "styles.css")))
+        write(os.path.join(sub, "search.js"), read(os.path.join(WEB, "search.js")))
         write(os.path.join(sub, "app.js"), read(os.path.join(WEB, "app.js")))
         write(os.path.join(sub, "chrome.js"), read(os.path.join(WEB, "chrome.js")))
         sitemap_urls.append((lang_base, "weekly", "1.0"))

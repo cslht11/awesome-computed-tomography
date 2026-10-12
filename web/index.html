@@ -149,6 +149,7 @@
 </noscript>
 
 <script id="site-data" type="application/json">{{DATA}}</script>
+<script src="./search.js"></script>
 <script src="./app.js"></script>
 <script>
   // Phone: the section nav lives in a left drawer opened by the menu button.
@@ -171,58 +172,66 @@
 <script>
   // Global search in the top bar: one small box over every section.
   // Typing shows the best matches as a dropdown; Enter filters the paper list.
+  // Tokenising, ranking and highlighting all come from search.js, so this box
+  // and the paper tab behave identically — including for Chinese, where a query
+  // is matched through CJK uni-/bigrams rather than as one literal substring.
   (function () {
     var D = JSON.parse(document.getElementById("site-data").textContent);
     var UI = D.ui || {};
     function t(k, f) { return UI[k] || f; }
     function tf(k, f, s) { var v = t(k, f); for (var i in s) if (s.hasOwnProperty(i)) v = v.split("{" + i + "}").join(s[i]); return v; }
+    var S = window.CTSearch;
     var box = document.getElementById("gq"), res = document.getElementById("gres"),
         q = document.getElementById("q"), tag = document.getElementById("qtag");
     var KIND = { papers: t("kindPaper", "Paper"), toolkits: t("kindToolkit", "Toolkit"),
         datasets: t("kindDataset", "Dataset"), benchmarks: t("kindBenchmark", "Benchmark"),
         learning: t("kindLearning", "Learning") };
-    var idx = [];
-    function strip(t) { return String(t || "").replace(/\$([^$]+)\$/g, "$1"); }
-    D.papers.forEach(function (p) {
-      var l = p.links || {};
-      idx.push({ k: "papers", t: strip(p.title), s: [p.venue, p.year].filter(Boolean).join(" · "),
-        u: l.paper || l.project || l.code, h: (p._q || (p.title + " " + p.venue)).toLowerCase() });
+    var KINDS = ["papers", "toolkits", "datasets", "benchmarks", "learning"];
+
+    /* One index over all five sections, so the box finds a dataset, a toolkit or
+       a book as readily as a paper. Built once, from data already in the page. */
+    var topicName = {};
+    (D.topics || []).forEach(function (x) { topicName[x.id] = x.name; });
+    var M = S.mappers(topicName);
+    var rows = [];
+    KINDS.forEach(function (k) {
+      (D[k] || []).forEach(function (r) { rows.push({ k: k, r: r, rec: M[k](r) }); });
     });
-    ["toolkits", "datasets", "benchmarks", "learning"].forEach(function (k) {
-      (D[k] || []).forEach(function (r) {
-        var sub = r.language || r.modality || r.year || r.type || "";
-        idx.push({ k: k, t: r.name, s: String(sub), u: r.url,
-          h: [r.name, sub, (r.tags || []).join(" "), (r.tasks || []).join(" "), r.note || ""].join(" ").toLowerCase() });
-      });
-    });
+    var INDEX = S.build(rows, function (e) { return e.rec; });
+
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-    var cur = [], sel = -1;
-    function search(text) {
-      var toks = text.toLowerCase().split(/\s+/).filter(Boolean);
-      if (!toks.length) return [];
-      var out = [];
-      idx.forEach(function (it) {
-        var ok = toks.every(function (t) { return it.h.indexOf(t) >= 0; });
-        if (!ok) return;
-        var tl = it.t.toLowerCase(), sc = 0;
-        toks.forEach(function (t) { if (tl.indexOf(t) >= 0) sc += 2; if (tl.indexOf(t) === 0) sc += 1; });
-        out.push({ it: it, sc: sc });
-      });
-      out.sort(function (a, b) { return b.sc - a.sc; });
-      return out.map(function (o) { return o.it; });
+    function subtitle(it) {
+      var r = it.r;
+      if (it.k === "papers") { return [r.venue, r.year].filter(Boolean).join(" \u00b7 "); }
+      if (it.k === "toolkits") { return r.language || ""; }
+      if (it.k === "datasets") { return r.modality || ""; }
+      if (it.k === "benchmarks") { return r.year == null ? "" : String(r.year); }
+      return r.type || "";
     }
+    function urlOf(it) {
+      if (it.k !== "papers") { return it.r.url || ""; }
+      var l = it.r.links || {};
+      return l.paper || l.project || l.code || "";
+    }
+
+    var cur = [], sel = -1, nPapers = 0;
+
     function render() {
       var text = box.value.trim();
-      cur = search(text); sel = -1;
+      cur = text ? S.search(INDEX, text) : [];
+      sel = -1;
+      nPapers = 0;
+      for (var i = 0; i < cur.length; i++) { if (cur[i].item.k === "papers") { nPapers++; } }
       if (!text) { res.hidden = true; box.setAttribute("aria-expanded", "false"); return; }
-      var shown = cur.slice(0, 8), nPapers = cur.filter(function (i) { return i.k === "papers"; }).length;
-      var html = shown.map(function (it, i) {
-        return '<a role="option" class="gr" data-i="' + i + '" href="' + esc(it.u || "#") + '" target="_blank" rel="noopener">' +
-          '<span class="gk">' + KIND[it.k] + '</span><span class="gt">' + esc(it.t) + '</span>' +
-          (it.s ? '<span class="gs">' + esc(it.s) + '</span>' : "") + '</a>';
+      var terms = S.terms(text);
+      var html = cur.slice(0, 8).map(function (h, n) {
+        var it = h.item, sub = subtitle(it);
+        return '<a role="option" class="gr" data-i="' + n + '" href="' + esc(urlOf(it) || "#") + '" target="_blank" rel="noopener">' +
+          '<span class="gk">' + KIND[it.k] + '</span><span class="gt">' + S.markHtml(it.rec.title, terms, esc) + '</span>' +
+          (sub ? '<span class="gs">' + esc(sub) + '</span>' : "") + '</a>';
       }).join("");
-      if (!cur.length) html = '<p class="gnone">' + esc(tf("noMatch", "No match for “{q}”", { q: text })) + '</p>';
-      else if (nPapers) html += '<button type="button" class="gall">' + esc(tf("showAll", "Show all {n} matching papers ↵", { n: nPapers })) + '</button>';
+      if (!cur.length) html = '<p class="gnone">' + esc(tf("noMatch", "No match for \u201c{q}\u201d", { q: text })) + '</p>';
+      else if (nPapers) html += '<button type="button" class="gall">' + esc(tf("showAll", "Show all {n} matching papers \u21b5", { n: nPapers })) + '</button>';
       res.innerHTML = html; res.hidden = false; box.setAttribute("aria-expanded", "true");
       var all = res.querySelector(".gall"); if (all) all.addEventListener("mousedown", function (e) { e.preventDefault(); commit(); });
     }
@@ -230,7 +239,7 @@
       var text = box.value.trim();
       var tab = document.querySelector('#tabs [data-tab="papers"]'); if (tab) tab.click();
       q.value = text; q.dispatchEvent(new Event("input"));
-      tag.hidden = !text; tag.textContent = text ? "“" + text + "”" : "";
+      tag.hidden = !text; tag.textContent = text ? "\u201c" + text + "\u201d" : "";
       res.hidden = true; box.blur();
       document.getElementById("panel-papers").scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -239,7 +248,10 @@
       sel = (sel + d + opts.length) % opts.length;
       opts.forEach(function (o, i) { o.classList.toggle("on", i === sel); });
     }
-    var t; box.addEventListener("input", function () { clearTimeout(t); t = setTimeout(render, 80); });
+    // NB: not `var t` — that would shadow the t() string helper above, and the
+    // first keystroke (which turns `t` into a timer id) would make the next
+    // render() throw. Named `timer` so the two can never collide.
+    var timer; box.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(render, 80); });
     box.addEventListener("focus", function () { if (box.value.trim()) render(); });
     box.addEventListener("blur", function () { setTimeout(function () { res.hidden = true; }, 150); });
     box.addEventListener("keydown", function (e) {
@@ -248,12 +260,17 @@
       else if (e.key === "Enter") {
         e.preventDefault();
         var o = res.querySelectorAll(".gr")[sel];
-        if (o) window.open(o.href, "_blank", "noopener"); else commit();
+        // An explicitly selected row opens; otherwise filter the paper list when
+        // the query found papers, and fall back to the best match when it did
+        // not (searching "LoDoPaB" is about the dataset, not about papers).
+        if (o) { window.open(o.href, "_blank", "noopener"); }
+        else if (nPapers) { commit(); }
+        else if (cur.length) { window.open(urlOf(cur[0].item) || "#", "_blank", "noopener"); }
       } else if (e.key === "Escape") { res.hidden = true; box.blur(); }
     });
     document.getElementById("reset").addEventListener("click", function () { box.value = ""; tag.hidden = true; });
     window.addEventListener("load", function () {
-      if (q.value) { box.value = q.value; tag.hidden = false; tag.textContent = "“" + q.value + "”"; }
+      if (q.value) { box.value = q.value; tag.hidden = false; tag.textContent = "\u201c" + q.value + "\u201d"; }
     });
   })();
 </script>

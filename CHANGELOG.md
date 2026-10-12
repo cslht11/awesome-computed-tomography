@@ -13,6 +13,60 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — The site's search actually works now, and stops throwing
+
+Two name collisions were breaking the site's JavaScript. Both were pre-existing, both were
+invisible in the served HTML (which is server-rendered), and together they explain why the
+search box did nothing.
+
+- **`renderPapers` declared `var t = titleParts(p)`**, shadowing the i18n helper `t()` used
+  a few lines below it. The resulting `TypeError` fired on every render, which aborted
+  `init()` before it wired the search box — so typing in the filter never did anything.
+- **`renderToolkits` used `function (t)` as its `map` callback**, the same collision, and it
+  threw for the 14 toolkits that carry a `homepage`.
+- **The top-bar box declared `var t` for its debounce timer**, shadowing its own `t()`: the
+  first keystroke turned `t` into a timer id, and the next render threw. The dropdown now
+  survives more than one keypress.
+- `debounce` and the `/`-to-focus handler had the same shadowing shape without calling
+  `t()`, so they worked by luck; both were renamed while fixing the others.
+
+### Added: a real search core (`web/search.js`)
+
+The old search was a case-insensitive substring test over one flat blob, with strict AND
+semantics and no ranking — so a query had to be an exact substring, one extra word emptied
+the list, and results kept whatever order the data was in.
+
+- **CJK tokenising.** Chinese is not space-separated, so a run of ideographs is indexed as
+  both its characters and its adjacent pairs: 「稀疏视角」 becomes 稀 疏 视 角 + 稀疏 疏视
+  视角. 「稀疏重建」 now finds a record titled 「稀疏视角 … 重建」 even though the user's two
+  words never sit next to each other.
+- **Field weighting.** One weighted token map per record (title 5, abbreviation 4, metadata
+  2, everything else 1), keeping the highest weight per token, so a title hit outranks the
+  same word buried in a note.
+- **Ranking.** Token weights scaled by query coverage, plus a bonus for the query appearing
+  verbatim. Records matching nothing are dropped, but a partial match is no longer thrown
+  away: ranking is a stable sort applied after the user's own sort, so ties keep the order
+  they chose.
+- **Substring fallback for Latin tokens.** Exact token equality would lose "mamba" →
+  DenoMamba and "splat" → Splatting, which the old substring search did find, so a query
+  token with no exact key falls back to index keys containing it, at a discount.
+- **Highlighting everywhere it matters** — results, the dropdown, and the topic line of each
+  paper row (a Chinese query usually matches the topic, not the English title, so without
+  that the results would look like nothing had matched).
+- **The top-bar box searches all five sections**, not just papers, and Enter now filters the
+  paper list only when the query actually found papers; otherwise it opens the best match.
+- Verified by two test suites (54 assertions on the core, 23 driving the built pages in
+  jsdom), including that a render throws nowhere — the check that would have caught the
+  collisions above.
+
+### Changed
+
+- **No web font, and said so.** The system UI face plus the platform's own CJK family is
+  faster and better-looking here, and it keeps the page free of third-party requests and of
+  any font-licence question. The stack gained `system-ui` and a fuller CJK fallback chain so
+  macOS, Windows and Linux agree; the decision is documented where it is made.
+- The LoDoPaB-CT paper title no longer repeats "(Scientific Data)" — its venue already says it.
+
 ## 2026-10-12 — Three external audits worked through, and the contributor list cleaned up
 
 Three independent audits of the repository — data, i18n, links, CI, docs — were checked

@@ -1138,7 +1138,7 @@
 
 - id: "lodopab-ct"
   abbr: "LoDoPaB-CT"
-  title: "LoDoPaB-CT, a benchmark dataset for low-dose computed tomography reconstruction (Scientific Data)"
+  title: "LoDoPaB-CT, a benchmark dataset for low-dose computed tomography reconstruction"
   year: 2021
   venue: "Scientific Data"
   topics: [low-dose]

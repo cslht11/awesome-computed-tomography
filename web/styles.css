@@ -3,6 +3,15 @@
    one blue accent. No framework, no build step. Light and dark from one set
    of tokens. */
 
+/* Type: deliberately NO @font-face and no font CDN.
+   The platform's own UI face is the best-looking and fastest option here, and
+   it keeps the page free of third-party requests, of a blocking download, and
+   of any font-licence question (a bundled or CDN typeface would have to ship
+   its licence text and be version-pinned for offline builds).
+   The CJK families are listed explicitly rather than left to the browser's
+   fallback, because the default CJK face differs per platform and the list
+   should look the same on macOS, Windows and Linux — PingFang SC (macOS),
+   Microsoft YaHei (Windows), Noto Sans SC (Linux/Android). */
 :root {
   --bg: #ffffff;
   --surface: #f5f5f7;
@@ -22,11 +31,16 @@
   --shadow-pop: 0 10px 40px rgba(0, 0, 0, .12);
   --radius: 10px;
   --radius-lg: 18px;
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", "Helvetica Neue",
-          "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", "Helvetica Neue",
-             "PingFang SC", "Noto Sans SC", sans-serif;
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI",
+          "SF Pro Text", "Helvetica Neue", Helvetica, Arial,
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei",
+          "Noto Sans SC", "Source Han Sans SC", "WenQuanYi Micro Hei", sans-serif;
+  --display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI",
+             "SF Pro Display", "Helvetica Neue", Helvetica, Arial,
+             "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei",
+             "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, "Cascadia Mono", Consolas,
+          "Liberation Mono", "Courier New", monospace;
   color-scheme: light;
 }
 

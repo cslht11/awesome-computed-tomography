@@ -352,7 +352,7 @@
 - **MALAR: Multiple Adversarial Learning based Angiography Reconstruction for Ultra-low-dose Contrast Medium CT** — _JBHI 2022_ · [论文](https://doi.org/10.1109/jbhi.2022.3213595) · [代码](https://github.com/HIC-SYSU/MALAR)
 - **CLEAR: Comprehensive Learning Enabled Adversarial Reconstruction for Subtle Structure Enhanced Low-Dose CT Imaging** — _TMI 2021_ · [论文](https://doi.org/10.1109/tmi.2021.3097808)
 - **DeACNN: Learning a Deep CNN Denoising Approach Using Anatomical Prior Information Implemented With Attention Mechanism for Low-Dose CT Imaging on Clinical Patient Data From Multiple Anatomical Sites** — _JBHI 2021_ · [论文](https://doi.org/10.1109/jbhi.2021.3061758)
-- **LoDoPaB-CT: a benchmark dataset for low-dose computed tomography reconstruction (Scientific Data)** — _Scientific Data 2021_ · [论文](https://doi.org/10.1038/s41597-021-00893-z) · [代码](https://github.com/jleuschn/lodopab_tech_ref)
+- **LoDoPaB-CT: a benchmark dataset for low-dose computed tomography reconstruction** — _Scientific Data 2021_ · [论文](https://doi.org/10.1038/s41597-021-00893-z) · [代码](https://github.com/jleuschn/lodopab_tech_ref)
 - **MAGIC: Manifold and graph integrative convolutional network for low-dose CT reconstruction** — _TMI 2021_ · [论文](https://arxiv.org/abs/2008.00406)
 - **N2S: Self-Supervised Training For Low-Dose Ct Reconstruction** — _ISBI 2021_ · [论文](https://doi.org/10.1109/isbi48211.2021.9433944)
 - **SinoNet: Noise-Generating-Mechanism-Driven Unsupervised Learning for Low-Dose CT Sinogram Recovery** — _TRPMS 2021_ · [论文](https://doi.org/10.1109/trpms.2021.3083361)

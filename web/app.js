@@ -2,9 +2,11 @@
    Classic script (NOT a module) so the page also works when opened from
    file://, where ES modules are blocked by CORS.
 
-   Search is a plain substring match over a pre-computed `_q` blob shipped in
-   the page, so there is no index to download and no query parser to trip over
-   (Paper-Notes lost hours to lunr throwing on ':' in paper titles). */
+   Search runs on web/search.js, which builds its index in the browser from the
+   payload already in the page — nothing extra to download, and no query parser
+   to trip over. Still no lunr: a general-purpose engine scores short Chinese
+   titles badly, and pulling one in would add a failure mode this list does not
+   need. */
 
 (function () {
   "use strict";
@@ -12,6 +14,41 @@
   var DATA = JSON.parse(document.getElementById("site-data").textContent);
   var TOPIC = {};
   DATA.topics.forEach(function (t) { TOPIC[t.id] = t; });
+
+  var S = window.CTSearch;
+
+  /* One weighted index over the papers, built on first use. `build` preserves
+     input order, which is what lets a paper's score be looked up by the same
+     index the filters use. */
+  var paperIndex = null;
+  function ensurePaperIndex() {
+    if (paperIndex) { return paperIndex; }
+    var topicName = {};
+    DATA.topics.forEach(function (t) { topicName[t.id] = t.name; });
+    paperIndex = S.build(DATA.papers, S.mappers(topicName).papers);
+    return paperIndex;
+  }
+
+  /* null when nothing is being searched for; otherwise one score per
+     DATA.papers entry, 0 meaning "no match". */
+  function relevance() {
+    if (!state.q) { return null; }
+    var q = S.parse(state.q);
+    if (!q.tokens.length) { return null; }
+    var idx = ensurePaperIndex();
+    var sets = S.matchSets(q, idx.vocab);
+    var out = [];
+    for (var i = 0; i < DATA.papers.length; i++) {
+      out[i] = S.score(idx.entries[i].doc, q, sets);
+    }
+    return out;
+  }
+
+  /* Strings to mark in a result: the query's own phrases plus its tokens, so
+     what gets highlighted is exactly what was matched. */
+  function queryTerms() {
+    return state.q ? S.terms(state.q) : [];
+  }
 
   // Interface strings for the language this page was built in. Handed over by
   // build_site.py as payload.ui; every entry falls back to the English key so a
@@ -104,88 +141,61 @@
     return { abbr: p.abbr || "", text: title };
   }
 
-  /* Highlight query tokens in a plain-text title, escaping as we go.
-     Builds DOM nodes rather than innerHTML so escaping cannot be bypassed. */
-  function highlight(text, tokens) {
+  /* Mark the query's terms in a plain-text title. The ranges come from the same
+     tokeniser that scored the record, and textContent is used throughout, so
+     nothing in a title can escape as markup. */
+  function highlight(text, terms) {
     var frag = document.createDocumentFragment();
-    if (!tokens.length) { frag.appendChild(document.createTextNode(text)); return frag; }
-    var lower = text.toLowerCase();
-    var marks = [];
-    tokens.forEach(function (tok) {
-      var from = 0, at;
-      while ((at = lower.indexOf(tok, from)) !== -1) {
-        marks.push([at, at + tok.length]);
-        from = at + tok.length;
-      }
-    });
-    if (!marks.length) { frag.appendChild(document.createTextNode(text)); return frag; }
-    marks.sort(function (a, b) { return a[0] - b[0] || b[1] - a[1]; });
-    var merged = [marks[0]];
-    for (var i = 1; i < marks.length; i++) {
-      var last = merged[merged.length - 1];
-      if (marks[i][0] <= last[1]) { last[1] = Math.max(last[1], marks[i][1]); }
-      else { merged.push(marks[i]); }
+    if (!terms || !terms.length) {
+      frag.appendChild(document.createTextNode(text));
+      return frag;
     }
-    var pos = 0;
-    merged.forEach(function (m) {
-      if (m[0] > pos) frag.appendChild(document.createTextNode(text.slice(pos, m[0])));
-      var el = document.createElement("mark");
-      el.textContent = text.slice(m[0], m[1]);
-      frag.appendChild(el);
-      pos = m[1];
-    });
-    if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
-    return frag;
-  }
-
-  function haystack(p) {
-    /* `_q` already holds title + abbr + venue + topic names + link host and id,
-       all lower-cased. Year is appended here so "2026" filters by year without
-       bloating the shipped data. */
-    return p._q + " " + p.year;
-  }
-
-  function tokens() {
-    return state.q.toLowerCase().split(/\s+/).filter(Boolean);
+    return S.markInto(frag, text, terms);
   }
 
   /* ------------------------------------------------------------ filtering */
 
+  /* Hard filters first (kind, code, year, topic), then the query.
+     A query no longer means "every word must appear": each record is scored and
+     ranked, and only records matching nothing are dropped — so one extra or
+     misspelt word lowers a record's rank instead of emptying the list.
+     Ranking is applied with a stable sort *after* the user's own sort, so equal
+     scores keep the order they asked for. */
   function selectedPapers() {
-    var toks = tokens();
-    var out = DATA.papers.filter(function (p) {
-      if (state.type === "peer" && p.preprint) return false;
-      if (state.type === "preprint" && !p.preprint) return false;
-      if (state.code && !p.links.code) return false;
-      if (state.from && p.year < state.from) return false;
-      if (state.topics.length) {
-        var hit = false;
-        for (var i = 0; i < state.topics.length; i++) {
-          if (p.topics.indexOf(state.topics[i]) !== -1) { hit = true; break; }
-        }
-        if (!hit) return false;
-      }
-      if (toks.length) {
-        var hay = haystack(p);
-        for (var j = 0; j < toks.length; j++) {
-          if (hay.indexOf(toks[j]) === -1) return false;
-        }
-      }
-      return true;
-    });
+    var rel = relevance();
+    var rows = [];
+    var i;
+    for (i = 0; i < DATA.papers.length; i++) {
+      var p = DATA.papers[i];
+      if (rel && !rel[i]) { continue; }
+      if (state.type === "peer" && p.preprint) { continue; }
+      if (state.type === "preprint" && !p.preprint) { continue; }
+      if (state.code && !p.links.code) { continue; }
+      if (state.from && p.year < state.from) { continue; }
+      if (state.topics.length && !hasTopic(p)) { continue; }
+      rows.push({ p: p, s: rel ? rel[i] : 0 });
+    }
 
-    if (state.sort === "title") {
-      out.sort(function (a, b) {
-        return (a.abbr || a.title).toLowerCase() < (b.abbr || b.title).toLowerCase() ? -1 : 1;
-      });
-    } else if (state.sort === "old") {
-      out.sort(function (a, b) {
-        return a.year - b.year ||
-          ((a.abbr || a.title).toLowerCase() < (b.abbr || b.title).toLowerCase() ? -1 : 1);
-      });
+    function byName(a, b) {
+      return (a.p.abbr || a.p.title).toLowerCase() < (b.p.abbr || b.p.title).toLowerCase() ? -1 : 1;
+    }
+    if (state.sort === "title") { rows.sort(byName); }
+    else if (state.sort === "old") {
+      rows.sort(function (a, b) { return a.p.year - b.p.year || byName(a, b); });
     }
     /* "new" keeps the server-side order, which is already (-year, abbr|title). */
+    if (rel) { rows.sort(function (a, b) { return b.s - a.s; }); }
+
+    var out = [];
+    for (i = 0; i < rows.length; i++) { out.push(rows[i].p); }
     return out;
+  }
+
+  function hasTopic(p) {
+    for (var i = 0; i < state.topics.length; i++) {
+      if (p.topics.indexOf(state.topics[i]) !== -1) { return true; }
+    }
+    return false;
   }
 
   /* ------------------------------------------------------------ rendering */
@@ -194,7 +204,7 @@
 
   function renderPapers() {
     var rows = selectedPapers();
-    var toks = tokens();
+    var toks = queryTerms();
     var frag = document.createDocumentFragment();
 
     rows.forEach(function (p) {
@@ -210,16 +220,19 @@
         h.appendChild(ab);
       }
       var url = primaryUrl(p);
-      var t = titleParts(p);
+      // NB: not `var t` — that shadows the i18n helper t() used a few lines
+      // below for the preprint label, and the resulting throw aborted init()
+      // before the search box was ever wired up. (`parts` also reads better.)
+      var parts = titleParts(p);
       if (url) {
         var a = document.createElement("a");
         a.href = url;
         a.target = "_blank";
         a.rel = "noopener";
-        a.appendChild(highlight(t.text, toks));
+        a.appendChild(highlight(parts.text, toks));
         h.appendChild(a);
       } else {
-        h.appendChild(highlight(t.text, toks));
+        h.appendChild(highlight(parts.text, toks));
       }
       li.appendChild(h);
 
@@ -235,9 +248,12 @@
         meta.appendChild(sep());
         var tp = document.createElement("span");
         tp.className = "topics";
-        tp.textContent = p.topics.map(function (id) {
+        // Mark the topic names too: a Chinese query normally matches the topic
+        // rather than the (English) paper title, and without this the results
+        // look like nothing was matched.
+        tp.appendChild(highlight(p.topics.map(function (id) {
           return TOPIC[id] ? TOPIC[id].name : id;
-        }).join(" \u00b7 ");
+        }).join(" \u00b7 "), toks));
         meta.appendChild(tp);
       }
       li.appendChild(meta);
@@ -307,15 +323,19 @@
        { label: t("tableLicense", "License"), cls: "n" },
        { label: t("tableStars", "Stars"), cls: "n" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
-      rows.map(function (t) {
-        var nm = esc(t.label || t.name);
-        var html = '<a href="' + esc(t.url) + '" target="_blank" rel="noopener">' + nm + "</a>";
-        if (t.homepage) {
-          html += ' <a href="' + esc(t.homepage) + '" target="_blank" rel="noopener" title="' + t("homepageTitle", "homepage") + '">'
+      // NB: the callback parameter must NOT be named `t` — that would shadow the
+      // i18n helper t() above, and the `t("homepageTitle")` call below would
+      // then be calling a row object. It threw for every toolkit that carries a
+      // homepage, which aborted init() before the search box was ever wired up.
+      rows.map(function (row) {
+        var nm = esc(row.label || row.name);
+        var html = '<a href="' + esc(row.url) + '" target="_blank" rel="noopener">' + nm + "</a>";
+        if (row.homepage) {
+          html += ' <a href="' + esc(row.homepage) + '" target="_blank" rel="noopener" title="' + t("homepageTitle", "homepage") + '">'
                 + '<span class="mono">[site]</span></a>';
         }
-        return ["@@HTML@@" + html, t.language || "-", t.license || "-",
-                t.stars == null ? "-" : String(t.stars), "@@HTML@@" + mdInline(t.note)];
+        return ["@@HTML@@" + html, row.language || "-", row.license || "-",
+                row.stars == null ? "-" : String(row.stars), "@@HTML@@" + mdInline(row.note)];
       }));
   }
 
@@ -486,11 +506,11 @@
   }
 
   function debounce(fn, ms) {
-    var t;
+    var timer;
     return function () {
       var self = this, args = arguments;
-      clearTimeout(t);
-      t = setTimeout(function () { fn.apply(self, args); }, ms);
+      clearTimeout(timer);
+      timer = setTimeout(function () { fn.apply(self, args); }, ms);
     };
   }
 
@@ -576,8 +596,8 @@
     /* "/" focuses search — but never while typing in a field */
     document.addEventListener("keydown", function (e) {
       if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
-      var t = e.target;
-      if (t && (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA")) return;
+      var el = e.target;
+      if (el && (el.tagName === "INPUT" || el.tagName === "SELECT" || el.tagName === "TEXTAREA")) return;
       e.preventDefault();
       (document.getElementById("gq") || document.getElementById("q")).focus();
     });

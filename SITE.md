@@ -23,8 +23,9 @@ PyYAML.
 | `web/index.html` | yes | Home-page template with `{{PLACEHOLDER}}` markers. Not served directly. |
 | `web/page.html` | yes | Template for the standalone pages (About / Contact / Privacy). |
 | `web/pages/{about,contact,privacy}.html` | yes | Body content for those three pages. |
-| `web/styles.css` | yes | All styling. Light and dark token sets. |
-| `web/app.js` | yes | Client-side search and filtering. |
+| `web/styles.css` | yes | All styling. Light and dark token sets. Deliberately ships **no web font** — the reasoning is in the comment at the top of the file. |
+| `web/search.js` | yes | The search core: CJK-aware tokenising, a per-record weighted index, ranking and highlight ranges. Loaded before `app.js`; its pure functions have no DOM dependency, so they run under Node for tests. |
+| `web/app.js` | yes | Client-side filtering and rendering. Delegates matching, ranking and highlighting to `search.js`. |
 | `web/chrome.js` | yes | Phone drawer for the standalone pages. (The colour theme is wired in an inline `<head>` script instead, so it still works if a script fails to load.) |
 | `data/i18n/en.yaml` | yes | English strings — the source of truth for every user-visible string. |
 | `data/i18n/zh.yaml` | yes | Chinese overlay. Looked up first for `zh`; missing keys fall back to English. |
