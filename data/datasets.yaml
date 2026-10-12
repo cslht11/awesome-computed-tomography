@@ -17,8 +17,8 @@
   url: https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/
   modality: helical CT
   tasks: [low-dose, reconstruction, denoising]
-  license: CC BY-NC 4.0
-  note: "**Projection + image.** Mayo Clinic, released through TCIA. 299 head / chest / abdomen exams (99 / 100 / 100), each with a routine-dose scan plus one simulated lower-dose projection set — head and abdomen at 25% of routine dose, chest at 10%. Raw sinograms in the open **DICOM-CT-PD** format. It grew out of the 2016 AAPM Low Dose CT Grand Challenge and is now the best real-data source for projection-domain methods."
+  license: CC BY 4.0 (head scans NIH controlled access)
+  note: "**Projection + image.** Mayo Clinic, released through TCIA. 299 head / chest / abdomen exams (99 / 100 / 100), each with a routine-dose scan plus one simulated lower-dose projection set — head and abdomen at 25% of routine dose, chest at 10%. Chest and abdomen are open under CC BY 4.0; the 99 head scans need an NIH controlled-access request because they could be used to reconstruct a face. Raw sinograms in the open **DICOM-CT-PD** format. It grew out of the 2016 AAPM Low Dose CT Grand Challenge and is now the best real-data source for projection-domain methods."
 
 - name: 2DeteCT
   url: https://zenodo.org/records/6984866
@@ -227,10 +227,10 @@
 
 - name: AAPM DL-Sparse-View CT data
   url: https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/
-  modality: helical CT (re-projected)
+  modality: 2D fan-beam (simulated)
   tasks: [sparse-view, reconstruction]
-  license: CC BY 3.0
-  note: "**Projection + image.** The 2016 challenge cohort re-projected to 2/4/8/16/32/64 views per rotation, giving a controlled sparse-view axis with a fixed anatomical ground truth."
+  license: CC BY 4.0
+  note: "**Projection + image.** Data of the 2021 AAPM DL-sparse-view CT challenge: 4,000 simulated 2D breast-CT phantoms, each with an ideal noiseless 128-view fan-beam sinogram over 360° and its FBP image, plus 100 test cases. Truth is known exactly, so it isolates the sparse-view inverse problem from noise and model mismatch."
 
 - name: Finnish Inverse Problems Society (FIPS) datasets
   url: https://www.fips.fi/dataset.php

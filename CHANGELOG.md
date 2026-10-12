@@ -13,6 +13,24 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — Corrected two challenge descriptions and two dataset records
+
+### Fixed
+
+- **AAPM DL-Sparse-View CT Challenge** (and its dataset entry): the challenge is
+  the 2021 one, not 2022, and it asks for recovery of simulated 2D breast-CT
+  phantoms from ideal noiseless **128-view** fan-beam data (4,000 training pairs,
+  100 test cases). The earlier text described a 2/4/8/16/32/64-view re-projection
+  of the 2016 clinical cohort, which is not what the challenge provides. Dataset
+  modality and licence now follow the AAPM page and the Zenodo record
+  (CC BY 4.0).
+- **Helsinki Tomography Challenge 2022**: the winner was a purely learned
+  network trained on synthetic data; the only model-based entry (CIL) placed
+  third. The note had this the wrong way round.
+- **LDCT-and-Projection-data** licence: TCIA version 7 opened the chest and
+  abdomen scans under CC BY 4.0; the head scans stay under NIH controlled access.
+  It was recorded as CC BY-NC 4.0.
+
 ## 2026-10-12 — Three CT foundation models, and the CT-RATE dataset
 
 ### Added

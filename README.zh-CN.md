@@ -929,7 +929,7 @@
 | 数据集 | 成像模态 | 数据 | 许可 | 说明 |
 | --- | --- | --- | --- | --- |
 | [**LoDoPaB-CT**](https://zenodo.org/records/3384092) | 2D fan-beam | 投影域 + 图像域 | CC BY 4.0 | 42,895 对仿真人体胸腔切片（LIDC/IDRI），单一噪声水平（N0 = 4096）——其他剂量水平需自行重仿真。事实上的低剂量 CT 标准基准；附有调优良好的 FBP/U-Net 参考流程。 |
-| [**LDCT-and-Projection-data**](https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/) | helical CT | 投影域 + 图像域 | CC BY-NC 4.0 | Mayo Clinic 发布，经 TCIA 分发。299 例头部／胸部／腹部扫描（99 / 100 / 100），每例含一次常规剂量扫描外加一套仿真的降剂量投影——头部与腹部为常规剂量的 25%，胸部为 10%。并以开放的 **DICOM-CT-PD** 格式提供原始正弦图。它源自 2016 年 AAPM 低剂量 CT 大挑战，目前是投影域方法最好的真实数据来源。 |
+| [**LDCT-and-Projection-data**](https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/) | helical CT | 投影域 + 图像域 | CC BY 4.0 (head scans NIH controlled access) | Mayo Clinic 发布，经 TCIA 分发。299 例头部／胸部／腹部扫描（99 / 100 / 100），每例含一次常规剂量扫描外加一套仿真的降剂量投影——头部与腹部为常规剂量的 25%，胸部为 10%。胸部与腹部数据以 CC BY 4.0 开放；99 例头部扫描因可能重建出人脸，需按 NIH 受控访问流程申请。并以开放的 **DICOM-CT-PD** 格式提供原始正弦图。它源自 2016 年 AAPM 低剂量 CT 大挑战，目前是投影域方法最好的真实数据来源。 |
 | [**2DeteCT**](https://zenodo.org/records/6984866) | 2D fan-beam | 投影域 + 图像域 | CC BY 4.0 | 5,000 张真实实验采集的混合物体二维切片，三个剂量水平，多种源-探测器几何。非常适合做可复现的真实数据 CT 基准测试。 |
 | [**Walnut-CBCT**](https://www.fips.fi/dataset.php) | cone-beam | 仅投影域 | CC BY 4.0 | 芬兰逆问题学会。真实采集的核桃锥束投影，提供多种角度采样——稀疏视角与有限角 CBCT 的标准测试床。 |
 | [**Helsinki Tomography Challenge 2022**](https://www.fips.fi/HTC2022.php) | 2D fan-beam | 仅投影域 | CC BY 4.0 | 体模与莲藕的真实有限角正弦图；配套挑战赛定义了标准的有限角协议。 |
@@ -958,7 +958,7 @@
 | [**HECKTOR**](https://hecktor.grand-challenge.org/) | PET/CT | 仅图像域 | CC BY-NC 4.0 | 头颈部 PET/CT，带原发肿瘤勾画；五届标注口径一致。 |
 | [**CT Lymph Nodes**](https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/) | contrast CT | 仅图像域 | CC BY 3.0 | 176 例腹部 CT，带纵隔与腹部淋巴结标注。 |
 | [**NLST**](https://www.cancerimagingarchive.net/collection/nlst/) | low-dose CT | 仅图像域 | restricted (TCIA NCI) | 26,254 例基线低剂量筛查 CT——迄今最大的真实低剂量 CT 集合，但获取需要申请授权。 |
-| [**AAPM DL-Sparse-View CT data**](https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/) | helical CT (re-projected) | 投影域 + 图像域 | CC BY 3.0 | 2016 年挑战赛队列重新投影为每圈 2/4/8/16/32/64 个视角，在固定解剖真值下给出可控的稀疏视角轴。 |
+| [**AAPM DL-Sparse-View CT data**](https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/) | 2D fan-beam (simulated) | 投影域 + 图像域 | CC BY 4.0 | 2021 年 AAPM DL-sparse-view CT 挑战赛数据：4,000 个仿真二维乳腺 CT 体模，每个配有 360° 理想无噪声 128 视角扇束正弦图及其 FBP 图像，另有 100 例测试。真值完全已知，可把稀疏视角逆问题与噪声、模型失配分开考察。 |
 | [**Finnish Inverse Problems Society (FIPS) datasets**](https://www.fips.fi/dataset.php) | fan-beam / cone-beam | 仅投影域 | CC BY 4.0 | 一批真实测量的正弦图（核桃、莲藕、苹果、胡萝卜、体模），采集几何记录详尽——检验重建算子最干净的公开来源。 |
 | [**LoDoPaB-CT (benchmark release paper)**](https://doi.org/10.1038/s41597-021-00893-z) | 2D fan-beam | 仅图像域 | CC BY 4.0 | LoDoPaB-CT 数据集在 **Scientific Data** 上的数据描述论文——在该切分上报告结果时应引用的文献。记录了仿真协议与 FBP/U-Net 参照基线。 |
 | [**COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset**](https://arxiv.org/abs/2607.20037) | cone-beam | 投影域 + 图像域 | CC BY-NC 4.0 | 来自六家欧洲中心的 867 例骨盆放疗 CBCT 扫描（Elekta 与 Varian 系统），含原始投影、采集几何、临床 CBCT 与计划 CT。约 950 GB，按 692/52/123 划分，以 CC BY-NC 4.0 发布于 Zenodo（doi:10.5281/zenodo.21322350）。也是 COBRA2026 重建挑战赛的数据基础。 |
@@ -981,10 +981,10 @@
 | [**SPARE Challenge**](https://image-x.sydney.edu.au/spare-challenge/) | 2024 | dynamic, cbct, reconstruction | 从一分钟扫描重建胸部四维锥束 CT。首个被广泛采用的呼吸分辨动态 CBCT 基准；由悉尼大学 Image X 研究所主办。 |
 | [**DeepInverse benchmark suite**](https://deepinv.github.io/) | 2024 | reconstruction, benchmarking | 统一的 PyTorch 基准框架，覆盖 CT、MRI、去模糊与图像修复，提供可复现指标与预训练基线——把新 CT 方法与强通用求解器对比的最实用途径。 |
 | [**SynthRAD2023 Challenge**](https://synthrad2023.grand-challenge.org/) | 2023 | cbct, synthetic-ct, reconstruction | 从 CBCT 与 MRI 生成合成 CT。与此处相关，是因为 CBCT→CT 任务恰恰由重建伪影（散射、截断、射束硬化）主导——该挑战赛迫使方法正面处理它们，而不是假设输入干净。 |
-| [**AAPM DL-Sparse-View CT Challenge**](https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/) | 2022 | sparse-view, reconstruction | 在重新投影的临床数据上固定稀疏视角协议（2/4/8/16/32/64 视角），提供官方指标与公开排行榜。稀疏视角 CT 的标准参照点。 |
-| [**Helsinki Tomography Challenge**](https://www.fips.fi/HTC2022.php) | 2022 | limited-angle, reconstruction | 真实测量的有限角正弦图。值得注意的是优胜方案是经典/基于模型的，而非纯学习型——是一个有益的对照。 |
+| [**Helsinki Tomography Challenge**](https://www.fips.fi/HTC2022.php) | 2022 | limited-angle, reconstruction | 真实测量的有限角正弦图。冠军是在合成数据上训练的纯学习网络；唯一的基于模型方案（CIL 团队，方向 TV）获得第三——说明经典方法在有限角任务上依然有竞争力。 |
 | [**AutoPET Challenge**](https://autopet.grand-challenge.org/) | 2022 | segmentation | 全身 PET/CT 病灶分割，自 2022 年起逐年举办（至 2025 年已四届），每届均刻意隐藏多中心测试队列。 |
 | [**CTooth / CTooth+**](https://github.com/liangjiubujiu/CTooth) | 2022 | segmentation, cbct | 全标注的三维牙科 CBCT 数据集与牙齿分割基准（5,803 层 CBCT），后扩展为 CTooth+。在伪影严重的领域里，是一个规模不大但标注精良的 CBCT 基准。 |
+| [**AAPM DL-Sparse-View CT Challenge**](https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/) | 2021 | sparse-view, reconstruction | 从理想无噪声的 128 视角扇束数据恢复二维乳腺 CT 体模：4,000 组训练数据、100 例测试，按 RMSE 公开排名。深度学习稀疏视角 CT 的常用参照点。 |
 | [**LoDoPaB-CT benchmark**](https://lodopab.grand-challenge.org/) | 2021 | low-dose, reconstruction | 在 LoDoPaB-CT 切分上以大挑战赛方式评测，并发布经过调优的 FBP+U-Net 参照基线，使改进幅度可度量。 |
 | [**MICCAI FLARE**](https://flare.grand-challenge.org/) | 2021 | segmentation | 跨四届（FLARE21/22/23/24）的多器官腹部 CT 分割；是 CT 重建输出的标准下游鲁棒性检验目标。 |
 | [**HECKTOR Challenge**](https://hecktor.grand-challenge.org/) | 2020 | segmentation, prognosis | 头颈部 PET/CT 肿瘤勾画；五届使其成为运行时间较长的医学影像挑战赛之一。 |

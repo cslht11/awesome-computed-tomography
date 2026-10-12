@@ -9,15 +9,15 @@
 
 - name: AAPM DL-Sparse-View CT Challenge
   url: https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/
-  year: 2022
+  year: 2021
   tasks: [sparse-view, reconstruction]
-  note: "Fixed sparse-view protocols (2/4/8/16/32/64 views) on re-projected clinical data, with official metrics and a public leaderboard. The standard reference point for sparse-view CT."
+  note: "Recover a 2D breast-CT phantom from ideal noiseless 128-view fan-beam data: 4,000 training pairs, 100 test cases, ranked by RMSE on a public leaderboard. A common reference point for deep-learning sparse-view CT."
 
 - name: Helsinki Tomography Challenge
   url: https://www.fips.fi/HTC2022.php
   year: 2022
   tasks: [limited-angle, reconstruction]
-  note: "Real measured limited-angle sinograms. Notable because the winning entries were classical / model-based rather than purely learned — a useful counterweight."
+  note: "Real measured limited-angle sinograms. A purely learned network trained on synthetic data won; the only model-based entry (CIL, directional TV) placed third — evidence that classical methods stay competitive at limited angle."
 
 - name: LoDoPaB-CT benchmark
   url: https://lodopab.grand-challenge.org/

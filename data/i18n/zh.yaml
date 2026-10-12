@@ -378,7 +378,7 @@ datasets:
   "LoDoPaB-CT":
     note: "**Projection + image.** 42,895 对仿真人体胸腔切片（LIDC/IDRI），单一噪声水平（N0 = 4096）——其他剂量水平需自行重仿真。事实上的低剂量 CT 标准基准；附有调优良好的 FBP/U-Net 参考流程。"
   "LDCT-and-Projection-data":
-    note: "**Projection + image.** Mayo Clinic 发布，经 TCIA 分发。299 例头部／胸部／腹部扫描（99 / 100 / 100），每例含一次常规剂量扫描外加一套仿真的降剂量投影——头部与腹部为常规剂量的 25%，胸部为 10%。并以开放的 **DICOM-CT-PD** 格式提供原始正弦图。它源自 2016 年 AAPM 低剂量 CT 大挑战，目前是投影域方法最好的真实数据来源。"
+    note: "**Projection + image.** Mayo Clinic 发布，经 TCIA 分发。299 例头部／胸部／腹部扫描（99 / 100 / 100），每例含一次常规剂量扫描外加一套仿真的降剂量投影——头部与腹部为常规剂量的 25%，胸部为 10%。胸部与腹部数据以 CC BY 4.0 开放；99 例头部扫描因可能重建出人脸，需按 NIH 受控访问流程申请。并以开放的 **DICOM-CT-PD** 格式提供原始正弦图。它源自 2016 年 AAPM 低剂量 CT 大挑战，目前是投影域方法最好的真实数据来源。"
   "2DeteCT":
     note: "**Projection + image.** 5,000 张真实实验采集的混合物体二维切片，三个剂量水平，多种源-探测器几何。非常适合做可复现的真实数据 CT 基准测试。"
   "Walnut-CBCT":
@@ -434,7 +434,7 @@ datasets:
   "NLST":
     note: "26,254 例基线低剂量筛查 CT——迄今最大的真实低剂量 CT 集合，但获取需要申请授权。"
   "AAPM DL-Sparse-View CT data":
-    note: "**Projection + image.** 2016 年挑战赛队列重新投影为每圈 2/4/8/16/32/64 个视角，在固定解剖真值下给出可控的稀疏视角轴。"
+    note: "**Projection + image.** 2021 年 AAPM DL-sparse-view CT 挑战赛数据：4,000 个仿真二维乳腺 CT 体模，每个配有 360° 理想无噪声 128 视角扇束正弦图及其 FBP 图像，另有 100 例测试。真值完全已知，可把稀疏视角逆问题与噪声、模型失配分开考察。"
   "Finnish Inverse Problems Society (FIPS) datasets":
     note: "**Projection only.** 一批真实测量的正弦图（核桃、莲藕、苹果、胡萝卜、体模），采集几何记录详尽——检验重建算子最干净的公开来源。"
   "LoDoPaB-CT (benchmark release paper)":
@@ -462,9 +462,9 @@ benchmarks:
   "AAPM Low-Dose CT Grand Challenge":
     note: "确立了 1/4 剂量 / 10% / 5% 协议与 Mayo 腹部队列的挑战赛。几乎每一篇低剂量 CT 论文至今仍在该切分上报告结果。"
   "AAPM DL-Sparse-View CT Challenge":
-    note: "在重新投影的临床数据上固定稀疏视角协议（2/4/8/16/32/64 视角），提供官方指标与公开排行榜。稀疏视角 CT 的标准参照点。"
+    note: "从理想无噪声的 128 视角扇束数据恢复二维乳腺 CT 体模：4,000 组训练数据、100 例测试，按 RMSE 公开排名。深度学习稀疏视角 CT 的常用参照点。"
   "Helsinki Tomography Challenge":
-    note: "真实测量的有限角正弦图。值得注意的是优胜方案是经典/基于模型的，而非纯学习型——是一个有益的对照。"
+    note: "真实测量的有限角正弦图。冠军是在合成数据上训练的纯学习网络；唯一的基于模型方案（CIL 团队，方向 TV）获得第三——说明经典方法在有限角任务上依然有竞争力。"
   "LoDoPaB-CT benchmark":
     note: "在 LoDoPaB-CT 切分上以大挑战赛方式评测，并发布经过调优的 FBP+U-Net 参照基线，使改进幅度可度量。"
   "SPARE Challenge":
