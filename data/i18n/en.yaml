@@ -115,7 +115,7 @@ ui:
   venuePreprint: "preprint"
   yearAndLater: "{year} and later"
 
-  # ---- table headers (site only; the README carries its own)
+  # ---- table headers (used by the site chrome and by the README's tables)
   tableToolkit: "Toolkit"
   tableLanguage: "Language"
   tableLicense: "License"
@@ -128,6 +128,7 @@ ui:
   tableYear: "Year"
   tableResource: "Resource"
   tableType: "Type"
+  tableDescription: "Description"
 
   # ---- footer and no-script fallback
   footer1: >-
@@ -200,18 +201,9 @@ readme:
     Coverage: {papers} papers ({year_min}–{year_max}), {toolkits} toolkits, {datasets} datasets,
     {benchmarks} benchmarks/challenges, {learning} learning resources. Every paper link
     was resolved against Crossref, arXiv or the publisher's own record, and every URL was checked.
-  peerLine: >-
-    {peer} of {papers} papers ({peer_pct}%) are published at a peer-reviewed venue; the
-    other {preprints} are preprints, marked `(preprint, year)`.
-  contribLine: "Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)."
-  siteLine: >-
-    The same corpus renders as a searchable single page (`python scripts/build_site.py`)
-    — described in [SITE.md](SITE.md).
-  contentsHeading: "Contents"
   papersHeading: "Papers"
   # The JSON-LD ItemList's `name` — the machine-readable title of the paper
   # collection, which needs to be more explicit than the section heading.
-  papersListName: "CT reconstruction papers"
   legendPapers: >-
     Newest first within each topic. Each entry gives its venue and year in
     italics; _preprint_ marks work not (yet) published at a peer-reviewed venue,
@@ -225,23 +217,8 @@ readme:
     a projection model.
   benchmarksHeading: "Benchmarks"
   learningHeading: "Learning"
-  entriesCount: "<sub>{n} entries</sub>"
   preprintLabel: "preprint"
-  contributingHeading: "Contributing"
-  contributingBody: >-
-    See [CONTRIBUTING.md](CONTRIBUTING.md). The short version: add an entry to the relevant
-    file under `data/`, run `python scripts/build.py`, and open a pull request. CI validates
-    the YAML for you.
   licenseHeading: "License"
-  licenseBody1: >-
-    **Code** (`scripts/`, `web/`, `.github/`) is [MIT](LICENSE). **Content** (`data/`,
-    this README, and the generated site) is [CC BY 4.0](LICENSE-content) — reuse it
-    freely, including commercially, as long as you credit the list.
-  licenseBody2: >-
-    The `License` column in the toolkit and dataset tables describes **those projects**,
-    not this one. A paper's title, venue and links are facts about someone else's work and
-    remain theirs; an entry here is a pointer to a paper, never a copy of it.
-
   # ---- hero / navigation
   heroTagline: >-
     **A curated, verified list of CT reconstruction research** — papers, toolkits,
@@ -284,7 +261,6 @@ readme:
   learnMore: "More"
 
   # ---- shared
-  tableDescription: "Description"
   backToTop: "back to top"
 
   # ---- contact replaces the old Contributing section

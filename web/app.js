@@ -308,7 +308,7 @@
        { label: t("tableStars", "Stars"), cls: "n" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
       rows.map(function (t) {
-        var nm = esc(t.name);
+        var nm = esc(t.label || t.name);
         var html = '<a href="' + esc(t.url) + '" target="_blank" rel="noopener">' + nm + "</a>";
         if (t.homepage) {
           html += ' <a href="' + esc(t.homepage) + '" target="_blank" rel="noopener" title="' + t("homepageTitle", "homepage") + '">'
@@ -326,7 +326,7 @@
        { label: t("tableLicense", "License"), cls: "n" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
       DATA.datasets.map(function (d) {
-        var nm = '<a href="' + esc(d.url) + '" target="_blank" rel="noopener">' + esc(d.name) + "</a>";
+        var nm = '<a href="' + esc(d.url) + '" target="_blank" rel="noopener">' + esc(d.label || d.name) + "</a>";
         return ["@@HTML@@" + nm, d.modality || "-",
                 (d.tasks || []).join(", ") || "-",
                 d.license || "-", "@@HTML@@" + mdInline(d.note)];
@@ -341,7 +341,7 @@
        { label: t("tableTasks", "Tasks"), cls: "tasks" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
       rows.map(function (b) {
-        var nm = '<a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.name) + "</a>";
+        var nm = '<a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.label || b.name) + "</a>";
         return ["@@HTML@@" + nm, b.year == null ? "-" : String(b.year),
                 (b.tasks || []).join(", ") || "-", "@@HTML@@" + mdInline(b.note)];
       }));
@@ -350,13 +350,14 @@
   function renderLearning() {
     var order = { book: 1, course: 2, tutorial: 3, tool: 4, list: 5 };
     var rows = DATA.learning.slice().sort(function (a, b) {
-      return (order[a.type] || 9) - (order[b.type] || 9) || a.name.localeCompare(b.name);
+      return (order[a.type] || 9) - (order[b.type] || 9) ||
+             (a.label || a.name).localeCompare(b.label || b.name);
     });
     renderTable(document.getElementById("t-learning"),
       [{ label: t("tableResource", "Resource") }, { label: t("tableType", "Type"), cls: "n" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
       rows.map(function (l) {
-        var nm = '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.name) + "</a>";
+        var nm = '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label || l.name) + "</a>";
         return ["@@HTML@@" + nm, l.type || "-", "@@HTML@@" + mdInline(l.note)];
       }));
   }

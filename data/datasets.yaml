@@ -11,7 +11,7 @@
   modality: 2D fan-beam
   tasks: [low-dose, sparse-view, denoising, reconstruction]
   license: CC BY 4.0
-  note: "**Projection + image.** 41,000 simulated human thorax slices (LIDC/IDRI), two dose levels. The de-facto standard low-dose CT benchmark; ships a well-tuned FBP/U-Net reference pipeline."
+  note: "**Projection + image.** 42,895 simulated human thorax slice pairs (LIDC/IDRI) at a single noise level (N0 = 4096) — other dose levels have to be re-simulated. The de-facto standard low-dose CT benchmark; ships a well-tuned FBP/U-Net reference pipeline."
 
 - name: LDCT-and-Projection-data
   url: https://www.cancerimagingarchive.net/collection/ldct-and-projection-data/
@@ -90,7 +90,7 @@
   modality: contrast CT
   tasks: [segmentation, reconstruction]
   license: CC BY-NC 4.0
-  note: "489 abdominal CT scans with kidney-tumour and cyst annotations across three challenge editions."
+  note: "599 abdominal CT scans (489 training + 110 test) with kidney-tumour and cyst annotations, from the KiTS23 edition."
 
 - name: Pancreas-CT (NIH)
   url: https://www.cancerimagingarchive.net/collection/pancreas-ct/
@@ -127,7 +127,7 @@
   modality: CT / MRI
   tasks: [segmentation, reconstruction]
   license: CC BY-SA 4.0
-  note: "Ten tasks, four of them CT (lung, pancreas, colon, hepatic vessels). The single most cited multi-task medical segmentation benchmark."
+  note: "Ten tasks, six of them CT (liver, lung, pancreas, hepatic vessels, spleen, colon). The single most cited multi-task medical segmentation benchmark."
 
 - name: VerSe
   url: https://github.com/anjany/verse
@@ -141,7 +141,7 @@
   modality: CT
   tasks: [detection, segmentation]
   license: CC BY-NC 4.0
-  note: "5,000 CT scans with 660 rib-fracture annotations; large, and often used as an auxiliary CT corpus."
+  note: "660 CT scans carrying ~5,000 rib-fracture annotations (420 training / 80 validation / 160 evaluation); often used as an auxiliary CT corpus."
 
 - name: CT-ORG
   url: https://www.cancerimagingarchive.net/collection/ct-org/
@@ -155,7 +155,7 @@
   modality: CT
   tasks: [diagnosis, low-dose]
   license: CC BY-NC 3.0
-  note: "23,000+ COVID-19 chest CT scans from a multi-centre international study; a very large real-clinical distribution shift test. Listed here through the NCI Imaging Data Commons mirror, which exposes the same collection with a queryable API."
+  note: "10,735 COVID-19 chest CT scans from the French first wave, collected for severe-outcome prediction; a large real-clinical distribution-shift test. Listed here through the NCI Imaging Data Commons mirror, which exposes the same collection with a queryable API."
 
 - name: MosMedData
   url: https://mosmed.ai/en/datasets/datasets/covid191110/

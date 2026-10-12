@@ -9,7 +9,7 @@
 - name: Principles of Computerized Tomographic Imaging
   url: https://www.slaney.org/pct/pct-toc.html
   type: book
-  note: "Kak & Slaney (1988). **Free PDF.** The foundation: Radon transform, Fourier-slice theorem, FBP, algebraic reconstruction, fan/cone-beam rebinning. Read chapters 1-3 first."
+  note: "Kak & Slaney (1988). **Free online**, chapter by chapter as PDFs. The foundation: Radon transform, Fourier-slice theorem, FBP, algebraic reconstruction, fan/cone-beam rebinning. Read chapters 1-3 first."
 
 - name: The Mathematics of Computerized Tomography
   url: https://doi.org/10.1137/1.9780898719284
@@ -76,7 +76,7 @@
 - name: XDesign
   url: https://github.com/AdvancedPhotonSource/xdesign
   type: tool
-  note: "Differentiable CT acquisition simulation — model polychromatic spectra, detector response and geometry inside a training loop. Originally developed alongside CIL; now maintained by the Advanced Photon Source."
+  note: "Configurable X-ray phantom generation, acquisition simulation and reconstruction benchmarking, built for developing and comparing new tomographic reconstruction methods; analytic solutions keep the simulations fast. Maintained by the Advanced Photon Source."
 
 - name: SpekPy
   url: https://pypi.org/project/spekpy/
@@ -86,7 +86,7 @@
 - name: TomoPhantom
   url: https://github.com/dkazanc/TomoPhantom
   type: tool
-  note: "Fast analytical 2D/3D/4D phantom generation with built-in noise and offset models; convenient for controlled reconstruction studies."
+  note: "Fast analytical 2D/3D/4D phantom generation with built-in noise and offset models; convenient for controlled reconstruction studies. Also listed among the toolkits."
 
 - name: gVXR (gVirtualXray)
   url: https://gvirtualxray.sourceforge.io/
@@ -144,14 +144,14 @@
 - name: CT Principles and Algorithms
   url: https://www.google.com/search?q=%E5%BA%84%E5%A4%A9%E6%88%88+CT%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%97%E6%B3%95
   type: book
-  note: "庄天戈. The Chinese-language introduction to CT principles and algorithms; widely used as a first course text and the natural entry point for readers who prefer Chinese."
+  note: "庄天戈. The Chinese-language introduction to CT principles and algorithms; widely used as a first course text and the natural entry point for readers who prefer Chinese. The 1992 edition has no publisher page online, so the link is a title search."
 
 - name: Industrial CT Technology and Principles
-  url: https://www.google.com/search?q=%E5%BC%A0%E6%9C%9D%E5%AE%97+%E5%B7%A5%E4%B8%9ACT%E6%8A%80%E6%9C%AF%E5%92%8C%E5%8E%9F%E7%90%86
+  url: https://www.ecsponline.com/goods.php?id=47496
   type: book
   note: "张朝宗. The reference for industrial (non-destructive-testing) CT — geometry, sources, detectors and artefact sources on the industrial side, where the medical textbooks stop."
 
 - name: Medical Tomographic Image Reconstruction Simulation Experiments
-  url: https://www.google.com/search?q=%E9%BB%84%E5%8A%9B%E5%AE%87+%E5%8C%BB%E5%AD%A6%E6%96%AD%E5%B1%82%E5%9B%BE%E5%83%8F%E9%87%8D%E5%BB%BA%E4%BB%BF%E7%9C%9F%E5%AE%9E%E9%AA%8C
+  url: https://www.xduph.com/pages/BookDetail.aspx?doi=6cad1ac3-8019-4263-9773-ad8bd9e39203
   type: book
   note: "黄力宇. A hands-on Chinese-language lab manual: builds each reconstruction algorithm as a simulation experiment rather than presenting it as theory."

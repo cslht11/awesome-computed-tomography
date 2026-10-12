@@ -129,7 +129,14 @@ def build_payload(lang=None):
     def side(items, table, key, urlkeys, extra):
         rows = []
         for e in items:
+            # `key` stays the English name — it is the stable identifier the
+            # overlay lookups and the site self-check are keyed on. A
+            # translation that *renames* a row (learning's Chinese book titles)
+            # rides alongside as `label`, which app.js prefers for display.
+            item = ov.item(table, e[key])
             r = {key: e[key]}
+            if item.get("name"):
+                r["label"] = item["name"]
             u = url_of(e, *urlkeys)
             if u:
                 r["url"] = u

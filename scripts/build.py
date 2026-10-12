@@ -210,7 +210,29 @@ def validate(meta, papers, toolkits, datasets, benchmarks, learning):
 
 
 # ---------------------------------------------------------------- render
-SITE_URL = "https://computedtomography.org/"
+# The README links back to the site, so the origin is read from the same single
+# place the site build uses (site.config.yml -> `url`). Hardcoding it here would
+# mean a domain change silently left the README badge and nav pointing at the
+# old address — the docs promise the origin is configured in exactly one spot.
+SITE_CONFIG = os.path.join(ROOT, "site.config.yml")
+SITE_URL_FALLBACK = "https://computedtomography.org/"
+
+
+def site_url():
+    try:
+        with io.open(SITE_CONFIG, encoding="utf-8") as f:
+            cfg = yaml.safe_load(f) or {}
+    except (IOError, OSError):
+        return SITE_URL_FALLBACK
+    url = (cfg.get("url") or "").strip()
+    if url and not url.endswith("/"):
+        url += "/"
+    return url or SITE_URL_FALLBACK
+
+
+SITE_URL = site_url()
+
+
 def top_link(ov):
     return ('<div align="right"><a href="#top">%s ↑</a></div>\n'
             % ov.readme("backToTop", "back to top"))
@@ -331,13 +353,24 @@ def render_topic_grid(papers, meta, ov, cols=3):
     return "\n".join(out) + "\n"
 
 
+def item_name(e, table, ov):
+    """Display name for a table row.
+
+    An overlay normally translates only a row's ``note``, but it may also
+    rename the row itself — ``learning."CT Principles and Algorithms".name``
+    exists precisely to show the Chinese title. Falls back to the English name
+    in ``data/*.yaml``.
+    """
+    return ov.item(table, e["name"]).get("name") or e["name"]
+
+
 def render_toolkits(items, ov):
     if not items:
         return ""
     items = sorted(items, key=lambda e: -(e.get("stars") or 0))
     rows = []
     for e in items:
-        nm = "[**%s**](%s)" % (e["name"], url_of(e, "repo", "url"))
+        nm = "[**%s**](%s)" % (item_name(e, "toolkits", ov), url_of(e, "repo", "url"))
         note = ov.item("toolkits", e["name"]).get("note") or e.get("note", "")
         rows.append([nm, esc(e.get("language", "-")), str(e.get("stars", "-")),
                      esc(note)])
@@ -356,7 +389,10 @@ def _dataset_kind(note):
     for m, kind in _MARKERS:
         if note.startswith(m):
             return kind, note[len(m):].strip()
-    note = re.sub(r"\s*\*\*Image domain only\*\*[^.]*\.", "", note).strip()
+    # The marker itself stays English in every language (see render_datasets),
+    # but the sentence it introduces ends in "." in English and "。" in
+    # Chinese, so both terminators have to be accepted.
+    note = re.sub(r"\s*\*\*Image domain only\*\*[^.]*[.\u3002]", "", note).strip()
     return "image", note
 
 
@@ -373,7 +409,7 @@ def render_datasets(items, ov):
         # in the Data column is what gets translated.
         shown = ov.item("datasets", e["name"]).get("note") or e.get("note", "")
         kind, shown = _dataset_kind(shown)
-        nm = "[**%s**](%s)" % (e["name"], url_of(e, "url", "repo"))
+        nm = "[**%s**](%s)" % (item_name(e, "datasets", ov), url_of(e, "url", "repo"))
         rows.append([nm, esc(e.get("modality", "-")), kind_labels.get(kind, kind),
                      esc(e.get("license", "-")), esc(shown)])
     return ov.readme("legendDatasets") + "\n\n" + render_table(
@@ -387,7 +423,7 @@ def render_benchmarks(items, ov):
         return ""
     rows = []
     for e in sorted(items, key=lambda x: -(x.get("year") or 0)):
-        nm = "[**%s**](%s)" % (e["name"], url_of(e, "url", "repo"))
+        nm = "[**%s**](%s)" % (item_name(e, "benchmarks", ov), url_of(e, "url", "repo"))
         note = ov.item("benchmarks", e["name"]).get("note") or e.get("note", "")
         rows.append([nm, str(e.get("year", "-")),
                      esc(", ".join(e.get("tasks") or []) or "-"),
@@ -416,7 +452,9 @@ def render_learning(items, ov):
         out.append("**%s**\n" % ov.readme(ikey, label))
         for e in sorted(g, key=lambda e: e["name"].lower()):
             note = ov.item("learning", e["name"]).get("note") or e.get("note", "")
-            out.append("- [%s](%s) — %s" % (e["name"], url_of(e, "url", "repo"), note))
+            out.append("- [%s](%s) — %s"
+                       % (item_name(e, "learning", ov), url_of(e, "url", "repo"),
+                          note))
         out.append("")
     return "\n".join(out)
 

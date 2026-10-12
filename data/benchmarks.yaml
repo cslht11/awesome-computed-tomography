@@ -61,19 +61,19 @@
   url: https://chaos.grand-challenge.org/
   year: 2019
   tasks: [segmentation]
-  note: "Abdominal CT and MRI organ segmentation including low-dose and unenhanced protocols, with explicit cross-modality evaluation."
+  note: "Abdominal CT and MRI organ segmentation with explicit cross-modality evaluation; the CT scans are portal-venous-phase contrast-enhanced, not low-dose."
 
 - name: SPIE-AAPM-NCI LungX Challenge
   url: https://www.cancerimagingarchive.net/collection/spie-aapm-lung-ct-challenge/
   year: 2015
-  tasks: [detection, low-dose]
-  note: "Lung nodule detection on low-dose screening CT; an early demonstration that reader-level performance on low-dose data is attainable. Data is distributed through TCIA."
+  tasks: [diagnosis, low-dose]
+  note: "Lung nodule malignancy classification on low-dose screening CT — the task is diagnostic and benchmarked against radiologists, not nodule detection. 70 cases (10 training, 60 test), distributed through TCIA."
 
 - name: AutoPET Challenge
   url: https://autopet.grand-challenge.org/
   year: 2022
   tasks: [segmentation]
-  note: "Whole-body PET/CT lesion segmentation across three editions, with a deliberately hidden multi-centre test cohort."
+  note: "Whole-body PET/CT lesion segmentation, run annually since 2022 (four editions by 2025), each with a deliberately hidden multi-centre test cohort."
 
 - name: HECKTOR Challenge
   url: https://hecktor.grand-challenge.org/
@@ -108,11 +108,11 @@
 - name: "Generating synthetic computed tomography for radiotherapy: SynthRAD2025 challenge report"
   url: "https://arxiv.org/abs/2605.13555"
   year: 2026
-  tasks: [reconstruction]
-  note: "59 pages total: 26 pages main article + supplementary material; 8 figures in the main manuscript and 3 supplementary figures. Currently under review at the journal Medical Image An"
+  tasks: [cbct, synthetic-ct, reconstruction]
+  note: "Synthetic CT generation from CBCT and MRI — the 2025 edition of SynthRAD, with the accompanying report documenting the tasks, data and results. Same CBCT-to-CT focus as the 2023 edition, where scatter, truncation and beam hardening dominate the input."
 
 - name: "CT-DegradBench: A Physics-Informed Benchmark for CT Degradation Detection and Severity Estimation"
   url: "https://arxiv.org/abs/2605.16431"
   year: 2026
   tasks: [reconstruction]
-  note: "Accepted in CVPR 2026 VISION Workshop (DEXTER track)"
+  note: "A physics-informed benchmark for detecting CT degradations (noise, blur, artefacts) and estimating their severity — it asks what is wrong with a scan, not only how to reconstruct it. Accepted at the CVPR 2026 VISION Workshop (DEXTER track)."

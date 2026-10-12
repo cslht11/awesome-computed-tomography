@@ -28,6 +28,13 @@ URL_FIELDS = ("url", "repo", "homepage", "paper", "code", "project", "data")
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+# Certificate verification is off on purpose. This checker only ever fetches
+# public URLs listed in data/*.yaml, sends no credentials and stores no
+# response body — only the status code — so there is nothing for a
+# man-in-the-middle to steal, while verification would produce false "dead
+# link" reports for hosts whose certificates are simply mismatched or expired
+# (medicaldecathlon.com is a known case: its certificate does not cover the
+# hostname). Liveness is what this script measures, not trust.
 CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE

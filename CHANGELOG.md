@@ -13,6 +13,108 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — Three external audits worked through, and the contributor list cleaned up
+
+Three independent audits of the repository — data, i18n, links, CI, docs — were checked
+finding by finding rather than applied wholesale. Every repair was re-derived from
+Crossref, the publisher's record or the project's own primary source before it was made;
+several audit claims turned out to be wrong and were dropped or narrowed (see below).
+
+### Fixed (paper and dataset records)
+
+- **Four wrong years or venues**, each confirmed against the record at the DOI:
+  LoDoPaB-CT 2017 → **2021** (Scientific Data), MAP-NN 2021 → **2019** (Nat Mach Intell),
+  DL-PICCS 2019 → **2021** (Med Phys), DREAM-Net TMI 2022 → **JBHI 2023** — a mistake the
+  DOI's own prefix, `10.1109/jbhi...`, already contradicted. DenoMamba 2025 → **2026**,
+  following the volume/issue convention the other IEEE entries use.
+- **LoDoPaB-CT's title carried leftover markdown** (`(**Scientific Data**) -->`) from a
+  link removed by hand, and `FSTensor`'s title was missing its separator
+  ("FSTensorFull-spectrum…", now "FSTensor: Full-spectrum…").
+- **Two duplicate pairs removed**, keeping the peer-reviewed record in each case:
+  CasRedSCAN's 2020 preprint against its TMI 2021 paper, and the CAIP 2025 registration
+  paper against its earlier workshop-titled arXiv posting. Papers 391 → 389.
+- **Dataset facts corrected against the primary sources.** LDCT-and-Projection-data
+  claimed "four dose levels (full / quarter / 10% / 5%)"; the challenge released routine
+  dose plus *one* simulated reduction, and TCIA states 25% for head/abdomen and 10% for
+  chest. VerSe claimed "3,741 CT/CBCT spine scans" — it is **374 CT scans from 355
+  patients**, with no CBCT. Medical Segmentation Decathlon has **six** CT tasks, not four.
+  KiTS23 has **599** scans (489 train + 110 test), not 489 across "three editions".
+  RibFrac's two numbers were **swapped**: 660 scans carrying ~5,000 annotations. STOIC 2021
+  is **10,735 French first-wave** scans, not "23,000+ multi-centre". LUNGx is a diagnostic
+  classification task, not nodule detection. CHAOS's CT is portal-venous contrast, not
+  low-dose. AutoPET ran **four** editions by 2025, not three.
+- **`sigpy` ships no Radon primitives** and **RadIO is not a Radon/FBP package** — both
+  notes now describe what the code actually contains. **LEAP**'s expansion was invented
+  (it is LivermorE AI Projector for Computed Tomography). **libcbct** is CC BY-NC-SA 4.0,
+  which GitHub's API reports as "Other". **CBCT Scatter Correction Tool** has no source in
+  its repository — it ships a Windows executable — so it no longer claims a language.
+- **Two splat-based CBCT metal-artifact papers were kept, not merged.** Both exist and
+  both are peer-reviewed (CVPR 2026 and Computer Graphics Forum 45(2) 2026, same group);
+  each now carries a note saying so, so the near-identical titles read as a pair rather
+  than as a duplication error.
+- **`generative-modeling-in-sinogram-domain`** now links its published TRPMS DOI
+  (10.1109/trpms.2023.3309474) instead of the arXiv posting, and two Transformer papers
+  and two purely-learned papers lost topic tags that did not describe them.
+- **Chinese strings**: the typo 高斯泼澅 fixed and the three competing renderings of
+  "Gaussian splatting" unified.
+
+### Fixed (build and rendering)
+
+- **`paper_head()` treated any title that merely *started* with the abbreviation as a
+  prefix match**, so an abbreviation like "A" would have mangled "A benchmark …". It now
+  requires the abbreviation to *be* the first token, and drops an abbreviation repeated in
+  trailing parentheses. `web/app.js` mirrors both rules and the two implementations
+  cross-reference each other so they cannot drift.
+- **The dataset marker stripper only recognised the English full stop**, so the Chinese
+  ToothFairy2 note — which had translated the marker itself — printed the sentence in both
+  the Data and the Description column. The marker stays English now, as everywhere else.
+- **A row can be renamed by an overlay**, not only have its note translated. That is what
+  `learning."CT Principles and Algorithms".name` was for, and the key had been silently
+  dead; the site payload keeps the English name as its stable key and carries the
+  translation as `label`.
+- **`tableDescription` sat in the `readme:` section but is read through `ov.ui()`**, so it
+  could never be found and the Chinese README printed the English header "Description".
+  Moved into `ui:` in both language files, together with ten `readme:` keys that reach
+  neither README nor site — two of which were actively misleading: `licenseBody1` stated
+  CC BY 4.0 with commercial reuse (the licence is CC BY-NC-SA 4.0) and `contributing*`
+  linked to CONTRIBUTING.md, deleted on 2026-10-10.
+- **The README's site URL is no longer hardcoded.** `build.py` reads the origin from
+  `site.config.yml`, the single place the docs promise it lives, so a domain change can
+  no longer leave the README badge pointing at the old address.
+- **`new entry` label created.** The issue form referenced it, but it did not exist —
+  GitHub drops an unknown label silently, so suggestions arrived unlabelled.
+
+### Changed
+
+- **Journal venue strings unified**: the `IEEE ` prefix dropped from TNS, TIT, TSP, SPM
+  and JSAIT to match the bare abbreviations used everywhere else (IEEE Access keeps it,
+  being the journal's actual name), and `MedIA` → `Med Image Anal`.
+- **Chinese terminology unified** (同行评审, 工具包, 出版方), plus wording corrections:
+  "on-board imaging" is 机载成像 rather than 在轨成像, "beam hardening" is 射束硬化
+  throughout, and `topics.diffusion` is described as covering generative priors generally
+  — which its own name ("Diffusion & Generative Priors") already claimed.
+- Three Chinese-language books and the XDesign entry now link or describe what the source
+  actually is: two books gained their publisher's page, the 1992 one is documented as
+  having no publisher page (so it links a title search), the Kak & Slaney note says
+  "chapter PDFs" rather than "Free PDF", and XDesign is described as the phantom and
+  acquisition-simulation package its README documents, not as "Differentiable".
+- `validate.yml` gained `permissions: contents: read`; `check_links.py`'s disabled
+  certificate check is now documented and justified rather than silent.
+- Corrected **SITE.md**'s description of what CI does: the README-freshness guard lives in
+  `validate.yml` and runs on pull requests too, while `deploy.yml` runs only on pushes to
+  `main`. The two same-day `2026-10-10` entries were given distinct titles.
+
+### Not changed, deliberately
+
+- **The workshop venues** ("SC Workshops", "NeurIPS Workshop", "Off-Grid Workshop") are
+  three different workshops, not three spellings of one; forcing a single string would
+  lose information.
+- **The 17 truncated `id`s** (e.g. `…-for-low-`) stay as they are: `id` is the permanent
+  `/p/<id>` key, so the generator was fixed instead of the data.
+- **`oneoff/`'s 2.2 MB of harvested JSON** stays: it is the provenance record that lets
+  every entry be traced back to how it was found, and `check_links.py` still writes into
+  it.
+
 ## 2026-10-11 — 102 more papers, the whole list in Chinese, and a new home
 
 The largest single addition so far. The list moves to a repository of its own and
@@ -57,7 +159,7 @@ becomes bilingual end to end.
   language now builds its own payload, and `build_site.py` fails if a translated
   note does not reach that language's `data.json`.
 
-## 2026-10-10
+## 2026-10-10 — Static pages, a non-commercial content licence, and no more pull requests
 
 ### Added (About, Contact and Privacy pages)
 
@@ -82,6 +184,8 @@ becomes bilingual end to end.
 
 **The list is now online at <https://computedtomography.org/>**, and the site
 republishes on every push to `main`.
+
+## 2026-10-10 — First public release
 
 First public state. The list is stable enough to cite.
 

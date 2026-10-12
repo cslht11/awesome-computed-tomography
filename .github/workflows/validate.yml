@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
 
+# The job only reads the repository, so grant nothing else: a compromised or
+# misused dependency in the build chain then has no token worth stealing.
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -121,10 +121,13 @@ gh api repos/cslht11/awesome-computed-tomography/pages \
   --jq '{html_url, cname, build_type, https_enforced, cert: .https_certificate.state}'
 ```
 
-The workflow runs `build.py --check` before building the site, so a PR that leaves
-either generated README (`README.md`, `README.zh-CN.md`) stale fails here too.
-`.github/workflows/validate.yml` *also* runs `build_site.py` on every push, so a change
-that breaks the site fails CI rather than surfacing at the next deploy.
+Both workflows begin with `python scripts/build.py --check`, which validates `data/*.yaml`
+and the i18n overlays. Regenerating the READMEs is a *separate* guard and it does not live
+here: `.github/workflows/validate.yml` runs on pushes to `main` **and** on pull requests,
+rebuilds both READMEs and fails if either differs from the committed copy. `deploy.yml`
+runs only on pushes to `main` (and by hand), so a stale README is caught by validate
+rather than at deploy time. `validate.yml` also runs `build_site.py`, so a change that
+breaks the site fails CI rather than surfacing at the next deploy.
 
 ## Switching to a custom domain
 

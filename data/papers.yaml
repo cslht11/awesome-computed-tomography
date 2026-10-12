@@ -56,7 +56,7 @@
 - id: "denomamba"
   abbr: "DenoMamba"
   title: "DenoMamba: A Fused State-Space Model for Low-Dose CT Denoising"
-  year: 2025
+  year: 2026
   venue: "JBHI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/jbhi.2025.3629034"
@@ -72,7 +72,6 @@
   code: "https://github.com/wskingdom/DGR"
 
 - id: "dgr-2"
-  abbr: "DGR-2"
   title: "An Unsupervised Reconstruction Method For Low-Dose CT Using Deep Generative Regularization Prior"
   year: 2022
   venue: "BSPC"
@@ -186,7 +185,7 @@
   year: 2024
   venue: "TRPMS"
   topics: [diffusion, sparse-view]
-  paper: "https://arxiv.org/abs/2211.13926"
+  paper: "https://doi.org/10.1109/trpms.2023.3309474"
 
 - id: "incode"
   abbr: "INCODE"
@@ -265,7 +264,7 @@
 - id: "synergizing-physics-model-based-and-data-driven-methods-fo"
   title: "Synergizing Physics/Model-based and Data-driven Methods for Low-Dose CT"
   year: 2023
-  venue: "IEEE SPM"
+  venue: "SPM"
   topics: [low-dose]
   paper: "https://arxiv.org/abs/2203.15725"
 
@@ -464,7 +463,7 @@
   title: "DuDoTrans: Dual-Domain Transformer for Sparse-View CT Reconstruction"
   year: 2022
   venue: "MLMIR"
-  topics: [sparse-view, unrolling]
+  topics: [sparse-view]
   paper: "https://doi.org/10.1007/978-3-031-17247-2_9"
   code: "https://github.com/cewang-sysu/DuDoTrans"
 
@@ -751,7 +750,7 @@
   abbr: "DL-InvProb"
   title: "Deep Learning Techniques for Inverse Problems in Imaging"
   year: 2020
-  venue: "IEEE JSAIT"
+  venue: "JSAIT"
   topics: [survey, unrolling]
   paper: "https://arxiv.org/abs/2005.06001"
 
@@ -787,7 +786,7 @@
   title: "FSTensor: Full-spectrum-knowledge-aware tensor model for energy-resolved CT iterative reconstruction"
   year: 2020
   venue: "TMI"
-  topics: [classical]
+  topics: [classical, spectral]
   paper: "https://doi.org/10.1109/tmi.2020.2976692"
 
 - id: "hd-cnn"
@@ -923,7 +922,7 @@
   abbr: "PSRV"
   title: "Patient-specific reconstruction of volumetric computed tomography images from a single projection view via deep learning"
   year: 2019
-  topics: [sparse-view, classical]
+  topics: [sparse-view]
   paper: "https://doi.org/10.1038/s41551-019-0466-4"
   venue: "Nat Biomed Eng"
 
@@ -980,7 +979,7 @@
   title: "Image reconstruction by domain-transform manifold learning"
   year: 2018
   venue: "Nature"
-  topics: [unrolling, classical]
+  topics: [unrolling]
   paper: "https://doi.org/10.1038/nature25988"
 
 - id: "cnnrpgd"
@@ -1109,7 +1108,7 @@
   abbr: "CNN-InvRev"
   title: "Convolutional Neural Networks for Inverse Problems in Imaging: A Review"
   year: 2017
-  venue: "IEEE SPM"
+  venue: "SPM"
   topics: [survey]
   paper: "https://doi.org/10.1109/MSP.2017.2739299"
 
@@ -1245,6 +1244,7 @@
   venue: "CGF"
   topics: [gaussian, metal-artifact, cbct]
   paper: "https://arxiv.org/abs/2608.13159"
+  note: "Journal paper (Computer Graphics Forum 45(2), 2026). Extends the same group's CVPR 2026 conference paper on this problem with joint spectral self-calibration, system-response modelling and a released synthetic CBCT dataset. Both are peer-reviewed, so both are listed."
 
 - id: "prior-adapted-progressive-time-resolved-cbct-reconstruction-"
   title: "Prior-Adapted Progressive Time-Resolved CBCT Reconstruction Using a Dynamic Reconstruction and Motion Estimation Method"
@@ -1493,6 +1493,7 @@
   venue: "CVPR"
   topics: [gaussian, metal-artifact, cbct]
   paper: "https://arxiv.org/abs/2608.04764"
+  note: "Conference paper (CVPR 2026) introducing a compact per-Gaussian attenuation parameterization. The same group's CGF 45(2) 2026 journal paper is the extended version. Both are peer-reviewed, so both are listed."
 
 - id: "texture-preserving-implicit-neural-representation-for-cone-b"
   title: "Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction"
@@ -1538,7 +1539,7 @@
 - id: "ganext-a-fully-convnext-enhanced-generative-adversarial-netw"
   title: "GANeXt: A Fully ConvNeXt-Enhanced Generative Adversarial Network for MRI- and CBCT-to-CT Synthesis"
   year: 2025
-  topics: [diffusion, cbct, unrolling]
+  topics: [cbct]
   paper: "https://arxiv.org/abs/2512.19336"
 
 - id: "accelerated-optimization-of-implicit-neural-representations-"
@@ -1734,7 +1735,7 @@
 - id: "gb-svfbp-gaussian-based-shift-variant-fbp-neural-network"
   title: "GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network"
   year: 2026
-  topics: [gaussian, geometry, unrolling]
+  topics: [geometry, unrolling]
   paper: "https://arxiv.org/abs/2607.11584"
 
 - id: "remar-ds-recalibrated-feature-learning-for-metal-artifact-re"
@@ -2222,7 +2223,7 @@
   abbr: "Shepp-Logan"
   title: "The Fourier reconstruction of a head section"
   year: 1974
-  venue: "IEEE TNS"
+  venue: "TNS"
   topics: [classical]
   paper: "https://doi.org/10.1109/tns.1974.6499235"
 
@@ -2261,14 +2262,14 @@
 - id: "compressed-sensing-2006"
   title: "Compressed sensing"
   year: 2006
-  venue: "IEEE TIT"
+  venue: "TIT"
   topics: [classical, sparse-view]
   paper: "https://doi.org/10.1109/tit.2006.871582"
 
 - id: "robust-uncertainty-2006"
   title: "Robust uncertainty principles: exact signal reconstruction from highly incomplete frequency information"
   year: 2006
-  venue: "IEEE TIT"
+  venue: "TIT"
   topics: [classical, sparse-view]
   paper: "https://doi.org/10.1109/tit.2005.862083"
 
@@ -2276,7 +2277,7 @@
   abbr: "K-SVD"
   title: "K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation"
   year: 2006
-  venue: "IEEE TSP"
+  venue: "TSP"
   topics: [classical, low-dose]
   paper: "https://doi.org/10.1109/tsp.2006.881199"
 
@@ -2397,14 +2398,14 @@
   title: "MDST: multi-domain sparse-view CT reconstruction based on convolution and swin transformer"
   year: 2023
   venue: "PMB"
-  topics: [sparse-view, unrolling]
+  topics: [sparse-view]
   paper: "https://doi.org/10.1088/1361-6560/acc2ab"
 
 - id: "dudodr-net-2022"
   abbr: "DuDoDR-Net"
   title: "DuDoDR-Net: Dual-domain data consistent recurrent network for simultaneous sparse view and metal artifact reduction in computed tomography"
   year: 2022
-  venue: "MedIA"
+  venue: "Med Image Anal"
   topics: [sparse-view, metal-artifact]
   paper: "https://doi.org/10.1016/j.media.2021.102289"
 
@@ -2629,7 +2630,7 @@
   abbr: "ReATV"
   title: "Reweighted Anisotropic Total Variation Minimization for Limited-Angle CT Reconstruction"
   year: 2017
-  venue: "IEEE TNS"
+  venue: "TNS"
   topics: [limited-angle, classical]
   paper: "https://doi.org/10.1109/tns.2017.2750199"
 
@@ -2664,7 +2665,7 @@
 - id: "tomo-21st"
   title: "Tomographic Reconstruction in the 21st Century"
   year: 2010
-  venue: "IEEE SPM"
+  venue: "SPM"
   topics: [survey]
   paper: "https://doi.org/10.1109/msp.2010.936743"
 
@@ -2732,7 +2733,7 @@
 - id: "shearlet"
   title: "Iterative CT Reconstruction Using Shearlet-Based Regularization"
   year: 2013
-  venue: "IEEE TNS"
+  venue: "TNS"
   topics: [classical, sparse-view]
   paper: "https://doi.org/10.1109/tns.2013.2275994"
 
@@ -2853,7 +2854,7 @@
 - id: "irr-tv"
   title: "Few-View Projection Reconstruction With an Iterative Reconstruction-Reprojection Algorithm and TV Constraint"
   year: 2009
-  venue: "IEEE TNS"
+  venue: "TNS"
   topics: [sparse-view, classical]
   paper: "https://doi.org/10.1109/tns.2008.2009990"
 

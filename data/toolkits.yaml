@@ -60,7 +60,7 @@
   license: MIT
   stars: 254
   tags: [CBCT, MBIR, GPU, high-performance]
-  note: LLNL's Livermore Energy-Aware Processor for 3D transmission CT; production-grade model-based reconstruction.
+  note: LLNL's LivermorE AI Projector for Computed Tomography (LEAP); production-grade model-based iterative reconstruction for 3D transmission CT.
 
 - name: svmbir
   repo: cabouman/svmbir
@@ -108,8 +108,8 @@
   language: Python
   license: Apache-2.0
   stars: 227
-  tags: [radon, filtered-backprojection, teaching]
-  note: Radon transforms and FBP in a compact, readable Python package.
+  tags: [preprocessing, augmentation, lung-nodule]
+  note: A CT preprocessing and augmentation framework oriented towards lung-nodule pipelines; despite the name, there is no Radon transform or FBP here.
 
 - name: pySART
   repo: djvine/pySART
@@ -122,10 +122,10 @@
 - name: libcbct
   repo: tatsy/libcbct
   language: C++
-  license: See repository
+  license: CC BY-NC-SA 4.0
   stars: 10
   tags: [CBCT, FDK, iterative]
-  note: Lightweight cone-beam CT reconstruction library with FDK and iterative solvers.
+  note: Lightweight cone-beam CT reconstruction library with FDK and iterative solvers; non-commercial licence.
 
 - name: tofu
   repo: ufo-kit/tofu
@@ -141,7 +141,7 @@
   license: BSD-3-Clause
   stars: 339
   tags: [iterative, proximal, GPU, MRI]
-  note: Signal-processing package for iterative image reconstruction; proximal operators and NUFFT/radon primitives.
+  note: Signal-processing package for iterative image reconstruction; proximal operators and NUFFT primitives.
 
 # ---------------------------------------------------------------- differentiable / learning
 - name: DeepInverse
@@ -176,7 +176,7 @@
   license: Apache-2.0
   stars: 135
   tags: [phantom, simulation, 2D, 3D, 4D]
-  note: Analytical 2D/3D/4D phantom generation plus forward projection for controlled reconstruction experiments.
+  note: Analytical 2D/3D/4D phantom generation plus forward projection for controlled reconstruction experiments. Also listed under Learning.
 
 - name: xraylib
   repo: tschoonj/xraylib
@@ -238,7 +238,7 @@
   license: GPL-2.0
   stars: 96
   tags: [FBP, iterative, teaching]
-  note: Compact, readable Python implementations of FBP and iterative CT reconstruction algorithms — useful as a from-scratch reference.
+  note: Compact, readable Python and MATLAB CT reconstruction code. FBP plus ASD-POCS, SART and EM already exist under python/, though the README still lists iterative reconstruction as "to be added".
 
 - name: Algotom
   repo: algotom/algotom
@@ -289,7 +289,7 @@
   tags: [unrolling, learned-gradient, reference]
   note: Reference implementation of learned gradient descent for ill-posed tomography (Adler & Öktem); the origin of many later unrolled CT networks.
 
-# ---------------------------------------------------------------- simulation & physics
+# ---------------------------------------------------------------- data augmentation & simulation
 - name: Physics-ArX
   repo: nadeemlab/Physics-ArX
   language: Python
@@ -308,11 +308,10 @@
 
 - name: CBCT Scatter Correction Tool
   repo: YangkangJiang/Cone-beam-CT-scatter-correction-tool
-  language: Python
   license: See repository
   stars: 15
   tags: [scatter, cbct, correction]
-  note: One of the very few open implementations of cone-beam CT scatter estimation and correction.
+  note: One of the very few open tools for cone-beam CT scatter estimation and correction; distributed as a prebuilt Windows executable, with no source in the repository.
 
 # ---------------------------------------------------------------- platforms & viewers
 - name: 3D Slicer
@@ -366,7 +365,6 @@
   homepage: https://ftp.esrf.fr/scisoft/PYHST2/
   language: C / Python
   license: See repository
-  stars: 0
   tags: [synchrotron, phase-contrast, reconstruction]
   note: The ESRF beamline reconstruction code — gridrec, FBP and iterative methods with phase retrieval for propagation-based phase-contrast tomography. Long-standing workhorse of the synchrotron community.
 - name: DIRECTT Reconstruction GUI

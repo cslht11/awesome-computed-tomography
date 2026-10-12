@@ -63,7 +63,7 @@ topics:
 
   - id: diffusion
     name: Diffusion & Generative Priors
-    desc: Score-based and diffusion models used as priors or samplers for tomographic inversion.
+    desc: Score-based, diffusion and other learned generative priors used as priors or samplers for tomographic inversion.
 
   - id: inr
     name: Implicit Neural Representations
