@@ -7,7 +7,7 @@
 
 **A curated, verified list of CT reconstruction research** — papers, toolkits, datasets and benchmarks for CT, CBCT and micro-CT.
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-389-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-392-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
 
 **[Website](https://computedtomography.org/)** · [Papers](#papers) · [Toolkits](#toolkits) · [Datasets](#datasets) · [Benchmarks](#benchmarks) · [Learning](#learning)
 
@@ -15,7 +15,7 @@
 
 **EN** · [中文](README.zh-CN.md)
 
-| 389 papers | 84% peer-reviewed | 87 with code | 44 toolkits | 40 datasets | 19 benchmarks | 1917–2026 |
+| 392 papers | 84% peer-reviewed | 91 with code | 44 toolkits | 41 datasets | 19 benchmarks | 1917–2026 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 
 Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D CT — from FBP and iterative solvers to unrolled networks, diffusion priors, neural fields and Gaussian splatting. Every paper link is resolved against Crossref, arXiv or the publisher's record. For search and filters, use the **[website](https://computedtomography.org/)**.
@@ -24,12 +24,12 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 | | | |
 | --- | --- | --- |
-| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>68</sub> | [Sparse-View CT](#sparse-view-ct) <sub>133</sub> |
-| [Limited-Angle Tomography](#limited-angle-tomography) <sub>43</sub> | [Low-Dose CT Denoising](#low-dose-ct-denoising) <sub>57</sub> | [Metal Artifact Reduction](#metal-artifact-reduction) <sub>21</sub> |
-| [Spectral & Dual-Energy CT](#spectral--dual-energy-ct) <sub>18</sub> | [Cone-Beam CT](#cone-beam-ct) <sub>65</sub> | [Dynamic & 4D CT](#dynamic--4d-ct) <sub>21</sub> |
+| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>68</sub> | [Sparse-View CT](#sparse-view-ct) <sub>136</sub> |
+| [Limited-Angle Tomography](#limited-angle-tomography) <sub>44</sub> | [Low-Dose CT Denoising](#low-dose-ct-denoising) <sub>58</sub> | [Metal Artifact Reduction](#metal-artifact-reduction) <sub>21</sub> |
+| [Spectral & Dual-Energy CT](#spectral--dual-energy-ct) <sub>18</sub> | [Cone-Beam CT](#cone-beam-ct) <sub>66</sub> | [Dynamic & 4D CT](#dynamic--4d-ct) <sub>21</sub> |
 | [Scatter Correction](#scatter-correction) <sub>11</sub> | [Geometry Calibration & Motion Compensation](#geometry-calibration--motion-compensation) <sub>25</sub> | [Deep Unrolling & Model-Based Learning](#deep-unrolling--model-based-learning) <sub>68</sub> |
 | [Self-Supervised & Untrained Methods](#self-supervised--untrained-methods) <sub>32</sub> | [Diffusion & Generative Priors](#diffusion--generative-priors) <sub>55</sub> | [Implicit Neural Representations](#implicit-neural-representations) <sub>24</sub> |
-| [Gaussian Splatting](#gaussian-splatting) <sub>24</sub> | [Other Topics](#other-topics) <sub>28</sub> |  |
+| [Gaussian Splatting](#gaussian-splatting) <sub>24</sub> | [Other Topics](#other-topics) <sub>29</sub> |  |
 
 Newest first within each topic. Each entry gives its venue and year in italics; _preprint_ marks work not (yet) published at a peer-reviewed venue, dated by its first public posting.
 
@@ -138,13 +138,16 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Sparse-View CT
 
-<sub>Reconstruction from a reduced number of projection angles · 133 papers</sub>
+<sub>Reconstruction from a reduced number of projection angles · 136 papers</sub>
 
 - **3D Field of Junctions: A Noise-Robust, Training-Free Structural Prior for Volumetric Inverse Problems** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2603.02149) · [Code](https://github.com/voilalab/3D-Field-of-Junctions)
 - **CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction** — _BMVC 2026_ · [Paper](https://arxiv.org/abs/2608.15246)
 - **Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2604.21960)
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.07980)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [Paper](https://arxiv.org/abs/2509.13576)
+- **DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction** — _TMI 2026_ · [Paper](https://doi.org/10.1109/tmi.2026.3674948) · [Code](https://github.com/xmed-lab/DeepSparse)
+
+  DiCE (Dual-Dimensional Cross-Scale Embedding) pre-trained by HyViP (Hybrid View Sampling Pretraining) on both sparse- and dense-view projections, then fine-tuned in two steps. Presented as the first foundation model for sparse-view CBCT.
 - **DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction** — _AAAI 2026_ · [Paper](https://arxiv.org/abs/2604.21518) · [Project](https://ooonesevennn.github.io/DiffNR/)
 - **Efficient Unrolled Networks for Large-Scale 3D Inverse Problems** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2601.02141) · [Code](https://github.com/romainvo/efficient-unrolling)
 - **Event-Based Sparse-View Background-Oriented Schlieren Tomography** — _ECCV 2026_ · [Paper](https://doi.org/10.1007/978-3-032-37335-9_18)
@@ -159,6 +162,9 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Projection-Volume Fidelity Divergence: Diagnosing and Controlling Optimization Drift in Sparse-View 3D Gaussian Tomography** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2606.22525)
 - **Revisiting Pose Sensitivity in Splat-based Computed Tomography under Sparse-view Reconstruction** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2608.04752)
 - **Shape-guided Gaussian Splatting for Sparse-View X-ray 3D Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.10376) · [Code](https://github.com/polyshape-lab/ShapeGuidedGaussian)
+- **TAMP: Imaging foundation model for universal enhancement of non-ideal measurement CT** — _Nat Commun 2026_ · [Paper](https://doi.org/10.1038/s41467-026-73943-y) · [Code](https://github.com/YutingHe-list/TAMP)
+
+  Multi-scale integrated Transformer Amplifier. Pre-trained on 10.8M physics-driven simulated non-ideal-measurement images, then adapted to a protocol with a parameter-efficient fine-tune on a few slices — one backbone for low-dose, sparse-view and limited-angle at once.
 - **Tomographic Sparse View Selection Using the View Covariance Loss** — _TPAMI 2026_ · [Paper](https://doi.org/10.1109/TPAMI.2025.3600072)
 - **Towards reconstructing experimental sparse-view X-ray CT data with diffusion models** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.12755)
 - **Variational Garrote for Sparse Inverse Problems** — _J. Comput. Sci. 2026_ · [Paper](https://doi.org/10.1016/j.jocs.2026.102980)
@@ -170,6 +176,9 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **CvG-Diff: Cross-View Generalized Diffusion Model for Sparse-View CT Reconstruction** — _MICCAI 2025_ · [Paper](https://doi.org/10.1007/978-3-032-05325-1_14) · [Code](https://github.com/xmed-lab/CvG-Diff)
 - **Investigating the effects of machine learning generalization for enhancing accuracy in fast X-ray computed tomography for industrial metrology** — _CIRP Annals 2025_ · [Paper](https://doi.org/10.1016/j.cirp.2025.04.025)
 - **Latent Space Consistency for Sparse-View CT Reconstruction** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2507.11152)
+- **LCTfound: A lung CT vision foundation model facilitating disease diagnosis and medical imaging** — _Nat Commun 2025_ · [Paper](https://doi.org/10.1038/s41467-025-66620-z) · [Code](https://github.com/gingerbread000/LCTfound) · [Data](https://huggingface.co/datasets/GuoxunZhang1997/LCTfound)
+
+  Diffusion-pretrained on 105,184 multi-centre lung CT scans with joint encoding of images and clinical text. Eight downstream tasks, of which CT enhancement and sparse-view reconstruction are the reconstruction-relevant ones.
 - **MInDI-3D: Iterative Deep Learning in 3D for Sparse-view Cone Beam Computed Tomography** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2508.09616)
 - **Mitigating Data Consistency Induced Discrepancy in Cascaded Diffusion Models for Sparse-View CT Reconstruction** — _TMI 2025_ · [Paper](https://doi.org/10.1109/tmi.2025.3557243)
 - **Neural Discrete Representation Learning for Sparse-View CBCT Reconstruction: From Algorithm Design to Prospective Multicenter Clinical Evaluation** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2512.00873)
@@ -276,13 +285,16 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Limited-Angle Tomography
 
-<sub>Missing angular wedge, where the null space makes the problem severely ill-posed · 43 papers</sub>
+<sub>Missing angular wedge, where the null space makes the problem severely ill-posed · 44 papers</sub>
 
 - **CryoDeRec: A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html) · [Code](https://github.com/ZhidongYang/CryoDeRec)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [Paper](https://arxiv.org/abs/2510.23317)
 - **Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.08866)
 - **High-Precision Image Reconstruction for Binary-Valued X-Ray CT From Limited-View Projections** — _TIM 2026_ · [Paper](https://doi.org/10.1109/tim.2026.3670565)
 - **OpenPros: A Large-Scale Dataset for Limited View Prostate Ultrasound Computed Tomography** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2505.12261) · [Project](https://open-pros.github.io/)
+- **TAMP: Imaging foundation model for universal enhancement of non-ideal measurement CT** — _Nat Commun 2026_ · [Paper](https://doi.org/10.1038/s41467-026-73943-y) · [Code](https://github.com/YutingHe-list/TAMP)
+
+  Multi-scale integrated Transformer Amplifier. Pre-trained on 10.8M physics-driven simulated non-ideal-measurement images, then adapted to a protocol with a parameter-efficient fine-tune on a few slices — one backbone for low-dose, sparse-view and limited-angle at once.
 - **Advancing Limited-Angle CT Reconstruction Through Diffusion-Based Sinogram Completion** — _ICIP 2025_ · [Paper](https://arxiv.org/abs/2505.19385)
 - **Data-Efficient Limited-Angle CT Using Deep Priors and Regularization** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2502.12293)
 - **Diffusion-Based Limited-Angle CT Reconstruction under Noisy Conditions** — _ICIP 2025_ · [Paper](https://arxiv.org/abs/2507.05647)
@@ -324,13 +336,16 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Low-Dose CT Denoising
 
-<sub>Noise suppression at reduced tube current, in image, projection or dual domain · 57 papers</sub>
+<sub>Noise suppression at reduced tube current, in image, projection or dual domain · 58 papers</sub>
 
 - **DenoMamba: A Fused State-Space Model for Low-Dose CT Denoising** — _JBHI 2026_ · [Paper](https://doi.org/10.1109/jbhi.2025.3629034) · [Code](https://github.com/icon-lab/DenoMamba)
 - **Dose-Aware Cold Diffusion with Physics Consistency for Generalizable Low-Dose CT Reconstruction** — _IJCNN 2026_ · [Paper](https://arxiv.org/abs/2609.18943)
 - **Foundation-VAE: Foundation VAEs for 3D CT Reconstruction, Augmentation, and Generation** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2605.30893) · [Code](https://github.com/qic999/Foundation-VAE)
 - **HARU-Net: Hybrid Attention Residual U-Net for Edge-Preserving Denoising in Cone-Beam Computed Tomography** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.22544)
 - **Low-Level Dataset Distillation for Medical Image Enhancement** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2511.13106) · [Code](https://github.com/xufz123/Med_LLDD)
+- **TAMP: Imaging foundation model for universal enhancement of non-ideal measurement CT** — _Nat Commun 2026_ · [Paper](https://doi.org/10.1038/s41467-026-73943-y) · [Code](https://github.com/YutingHe-list/TAMP)
+
+  Multi-scale integrated Transformer Amplifier. Pre-trained on 10.8M physics-driven simulated non-ideal-measurement images, then adapted to a protocol with a parameter-efficient fine-tune on a few slices — one backbone for low-dose, sparse-view and limited-angle at once.
 - **Toward CT-Equivalent Image Quality in Low-Dose Radiotherapy Planning: Conditional Diffusion-Based CBCT-to-CT Synthesis and the Impact of CBCT Input Representation** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2608.08919)
 - **End-to-End Deep Learning for Interior Tomography with Low-Dose X-ray CT** — _PMB 2025_ · [Paper](https://arxiv.org/abs/2501.05085)
 - **Noise-Inspired Diffusion Model for Generalizable Low-Dose CT Reconstruction** — _Med Image Anal 2025_ · [Paper](https://arxiv.org/abs/2506.22012) · [Code](https://github.com/qgao21/NEED)
@@ -439,7 +454,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Cone-Beam CT
 
-<sub>Circular, helical and non-standard CBCT geometries; on-board imaging · 65 papers</sub>
+<sub>Circular, helical and non-standard CBCT geometries; on-board imaging · 66 papers</sub>
 
 - **Anatomy-preserving unpaired cone-beam CT refinement for image-guided radiotherapy using pseudo-label guided diffusion** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.06094)
 - **CBCT-Based Synthetic CT Generation Using Conditional Flow Matching Model** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2603.05796)
@@ -447,6 +462,9 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Cone-beam artifact reduction in Gamma Knife CBCT images using a line-arc-line scan trajectory** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.30169)
 - **Cone-Beam CT Image Quality Enhancement Using A Latent Diffusion Model Trained with Simulated CBCT Artifacts** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2603.26014)
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.07980)
+- **DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction** — _TMI 2026_ · [Paper](https://doi.org/10.1109/tmi.2026.3674948) · [Code](https://github.com/xmed-lab/DeepSparse)
+
+  DiCE (Dual-Dimensional Cross-Scale Embedding) pre-trained by HyViP (Hybrid View Sampling Pretraining) on both sparse- and dense-view projections, then fine-tuned in two steps. Presented as the first foundation model for sparse-view CBCT.
 - **Dual-domain U-Nets with embedded back projection operators for motion-resolved 4D CBCT reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2608.03430)
 - **Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement** — _MICAD 2026_ · [Paper](https://arxiv.org/abs/2609.28110) · [Code](https://github.com/SusanneSchaub/CBCT-FOV-Extension)
 - **GH-NAF: Grid-Adaptive Hash-Level-Attended Neural Attenuation Fields for Discrepancy-Aware CBCT** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Oh_GH-NAF_Grid-Adaptive_Hash-Level-Attended_Neural_Attenuation_Fields_for_Discrepancy-Aware_CBCT_CVPR_2026_paper.html) · [Code](https://github.com/seongje-oh/GH-NAF)
@@ -664,7 +682,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **DINR: Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data** — _ICASSP 2026_ · [Paper](https://arxiv.org/abs/2603.10947)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [Paper](https://arxiv.org/abs/2510.23317)
 - **From Sparse X-rays to 3D CT: Training-Free Reconstruction with Diffusion Priors** — _DGM4MICCAI 2026_ · [Paper](https://arxiv.org/abs/2606.20763) · [Code](https://github.com/Fredy-Zhang/TF-PRDiT)
-- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [Paper](https://doi.org/10.1038/s43588-026-00973-3)
+- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [Paper](https://doi.org/10.1038/s43588-026-00973-3) · [Code](https://github.com/Arturia-Pendragon-Iris/HorusEye)
 - **MedGMAE: Gaussian Masked Autoencoders for Medical Volumetric Representation Learning** — _ICLR 2026_ · [Paper](https://openreview.net/forum?id=Z2XIRLv535) · [Code](https://github.com/windrise/MedGMAE)
 - **NGPS: Structure-Preserving Self-Supervised Denoising via Neighbor-Guided Patch Sampling** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2606.23200) · [Code](https://github.com/cv-cho/NGPS)
 - **Unsupervised Metal Artifact Reduction in Dental CBCT using Fine-tuned Cycle-Consistent Adversarial Networks** — _Digital 2026_ · [Paper](https://arxiv.org/abs/2607.20977)
@@ -817,20 +835,23 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Other Topics
 
-<sub>Industrial NDT, phase-contrast, quantitative CT, reconstruction software and anything that does not fit above · 28 papers</sub>
+<sub>Industrial NDT, phase-contrast, quantitative CT, reconstruction software and anything that does not fit above · 29 papers</sub>
 
 - **At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections** — _NeurIPS 2026_ · [Paper](https://arxiv.org/abs/2604.10766)
 - **CryoDeRec: A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html) · [Code](https://github.com/ZhidongYang/CryoDeRec)
 - **Dynamic Black-hole Emission Tomography with Physics-Informed Neural Fields** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2602.08029)
 - **Event-Based Sparse-View Background-Oriented Schlieren Tomography** — _ECCV 2026_ · [Paper](https://doi.org/10.1007/978-3-032-37335-9_18)
 - **High-Precision Image Reconstruction for Binary-Valued X-Ray CT From Limited-View Projections** — _TIM 2026_ · [Paper](https://doi.org/10.1109/tim.2026.3670565)
-- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [Paper](https://doi.org/10.1038/s43588-026-00973-3)
+- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [Paper](https://doi.org/10.1038/s43588-026-00973-3) · [Code](https://github.com/Arturia-Pendragon-Iris/HorusEye)
 - **Neuromorphic X-Ray Computed Tomography** — _ECCV 2026_ · [Paper](https://doi.org/10.1007/978-3-032-37577-3_8) · [Project](https://wanghongjian98.github.io/projects/neuroxct/)
 - **OpenPros: A Large-Scale Dataset for Limited View Prostate Ultrasound Computed Tomography** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2505.12261) · [Project](https://open-pros.github.io/)
 - **VoDaSuRe: A Large-Scale Dataset Revealing Domain Shift in Volumetric Super-Resolution** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2603.23153) · [Project](https://augusthoeg.github.io/VoDaSuRe/)
 - **XDen-1K: A Density Field Dataset of Real-World Objects** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2512.10668)
 - **Coordinate-Based Speed of Sound Recovery for Aberration-Corrected Photoacoustic Computed Tomography** — _ICCV 2025_ · [Paper](https://arxiv.org/abs/2409.10876) · [Project](https://lukeli0425.github.io/Coord-SoS-PACT/)
 - **Investigating the effects of machine learning generalization for enhancing accuracy in fast X-ray computed tomography for industrial metrology** — _CIRP Annals 2025_ · [Paper](https://doi.org/10.1016/j.cirp.2025.04.025)
+- **LCTfound: A lung CT vision foundation model facilitating disease diagnosis and medical imaging** — _Nat Commun 2025_ · [Paper](https://doi.org/10.1038/s41467-025-66620-z) · [Code](https://github.com/gingerbread000/LCTfound) · [Data](https://huggingface.co/datasets/GuoxunZhang1997/LCTfound)
+
+  Diffusion-pretrained on 105,184 multi-centre lung CT scans with joint encoding of images and clinical text. Eight downstream tasks, of which CT enhancement and sparse-view reconstruction are the reconstruction-relevant ones.
 - **Limited-angle x-ray nano-tomography with machine-learning enabled iterative reconstruction engine** — _npj Comput Mater 2025_ · [Paper](https://doi.org/10.1038/s41524-025-01724-0)
 - **Modeling X-Ray Photon Pile-Up with a Normalizing Flow** — _NeurIPS Workshop 2025_ · [Paper](https://arxiv.org/abs/2511.11863)
 - **MONSTR: Model-Oriented Neutron Strain Tomographic Reconstruction** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2505.22187)
@@ -915,6 +936,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 | [**SPARE 4D-CBCT**](https://image-x.sydney.edu.au/spare-challenge/) | cone-beam, 4D | proj + image | research use | Thoracic 4D cone-beam CT for breathing-motion-resolved reconstruction; the reference benchmark for dynamic CBCT. |
 | [**ToothFairy2**](https://doi.org/10.5281/zenodo.10990960) | cone-beam, dental | image | CC BY 4.0 | 480 dental CBCT scans with 3D tooth and jaw annotations; large-scale and useful for CBCT-domain pretraining. |
 | [**Cone-Beam CT (CBCT) Head & Neck**](https://www.cancerimagingarchive.net/collection/head-neck/) | cone-beam | image | CC BY-NC 3.0 | Paired planning CT and on-board CBCT — the standard setting for CBCT correction and synthetic-CT work in radiotherapy. |
+| [**CT-RATE**](https://zenodo.org/records/6406114) | chest CT | image | see source | 50,188 reconstructed 3D chest CT volumes (14.3M 2D slices) from 25,692 scans of 21,304 patients, every volume paired with its radiology report and labelled for 18 abnormalities. Reconstructed with several methods and window settings, so it carries realistic reconstruction variability — but image domain only, with no raw projections. The corpus behind CT-CLIP and CT-CHAT. |
 | [**LIDC-IDRI**](https://www.cancerimagingarchive.net/collection/lidc-idri/) | helical CT | image | CC BY 3.0 | 1,018 thoracic CT scans with four-radiologist nodule annotations. The source anatomy behind LoDoPaB-CT and most simulated low-dose data. |
 | [**DeepLesion**](https://nihcc.app.box.com/v/DeepLesion) | helical CT | image | CC BY 3.0 | 32,735 lesion annotations across 10,594 studies from 4,427 patients — a large-scale pretraining corpus for CT-domain backbones. |
 | [**LUNA16**](https://luna16.grand-challenge.org/) | helical CT | image | CC BY 3.0 | 888 thin-slice chest CT scans with unified 1 mm resampling and nodule annotations; a clean, well-curated denoising/detection benchmark. |

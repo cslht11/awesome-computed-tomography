@@ -7,7 +7,7 @@
 
 **一份经过核验的 CT 重建研究精选列表**——涵盖 CT、CBCT 与显微 CT 的论文、工具包、数据集与基准。
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-389-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-392-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
 
 **[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源)
 
@@ -15,7 +15,7 @@
 
 [EN](README.md) · **中文**
 
-| 389 篇论文 | 84% 同行评审 | 87 项附代码 | 44 个工具包 | 40 个数据集 | 19 个基准 | 1917–2026 |
+| 392 篇论文 | 84% 同行评审 | 91 项附代码 | 44 个工具包 | 41 个数据集 | 19 个基准 | 1917–2026 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 
 覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D CT——从 FBP 与迭代求解器，到展开式网络、扩散先验、神经场与高斯溅射。每条论文链接均对照 Crossref、arXiv 或出版方记录核验。检索与筛选请使用 **[网站](https://computedtomography.org/)**。
@@ -24,12 +24,12 @@
 
 | | | |
 | --- | --- | --- |
-| [综述与回顾](#综述与回顾) <sub>23</sub> | [经典与迭代重建](#经典与迭代重建) <sub>68</sub> | [稀疏视角 CT](#稀疏视角-ct) <sub>133</sub> |
-| [有限角层析](#有限角层析) <sub>43</sub> | [低剂量 CT 去噪](#低剂量-ct-去噪) <sub>57</sub> | [金属伪影校正](#金属伪影校正) <sub>21</sub> |
-| [能谱与双能 CT](#能谱与双能-ct) <sub>18</sub> | [锥束 CT](#锥束-ct) <sub>65</sub> | [动态与 4D CT](#动态与-4d-ct) <sub>21</sub> |
+| [综述与回顾](#综述与回顾) <sub>23</sub> | [经典与迭代重建](#经典与迭代重建) <sub>68</sub> | [稀疏视角 CT](#稀疏视角-ct) <sub>136</sub> |
+| [有限角层析](#有限角层析) <sub>44</sub> | [低剂量 CT 去噪](#低剂量-ct-去噪) <sub>58</sub> | [金属伪影校正](#金属伪影校正) <sub>21</sub> |
+| [能谱与双能 CT](#能谱与双能-ct) <sub>18</sub> | [锥束 CT](#锥束-ct) <sub>66</sub> | [动态与 4D CT](#动态与-4d-ct) <sub>21</sub> |
 | [散射校正](#散射校正) <sub>11</sub> | [几何标定与运动补偿](#几何标定与运动补偿) <sub>25</sub> | [深度展开与基于模型的学习](#深度展开与基于模型的学习) <sub>68</sub> |
 | [自监督与免训练方法](#自监督与免训练方法) <sub>32</sub> | [扩散与生成式先验](#扩散与生成式先验) <sub>55</sub> | [隐式神经表示](#隐式神经表示) <sub>24</sub> |
-| [高斯溅射](#高斯溅射) <sub>24</sub> | [其他主题](#其他主题) <sub>28</sub> |  |
+| [高斯溅射](#高斯溅射) <sub>24</sub> | [其他主题](#其他主题) <sub>29</sub> |  |
 
 同一主题内按最新在前排列。每条条目以斜体给出出处与年份；_预印本_ 表示该工作尚未（或还未）发表于同行评审的会议或期刊，年份取首次公开的时间。
 
@@ -138,13 +138,16 @@
 
 ### 稀疏视角 CT
 
-<sub>投影角度数量不足时的重建 · 133 篇论文</sub>
+<sub>投影角度数量不足时的重建 · 136 篇论文</sub>
 
 - **3D Field of Junctions: A Noise-Robust, Training-Free Structural Prior for Volumetric Inverse Problems** — _ECCV 2026_ · [论文](https://arxiv.org/abs/2603.02149) · [代码](https://github.com/voilalab/3D-Field-of-Junctions)
 - **CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction** — _BMVC 2026_ · [论文](https://arxiv.org/abs/2608.15246)
 - **Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2604.21960)
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2602.07980)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [论文](https://arxiv.org/abs/2509.13576)
+- **DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction** — _TMI 2026_ · [论文](https://doi.org/10.1109/tmi.2026.3674948) · [代码](https://github.com/xmed-lab/DeepSparse)
+
+  DiCE（双维跨尺度嵌入）由 HyViP（混合视角采样预训练）在稀疏视角与密集视角投影上共同预训练，再经两步微调适配新数据集。作者称其为首个面向稀疏视角 CBCT 重建的基础模型。
 - **DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction** — _AAAI 2026_ · [论文](https://arxiv.org/abs/2604.21518) · [项目页](https://ooonesevennn.github.io/DiffNR/)
 - **Efficient Unrolled Networks for Large-Scale 3D Inverse Problems** — _CVPR 2026_ · [论文](https://arxiv.org/abs/2601.02141) · [代码](https://github.com/romainvo/efficient-unrolling)
 - **Event-Based Sparse-View Background-Oriented Schlieren Tomography** — _ECCV 2026_ · [论文](https://doi.org/10.1007/978-3-032-37335-9_18)
@@ -159,6 +162,9 @@
 - **Projection-Volume Fidelity Divergence: Diagnosing and Controlling Optimization Drift in Sparse-View 3D Gaussian Tomography** — _预印本 2026_ · [论文](https://arxiv.org/abs/2606.22525)
 - **Revisiting Pose Sensitivity in Splat-based Computed Tomography under Sparse-view Reconstruction** — _CVPR 2026_ · [论文](https://arxiv.org/abs/2608.04752)
 - **Shape-guided Gaussian Splatting for Sparse-View X-ray 3D Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2609.10376) · [代码](https://github.com/polyshape-lab/ShapeGuidedGaussian)
+- **TAMP: Imaging foundation model for universal enhancement of non-ideal measurement CT** — _Nat Commun 2026_ · [论文](https://doi.org/10.1038/s41467-026-73943-y) · [代码](https://github.com/YutingHe-list/TAMP)
+
+  多尺度集成 Transformer 放大器（TAMP）。在 1,080 万张物理驱动的仿真非理想测量 CT 图像上预训练，之后用参数高效微调、仅凭少量切片即可适配某一具体协议——同一个骨干同时覆盖低剂量、稀疏视角与有限角三类退化。
 - **Tomographic Sparse View Selection Using the View Covariance Loss** — _TPAMI 2026_ · [论文](https://doi.org/10.1109/TPAMI.2025.3600072)
 - **Towards reconstructing experimental sparse-view X-ray CT data with diffusion models** — _预印本 2026_ · [论文](https://arxiv.org/abs/2602.12755)
 - **Variational Garrote for Sparse Inverse Problems** — _J. Comput. Sci. 2026_ · [论文](https://doi.org/10.1016/j.jocs.2026.102980)
@@ -170,6 +176,9 @@
 - **CvG-Diff: Cross-View Generalized Diffusion Model for Sparse-View CT Reconstruction** — _MICCAI 2025_ · [论文](https://doi.org/10.1007/978-3-032-05325-1_14) · [代码](https://github.com/xmed-lab/CvG-Diff)
 - **Investigating the effects of machine learning generalization for enhancing accuracy in fast X-ray computed tomography for industrial metrology** — _CIRP Annals 2025_ · [论文](https://doi.org/10.1016/j.cirp.2025.04.025)
 - **Latent Space Consistency for Sparse-View CT Reconstruction** — _预印本 2025_ · [论文](https://arxiv.org/abs/2507.11152)
+- **LCTfound: A lung CT vision foundation model facilitating disease diagnosis and medical imaging** — _Nat Commun 2025_ · [论文](https://doi.org/10.1038/s41467-025-66620-z) · [代码](https://github.com/gingerbread000/LCTfound) · [数据](https://huggingface.co/datasets/GuoxunZhang1997/LCTfound)
+
+  在 105,184 例多中心肺部 CT 上做扩散式预训练，并联合编码影像与临床信息。覆盖八项下游任务，其中与重建相关的是 CT 增强与稀疏视角重建。
 - **MInDI-3D: Iterative Deep Learning in 3D for Sparse-view Cone Beam Computed Tomography** — _预印本 2025_ · [论文](https://arxiv.org/abs/2508.09616)
 - **Mitigating Data Consistency Induced Discrepancy in Cascaded Diffusion Models for Sparse-View CT Reconstruction** — _TMI 2025_ · [论文](https://doi.org/10.1109/tmi.2025.3557243)
 - **Neural Discrete Representation Learning for Sparse-View CBCT Reconstruction: From Algorithm Design to Prospective Multicenter Clinical Evaluation** — _预印本 2025_ · [论文](https://arxiv.org/abs/2512.00873)
@@ -276,13 +285,16 @@
 
 ### 有限角层析
 
-<sub>角度楔形缺失，零空间使问题严重病态 · 43 篇论文</sub>
+<sub>角度楔形缺失，零空间使问题严重病态 · 44 篇论文</sub>
 
 - **CryoDeRec: A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation** — _CVPR 2026_ · [论文](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html) · [代码](https://github.com/ZhidongYang/CryoDeRec)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [论文](https://arxiv.org/abs/2510.23317)
 - **Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT** — _预印本 2026_ · [论文](https://arxiv.org/abs/2610.08866)
 - **High-Precision Image Reconstruction for Binary-Valued X-Ray CT From Limited-View Projections** — _TIM 2026_ · [论文](https://doi.org/10.1109/tim.2026.3670565)
 - **OpenPros: A Large-Scale Dataset for Limited View Prostate Ultrasound Computed Tomography** — _ICLR 2026_ · [论文](https://arxiv.org/abs/2505.12261) · [项目页](https://open-pros.github.io/)
+- **TAMP: Imaging foundation model for universal enhancement of non-ideal measurement CT** — _Nat Commun 2026_ · [论文](https://doi.org/10.1038/s41467-026-73943-y) · [代码](https://github.com/YutingHe-list/TAMP)
+
+  多尺度集成 Transformer 放大器（TAMP）。在 1,080 万张物理驱动的仿真非理想测量 CT 图像上预训练，之后用参数高效微调、仅凭少量切片即可适配某一具体协议——同一个骨干同时覆盖低剂量、稀疏视角与有限角三类退化。
 - **Advancing Limited-Angle CT Reconstruction Through Diffusion-Based Sinogram Completion** — _ICIP 2025_ · [论文](https://arxiv.org/abs/2505.19385)
 - **Data-Efficient Limited-Angle CT Using Deep Priors and Regularization** — _预印本 2025_ · [论文](https://arxiv.org/abs/2502.12293)
 - **Diffusion-Based Limited-Angle CT Reconstruction under Noisy Conditions** — _ICIP 2025_ · [论文](https://arxiv.org/abs/2507.05647)
@@ -324,13 +336,16 @@
 
 ### 低剂量 CT 去噪
 
-<sub>管电流降低带来的噪声抑制，可在图像域、投影域或双域进行 · 57 篇论文</sub>
+<sub>管电流降低带来的噪声抑制，可在图像域、投影域或双域进行 · 58 篇论文</sub>
 
 - **DenoMamba: A Fused State-Space Model for Low-Dose CT Denoising** — _JBHI 2026_ · [论文](https://doi.org/10.1109/jbhi.2025.3629034) · [代码](https://github.com/icon-lab/DenoMamba)
 - **Dose-Aware Cold Diffusion with Physics Consistency for Generalizable Low-Dose CT Reconstruction** — _IJCNN 2026_ · [论文](https://arxiv.org/abs/2609.18943)
 - **Foundation-VAE: Foundation VAEs for 3D CT Reconstruction, Augmentation, and Generation** — _ICML 2026_ · [论文](https://arxiv.org/abs/2605.30893) · [代码](https://github.com/qic999/Foundation-VAE)
 - **HARU-Net: Hybrid Attention Residual U-Net for Edge-Preserving Denoising in Cone-Beam Computed Tomography** — _预印本 2026_ · [论文](https://arxiv.org/abs/2602.22544)
 - **Low-Level Dataset Distillation for Medical Image Enhancement** — _ECCV 2026_ · [论文](https://arxiv.org/abs/2511.13106) · [代码](https://github.com/xufz123/Med_LLDD)
+- **TAMP: Imaging foundation model for universal enhancement of non-ideal measurement CT** — _Nat Commun 2026_ · [论文](https://doi.org/10.1038/s41467-026-73943-y) · [代码](https://github.com/YutingHe-list/TAMP)
+
+  多尺度集成 Transformer 放大器（TAMP）。在 1,080 万张物理驱动的仿真非理想测量 CT 图像上预训练，之后用参数高效微调、仅凭少量切片即可适配某一具体协议——同一个骨干同时覆盖低剂量、稀疏视角与有限角三类退化。
 - **Toward CT-Equivalent Image Quality in Low-Dose Radiotherapy Planning: Conditional Diffusion-Based CBCT-to-CT Synthesis and the Impact of CBCT Input Representation** — _预印本 2026_ · [论文](https://arxiv.org/abs/2608.08919)
 - **End-to-End Deep Learning for Interior Tomography with Low-Dose X-ray CT** — _PMB 2025_ · [论文](https://arxiv.org/abs/2501.05085)
 - **Noise-Inspired Diffusion Model for Generalizable Low-Dose CT Reconstruction** — _Med Image Anal 2025_ · [论文](https://arxiv.org/abs/2506.22012) · [代码](https://github.com/qgao21/NEED)
@@ -439,7 +454,7 @@
 
 ### 锥束 CT
 
-<sub>圆周、螺旋与非标准 CBCT 几何；机载成像 · 65 篇论文</sub>
+<sub>圆周、螺旋与非标准 CBCT 几何；机载成像 · 66 篇论文</sub>
 
 - **Anatomy-preserving unpaired cone-beam CT refinement for image-guided radiotherapy using pseudo-label guided diffusion** — _预印本 2026_ · [论文](https://arxiv.org/abs/2610.06094)
 - **CBCT-Based Synthetic CT Generation Using Conditional Flow Matching Model** — _预印本 2026_ · [论文](https://arxiv.org/abs/2603.05796)
@@ -447,6 +462,9 @@
 - **Cone-beam artifact reduction in Gamma Knife CBCT images using a line-arc-line scan trajectory** — _预印本 2026_ · [论文](https://arxiv.org/abs/2609.30169)
 - **Cone-Beam CT Image Quality Enhancement Using A Latent Diffusion Model Trained with Simulated CBCT Artifacts** — _预印本 2026_ · [论文](https://arxiv.org/abs/2603.26014)
 - **Continuity-driven Synergistic Diffusion with Neural Priors for Ultra-Sparse-View CBCT Reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2602.07980)
+- **DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction** — _TMI 2026_ · [论文](https://doi.org/10.1109/tmi.2026.3674948) · [代码](https://github.com/xmed-lab/DeepSparse)
+
+  DiCE（双维跨尺度嵌入）由 HyViP（混合视角采样预训练）在稀疏视角与密集视角投影上共同预训练，再经两步微调适配新数据集。作者称其为首个面向稀疏视角 CBCT 重建的基础模型。
 - **Dual-domain U-Nets with embedded back projection operators for motion-resolved 4D CBCT reconstruction** — _预印本 2026_ · [论文](https://arxiv.org/abs/2608.03430)
 - **Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement** — _MICAD 2026_ · [论文](https://arxiv.org/abs/2609.28110) · [代码](https://github.com/SusanneSchaub/CBCT-FOV-Extension)
 - **GH-NAF: Grid-Adaptive Hash-Level-Attended Neural Attenuation Fields for Discrepancy-Aware CBCT** — _CVPR 2026_ · [论文](https://openaccess.thecvf.com/content/CVPR2026/html/Oh_GH-NAF_Grid-Adaptive_Hash-Level-Attended_Neural_Attenuation_Fields_for_Discrepancy-Aware_CBCT_CVPR_2026_paper.html) · [代码](https://github.com/seongje-oh/GH-NAF)
@@ -664,7 +682,7 @@
 - **DINR: Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data** — _ICASSP 2026_ · [论文](https://arxiv.org/abs/2603.10947)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [论文](https://arxiv.org/abs/2510.23317)
 - **From Sparse X-rays to 3D CT: Training-Free Reconstruction with Diffusion Priors** — _DGM4MICCAI 2026_ · [论文](https://arxiv.org/abs/2606.20763) · [代码](https://github.com/Fredy-Zhang/TF-PRDiT)
-- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [论文](https://doi.org/10.1038/s43588-026-00973-3)
+- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [论文](https://doi.org/10.1038/s43588-026-00973-3) · [代码](https://github.com/Arturia-Pendragon-Iris/HorusEye)
 - **MedGMAE: Gaussian Masked Autoencoders for Medical Volumetric Representation Learning** — _ICLR 2026_ · [论文](https://openreview.net/forum?id=Z2XIRLv535) · [代码](https://github.com/windrise/MedGMAE)
 - **NGPS: Structure-Preserving Self-Supervised Denoising via Neighbor-Guided Patch Sampling** — _ECCV 2026_ · [论文](https://arxiv.org/abs/2606.23200) · [代码](https://github.com/cv-cho/NGPS)
 - **Unsupervised Metal Artifact Reduction in Dental CBCT using Fine-tuned Cycle-Consistent Adversarial Networks** — _Digital 2026_ · [论文](https://arxiv.org/abs/2607.20977)
@@ -817,20 +835,23 @@
 
 ### 其他主题
 
-<sub>工业无损检测、相位衬度、定量 CT、重建软件，以及不属于以上各类的工作 · 28 篇论文</sub>
+<sub>工业无损检测、相位衬度、定量 CT、重建软件，以及不属于以上各类的工作 · 29 篇论文</sub>
 
 - **At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections** — _NeurIPS 2026_ · [论文](https://arxiv.org/abs/2604.10766)
 - **CryoDeRec: A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation** — _CVPR 2026_ · [论文](https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html) · [代码](https://github.com/ZhidongYang/CryoDeRec)
 - **Dynamic Black-hole Emission Tomography with Physics-Informed Neural Fields** — _CVPR 2026_ · [论文](https://arxiv.org/abs/2602.08029)
 - **Event-Based Sparse-View Background-Oriented Schlieren Tomography** — _ECCV 2026_ · [论文](https://doi.org/10.1007/978-3-032-37335-9_18)
 - **High-Precision Image Reconstruction for Binary-Valued X-Ray CT From Limited-View Projections** — _TIM 2026_ · [论文](https://doi.org/10.1109/tim.2026.3670565)
-- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [论文](https://doi.org/10.1038/s43588-026-00973-3)
+- **HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration** — _Nat Comput Sci 2026_ · [论文](https://doi.org/10.1038/s43588-026-00973-3) · [代码](https://github.com/Arturia-Pendragon-Iris/HorusEye)
 - **Neuromorphic X-Ray Computed Tomography** — _ECCV 2026_ · [论文](https://doi.org/10.1007/978-3-032-37577-3_8) · [项目页](https://wanghongjian98.github.io/projects/neuroxct/)
 - **OpenPros: A Large-Scale Dataset for Limited View Prostate Ultrasound Computed Tomography** — _ICLR 2026_ · [论文](https://arxiv.org/abs/2505.12261) · [项目页](https://open-pros.github.io/)
 - **VoDaSuRe: A Large-Scale Dataset Revealing Domain Shift in Volumetric Super-Resolution** — _CVPR 2026_ · [论文](https://arxiv.org/abs/2603.23153) · [项目页](https://augusthoeg.github.io/VoDaSuRe/)
 - **XDen-1K: A Density Field Dataset of Real-World Objects** — _ECCV 2026_ · [论文](https://arxiv.org/abs/2512.10668)
 - **Coordinate-Based Speed of Sound Recovery for Aberration-Corrected Photoacoustic Computed Tomography** — _ICCV 2025_ · [论文](https://arxiv.org/abs/2409.10876) · [项目页](https://lukeli0425.github.io/Coord-SoS-PACT/)
 - **Investigating the effects of machine learning generalization for enhancing accuracy in fast X-ray computed tomography for industrial metrology** — _CIRP Annals 2025_ · [论文](https://doi.org/10.1016/j.cirp.2025.04.025)
+- **LCTfound: A lung CT vision foundation model facilitating disease diagnosis and medical imaging** — _Nat Commun 2025_ · [论文](https://doi.org/10.1038/s41467-025-66620-z) · [代码](https://github.com/gingerbread000/LCTfound) · [数据](https://huggingface.co/datasets/GuoxunZhang1997/LCTfound)
+
+  在 105,184 例多中心肺部 CT 上做扩散式预训练，并联合编码影像与临床信息。覆盖八项下游任务，其中与重建相关的是 CT 增强与稀疏视角重建。
 - **Limited-angle x-ray nano-tomography with machine-learning enabled iterative reconstruction engine** — _npj Comput Mater 2025_ · [论文](https://doi.org/10.1038/s41524-025-01724-0)
 - **Modeling X-Ray Photon Pile-Up with a Normalizing Flow** — _NeurIPS Workshop 2025_ · [论文](https://arxiv.org/abs/2511.11863)
 - **MONSTR: Model-Oriented Neutron Strain Tomographic Reconstruction** — _预印本 2025_ · [论文](https://arxiv.org/abs/2505.22187)
@@ -915,6 +936,7 @@
 | [**SPARE 4D-CBCT**](https://image-x.sydney.edu.au/spare-challenge/) | cone-beam, 4D | 投影域 + 图像域 | research use | 用于呼吸运动分辨重建的胸部四维锥束 CT；动态 CBCT 的参照基准。 |
 | [**ToothFairy2**](https://doi.org/10.5281/zenodo.10990960) | cone-beam, dental | 仅图像域 | CC BY 4.0 | 480 例牙科 CBCT 扫描，带三维牙齿与颌骨标注；规模可观，适合做 CBCT 域预训练。 |
 | [**Cone-Beam CT (CBCT) Head & Neck**](https://www.cancerimagingarchive.net/collection/head-neck/) | cone-beam | 仅图像域 | CC BY-NC 3.0 | 配对的计划 CT 与机载 CBCT——放射治疗中 CBCT 校正与合成 CT 工作的标准场景。 |
+| [**CT-RATE**](https://zenodo.org/records/6406114) | chest CT | 仅图像域 | see source | 50,188 个重建完成的三维胸部 CT 体积（1,430 万张二维切片），来自 21,304 名患者的 25,692 次扫描；每个体积都配对一份影像科报告，并标注 18 类异常。体积由多种重建方法与窗宽窗位生成，因此天然带有重建差异——但只有图像域，不含原始投影。CT-CLIP 与 CT-CHAT 的训练语料。 |
 | [**LIDC-IDRI**](https://www.cancerimagingarchive.net/collection/lidc-idri/) | helical CT | 仅图像域 | CC BY 3.0 | 1,018 例胸部 CT，带四位放射科医师的结节标注。LoDoPaB-CT 与多数仿真低剂量数据所依据的解剖来源。 |
 | [**DeepLesion**](https://nihcc.app.box.com/v/DeepLesion) | helical CT | 仅图像域 | CC BY 3.0 | 覆盖 4,427 名患者、10,594 次检查的 32,735 处病灶标注——CT 域骨干网络的大规模预训练语料。 |
 | [**LUNA16**](https://luna16.grand-challenge.org/) | helical CT | 仅图像域 | CC BY 3.0 | 888 例薄层胸部 CT，统一重采样到 1 mm 并带结节标注；干净、整理得当的去噪/检测基准。 |

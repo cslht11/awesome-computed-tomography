@@ -13,6 +13,40 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-12 — Three CT foundation models, and the CT-RATE dataset
+
+### Added
+
+- **TAMP**, **DeepSparse** and **LCTfound.** Each was resolved against Crossref
+  before being written down — title match 1.000 for all three — rather than
+  taken from the PDF it was harvested from, because the markdown those PDFs
+  produce carries the arXiv ids of the *references*, not of the paper itself.
+  TAMP (Nat Commun 2026) covers low-dose, sparse-view and limited-angle in one
+  backbone; DeepSparse (TMI 2026) is the sparse-view CBCT one; LCTfound
+  (Nat Commun 2025) spans eight tasks of which CT enhancement and sparse-view
+  reconstruction are the reconstruction-relevant ones.
+- **CT-RATE**, in the image-domain half of the datasets: 50,188 reconstructed
+  3D chest CT volumes with a paired radiology report each. It gets no
+  projection marker — there are no raw sinograms — which is worth knowing before
+  reaching for it to test a forward model. Its landing page does not state a
+  licence, so it is recorded as `see source` rather than guessed at.
+- `scripts/oneoff/verify_foundation_papers.py` and its output, so the batch's
+  provenance sits in the repository beside the entries it produced.
+
+### Fixed
+
+- **HorusEye had no code link.** Its repository is now recorded.
+
+### Deliberately left out
+
+Three papers came out of the same batch and were **not** added: CT-RATE's own
+paper (CT-CLIP / CT-CHAT), Merlin and TAP-CT. All three are CT foundation
+models, but what they contribute is vision-language retrieval, report
+generation and frozen-feature classification — not reconstruction. The bar in
+`MAINTENANCE.md` is a paper *on CT reconstruction*, and a reader who came here
+for reconstruction methods would find them noise. Recorded here rather than
+quietly dropped.
+
 ## 2026-10-12 — The contributor graph is cslht11-only again
 
 ### Fixed (attribution)

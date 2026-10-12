@@ -1,0 +1,140 @@
+[
+  {
+    "key": "tamp",
+    "title": "Imaging foundation model for universal enhancement of non-ideal measurement CT",
+    "code": "https://github.com/YutingHe-list/TAMP",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 1.0,
+      "title": "Imaging foundation model for universal enhancement of non-ideal measurement CT",
+      "doi": "10.1038/s41467-026-73943-y",
+      "container": "Nature Communications",
+      "type": "journal-article",
+      "year": 2026
+    },
+    "arxiv_error": "could not fetch http://export.arxiv.org/api/query?search_query=ti:%22Imaging%20foundation%20model%20for%20universal%20enhancement%20of%20non-ideal%20measurement%20CT%22&max_results=5: Remote end close"
+  },
+  {
+    "key": "deepsparse",
+    "title": "DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction",
+    "code": "https://github.com/xmed-lab/DeepSparse",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 1.0,
+      "title": "DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction",
+      "doi": "10.1109/tmi.2026.3674948",
+      "container": "IEEE Transactions on Medical Imaging",
+      "type": "journal-article",
+      "year": 2026
+    },
+    "arxiv": {
+      "source": "arxiv",
+      "similarity": 1.0,
+      "title": "DeepSparse: A Foundation Model for Sparse-View CBCT Reconstruction",
+      "arxiv": "2505.02628v2",
+      "year": 2025
+    }
+  },
+  {
+    "key": "dm4ct",
+    "title": "DM4CT: Benchmarking Diffusion Models for Computed Tomography Reconstruction",
+    "code": "https://github.com/DM4CT/DM4CT",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 0.417,
+      "title": "Benchmarking learned algorithms for computed tomography image reconstruction tasks",
+      "doi": "10.3934/ammc.2025001",
+      "container": "Applied Mathematics for Modern Challenges",
+      "type": "journal-article",
+      "year": 2025
+    },
+    "arxiv": {
+      "source": "arxiv",
+      "similarity": 1.0,
+      "title": "DM4CT: Benchmarking Diffusion Models for Computed Tomography Reconstruction",
+      "arxiv": "2602.18589v1",
+      "year": 2026
+    }
+  },
+  {
+    "key": "ct-rate",
+    "title": "Generalist foundation models from a multimodal dataset for 3D computed tomography",
+    "code": "https://github.com/ibrahimethemhamamci/CT-FM",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 1.0,
+      "title": "Generalist foundation models from a multimodal dataset for 3D computed tomography",
+      "doi": "10.1038/s41551-025-01599-y",
+      "container": "Nature Biomedical Engineering",
+      "type": "journal-article",
+      "year": 2026
+    },
+    "arxiv": {
+      "source": "arxiv",
+      "similarity": 1.0,
+      "title": "Generalist Foundation Models from a Multimodal Dataset for 3D Computed Tomography",
+      "arxiv": "2403.17834v5",
+      "year": 2024
+    }
+  },
+  {
+    "key": "horuseye",
+    "title": "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration",
+    "code": "https://github.com/Arturia-Pendragon-Iris/HorusEye",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 1.0,
+      "title": "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration",
+      "doi": "10.1038/s43588-026-00973-3",
+      "container": "Nature Computational Science",
+      "type": "journal-article",
+      "year": 2026
+    },
+    "arxiv_error": "could not fetch http://export.arxiv.org/api/query?search_query=ti:%22HorusEye%3A%20a%20self-supervised%20foundation%20model%20for%20generalizable%20X-ray%20tomography%20restoration%22&max_results=5: H"
+  },
+  {
+    "key": "lctfound",
+    "title": "A lung CT vision foundation model facilitating disease diagnosis and medical imaging",
+    "code": "",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 1.0,
+      "title": "A lung CT vision foundation model facilitating disease diagnosis and medical imaging",
+      "doi": "10.1038/s41467-025-66620-z",
+      "container": "Nature Communications",
+      "type": "journal-article",
+      "year": 2025
+    },
+    "arxiv_error": "could not fetch http://export.arxiv.org/api/query?search_query=ti:%22A%20lung%20CT%20vision%20foundation%20model%20facilitating%20disease%20diagnosis%20and%20medical%20imaging%22&max_results=5: HTTP E"
+  },
+  {
+    "key": "merlin",
+    "title": "Merlin: a computed tomography vision-language foundation model and dataset",
+    "code": "",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 1.0,
+      "title": "Merlin: a computed tomography vision–language foundation model and dataset",
+      "doi": "10.1038/s41586-026-10181-8",
+      "container": "Nature",
+      "type": "journal-article",
+      "year": 2026
+    },
+    "arxiv_error": "could not fetch http://export.arxiv.org/api/query?search_query=ti:%22Merlin%3A%20a%20computed%20tomography%20vision-language%20foundation%20model%20and%20dataset%22&max_results=5: HTTP Error 429: Unkn"
+  },
+  {
+    "key": "tap-ct",
+    "title": "TAP-CT: 3D Task-Agnostic Pretraining of Computed Tomography Foundation Models",
+    "code": "https://huggingface.co/fomofo/tap-ct-b-3d",
+    "crossref": {
+      "source": "crossref",
+      "similarity": 0.294,
+      "title": "Generalist foundation models from a multimodal dataset for 3D computed tomography",
+      "doi": "10.1038/s41551-025-01599-y",
+      "container": "Nature Biomedical Engineering",
+      "type": "journal-article",
+      "year": 2026
+    },
+    "arxiv_error": "could not fetch http://export.arxiv.org/api/query?search_query=ti:%22TAP-CT%3A%203D%20Task-Agnostic%20Pretraining%20of%20Computed%20Tomography%20Foundation%20Models%22&max_results=5: HTTP Error 429: U"
+  }
+]

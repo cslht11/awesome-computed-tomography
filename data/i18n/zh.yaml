@@ -17,7 +17,7 @@
 #   折成一个空格，英文折行后正好当空格用，但中文句子中间凭空多一个空格就是硬伤
 #   （"34 个数据集、 19 个基准"）。长行不好看，但对中文是唯一正确的写法。
 #
-# 状态：全文已译——界面文案、17 个主题、README 散文与四条表格的说明（共 132 条）
+# 状态：全文已译——界面文案、17 个主题、README 散文与四条表格的说明（共 133 条）
 # 均已译出；将来新增条目若暂无译文会回落英文，build.py 会报告缺口。
 
 lang: zh-Hans
@@ -267,6 +267,12 @@ topics:
 # toolkits/datasets/benchmarks/learning tables below: what is listed here wins,
 # anything missing falls back to the English text in data/papers.yaml.
 papers:
+  "tamp":
+    note: "多尺度集成 Transformer 放大器（TAMP）。在 1,080 万张物理驱动的仿真非理想测量 CT 图像上预训练，之后用参数高效微调、仅凭少量切片即可适配某一具体协议——同一个骨干同时覆盖低剂量、稀疏视角与有限角三类退化。"
+  "deepsparse":
+    note: "DiCE（双维跨尺度嵌入）由 HyViP（混合视角采样预训练）在稀疏视角与密集视角投影上共同预训练，再经两步微调适配新数据集。作者称其为首个面向稀疏视角 CBCT 重建的基础模型。"
+  "lctfound":
+    note: "在 105,184 例多中心肺部 CT 上做扩散式预训练，并联合编码影像与临床信息。覆盖八项下游任务，其中与重建相关的是 CT 增强与稀疏视角重建。"
   "radon-1917":
     note: "定义了 Radon 变换的论文——本列表中所有解析方法（FBP、FDK、傅里叶切片定理）所要反演的正是这个前向算子，它比第一台 CT 扫描仪早了 54 年。原文发表于莱比锡科学院报告第 69 卷 262–277 页；这里的链接是 P. C. Parks 的英译本《On the determination of functions from their integral values along certain manifolds》，IEEE Transactions on Medical Imaging 5(4):170–176, 1986。"
   "splat-based-metal-artifact-reduction-in-cone-beam-ct-via-com":
@@ -367,6 +373,8 @@ toolkits:
   "DIRECTT Reconstruction GUI":
     note: "基于 ASTRA 工具箱的 Python 图形界面，用于 X 射线 CT 数据重建，并内置 DIRECTT 算法。DIRECTT 面向的正是只有极少量投影、且扫描轨迹任意的情形，并把采集路径本身一并纳入反问题求解——多数基于算子的工具箱基本不涉及这个角度。由德国联邦材料研究与测试研究所（BAM）开发，发表于 Review of Scientific Instruments 2020；运行 Main.py 即可启动。虽属小众、星标很少，但明确处理轨迹问题的工具本就寥寥无几。"
 datasets:
+  "CT-RATE":
+    note: "50,188 个重建完成的三维胸部 CT 体积（1,430 万张二维切片），来自 21,304 名患者的 25,692 次扫描；每个体积都配对一份影像科报告，并标注 18 类异常。体积由多种重建方法与窗宽窗位生成，因此天然带有重建差异——但只有图像域，不含原始投影。CT-CLIP 与 CT-CHAT 的训练语料。"
   "LoDoPaB-CT":
     note: "**Projection + image.** 42,895 对仿真人体胸腔切片（LIDC/IDRI），单一噪声水平（N0 = 4096）——其他剂量水平需自行重仿真。事实上的低剂量 CT 标准基准；附有调优良好的 FBP/U-Net 参考流程。"
   "LDCT-and-Projection-data":

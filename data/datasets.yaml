@@ -64,6 +64,13 @@
   note: "Paired planning CT and on-board CBCT — the standard setting for CBCT correction and synthetic-CT work in radiotherapy."
 
 # ---------------------------------------------------------------- image domain
+- name: CT-RATE
+  url: https://zenodo.org/records/6406114
+  modality: chest CT
+  tasks: [reconstruction, denoising, detection, segmentation]
+  license: see source
+  note: "50,188 reconstructed 3D chest CT volumes (14.3M 2D slices) from 25,692 scans of 21,304 patients, every volume paired with its radiology report and labelled for 18 abnormalities. Reconstructed with several methods and window settings, so it carries realistic reconstruction variability — but image domain only, with no raw projections. The corpus behind CT-CLIP and CT-CHAT."
+
 - name: LIDC-IDRI
   url: https://www.cancerimagingarchive.net/collection/lidc-idri/
   modality: helical CT
