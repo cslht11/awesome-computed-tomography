@@ -35,6 +35,58 @@ may be reformatted at any time.
   beacon, what Cloudflare receives, and that only aggregate numbers are seen.
   Updated 12 October 2026, as the page promised it would be before any change.
 
+## 2026-10-13 — Seven papers and one toolkit from an arXiv sweep
+
+Scanned arXiv across `computed tomography`, `sparse-view`, `limited-angle`,
+`CT reconstruction`, `cone-beam` and `low-dose CT`, newest first, and took the
+work that belongs on this list.
+
+### Added
+
+- **PhyDiCT** (MICCAI 2026) — training-free plug-and-play CT reconstruction from
+  a few X-rays: a differentiable Beer–Lambert forward model steers a
+  text-conditioned diffusion prior through Split Gibbs sampling, jointly
+  optimising projection fidelity and image prior. Sparse-view, with code.
+- **OX-NeRF** — X-ray tomography from ultra-sparse views (10 or fewer) by pairing
+  cross-scene feature learning with per-scene multi-resolution hash grids.
+- **Gradient-based trajectory optimisation for sparse-view CBCT** — every source
+  pose becomes a continuous variable moved jointly by gradient ascent on the
+  scanner's kinematic manifold, so the scan path is designed rather than picked
+  from a fixed candidate pool.
+- **Gaussian material fields** — multi-energy CT material decomposition from
+  shared anisotropic 3D Gaussian primitives with independent per-material
+  coefficients.
+- **LINGO** — latent initialisation and gradient optimisation for sparse-view
+  X-ray novel-view synthesis and CT reconstruction with 3D Gaussian splatting.
+- **Model-based iterative reconstruction with view-dependent detector
+  displacements** — folding measured detector motion into the CBCT forward model
+  instead of treating the geometry as nominal.
+- **Deep Pseudo-Proximal Map** — a self-supervised data-fitting agent standing in
+  for the proximal map inside an iterative reconstruction loop.
+- **CTrex** (toolkit) — a research-oriented GPU framework that exposes the
+  projection–correction–backprojection pipeline down to individual CUDA kernels,
+  so non-ideal acquisition effects can be written into the operators rather than
+  bolted on as corrections; geometry rides on per-projection homogeneous view
+  matrices, keeping kernels agnostic to circular, helical, offset and
+  conveyor-belt trajectories. Listed through its preprint: the paper announces
+  no code repository, and the entry will point at a repo once one appears.
+
+### Fixed
+
+- **Geometry-Aware Diffusion Approximate Posterior Sampling** was filed under
+  `limited-angle` only, though both its title and its method cover sparse-view CT
+  as well. Added `sparse-view` — the same kind of under-tagging that left
+  DC-PnPDP unsearchable by abbreviation the day before.
+
+### Deliberately left out
+
+Scanned and rejected: **CPF-DDNM** (a general diffusion posterior sampler whose
+abstract never mentions CT), randomised batch-sampling coordinate descent (pure
+optimisation theory), **EviDent-CBCT** (report generation from dental CBCT, not
+reconstruction), a deformable CT–US registration method, and the current crop of
+3D Gaussian-splatting and NeRF papers for general scenes — those are
+computer-vision view synthesis, not tomography.
+
 ## 2026-10-12 — Search, sorting and language-switch fixes
 
 ### Fixed

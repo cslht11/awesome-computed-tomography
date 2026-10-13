@@ -1411,7 +1411,7 @@
 - id: "geometry-aware-diffusion-approximate-posterior-sampling-for-"
   title: "Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT"
   year: 2026
-  topics: [diffusion, geometry, limited-angle]
+  topics: [diffusion, sparse-view, limited-angle, geometry]
   paper: "https://arxiv.org/abs/2610.08866"
 
 - id: "complex-wavelet-based-sinogram-segmentation-for-metal-artifa"
@@ -2125,6 +2125,53 @@
   paper: "https://arxiv.org/abs/2602.23214"
   code: "https://github.com/duchenhe/DC-PnPDP"
   project: "https://duchenhe.com/project/DCPnPDP/"
+
+- id: "phydict"
+  abbr: "PhyDiCT"
+  title: "PhyDiCT: Plug-and-Play CT Reconstruction from Sparse X-Rays via Differentiable Rendering and Strong Priors"
+  year: 2026
+  venue: "MICCAI"
+  topics: [sparse-view, diffusion]
+  paper: "https://arxiv.org/abs/2610.09253"
+  code: "https://github.com/batmanlab/PhyDiCT"
+
+- id: "ox-nerf"
+  abbr: "OX-NeRF"
+  title: "OX-NeRF: 3D X-ray Tomography Reconstruction from Sparse Views Using Implicit Neural Representation"
+  year: 2026
+  topics: [sparse-view, inr]
+  paper: "https://arxiv.org/abs/2610.11547"
+
+- id: "cbct-pose-trajectory-optimisation"
+  title: "Gradient-Based Trajectory Optimisation over Continuous Poses for Sparse-View Cone-Beam CT"
+  year: 2026
+  topics: [sparse-view, cbct, geometry]
+  paper: "https://arxiv.org/abs/2610.09579"
+
+- id: "gaussian-material-fields"
+  title: "Gaussian Material Fields for Volumetric Multi-Energy CT Decomposition"
+  year: 2026
+  topics: [spectral]
+  paper: "https://arxiv.org/abs/2610.09492"
+
+- id: "lingo"
+  abbr: "LINGO"
+  title: "LINGO: Latent Initialization and Gradient Optimization for Sparse-view X-ray Novel View Synthesis and CT Reconstruction with 3D Gaussian Splatting"
+  year: 2026
+  topics: [sparse-view, gaussian]
+  paper: "https://arxiv.org/abs/2609.22849"
+
+- id: "view-dependent-detector-displacement-cbct"
+  title: "Model-Based Iterative Reconstruction with View-Dependent Detector Displacements for Cone-Beam CT"
+  year: 2026
+  topics: [cbct, geometry, classical]
+  paper: "https://arxiv.org/abs/2609.22032"
+
+- id: "deep-pseudo-proximal-map"
+  title: "Deep Pseudo-Proximal Map: A Self-Supervised Data-Fitting Agent for Iterative Reconstruction"
+  year: 2026
+  topics: [classical, self-supervised]
+  paper: "https://arxiv.org/abs/2609.30727"
 
 - id: "ram"
   abbr: "RAM"

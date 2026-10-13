@@ -7,7 +7,7 @@
 
 **A curated, verified list of CT reconstruction research** — papers, toolkits, datasets and benchmarks for CT, CBCT and micro-CT.
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-392-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-399-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
 
 **[Website](https://computedtomography.org/)** · [Papers](#papers) · [Toolkits](#toolkits) · [Datasets](#datasets) · [Benchmarks](#benchmarks) · [Learning](#learning)
 
@@ -15,7 +15,7 @@
 
 **EN** · [中文](README.zh-CN.md)
 
-| 392 papers | 84% peer-reviewed | 91 with code | 44 toolkits | 41 datasets | 19 benchmarks | 1917–2026 |
+| 399 papers | 83% peer-reviewed | 92 with code | 45 toolkits | 41 datasets | 19 benchmarks | 1917–2026 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 
 Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D CT — from FBP and iterative solvers to unrolled networks, diffusion priors, neural fields and Gaussian splatting. Every paper link is resolved against Crossref, arXiv or the publisher's record. For search and filters, use the **[website](https://computedtomography.org/)**.
@@ -24,12 +24,12 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 | | | |
 | --- | --- | --- |
-| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>68</sub> | [Sparse-View CT](#sparse-view-ct) <sub>137</sub> |
+| [Surveys & Reviews](#surveys--reviews) <sub>23</sub> | [Classical & Iterative Reconstruction](#classical--iterative-reconstruction) <sub>70</sub> | [Sparse-View CT](#sparse-view-ct) <sub>142</sub> |
 | [Limited-Angle Tomography](#limited-angle-tomography) <sub>45</sub> | [Low-Dose CT Denoising](#low-dose-ct-denoising) <sub>58</sub> | [Metal Artifact Reduction](#metal-artifact-reduction) <sub>21</sub> |
-| [Spectral & Dual-Energy CT](#spectral--dual-energy-ct) <sub>18</sub> | [Cone-Beam CT](#cone-beam-ct) <sub>66</sub> | [Dynamic & 4D CT](#dynamic--4d-ct) <sub>21</sub> |
-| [Scatter Correction](#scatter-correction) <sub>11</sub> | [Geometry Calibration & Motion Compensation](#geometry-calibration--motion-compensation) <sub>25</sub> | [Deep Unrolling & Model-Based Learning](#deep-unrolling--model-based-learning) <sub>68</sub> |
-| [Self-Supervised & Untrained Methods](#self-supervised--untrained-methods) <sub>32</sub> | [Diffusion & Generative Priors](#diffusion--generative-priors) <sub>55</sub> | [Implicit Neural Representations](#implicit-neural-representations) <sub>24</sub> |
-| [Gaussian Splatting](#gaussian-splatting) <sub>24</sub> | [Other Topics](#other-topics) <sub>29</sub> |  |
+| [Spectral & Dual-Energy CT](#spectral--dual-energy-ct) <sub>19</sub> | [Cone-Beam CT](#cone-beam-ct) <sub>68</sub> | [Dynamic & 4D CT](#dynamic--4d-ct) <sub>21</sub> |
+| [Scatter Correction](#scatter-correction) <sub>11</sub> | [Geometry Calibration & Motion Compensation](#geometry-calibration--motion-compensation) <sub>27</sub> | [Deep Unrolling & Model-Based Learning](#deep-unrolling--model-based-learning) <sub>68</sub> |
+| [Self-Supervised & Untrained Methods](#self-supervised--untrained-methods) <sub>33</sub> | [Diffusion & Generative Priors](#diffusion--generative-priors) <sub>56</sub> | [Implicit Neural Representations](#implicit-neural-representations) <sub>25</sub> |
+| [Gaussian Splatting](#gaussian-splatting) <sub>25</sub> | [Other Topics](#other-topics) <sub>29</sub> |  |
 
 Newest first within each topic. Each entry gives its venue and year in italics; _preprint_ marks work not (yet) published at a peer-reviewed venue, dated by its first public posting.
 
@@ -63,13 +63,15 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Classical & Iterative Reconstruction
 
-<sub>Analytical (FBP/FDK) and iterative (SART/SIRT/CGLS) reconstruction, hand-crafted regularizers (TV, TGV, non-local) · 68 papers</sub>
+<sub>Analytical (FBP/FDK) and iterative (SART/SIRT/CGLS) reconstruction, hand-crafted regularizers (TV, TGV, non-local) · 70 papers</sub>
 
 - **Complex Wavelet-Based Sinogram Segmentation for Metal Artifact Reduction in Cone-Beam CT** — _PMB 2026_ · [Paper](https://arxiv.org/abs/2602.14315)
 - **Computed Tomography Reconstruction Algorithm Using Markov Random Field Model** — _J. Phys. Soc. Jpn. 2026_ · [Paper](https://arxiv.org/abs/2605.11637)
 - **Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT** — _TMI 2026_ · [Paper](https://arxiv.org/abs/2509.13576)
 - **DC-PnPDP: Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction** — _ICML 2026_ · [Paper](https://arxiv.org/abs/2602.23214) · [Code](https://github.com/duchenhe/DC-PnPDP) · [Project](https://duchenhe.com/project/DCPnPDP/)
+- **Deep Pseudo-Proximal Map: A Self-Supervised Data-Fitting Agent for Iterative Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.30727)
 - **H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows** — _ICPR 2026_ · [Paper](https://arxiv.org/abs/2605.12252)
+- **Model-Based Iterative Reconstruction with View-Dependent Detector Displacements for Cone-Beam CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.22032)
 - **Robustness and Stability Analysis of Differentiable Shift-Variant FBP for Cone-Beam CT under Challenging Acquisition Settings** — _MELBA 2026_ · [Paper](https://arxiv.org/abs/2607.09828) · [Project](https://melba-journal.org/2026:014)
 - **Variational Garrote for Sparse Inverse Problems** — _J. Comput. Sci. 2026_ · [Paper](https://doi.org/10.1016/j.jocs.2026.102980)
 - **An Iterative Reconstruction Method for Dental Cone-Beam Computed Tomography with a Truncated Field of View** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2508.07618)
@@ -138,7 +140,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Sparse-View CT
 
-<sub>Reconstruction from a reduced number of projection angles · 137 papers</sub>
+<sub>Reconstruction from a reduced number of projection angles · 142 papers</sub>
 
 - **3D Field of Junctions: A Noise-Robust, Training-Free Structural Prior for Volumetric Inverse Problems** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2603.02149) · [Code](https://github.com/voilalab/3D-Field-of-Junctions)
 - **CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction** — _BMVC 2026_ · [Paper](https://arxiv.org/abs/2608.15246)
@@ -153,13 +155,18 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Efficient Unrolled Networks for Large-Scale 3D Inverse Problems** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2601.02141) · [Code](https://github.com/romainvo/efficient-unrolling)
 - **Event-Based Sparse-View Background-Oriented Schlieren Tomography** — _ECCV 2026_ · [Paper](https://doi.org/10.1007/978-3-032-37335-9_18)
 - **From Sparse X-rays to 3D CT: Training-Free Reconstruction with Diffusion Priors** — _DGM4MICCAI 2026_ · [Paper](https://arxiv.org/abs/2606.20763) · [Code](https://github.com/Fredy-Zhang/TF-PRDiT)
+- **Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.08866)
 - **GR-Gaussian: Graph-Based Radiative Gaussian Splatting for Sparse-View Tomography** — _TCI 2026_ · [Paper](https://doi.org/10.1109/TCI.2026.3701585)
+- **Gradient-Based Trajectory Optimisation over Continuous Poses for Sparse-View Cone-Beam CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.09579)
 - **ILV: Iterative Latent Volumes for Fast and Accurate Sparse-View CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2603.14915) · [Project](https://sngryonglee.github.io/ILV/)
 - **ISCS: Improving 2D Diffusion Models for 3D Medical Imaging with Inter-Slice Consistent Stochasticity** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2602.04162) · [Code](https://github.com/duchenhe/ISCS)
 - **KLIP: Localized Distribution Shift Detection via KL-Divergence with Diffusion Priors in Inverse Problems** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2605.31596) · [Code](https://github.com/voilalab/KLIP)
 - **Learning Where and What to Lift for Bi-planar X-ray-to-CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2608.17255)
+- **LINGO: Latent Initialization and Gradient Optimization for Sparse-view X-ray Novel View Synthesis and CT Reconstruction with 3D Gaussian Splatting** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.22849)
 - **LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2606.16212)
 - **NAB: Neural Adaptive Binning for Sparse-View CT Reconstruction** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2602.02356) · [Code](https://github.com/Wangduo-Xie/NAB_CT_reconstruction)
+- **OX-NeRF: 3D X-ray Tomography Reconstruction from Sparse Views Using Implicit Neural Representation** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.11547)
+- **PhyDiCT: Plug-and-Play CT Reconstruction from Sparse X-Rays via Differentiable Rendering and Strong Priors** — _MICCAI 2026_ · [Paper](https://arxiv.org/abs/2610.09253) · [Code](https://github.com/batmanlab/PhyDiCT)
 - **Projection-Volume Fidelity Divergence: Diagnosing and Controlling Optimization Drift in Sparse-View 3D Gaussian Tomography** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2606.22525)
 - **Revisiting Pose Sensitivity in Splat-based Computed Tomography under Sparse-view Reconstruction** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2608.04752)
 - **Shape-guided Gaussian Splatting for Sparse-View X-ray 3D Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.10376) · [Code](https://github.com/polyshape-lab/ShapeGuidedGaussian)
@@ -433,9 +440,10 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Spectral & Dual-Energy CT
 
-<sub>Multi-energy acquisition, material decomposition, photon-counting CT · 18 papers</sub>
+<sub>Multi-energy acquisition, material decomposition, photon-counting CT · 19 papers</sub>
 
 - **$K$-NeAS: Scalable Multi-Material CT Reconstruction Using Neural SDFs** — _Off-Grid Workshop 2026_ · [Paper](https://arxiv.org/abs/2607.14415)
+- **Gaussian Material Fields for Volumetric Multi-Energy CT Decomposition** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.09492)
 - **Integration of Spectral CT with PET and SPECT: Bringing Tissue Composition Information to Molecular Imaging** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.27398)
 - **Modeling X-Ray Photon Pile-Up with a Normalizing Flow** — _NeurIPS Workshop 2025_ · [Paper](https://arxiv.org/abs/2511.11863)
 - **SOUL-Net: A Sparse and Low-Rank Unrolling Network for Spectral CT Image Reconstruction** — _TNNLS 2024_ · [Paper](https://doi.org/10.1109/tnnls.2023.3319408) · [Code](https://github.com/scuchenxiang/SOUL-Net)
@@ -456,7 +464,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Cone-Beam CT
 
-<sub>Circular, helical and non-standard CBCT geometries; on-board imaging · 66 papers</sub>
+<sub>Circular, helical and non-standard CBCT geometries; on-board imaging · 68 papers</sub>
 
 - **Anatomy-preserving unpaired cone-beam CT refinement for image-guided radiotherapy using pseudo-label guided diffusion** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.06094)
 - **CBCT-Based Synthetic CT Generation Using Conditional Flow Matching Model** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2603.05796)
@@ -470,10 +478,12 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Dual-domain U-Nets with embedded back projection operators for motion-resolved 4D CBCT reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2608.03430)
 - **Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement** — _MICAD 2026_ · [Paper](https://arxiv.org/abs/2609.28110) · [Code](https://github.com/SusanneSchaub/CBCT-FOV-Extension)
 - **GH-NAF: Grid-Adaptive Hash-Level-Attended Neural Attenuation Fields for Discrepancy-Aware CBCT** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Oh_GH-NAF_Grid-Adaptive_Hash-Level-Attended_Neural_Attenuation_Fields_for_Discrepancy-Aware_CBCT_CVPR_2026_paper.html) · [Code](https://github.com/seongje-oh/GH-NAF)
+- **Gradient-Based Trajectory Optimisation over Continuous Poses for Sparse-View Cone-Beam CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.09579)
 - **H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows** — _ICPR 2026_ · [Paper](https://arxiv.org/abs/2605.12252)
 - **HARU-Net: Hybrid Attention Residual U-Net for Edge-Preserving Denoising in Cone-Beam Computed Tomography** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.22544)
 - **High-Fidelity 3D Tooth Reconstruction by Fusing Intraoral Scans and CBCT Data via a Deep Implicit Representation** — _ISBI 2026_ · [Paper](https://arxiv.org/abs/2601.15358)
 - **Joint-decoupled iterative CBCT reconstruction with hybrid scatter estimation and voxel-adaptive beam hardening correction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2607.15812)
+- **Model-Based Iterative Reconstruction with View-Dependent Detector Displacements for Cone-Beam CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.22032)
 - **NGPS: Structure-Preserving Self-Supervised Denoising via Neighbor-Guided Patch Sampling** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2606.23200) · [Code](https://github.com/cv-cho/NGPS)
 - **Non-circular scan trajectories for reducing cone-beam artifacts in Gamma Knife CBCT images: a simulation study** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.28232)
 - **Riner: Unsupervised Multi-Parameter Inverse Solving for Reducing Ring Artifacts in 3D X-Ray CBCT** — _AAAI 2026_ · [Paper](https://arxiv.org/abs/2412.05853) · [Code](https://github.com/iwuqing/Riner)
@@ -575,7 +585,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Geometry Calibration & Motion Compensation
 
-<sub>Geometric self-calibration, marker-free alignment, rigid and non-rigid motion correction · 25 papers</sub>
+<sub>Geometric self-calibration, marker-free alignment, rigid and non-rigid motion correction · 27 papers</sub>
 
 - **Active View Selection with Perturbed Gaussian Ensemble for Tomographic Reconstruction** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2603.06852)
 - **Conditional Diffusion Posterior Alignment for Sparse-View CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2604.21960)
@@ -583,6 +593,8 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Exact-GS: Mathematically Rigorous and Accurate 3D Gaussian Splatting for 3D X-Ray Reconstruction** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Exact-GS_Mathematically_Rigorous_and_Accurate_3D_Gaussian_Splatting_for_3D_CVPR_2026_paper.html) · [Code](https://github.com/brucee1323/Exact-GS)
 - **GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2607.11584)
 - **Geometry-Aware Diffusion Approximate Posterior Sampling for Sparse-View and Limited-Angle CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.08866)
+- **Gradient-Based Trajectory Optimisation over Continuous Poses for Sparse-View Cone-Beam CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.09579)
+- **Model-Based Iterative Reconstruction with View-Dependent Detector Displacements for Cone-Beam CT** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.22032)
 - **Revisiting Pose Sensitivity in Splat-based Computed Tomography under Sparse-view Reconstruction** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2608.04752)
 - **Riner: Unsupervised Multi-Parameter Inverse Solving for Reducing Ring Artifacts in 3D X-Ray CBCT** — _AAAI 2026_ · [Paper](https://arxiv.org/abs/2412.05853) · [Code](https://github.com/iwuqing/Riner)
 - **Robustness and Stability Analysis of Differentiable Shift-Variant FBP for Cone-Beam CT under Challenging Acquisition Settings** — _MELBA 2026_ · [Paper](https://arxiv.org/abs/2607.09828) · [Project](https://melba-journal.org/2026:014)
@@ -678,9 +690,10 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Self-Supervised & Untrained Methods
 
-<sub>Training without paired data — deep image prior, noise2noise-style, unsupervised regularization · 32 papers</sub>
+<sub>Training without paired data — deep image prior, noise2noise-style, unsupervised regularization · 33 papers</sub>
 
 - **3D Field of Junctions: A Noise-Robust, Training-Free Structural Prior for Volumetric Inverse Problems** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2603.02149) · [Code](https://github.com/voilalab/3D-Field-of-Junctions)
+- **Deep Pseudo-Proximal Map: A Self-Supervised Data-Fitting Agent for Iterative Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.30727)
 - **DINR: Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data** — _ICASSP 2026_ · [Paper](https://arxiv.org/abs/2603.10947)
 - **Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data** — _TCI 2026_ · [Paper](https://arxiv.org/abs/2510.23317)
 - **From Sparse X-rays to 3D CT: Training-Free Reconstruction with Diffusion Priors** — _DGM4MICCAI 2026_ · [Paper](https://arxiv.org/abs/2606.20763) · [Code](https://github.com/Fredy-Zhang/TF-PRDiT)
@@ -715,7 +728,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Diffusion & Generative Priors
 
-<sub>Score-based, diffusion and other learned generative priors used as priors or samplers for tomographic inversion · 55 papers</sub>
+<sub>Score-based, diffusion and other learned generative priors used as priors or samplers for tomographic inversion · 56 papers</sub>
 
 - **Anatomy-preserving unpaired cone-beam CT refinement for image-guided radiotherapy using pseudo-label guided diffusion** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.06094)
 - **CBCT-Based Synthetic CT Generation Using Conditional Flow Matching Model** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2603.05796)
@@ -737,6 +750,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **ISCS: Improving 2D Diffusion Models for 3D Medical Imaging with Inter-Slice Consistent Stochasticity** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2602.04162) · [Code](https://github.com/duchenhe/ISCS)
 - **KLIP: Localized Distribution Shift Detection via KL-Divergence with Diffusion Priors in Inverse Problems** — _CVPR 2026_ · [Paper](https://arxiv.org/abs/2605.31596) · [Code](https://github.com/voilalab/KLIP)
 - **LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2606.16212)
+- **PhyDiCT: Plug-and-Play CT Reconstruction from Sparse X-Rays via Differentiable Rendering and Strong Priors** — _MICCAI 2026_ · [Paper](https://arxiv.org/abs/2610.09253) · [Code](https://github.com/batmanlab/PhyDiCT)
 - **Spectral Consistent Flow for One-Step 3D Medical Image Translation** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2607.10627)
 - **Toward a Foundation Plug-and-Play Prior for Computed Tomography Reconstruction via a Multimodal Diffusion Model** — _SC Workshops 2026_ · [Paper](https://arxiv.org/abs/2608.23190)
 - **Toward CT-Equivalent Image Quality in Low-Dose Radiotherapy Planning: Conditional Diffusion-Based CBCT-to-CT Synthesis and the Impact of CBCT Input Representation** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2608.08919)
@@ -775,7 +789,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Implicit Neural Representations
 
-<sub>Coordinate-based networks (INR / NeRF) that represent the volume itself as the unknown · 24 papers</sub>
+<sub>Coordinate-based networks (INR / NeRF) that represent the volume itself as the unknown · 25 papers</sub>
 
 - **DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction** — _AAAI 2026_ · [Paper](https://arxiv.org/abs/2604.21518) · [Project](https://ooonesevennn.github.io/DiffNR/)
 - **DINR: Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data** — _ICASSP 2026_ · [Paper](https://arxiv.org/abs/2603.10947)
@@ -783,6 +797,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 - **Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement** — _MICAD 2026_ · [Paper](https://arxiv.org/abs/2609.28110) · [Code](https://github.com/SusanneSchaub/CBCT-FOV-Extension)
 - **GH-NAF: Grid-Adaptive Hash-Level-Attended Neural Attenuation Fields for Discrepancy-Aware CBCT** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Oh_GH-NAF_Grid-Adaptive_Hash-Level-Attended_Neural_Attenuation_Fields_for_Discrepancy-Aware_CBCT_CVPR_2026_paper.html) · [Code](https://github.com/seongje-oh/GH-NAF)
 - **NAB: Neural Adaptive Binning for Sparse-View CT Reconstruction** — _ICLR 2026_ · [Paper](https://arxiv.org/abs/2602.02356) · [Code](https://github.com/Wangduo-Xie/NAB_CT_reconstruction)
+- **OX-NeRF: 3D X-ray Tomography Reconstruction from Sparse Views Using Implicit Neural Representation** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2610.11547)
 - **Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2606.06039)
 - **Accelerated Optimization of Implicit Neural Representations for CT Reconstruction** — _preprint 2025_ · [Paper](https://arxiv.org/abs/2504.13390)
 - **Coordinate-Based Speed of Sound Recovery for Aberration-Corrected Photoacoustic Computed Tomography** — _ICCV 2025_ · [Paper](https://arxiv.org/abs/2409.10876) · [Project](https://lukeli0425.github.io/Coord-SoS-PACT/)
@@ -804,12 +819,13 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 
 ### Gaussian Splatting
 
-<sub>Explicit Gaussian primitives as a differentiable tomographic representation · 24 papers</sub>
+<sub>Explicit Gaussian primitives as a differentiable tomographic representation · 25 papers</sub>
 
 - **Active View Selection with Perturbed Gaussian Ensemble for Tomographic Reconstruction** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2603.06852)
 - **Exact-GS: Mathematically Rigorous and Accurate 3D Gaussian Splatting for 3D X-Ray Reconstruction** — _CVPR 2026_ · [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Exact-GS_Mathematically_Rigorous_and_Accurate_3D_Gaussian_Splatting_for_3D_CVPR_2026_paper.html) · [Code](https://github.com/brucee1323/Exact-GS)
 - **FaCT-GS: Fast and Scalable CT Reconstruction with Gaussian Splatting** — _ECCV 2026_ · [Paper](https://arxiv.org/abs/2604.01844) · [Code](https://github.com/PaPieta/fact-gs)
 - **GR-Gaussian: Graph-Based Radiative Gaussian Splatting for Sparse-View Tomography** — _TCI 2026_ · [Paper](https://doi.org/10.1109/TCI.2026.3701585)
+- **LINGO: Latent Initialization and Gradient Optimization for Sparse-view X-ray Novel View Synthesis and CT Reconstruction with 3D Gaussian Splatting** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2609.22849)
 - **MedGMAE: Gaussian Masked Autoencoders for Medical Volumetric Representation Learning** — _ICLR 2026_ · [Paper](https://openreview.net/forum?id=Z2XIRLv535) · [Code](https://github.com/windrise/MedGMAE)
 - **Projection-Volume Fidelity Divergence: Diagnosing and Controlling Optimization Drift in Sparse-View 3D Gaussian Tomography** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2606.22525)
 - **Radioactive 3D Gaussian Ray Tracing for Tomographic Reconstruction** — _preprint 2026_ · [Paper](https://arxiv.org/abs/2602.01057)
@@ -921,6 +937,7 @@ Newest first within each topic. Each entry gives its venue and year in italics; 
 | [**mumott**](https://gitlab.com/liebi-group/software/mumott) | Python | 4 | Tensor-tomography reconstruction for reciprocal-space data, developed at DTU. Specialised rather than general-purpose, but it is the most complete open implementation of the tensor-tomography model. |
 | [**DIRECTT Reconstruction GUI**](https://github.com/BAMresearch/DIRECTT) | Python | 1 | A Python GUI built on the ASTRA toolbox for reconstructing X-ray CT data, with the DIRECTT algorithm included. DIRECTT targets the regime where only a handful of projections are available along an arbitrary scanning trajectory and folds the acquisition path itself into the inverse problem - a corner that operator-based toolboxes mostly leave untouched. From BAM and published in Review of Scientific Instruments 2020; run Main.py to launch. Niche and lightly starred, but there is little else that covers trajectories explicitly. |
 | [**pyHST2**](https://gitlab.esrf.fr/tomotools/pyhst2) | C / Python | - | The ESRF beamline reconstruction code — gridrec, FBP and iterative methods with phase retrieval for propagation-based phase-contrast tomography. Long-standing workhorse of the synchrotron community. |
+| [**CTrex**](https://arxiv.org/abs/2609.30166) | Python / CUDA (PyCUDA) | - | A research-oriented GPU iterative reconstruction framework that exposes the projection–correction–backprojection pipeline all the way down to the individual CUDA kernels, so non-ideal acquisition effects can be folded into the operators themselves instead of being bolted on afterwards as corrections. Geometry is carried as per-projection homogeneous view matrices, which keeps the kernels agnostic to the scan path — circular, helical, offset and conveyor-belt trajectories all work, as do motion- and deformation-aware, event-based 4D and extended-field-of-view cases. Aimed squarely at micro-CT under unconventional acquisition. Described in arXiv:2609.30166; the paper announces no code repository, so this entry points at the preprint until one appears. |
 
 <div align="right"><a href="#top">back to top ↑</a></div>
 
