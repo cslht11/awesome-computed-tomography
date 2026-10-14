@@ -35,7 +35,7 @@ may be reformatted at any time.
   beacon, what Cloudflare receives, and that only aggregate numbers are seen.
   Updated 12 October 2026, as the page promised it would be before any change.
 
-## 2026-10-14 — Hover blurbs, and corrections from an outside review
+## 2026-10-14 — Bilingual hover blurbs, and corrections from an outside review
 
 ### Added
 
@@ -53,6 +53,15 @@ may be reformatted at any time.
   behind a ≥0.90 similarity gate (+51).
 - `scripts/oneoff/fetch_summaries.py` and `fetch_summaries_by_title.py`, both
   rate-limited and cache-backed (`--offline` re-derives from the cache).
+- **The blurbs are bilingual.** `data/summaries.zh.yaml` carries the Chinese
+  wording for all 256, so the Chinese site shows Chinese and the English site
+  shows English. They live in their own file rather than inside
+  `data/i18n/zh.yaml`, which is a curated overlay that a few hundred
+  machine-length entries would swamp; `scripts/export_site_data.py` picks the
+  file matching the language being built and falls back to English for anything
+  untranslated, so a gap shows up as visible English rather than an empty card.
+- `scripts/oneoff/translate_summaries.py` — applies a batch of translations and
+  reports what is still missing (`--status`).
 - `TODO-summaries.md` — the 143 papers still without a blurb, with a short
   how-to. Nothing is wrong with them; they simply show no card.
 
@@ -73,6 +82,8 @@ re-checked against a primary source before being applied:
 - Twenty-four papers whose title already begins "ABBR: …" had no `abbr`, so the
   site showed no leading tag and the column looked ragged. Added — which also
   makes those abbreviations searchable.
+- One blurb still carried the raw `&lt;p&gt;` markup from a publisher's Crossref
+  record; unescaped and stripped.
 
 ### Not changed, deliberately
 

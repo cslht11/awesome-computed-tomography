@@ -71,6 +71,12 @@ def build_payload(lang=None):
     # design: papers without one simply get no hover card, and the list must
     # still build if the file is absent.
     blurbs = load("summaries.yaml") or {}
+    # Translations live in their own file rather than inside the overlay
+    # (`data/i18n/zh.yaml`): that file is hand-maintained and comment-rich, and
+    # a few hundred translated blurbs would swamp it. A missing translation
+    # just falls back to the English blurb, so the gap stays visible.
+    local_blurbs = ({} if code == i18n.SOURCE
+                    else (load("summaries.%s.yaml" % code) or {}))
 
     problems = validate(meta, papers, toolkits, datasets, benchmarks, learning)
     if problems:
@@ -115,7 +121,8 @@ def build_payload(lang=None):
         # Blurb for the hover card. Overlay first, exactly like `note`, so a
         # translated site can supply its own wording later without touching the
         # generated English.
-        blurb = ov.item("papers", e["id"]).get("blurb") or blurbs.get(e["id"])
+        blurb = (ov.item("papers", e["id"]).get("blurb")
+                 or local_blurbs.get(e["id"]) or blurbs.get(e["id"]))
         if blurb:
             rec["blurb"] = re.sub(r"\s+", " ", blurb).strip()
         for k in PAPER_URL_FIELDS:

@@ -3,6 +3,12 @@
 256 of the 399 papers carry a blurb in `data/summaries.yaml`; **143 do not** and
 simply show no hover card (nothing is wrong with them — the title is just plain text).
 
+**Every blurb that exists is also translated.** `data/summaries.zh.yaml` holds the
+Chinese wording for all 256, so the Chinese site shows Chinese and the English site
+shows English. When you fill in one of the entries below, add **both** files — and
+run `python scripts/oneoff/translate_summaries.py --status` to see what is still
+missing on either side.
+
 ## How to fill one in
 
 Add an entry keyed by the paper id, in the same file:
