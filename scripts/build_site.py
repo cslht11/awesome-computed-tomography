@@ -166,15 +166,20 @@ def render_static_papers(payload, ov):
     rows = []
     for p in payload["papers"]:
         name, title = abbr_title(p)
-        url = p["links"].get("paper") or p["links"].get("project") or p["links"].get("code")
+        # The title is plain text now: it used to be a link to the same URL as
+        # the `paper` link below it. Where we have a blurb, `title=` gives
+        # readers without JavaScript the browser's own tooltip, and app.js
+        # upgrades it to a hover card when it runs.
+        blurb = p.get("blurb")
         head = ""
         if name:
             head += '<span class="abbr">%s</span>' % esc(name)
-        if url:
-            head += ('<a href="%s" target="_blank" rel="noopener">%s</a>'
-                     % (esc(url), esc(title)))
+        if blurb:
+            head += ('<span class="p-titletext has-blurb" tabindex="0"'
+                     ' role="button" aria-label="What this paper is about"'
+                     ' title="%s">%s</span>' % (esc(blurb), esc(title)))
         else:
-            head += esc(title)
+            head += '<span class="p-titletext">%s</span>' % esc(title)
 
         meta = ['<span class="venue%s">%s</span>'
                 % (" is-preprint" if p["preprint"] else "",

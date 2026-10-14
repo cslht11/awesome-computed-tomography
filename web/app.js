@@ -206,6 +206,60 @@
     return false;
   }
 
+  /* ------------------------------------------------------------ hover card
+
+     One card, re-used, parked on <body> and positioned in viewport
+     coordinates — the paper list can scroll and clip, and a card nested inside
+     a row would be cut off. The content is read with textContent, so a blurb
+     can never escape as markup.
+
+     Three ways in, because "hover" is not universal: pointer hover (desktop),
+     tap (touch, where hover does not exist), and keyboard focus. Escape and
+     clicking anywhere else put it away. `pointer-events: none` in the CSS
+     keeps the card from stealing the pointer from the row underneath it. */
+
+  var cardEl = null;
+
+  function card() {
+    if (cardEl) { return cardEl; }
+    cardEl = document.createElement("div");
+    cardEl.className = "blurb-card";
+    cardEl.id = "blurb-card";
+    cardEl.setAttribute("role", "tooltip");
+    cardEl.hidden = true;
+    document.body.appendChild(cardEl);
+    return cardEl;
+  }
+
+  function showCard(el) {
+    var text = el.getAttribute("data-blurb");
+    if (!text) { return; }
+    var c = card();
+    c.textContent = text;
+    c.hidden = false;
+    el.setAttribute("aria-describedby", "blurb-card");
+    var r = el.getBoundingClientRect();
+    var cr = c.getBoundingClientRect();
+    var left = Math.min(Math.max(8, r.left), window.innerWidth - cr.width - 8);
+    var top = r.bottom + 8;
+    /* Flip above the title when there is no room below, then clamp. */
+    if (top + cr.height > window.innerHeight - 8) { top = r.top - cr.height - 8; }
+    if (top < 8) { top = 8; }
+    c.style.left = Math.round(left) + "px";
+    c.style.top = Math.round(top) + "px";
+  }
+
+  function hideCard() {
+    if (cardEl) { cardEl.hidden = true; }
+    var prev = document.querySelector(".p-titletext[aria-describedby]");
+    if (prev) { prev.removeAttribute("aria-describedby"); }
+  }
+
+  function cardTarget(e) {
+    var el = e.target;
+    return el && el.closest ? el.closest(".p-titletext[data-blurb]") : null;
+  }
+
   /* ------------------------------------------------------------ rendering */
 
   var listEl, countEl, emptyEl;
@@ -214,6 +268,8 @@
     var rows = selectedPapers();
     var toks = queryTerms();
     var frag = document.createDocumentFragment();
+    /* The row the card was describing may be about to disappear. */
+    hideCard();
 
     rows.forEach(function (p) {
       var li = document.createElement("li");
@@ -227,21 +283,28 @@
         ab.textContent = p.abbr;
         h.appendChild(ab);
       }
-      var url = primaryUrl(p);
       // NB: not `var t` — that shadows the i18n helper t() used a few lines
       // below for the preprint label, and the resulting throw aborted init()
       // before the search box was ever wired up. (`parts` also reads better.)
       var parts = titleParts(p);
-      if (url) {
-        var a = document.createElement("a");
-        a.href = url;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.appendChild(highlight(parts.text, toks));
-        h.appendChild(a);
-      } else {
-        h.appendChild(highlight(parts.text, toks));
+      /* The title is NOT a link any more. It used to point at the same URL as
+         the `paper` link rendered two lines below, so clicking either went to
+         the same place. The links below are the way out; the title instead
+         explains the work, via a hover card, when we have a blurb for it. */
+      var span = document.createElement("span");
+      span.className = "p-titletext";
+      span.appendChild(highlight(parts.text, toks));
+      if (p.blurb) {
+        span.className = "p-titletext has-blurb";
+        span.setAttribute("data-blurb", p.blurb);
+        span.tabIndex = 0;                 // reachable without a pointer
+        span.setAttribute("role", "button");
+        /* Deliberately not run through t(): this is an ARIA label rather than
+           visible copy, and adding a UI key would open a translation gap that
+           the build reports as a fallback. */
+        span.setAttribute("aria-label", "What this paper is about");
       }
+      h.appendChild(span);
       li.appendChild(h);
 
       var meta = document.createElement("p");
@@ -526,6 +589,34 @@
     listEl = document.getElementById("papers-list");
     countEl = document.getElementById("count");
     emptyEl = document.getElementById("empty");
+
+    /* Hover cards are delegated from the list, so re-rendering it (every
+       keystroke) never has to rebind anything. */
+    listEl.addEventListener("mouseover", function (e) {
+      var t = cardTarget(e);
+      if (t) { showCard(t); }
+    });
+    listEl.addEventListener("mouseout", function (e) {
+      if (cardTarget(e)) { hideCard(); }
+    });
+    listEl.addEventListener("focusin", function (e) {
+      var t = cardTarget(e);
+      if (t) { showCard(t); }
+    });
+    listEl.addEventListener("focusout", function (e) {
+      if (cardTarget(e)) { hideCard(); }
+    });
+    /* Tap: touch has no hover, so a tap toggles. On desktop the click lands
+       while the card is already up, and hiding it then keeps the card from
+       covering the text the reader is trying to select. */
+    listEl.addEventListener("click", function (e) {
+      var t = cardTarget(e);
+      if (!t) { return; }
+      if (cardEl && !cardEl.hidden) { hideCard(); } else { showCard(t); }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { hideCard(); }
+    });
 
     /* year options */
     var fromSel = document.getElementById("from");

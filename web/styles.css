@@ -348,6 +348,36 @@ li.paper {
 .p-title a { color: var(--fg); }
 .p-title a:hover { color: var(--accent); text-decoration: none; }
 
+/* ---- a paper title explains itself -------------------------------------
+   The title stopped being a link: it pointed at the same URL as the `paper`
+   link two lines below, so clicking either went to the same place. Papers we
+   have a blurb for are marked with a dotted underline and explain themselves
+   on hover / tap / focus. There is no second page — the links below are the
+   way out, this is only the "what is it" bit. */
+.p-titletext.has-blurb {
+  cursor: help;
+  border-bottom: 1px dotted var(--border-strong);
+}
+.p-titletext.has-blurb:hover,
+.p-titletext.has-blurb:focus-visible { border-bottom-color: var(--accent); }
+.p-titletext:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px;
+}
+
+/* Fixed, so it is never clipped by the scrolling list; `pointer-events: none`
+   so it cannot steal the pointer from the row underneath and flicker. */
+.blurb-card {
+  position: fixed; z-index: 80;
+  max-width: min(430px, calc(100vw - 24px));
+  padding: 12px 14px;
+  background: var(--panel); color: var(--fg-muted);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-pop);
+  font: 13.5px/1.58 var(--sans);
+  pointer-events: none;
+}
+.blurb-card[hidden] { display: none; }
+
 .abbr {
   display: inline-block;
   font: 600 12px var(--sans);

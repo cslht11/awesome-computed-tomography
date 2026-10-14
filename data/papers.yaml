@@ -152,6 +152,7 @@
   paper: "https://arxiv.org/abs/2412.03036"
 
 - id: "cocodiff-a-contextual-conditional-diffusion-model-for-low-"
+  abbr: "CoCoDiff"
   title: "CoCoDiff: A Contextual Conditional Diffusion Model for Low-dose CT Image Denoising"
   year: 2022
   venue: "SPIE DXRT"
@@ -191,8 +192,10 @@
   code: "https://github.com/DeepXuan/DuDoDp-MAR"
 
 - id: "eagle-an-edge-aware-gradient-localization-enhanced-loss-fo"
+  abbr: "EAGLE"
   title: "EAGLE: An Edge-Aware Gradient Localization Enhanced Loss for CT Image Reconstruction"
-  year: 2024
+  year: 2025
+  venue: "J. Med. Imaging"
   topics: [unrolling, low-dose]
   paper: "https://arxiv.org/abs/2403.10695"
   code: "https://github.com/sypsyp97/Eagle_Loss"
@@ -300,8 +303,10 @@
   paper: "https://arxiv.org/abs/2203.15725"
 
 - id: "uncertainr-uncertainty-quantification-of-end-to-end-implic"
+  abbr: "UncertaINR"
   title: "UncertaINR: Uncertainty Quantification of End-to-End Implicit Neural Representations for Computed Tomography"
-  year: 2022
+  year: 2023
+  venue: "TMLR"
   topics: [inr]
   paper: "https://arxiv.org/abs/2202.10847"
 
@@ -342,7 +347,8 @@
 - id: "dddm"
   abbr: "DDDM"
   title: "Dual-Domain Diffusion Model for Sparse-View CT Reconstruction"
-  year: 2023
+  year: 2024
+  venue: "IEEE SPL"
   topics: [sparse-view, diffusion]
   paper: "https://doi.org/10.36227/techrxiv.23726703"
   code: "https://github.com/YC-Markus/code-for-DDDM"
@@ -1113,7 +1119,7 @@
 
 - id: "wavresnet"
   abbr: "WavResNet"
-  title: "Deep Convolutional Framelet Denosing for Low-Dose CT via Wavelet Residual Network"
+  title: "Deep Convolutional Framelet Denoising for Low-Dose CT via Wavelet Residual Network"
   year: 2018
   venue: "TMI"
   topics: [low-dose]
@@ -1231,7 +1237,7 @@
 
 - id: "n2s"
   abbr: "N2S"
-  title: "Self-Supervised Training For Low-Dose Ct Reconstruction"
+  title: "Self-Supervised Training For Low-Dose CT Reconstruction"
   year: 2021
   venue: "ISBI"
   topics: [low-dose, self-supervised]
@@ -1280,10 +1286,12 @@
 - id: "prior-adapted-progressive-time-resolved-cbct-reconstruction-"
   title: "Prior-Adapted Progressive Time-Resolved CBCT Reconstruction Using a Dynamic Reconstruction and Motion Estimation Method"
   year: 2025
+  venue: "Med Phys"
   topics: [dynamic, geometry, cbct]
   paper: "https://arxiv.org/abs/2504.18700"
 
 - id: "dvg-diffusion-dual-view-guided-diffusion-model-for-ct-recons"
+  abbr: "DVG-Diffusion"
   title: "DVG-Diffusion: Dual-View Guided Diffusion Model for CT Reconstruction from X-Rays"
   year: 2025
   topics: [diffusion]
@@ -1296,13 +1304,16 @@
   paper: "https://arxiv.org/abs/2502.12293"
 
 - id: "resolution-agnostic-neural-operators-for-multi-rate-sparse-v"
+  abbr: "CTO"
   title: "Resolution-Agnostic Neural Operators for Multi-Rate Sparse-View CT"
-  year: 2025
+  year: 2026
+  venue: "ECCV"
   topics: [sparse-view, unrolling]
   paper: "https://arxiv.org/abs/2512.12236"
   code: "https://github.com/neuraloperator/sparse_ct"
 
 - id: "ilv-iterative-latent-volumes-for-fast-and-accurate-sparse-vi"
+  abbr: "ILV"
   title: "ILV: Iterative Latent Volumes for Fast and Accurate Sparse-View CT Reconstruction"
   year: 2026
   topics: [sparse-view]
@@ -1312,6 +1323,7 @@
 - id: "time-resolved-dynamic-cbct-reconstruction-using-prior-model-"
   title: "Time-resolved dynamic CBCT reconstruction using prior-model-free spatiotemporal Gaussian representation (PMF-STGR)"
   year: 2025
+  venue: "PMB"
   topics: [gaussian, dynamic, cbct]
   paper: "https://arxiv.org/abs/2503.22139"
 
@@ -1335,6 +1347,7 @@
   paper: "https://arxiv.org/abs/2608.04752"
 
 - id: "mgmar-metal-guided-metal-artifact-reduction-for-x-ray-comput"
+  abbr: "MGMAR"
   title: "MGMAR: Metal-Guided Metal Artifact Reduction for X-ray Computed Tomography"
   year: 2026
   topics: [metal-artifact]
@@ -1353,12 +1366,14 @@
   paper: "https://arxiv.org/abs/2508.07618"
 
 - id: "monstr-model-oriented-neutron-strain-tomographic-reconstruct"
+  abbr: "MONSTR"
   title: "MONSTR: Model-Oriented Neutron Strain Tomographic Reconstruction"
   year: 2025
   topics: [classical, other]
   paper: "https://arxiv.org/abs/2505.22187"
 
 - id: "x-grm-large-gaussian-reconstruction-model-for-sparse-view-x-"
+  abbr: "X-GRM"
   title: "X-GRM: Large Gaussian Reconstruction Model for Sparse-view X-rays to Computed Tomography"
   year: 2025
   topics: [gaussian, sparse-view]
@@ -1379,6 +1394,7 @@
   paper: "https://arxiv.org/abs/2608.17255"
 
 - id: "lucid-learned-undersampling-adaptive-consistency-guided-infe"
+  abbr: "LUCID"
   title: "LUCID: Learned Undersampling-Adaptive Consistency-Guided Inference with Deterministic Flow Matching for Sparse-View CT Reconstruction"
   year: 2026
   topics: [diffusion, sparse-view, unrolling]
@@ -1475,6 +1491,7 @@
   paper: "https://arxiv.org/abs/2603.06852"
 
 - id: "mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-"
+  abbr: "MInDI-3D"
   title: "MInDI-3D: Iterative Deep Learning in 3D for Sparse-view Cone Beam Computed Tomography"
   year: 2025
   topics: [sparse-view, cbct, unrolling]
@@ -1527,7 +1544,7 @@
   note: "Conference paper (CVPR 2026) introducing a compact per-Gaussian attenuation parameterization. The same group's CGF 45(2) 2026 journal paper is the extended version. Both are peer-reviewed, so both are listed."
 
 - id: "texture-preserving-implicit-neural-representation-for-cone-b"
-  title: "Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction"
+  title: "Texture-preserving implicit neural representation for cone-beam CT truncated reconstruction"
   year: 2026
   topics: [inr, geometry, cbct]
   paper: "https://arxiv.org/abs/2606.06039"
@@ -1555,6 +1572,7 @@
   paper: "https://arxiv.org/abs/2502.02771"
 
 - id: "cg-glore-a-conjugate-gradient-based-global-local-regularizat"
+  abbr: "CG-GLORE"
   title: "CG-GLORE: A Conjugate Gradient-Based Global-Local Regularization Network for Sparse-View CT Reconstruction"
   year: 2026
   venue: "BMVC"
@@ -1568,6 +1586,7 @@
   paper: "https://arxiv.org/abs/2602.12755"
 
 - id: "ganext-a-fully-convnext-enhanced-generative-adversarial-netw"
+  abbr: "GANeXt"
   title: "GANeXt: A Fully ConvNeXt-Enhanced Generative Adversarial Network for MRI- and CBCT-to-CT Synthesis"
   year: 2025
   topics: [cbct]
@@ -1576,6 +1595,7 @@
 - id: "accelerated-optimization-of-implicit-neural-representations-"
   title: "Accelerated Optimization of Implicit Neural Representations for CT Reconstruction"
   year: 2025
+  venue: "ISBI"
   topics: [inr]
   paper: "https://arxiv.org/abs/2504.13390"
 
@@ -1596,12 +1616,14 @@
   code: "https://github.com/Fredy-Zhang/TF-PRDiT"
 
 - id: "haru-net-hybrid-attention-residual-u-net-for-edge-preserving"
+  abbr: "HARU-Net"
   title: "HARU-Net: Hybrid Attention Residual U-Net for Edge-Preserving Denoising in Cone-Beam Computed Tomography"
   year: 2026
   topics: [low-dose, cbct, unrolling]
   paper: "https://arxiv.org/abs/2602.22544"
 
 - id: "equivariance2inverse-a-practical-self-supervised-ct-reconstr"
+  abbr: "Equivariance2Inverse"
   title: "Equivariance2Inverse: A Practical Self-Supervised CT Reconstruction Method Benchmarked on Real, Limited-Angle, and Blurred Data"
   year: 2026
   venue: "TCI"
@@ -1609,8 +1631,10 @@
   paper: "https://arxiv.org/abs/2510.23317"
 
 - id: "zero-shot-ct-super-resolution-using-diffusion-based-2d-proje"
+  abbr: "NAB-GS"
   title: "Zero-shot CT Super-Resolution using Diffusion-based 2D Projection Priors and Signed 3D Gaussians"
-  year: 2025
+  year: 2026
+  venue: "MICCAI"
   topics: [gaussian, diffusion, self-supervised]
   paper: "https://arxiv.org/abs/2508.15151"
 
@@ -1647,6 +1671,7 @@
   paper: "https://arxiv.org/abs/2603.01253"
 
 - id: "tg-field-geometry-aware-radiative-gaussian-fields-for-tomogr"
+  abbr: "TG-Field"
   title: "TG-Field: Geometry-Aware Radiative Gaussian Fields for Tomographic Reconstruction"
   year: 2026
   venue: "AAAI"
@@ -1661,6 +1686,7 @@
   paper: "https://arxiv.org/abs/2505.13579"
 
 - id: "fact-gs-fast-and-scalable-ct-reconstruction-with-gaussian-sp"
+  abbr: "FaCT-GS"
   title: "FaCT-GS: Fast and Scalable CT Reconstruction with Gaussian Splatting"
   year: 2026
   venue: "ECCV"
@@ -1683,6 +1709,7 @@
   paper: "https://arxiv.org/abs/2509.13576"
 
 - id: "digs-dynamic-cbct-reconstruction-using-deformation-informed-"
+  abbr: "DIGS"
   title: "DIGS: Dynamic CBCT Reconstruction using Deformation-Informed 4D Gaussian Splatting and a Low-Rank Free-Form Deformation Model"
   year: 2025
   venue: "MICCAI"
@@ -1691,6 +1718,7 @@
   code: "https://github.com/Yuliang-Huang/DIGS"
 
 - id: "h3d-marnet-wavelet-guided-dual-path-learning-for-metal-artif"
+  abbr: "H3D-MarNet"
   title: "H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows"
   year: 2026
   venue: "ICPR"
@@ -1705,6 +1733,7 @@
   code: "https://github.com/polyshape-lab/ShapeGuidedGaussian"
 
 - id: "diffnr-diffusion-enhanced-neural-representation-optimization"
+  abbr: "DiffNR"
   title: "DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction"
   year: 2026
   venue: "AAAI"
@@ -1764,12 +1793,14 @@
   code: "https://github.com/RICKand-MORTY/MARMamba"
 
 - id: "gb-svfbp-gaussian-based-shift-variant-fbp-neural-network"
+  abbr: "GB-SVFBP"
   title: "GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network"
   year: 2026
   topics: [geometry, unrolling]
   paper: "https://arxiv.org/abs/2607.11584"
 
 - id: "remar-ds-recalibrated-feature-learning-for-metal-artifact-re"
+  abbr: "ReMAR-DS"
   title: "ReMAR-DS: Recalibrated Feature Learning for Metal Artifact Reduction and CT Domain Transformation"
   year: 2025
   venue: "ICIAP"
@@ -1800,6 +1831,7 @@
   code: "https://github.com/Farid-Tasharofi/FIND-Net"
 
 - id: "glfc-unified-global-local-feature-and-contrast-learning-with"
+  abbr: "GLFC"
   title: "GLFC: Unified Global-Local Feature and Contrast Learning with Mamba-Enhanced UNet for Synthetic CT Generation from CBCT"
   year: 2025
   venue: "ISBI"
@@ -1815,6 +1847,7 @@
   paper: "https://arxiv.org/abs/2501.13972"
 
 - id: "voxelsynth3d-interpretable-volumetric-image-domain-metal-art"
+  abbr: "VoxelSynth3D"
   title: "VoxelSynth3D: Interpretable Volumetric Image-Domain Metal Artifact Reduction with a Paired Synthetic CLINIC-Metal Benchmark"
   year: 2026
   venue: "BHI"
@@ -1830,6 +1863,7 @@
   code: "https://github.com/VLOGroup/bigger-isnt-always-better"
 
 - id: "insideout-integrated-rgb-radiative-gaussian-splatting-for-co"
+  abbr: "InsideOut"
   title: "InsideOut: Integrated RGB-Radiative Gaussian Splatting for Comprehensive 3D Object Representation"
   year: 2025
   venue: "ICCV"
@@ -2475,7 +2509,7 @@
 
 - id: "mdst-2023"
   abbr: "MDST"
-  title: "MDST: multi-domain sparse-view CT reconstruction based on convolution and swin transformer"
+  title: "MDST: Multi-domain sparse-view CT reconstruction based on convolution and Swin Transformer"
   year: 2023
   venue: "PMB"
   topics: [sparse-view]
@@ -2603,7 +2637,7 @@
 
 - id: "horuseye-2026"
   abbr: "HorusEye"
-  title: "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration"
+  title: "HorusEye: A self-supervised foundation model for generalizable X-ray tomography restoration"
   year: 2026
   venue: "Nat Comput Sci"
   topics: [self-supervised, other]

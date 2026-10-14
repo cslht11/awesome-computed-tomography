@@ -97,6 +97,30 @@ async function testEnglish() {
     ok("init() completed: #" + id + " has rows", n > 0, n + " rows");
   });
 
+  /* ---- hover cards -----------------------------------------------------
+     A paper title used to be an <a> to the same URL as the `paper` link beside
+     it, so clicking either went to the same place. It is plain text now, and
+     papers we hold a blurb for explain themselves instead of navigating. This
+     is the interaction, so it is worth asserting rather than eyeballing. */
+  ok("title is no longer a link",
+    doc.querySelectorAll("#papers-list .p-title a").length === 0);
+  const blurred = doc.querySelectorAll("#papers-list .p-titletext.has-blurb[data-blurb]");
+  ok("papers with a blurb are marked", blurred.length > 0, blurred.length + " titles");
+  ok("papers without a blurb are inert",
+    doc.querySelectorAll("#papers-list .p-titletext:not(.has-blurb)").length > 0);
+  if (blurred.length) {
+    const first = blurred[0];
+    const want = first.getAttribute("data-blurb").trim();
+    first.dispatchEvent(new win.MouseEvent("mouseover", { bubbles: true }));
+    const card = doc.getElementById("blurb-card");
+    ok("hover opens the card", !!card && card.hidden === false);
+    ok("card shows that paper's blurb verbatim",
+      !!card && card.textContent.trim() === want,
+      (card ? card.textContent.trim().slice(0, 60) : "—") + "…");
+    doc.dispatchEvent(new win.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    ok("Escape closes the card", !!card && card.hidden === true);
+  }
+
   const q = doc.getElementById("q");
   typeInput(win, q, "mamba");
   await wait(150);

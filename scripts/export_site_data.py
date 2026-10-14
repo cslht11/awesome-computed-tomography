@@ -67,6 +67,10 @@ def build_payload(lang=None):
     datasets = load("datasets.yaml") or []
     benchmarks = load("benchmarks.yaml") or []
     learning = load("learning.yaml") or []
+    # One-paragraph "what is this paper" blurbs, keyed by paper id. Optional by
+    # design: papers without one simply get no hover card, and the list must
+    # still build if the file is absent.
+    blurbs = load("summaries.yaml") or {}
 
     problems = validate(meta, papers, toolkits, datasets, benchmarks, learning)
     if problems:
@@ -108,6 +112,12 @@ def build_payload(lang=None):
         note = ov.item("papers", e["id"]).get("note") or e.get("note")
         if note:
             rec["note"] = re.sub(r"\s+", " ", note).strip()
+        # Blurb for the hover card. Overlay first, exactly like `note`, so a
+        # translated site can supply its own wording later without touching the
+        # generated English.
+        blurb = ov.item("papers", e["id"]).get("blurb") or blurbs.get(e["id"])
+        if blurb:
+            rec["blurb"] = re.sub(r"\s+", " ", blurb).strip()
         for k in PAPER_URL_FIELDS:
             if e.get(k):
                 rec["links"][k] = e[k]

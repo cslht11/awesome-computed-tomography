@@ -35,6 +35,53 @@ may be reformatted at any time.
   beacon, what Cloudflare receives, and that only aggregate numbers are seen.
   Updated 12 October 2026, as the page promised it would be before any change.
 
+## 2026-10-14 — Hover blurbs, and corrections from an outside review
+
+### Added
+
+- **A paper title explains itself on hover.** The title used to be an `<a>` to the
+  same URL as the `paper` link beside it, so clicking either went to the same
+  place. It is plain text now, and papers we hold a blurb for show one in a card
+  on hover, tap or keyboard focus. No second page — the links below are the way
+  out. Papers without a blurb stay inert, and a `title=` attribute keeps a
+  fallback for readers with JavaScript off.
+- `data/summaries.yaml` — one-paragraph blurbs for **256 of 399 papers**, each
+  built from **verbatim sentences** of the official abstract (the condense step
+  chooses sentences, it never rewrites), so a blurb can be incomplete but never
+  invented. Fetched in two passes: arXiv by id (158/158), Crossref by DOI (47
+  of 237 — most publishers hand Crossref no abstract), then arXiv by title
+  behind a ≥0.90 similarity gate (+51).
+- `scripts/oneoff/fetch_summaries.py` and `fetch_summaries_by_title.py`, both
+  rate-limited and cache-backed (`--offline` re-derives from the cache).
+- `TODO-summaries.md` — the 143 papers still without a blurb, with a short
+  how-to. Nothing is wrong with them; they simply show no card.
+
+### Fixed
+
+An outside review of the site turned up a batch of real errors. Each was
+re-checked against a primary source before being applied:
+
+- **Eight papers filed as preprints had already been published**: CTO (ECCV
+  2026), NAB-GS (MICCAI 2026), PMF-STGR (PMB 70(16):165011), DREME-adapt (Med
+  Phys 52(11):e70119), the accelerated-INR paper (ISBI 2025), EAGLE (J. Med.
+  Imaging 12(1):014001), DDDM (IEEE SPL 31:1279–1283) and UncertaINR (TMLR
+  2023). Preprints 67 → 59. Note that EAGLE's arXiv page still says "Preprint" —
+  the journal page is what settles it.
+- Five title typos: "Denosing" → "Denoising", "Low-Dose Ct" → "Low-Dose CT",
+  "HorusEye: a …" → "HorusEye: A …", "multi-domain … swin transformer" →
+  "Multi-domain … Swin Transformer", "for Cone beam CT" → "for cone-beam CT".
+- Twenty-four papers whose title already begins "ABBR: …" had no `abbr`, so the
+  site showed no leading tag and the column looked ragged. Added — which also
+  makes those abbreviations searchable.
+
+### Not changed, deliberately
+
+- The TomoPhantom and LoDoPaB-CT entries the review called duplicates are
+  intentional: each cross-references the other, and the LoDoPaB one is the
+  citation for the dataset rather than a second copy of it.
+- The review's claim that the Chinese and English sites had drifted was not
+  reproducible — both served 399 papers and the same build date.
+
 ## 2026-10-13 — Seven papers and one toolkit from an arXiv sweep
 
 Scanned arXiv across `computed tomography`, `sparse-view`, `limited-angle`,
