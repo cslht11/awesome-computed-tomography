@@ -37,25 +37,17 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 [Browse all 45 entries on the website](https://computedtomography.org/?tab=toolkits)
 
-<div align="right"><a href="#top">back to top ↑</a></div>
-
 ## Datasets
 
 [Browse all 41 entries on the website](https://computedtomography.org/?tab=datasets)
-
-<div align="right"><a href="#top">back to top ↑</a></div>
 
 ## Benchmarks
 
 [Browse all 19 entries on the website](https://computedtomography.org/?tab=benchmarks)
 
-<div align="right"><a href="#top">back to top ↑</a></div>
-
 ## Learning
 
 [Browse all 29 entries on the website](https://computedtomography.org/?tab=learning)
-
-<div align="right"><a href="#top">back to top ↑</a></div>
 
 ## Contact
 

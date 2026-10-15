@@ -37,25 +37,17 @@
 
 [在网站上浏览全部 45 条](https://computedtomography.org/zh/?tab=toolkits)
 
-<div align="right"><a href="#top">回到顶部 ↑</a></div>
-
 ## 数据集
 
 [在网站上浏览全部 41 条](https://computedtomography.org/zh/?tab=datasets)
-
-<div align="right"><a href="#top">回到顶部 ↑</a></div>
 
 ## 基准与挑战赛
 
 [在网站上浏览全部 19 条](https://computedtomography.org/zh/?tab=benchmarks)
 
-<div align="right"><a href="#top">回到顶部 ↑</a></div>
-
 ## 学习资源
 
 [在网站上浏览全部 29 条](https://computedtomography.org/zh/?tab=learning)
-
-<div align="right"><a href="#top">回到顶部 ↑</a></div>
 
 ## 联系方式
 

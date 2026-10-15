@@ -346,6 +346,9 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
 
     # The entries themselves live on the website; each section keeps its
     # heading and points at the site tab with that collection selected.
+    # No back-to-top link here: these sections are one line each, so the
+    # link would be more chrome than content (it stays after the Papers
+    # grid and at the bottom of the page, where it is actually useful).
     for key, tab, n in (("toolkitsHeading", "toolkits", subs["toolkits"]),
                         ("datasetsHeading", "datasets", subs["datasets"]),
                         ("benchmarksHeading", "benchmarks", subs["benchmarks"]),
@@ -353,7 +356,6 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
         parts.append(head(key))
         parts.append(fill(ov.readme("browseCollection", ""),
                           {"n": n, "url": site_base + "?tab=" + tab}) + "\n")
-        parts.append(top_link(ov))
 
     parts.append(head("contactHeading"))
     parts.append(fill(ov.readme("contactBody", ""), subs) + "\n")
