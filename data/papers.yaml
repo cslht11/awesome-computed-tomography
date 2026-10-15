@@ -3114,3 +3114,14 @@
   year: 2026
   topics: [low-dose, self-supervised, cbct]
   paper: "https://arxiv.org/abs/2610.18379"
+
+- id: "radon-transforms-aleksandrov-fenchel"
+  title: "Radon Transforms of Projection Functions and Aleksandrov-Fenchel Inequalities"
+  year: 2026
+  topics: [classical]
+  paper: "https://arxiv.org/abs/2610.18268"
+  note: >-
+    Pure convex geometry, not a CT reconstruction method: Radon transforms on
+    Grassmannians as operators on convex bodies, and Aleksandrov-Fenchel
+    inequalities for projection and mean section bodies. Included as
+    theoretical background for the Radon transform.
