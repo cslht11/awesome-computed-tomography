@@ -1,3 +1,10 @@
+# Last content update, YYYY-MM-DD. Rendered in the README stats strip and the
+# site stats row as "Updated <date>" instead of the paper-year span, so a
+# visitor can tell at a glance whether the list is still maintained.
+# Bump it whenever content changes (papers, toolkits, datasets, links).
+# scripts/build.py --check fails if it is missing or not a YYYY-MM-DD date.
+last_updated: 2026-10-15
+
 # Topic taxonomy and language registry.
 #
 # `topics` order defines the order of sections in README.md, and each topic's

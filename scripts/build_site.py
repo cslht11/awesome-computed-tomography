@@ -392,7 +392,8 @@ def main():
         "preprints": c["preprints"], "toolkits": c["toolkits"],
         "datasets": c["datasets"], "benchmarks": c["benchmarks"],
         "learning": c["learning"], "year_min": c["year_min"],
-        "year_max": c["year_max"], "title": cfg["title"],
+        "year_max": c["year_max"], "updated": str(meta["last_updated"]),
+        "title": cfg["title"],
         "tagline": cfg["tagline"], "repo": cfg["repo"],
         "repo_url": cfg["repo_url"], "build_date": today,
         "code_license": cfg["code_license"],
@@ -474,6 +475,7 @@ def main():
             "{{N_LEARNING}}": str(c["learning"]),
             "{{YEAR_MIN}}": str(c["year_min"]),
             "{{YEAR_MAX}}": str(c["year_max"]),
+            "{{UPDATED}}": esc(str(meta["last_updated"])),
         }
         subs.update(ui_subs(ov, shared))
 

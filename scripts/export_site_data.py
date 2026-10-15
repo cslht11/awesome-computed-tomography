@@ -174,6 +174,7 @@ def build_payload(lang=None):
             "preprints": len(papers) - nvenue,
             "year_min": min(years),
             "year_max": max(years),
+            "updated": str(meta["last_updated"]),
         },
         "topics": [{"id": t["id"], "name": t["name"], "desc": t.get("desc", ""),
                     "count": counts.get(t["id"], 0)} for t in topics],

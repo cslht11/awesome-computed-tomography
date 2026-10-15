@@ -9,6 +9,7 @@ Usage:
 """
 
 import argparse
+import datetime
 import io
 import os
 import re
@@ -153,6 +154,17 @@ def validate(meta, papers, toolkits, datasets, benchmarks, learning):
     p = Problems()
     topics = [t["id"] for t in meta["topics"]]
     tset = set(topics)
+
+    # last_updated is the maintenance date shown in the stats strip and on
+    # the site; it must be a real calendar date, not free text.
+    upd = meta.get("last_updated")
+    if not upd:
+        p.add("meta", "missing required field 'last_updated' (YYYY-MM-DD)")
+    else:
+        try:
+            datetime.date.fromisoformat(str(upd))
+        except ValueError:
+            p.add("meta", "last_updated '%s' is not a YYYY-MM-DD date" % upd)
 
     seen = set()
     seen_titles = {}
@@ -461,6 +473,7 @@ def render_learning(items, ov):
 
 def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
     subs = counts(papers, toolkits, datasets, benchmarks, learning)
+    subs["updated"] = str(meta["last_updated"])
     subs["repo"] = REPO
     subs["repo_url"] = "https://github.com/" + REPO
     subs["site_url"] = SITE_URL
@@ -499,7 +512,7 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
              fill(ov.readme("statToolkitsCell", "{toolkits} toolkits"), subs),
              fill(ov.readme("statDatasetsCell", "{datasets} datasets"), subs),
              fill(ov.readme("statBenchmarksCell", "{benchmarks} benchmarks"), subs),
-             fill(ov.readme("statSpanCell", "{year_min}\u2013{year_max}"), subs)]
+             fill(ov.readme("statSpanCell", "Updated {updated}"), subs)]
     strip = "| " + " | ".join(cells) + " |\n|" + "|".join([" :-: "] * len(cells)) + "|\n"
 
     nav = " \u00b7 ".join(

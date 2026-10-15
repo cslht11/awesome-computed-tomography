@@ -20,7 +20,7 @@ tagline: "A curated list of CT reconstruction resources"
 # engines show, and it goes stale the moment a paper is added.
 description: >-
   A curated list of computed tomography (CT / CBCT / micro-CT) reconstruction
-  resources: {papers} papers from {year_min} to {year_max}, {toolkits} toolkits,
+  resources: {papers} papers (updated {updated}), {toolkits} toolkits,
   {datasets} datasets, {benchmarks} benchmarks and {learning} learning
   resources, covering sparse-view, limited-angle, low-dose, metal-artifact,
   spectral, cone-beam and 4D/dynamic CT.
