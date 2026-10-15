@@ -296,6 +296,9 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
     gsv = cfg.get("google_site_verification")
     if gsv:
         bits.append('<meta name="google-site-verification" content="%s">' % esc(gsv))
+    msv = cfg.get("bing_site_verification")
+    if msv:
+        bits.append('<meta name="msvalidate.01" content="%s">' % esc(msv))
 
     token = cfg.get("analytics_token")
     if token:

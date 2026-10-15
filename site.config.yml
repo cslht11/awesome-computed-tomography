@@ -71,3 +71,5 @@ indexnow_key: "4bf21e09101203f8d88708830000689d"
 # Google Search Console ownership (HTML-tag method, added 2026-10-15).
 # Emitted on every page's <head>. Do not remove: GSC re-checks it.
 google_site_verification: "Z-PjN02d1LpmjoForWuTuTzBe6ZAXTIbwMduXNB4iCk"
+# Bing Webmaster Tools ownership (HTML meta tag, added 2026-10-15). Do not remove.
+bing_site_verification: "8A6E7FCD27A1B9AD7FB5BDD5D04EA6CF"
