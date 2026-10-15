@@ -321,6 +321,10 @@ pages:
     <p>Each topic has its own page with a short introduction, a start-here reading list, its newest papers and the datasets and toolkits that go with them.</p>
     {{TOPIC_LINKS}}
 
+    <h2 id="datasets-guides">Datasets, benchmarks and guides</h2>
+    <p>The datasets and benchmarks used in CT reconstruction research have pages of their own, with the data each one ships, its licence and the papers in the directory that use it. The guides answer common questions, such as which dataset to start with, from the same verified records.</p>
+    {{GUIDE_LINKS}}
+
     <h2 id="faq">Frequently asked questions</h2>
     <section class="faq">
     <h3>Which datasets are best for sparse-view CT?</h3>

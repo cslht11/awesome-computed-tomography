@@ -10,7 +10,13 @@
  *   - /changelog/ and /zh/changelog/ exist with their own title, description,
  *     canonical, hreflang (each language + x-default) and BreadcrumbList, list
  *     every CHANGELOG.md entry newest first, and are in sitemap.xml, llms.txt
- *     and the About page body.
+ *     and the About page body;
+ *   - every dataset, benchmark and guide page (and the /datasets/ and /guides/
+ *     indexes): unique title and description, canonical, hreflang, a
+ *     BreadcrumbList, working internal links, an inbound link (no orphans);
+ *     the Dataset JSON-LD agrees with the visible name, description, licence,
+ *     DOI and citation; each guide's FAQPage JSON-LD equals its visible FAQ and
+ *     its Article dateModified equals the visible last-updated date.
  *
  * No packages needed, so it runs in CI next to test_search.js.
  *
@@ -158,6 +164,135 @@ for (const L of LANGS) {
   ok("linked from the About page body", main.includes('href="../changelog/"'));
   const homeMain = (home.match(/<main\b[\s\S]*?<\/main>/) || [""])[0];
   ok("not linked from the homepage body", !homeMain.includes("changelog/"));
+}
+
+/* ---------------------------------------------------------------------------
+ * Dataset / benchmark pages, the /datasets/ index and the guides.
+ */
+const text = (h) => h.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&lt;/g, "<")
+  .replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&#39;/g, "'")
+  .replace(/\s+/g, " ").trim();
+const mainOf = (h) => (h.match(/<main\b[\s\S]*?<\/main>/) || [""])[0];
+const fileFor = (u) => path.join(SITE, u.slice(ORIGIN.length), "index.html");
+/* Resolve every relative href in a page to a site URL (or null if outside). */
+function internalLinks(h, pageUrl) {
+  const out = [];
+  for (const m of mainOf(h).matchAll(/href="([^"#?]*)(?:[?#][^"]*)?"/g)) {
+    const href = m[1];
+    if (/^(https?:|mailto:)/.test(href)) continue;
+    out.push(new URL(href || "./", pageUrl).href);
+  }
+  return out;
+}
+const newUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+  .filter((u) => /\/(datasets|benchmarks|guides)\//.test(u));
+
+for (const L of LANGS) {
+  const base = ORIGIN + L.prefix;
+  const mine = newUrls.filter((u) => u.startsWith(base) && (L.prefix || !u.startsWith(ORIGIN + "zh/")));
+  const resources = mine.filter((u) => /\/(datasets|benchmarks)\/[^/]+\/$/.test(u));
+  const guides = mine.filter((u) => /\/guides\/[^/]+\/$/.test(u));
+  console.log("\n[" + L.code + "] dataset, benchmark and guide pages");
+  ok("/datasets/ and /guides/ in sitemap", mine.includes(base + "datasets/") && mine.includes(base + "guides/"));
+  ok("at least one dataset and one benchmark page", resources.some((u) => u.includes("/datasets/")) &&
+     resources.some((u) => u.includes("/benchmarks/")), resources.length + " pages");
+  ok("three guides", guides.length === 3, String(guides.length));
+
+  const home = read(L.prefix + "index.html");
+  const homeLd = jsonld(home).find((b) => b["@type"] === "DataCatalog") || {};
+  const ptitles = new Set(), pdescs = new Set();
+  const inbound = {};
+  let bad = [];
+  for (const url of mine) {
+    const f = fileFor(url);
+    if (!fs.existsSync(f)) { bad.push(url + ": file missing"); continue; }
+    const h = fs.readFileSync(f, "utf8");
+    const title = attr(h, /<title>([^<]*)<\/title>/);
+    const desc = attr(h, /<meta name="description" content="([^"]*)">/);
+    if (!title || ptitles.has(title)) bad.push(url + ": title missing or duplicate");
+    if (!desc || desc.length < (L.code === "zh" ? 25 : 50) || pdescs.has(desc)) bad.push(url + ": description missing, short or duplicate");
+    ptitles.add(title); pdescs.add(desc);
+    if (!h.includes('<link rel="canonical" href="' + url + '">')) bad.push(url + ": canonical");
+    const rel = url.slice(base.length);
+    for (const [hl, u] of [["en", ORIGIN + rel], ["zh-Hans", ORIGIN + "zh/" + rel], ["x-default", ORIGIN + rel]]) {
+      if (!h.includes('<link rel="alternate" hreflang="' + hl + '" href="' + u + '">')) bad.push(url + ": hreflang " + hl);
+    }
+    const blocks = jsonld(h);
+    const crumbs = blocks.find((b) => b["@type"] === "BreadcrumbList");
+    if (!crumbs || crumbs.itemListElement[0].item !== base ||
+        crumbs.itemListElement[crumbs.itemListElement.length - 1].item !== url) bad.push(url + ": BreadcrumbList");
+    if (/\{\{[A-Z_]+\}\}/.test(h)) bad.push(url + ": placeholder leaked");
+    for (const target of internalLinks(h, url)) {
+      if (!target.startsWith(ORIGIN)) continue;
+      const tf = path.join(SITE, target.slice(ORIGIN.length), target.endsWith("/") ? "index.html" : "");
+      if (!fs.existsSync(tf)) bad.push(url + ": broken internal link " + target);
+      if (target !== url) (inbound[target] = inbound[target] || []).push(url);
+    }
+    const main = mainOf(h);
+    if (resources.includes(url)) {
+      const ds = blocks.find((b) => b["@type"] === "Dataset");
+      if (!ds) { bad.push(url + ": no Dataset JSON-LD"); continue; }
+      const h1 = text((main.match(/<h1>([\s\S]*?)<\/h1>/) || ["", ""])[1]);
+      const lede = text((main.match(/<p class="lede">([\s\S]*?)<\/p>/) || ["", ""])[1]);
+      if (ds.name !== h1) bad.push(url + ": Dataset name != h1");
+      if (ds.description !== lede) bad.push(url + ": Dataset description != visible lede");
+      if (ds.url !== url) bad.push(url + ": Dataset url");
+      if (ds.license && !(main.includes('href="' + ds.license + '"') || text(main).includes(ds.license)))
+        bad.push(url + ": license not visible");
+      [].concat(ds.identifier || []).forEach((id) => {
+        if (!main.includes(id.replace("https://doi.org/", ""))) bad.push(url + ": identifier not visible");
+      });
+      (ds.citation || []).forEach((c) => { if (!text(main).includes(c.name)) bad.push(url + ": citation not visible"); });
+      (ds.sameAs || []).forEach((u) => { if (!main.includes('href="' + u + '"')) bad.push(url + ": sameAs not visible"); });
+      if (!ds.includedInDataCatalog || ds.includedInDataCatalog["@id"] !== homeLd["@id"])
+        bad.push(url + ": includedInDataCatalog does not point at the homepage DataCatalog");
+    }
+    if (guides.includes(url)) {
+      const faq = blocks.find((b) => b["@type"] === "FAQPage");
+      const art = blocks.find((b) => b["@type"] === "Article");
+      const sec = (main.match(/<section class="faq">([\s\S]*?)<\/section>/) || ["", ""])[1];
+      const pairs = [...sec.matchAll(/<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>/g)].map((m) => [text(m[1]), text(m[2])]);
+      if (!faq || !pairs.length || faq.mainEntity.length !== pairs.length ||
+          faq.mainEntity.some((q, i) => q.name !== pairs[i][0] || q.acceptedAnswer.text !== pairs[i][1]))
+        bad.push(url + ": FAQPage JSON-LD does not match the visible FAQ");
+      const shown = attr(main, /<p class="updated">[^<]*<time datetime="(\d{4}-\d{2}-\d{2})">/);
+      if (!art || !shown || art.dateModified !== shown) bad.push(url + ": visible last-updated date != Article dateModified");
+      if (!/<table class="grid"/.test(main)) bad.push(url + ": no comparison table");
+      if (!/href="\.\.\/\.\.\/topics\/[^"]+\/"/.test(main) && !/href="\.\.\/\.\.\/datasets\//.test(main))
+        bad.push(url + ": links to no topic or dataset page");
+    }
+    if (llms.indexOf(url) === -1 && L.code === "en") bad.push(url + ": not in llms.txt");
+  }
+  ok("every new page: title, description, canonical, hreflang, BreadcrumbList, links",
+     bad.length === 0, bad.slice(0, 5).join("; ") || (mine.length + " pages"));
+  ok("titles and descriptions unique", ptitles.size === mine.length && pdescs.size === mine.length);
+
+  const idx = read(L.prefix + "datasets/index.html");
+  ok("/datasets/ links every dataset and benchmark page",
+     resources.every((u) => idx.includes('href="../' + u.slice(base.length) + '"')), resources.length + " pages");
+  const gidx = read(L.prefix + "guides/index.html");
+  ok("/guides/ links every guide", guides.every((u) => gidx.includes('href="../' + u.slice(base.length) + '"')));
+  const about = mainOf(read(L.prefix + "about/index.html"));
+  ok("About links /datasets/ and /guides/", about.includes('href="../datasets/"') && about.includes('href="../guides/"'));
+  const orphans = mine.filter((u) => u !== base + "datasets/" && u !== base + "guides/" && !(inbound[u] || []).length);
+  ok("no orphan pages", orphans.length === 0, orphans.join(", "));
+  // Topic pages link the dataset pages they list and the relevant guides.
+  let topicLinks = 0, topicBroken = [];
+  for (const t of fs.readdirSync(path.join(SITE, L.prefix, "topics"))) {
+    const tu = base + "topics/" + t + "/";
+    const th = read(L.prefix + "topics/" + t + "/index.html");
+    for (const target of internalLinks(th, tu)) {
+      if (/\/(datasets|benchmarks|guides)\//.test(target)) {
+        topicLinks++;
+        if (!fs.existsSync(path.join(SITE, target.slice(ORIGIN.length), "index.html"))) topicBroken.push(target);
+      }
+    }
+  }
+  ok("topic pages link dataset/benchmark pages and guides", topicLinks > 0 && !topicBroken.length,
+     topicLinks + " links" + (topicBroken.length ? ", broken: " + topicBroken.join(", ") : ""));
+  const homeMain = mainOf(home);
+  ok("homepage body unchanged: no link to the new pages",
+     !/href="(?!https?:)[^"]*(datasets|guides|benchmarks)\//.test(homeMain));
 }
 
 console.log("\nacross languages");

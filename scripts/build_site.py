@@ -41,6 +41,7 @@ from build import load, validate, fill  # noqa: E402
 from export_site_data import build_payload  # noqa: E402
 import i18n  # noqa: E402
 import changelog  # noqa: E402
+import resource_pages as RP  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(ROOT, "web")
@@ -392,7 +393,7 @@ def render_robots(base):
     return "User-agent: *\nAllow: /\nCrawl-delay: 1\n\nSitemap: %ssitemap.xml\n" % base
 
 
-def render_llms(cfg, base, c, topics, topic_pages=()):
+def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(), payload=None):
     """site/llms.txt: a plain-Markdown map of the site for AI answer engines
     (llmstxt.org proposal). Counts and topics come from the same payload as the
     page, so it cannot go stale. Cheap to ship; its effect is unproven."""
@@ -435,6 +436,25 @@ def render_llms(cfg, base, c, topics, topic_pages=()):
                   "a start-here reading list, the topic's newest papers and the "
                   "matching datasets, benchmarks and toolkits. Chinese editions "
                   "are at %szh/topics/<topic>/." % base]
+    if rp_guides:
+        lines += ["", "## Guides", "",
+                  "- [Guides index](%sguides/): practical guides built from the "
+                  "directory (Chinese editions under %szh/guides/)" % (base, base)]
+        for g in rp_guides:
+            lines.append("- [%s](%sguides/%s/): %s"
+                         % (g["en"]["title"], base, g["slug"], re.sub(r"\s+", " ", g["en"]["description"]).strip()))
+    if rp_pages:
+        rows = dict(((t, r["name"]), r) for t in ("datasets", "benchmarks") for r in payload[t])
+        lines += ["", "## Datasets and benchmarks", "",
+                  "- [Datasets and benchmarks index](%sdatasets/): every dataset and "
+                  "benchmark with a page of its own (Chinese editions under %szh/)" % (base, base)]
+        for pg in rp_pages:
+            r = rows[(pg["table"], pg["name"])]
+            bits = [x for x in (r.get("modality"), r.get("license"),
+                                str(r["year"]) if pg["table"] == "benchmarks" and r.get("year") else None) if x]
+            lines.append("- [%s](%s%s) (%s%s)" % (pg["name"], base, pg["rel"],
+                         "dataset" if pg["table"] == "datasets" else "benchmark",
+                         (", " + ", ".join(bits)) if bits else ""))
     return "\n".join(lines) + "\n"
 
 
@@ -540,6 +560,9 @@ def paper_url(p):
 
 def paper_label(p):
     name, rest = abbr_title(p)
+    if rest.startswith(","):
+        # "LoDoPaB-CT, a benchmark dataset ..." is not "LoDoPaB-CT: , a ...".
+        return re.sub(r"\$([^$]+)\$", r"\1", p["title"])
     return ("%s: %s" % (name, rest)) if name and rest != p["title"] and rest != name else (
         re.sub(r"\$([^$]+)\$", r"\1", p["title"]))
 
@@ -548,7 +571,7 @@ def topic_url(lang_base, tid):
     return "%stopics/%s/" % (lang_base, tid)
 
 
-def render_topic_body(tid, tp, payload, code, s, ov):
+def render_topic_body(tid, tp, payload, code, s, ov, res_pages=None, guides=None, rs=None):
     """The <main> of one topic page. Links are relative ({{ROOT}} is ../../)."""
     topic = dict((t["id"], t) for t in payload["topics"])[tid]
     papers = [p for p in payload["papers"] if tid in p["topics"]]
@@ -614,9 +637,24 @@ def render_topic_body(tid, tp, payload, code, s, ov):
                 '<p>%s</p>' % esc(s.get("resourcesLede", "")), "<ul>"]
         for kind, r in res:
             note = short_note(r.get("note") or "")
+            own = (res_pages or {}).get((kind, r["name"]))
+            if own:
+                # A dataset or benchmark with a page of its own: link the page,
+                # keep the official site one click away.
+                name = ('<a href="{{ROOT}}%s">%s</a>' % (own, esc(r.get("label") or r["name"]))
+                        + ' <span class="sep">(%s)</span>' % ext(r.get("url"), (rs or {}).get("official", "official page")))
+            else:
+                name = ext(r.get("url"), r.get("label") or r["name"])
             out.append('<li><strong>%s</strong> <span class="sep">\u00b7 %s</span>%s</li>'
-                       % (ext(r.get("url"), r.get("label") or r["name"]), esc(s.get(kind, "")),
+                       % (name, esc(s.get(kind, "")),
                           (" \u2014 " + md_inline(note)) if note else ""))
+        out.append("</ul>")
+
+    if guides:
+        out += ['<h2 id="guides">%s</h2>' % esc((rs or {}).get("topicGuides", "Guides")),
+                '<p>%s</p>' % esc((rs or {}).get("topicGuidesLede", "")), "<ul>"]
+        for slug, gtitle in guides:
+            out.append('<li><a href="{{ROOT}}guides/%s/">%s</a></li>' % (esc(slug), esc(gtitle)))
         out.append("</ul>")
 
     out += ['<h2 id="topics">%s</h2>' % esc(s.get("siblings", "Other topics")),
@@ -783,6 +821,38 @@ def add_to_head(page, canonical, extra):
         sys.exit("canonical link %s not found while adding head markup" % canonical)
     return page.replace(tag, tag + "\n" + extra, 1)
 
+def fill_page(tpl, body, title, desc, url, root, subs, where):
+    """page.html filled for one standalone page; fails on a leftover {{X}}."""
+    html_ = (tpl.replace("{{BODY}}", body)
+             .replace("{{PAGE_TITLE}}", esc(title))
+             .replace("{{PAGE_DESC}}", esc(desc))
+             .replace("{{PAGE_URL}}", esc(url))
+             .replace("{{ROOT}}", root))
+    for k, v in subs.items():
+        html_ = html_.replace(k, v)
+    left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
+    if left:
+        sys.exit("%s: unreplaced placeholders: %s" % (where, ", ".join(sorted(set(left)))))
+    return html_
+
+
+def guide_topic_map(guides, rp_pages):
+    """topic id -> [guide] for the topic pages. A guide names its topics; a
+    guide whose table lists every dataset page is linked from every topic page
+    that lists one of those datasets."""
+    out = {}
+    for g in guides:
+        tids = list(g.get("topics") or [])
+        if any(((b.get("table") or {}).get("all")) for b in g.get("blocks") or []):
+            for pg in rp_pages:
+                if pg["table"] == "datasets":
+                    tids += pg["topics"]
+        for t in tids:
+            if g not in out.setdefault(t, []):
+                out[t].append(g)
+    return out
+
+
 # ------------------------------------------------------------------- config
 def load_config():
     if not os.path.exists(CONFIG):
@@ -886,6 +956,14 @@ def main():
                   if t["id"] not in TOPIC_SKIP and t["id"] in topic_doc["topics"]]
                  if topic_doc else [])
     faq_counts = {}
+    # Dataset / benchmark pages and guides (scripts/resource_pages.py).
+    res_cfg, guides_doc = RP.load_config()
+    rp_pages, rp_skipped = RP.select(payload, topic_doc, topic_resources, res_cfg)
+    rp_res = dict(((pg["kind"], pg["name"]), pg["rel"]) for pg in rp_pages)
+    rp_guides = guides_doc.get("guides") or []
+    rp_topic_guides = guide_topic_map(rp_guides, rp_pages)
+    payload_en = payload
+    new_pages = {}          # code -> [rel path] of every page added here
     try:
         _, cl_entries = changelog.parse()
     except changelog.ChangelogError as e:
@@ -980,6 +1058,14 @@ def main():
             body = body.replace("{{TOPIC_LINKS}}",
                                 render_topic_links(payload, None, "{{ROOT}}")
                                 if topic_doc else "")
+            # About also lists the guides, so none is orphaned.
+            rs_about = RP.strings(res_cfg, code)
+            body = body.replace("{{GUIDE_LINKS}}", "<ul>\n%s\n</ul>" % "\n".join(
+                ['<li><a href="{{ROOT}}datasets/">%s</a></li>' % esc(rs_about["indexTitle"]),
+                 '<li><a href="{{ROOT}}guides/">%s</a></li>' % esc(rs_about["guidesTitle"])]
+                + ['<li><a href="{{ROOT}}guides/%s/">%s</a></li>'
+                   % (esc(g["slug"]), esc(((g.get(code) or {}).get("title") or g["en"]["title"])))
+                   for g in rp_guides]))
             html_ = (tpl.replace("{{BODY}}", body)
                      .replace("{{PAGE_TITLE}}",
                               esc(ov.ui("page%sTitle" % name.title(), name.title())))
@@ -1029,7 +1115,11 @@ def main():
             t_title = topic_text(tp, code, "title")
             t_desc = re.sub(r"\s+", " ", topic_text(tp, code, "description"))
             t_url = topic_url(lang_base, tid)
-            body = render_topic_body(tid, tp, payload, code, strings, ov)
+            rs = RP.strings(res_cfg, code)
+            body = render_topic_body(
+                tid, tp, payload, code, strings, ov, res_pages=rp_res, rs=rs,
+                guides=[(g["slug"], (g.get(code) or {}).get("title") or g["en"]["title"])
+                        for g in rp_topic_guides.get(tid, [])])
             html_ = (tpl.replace("{{BODY}}", body)
                      .replace("{{PAGE_TITLE}}", esc(t_title))
                      .replace("{{PAGE_DESC}}", esc(t_desc))
@@ -1048,6 +1138,57 @@ def main():
             write(os.path.join(sub, "topics", tid, "index.html"), html_)
             sitemap_urls.append((t_url, "weekly", "0.6"))
 
+        # ------------------------------------- datasets, benchmarks, guides
+        site_t = top_for(ov, code, "title", cfg["title"])
+        rsite = RP.Site(sys.modules[__name__], cfg, res_cfg, guides_doc, topic_doc or {},
+                        rp_pages, payload, payload_en, entry, langs, base,
+                        meta["last_updated"], topic_ids)
+        rs = rsite.s
+        added = new_pages.setdefault(code, [])
+        guides_for = {}
+        for g in rp_guides:
+            for rel in rsite.guide_members(g):
+                guides_for.setdefault(rel, []).append(g)
+
+        def emit(rel, body, title, desc, head, depth):
+            url = lang_base + rel
+            html_ = fill_page(tpl, body, title, desc, url, "../" * depth, subs,
+                              "%s/%s" % (code, rel))
+            html_ = add_to_head(html_, url, head(
+                "%s \u2014 %s" % (title, site_t), desc))
+            if rel.startswith(RP.GUIDES_PATH) and rel != RP.GUIDES_PATH:
+                ld, _ = faq_jsonld(html_)
+                if ld:
+                    html_ = add_to_head(html_, url, ld)
+            write(os.path.join(sub, rel, "index.html"), html_)
+            added.append(rel)
+
+        t_ = rs["indexTitle"]
+        d_ = rs["indexDesc"]
+        emit(RP.DATASETS_PATH, rsite.index_body(), t_, d_,
+             lambda t, d: rsite.index_head(t, d), 1)
+        sitemap_urls.append((lang_base + RP.DATASETS_PATH, "weekly", "0.6"))
+        for pg in rp_pages:
+            t_ = rsite.resource_title(pg)
+            d_ = rsite.resource_desc(pg)
+            emit(pg["rel"], rsite.resource_body(pg, guides_for), t_, d_,
+                 lambda t, d, pg=pg: rsite.resource_head(pg, t, d), 2)
+            sitemap_urls.append((lang_base + pg["rel"], "monthly", "0.5"))
+        emit(RP.GUIDES_PATH, rsite.guides_index_body(), rs["guidesTitle"], rs["guidesDesc"],
+             lambda t, d: rsite.guides_index_head(t, d), 1)
+        sitemap_urls.append((lang_base + RP.GUIDES_PATH, "monthly", "0.5"))
+        for g in rp_guides:
+            t_ = rsite.g_text(g, "title")
+            d_ = rsite.g_text(g, "description")
+            emit(RP.GUIDES_PATH + g["slug"] + "/", rsite.guide_body(g), t_, d_,
+                 lambda t, d, g=g: rsite.guide_head(g, t, d), 2)
+            sitemap_urls.append((lang_base + RP.GUIDES_PATH + g["slug"] + "/", "monthly", "0.6"))
+        if rsite.problems:
+            print("RESOURCE / GUIDE PAGES INVALID (%s):" % code)
+            for x in rsite.problems:
+                print("  -", x)
+            sys.exit(1)
+
         write(os.path.join(sub, "data.json"),
               json.dumps(payload, ensure_ascii=False, indent=1) + "\n")
 
@@ -1055,7 +1196,7 @@ def main():
     en_payload = build_payload(i18n.SOURCE)
     write(os.path.join(out, "llms.txt"),
           render_llms(cfg, base, en_payload["counts"], en_payload["topics"],
-                      set(topic_ids)))
+                      set(topic_ids), rp_pages, rp_guides, payload_en))
     # IndexNow (Bing, Yandex, ...): the key file must be served at the site
     # root; the deploy workflow pings api.indexnow.org with the sitemap URLs.
     if cfg.get("indexnow_key"):
@@ -1212,6 +1353,60 @@ def main():
                 problems.append("%s/index: DataCatalog dataset %s missing or its count "
                                 "is not %d" % (code, key, dc[key]))
 
+    # ------------------------------------- datasets, benchmarks and guides
+    # Each new page must be canonical, carry every hreflang alternate and its
+    # JSON-LD, be in sitemap.xml, and be linked from another page (no orphans):
+    # the index pages from About, entry pages from /datasets/, guides from
+    # /guides/ and About. Topic pages must link every entry page they list.
+    for entry in langs:
+        code = entry["code"]
+        sub = os.path.join(out, entry.get("path") or "")
+        lang_base = i18n.url_for(base, entry)
+        pages_html = {}
+        for rel in new_pages.get(code, []):
+            f = os.path.join(sub, rel, "index.html")
+            page = read(f)
+            pages_html[rel] = page
+            if ('<link rel="canonical" href="%s">' % esc(lang_base + rel)) not in page:
+                problems.append("%s/%s: canonical missing or wrong" % (code, rel))
+            want = [(e["hreflang"], i18n.url_for(base, e) + rel) for e in langs]
+            want.append(("x-default", i18n.url_for(base, default) + rel))
+            for hl, u in want:
+                if ('<link rel="alternate" hreflang="%s" href="%s">' % (esc(hl), esc(u))) not in page:
+                    problems.append("%s/%s: hreflang %s missing or wrong" % (code, rel, hl))
+            if '"BreadcrumbList"' not in page:
+                problems.append("%s/%s: BreadcrumbList missing" % (code, rel))
+            if rel.startswith(("datasets/", "benchmarks/")) and rel != RP.DATASETS_PATH \
+                    and '"@type":"Dataset"' not in page:
+                problems.append("%s/%s: Dataset JSON-LD missing" % (code, rel))
+            if rel.startswith(RP.GUIDES_PATH) and rel != RP.GUIDES_PATH:
+                if '"FAQPage"' not in page or '<section class="faq">' not in page:
+                    problems.append("%s/%s: FAQ or FAQPage JSON-LD missing" % (code, rel))
+            if "<loc>%s</loc>" % esc(lang_base + rel) not in sitemap:
+                problems.append("%s/%s: not in sitemap.xml" % (code, rel))
+        about = read(os.path.join(sub, "about", "index.html"))
+        idx = pages_html.get(RP.DATASETS_PATH, "")
+        gidx = pages_html.get(RP.GUIDES_PATH, "")
+        for rel in pages_html:
+            if rel in (RP.DATASETS_PATH, RP.GUIDES_PATH):
+                linked = ('href="../%s"' % rel) in about
+            elif rel.startswith(RP.GUIDES_PATH):
+                linked = ('href="../%s"' % rel) in gidx and ('href="../%s"' % rel) in about
+            else:
+                linked = ('href="../%s"' % rel) in idx
+            if not linked:
+                problems.append("%s/%s: orphan page (no link from its index or About)" % (code, rel))
+        for tid in topic_ids:
+            page = read(os.path.join(sub, "topics", tid, "index.html"))
+            tp = topic_doc["topics"][tid]
+            for kind, r in topic_resources(tp, payload_en):
+                rel = rp_res.get((kind, r["name"]))
+                if rel and ('href="../../%s"' % rel) not in page:
+                    problems.append("%s/topics/%s: no link to %s" % (code, tid, rel))
+            for g in rp_topic_guides.get(tid, []):
+                if ('href="../../guides/%s/"' % g["slug"]) not in page:
+                    problems.append("%s/topics/%s: no link to guide %s" % (code, tid, g["slug"]))
+
     if problems:
         print("SITE CHECK FAILED:")
         for x in problems:
@@ -1242,6 +1437,12 @@ def main():
         print("  %d topic pages per language (%d languages), FAQ entries on About: %s"
               % (len(topic_ids), len(langs),
                  ", ".join("%s %d" % kv for kv in sorted(faq_counts.items()))))
+    print("  %d dataset and %d benchmark pages per language, %d entries skipped, %d guides"
+          % (sum(1 for pg in rp_pages if pg["table"] == "datasets"),
+             sum(1 for pg in rp_pages if pg["table"] == "benchmarks"),
+             len(rp_skipped), len(rp_guides)))
+    for table, name, why in rp_skipped:
+        print("    skipped %s %r: %s" % (table, name, why))
     if cfg.get("_url_from_repo"):
         print("  note: `url` is empty in site.config.yml, so the GitHub Pages "
               "address was used. Set it once the domain is ready.")
