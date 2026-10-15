@@ -13,6 +13,83 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-16 — A changelog page, and the homepage described as a data catalog
+
+### Added
+
+- **`/changelog/` and `/zh/changelog/`**, generated from `CHANGELOG.md` on every
+  build by `scripts/changelog.py`: every dated entry, newest first (entries
+  that share a date keep their order in the file). The Chinese edition shows
+  each entry in Chinese, read from `CHANGELOG.zh-CN.md` and matched to its
+  English original by date and title; an entry with no translation yet is
+  shown in English, marked `lang="en"`, and the page says so. Each edition has
+  its own title, description, canonical URL, hreflang alternates and a
+  `BreadcrumbList`; both are in `sitemap.xml` and `llms.txt`, and are linked
+  from the About page and the footer. The build fails on an undated `##`
+  heading in `CHANGELOG.md`, or on a date more than a day ahead of the build.
+- **A `DataCatalog` block in the homepage JSON-LD** (English and Chinese),
+  beside the existing Organization, WebSite and ItemList. It names the three
+  tables the homepage shows — papers, datasets, benchmarks — with counts filled
+  from the live data, `dateModified` from `last_updated` in `data/meta.yaml`,
+  and the Organization as creator and publisher. `build_site.py` refuses to
+  write a catalog whose counts or date disagree with `data.json`.
+- `tests/test_seo.js` checks both, with no packages, and runs in
+  `validate.yml`.
+
+## 2026-10-15 — Topic pages for every topic, and an FAQ on the About page
+
+Merged as #2 (squash `3459829`).
+
+### Added
+
+- **`/topics/<id>/` and `/zh/topics/<id>/`** — a hub page for each of the 16
+  topics in `data/meta.yaml` (all but `other`), in English and Chinese. Each
+  carries a hand-written introduction, a short "start here" reading list chosen
+  by the maintainers, the topic's 30 newest papers, the related datasets,
+  benchmarks and toolkits, and links to the sibling topics. The editorial text
+  lives in the new `data/topics.yaml`; the paper table, counts and related
+  resources are generated, so they cannot go stale. Every page has its own
+  canonical URL, `hreflang` alternates (en, zh-Hans, x-default), a
+  `BreadcrumbList` and a `CollectionPage` block, and is in `sitemap.xml` and
+  `llms.txt`.
+- **About page (English and Chinese): "Browse by topic" and a six-question
+  FAQ** — which datasets suit sparse-view CT, which toolkits are used for
+  low-dose CT, how entries are verified, how often the list is updated, how to
+  cite it, and how to suggest a paper or report a mistake. The `FAQPage`
+  JSON-LD is generated from the visible FAQ text, so the two cannot disagree.
+- `build_site.py` checks that every `start` id and `also` name in
+  `data/topics.yaml` exists, that each topic page carries its canonical,
+  hreflang, JSON-LD and sitemap entry, and that the About page links every
+  topic page.
+
+## 2026-10-15 — Ownership verified with Google Search Console and Bing Webmaster Tools
+
+### Added
+
+- `google_site_verification` and `bing_site_verification` in
+  `site.config.yml`. `build_site.py` emits them as the
+  `google-site-verification` and `msvalidate.01` meta tags in the homepage
+  `<head>` (English and Chinese). Both services re-check the tag, so removing
+  either un-verifies the site; the config comments say so.
+
+## 2026-10-15 — llms.txt, and IndexNow pings after each deploy
+
+Merged as #1 (squash `6736652`). No change to existing pages, styles or data.
+
+### Added
+
+- **`/llms.txt`**, a plain-Markdown map of the site for AI answer engines (the
+  llmstxt.org proposal): what the list covers, links to both editions, the
+  About and Contact pages and both `data.json` exports, and every topic with
+  its paper count. Counts and topics come from the same payload as the page,
+  so it cannot go stale. Cheap to ship; whether anything reads it is unproven.
+- **IndexNow.** `indexnow_key` in `site.config.yml`; the build writes the key
+  file `site/<key>.txt` at the site root, and `deploy.yml` gained a job that,
+  after each deploy, posts every URL in `sitemap.xml` to `api.indexnow.org`
+  (Bing, Yandex and the other IndexNow engines). It is best effort — a failed
+  ping never fails the deploy. Google does not use IndexNow; it reads the
+  sitemap submitted in Search Console.
+
 ## 2026-10-15 — Clean-up after the blurb work
 
 ### Removed

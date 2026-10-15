@@ -1,13 +1,26 @@
 # Tests
 
-Two suites for `web/search.js`. Run the site build first — both read the
-generated payloads under `site/`, which is git-ignored.
+Two suites for `web/search.js`, and one for the structured data search engines
+read. Run the site build first — all three read the generated files under
+`site/`, which is git-ignored.
 
 ```bash
 python scripts/build_site.py
 node tests/test_search.js          # runs in CI; no packages needed
+node tests/test_seo.js             # runs in CI; no packages needed
 node tests/test_site_dom.js        # local only; needs jsdom
 ```
+
+## `test_seo.js` — structured data and the changelog page
+
+Checks the homepage `DataCatalog` JSON-LD (English and Chinese) against the
+live `data.json` — counts, `dateModified`, the Organization reference — and the
+`/changelog/` pages: canonical, hreflang, `BreadcrumbList`, every
+`CHANGELOG.md` entry listed newest first, every `CHANGELOG.zh-CN.md`
+translation shown on `/zh/changelog/` (untranslated entries fall back to
+English, and the page says how many), and presence in `sitemap.xml`,
+`llms.txt` and the About page body. No dependencies, so it runs in
+`validate.yml`.
 
 ## `test_search.js` — the search core
 

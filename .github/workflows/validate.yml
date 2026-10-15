@@ -67,3 +67,8 @@ jobs:
 
       - name: Test the search core
         run: node tests/test_search.js
+
+      # Structured data and the changelog page, read from the same build.
+      # Plain Node, no packages.
+      - name: Test structured data and the changelog page
+        run: node tests/test_seo.js

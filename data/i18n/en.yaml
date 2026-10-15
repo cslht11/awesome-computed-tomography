@@ -174,6 +174,7 @@ ui:
   footAbout: "About"
   footContact: "Contact"
   footPrivacy: "Privacy"
+  footChangelog: "Changelog"
   footLegal: "Content <a href=\"{content_license_url}\" target=\"_blank\" rel=\"noopener license\">{content_license}</a> · code <a href=\"{code_license_url}\" target=\"_blank\" rel=\"noopener\">{code_license}</a> · updated {build_date}"
   kindPaper: "Paper"
   kindToolkit: "Toolkit"
@@ -189,6 +190,20 @@ ui:
   pageContactDesc: "How to report an error, suggest a paper, or reach the maintainers privately."
   pagePrivacyTitle: "Privacy"
   pagePrivacyDesc: "What happens to your information when you visit {host}."
+  pageChangelogTitle: "Changelog"
+  pageChangelogDesc: "Every dated change to Awesome Computed Tomography, newest first: papers and datasets added, records corrected, and changes to the site."
+  changelogLede: "Every change to the list and to this site, newest first. The list does not tag releases: it is refined continuously, so changes are recorded by date rather than by version. To cite a fixed snapshot, use a commit hash."
+  changelogSource: "This page is generated from {source} in the repository on every build."
+  changelogEntries: "{n} entries, from {first} to {latest}."
+  changelogUntranslated: "{n} entries have not been translated yet and are shown in English."
+  # Homepage DataCatalog JSON-LD. Counts are filled from the live data, and
+  # every sentence must stay true of what the homepage itself shows.
+  ldPapersName: "CT reconstruction papers"
+  ldPapersDesc: "{papers} papers on CT image reconstruction, {peer_pct}% of them with a peer-reviewed venue and the rest marked as preprints. Each record gives the venue, the year, its topics and links to the paper and, where available, its code, project page and data."
+  ldDatasetsName: "CT datasets"
+  ldDatasetsDesc: "{datasets} CT datasets for reconstruction research, each listed with its modality, the tasks it supports, its licence and notes on what it contains."
+  ldBenchmarksName: "CT reconstruction benchmarks and challenges"
+  ldBenchmarksDesc: "{benchmarks} benchmarks and challenges for CT reconstruction, each listed with its year, the tasks it covers and notes on what it asks for."
 
 readme:
   blurb: >-
@@ -287,7 +302,7 @@ pages:
     <p>An entry is a pointer to someone else’s work, never a copy of it. Titles, venues and links are facts about papers that belong to their authors and publishers; inclusion is not an endorsement by them, and is not a claim that results have been reproduced here. Nothing on this site is medical advice.</p>
 
     <h2>Maintenance</h2>
-    <p>The list is curated and maintained by its authors and updated continuously, with new arXiv papers, corrected venues and repaired links. It does not accept outside pull requests. Suggestions and corrections are welcome through the <a href="{{ROOT}}contact/">contact page</a>, and each one is checked before anything is added.</p>
+    <p>The list is curated and maintained by its authors and updated continuously, with new arXiv papers, corrected venues and repaired links. It does not accept outside pull requests. Suggestions and corrections are welcome through the <a href="{{ROOT}}contact/">contact page</a>, and each one is checked before anything is added. Every change is recorded, dated, in the <a href="{{ROOT}}changelog/">changelog</a>.</p>
     <p>The same data is published as the <a href="{{REPO_URL}}" target="_blank" rel="noopener">GitHub README</a> and as <a href="{{ROOT}}data.json">data.json</a>. Both are generated from the same source files, so they never disagree with this site.</p>
 
     <h2>Licence and reuse</h2>

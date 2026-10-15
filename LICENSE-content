@@ -9,7 +9,7 @@ code is MIT. The reasoning is in [MAINTENANCE.md](MAINTENANCE.md).
     data/*.yaml                     the curated records
     data/i18n/*.yaml                translated prose and interface strings
     README.md, README.zh-CN.md      generated from the above
-    CHANGELOG.md, MAINTENANCE.md, SITE.md
+    CHANGELOG.md, CHANGELOG.zh-CN.md, MAINTENANCE.md, SITE.md
     site/**/*.html                  the rendered pages
     site/data.json                  the rendered data payload
     site/sitemap.xml, site/robots.txt
