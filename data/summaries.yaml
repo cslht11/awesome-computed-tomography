@@ -792,6 +792,9 @@ nlm-review: >-
 noise-inspired-diffusion-model-for-generalizable-low-dose-ct: >-
   In this paper, we propose a noise-inspired diffusion model for generalizable LDCT reconstruction, termed NEED, which tailors diffusion models for noise characteristics of each domain. Source code is made available at https://github.com/qgao21/NEED.
 
+noise2match: >-
+  We propose Noise2Match, a self-supervised low-dose CT denoising method based on adaptive inter-slice matching. An inter-slice matching network models the label transition between adjacent slices and corrects the denoiser's outputs to satisfy the Noise2Noise equal-mean condition, and the method works for low-dose CBCT.
+
 non-circular-scan-trajectories-for-reducing-cone-beam-artifa: >-
   Gamma Knife cone-beam computed tomography (CBCT) images are deteriorated by cone-beam artifacts whose magnitude increases along the superior direction. Approach. Main results. A line-arc-line trajectory with source axial steps of 3.5 mm removes virtually all cone-beam artifacts. Significance.
 
