@@ -40,6 +40,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build import load, validate, fill  # noqa: E402
 from export_site_data import build_payload  # noqa: E402
 import i18n  # noqa: E402
+import changelog  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(ROOT, "web")
@@ -265,6 +266,9 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
         ],
     }
 
+    ld_catalog = render_datacatalog(cfg, payload, base, entry, ov, tokens,
+                                    title, desc)
+
     bits = [
         "<title>%s \u2014 %s</title>" % (esc(title), esc(top_for(ov, entry["code"], "tagline", cfg["tagline"]))),
         '<meta name="description" content="%s">' % esc(desc),
@@ -289,6 +293,7 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
         '<script type="application/ld+json">%s</script>' % safe_json(ld_org),
         '<script type="application/ld+json">%s</script>' % safe_json(ld_site),
         '<script type="application/ld+json">%s</script>' % safe_json(ld_list),
+        '<script type="application/ld+json">%s</script>' % safe_json(ld_catalog),
     ]
 
     # Search-engine ownership tags (Google Search Console HTML-tag method).
@@ -310,6 +315,64 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
             "document.head.appendChild(s);}</script>"
             % (json.dumps(base), json.dumps(token)))
     return "\n".join(bits)
+
+
+def render_datacatalog(cfg, payload, base, entry, ov, tokens, title, desc):
+    """Homepage DataCatalog JSON-LD.
+
+    Every number is filled from the live payload (the same counts as the stat
+    tiles), dateModified is data/meta.yaml's last_updated (the "Updated" tile),
+    and name/description are the page's own <title> and meta description, so
+    the structured data cannot say anything the page does not. The three
+    datasets are the three tables the homepage shows: papers, datasets and
+    benchmarks.
+    """
+    org = {"@id": base + "#organization"}
+    updated = str(tokens["updated"])
+    common = {
+        "inLanguage": entry["hreflang"],
+        "license": cfg["content_license_url"],
+        "isAccessibleForFree": True,
+        "creator": org,
+        "publisher": org,
+        "dateModified": updated,
+        "distribution": {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": base + "data.json",
+        },
+    }
+
+    def dataset(key, url):
+        d = {
+            "@type": "Dataset",
+            "@id": base + "#dataset-" + key,
+            "name": ov.ui("ld%sName" % key.title()),
+            "description": re.sub(r"\s+", " ", fill(ov.ui("ld%sDesc" % key.title()), tokens)).strip(),
+            "url": url,
+        }
+        d.update(common)
+        return d
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "DataCatalog",
+        "@id": base + "#datacatalog",
+        "name": title,
+        "url": base,
+        "description": desc,
+        "inLanguage": entry["hreflang"],
+        "license": cfg["content_license_url"],
+        "isAccessibleForFree": True,
+        "dateModified": updated,
+        "creator": org,
+        "publisher": org,
+        "dataset": [
+            dataset("papers", base),
+            dataset("datasets", base + "?tab=datasets"),
+            dataset("benchmarks", base + "?tab=benchmarks"),
+        ],
+    }
 
 
 PAGES = ("about", "contact", "privacy")
@@ -350,6 +413,8 @@ def render_llms(cfg, base, c, topics, topic_pages=()):
         "- [论文目录（中文）](%szh/): Chinese edition of the same directory" % base,
         "- [About](%sabout/): scope, sourcing, verification and how to cite" % base,
         "- [Contact](%scontact/): how to suggest or correct an entry" % base,
+        "- [Changelog](%schangelog/): every dated change to the list and the "
+        "site, newest first (Chinese edition: %szh/changelog/)" % (base, base),
         "", "## Data", "",
         "- [data.json](%sdata.json): machine-readable export of the full "
         "catalogue (English)" % base,
@@ -631,6 +696,63 @@ def faq_jsonld(html_):
     return '<script type="application/ld+json">%s</script>' % safe_json(ld), len(pairs)
 
 
+# ---------------------------------------------------------- changelog page
+# /changelog/ and /zh/changelog/, generated from CHANGELOG.md on every build
+# (scripts/changelog.py parses it). The entries are written in English and are
+# shown in English on both editions; the page chrome is translated.
+CHANGELOG_PATH = "changelog/"
+
+
+def render_changelog_body(entries, code, ov, strings, cfg):
+    first, latest = entries[-1]["date"].isoformat(), entries[0]["date"].isoformat()
+    src = '<a href="%s/blob/main/CHANGELOG.md" target="_blank" rel="noopener"><code>CHANGELOG.md</code></a>' % esc(cfg["repo_url"])
+    counts = esc(ov.ui("changelogEntries")).replace("{n}", str(len(entries))) \
+        .replace("{first}", first).replace("{latest}", latest)
+    body = changelog.render_entries(entries, cfg["repo_url"])
+    # The entries quote template placeholders such as {{N_PAPERS}} in code
+    # spans; neutralise every brace so the page substitution leaves them alone.
+    body = body.replace("{", "&#123;").replace("}", "&#125;")
+    title = ov.ui("pageChangelogTitle", "Changelog")
+    out = ['<nav class="crumbs" aria-label="breadcrumb"><p class="kicker">'
+           '<a href="{{ROOT}}">%s</a> / %s</p></nav>' % (esc(strings.get("home", "Home")), esc(title)),
+           "<h1>%s</h1>" % esc(title),
+           '<p class="lede">%s</p>' % esc(ov.ui("changelogLede")),
+           "<p>%s %s</p>" % (esc(ov.ui("changelogSource")).replace("{source}", src), counts),
+           '<div class="changelog"%s>' % ("" if code == i18n.SOURCE else ' lang="en"'),
+           body,
+           "</div>"]
+    return "\n".join(out)
+
+
+def head_extra_changelog(cfg, base, langs, entry, ov, desc):
+    """hreflang alternates + og + BreadcrumbList for the changelog page."""
+    default = i18n.default_language(langs)
+    home = i18n.url_for(base, entry)
+    url = home + CHANGELOG_PATH
+    title = "%s \u2014 %s" % (ov.ui("pageChangelogTitle", "Changelog"),
+                               top_for(ov, entry["code"], "title", cfg["title"]))
+    bits = ['<link rel="alternate" hreflang="%s" href="%s">'
+            % (esc(e["hreflang"]), esc(i18n.url_for(base, e) + CHANGELOG_PATH)) for e in langs]
+    bits.append('<link rel="alternate" hreflang="x-default" href="%s">'
+                % esc(i18n.url_for(base, default) + CHANGELOG_PATH))
+    bits += ['<meta property="og:type" content="website">',
+             '<meta property="og:url" content="%s">' % esc(url),
+             '<meta property="og:title" content="%s">' % esc(title),
+             '<meta property="og:description" content="%s">' % esc(desc),
+             '<meta property="og:locale" content="%s">' % esc(entry["og_locale"])]
+    crumbs = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1,
+             "name": top_for(ov, entry["code"], "title", cfg["title"]), "item": home},
+            {"@type": "ListItem", "position": 2,
+             "name": ov.ui("pageChangelogTitle", "Changelog"), "item": url},
+        ],
+    }
+    bits.append('<script type="application/ld+json">%s</script>' % safe_json(crumbs))
+    return "\n".join(bits)
+
+
 def add_to_head(page, canonical, extra):
     """Insert extra <head> markup right after the canonical link."""
     tag = '<link rel="canonical" href="%s">' % esc(canonical)
@@ -741,6 +863,10 @@ def main():
                   if t["id"] not in TOPIC_SKIP and t["id"] in topic_doc["topics"]]
                  if topic_doc else [])
     faq_counts = {}
+    try:
+        _, cl_entries = changelog.parse()
+    except changelog.ChangelogError as e:
+        sys.exit(str(e))
 
     for entry in langs:
         code = entry["code"]
@@ -853,6 +979,25 @@ def main():
             sitemap_urls.append((lang_base + name + "/", "monthly", "0.3"))
 
         strings = topic_strings(topic_doc, code) if topic_doc else {}
+
+        cl_url = lang_base + CHANGELOG_PATH
+        cl_desc = re.sub(r"\s+", " ", fill(ov.ui("pageChangelogDesc"), shared)).strip()
+        html_ = (tpl.replace("{{BODY}}", render_changelog_body(cl_entries, code, ov, strings, cfg))
+                 .replace("{{PAGE_TITLE}}", esc(ov.ui("pageChangelogTitle", "Changelog")))
+                 .replace("{{PAGE_DESC}}", esc(cl_desc))
+                 .replace("{{PAGE_URL}}", esc(cl_url))
+                 .replace("{{ROOT}}", "../"))
+        for k, v in subs.items():
+            html_ = html_.replace(k, v)
+        left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
+        if left:
+            sys.exit("%s/changelog: unreplaced placeholders: %s"
+                     % (code, ", ".join(sorted(set(left)))))
+        html_ = add_to_head(html_, cl_url, head_extra_changelog(
+            cfg, base, langs, entry, ov, cl_desc))
+        write(os.path.join(sub, "changelog", "index.html"), html_)
+        sitemap_urls.append((cl_url, "weekly", "0.4"))
+
         for tid in topic_ids:
             tp = topic_doc["topics"][tid]
             t_title = topic_text(tp, code, "title")
@@ -981,6 +1126,66 @@ def main():
         if faq_counts.get(entry["code"], 0) and '"FAQPage"' not in about:
             problems.append("%s/about: FAQ present but FAQPage JSON-LD missing" % entry["code"])
 
+    # ------------------------------------------------- changelog + DataCatalog
+    # The changelog page must be canonical, carry every hreflang alternate,
+    # a BreadcrumbList, appear in sitemap.xml and be linked from About. The
+    # homepage DataCatalog must agree with the live counts and the update date
+    # the stat tiles show, or it would be saying something the page does not.
+    sitemap = read(os.path.join(out, "sitemap.xml"))
+    for entry in langs:
+        code = entry["code"]
+        sub = os.path.join(out, entry.get("path") or "")
+        lang_base = i18n.url_for(base, entry)
+        f = os.path.join(sub, "changelog", "index.html")
+        if not os.path.exists(f):
+            problems.append("%s: changelog page was not written" % code)
+        else:
+            page = read(f)
+            cl_url = lang_base + CHANGELOG_PATH
+            if ('<link rel="canonical" href="%s">' % esc(cl_url)) not in page:
+                problems.append("%s/changelog: canonical missing or wrong" % code)
+            want = [(e["hreflang"], i18n.url_for(base, e) + CHANGELOG_PATH) for e in langs]
+            want.append(("x-default", i18n.url_for(base, default) + CHANGELOG_PATH))
+            for hl, u in want:
+                if ('<link rel="alternate" hreflang="%s" href="%s">' % (esc(hl), esc(u))) not in page:
+                    problems.append("%s/changelog: hreflang %s missing or wrong" % (code, hl))
+            if '"BreadcrumbList"' not in page:
+                problems.append("%s/changelog: BreadcrumbList JSON-LD missing" % code)
+            if page.count('class="cl-entry"') != len(cl_entries):
+                problems.append("%s/changelog: %d entries rendered, CHANGELOG.md has %d"
+                                % (code, page.count('class="cl-entry"'), len(cl_entries)))
+            if "<loc>%s</loc>" % esc(cl_url) not in sitemap:
+                problems.append("%s/changelog: not in sitemap.xml" % code)
+        # Look inside <main> only: the shared footer links the changelog too,
+        # and that must not satisfy the check for the About body.
+        about = read(os.path.join(sub, "about", "index.html"))
+        about_main = re.search(r"<main\b.*?</main>", about, re.S)
+        if not about_main or 'href="../changelog/"' not in about_main.group(0):
+            problems.append("%s/about: no link to the changelog" % code)
+
+        home = read(os.path.join(sub, "index.html"))
+        data = json.load(io.open(os.path.join(sub, "data.json"), encoding="utf-8"))
+        cat = None
+        for blob in re.findall(r'<script type="application/ld\+json">(.*?)</script>', home, re.S):
+            obj = json.loads(blob)
+            if obj.get("@type") == "DataCatalog":
+                cat = obj
+        if not cat:
+            problems.append("%s/index: DataCatalog JSON-LD missing" % code)
+            continue
+        dc = data["counts"]
+        if cat.get("dateModified") != dc["updated"]:
+            problems.append("%s/index: DataCatalog dateModified %r != last_updated %r"
+                            % (code, cat.get("dateModified"), dc["updated"]))
+        if cat.get("url") != lang_base:
+            problems.append("%s/index: DataCatalog url is not the page URL" % code)
+        names = dict((d["@id"].rsplit("-", 1)[-1], d) for d in cat.get("dataset") or [])
+        for key in ("papers", "datasets", "benchmarks"):
+            d = names.get(key)
+            if not d or not d.get("description", "").startswith(str(dc[key])):
+                problems.append("%s/index: DataCatalog dataset %s missing or its count "
+                                "is not %d" % (code, key, dc[key]))
+
     if problems:
         print("SITE CHECK FAILED:")
         for x in problems:
@@ -1005,6 +1210,8 @@ def main():
           "%d benchmarks, %d learning"
           % (c["papers"], c["peer_reviewed"], c["preprints"], c["toolkits"],
              c["datasets"], c["benchmarks"], c["learning"]))
+    print("  changelog: %d entries per language, sitemap %d URLs"
+          % (len(cl_entries), len(sitemap_urls)))
     if topic_ids:
         print("  %d topic pages per language (%d languages), FAQ entries on About: %s"
               % (len(topic_ids), len(langs),

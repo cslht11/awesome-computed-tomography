@@ -143,6 +143,7 @@ ui:
   footAbout: "关于"
   footContact: "联系"
   footPrivacy: "隐私"
+  footChangelog: "更新日志"
   footLegal: "内容 <a href=\"{content_license_url}\" target=\"_blank\" rel=\"noopener license\">{content_license}</a> · 代码 <a href=\"{code_license_url}\" target=\"_blank\" rel=\"noopener\">{code_license}</a> · 更新于 {build_date}"
   kindPaper: "论文"
   kindToolkit: "工具包"
@@ -158,6 +159,17 @@ ui:
   pageContactDesc: "如何报告错误、推荐论文，或私下联系维护者。"
   pagePrivacyTitle: "隐私"
   pagePrivacyDesc: "当你访问 {host} 时，你的信息会如何处理。"
+  pageChangelogTitle: "更新日志"
+  pageChangelogDesc: "Awesome Computed Tomography 的全部改动，按日期从新到旧排列：新增的论文与数据集、更正的条目记录，以及网站本身的变化。"
+  changelogLede: "本列表与本站的每一次改动，按日期从新到旧排列。本列表不发布版本号：内容在持续完善，因此改动按日期而不是按版本记录。如需引用固定快照，请使用提交哈希。"
+  changelogSource: "本页在每次构建时由仓库中的 {source} 生成。各条目以英文记录，与该文件一致。"
+  changelogEntries: "共 {n} 条，时间从 {first} 到 {latest}。"
+  ldPapersName: "CT 重建论文"
+  ldPapersDesc: "{papers} 篇 CT 图像重建论文，其中 {peer_pct}% 有同行评审的发表出处，其余标注为预印本。每条记录给出出处、年份、所属主题，以及论文链接，并在有的情况下附上代码、项目主页和数据链接。"
+  ldDatasetsName: "CT 数据集"
+  ldDatasetsDesc: "{datasets} 个用于重建研究的 CT 数据集，每个都列出其模态、适用任务、许可以及内容说明。"
+  ldBenchmarksName: "CT 重建基准与挑战赛"
+  ldBenchmarksDesc: "{benchmarks} 个 CT 重建基准与挑战赛，每个都列出年份、涵盖的任务以及任务要求说明。"
 
 readme:
   blurb: "覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D CT——从 FBP 与迭代求解器，到展开式网络、扩散先验、神经场与高斯溅射。每条论文链接均对照 Crossref、arXiv 或出版方记录核验。检索与筛选请使用 **[网站]({site_url})**。"
@@ -571,7 +583,7 @@ pages:
     <p>一个条目只是指向他人工作的指针，绝不是其副本。标题、发表出处与链接是关于论文的事实，归作者与出版方所有；收录并不意味着他们认可，也不表示这里复现了结果。本站内容不构成医疗建议。</p>
 
     <h2>维护</h2>
-    <p>本列表由作者策划和维护并持续更新，包括新增 arXiv 论文、更正发表出处和修复链接。它不接受外部 pull request。建议与更正欢迎通过<a href="{{ROOT}}contact/">联系页面</a>提交，每一条都会先经核对再决定是否收录。</p>
+    <p>本列表由作者策划和维护并持续更新，包括新增 arXiv 论文、更正发表出处和修复链接。它不接受外部 pull request。建议与更正欢迎通过<a href="{{ROOT}}contact/">联系页面</a>提交，每一条都会先经核对再决定是否收录。每一次改动都按日期记录在<a href="{{ROOT}}changelog/">更新日志</a>中。</p>
     <p>同样的数据也以 <a href="{{REPO_URL}}" target="_blank" rel="noopener">GitHub README</a> 和 <a href="{{ROOT}}data.json">data.json</a> 发布。两者由同一份源文件生成，因此不会与本站产生分歧。</p>
 
     <h2>许可与复用</h2>

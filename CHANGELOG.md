@@ -13,6 +13,27 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-16 — A changelog page, and the homepage described as a data catalog
+
+### Added
+
+- **`/changelog/` and `/zh/changelog/`**, generated from `CHANGELOG.md` on every
+  build by `scripts/changelog.py`: every dated entry, newest first (entries
+  that share a date keep their order in the file). The Chinese edition translates the
+  page itself and says that the entries are kept in English. Each edition has
+  its own title, description, canonical URL, hreflang alternates and a
+  `BreadcrumbList`; both are in `sitemap.xml` and `llms.txt`, and are linked
+  from the About page and the footer. The build fails on an undated `##`
+  heading in `CHANGELOG.md`, or on a date more than a day ahead of the build.
+- **A `DataCatalog` block in the homepage JSON-LD** (English and Chinese),
+  beside the existing Organization, WebSite and ItemList. It names the three
+  tables the homepage shows — papers, datasets, benchmarks — with counts filled
+  from the live data, `dateModified` from `last_updated` in `data/meta.yaml`,
+  and the Organization as creator and publisher. `build_site.py` refuses to
+  write a catalog whose counts or date disagree with `data.json`.
+- `tests/test_seo.js` checks both, with no packages, and runs in
+  `validate.yml`.
+
 ## 2026-10-15 — Clean-up after the blurb work
 
 ### Removed

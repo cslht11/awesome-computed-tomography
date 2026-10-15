@@ -22,6 +22,7 @@ awesome-computed-tomography/
 │   ├── build.py                 data/*.yaml -> both READMEs, and the validator
 │   ├── build_site.py            templates + payload + origin -> site/<lang>/
 │   ├── export_site_data.py      the JSON payload on its own (build_site uses it too)
+│   ├── changelog.py             CHANGELOG.md -> dated entries for /changelog/
 │   ├── i18n.py                  overlay lookup and the orphan-key checker
 │   ├── check_links.py           link-health sweep; writes into scripts/oneoff/
 │   ├── install-hooks.sh         copies hooks/ into .git/hooks/ (see below)
@@ -36,7 +37,7 @@ awesome-computed-tomography/
 │   ├── search.js                the search core: tokenise, index, rank, highlight
 │   ├── app.js                   filtering and rendering; uses search.js
 │   └── chrome.js                the phone drawer on the standalone pages
-├── tests/                       the search tests (pure ones run in CI)
+├── tests/                       search + structured-data tests (pure ones run in CI)
 ├── assets/logo.svg              the mark
 ├── site.config.yml              title, origin, licence — the site's single config
 ├── requirements.txt             PyYAML, and nothing else
