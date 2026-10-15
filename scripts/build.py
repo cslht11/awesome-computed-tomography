@@ -236,11 +236,6 @@ def site_url():
 SITE_URL = site_url()
 
 
-def top_link(ov):
-    return ('<div align="right"><a href="#top">%s ↑</a></div>\n'
-            % ov.readme("backToTop", "back to top"))
-
-
 def render_topic_grid(papers, meta, ov, site_base, cols=3):
     # Same 3-column grid as before, but each cell now links to the site with
     # that topic already selected instead of to an in-page anchor: the
@@ -342,7 +337,6 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
     # findable words live in the repository description and the topic list.
     parts.append(head("papersHeading"))
     parts.append(render_topic_grid(papers, meta, ov, site_base))
-    parts.append(top_link(ov))
 
     # The entries themselves live on the website; each section keeps its
     # heading and points at the site tab with that collection selected.

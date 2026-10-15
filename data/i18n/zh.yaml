@@ -185,7 +185,6 @@ readme:
   statDatasetsCell: "{datasets} 个数据集"
   statBenchmarksCell: "{benchmarks} 个基准"
   statSpanCell: "更新于 {updated}"
-  backToTop: "回到顶部"
   contactHeading: "联系方式"
   contactBody: "本列表由作者策展并维护，不接受拉取请求。如有疑问、勘误，或希望增删某篇论文，请提交 [issue](https://github.com/{repo}/issues) 或发送邮件至 **[heitieya@163.com](mailto:heitieya@163.com)**。"
   licenseIntro: "内容（`data/`、本 README 与生成的页面）采用 [CC BY-NC-SA 4.0](LICENSE-content) 许可："

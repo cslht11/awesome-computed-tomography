@@ -31,8 +31,6 @@
 | [自监督与免训练方法](https://computedtomography.org/zh/?tab=papers&topic=self-supervised) <sub>33</sub> | [扩散与生成式先验](https://computedtomography.org/zh/?tab=papers&topic=diffusion) <sub>56</sub> | [隐式神经表示](https://computedtomography.org/zh/?tab=papers&topic=inr) <sub>25</sub> |
 | [高斯溅射](https://computedtomography.org/zh/?tab=papers&topic=gaussian) <sub>26</sub> | [其他主题](https://computedtomography.org/zh/?tab=papers&topic=other) <sub>29</sub> |  |
 
-<div align="right"><a href="#top">回到顶部 ↑</a></div>
-
 ## 工具包与库
 
 [在网站上浏览全部 45 条](https://computedtomography.org/zh/?tab=toolkits)

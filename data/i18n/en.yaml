@@ -239,7 +239,6 @@ readme:
   statSpanCell: "Updated {updated}"
 
   # ---- shared
-  backToTop: "back to top"
 
   # ---- contact replaces the old Contributing section
   contactHeading: "Contact"

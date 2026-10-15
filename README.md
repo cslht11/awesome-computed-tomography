@@ -31,8 +31,6 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 | [Self-Supervised & Untrained Methods](https://computedtomography.org/?tab=papers&topic=self-supervised) <sub>33</sub> | [Diffusion & Generative Priors](https://computedtomography.org/?tab=papers&topic=diffusion) <sub>56</sub> | [Implicit Neural Representations](https://computedtomography.org/?tab=papers&topic=inr) <sub>25</sub> |
 | [Gaussian Splatting](https://computedtomography.org/?tab=papers&topic=gaussian) <sub>26</sub> | [Other Topics](https://computedtomography.org/?tab=papers&topic=other) <sub>29</sub> |  |
 
-<div align="right"><a href="#top">back to top ↑</a></div>
-
 ## Toolkits
 
 [Browse all 45 entries on the website](https://computedtomography.org/?tab=toolkits)
