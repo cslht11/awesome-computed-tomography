@@ -1,0 +1,684 @@
+# Topic hub pages: /topics/<id>/ and /zh/topics/<id>/.
+#
+# scripts/build_site.py renders one page per topic in data/meta.yaml (except
+# `other`) from this file plus the paper, dataset, benchmark and toolkit data.
+# Everything here is hand-written editorial text; the paper table, counts and
+# related resources are generated, so they never go stale.
+#
+# Per topic:
+#   en / zh.title        <title> text (the site name is appended by page.html)
+#   en / zh.description  <meta name="description">, keep it under ~160 chars
+#   en / zh.intro        2-3 short paragraphs, blank line between paragraphs.
+#                        The first sentence should define the topic directly.
+#                        Plain text; HTML is escaped.
+#   start                3-5 "Start here" papers: `id` from data/papers.yaml,
+#                        with one sentence each (en / zh) saying why.
+#   match                tags / tasks (case-insensitive) that pull datasets,
+#                        benchmarks (by `tasks`) and toolkits (by `tags`) into
+#                        the "Datasets, benchmarks and toolkits" section.
+#   also                 extra rows by exact `name`, keyed by table
+#                        (datasets / benchmarks / toolkits).
+#
+# The build fails if a `start` id or an `also` name does not exist, or if a
+# topic id here is not in data/meta.yaml, so a renamed entry cannot silently
+# drop out of a page.
+
+strings:
+  en:
+    kicker: Topic
+    home: Home
+    startHere: Start here
+    startHereLede: "If you are new to this topic, these are good first reads, chosen by the maintainers."
+    papers: Papers
+    papersLede: "The {shown} most recent of {n} papers, newest first."
+    papersLedeAll: "All {n} papers, newest first."
+    viewAll: "Browse all {n} {name} papers in the searchable directory"
+    colPaper: Paper
+    colYear: Year
+    colVenue: Venue
+    colLinks: Links
+    preprint: preprint
+    resources: Datasets, benchmarks and toolkits
+    resourcesLede: "Entries from the directory whose tasks or tags match this topic."
+    kindDataset: Dataset
+    kindBenchmark: Benchmark
+    kindToolkit: Toolkit
+    siblings: Other topics
+  zh:
+    kicker: 主题
+    home: 首页
+    startHere: 入门推荐
+    startHereLede: "如果你刚接触这个主题，可以先读这几篇；由维护者挑选。"
+    papers: 论文
+    papersLede: "共 {n} 篇，按时间倒序列出最新的 {shown} 篇。"
+    papersLedeAll: "全部 {n} 篇，按时间倒序。"
+    viewAll: "在可检索的目录中浏览全部 {n} 篇「{name}」论文"
+    colPaper: 论文
+    colYear: 年份
+    colVenue: 发表出处
+    colLinks: 链接
+    preprint: 预印本
+    resources: 数据集、基准与工具库
+    resourcesLede: "目录中任务或标签与本主题相符的条目。"
+    kindDataset: 数据集
+    kindBenchmark: 基准
+    kindToolkit: 工具库
+    siblings: 其他主题
+
+topics:
+
+  # ------------------------------------------------------------------ survey
+  survey:
+    match: [benchmarking, benchmark]
+    start:
+      - id: dl-ct-rev
+        en: A broad, readable map of deep learning for tomographic reconstruction since 2016 and of the problems it has not solved.
+        zh: 一份覆盖面广、可读性强的综述，梳理了 2016 年以来深度学习用于层析重建的进展以及尚未解决的问题。
+      - id: datadriven
+        en: The mathematical foundation for combining learned models with physics-based inverse problems; long, but the standard reference.
+        zh: 把学习模型与基于物理的反问题结合起来的数学基础；篇幅很长，但是标准参考文献。
+      - id: why-fbp
+        en: Explains why commercial scanners kept filtered back-projection for decades, which is useful context for any claim that a new method will reach the clinic.
+        zh: 解释了商用 CT 为何几十年来一直沿用滤波反投影；评估任何“新方法将走进临床”的说法时都值得参考。
+      - id: dl-ct-incomplete-data-review-2024
+        en: A recent review that treats sparse-view, limited-angle, metal artifact, interior and ring artifact problems in one framework.
+        zh: 一篇较新的综述，把稀疏视角、有限角、金属伪影、内部重建与环形伪影问题放在同一框架下讨论。
+      - id: dm4ct
+        en: A benchmark that compares diffusion models with established CT reconstruction methods under one protocol, with code.
+        zh: 在统一协议下比较扩散模型与成熟 CT 重建方法的基准，附代码。
+    en:
+      title: "CT Reconstruction Surveys and Reviews"
+      description: "Surveys, reviews and benchmark studies of CT reconstruction: deep learning, incomplete data, diffusion models, metal artifacts, scatter and dual-energy CT."
+      intro: |
+        Surveys and reviews in CT reconstruction are papers that organise a body of methods instead of proposing a new one: tutorials, systematic reviews, comparative studies and benchmarks. They are the quickest way into a sub-field, because they fix the notation, name the method families and point at the experiments everyone else compares against.
+
+        The reviews collected here span several generations. Older ones explain why filtered back-projection stayed in commercial scanners for decades and how iterative and compressed-sensing reconstruction changed that. Newer ones cover deep learning for tomographic imaging, reconstruction from incomplete projection data and diffusion models for medical imaging, and topic-specific reviews exist for metal artifact reduction, scatter correction and dual-energy CT.
+
+        Reviews age quickly in a field that moves this fast. Read one for structure, then check the newest papers on the matching topic page for what has changed since it was written.
+    zh:
+      title: "CT 重建综述与回顾"
+      description: "CT 重建的综述、回顾与基准研究：深度学习、不完整数据、扩散模型、金属伪影、散射与双能 CT。"
+      intro: |
+        CT 重建领域的综述与回顾，是整理一类方法而不是提出新方法的论文，包括教程、系统综述、对比研究和基准。它们是进入一个子领域最快的途径：统一记号、给方法族命名，并指出大家都会拿来对比的实验。
+
+        这里收录的综述跨越了几代。较早的综述解释了滤波反投影为何几十年来一直留在商用 CT 中，以及迭代重建和压缩感知重建如何改变了这一局面；较新的综述则涵盖深度学习层析成像、不完整投影数据重建和医学影像中的扩散模型。金属伪影校正、散射校正和双能 CT 也各有专题综述。
+
+        这个领域发展很快，综述也老得很快。读综述是为了把握结构；之后请到对应主题页查看最新论文，了解综述写成之后又有哪些变化。
+
+  # --------------------------------------------------------------- classical
+  classical:
+    match: [iterative, FBP, FDK, SART, MBIR, TV, TGV, regularisation, variational, Krylov, statistical, proximal, gridrec]
+    also:
+      datasets: ["Finnish Inverse Problems Society (FIPS) datasets", "SparseBeads", "Walnut-CBCT"]
+    start:
+      - id: radon-1917
+        en: Defines the transform that every analytical CT method inverts.
+        zh: 定义了所有解析 CT 方法所要反演的变换。
+      - id: fdk-1984
+        en: The approximate cone-beam algorithm that most CBCT systems still use.
+        zh: 至今仍被大多数锥束 CT 系统采用的近似锥束重建算法。
+      - id: sart-1984
+        en: The simultaneous algebraic reconstruction technique, a standard iterative baseline implemented in most open toolkits.
+        zh: 联合代数重建技术，是一个标准的迭代基线，大多数开源工具库都有实现。
+      - id: sidky-pan-tv-2008
+        en: The TV-constrained ASD-POCS algorithm that made compressed-sensing CT practical for few-view cone-beam data.
+        zh: 基于 TV 约束的 ASD-POCS 算法，让压缩感知 CT 在少视角锥束数据上变得实用。
+      - id: ct-evolution
+        en: A clinically oriented review of the path from FBP through iterative reconstruction to AI.
+        zh: 一篇面向临床的综述，回顾了从 FBP 到迭代重建再到人工智能的发展历程。
+    en:
+      title: "Classical and Iterative CT Reconstruction: FBP, FDK, SART, TV"
+      description: "Classical and iterative CT reconstruction: FBP, FDK, SART/SIRT, statistical MBIR and TV-regularised compressed sensing, with key papers and toolkits."
+      intro: |
+        Classical CT reconstruction recovers an image from its line-integral projections with analytical inversion formulas or iterative optimisation, without learned components. Analytical methods, filtered back-projection (FBP) for parallel and fan beams and the Feldkamp-Davis-Kress (FDK) algorithm for cone beams, invert the Radon transform directly and remain the default in most scanners because they are fast and predictable.
+
+        Iterative methods treat reconstruction as solving a large linear system or an optimisation problem. Algebraic techniques (ART, SART, SIRT), statistical methods (maximum likelihood, penalised likelihood, model-based iterative reconstruction) and Krylov solvers such as CGLS model the scanner and the noise explicitly, which pays off when data are noisy or incomplete.
+
+        Regularisation is what lets iterative methods work with little data: total variation (TV) and its generalisations, wavelet and shearlet sparsity, dictionary learning and non-local penalties. Compressed sensing gave this a theoretical basis around 2006, and these solvers are still the data-consistency backbone inside many deep-learning methods.
+    zh:
+      title: "经典与迭代 CT 重建：FBP、FDK、SART、TV"
+      description: "经典与迭代 CT 重建：FBP、FDK、SART/SIRT、统计 MBIR 与 TV 正则压缩感知，附关键论文与工具库。"
+      intro: |
+        经典 CT 重建是指利用解析反演公式或迭代优化，从线积分投影中恢复图像，不含学习得到的组件。解析方法，即用于平行束和扇束的滤波反投影（FBP）以及用于锥束的 Feldkamp-Davis-Kress（FDK）算法，直接反演 Radon 变换；由于速度快、行为可预测，它们仍是大多数扫描仪的默认方法。
+
+        迭代方法把重建看作求解一个大型线性方程组或优化问题。代数方法（ART、SART、SIRT）、统计方法（最大似然、惩罚似然、基于模型的迭代重建）以及 CGLS 等 Krylov 求解器，会显式地建模扫描仪和噪声，在数据含噪或不完整时优势明显。
+
+        正则化让迭代方法能在数据很少时依然奏效：全变分（TV）及其推广、小波与剪切波稀疏、字典学习和非局部惩罚项。压缩感知在 2006 年前后为此提供了理论基础，而这些求解器至今仍是许多深度学习方法中负责数据一致性的骨架。
+
+  # ------------------------------------------------------------- sparse-view
+  sparse-view:
+    match: [sparse-view, limited-projections]
+    start:
+      - id: sidky-pan-tv-2008
+        en: The TV-constrained baseline that most sparse-view papers still compare against.
+        zh: 大多数稀疏视角论文至今仍会拿来对比的 TV 约束基线。
+      - id: dd-net
+        en: An early, simple CNN that post-processes the FBP image, with code; a useful first deep-learning baseline.
+        zh: 一个早期、简单的 CNN，对 FBP 图像做后处理，附代码；适合作为第一个深度学习基线。
+      - id: drone
+        en: A dual-domain network that refines both the sinogram and the image while enforcing consistency, with code.
+        zh: 一个双域网络，在保持一致性的同时细化正弦图和图像，附代码。
+      - id: naf
+        en: A self-supervised neural attenuation field for sparse-view CBCT that fits each scan without training data, with code.
+        zh: 用于稀疏视角 CBCT 的自监督神经衰减场，无需训练数据、逐个扫描拟合，附代码。
+      - id: r2-gaussian
+        en: The first Gaussian-splatting framework for sparse-view tomographic reconstruction; fast, with code.
+        zh: 首个用于稀疏视角层析重建的高斯溅射框架，速度快，附代码。
+    en:
+      title: "Sparse-View CT Reconstruction: Papers, Code and Datasets"
+      description: "Sparse-view CT reconstruction from few projection angles: TV priors, dual-domain networks, neural fields, Gaussian splatting and diffusion, with datasets and code."
+      intro: |
+        Sparse-view CT reconstructs an image from projections taken at only a small number of angles, typically tens rather than the hundreds or thousands of views in a standard scan. Fewer views mean lower dose and faster acquisition, but filtered back-projection then produces strong streak artifacts because the angular sampling is too coarse.
+
+        It is used where dose, scan time or hardware limits the number of views: low-dose screening, interventional and radiotherapy cone-beam imaging, 4D-CBCT (where each breathing phase sees only a fraction of the projections), and industrial or security inspection.
+
+        The main approaches are regularised iterative reconstruction (TV and other sparsity priors), networks that remove streaks from an FBP image, sinogram interpolation, dual-domain and unrolled networks that enforce data consistency, and, more recently, per-scan representations (implicit neural fields, Gaussian splatting) and diffusion priors. Benchmarks usually simulate sparse sinograms from LoDoPaB-CT or the Mayo data; measured datasets such as 2DeteCT and the walnut collections test whether a method holds up on real data.
+    zh:
+      title: "稀疏视角 CT 重建：论文、代码与数据集"
+      description: "少量投影角度下的稀疏视角 CT 重建：TV 先验、双域网络、神经场、高斯溅射与扩散模型，附数据集与代码。"
+      intro: |
+        稀疏视角 CT 是指只用少量角度的投影来重建图像，通常是几十个视角，而标准扫描需要数百到上千个视角。视角越少，剂量越低、采集越快，但角度采样过于稀疏，滤波反投影会产生严重的条状伪影。
+
+        当剂量、扫描时间或硬件限制了视角数量时就会用到它：低剂量筛查、介入与放疗中的锥束成像、4D-CBCT（每个呼吸时相只分到一小部分投影），以及工业和安检检测。
+
+        主要方法包括：正则化迭代重建（TV 及其他稀疏先验）、去除 FBP 图像条纹的网络、正弦图插值、保证数据一致性的双域网络和展开网络，以及近年的逐扫描表示（隐式神经场、高斯溅射）和扩散先验。基准测试通常从 LoDoPaB-CT 或 Mayo 数据模拟稀疏正弦图；2DeteCT 和核桃数据集等实测数据则用来检验方法在真实数据上是否站得住。
+
+  # ----------------------------------------------------------- limited-angle
+  limited-angle:
+    match: [limited-angle, breast-tomosynthesis]
+    start:
+      - id: atv-limited-angle
+        en: Anisotropic TV that adapts the smoothing to the measured angular range; a clean classical baseline.
+        zh: 按已测角度范围调整平滑方向的各向异性 TV，是一个干净的经典基线。
+      - id: learning-the-invisible-2019
+        en: Learns only the part of the image that the data provably cannot determine and leaves the rest to sparse regularisation; a principled hybrid.
+        zh: 只学习数据在理论上无法确定的那部分图像，其余交给稀疏正则化；一种有理论依据的混合方法。
+      - id: dlct
+        en: Maps FBP onto a neural network and learns projection-domain weights for limited-angle data.
+        zh: 把 FBP 映射成神经网络，并针对有限角数据学习投影域权重。
+      - id: dolce-2023
+        en: A conditional diffusion prior with model-based data consistency, evaluated on real limited-angle data.
+        zh: 结合基于模型的数据一致性的条件扩散先验，在真实有限角数据上做了评估。
+    en:
+      title: "Limited-Angle Tomography: Papers, Code and Datasets"
+      description: "Limited-angle CT and tomography with a missing wedge: directional TV, hybrid learned methods, dual-domain networks and diffusion priors, plus real benchmark data."
+      intro: |
+        Limited-angle tomography reconstructs an image when the projections cover only part of the required angular range, leaving a missing wedge of directions. Unlike sparse-view CT, the missing data are contiguous: edges whose orientation falls inside the wedge are essentially invisible to the measurements, so the problem is severely ill-posed and filtered back-projection produces directional streaks and smeared boundaries.
+
+        It arises whenever the source and detector cannot rotate fully around the object: C-arm and interventional imaging, digital breast tomosynthesis, laminography of flat parts, in-line industrial inspection and electron tomography.
+
+        Approaches include anisotropic and directional total variation and other sparsity priors, hybrid methods that learn only the invisible part, sinogram inpainting networks, dual-domain deep networks and diffusion models used as image priors with model-based data consistency. Because so much is unmeasured, accuracy claims are worth checking on measured data such as the Helsinki Tomography Challenge.
+    zh:
+      title: "有限角层析：论文、代码与数据集"
+      description: "存在角度楔形缺失的有限角 CT 与层析：方向 TV、混合学习方法、双域网络与扩散先验，以及真实基准数据。"
+      intro: |
+        有限角层析是指投影只覆盖所需角度范围的一部分、缺失一个角度楔形时的图像重建。与稀疏视角 CT 不同，这里缺失的数据是连续的一段：取向落在缺失楔形内的边缘几乎不会在测量中留下信息，因此问题严重病态，滤波反投影会产生方向性条纹和模糊的边界。
+
+        只要射线源和探测器无法绕物体完整旋转，就会遇到这个问题：C 形臂与介入成像、数字乳腺断层合成、平板类工件的分层成像（laminography）、在线工业检测以及电子断层成像。
+
+        方法包括各向异性和方向性全变分及其他稀疏先验、只学习不可见部分的混合方法、正弦图补全网络、双域深度网络，以及配合基于模型的数据一致性、把扩散模型用作图像先验的方法。由于大量信息没有被测到，宣称的精度最好在 Helsinki Tomography Challenge 等实测数据上验证。
+
+  # ---------------------------------------------------------------- low-dose
+  low-dose:
+    match: [low-dose, noise, noise-model]
+    also:
+      benchmarks: ["Noise2Noise denoising protocol"]
+    start:
+      - id: red-cnn
+        en: The residual encoder-decoder CNN that became the standard image-domain denoising baseline, with code.
+        zh: 残差编码器-解码器 CNN，已成为图像域去噪的标准基线，附代码。
+      - id: wgan-vgg
+        en: Introduced Wasserstein GAN training with a perceptual loss to keep low-dose images from looking over-smoothed, with code.
+        zh: 引入 Wasserstein GAN 训练与感知损失，避免低剂量图像被过度平滑，附代码。
+      - id: ctformer
+        en: A convolution-free vision transformer for low-dose CT denoising, with code; a good representative of transformer-based methods.
+        zh: 一个不含卷积的视觉 Transformer 低剂量 CT 去噪方法，附代码；是 Transformer 类方法的良好代表。
+      - id: lodopab-ct
+        en: The descriptor of the LoDoPaB-CT benchmark dataset, with reference code; read it before reporting results on it.
+        zh: LoDoPaB-CT 基准数据集的数据描述论文，附参考代码；在该数据集上报告结果前值得一读。
+      - id: n2s
+        en: Trains a low-dose reconstruction network from the noisy measurements alone, without full-dose targets.
+        zh: 只用含噪测量训练低剂量重建网络，无需全剂量目标图像。
+    en:
+      title: "Low-Dose CT Denoising and Reconstruction: Papers and Datasets"
+      description: "Low-dose CT denoising and reconstruction: CNN, GAN, transformer, self-supervised and diffusion methods, with the Mayo/AAPM and LoDoPaB-CT benchmarks."
+      intro: |
+        Low-dose CT denoising suppresses the noise and artifacts that appear when CT is acquired at reduced tube current or voltage to lower the radiation dose. Fewer detected photons raise the quantum noise in the projections, which after reconstruction shows up as grainy texture and streaks that can hide low-contrast lesions.
+
+        It is used in lung-cancer screening, paediatric imaging, repeated follow-up scans and perfusion studies: anywhere cumulative dose matters. The standard real-data benchmark is the Mayo Clinic data from the 2016 AAPM Low-Dose CT Grand Challenge (now LDCT-and-Projection-data on TCIA), and LoDoPaB-CT is the main simulated benchmark.
+
+        Methods work in the projection domain (sinogram filtering and noise-model-aware restoration), in the image domain (CNNs such as RED-CNN, GAN-based denoisers with perceptual losses, transformers), in both domains, or inside statistical iterative reconstruction with learned or dictionary priors. Self-supervised methods avoid the need for paired full-dose images, and diffusion models are increasingly used as priors.
+    zh:
+      title: "低剂量 CT 去噪与重建：论文与数据集"
+      description: "低剂量 CT 去噪与重建：CNN、GAN、Transformer、自监督与扩散方法，附 Mayo/AAPM 与 LoDoPaB-CT 基准。"
+      intro: |
+        低剂量 CT 去噪是指抑制为降低辐射剂量而减小管电流或管电压时，CT 图像中出现的噪声和伪影。探测到的光子减少会增大投影中的量子噪声，重建后表现为颗粒状纹理和条纹，可能掩盖低对比度病灶。
+
+        它用于肺癌筛查、儿科成像、反复随访扫描和灌注研究等一切需要控制累积剂量的场景。标准的真实数据基准是 2016 年 AAPM 低剂量 CT 大挑战中的 Mayo Clinic 数据（现以 LDCT-and-Projection-data 在 TCIA 发布），LoDoPaB-CT 则是主要的模拟基准。
+
+        方法可以在投影域进行（正弦图滤波、考虑噪声模型的恢复），也可以在图像域进行（RED-CNN 等 CNN、带感知损失的 GAN 去噪器、Transformer），或两者结合，或嵌入使用学习先验或字典先验的统计迭代重建中。自监督方法免去了对成对全剂量图像的需求，扩散模型也越来越多地被用作先验。
+
+  # ---------------------------------------------------------- metal-artifact
+  metal-artifact:
+    match: [metal-artifact, beam-hardening, artefact-model]
+    start:
+      - id: mar-4dec
+        en: A review of four decades of metal artifact reduction, from the physics to six classes of correction methods.
+        zh: 回顾四十年来的金属伪影校正，从物理成因讲到六类校正方法。
+      - id: indudonet
+        en: An interpretable dual-domain network that unrolls a model-based MAR formulation, with code.
+        zh: 一个可解释的双域网络，展开了基于模型的金属伪影校正公式，附代码。
+      - id: acdnet
+        en: An adaptive convolutional dictionary network that keeps model-based interpretability in the image domain, with code.
+        zh: 自适应卷积字典网络，在图像域保持基于模型的可解释性，附代码。
+      - id: polyner
+        en: An unsupervised polychromatic neural representation that models the metal physics directly and needs no paired data, with code.
+        zh: 无监督的多色神经表示，直接建模金属相关的物理过程，无需成对数据，附代码。
+      - id: dudodp-mar
+        en: Unsupervised MAR that plugs diffusion priors into both the image and the sinogram domain, with code.
+        zh: 在图像域和正弦图域都引入扩散先验的无监督金属伪影校正方法，附代码。
+    en:
+      title: "CT Metal Artifact Reduction (MAR): Papers, Code and Datasets"
+      description: "CT metal artifact reduction: sinogram inpainting, dual-domain and dictionary networks, unsupervised neural representations and diffusion priors, with code."
+      intro: |
+        Metal artifact reduction (MAR) removes the dark and bright streaks that metal implants, dental fillings and surgical hardware cause in CT images. Metal attenuates X-rays so strongly that the rays passing through it suffer beam hardening, photon starvation, scatter and partial-volume errors, and the corrupted projections spread into streaks across the whole slice.
+
+        MAR matters in dental and maxillofacial CBCT, orthopaedic imaging around joint replacements and spinal fixation, and radiotherapy planning, where streaks distort the electron densities used for dose calculation.
+
+        Classical methods replace the metal trace in the sinogram by interpolation (linear interpolation, normalised MAR) or model the polychromatic physics iteratively. Deep-learning methods work in the image domain, the sinogram domain or both, often with interpretable model-driven designs. Unsupervised approaches, such as polychromatic neural representations and diffusion priors, remove the need for paired metal-free data, which is rarely available clinically.
+    zh:
+      title: "CT 金属伪影校正（MAR）：论文、代码与数据集"
+      description: "CT 金属伪影校正：正弦图修补、双域与字典网络、无监督神经表示与扩散先验，附代码。"
+      intro: |
+        金属伪影校正（MAR）是指去除金属植入物、牙科填充物和手术器械在 CT 图像中造成的明暗条纹。金属对 X 射线的衰减极强，穿过金属的射线会受到射束硬化、光子饥饿、散射和部分容积效应的影响，受损的投影会扩散成贯穿整个层面的条纹。
+
+        它在口腔颌面 CBCT、关节置换和脊柱内固定周围的骨科成像，以及放疗计划中都很重要；在放疗中，条纹会扭曲剂量计算所用的电子密度。
+
+        经典方法用插值替换正弦图中的金属轨迹（线性插值、归一化 MAR），或者迭代地建模多色物理过程。深度学习方法在图像域、正弦图域或两者中工作，常采用可解释的模型驱动设计。多色神经表示、扩散先验等无监督方法不再需要成对的无金属数据，而这类数据在临床上很少能获得。
+
+  # ---------------------------------------------------------------- spectral
+  spectral:
+    match: [spectral, dual-energy, spectra, beam-hardening, cross-sections]
+    start:
+      - id: alvarez-1976
+        en: The paper that introduced energy-selective reconstruction and basis-material decomposition.
+        zh: 提出能量选择性重建与基物质分解的开创性论文。
+      - id: mccollough-2015
+        en: A clear review of the principles, scanner designs and clinical uses of dual- and multi-energy CT.
+        zh: 一篇清晰的综述，介绍双能与多能 CT 的原理、扫描仪设计和临床应用。
+      - id: roessl-2007
+        en: Shows how multi-bin photon-counting detectors enable K-edge imaging of contrast agents.
+        zh: 展示了多能窗光子计数探测器如何实现对比剂的 K 边成像。
+      - id: nlctf
+        en: A representative tensor-factorisation method that exploits correlation across energy channels.
+        zh: 利用各能量通道间相关性的张量分解方法的代表作。
+      - id: soul-net
+        en: An unrolled sparse and low-rank network for spectral CT, with code.
+        zh: 用于能谱 CT 的稀疏与低秩展开网络，附代码。
+    en:
+      title: "Spectral, Dual-Energy and Photon-Counting CT Reconstruction"
+      description: "Spectral and dual-energy CT reconstruction: material decomposition, photon-counting and K-edge imaging, tensor and low-rank models, unrolled networks."
+      intro: |
+        Spectral CT measures X-ray attenuation at two or more energies so that materials with the same conventional CT number can be told apart. Dual-energy scanners use two tube voltages, dual-layer detectors or fast kVp switching; photon-counting detectors sort individual photons into several energy bins.
+
+        The extra information enables material decomposition (for example iodine, calcium and water maps), virtual non-contrast and virtual monoenergetic images, K-edge imaging of contrast agents such as gadolinium, and more accurate quantitative imaging. Uses include oncology, gout and kidney-stone characterisation, and material identification in industrial inspection.
+
+        Reconstruction approaches range from basis-material decomposition and polyenergetic statistical reconstruction to methods that exploit the correlation between energy channels, such as low-rank and tensor models and spectral patch priors, and more recently unrolled networks and neural representations for multi-material reconstruction. Each narrow energy bin is noisy, so reconstructing the bins jointly is the central theme.
+    zh:
+      title: "能谱、双能与光子计数 CT 重建"
+      description: "能谱与双能 CT 重建：物质分解、光子计数与 K 边成像、张量与低秩模型、展开网络。"
+      intro: |
+        能谱 CT 在两个或更多能量下测量 X 射线衰减，从而区分常规 CT 值相同的物质。双能扫描仪使用两种管电压、双层探测器或快速 kVp 切换；光子计数探测器则把单个光子分入多个能量窗。
+
+        额外的能量信息使物质分解（例如碘、钙、水分布图）、虚拟平扫和虚拟单能图像、钆等对比剂的 K 边成像以及更准确的定量成像成为可能。应用包括肿瘤、痛风和肾结石的鉴别，以及工业检测中的材料识别。
+
+        重建方法从基物质分解和多能统计重建，到利用能量通道间相关性的低秩与张量模型、能谱块先验，再到近年用于多物质重建的展开网络和神经表示。每个窄能量窗的噪声都很大，因此对各能量窗进行联合重建是核心主题。
+
+  # -------------------------------------------------------------------- cbct
+  cbct:
+    match: [cbct, cone-beam, FDK]
+    start:
+      - id: fdk-1984
+        en: The FDK algorithm, still the workhorse reconstruction method for circular cone-beam scans.
+        zh: FDK 算法，至今仍是圆轨道锥束扫描的主力重建方法。
+      - id: siewerdsen-2001
+        en: Quantifies how scatter grows with cone angle and object size in flat-panel CBCT, which explains many of its image-quality limits.
+        zh: 定量分析了平板 CBCT 中散射如何随锥角和物体尺寸增大，解释了其许多图像质量限制。
+      - id: sonke-2005
+        en: Introduced respiratory-correlated CBCT on a linear accelerator, the basis of 4D-CBCT in radiotherapy.
+        zh: 在直线加速器上实现了呼吸相关 CBCT，是放疗中 4D-CBCT 的基础。
+      - id: naf
+        en: Neural attenuation fields for sparse-view CBCT, fitted per scan without training data, with code.
+        zh: 用于稀疏视角 CBCT 的神经衰减场，逐扫描拟合、无需训练数据，附代码。
+      - id: dif-gaussian
+        en: Uses 3D Gaussians to carry spatial features for extremely sparse-view CBCT, with code.
+        zh: 用三维高斯承载空间特征，处理极稀疏视角 CBCT，附代码。
+    en:
+      title: "Cone-Beam CT (CBCT) Reconstruction: Papers, Toolkits and Datasets"
+      description: "Cone-beam CT reconstruction: FDK and iterative methods, sparse-view CBCT, scatter and motion correction, 4D-CBCT, synthetic CT, with toolkits and datasets."
+      intro: |
+        Cone-beam CT (CBCT) acquires a full 3D volume from 2D projections recorded by a flat-panel detector as the source and detector rotate around the object, usually in one circular orbit. Compared with helical fan-beam CT it is compact and inexpensive, but it suffers more from scatter, cone-beam artifacts away from the central plane, truncation and motion.
+
+        CBCT is standard in dental and maxillofacial imaging, image-guided radiotherapy (on-board imagers on linear accelerators), interventional C-arm systems and extremity scanners, and is the usual geometry of industrial and micro-CT.
+
+        The FDK algorithm remains the main reconstruction method, with iterative and TV-regularised solvers for sparse or noisy data. Recent work covers sparse-view CBCT with neural attenuation fields and Gaussian splatting, CBCT image enhancement and synthetic CT for adaptive radiotherapy, scatter and motion correction, and 4D-CBCT for breathing motion. Open toolkits such as TIGRE, RTK and the ASTRA Toolbox provide GPU cone-beam projectors.
+    zh:
+      title: "锥束 CT（CBCT）重建：论文、工具库与数据集"
+      description: "锥束 CT 重建：FDK 与迭代方法、稀疏视角 CBCT、散射与运动校正、4D-CBCT、合成 CT，附工具库与数据集。"
+      intro: |
+        锥束 CT（CBCT）在射线源和平板探测器绕物体旋转（通常是一圈圆轨道）时记录二维投影，并由此获得完整的三维体数据。与螺旋扇束 CT 相比，它结构紧凑、成本低，但更容易受到散射、远离中心平面的锥束伪影、截断和运动的影响。
+
+        CBCT 是口腔颌面成像、图像引导放疗（直线加速器上的机载成像）、介入 C 形臂系统和四肢扫描仪的标准配置，也是工业 CT 与显微 CT 的常用几何。
+
+        FDK 算法仍是主要的重建方法，稀疏或含噪数据则使用迭代和 TV 正则化求解器。近期工作涵盖基于神经衰减场和高斯溅射的稀疏视角 CBCT、面向自适应放疗的 CBCT 图像增强与合成 CT、散射与运动校正，以及针对呼吸运动的 4D-CBCT。TIGRE、RTK 和 ASTRA Toolbox 等开源工具库提供 GPU 锥束投影算子。
+
+  # ----------------------------------------------------------------- dynamic
+  dynamic:
+    match: [dynamic, 4D]
+    start:
+      - id: sonke-2005
+        en: Respiratory-correlated CBCT, the starting point of phase-binned 4D-CBCT.
+        zh: 呼吸相关 CBCT，是按时相分箱的 4D-CBCT 的起点。
+      - id: piccs
+        en: Prior image constrained compressed sensing, which reconstructs each time frame from very few views using a prior from all of them.
+        zh: 先验图像约束压缩感知（PICCS），利用由全部数据得到的先验，从极少视角重建每一帧。
+      - id: spare
+        en: The SPARE challenge paper, which compares sparse-view 4D-CBCT methods on a common one-minute-scan benchmark.
+        zh: SPARE 挑战赛论文，在统一的一分钟扫描基准上比较稀疏视角 4D-CBCT 方法。
+      - id: dctr
+        en: Implicit neural representations with a parametric motion field for limited-view 4D-CT, fitted without training data.
+        zh: 结合参数化运动场的隐式神经表示，用于有限视角 4D-CT，无需训练数据。
+      - id: x2-gaussian
+        en: Continuous-time 4D CT with dynamic Gaussian splatting that learns the breathing motion from the projections, with code.
+        zh: 基于动态高斯溅射的连续时间 4D CT，从投影中自监督学习呼吸运动，附代码。
+    en:
+      title: "Dynamic and 4D CT Reconstruction: Papers, Code and Benchmarks"
+      description: "Dynamic and 4D CT reconstruction: 4D-CBCT, respiratory and cardiac motion, perfusion, PICCS, motion-compensated methods, neural fields and 4D Gaussian splatting."
+      intro: |
+        Dynamic and 4D CT reconstructs objects that change during the acquisition, producing a time series of images instead of a single static volume. The change may be periodic, such as breathing and the heartbeat in respiratory-correlated 4D-CBCT and cardiac CT, or aperiodic, as in contrast-agent perfusion and in-situ materials experiments.
+
+        The difficulty is that each time point sees only a small subset of the projections. Phase-binned 4D-CBCT, for example, reconstructs each breathing phase from roughly a tenth of the views, which gives strong streaks; ignoring the motion instead blurs the image.
+
+        Approaches include respiratory sorting with prior-image constraints (PICCS) and spatio-temporal regularisation, motion-compensated reconstruction that estimates a deformation field, and per-scan continuous-time representations such as implicit neural fields with motion warping and 4D Gaussian splatting. The SPARE challenge provides a common benchmark for sparse-view 4D-CBCT.
+    zh:
+      title: "动态与 4D CT 重建：论文、代码与基准"
+      description: "动态与 4D CT 重建：4D-CBCT、呼吸与心脏运动、灌注、PICCS、运动补偿方法、神经场与 4D 高斯溅射。"
+      intro: |
+        动态与 4D CT 是指重建在采集过程中发生变化的物体，得到的是一组随时间变化的图像，而不是单个静态体数据。变化可以是周期性的，比如呼吸相关 4D-CBCT 和心脏 CT 中的呼吸与心跳；也可以是非周期性的，比如对比剂灌注和原位材料实验。
+
+        难点在于每个时间点只能看到一小部分投影。以按时相分箱的 4D-CBCT 为例，每个呼吸时相只用大约十分之一的视角重建，会产生严重的条纹；而忽略运动又会让图像变得模糊。
+
+        方法包括结合先验图像约束（PICCS）和时空正则化的呼吸分选、估计形变场的运动补偿重建，以及逐扫描的连续时间表示，例如带运动形变的隐式神经场和 4D 高斯溅射。SPARE 挑战赛为稀疏视角 4D-CBCT 提供了统一的基准。
+
+  # ----------------------------------------------------------------- scatter
+  scatter:
+    match: [scatter]
+    start:
+      - id: scatter-rev
+        en: Part 1 of the standard review of CBCT scatter correction, covering how an estimate is compensated.
+        zh: CBCT 散射校正标准综述的第一部分，讲如何利用散射估计进行补偿。
+      - id: scatter-rev-p2
+        en: Part 2 of the same review, covering how scatter is estimated in the first place.
+        zh: 同一综述的第二部分，讲散射本身如何估计。
+      - id: siewerdsen-2001
+        en: Measures how much scatter flat-panel CBCT actually records and what it does to contrast.
+        zh: 测量了平板 CBCT 实际记录到的散射有多少，以及它对对比度的影响。
+      - id: zhu-2006
+        en: Primary modulation, a hardware-software method that separates scatter from the primary signal in frequency.
+        zh: 初级射束调制，一种软硬件结合、在频域把散射与初级信号分开的方法。
+      - id: dse
+        en: Deep scatter estimation, the network trained to reproduce Monte Carlo scatter estimates quickly.
+        zh: 深度散射估计（DSE），训练网络快速复现蒙特卡洛散射估计。
+    en:
+      title: "CT Scatter Correction: Papers, Toolkits and Datasets"
+      description: "X-ray scatter correction in CT and cone-beam CT: anti-scatter hardware, primary modulation, Monte Carlo and kernel models, deep scatter estimation."
+      intro: |
+        Scatter correction estimates and removes the X-ray photons that are deflected inside the object and reach the detector off their straight path. Scatter adds a smooth background to the projections, which causes cupping, streaks, lower contrast and inaccurate CT numbers. Its share of the signal grows with cone angle and object size, so it is a major problem in flat-panel cone-beam CT.
+
+        Hardware methods reduce scatter before it is measured (anti-scatter grids, air gaps, collimation) or modulate the primary beam so that the two can be separated (primary modulation, beam-stop arrays). Software methods estimate scatter and subtract it: analytical kernel models, Monte Carlo simulation of photon transport and, since about 2018, deep networks trained to reproduce Monte Carlo estimates in real time.
+
+        It matters wherever quantitative accuracy matters: adaptive radiotherapy on CBCT, dose calculation, dual-energy imaging and industrial metrology.
+    zh:
+      title: "CT 散射校正：论文、工具库与数据集"
+      description: "CT 与锥束 CT 中的 X 射线散射校正：抗散射硬件、初级射束调制、蒙特卡洛与卷积核模型、深度散射估计。"
+      intro: |
+        散射校正是指估计并去除在物体内部发生偏折、偏离直线路径到达探测器的 X 射线光子。散射给投影叠加了一个平缓的背景，导致杯状伪影、条纹、对比度下降和 CT 值不准。散射所占比例随锥角和物体尺寸增大，因此在平板锥束 CT 中尤为严重。
+
+        硬件方法在测量前减少散射（抗散射栅、空气间隙、准直），或调制初级射束以便把两者分开（初级射束调制、射束阻挡阵列）。软件方法估计散射并将其减去：解析卷积核模型、光子输运的蒙特卡洛模拟，以及 2018 年前后出现的、训练用来实时复现蒙特卡洛估计的深度网络。
+
+        凡是看重定量精度的场景都离不开它：基于 CBCT 的自适应放疗、剂量计算、双能成像和工业计量。
+
+  # ---------------------------------------------------------------- geometry
+  geometry:
+    match: [geometry, calibration, distortion, trajectories]
+    start:
+      - id: motion-grad
+        en: Gradient-based head-motion compensation for CBCT using derivatives of the back-projection operator, with code.
+        zh: 利用反投影算子的导数，对 CBCT 做基于梯度的头部运动补偿，附代码。
+      - id: gglf
+        en: Learns the fan-beam acquisition geometry itself by gradient descent through a differentiable reconstruction.
+        zh: 通过可微重建，用梯度下降直接学习扇束采集几何。
+      - id: pdf
+        en: One reconstruction network that takes geometry and dose as inputs, so it works across several acquisition setups.
+        zh: 一个以几何和剂量参数为输入的重建网络，能在多种采集设置下使用。
+      - id: arm-cbct
+        en: Motion estimation for motion-compensated CBCT that stays robust to sparse-view artifacts.
+        zh: 面向运动补偿 CBCT 的运动估计方法，对稀疏视角伪影具有鲁棒性。
+    en:
+      title: "CT Geometry Calibration and Motion Compensation"
+      description: "CT geometry calibration and motion compensation: marker-free self-calibration, rigid and non-rigid motion correction, differentiable geometry and trajectory design."
+      intro: |
+        Geometry calibration and motion compensation correct a reconstruction for errors in the assumed acquisition geometry, that is, where the source, detector and object actually were for each projection. Small misalignments, such as a tilted detector, an offset rotation axis, a flexing gantry or a patient who moves, produce blur, double edges and streaks that no regulariser can remove.
+
+        Calibration can use phantoms with markers, or be marker-free self-calibration that tunes the geometry parameters for data consistency or image sharpness. Motion compensation estimates rigid or non-rigid motion of the object during the scan, which is common in head and extremity CBCT, dental imaging and long industrial scans.
+
+        Recent work makes the reconstruction operator differentiable with respect to the geometry, so pose and calibration parameters can be fitted by gradient descent; closely related are acquisition-trajectory design and view selection. Accurately documented geometry is also what makes measured datasets such as the FIPS and walnut collections valuable.
+    zh:
+      title: "CT 几何标定与运动补偿"
+      description: "CT 几何标定与运动补偿：无标记自标定、刚性与非刚性运动校正、可微几何与扫描轨迹设计。"
+      intro: |
+        几何标定与运动补偿是指校正重建中所假设的采集几何的误差，也就是每个投影时射线源、探测器和物体实际所处的位置。微小的错位，比如探测器倾斜、旋转轴偏移、机架形变或患者移动，都会造成模糊、双边缘和条纹，任何正则项都无法消除。
+
+        标定可以使用带标记点的体模，也可以是无标记的自标定，即以数据一致性或图像锐度为目标调整几何参数。运动补偿估计扫描过程中物体的刚性或非刚性运动，这在头部与四肢 CBCT、口腔成像和长时间的工业扫描中很常见。
+
+        近期工作让重建算子对几何参数可微，从而可以用梯度下降拟合位姿和标定参数；与之密切相关的是采集轨迹设计和视角选择。几何记录准确，也正是 FIPS 和核桃数据集等实测数据有价值的原因。
+
+  # --------------------------------------------------------------- unrolling
+  unrolling:
+    match: [unrolling, learned-iterative, learned-gradient, plug-and-play, primal-dual, differentiable]
+    also:
+      benchmarks: ["DeepInverse benchmark suite"]
+      datasets: ["LoDoPaB-CT"]
+    start:
+      - id: lpd
+        en: Learned Primal-Dual, the reference unrolled network that learns the proximal steps of a primal-dual solver.
+        zh: Learned Primal-Dual，学习原始-对偶求解器近端步骤的经典展开网络。
+      - id: learn
+        en: Unrolls a fields-of-experts iterative scheme for sparse-data CT; one of the first CT-specific unrolled networks.
+        zh: 把专家场迭代方案展开用于稀疏数据 CT，是最早的 CT 专用展开网络之一。
+      - id: fista-net
+        en: Unrolls FISTA with learned thresholds and step sizes, keeping the solver's interpretability, with code.
+        zh: 展开 FISTA 并学习阈值与步长，保留了求解器的可解释性，附代码。
+      - id: indudonet
+        en: A model-driven dual-domain network for metal artifact reduction, a good example of unrolling beyond sparse-view, with code.
+        zh: 用于金属伪影校正的模型驱动双域网络，是稀疏视角之外展开方法的好例子，附代码。
+    en:
+      title: "Deep Unrolling and Model-Based Learning for CT Reconstruction"
+      description: "Deep unrolling and model-based learning for CT: learned primal-dual, learned gradient descent, unrolled FISTA/ADMM, plug-and-play and dual-domain networks."
+      intro: |
+        Deep unrolling turns a classical iterative reconstruction algorithm into a neural network by fixing the number of iterations and learning some of its components, such as step sizes, regularisers or whole proximal operators, from data. Each layer applies the CT forward and back-projection operators, so the network keeps data consistency by construction while learning a prior far richer than a hand-crafted one.
+
+        Typical examples unroll gradient descent (learned gradient descent), primal-dual algorithms (Learned Primal-Dual), ISTA/FISTA, ADMM or fields-of-experts schemes (LEARN). Related model-based approaches include plug-and-play and regularisation-by-denoising, which keep the iterative solver and plug in a trained denoiser, and dual-domain networks that alternate between sinogram and image.
+
+        Unrolled networks are among the most accurate supervised methods for sparse-view, limited-angle, low-dose and metal-artifact problems, and they tend to transfer across acquisition settings better than pure image-to-image networks. The cost is memory and training time, because every layer calls the projector; memory-efficient and 3D unrolling schemes address this.
+    zh:
+      title: "CT 重建中的深度展开与基于模型的学习"
+      description: "CT 深度展开与基于模型的学习：Learned Primal-Dual、学习梯度下降、展开的 FISTA/ADMM、即插即用与双域网络。"
+      intro: |
+        深度展开是指把经典迭代重建算法转换成神经网络：固定迭代次数，并从数据中学习其中的部分组件，比如步长、正则项或整个近端算子。每一层都调用 CT 的前向投影和反投影算子，因此网络在结构上就保证了数据一致性，同时学到比手工设计丰富得多的先验。
+
+        典型例子展开的是梯度下降（学习梯度下降）、原始-对偶算法（Learned Primal-Dual）、ISTA/FISTA、ADMM 或专家场方案（LEARN）。相关的基于模型的方法还包括即插即用（plug-and-play）和去噪正则化（RED），它们保留迭代求解器、插入训练好的去噪器，以及在正弦图与图像之间交替的双域网络。
+
+        在稀疏视角、有限角、低剂量和金属伪影问题上，展开网络是精度最高的监督方法之一，并且往往比纯粹的图像到图像网络更能适应不同的采集设置。代价是显存和训练时间，因为每一层都要调用投影算子；显存高效的展开和三维展开方案正是为此而提出的。
+
+  # --------------------------------------------------------- self-supervised
+  self-supervised:
+    match: [self-supervised]
+    also:
+      toolkits: ["torch-radon", "tomosipo"]
+      datasets: ["Walnut-21 (two dose levels)"]
+    start:
+      - id: dip
+        en: Applies the deep image prior to low-dose and sparse-angle CT with small training sets, with a benchmark codebase.
+        zh: 在小训练集条件下把深度图像先验用于低剂量和稀疏角度 CT，附基准代码。
+      - id: n2s
+        en: Trains a low-dose reconstruction network from the noisy measurements alone, without full-dose targets.
+        zh: 只用含噪测量训练低剂量重建网络，无需全剂量目标图像。
+      - id: intratomo
+        en: Represents the density field as a network fitted to an incomplete sinogram, refined with geometric priors, with code.
+        zh: 把密度场表示为拟合不完整正弦图的网络，并用几何先验细化，附代码。
+      - id: super
+        en: Unifies supervised and unsupervised learning inside model-based iterative reconstruction.
+        zh: 在基于模型的迭代重建中统一监督学习与无监督学习。
+    en:
+      title: "Self-Supervised and Untrained Methods for CT Reconstruction"
+      description: "Self-supervised and untrained CT reconstruction and denoising without paired data: Noise2Noise-style training, deep image prior, per-scan neural fields."
+      intro: |
+        Self-supervised and untrained methods reconstruct or denoise CT images without paired clean ground truth. They exploit structure in the measurements themselves, such as independent noise in repeated or split data, consistency with the measured sinogram or invariance to transformations, or the implicit bias of an untrained network.
+
+        They matter because clean, paired training data are scarce in CT: a patient cannot be scanned twice at full and low dose for research, metal-free versions of implant scans do not exist, and industrial and synchrotron data rarely come with references.
+
+        The main families are Noise2Noise-style denoising trained on noisy data alone; the deep image prior and other untrained networks fitted to a single scan; per-scan neural fields that represent the volume and fit the measured projections; equivariant-imaging losses; and hybrid supervised-unsupervised schemes. They avoid training-set bias but are usually slower at test time and need careful early stopping or regularisation.
+    zh:
+      title: "CT 重建中的自监督与免训练方法"
+      description: "无需成对数据的自监督与免训练 CT 重建和去噪：Noise2Noise 类训练、深度图像先验、逐扫描神经场。"
+      intro: |
+        自监督与免训练方法是指在没有成对干净真值的情况下重建或去噪 CT 图像。它们利用测量数据本身的结构，比如重复或拆分数据中相互独立的噪声、与实测正弦图的一致性、对变换的不变性，或者未经训练的网络本身的隐式偏置。
+
+        它们之所以重要，是因为 CT 中干净的成对训练数据很稀缺：不能为了研究让患者分别在全剂量和低剂量下各扫一次，植入物扫描也不存在无金属版本，工业和同步辐射数据也很少附带参考图像。
+
+        主要方法族有：只用含噪数据训练的 Noise2Noise 类去噪；拟合单次扫描的深度图像先验及其他免训练网络；表示体数据并拟合实测投影的逐扫描神经场；等变成像损失；以及监督与无监督混合的方案。它们避免了训练集偏差，但测试时通常更慢，并需要谨慎的提前停止或正则化。
+
+  # --------------------------------------------------------------- diffusion
+  diffusion:
+    match: []
+    also:
+      datasets: ["LoDoPaB-CT", "LDCT-and-Projection-data", "AAPM DL-Sparse-View CT data"]
+      benchmarks: ["AAPM DL-Sparse-View CT Challenge"]
+      toolkits: ["DeepInverse", "torch-radon"]
+    start:
+      - id: dm4ct
+        en: A benchmark of diffusion models against established CT reconstruction methods, with code; the best place to calibrate expectations.
+        zh: 把扩散模型与成熟 CT 重建方法放在一起比较的基准，附代码；校准预期的最佳起点。
+      - id: diffmed
+        en: A survey of diffusion models in medical imaging that explains the three main formulations clearly.
+        zh: 医学影像中扩散模型的综述，清楚地讲解了三种主要形式。
+      - id: 3dip
+        en: Shows how a pre-trained 2D diffusion model can solve 3D CT problems with a model-based prior along the third axis.
+        zh: 展示了如何借助第三个方向上基于模型的先验，用预训练的二维扩散模型求解三维 CT 问题。
+      - id: dolce-2023
+        en: A conditional diffusion prior with model-based data consistency for limited-angle CT, tested on real data.
+        zh: 用于有限角 CT、结合基于模型的数据一致性的条件扩散先验，在真实数据上做了测试。
+      - id: dudodp-mar
+        en: Unsupervised metal artifact reduction with diffusion priors in both domains, with code.
+        zh: 在双域中使用扩散先验的无监督金属伪影校正，附代码。
+    en:
+      title: "Diffusion Models and Generative Priors for CT Reconstruction"
+      description: "Diffusion models and generative priors for CT reconstruction: posterior sampling, plug-and-play diffusion, sparse-view, limited-angle, low-dose and MAR."
+      intro: |
+        Diffusion and generative priors use a model trained to generate realistic CT images, such as a score-based or denoising diffusion model, as the prior in tomographic reconstruction. The generative model captures what plausible anatomy or objects look like, and consistency with the measured projections is enforced during sampling or by alternating with a physics-based solver.
+
+        They are applied to sparse-view and limited-angle CT, low-dose denoising, metal artifact reduction and CBCT enhancement. A practical attraction is flexibility: one unconditional model trained on images can be reused for different acquisition settings, because the forward operator only enters at reconstruction time.
+
+        Approaches include posterior sampling with gradient guidance, plug-and-play diffusion inside ADMM or other splitting schemes, conditional and bridge models trained on paired data, latent diffusion, and 2D models extended to 3D with cross-slice regularisation. Known challenges are sampling speed, hallucinated structure under severe undersampling and the gap between simulated and measured data.
+    zh:
+      title: "CT 重建中的扩散模型与生成式先验"
+      description: "CT 重建中的扩散模型与生成式先验：后验采样、即插即用扩散，用于稀疏视角、有限角、低剂量与金属伪影校正。"
+      intro: |
+        扩散与生成式先验是指把训练来生成逼真 CT 图像的模型（例如分数模型或去噪扩散模型）用作层析重建中的先验。生成模型刻画了合理的解剖结构或物体应有的样子，而与实测投影的一致性则在采样过程中施加，或通过与基于物理的求解器交替来实现。
+
+        它们被用于稀疏视角和有限角 CT、低剂量去噪、金属伪影校正以及 CBCT 增强。一个实际的吸引力在于灵活：在图像上训练的同一个无条件模型可以复用于不同的采集设置，因为前向算子只在重建时才引入。
+
+        方法包括带梯度引导的后验采样、嵌入 ADMM 等分裂方案中的即插即用扩散、在成对数据上训练的条件模型和桥模型、潜空间扩散，以及通过跨层正则化把二维模型扩展到三维。已知的挑战有采样速度、严重欠采样时“幻觉”出的结构，以及模拟数据与实测数据之间的差距。
+
+  # --------------------------------------------------------------------- inr
+  inr:
+    match: [differentiable]
+    also:
+      toolkits: ["TIGRE"]
+      datasets: ["Finnish Inverse Problems Society (FIPS) datasets", "FleX-ray Walnut CBCT Collection (CWI)"]
+    start:
+      - id: naf
+        en: Neural attenuation fields with hash encoding, the standard INR baseline for sparse-view CBCT, with code.
+        zh: 采用哈希编码的神经衰减场，是稀疏视角 CBCT 的标准 INR 基线，附代码。
+      - id: sax-nerf
+        en: A structure-aware neural radiodensity field with a line-segment transformer backbone, with code.
+        zh: 以线段 Transformer 为骨干的结构感知神经辐射密度场，附代码。
+      - id: dctr
+        en: Extends INRs to rapidly deforming scenes with a parametric motion field for 4D-CT.
+        zh: 借助参数化运动场把 INR 扩展到快速形变的 4D-CT 场景。
+      - id: polyner
+        en: A polychromatic INR that models metal physics for unsupervised metal artifact reduction, with code.
+        zh: 建模金属物理过程的多色 INR，用于无监督金属伪影校正，附代码。
+      - id: piner
+        en: Uses an INR for test-time adaptation of sparse-view CT models under unknown noise, with code.
+        zh: 利用 INR 在未知噪声下对稀疏视角 CT 模型做测试时自适应，附代码。
+    en:
+      title: "Implicit Neural Representations (INR / NeRF) for CT Reconstruction"
+      description: "Implicit neural representations and NeRF-style neural attenuation fields for CT: sparse-view CBCT, limited-angle, 4D-CT and metal artifact reduction."
+      intro: |
+        Implicit neural representations (INRs) represent the unknown CT volume as a coordinate-based neural network that maps a 3D (or 3D plus time) position to an attenuation value, and fit that network so that its simulated projections match the measured ones. The network is the image; reconstruction is per-scan optimisation rather than inference with a pre-trained model.
+
+        Because the representation is continuous and fitted to each scan, INRs need no training data and handle sparse-view, limited-angle and dynamic acquisitions naturally; multiresolution hash encodings make them fast enough for cone-beam volumes. Methods in this family are often called neural attenuation fields or NeRF-style X-ray methods.
+
+        Current work focuses on encodings and architectures that reduce over-smoothing or noise fitting, priors from pre-trained or diffusion models, motion fields for 4D-CT, polychromatic forward models for metal artifacts, and uncertainty quantification. Gaussian splatting is a closely related explicit alternative and has its own topic page.
+    zh:
+      title: "CT 重建中的隐式神经表示（INR / NeRF）"
+      description: "用于 CT 的隐式神经表示与 NeRF 式神经衰减场：稀疏视角 CBCT、有限角、4D-CT 与金属伪影校正。"
+      intro: |
+        隐式神经表示（INR）是指把待求的 CT 体数据表示为一个坐标网络，把三维（或三维加时间）位置映射为衰减值，并拟合该网络，使其模拟投影与实测投影一致。网络本身就是图像；重建是逐扫描的优化，而不是用预训练模型做推理。
+
+        由于表示是连续的、针对每次扫描拟合，INR 不需要训练数据，能自然地处理稀疏视角、有限角和动态采集；多分辨率哈希编码使其速度足以处理锥束体数据。这一类方法常被称为神经衰减场或 NeRF 式 X 射线方法。
+
+        当前工作集中在：减少过度平滑或拟合噪声的编码与网络结构、来自预训练模型或扩散模型的先验、用于 4D-CT 的运动场、用于金属伪影的多色前向模型，以及不确定性量化。高斯溅射是与之密切相关的显式替代方案，有单独的主题页。
+
+  # ---------------------------------------------------------------- gaussian
+  gaussian:
+    match: [differentiable]
+    also:
+      toolkits: ["TIGRE"]
+      datasets: ["Finnish Inverse Problems Society (FIPS) datasets"]
+    start:
+      - id: x-gaussian
+        en: Radiative Gaussian splatting for X-ray novel-view synthesis, the first adaptation of 3DGS to X-ray imaging, with code.
+        zh: 用于 X 射线新视角合成的辐射高斯溅射，是 3DGS 在 X 射线成像上的首个适配，附代码。
+      - id: r2-gaussian
+        en: Rectifies the splatting so it is consistent for tomography, the first 3DGS framework for sparse-view reconstruction, with code.
+        zh: 修正溅射过程使其适用于层析，是首个用于稀疏视角重建的 3DGS 框架，附代码。
+      - id: dif-gaussian
+        en: Uses 3D Gaussians as a feature representation for extremely sparse-view CBCT, with code.
+        zh: 把三维高斯用作特征表示，处理极稀疏视角 CBCT，附代码。
+      - id: x2-gaussian
+        en: Extends radiative Gaussian splatting to continuous-time 4D CT, with code.
+        zh: 把辐射高斯溅射扩展到连续时间 4D CT，附代码。
+      - id: fact-gs-fast-and-scalable-ct-reconstruction-with-gaussian-sp
+        en: A fast, scalable Gaussian-splatting CT reconstruction aimed at large volumes, with code.
+        zh: 面向大体积数据的快速、可扩展高斯溅射 CT 重建，附代码。
+    en:
+      title: "Gaussian Splatting for CT Reconstruction: Papers and Code"
+      description: "3D Gaussian splatting for CT and X-ray tomography: radiative Gaussians, sparse-view CBCT, 4D CT, metal artifact reduction, with code."
+      intro: |
+        Gaussian splatting for CT represents the volume as a set of explicit 3D Gaussian primitives, each with a position, shape and density, and optimises them so that their rendered X-ray projections match the measurements. It is adapted from 3D Gaussian splatting for photographic novel-view synthesis, replacing the emission-and-occlusion model with an attenuation model suited to transmission imaging.
+
+        Compared with implicit neural representations, the explicit primitives rasterise quickly on the GPU, so per-scan reconstruction can take minutes rather than hours, and the representation concentrates detail where the object needs it. Its main use so far is sparse-view CT and CBCT, with extensions to 4D respiratory imaging and metal artifact reduction.
+
+        Key technical issues are making the splatting integration exact enough for tomography, handling pose errors, initialisation from FBP or learned priors, and scaling to large volumes. The papers here range from X-ray novel-view synthesis to exact and scalable tomographic formulations.
+    zh:
+      title: "CT 重建中的高斯溅射：论文与代码"
+      description: "用于 CT 与 X 射线层析的三维高斯溅射：辐射高斯、稀疏视角 CBCT、4D CT、金属伪影校正，附代码。"
+      intro: |
+        CT 中的高斯溅射是指把体数据表示为一组显式的三维高斯基元，每个基元有位置、形状和密度，并优化这些基元，使其渲染出的 X 射线投影与测量一致。它改编自用于照片新视角合成的三维高斯溅射，把发射与遮挡模型换成了适合透射成像的衰减模型。
+
+        与隐式神经表示相比，显式基元在 GPU 上光栅化很快，逐扫描重建可以从数小时缩短到数分钟，而且表示会把细节集中在物体需要的地方。目前主要用于稀疏视角 CT 和 CBCT，并已扩展到 4D 呼吸成像和金属伪影校正。
+
+        关键技术问题包括：让溅射积分对层析足够精确、处理位姿误差、从 FBP 或学习先验初始化，以及扩展到大体积数据。这里的论文从 X 射线新视角合成一直覆盖到精确且可扩展的层析建模。

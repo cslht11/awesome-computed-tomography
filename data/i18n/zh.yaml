@@ -586,6 +586,26 @@ pages:
     <h2>引用</h2>
     <p>本列表持续变动，因此请引用固定快照：仓库 URL 连同提交哈希，或页面 URL 连同你的访问日期。</p>
 
+    <h2 id="topics">按主题浏览</h2>
+    <p>每个主题都有单独的页面，包括一段简短介绍、一份入门阅读清单、该主题的最新论文，以及与之配套的数据集和工具库。</p>
+    {{TOPIC_LINKS}}
+
+    <h2 id="faq">常见问题</h2>
+    <section class="faq">
+    <h3>稀疏视角 CT 用哪些数据集最好？</h3>
+    <p>最常用的是 LoDoPaB-CT 和 Mayo Clinic 的 LDCT-and-Projection-data（从中模拟稀疏正弦图），以及 AAPM DL-Sparse-View CT 挑战赛数据（用无噪声的 128 视角正弦图把稀疏视角问题单独剥离出来）。如果需要实测而非模拟的数据，可以用 2DeteCT、FleX-ray 核桃数据集或 SparseBeads。<a href="{{ROOT}}topics/sparse-view/">稀疏视角 CT 主题页</a>把它们与关键论文列在一起，<a href="{{ROOT}}?tab=datasets">数据集表格</a>收录了全部 {{N_DATASETS}} 个数据集。</p>
+    <h3>低剂量 CT 研究常用哪些开源工具库？</h3>
+    <p>重建方面，ASTRA Toolbox、TIGRE、ODL 和 Core Imaging Library（CIL）提供投影算子和迭代求解器，DeepInverse 和 LION 则在 PyTorch 中提供学习型方法和展开方法。若要从全剂量图像生成逼真的低剂量数据，可以用 LD-CT simulator。详见<a href="{{ROOT}}topics/low-dose/">低剂量 CT 主题页</a>和<a href="{{ROOT}}?tab=toolkits">工具库表格</a>。</p>
+    <h3>条目如何核验？</h3>
+    <p>每条论文链接都对照 Crossref、arXiv 或出版方自身的记录解析，并与该记录的标题比对，每个 URL 也都经过检查。发表出处以 DOI 为准，没有同行评审出处的论文标记为预印本。这些检查能发现失效链接和记录不匹配，但无法发现所有错误；重要细节请以原始论文为准。</p>
+    <h3>列表多久更新一次？</h3>
+    <p>列表持续更新，最近一次内容更新是 {{UPDATED}}。新论文、更正的发表出处和修复的链接在核对后随时加入，README、data.json 和本站在每次变更时都由同一份源文件重新生成。</p>
+    <h3>如何引用本列表？</h3>
+    <p>请引用固定快照，因为列表持续变动：仓库 URL（{{REPO_URL}}）连同提交哈希，或页面 URL 连同你的访问日期。如果要引用在这里找到的方法，请改为引用原始论文。</p>
+    <h3>如何推荐论文或报告错误？</h3>
+    <p>按<a href="{{ROOT}}contact/">联系页面</a>的说明，提交 GitHub issue 或发送邮件。推荐论文时，请提供 DOI 或 arXiv 链接，如有代码仓库也一并附上，并说明它属于哪个<a href="#topics">主题</a>。本列表不接受外部 pull request，每条建议都会先经核对再决定是否收录。</p>
+    </section>
+
   contact: |-
     <p class="kicker">联系</p>
     <h1>联系</h1>
