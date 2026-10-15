@@ -876,6 +876,9 @@ radioactive-3d-gaussian-ray-tracing-for-tomographic-reconstr: >-
 radon-1917: >-
   This 1917 paper defines the line-integral transform: it asks whether a function can be uniquely recovered from its integrals along lines, and gives the inversion for the two-dimensional case with generalizations.
 
+radon-transforms-aleksandrov-fenchel: >-
+  We study Radon transforms on Grassmannians as geometric operators on convex bodies, relating Minkowski's projection body maps to Goodey-Weil mean section body maps. We prove new Aleksandrov-Fenchel inequalities for averages of mixed volumes, showing all intrinsic volumes of mean section bodies are log-concave.
+
 ram: >-
   In this work, we propose a novel non-iterative, lightweight architecture that incorporates knowledge about the forward operator (acquisition physics and noise parameters) without relying on unrolling.
 
