@@ -32,7 +32,7 @@ PyYAML.
 | `data/i18n/zh.yaml` | yes | Chinese overlay. Looked up first for `zh`; missing keys fall back to English. |
 | `scripts/export_site_data.py` | yes | `data/*.yaml` -> the JSON payload. Also usable on its own. |
 | `scripts/build_site.py` | yes | Assembles templates + payload + origin into `site/`, once per language. |
-| `scripts/changelog.py` | yes | Parses `CHANGELOG.md` into dated entries (newest first) and renders them for `/changelog/` and `/zh/changelog/`. Fails the build on an undated `##` heading or a date more than a day in the future. |
+| `scripts/changelog.py` | yes | Parses `CHANGELOG.md` into dated entries (newest first) and renders them for `/changelog/` and `/zh/changelog/`. Fails the build on an undated `##` heading or a date more than a day in the future. The Chinese edition reads each entry's translation from `CHANGELOG.zh-CN.md`, matched by date and the `<!-- en: … -->` title line; an untranslated entry falls back to English (marked `lang="en"`, with a note on the page), and a translation whose English entry no longer exists fails the build. |
 | `site/` | **no** | Build output. Git-ignored. Delete it freely; it is regenerated. |
 
 The licence in the page footer, the JSON-LD `license` field and the

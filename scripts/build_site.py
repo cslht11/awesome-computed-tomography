@@ -698,17 +698,38 @@ def faq_jsonld(html_):
 
 # ---------------------------------------------------------- changelog page
 # /changelog/ and /zh/changelog/, generated from CHANGELOG.md on every build
-# (scripts/changelog.py parses it). The entries are written in English and are
-# shown in English on both editions; the page chrome is translated.
+# (scripts/changelog.py parses it). The entries are written in English; a
+# translated edition reads each entry's translation from that language's
+# CHANGELOG.<suffix>.md (e.g. CHANGELOG.zh-CN.md) and shows any entry not yet
+# translated in English, with a note saying how many.
 CHANGELOG_PATH = "changelog/"
 
 
-def render_changelog_body(entries, code, ov, strings, cfg):
+def changelog_for(entries, entry):
+    """(entries for this language, number left in English)."""
+    if entry["code"] == i18n.SOURCE:
+        return entries, 0
+    path = os.path.join(ROOT, entry["changelog"])
+    try:
+        out, missing = changelog.translate(
+            entries, changelog.load_translations(path), entry["html"], path)
+    except changelog.ChangelogError as e:
+        sys.exit(str(e))
+    return out, len(missing)
+
+
+def render_changelog_body(entries, code, ov, strings, cfg, page_lang=None, untranslated=0,
+                          translation_file=None):
     first, latest = entries[-1]["date"].isoformat(), entries[0]["date"].isoformat()
     src = '<a href="%s/blob/main/CHANGELOG.md" target="_blank" rel="noopener"><code>CHANGELOG.md</code></a>' % esc(cfg["repo_url"])
+    # A translated edition also links its translation file ({translation}).
+    tsrc = ""
+    if translation_file:
+        tsrc = ('<a href="%s/blob/main/%s" target="_blank" rel="noopener"><code>%s</code></a>'
+                % (esc(cfg["repo_url"]), esc(translation_file), esc(translation_file)))
     counts = esc(ov.ui("changelogEntries")).replace("{n}", str(len(entries))) \
         .replace("{first}", first).replace("{latest}", latest)
-    body = changelog.render_entries(entries, cfg["repo_url"])
+    body = changelog.render_entries(entries, cfg["repo_url"], page_lang)
     # The entries quote template placeholders such as {{N_PAPERS}} in code
     # spans; neutralise every brace so the page substitution leaves them alone.
     body = body.replace("{", "&#123;").replace("}", "&#125;")
@@ -717,10 +738,12 @@ def render_changelog_body(entries, code, ov, strings, cfg):
            '<a href="{{ROOT}}">%s</a> / %s</p></nav>' % (esc(strings.get("home", "Home")), esc(title)),
            "<h1>%s</h1>" % esc(title),
            '<p class="lede">%s</p>' % esc(ov.ui("changelogLede")),
-           "<p>%s %s</p>" % (esc(ov.ui("changelogSource")).replace("{source}", src), counts),
-           '<div class="changelog"%s>' % ("" if code == i18n.SOURCE else ' lang="en"'),
-           body,
-           "</div>"]
+           "<p>%s %s</p>" % (esc(ov.ui("changelogSource")).replace("{source}", src)
+                             .replace("{translation}", tsrc), counts)]
+    if untranslated:
+        out.append("<p>%s</p>" % esc(ov.ui("changelogUntranslated"))
+                   .replace("{n}", str(untranslated)))
+    out += ['<div class="changelog">', body, "</div>"]
     return "\n".join(out)
 
 
@@ -982,7 +1005,10 @@ def main():
 
         cl_url = lang_base + CHANGELOG_PATH
         cl_desc = re.sub(r"\s+", " ", fill(ov.ui("pageChangelogDesc"), shared)).strip()
-        html_ = (tpl.replace("{{BODY}}", render_changelog_body(cl_entries, code, ov, strings, cfg))
+        cl_lang, cl_untranslated = changelog_for(cl_entries, entry)
+        html_ = (tpl.replace("{{BODY}}", render_changelog_body(
+                     cl_lang, code, ov, strings, cfg, entry["html"], cl_untranslated,
+                     None if code == i18n.SOURCE else entry["changelog"]))
                  .replace("{{PAGE_TITLE}}", esc(ov.ui("pageChangelogTitle", "Changelog")))
                  .replace("{{PAGE_DESC}}", esc(cl_desc))
                  .replace("{{PAGE_URL}}", esc(cl_url))

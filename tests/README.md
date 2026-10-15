@@ -16,7 +16,9 @@ node tests/test_site_dom.js        # local only; needs jsdom
 Checks the homepage `DataCatalog` JSON-LD (English and Chinese) against the
 live `data.json` — counts, `dateModified`, the Organization reference — and the
 `/changelog/` pages: canonical, hreflang, `BreadcrumbList`, every
-`CHANGELOG.md` entry listed newest first, and presence in `sitemap.xml`,
+`CHANGELOG.md` entry listed newest first, every `CHANGELOG.zh-CN.md`
+translation shown on `/zh/changelog/` (untranslated entries fall back to
+English, and the page says how many), and presence in `sitemap.xml`,
 `llms.txt` and the About page body. No dependencies, so it runs in
 `validate.yml`.
 

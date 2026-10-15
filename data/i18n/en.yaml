@@ -195,6 +195,7 @@ ui:
   changelogLede: "Every change to the list and to this site, newest first. The list does not tag releases: it is refined continuously, so changes are recorded by date rather than by version. To cite a fixed snapshot, use a commit hash."
   changelogSource: "This page is generated from {source} in the repository on every build."
   changelogEntries: "{n} entries, from {first} to {latest}."
+  changelogUntranslated: "{n} entries have not been translated yet and are shown in English."
   # Homepage DataCatalog JSON-LD. Counts are filled from the live data, and
   # every sentence must stay true of what the homepage itself shows.
   ldPapersName: "CT reconstruction papers"

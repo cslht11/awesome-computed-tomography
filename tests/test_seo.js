@@ -122,7 +122,7 @@ for (const L of LANGS) {
   ok("BreadcrumbList ends at this page", !!crumbs &&
      crumbs.itemListElement[crumbs.itemListElement.length - 1].item === url &&
      crumbs.itemListElement[0].item === base);
-  const dates = [...page.matchAll(/<article class="cl-entry" id="[^"]+">\s*<h2><a href="#[^"]+"><time datetime="(\d{4}-\d{2}-\d{2})">/g)]
+  const dates = [...page.matchAll(/<article class="cl-entry" id="[^"]+"(?: lang="[^"]+")?>\s*<h2><a href="#[^"]+"><time datetime="(\d{4}-\d{2}-\d{2})">/g)]
     .map((m) => m[1]);
   ok("every CHANGELOG.md entry is listed", dates.length === clDates.length,
      dates.length + " of " + clDates.length);
@@ -130,6 +130,27 @@ for (const L of LANGS) {
   ok("same multiset of dates as CHANGELOG.md",
      JSON.stringify([...dates].sort()) === JSON.stringify([...clDates].sort()));
   ok("no template placeholder leaked", !/\{\{[A-Z_]+\}\}/.test(page));
+  const fallback = (page.match(/<article class="cl-entry" id="[^"]+" lang="en">/g) || []).length;
+  if (L.code === "en") {
+    ok("English entries carry no lang override", !/class="cl-entry" id="[^"]+" lang=/.test(page));
+  } else {
+    // Translated entries are matched by date + English title; every heading in
+    // CHANGELOG.zh-CN.md must reach the page, and only untranslated entries
+    // may fall back to English, with the page saying how many.
+    const zhHeads = fs.readFileSync(path.join(REPO, "CHANGELOG.zh-CN.md"), "utf8")
+      .split("\n").filter((l) => l.startsWith("## ")).map((l) => l.slice(3).replace(/^\S+\s+\S+\s+/, ""));
+    const shown = [...page.matchAll(/<time datetime="[^"]+">[^<]+<\/time><\/a> \u2014 ([^<]*)<\/h2>/g)].map((m) => m[1]);
+    const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const plain = (h) => esc(h.replace(/`([^`]+)`/g, "$1"));
+    const strip = (h) => h.replace(/<[^>]+>/g, "");
+    ok("every translated entry is shown in Chinese",
+       zhHeads.every((h) => shown.map(strip).includes(plain(h))), zhHeads.length + " translations");
+    ok("translated + English fallbacks = all entries",
+       zhHeads.length + fallback === clDates.length, zhHeads.length + " + " + fallback + " of " + clDates.length);
+    ok("untranslated note shown only when something falls back",
+       (fallback > 0) === page.includes("暂以英文显示"));
+    ok("no blanket 'entries are in English' notice", !page.includes("各条目以英文记录"));
+  }
   ok("in sitemap.xml", sitemap.includes("<loc>" + url + "</loc>"));
   ok("in llms.txt", llms.includes(url));
   const about = read(L.prefix + "about/index.html");

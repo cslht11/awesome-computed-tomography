@@ -46,6 +46,7 @@ Two failure modes are treated very differently on purpose:
 
 import io
 import os
+import re
 
 try:
     import yaml
@@ -220,6 +221,11 @@ def languages(meta):
         # language, "<code>/" for the others.
         e.setdefault("path", "" if code == SOURCE else "%s/" % code)
         e.setdefault("readme", "README.md" if code == SOURCE else "README.%s.md" % code)
+        # The translated changelog sits beside the translated README and takes
+        # its suffix (README.zh-CN.md -> CHANGELOG.zh-CN.md). It is optional:
+        # scripts/changelog.py falls back to English for anything missing.
+        e.setdefault("changelog", "CHANGELOG.md" if code == SOURCE
+                     else re.sub(r"^README", "CHANGELOG", e["readme"]))
         out.append(e)
     if out and not any(e.get("default") for e in out):
         out[0]["default"] = True

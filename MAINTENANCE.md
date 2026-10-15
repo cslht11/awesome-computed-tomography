@@ -22,7 +22,7 @@ awesome-computed-tomography/
 │   ├── build.py                 data/*.yaml -> both READMEs, and the validator
 │   ├── build_site.py            templates + payload + origin -> site/<lang>/
 │   ├── export_site_data.py      the JSON payload on its own (build_site uses it too)
-│   ├── changelog.py             CHANGELOG.md -> dated entries for /changelog/
+│   ├── changelog.py             CHANGELOG.md (+ its translation) -> /changelog/
 │   ├── i18n.py                  overlay lookup and the orphan-key checker
 │   ├── check_links.py           link-health sweep; writes into scripts/oneoff/
 │   ├── install-hooks.sh         copies hooks/ into .git/hooks/ (see below)
@@ -43,6 +43,7 @@ awesome-computed-tomography/
 ├── requirements.txt             PyYAML, and nothing else
 ├── README.md, README.zh-CN.md   GENERATED — never edit by hand
 ├── CHANGELOG.md                 what changed, dated; no version numbers
+├── CHANGELOG.zh-CN.md           its Chinese translation, for /zh/changelog/
 ├── MAINTENANCE.md, SITE.md      this file, and how the site is put together
 ├── LICENSE (MIT)                code
 └── LICENSE-content (CC)         the records and the prose
@@ -441,7 +442,7 @@ serves, and the gap only shows up as a stale number somewhere.
 | 4 | Run `python scripts/build.py` | Rewrites both READMEs and re-validates | Both READMEs keep the previous count while the data has moved on |
 | 5 | Run `python scripts/build_site.py` | Rewrites `site/`, including `data.json`, `sitemap.xml` and the cover counts | Local preview stale — harmless locally, but it is how you notice step 4 was skipped |
 | 6 | Run `node tests/test_search.js` | The search index is built from the payload in the browser | Nothing breaks; you just stop noticing when it does |
-| 7 | Add a dated entry to `CHANGELOG.md` | There are no version numbers, so the changelog *is* the history | The change is invisible to anyone not reading diffs |
+| 7 | Add a dated entry to `CHANGELOG.md`, and its translation to `CHANGELOG.zh-CN.md` (same date, `<!-- en: English title -->` under the heading; `python scripts/changelog.py --status CHANGELOG.zh-CN.md` lists what is missing) | There are no version numbers, so the changelog *is* the history | The change is invisible to anyone not reading diffs; without the translation, `/zh/changelog/` shows that entry in English |
 | 8 | Commit as cslht11 and push | `hooks/pre-push` refuses any commit that is not | Push rejected |
 | 9 | Wait for `validate` **and** `Deploy site to GitHub Pages` | Two workflows; only the second one publishes | GitHub is ahead of the website |
 | 10 | Confirm the live `data.json` counts match the local build | The one check no hook can do, because it is the only one that sees what GitHub actually computed | — |

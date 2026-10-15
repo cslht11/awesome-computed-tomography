@@ -18,7 +18,26 @@ indented continuation lines and paragraphs), ``code``, **bold**, *italics*,
 [links](url) and <https://autolinks>. No dependencies beyond the standard
 library.
 
+Translations
+------------
+A translated edition of the page reads ``CHANGELOG.<suffix>.md`` (the suffix
+of that language's README, e.g. ``CHANGELOG.zh-CN.md``). It has the same
+``## YYYY-MM-DD — Title`` headings, in the target language, and the first
+line under each heading names the English entry it translates:
+
+    ## 2026-10-12 — 搜索、排序与语言切换的修复
+    <!-- en: Search, sorting and language-switch fixes -->
+
+An entry is matched by its date plus that English title, so reordering
+either file, or adding several entries on one day, never mismatches them.
+An English entry with no translation is shown in English (and marked
+``lang="en"``); a translation whose English entry no longer exists - because
+the English title was edited, say - fails the build, so a stale translation
+cannot linger unnoticed.
+
     python scripts/changelog.py          # print the parsed entry list
+    python scripts/changelog.py --status CHANGELOG.zh-CN.md
+                                         # which entries still lack a translation
 """
 
 import datetime
@@ -31,6 +50,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHANGELOG = os.path.join(ROOT, "CHANGELOG.md")
 
+EN_REF_RE = re.compile(r"^<!--\s*en:\s*(.+?)\s*-->\s*$")
 HEAD_RE = re.compile(r"^## (\d{4}-\d{2}-\d{2})\s+[\u2014\u2013-]+\s+(.+?)\s*$")
 
 
@@ -82,10 +102,38 @@ def inline(text, repo_url=None):
     return re.sub(r"\x00(\d+)\x00", lambda m: stash[int(m.group(1))], t)
 
 
+_WORD = r"(?![\u3400-\u4dbf\u4e00-\u9fff])\w"
+
+
 def _inline_rest(t):
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
-    t = re.sub(r"(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])", r"<em>\1</em>", t)
+    # *italics* may not touch a letter or digit (so a*b stays literal), but
+    # may touch a Chinese character, which has no spaces to set it apart.
+    t = re.sub(r"(?<!\*)(?<!%s)\*(?!\s)(.+?)(?<!\s)\*(?!\*)(?!%s)" % (_WORD, _WORD),
+               r"<em>\1</em>", t)
     return t
+
+
+# A line break inside a paragraph is normally a space. Chinese text is not
+# space-separated, so a break between two ideographs, or next to full-width
+# punctuation, takes none; a break between Chinese and Latin text keeps its
+# space, which is how the Chinese prose in this repository spaces mixed text.
+_IDEO = "\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff"
+_PUNCT = "\u3000-\u303f\uff00-\uffef"
+
+
+def join_lines(lines):
+    """Join the wrapped lines of one paragraph (see the note above)."""
+    out = ""
+    for ln in lines:
+        if out:
+            a, b = out[-1], ln[:1]
+            ideo = re.match("[%s]" % _IDEO, a) and re.match("[%s]" % _IDEO, b)
+            punct = re.match("[%s]" % _PUNCT, a) or re.match("[%s]" % _PUNCT, b)
+            if not (ideo or punct):
+                out += " "
+        out += ln
+    return out
 
 
 def _indent(line):
@@ -150,7 +198,7 @@ def render_blocks(lines, repo_url=None, h_level=3):
         while i < n and lines[i].strip() and not re.match(r"^(#{3,6}\s|[-*] )", lines[i]):
             para.append(lines[i].strip())
             i += 1
-        out.append("<p>%s</p>" % inline(" ".join(para), repo_url))
+        out.append("<p>%s</p>" % inline(join_lines(para), repo_url))
     return "\n".join(out)
 
 
@@ -164,12 +212,13 @@ def slug(date, used):
     return s
 
 
-def parse(path=CHANGELOG, today=None):
+def parse(path=CHANGELOG, today=None, sort=True):
     """Return (preamble_lines, entries). Each entry is a dict with date
     (datetime.date), title, body (list of lines) and id. Entries come back
     newest first; equal dates keep file order. Raises ChangelogError on a
     top-level heading that is not dated, a date that does not exist, or a
     date in the future."""
+    name = os.path.basename(path)
     with io.open(path, encoding="utf-8") as f:
         text = f.read()
     lines = text.splitlines()
@@ -180,26 +229,28 @@ def parse(path=CHANGELOG, today=None):
         if line.startswith("## "):
             m = HEAD_RE.match(line)
             if not m:
-                raise ChangelogError("CHANGELOG.md:%d: entry heading must read "
-                                     "'## YYYY-MM-DD — Title': %r" % (no, line))
+                raise ChangelogError("%s:%d: entry heading must read "
+                                     "'## YYYY-MM-DD — Title': %r" % (name, no, line))
             try:
                 d = datetime.date.fromisoformat(m.group(1))
             except ValueError:
-                raise ChangelogError("CHANGELOG.md:%d: %s is not a real date"
-                                     % (no, m.group(1)))
+                raise ChangelogError("%s:%d: %s is not a real date"
+                                     % (name, no, m.group(1)))
             cur = {"date": d, "title": m.group(2), "body": [], "line": no}
             entries.append(cur)
             continue
         (cur["body"] if cur else preamble).append(line)
     if not entries:
-        raise ChangelogError("CHANGELOG.md has no dated entries")
+        raise ChangelogError("%s has no dated entries" % name)
     # One day of slack: an entry written in UTC+8 can be dated "tomorrow" for a
     # build running in UTC. Anything further ahead is a typo, not a timezone.
     today = today or datetime.date.today()
     for e in entries:
         if e["date"] > today + datetime.timedelta(days=1):
-            raise ChangelogError("CHANGELOG.md:%d: entry dated %s is in the future"
-                                 % (e["line"], e["date"]))
+            raise ChangelogError("%s:%d: entry dated %s is in the future"
+                                 % (name, e["line"], e["date"]))
+    if not sort:
+        return preamble, entries
     order = sorted(range(len(entries)), key=lambda k: (-entries[k]["date"].toordinal(), k))
     entries = [entries[k] for k in order]
     used = set()
@@ -208,14 +259,69 @@ def parse(path=CHANGELOG, today=None):
     return preamble, entries
 
 
-def render_entries(entries, repo_url=None):
+def load_translations(path, today=None):
+    """Read a translated changelog into {(date, english title): entry}.
+    Returns {} when the file does not exist: a language without one simply
+    shows every entry in English."""
+    if not path or not os.path.exists(path):
+        return {}
+    name = os.path.basename(path)
+    _, entries = parse(path, today=today, sort=False)
+    out = {}
+    for e in entries:
+        body = list(e["body"])
+        while body and not body[0].strip():
+            body.pop(0)
+        m = EN_REF_RE.match(body[0]) if body else None
+        if not m:
+            raise ChangelogError("%s:%d: the first line under the heading must be "
+                                 "'<!-- en: English title -->' naming the entry "
+                                 "it translates" % (name, e["line"]))
+        key = (e["date"], m.group(1))
+        if key in out:
+            raise ChangelogError("%s:%d: %s — %s is translated twice"
+                                 % (name, e["line"], key[0], key[1]))
+        out[key] = {"title": e["title"], "body": body[1:], "line": e["line"]}
+    return out
+
+
+def translate(entries, translations, lang, path=None):
+    """Swap in the translation of each entry that has one. Returns
+    (entries, missing): the new list (same order and ids; untranslated
+    entries are kept in English and marked lang="en") and the English
+    entries that had no translation. Raises ChangelogError when a
+    translation matches no English entry."""
+    name = os.path.basename(path) if path else "translation"
+    seen, out, missing = set(), [], []
+    for e in entries:
+        key = (e["date"], e["title"])
+        t = translations.get(key)
+        if t is None:
+            out.append(dict(e, lang="en"))
+            missing.append(e)
+            continue
+        seen.add(key)
+        out.append(dict(e, title=t["title"], body=t["body"], lang=lang))
+    for key, t in translations.items():
+        if key not in seen:
+            raise ChangelogError("%s:%d: translates '%s — %s', which is not an "
+                                 "entry in CHANGELOG.md (was its English title or date "
+                                 "changed?)" % (name, t["line"], key[0], key[1]))
+    return out, missing
+
+
+def render_entries(entries, repo_url=None, page_lang=None):
+    """page_lang: the page's own language. An entry whose `lang` differs
+    from it (an untranslated fallback) carries its own lang attribute."""
     out = []
     for e in entries:
         d = e["date"].isoformat()
-        out.append('<article class="cl-entry" id="%s">\n'
+        lang = e.get("lang")
+        lang_attr = (' lang="%s"' % esc(lang)) if lang and lang != page_lang else ""
+        out.append('<article class="cl-entry" id="%s"%s>\n'
                    '<h2><a href="#%s"><time datetime="%s">%s</time></a> \u2014 %s</h2>\n'
                    '%s\n</article>'
-                   % (esc(e["id"]), esc(e["id"]), d, d, inline(e["title"], repo_url),
+                   % (esc(e["id"]), lang_attr, esc(e["id"]), d, d, inline(e["title"], repo_url),
                       render_blocks(e["body"], repo_url, h_level=3)))
     return "\n".join(out)
 
@@ -227,6 +333,13 @@ def render_preamble(preamble, repo_url=None):
 if __name__ == "__main__":
     try:
         pre, ents = parse()
+        if len(sys.argv) == 3 and sys.argv[1] == "--status":
+            tpath = os.path.join(ROOT, sys.argv[2]) if not os.path.isabs(sys.argv[2]) else sys.argv[2]
+            _, missing = translate(ents, load_translations(tpath), "xx", tpath)
+            for e in missing:
+                print("untranslated: %s — %s" % (e["date"], e["title"]))
+            print("%d of %d entries translated" % (len(ents) - len(missing), len(ents)))
+            sys.exit(0)
     except ChangelogError as e:
         sys.exit(str(e))
     for e in ents:
