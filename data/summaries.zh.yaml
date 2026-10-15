@@ -791,6 +791,9 @@ nlm-review: >-
 noise-inspired-diffusion-model-for-generalizable-low-dose-ct: >-
   本文提出面向可泛化低剂量 CT 重建的噪声启发扩散模型 NEED：针对每个域的噪声特性来定制扩散模型，源码已公开。
 
+noise2match: >-
+  本文提出 Noise2Match：一种基于自适应切片间匹配的自监督低剂量 CT 去噪方法。切片间匹配网络建模相邻切片间的标签过渡过程，再对去噪器输出做校正，以满足 Noise2Noise 的等均值条件；该方法对低剂量 CBCT 去噪也有效。
+
 non-circular-scan-trajectories-for-reducing-cone-beam-artifa: >-
   Gamma Knife CBCT 图像受锥束伪影破坏，且伪影沿上方方向增强。采用源轴向步进 3.5 mm 的 line-arc-line 轨迹，几乎消除了全部锥束伪影。
 
