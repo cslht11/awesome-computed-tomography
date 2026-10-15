@@ -13,6 +13,20 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-15 — README is a landing page; the full lists live on the website
+
+### Changed
+
+- The READMEs keep their structure — header, stats strip, Papers, Toolkits,
+  Datasets, Benchmarks, Learning, Contact, License — but no longer expand the
+  entries one by one. The Papers section is a topic grid whose cells link to
+  the website with that topic already selected; the other four sections each
+  link to their site tab. Entry notes and the dataset legend still render on
+  the site, which is the full listing.
+- `scripts/build.py` no longer contains the per-entry renderers
+  (`render_papers`, `render_toolkits`, `render_datasets`, `render_benchmarks`,
+  `render_learning`); the i18n keys only those renderers used are removed.
+
 ## 2026-10-15 — Stats show the last-updated date, not the paper-year span
 
 ### Changed

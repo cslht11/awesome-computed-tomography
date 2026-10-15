@@ -4,8 +4,9 @@ Who this is for: anyone with commit access who has to build, deploy or change th
 website. If you only want to *add an entry*, read [MAINTENANCE.md](MAINTENANCE.md#adding-entries) —
 you never need to touch anything described here.
 
-The site is a second rendering of the same corpus that produces `README.md`. Both read
-`data/*.yaml`, so they cannot disagree.
+The site is the full rendering of the corpus; `README.md` is a landing page
+whose sections point at the site. Both read `data/*.yaml`, so they cannot
+disagree.
 
 ```bash
 python scripts/build.py       # data/*.yaml -> README.md

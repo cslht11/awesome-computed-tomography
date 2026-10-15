@@ -115,10 +115,12 @@ the rest of the file first.
 
 ## The topic taxonomy
 
-Sections in the README are the `topics` list in `data/meta.yaml`, **in the order they
-appear there** — not alphabetically, and not by entry count. To move a section, move it
-in `meta.yaml`. To add a topic, add it to `meta.yaml` and drop a broader one if the
-taxonomy is getting long.
+The README's Papers section is a topic index: one cell per topic, linking to
+the site with that topic already selected. The site's sections are the
+`topics` list in `data/meta.yaml`, **in the order they appear there** — not
+alphabetically, and not by entry count. To move a section, move it in
+`meta.yaml`. To add a topic, add it to `meta.yaml` and drop a broader one if
+the taxonomy is getting long.
 
 A paper may carry several topics and will then appear in several sections. That is
 intended: the sections are lenses on the literature, not a partition of it.
@@ -134,7 +136,7 @@ the venue and the year from that record.
 
 `year` means the year **at the venue**. When a work appeared on arXiv first, the value
 belongs to the publication, not the posting. For an entry with no venue, `year` is the
-first public posting and the README prints `_preprint <year>_`.
+first public posting and the site prints `_preprint <year>_`.
 
 `arXiv` and `TechRxiv` are not venues. If an entry has no venue, leave the field out —
 do not fill it with the preprint server.
@@ -397,7 +399,7 @@ Start the `note` with one of two markers when raw projections are available:
 | `**Projection only.**` | Raw projections with no reference volume. |
 
 No marker means the release is image-domain only — still useful, but it cannot
-be used to test a forward model. The README renders this convention as a legend,
+be used to test a forward model. The site renders this convention as a legend,
 so keep the wording exactly as above.
 
 #### `data/benchmarks.yaml`
@@ -434,7 +436,7 @@ serves, and the gap only shows up as a stale number somewhere.
 | --- | --- | --- | --- |
 | 1 | Add the entry to `data/papers.yaml` | The only source of truth | — |
 | 2 | **Resolve the identifiers first** — Crossref by exact title (accept at ≥ 0.90 similarity), arXiv only as a fallback | A PDF-to-markdown conversion keeps the arXiv ids of the *bibliography*, not of the paper. Two entries in this list got a wrong DOI that way | A plausible-looking link to a different paper |
-| 3 | If the entry has a `note`, add `zh.yaml` → `papers: "<id>": note:` | The list is bilingual; `build.py` prints the shortfall rather than failing | `README.zh-CN.md` prints one English paragraph among 500 Chinese ones |
+| 3 | If the entry has a `note`, add `zh.yaml` → `papers: "<id>": note:` | The list is bilingual; `build.py` prints the shortfall rather than failing | The Chinese site shows one English note among Chinese ones |
 | 4 | Run `python scripts/build.py` | Rewrites both READMEs and re-validates | Both READMEs keep the previous count while the data has moved on |
 | 5 | Run `python scripts/build_site.py` | Rewrites `site/`, including `data.json`, `sitemap.xml` and the cover counts | Local preview stale — harmless locally, but it is how you notice step 4 was skipped |
 | 6 | Run `node tests/test_search.js` | The search index is built from the payload in the browser | Nothing breaks; you just stop noticing when it does |
