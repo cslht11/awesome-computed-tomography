@@ -320,7 +320,7 @@ def render_robots(base):
     return "User-agent: *\nAllow: /\nCrawl-delay: 1\n\nSitemap: %ssitemap.xml\n" % base
 
 
-def render_llms(cfg, base, c, topics):
+def render_llms(cfg, base, c, topics, topic_pages=()):
     """site/llms.txt: a plain-Markdown map of the site for AI answer engines
     (llmstxt.org proposal). Counts and topics come from the same payload as the
     page, so it cannot go stale. Cheap to ship; its effect is unproven."""
@@ -351,9 +351,283 @@ def render_llms(cfg, base, c, topics):
         "", "## Topics", "",
     ]
     for t in topics:
-        lines.append("- %s (%d papers): %s" % (t["name"], t["count"], t["desc"]))
+        if t["id"] in topic_pages:
+            lines.append("- [%s](%stopics/%s/) (%d papers): %s"
+                         % (t["name"], base, t["id"], t["count"], t["desc"]))
+        else:
+            lines.append("- %s (%d papers): %s" % (t["name"], t["count"], t["desc"]))
+    if topic_pages:
+        lines += ["", "Each linked topic page is a guide: a short introduction, "
+                  "a start-here reading list, the topic's newest papers and the "
+                  "matching datasets, benchmarks and toolkits. Chinese editions "
+                  "are at %szh/topics/<topic>/." % base]
     return "\n".join(lines) + "\n"
 
+
+# ------------------------------------------------------------- topic pages
+# One hub page per topic at /topics/<id>/ (and /zh/topics/<id>/). The prose
+# (intro, "Start here" reasons, page strings) is hand-written in
+# data/topics.yaml; the paper table, counts and related resources come from the
+# same payload as the directory, so a page cannot fall out of step with it.
+TOPICS_FILE = os.path.join(ROOT, "data", "topics.yaml")
+TOPIC_SKIP = ("other",)          # a catch-all is not a topic worth a hub page
+TOPIC_PAPER_CAP = 30
+RESOURCE_TABLES = (("datasets", "tasks", "kindDataset"),
+                   ("benchmarks", "tasks", "kindBenchmark"),
+                   ("toolkits", "tags", "kindToolkit"))
+
+
+def load_topic_pages(payload):
+    """data/topics.yaml, checked against the payload so a renamed paper id or
+    dataset name fails the build instead of silently vanishing from a page."""
+    if not os.path.exists(TOPICS_FILE):
+        return None
+    with io.open(TOPICS_FILE, encoding="utf-8") as f:
+        doc = yaml.safe_load(f) or {}
+    pages = doc.get("topics") or {}
+    known = [t["id"] for t in payload["topics"]]
+    paper_ids = set(p["id"] for p in payload["papers"])
+    names = dict((tbl, set(r["name"] for r in payload[tbl]))
+                 for tbl, _, _ in RESOURCE_TABLES)
+    problems = []
+    for tid, tp in pages.items():
+        where = "data/topics.yaml: topic '%s'" % tid
+        if tid not in known:
+            problems.append("%s is not in data/meta.yaml" % where)
+            continue
+        for s in tp.get("start") or []:
+            if s.get("id") not in paper_ids:
+                problems.append("%s: start paper '%s' does not exist" % (where, s.get("id")))
+        for tbl, extra in (tp.get("also") or {}).items():
+            if tbl not in names:
+                problems.append("%s: also.%s is not a table" % (where, tbl))
+                continue
+            for n in extra or []:
+                if n not in names[tbl]:
+                    problems.append("%s: also.%s '%s' does not exist" % (where, tbl, n))
+        for lang in ("en", "zh"):
+            for k in ("title", "description", "intro"):
+                if not ((tp.get(lang) or {}).get(k) or "").strip():
+                    problems.append("%s: %s.%s is empty" % (where, lang, k))
+    for tid in known:
+        if tid not in TOPIC_SKIP and tid not in pages:
+            problems.append("data/topics.yaml: topic '%s' has no entry" % tid)
+    if problems:
+        print("TOPIC DATA INVALID:")
+        for x in problems:
+            print("  -", x)
+        sys.exit(1)
+    return doc
+
+
+def topic_text(tp, code, key):
+    """A topic's own text in this language, falling back to English."""
+    return ((tp.get(code) or {}).get(key) or (tp.get(i18n.SOURCE) or {}).get(key) or "").strip()
+
+
+def topic_strings(doc, code):
+    s = dict((doc.get("strings") or {}).get(i18n.SOURCE) or {})
+    s.update((doc.get("strings") or {}).get(code) or {})
+    return s
+
+
+def short_note(text, limit=240):
+    """First sentence or two of a directory note, for a one-line list item."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= limit:
+        return text
+    out = ""
+    for sent in re.split(r"(?<=[.!?。])\s+", text):
+        if out and len(out) + len(sent) + 1 > limit:
+            break
+        out = (out + " " + sent).strip()
+    if len(out) > limit:
+        out = out[:limit].rsplit(" ", 1)[0] + "\u2026"
+    return out
+
+
+def topic_resources(tp, payload):
+    want = set(m.lower() for m in (tp.get("match") or []))
+    also = tp.get("also") or {}
+    out = []
+    for tbl, field, kind in RESOURCE_TABLES:
+        extra = set(also.get(tbl) or [])
+        for r in payload[tbl]:
+            tags = set(str(x).lower() for x in (r.get(field) or []))
+            if (tags & want) or r["name"] in extra:
+                out.append((kind, r))
+    return out
+
+
+def paper_url(p):
+    l = p["links"]
+    return l.get("paper") or l.get("project") or l.get("code") or l.get("data")
+
+
+def paper_label(p):
+    name, rest = abbr_title(p)
+    return ("%s: %s" % (name, rest)) if name and rest != p["title"] and rest != name else (
+        re.sub(r"\$([^$]+)\$", r"\1", p["title"]))
+
+
+def topic_url(lang_base, tid):
+    return "%stopics/%s/" % (lang_base, tid)
+
+
+def render_topic_body(tid, tp, payload, code, s, ov):
+    """The <main> of one topic page. Links are relative ({{ROOT}} is ../../)."""
+    topic = dict((t["id"], t) for t in payload["topics"])[tid]
+    papers = [p for p in payload["papers"] if tid in p["topics"]]
+    n = len(papers)
+    shown = papers[:TOPIC_PAPER_CAP]
+    by_id = dict((p["id"], p) for p in payload["papers"])
+    pre = s.get("preprint", "preprint")
+    fmt = lambda key, **kw: esc(s.get(key, "").replace("{n}", str(kw.get("n", n)))
+                                .replace("{shown}", str(kw.get("shown", len(shown))))
+                                .replace("{name}", kw.get("name", topic["name"])))
+
+    def venue(p):
+        return esc(p["venue"]) if p["venue"] else '<em>%s</em>' % esc(pre)
+
+    def links(p):
+        return " \u00b7 ".join(
+            '<a href="%s" target="_blank" rel="noopener">%s</a>' % (esc(p["links"][k]), k)
+            for k in PAPER_LINK_LABELS if p["links"].get(k))
+
+    def ext(url, text):
+        if not url:
+            return esc(text)
+        return '<a href="%s" target="_blank" rel="noopener">%s</a>' % (esc(url), esc(text))
+
+    out = ['<nav class="crumbs" aria-label="breadcrumb"><p class="kicker">'
+           '<a href="{{ROOT}}">%s</a> / %s</p></nav>' % (esc(s.get("home", "Home")), esc(s.get("kicker", "Topic"))),
+           '<h1>%s</h1>' % esc(topic["name"])]
+    paras = [x.strip() for x in re.split(r"\n\s*\n", topic_text(tp, code, "intro")) if x.strip()]
+    for i, para in enumerate(paras):
+        out.append('<p%s>%s</p>' % (' class="lede"' if i == 0 else "",
+                                    esc(re.sub(r"\s+", " ", para))))
+    out.append('<p><a href="{{ROOT}}?topic=%s">%s</a></p>' % (esc(tid), fmt("viewAll")))
+
+    start = tp.get("start") or []
+    if start:
+        out += ['<h2 id="start-here">%s</h2>' % esc(s.get("startHere", "Start here")),
+                '<p>%s</p>' % esc(s.get("startHereLede", "")), "<ul>"]
+        for item in start:
+            p = by_id[item["id"]]
+            why = (item.get(code) or item.get(i18n.SOURCE) or "").strip()
+            extra = ""
+            if p["links"].get("code"):
+                extra = ' \u00b7 <a href="%s" target="_blank" rel="noopener">code</a>' % esc(p["links"]["code"])
+            out.append('<li><strong>%s</strong> <span class="sep">(%s, %d%s)</span><br>%s</li>'
+                       % (ext(paper_url(p), paper_label(p)), venue(p), p["year"], extra, esc(why)))
+        out.append("</ul>")
+
+    out += ['<h2 id="papers">%s</h2>' % esc(s.get("papers", "Papers")),
+            '<p>%s</p>' % (fmt("papersLede") if n > len(shown) else fmt("papersLedeAll")),
+            '<table class="grid"><thead><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr></thead><tbody>'
+            % (esc(s["colPaper"]), esc(s["colVenue"]), esc(s["colYear"]), esc(s["colLinks"]))]
+    for p in shown:
+        out.append('<tr><td>%s</td><td data-label="%s">%s</td><td class="n" data-label="%s">%d</td>'
+                   '<td data-label="%s">%s</td></tr>'
+                   % (ext(paper_url(p), paper_label(p)), esc(s["colVenue"]), venue(p),
+                      esc(s["colYear"]), p["year"], esc(s["colLinks"]), links(p)))
+    out.append("</tbody></table>")
+    out.append('<p><a href="{{ROOT}}?topic=%s">%s</a></p>' % (esc(tid), fmt("viewAll")))
+
+    res = topic_resources(tp, payload)
+    if res:
+        out += ['<h2 id="resources">%s</h2>' % esc(s.get("resources", "")),
+                '<p>%s</p>' % esc(s.get("resourcesLede", "")), "<ul>"]
+        for kind, r in res:
+            note = short_note(r.get("note") or "")
+            out.append('<li><strong>%s</strong> <span class="sep">\u00b7 %s</span>%s</li>'
+                       % (ext(r.get("url"), r.get("label") or r["name"]), esc(s.get(kind, "")),
+                          (" \u2014 " + md_inline(note)) if note else ""))
+        out.append("</ul>")
+
+    out += ['<h2 id="topics">%s</h2>' % esc(s.get("siblings", "Other topics")),
+            render_topic_links(payload, tid, "{{ROOT}}")]
+    return "\n".join(out)
+
+
+def render_topic_links(payload, current, root):
+    """The list of topic hub pages, used on every topic page and on About."""
+    items = []
+    for t in payload["topics"]:
+        if t["id"] in TOPIC_SKIP or t["id"] == current:
+            continue
+        items.append('<li><a href="%stopics/%s/">%s</a> <span class="sep">(%d)</span></li>'
+                     % (root, esc(t["id"]), esc(t["name"]), t["count"]))
+    return "<ul>\n" + "\n".join(items) + "\n</ul>"
+
+
+def head_extra_topic(cfg, base, langs, entry, tid, title, desc, payload):
+    """hreflang alternates + og + JSON-LD for one topic page."""
+    default = i18n.default_language(langs)
+    url = topic_url(i18n.url_for(base, entry), tid)
+    bits = ['<link rel="alternate" hreflang="%s" href="%s">'
+            % (esc(e["hreflang"]), esc(topic_url(i18n.url_for(base, e), tid))) for e in langs]
+    bits.append('<link rel="alternate" hreflang="x-default" href="%s">'
+                % esc(topic_url(i18n.url_for(base, default), tid)))
+    bits += ['<meta property="og:type" content="website">',
+             '<meta property="og:url" content="%s">' % esc(url),
+             '<meta property="og:title" content="%s">' % esc(title),
+             '<meta property="og:description" content="%s">' % esc(desc),
+             '<meta property="og:locale" content="%s">' % esc(entry["og_locale"])]
+    home = i18n.url_for(base, entry)
+    topic = dict((t["id"], t) for t in payload["topics"])[tid]
+    papers = [p for p in payload["papers"] if tid in p["topics"]][:TOPIC_PAPER_CAP]
+    crumbs = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": cfg["title"], "item": home},
+            {"@type": "ListItem", "position": 2, "name": topic["name"], "item": url},
+        ],
+    }
+    coll = {
+        "@context": "https://schema.org", "@type": "CollectionPage",
+        "@id": url, "url": url, "name": title, "description": desc,
+        "inLanguage": entry["hreflang"],
+        "isPartOf": {"@type": "WebSite", "name": cfg["title"], "url": home},
+        "about": {"@type": "Thing", "name": topic["name"]},
+        "license": cfg["content_license_url"],
+        "mainEntity": {
+            "@type": "ItemList", "numberOfItems": len(papers),
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1,
+                 "name": re.sub(r"\$([^$]+)\$", r"\1", p["title"]),
+                 "url": paper_url(p) or url}
+                for i, p in enumerate(papers)],
+        },
+    }
+    bits.append('<script type="application/ld+json">%s</script>' % safe_json(crumbs))
+    bits.append('<script type="application/ld+json">%s</script>' % safe_json(coll))
+    return "\n".join(bits)
+
+
+def faq_jsonld(html_):
+    """FAQPage JSON-LD built from the visible FAQ on the About page, so the
+    structured data can never say something the page does not."""
+    m = re.search(r'<section class="faq"[^>]*>(.*?)</section>', html_, re.S)
+    if not m:
+        return None, 0
+    pairs = re.findall(r"<h3[^>]*>(.*?)</h3>\s*<p>(.*?)</p>", m.group(1), re.S)
+
+    def text(h):
+        return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", h))).strip()
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": text(q),
+                          "acceptedAnswer": {"@type": "Answer", "text": text(a)}}
+                         for q, a in pairs]}
+    return '<script type="application/ld+json">%s</script>' % safe_json(ld), len(pairs)
+
+
+def add_to_head(page, canonical, extra):
+    """Insert extra <head> markup right after the canonical link."""
+    tag = '<link rel="canonical" href="%s">' % esc(canonical)
+    if tag not in page:
+        sys.exit("canonical link %s not found while adding head markup" % canonical)
+    return page.replace(tag, tag + "\n" + extra, 1)
 
 # ------------------------------------------------------------------- config
 def load_config():
@@ -452,6 +726,12 @@ def main():
     tpl = read(os.path.join(WEB, "page.html"))
     index_tpl = read(os.path.join(WEB, "index.html"))
     sitemap_urls = []
+    # Topic hub pages (data/topics.yaml). Validated once, against English.
+    topic_doc = load_topic_pages(payload)
+    topic_ids = ([t["id"] for t in payload["topics"]
+                  if t["id"] not in TOPIC_SKIP and t["id"] in topic_doc["topics"]]
+                 if topic_doc else [])
+    faq_counts = {}
 
     for entry in langs:
         code = entry["code"]
@@ -538,6 +818,10 @@ def main():
             body = ov.page(name)
             if not body.strip():
                 sys.exit("data/i18n/%s.yaml carries no `pages.%s`" % (code, name))
+            # About carries the list of topic pages, so none is orphaned.
+            body = body.replace("{{TOPIC_LINKS}}",
+                                render_topic_links(payload, None, "{{ROOT}}")
+                                if topic_doc else "")
             html_ = (tpl.replace("{{BODY}}", body)
                      .replace("{{PAGE_TITLE}}",
                               esc(ov.ui("page%sTitle" % name.title(), name.title())))
@@ -551,8 +835,38 @@ def main():
             if left:
                 sys.exit("%s/%s: unreplaced placeholders: %s"
                          % (code, name, ", ".join(sorted(set(left)))))
+            if name == "about":
+                ld, nfaq = faq_jsonld(html_)
+                faq_counts[code] = nfaq
+                if ld:
+                    html_ = add_to_head(html_, lang_base + name + "/", ld)
             write(os.path.join(sub, name, "index.html"), html_)
             sitemap_urls.append((lang_base + name + "/", "monthly", "0.3"))
+
+        strings = topic_strings(topic_doc, code) if topic_doc else {}
+        for tid in topic_ids:
+            tp = topic_doc["topics"][tid]
+            t_title = topic_text(tp, code, "title")
+            t_desc = re.sub(r"\s+", " ", topic_text(tp, code, "description"))
+            t_url = topic_url(lang_base, tid)
+            body = render_topic_body(tid, tp, payload, code, strings, ov)
+            html_ = (tpl.replace("{{BODY}}", body)
+                     .replace("{{PAGE_TITLE}}", esc(t_title))
+                     .replace("{{PAGE_DESC}}", esc(t_desc))
+                     .replace("{{PAGE_URL}}", esc(t_url))
+                     .replace("{{ROOT}}", "../../"))
+            for k, v in subs.items():
+                html_ = html_.replace(k, v)
+            left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
+            if left:
+                sys.exit("%s/topics/%s: unreplaced placeholders: %s"
+                         % (code, tid, ", ".join(sorted(set(left)))))
+            html_ = add_to_head(html_, t_url, head_extra_topic(
+                cfg, base, langs, entry, tid,
+                "%s \u2014 %s" % (t_title, top_for(ov, code, "title", cfg["title"])),
+                t_desc, payload))
+            write(os.path.join(sub, "topics", tid, "index.html"), html_)
+            sitemap_urls.append((t_url, "weekly", "0.6"))
 
         write(os.path.join(sub, "data.json"),
               json.dumps(payload, ensure_ascii=False, indent=1) + "\n")
@@ -560,7 +874,8 @@ def main():
     write(os.path.join(out, "robots.txt"), render_robots(base))
     en_payload = build_payload(i18n.SOURCE)
     write(os.path.join(out, "llms.txt"),
-          render_llms(cfg, base, en_payload["counts"], en_payload["topics"]))
+          render_llms(cfg, base, en_payload["counts"], en_payload["topics"],
+                      set(topic_ids)))
     # IndexNow (Bing, Yandex, ...): the key file must be served at the site
     # root; the deploy workflow pings api.indexnow.org with the sitemap URLs.
     if cfg.get("indexnow_key"):
@@ -624,6 +939,39 @@ def main():
                         "%s/%s: %s %r has a translated note that did not reach "
                         "data.json" % (code, table, key_field, rec[key_field]))
 
+    # ------------------------------------------------------------ topic pages
+    # Every topic page must name itself as canonical and carry the full set of
+    # hreflang alternates (each language plus x-default), or search engines
+    # treat the two editions as duplicates instead of translations.
+    default = i18n.default_language(langs)
+    for entry in langs:
+        sub = os.path.join(out, entry.get("path") or "")
+        lang_base = i18n.url_for(base, entry)
+        for tid in topic_ids:
+            f = os.path.join(sub, "topics", tid, "index.html")
+            if not os.path.exists(f):
+                problems.append("%s: topic page %s was not written" % (entry["code"], tid))
+                continue
+            page = read(f)
+            if ('<link rel="canonical" href="%s">' % esc(topic_url(lang_base, tid))) not in page:
+                problems.append("%s/topics/%s: canonical missing or wrong" % (entry["code"], tid))
+            want = [(e["hreflang"], topic_url(i18n.url_for(base, e), tid)) for e in langs]
+            want.append(("x-default", topic_url(i18n.url_for(base, default), tid)))
+            for hl, u in want:
+                if ('<link rel="alternate" hreflang="%s" href="%s">' % (esc(hl), esc(u))) not in page:
+                    problems.append("%s/topics/%s: hreflang %s missing or wrong"
+                                    % (entry["code"], tid, hl))
+            if '"BreadcrumbList"' not in page or '"CollectionPage"' not in page:
+                problems.append("%s/topics/%s: JSON-LD missing" % (entry["code"], tid))
+            if (topic_url(lang_base, tid)) not in read(os.path.join(out, "sitemap.xml")):
+                problems.append("%s/topics/%s: not in sitemap.xml" % (entry["code"], tid))
+        about = read(os.path.join(sub, "about", "index.html"))
+        for tid in topic_ids:
+            if 'href="../topics/%s/"' % tid not in about:
+                problems.append("%s/about: no link to topic page %s" % (entry["code"], tid))
+        if faq_counts.get(entry["code"], 0) and '"FAQPage"' not in about:
+            problems.append("%s/about: FAQ present but FAQPage JSON-LD missing" % entry["code"])
+
     if problems:
         print("SITE CHECK FAILED:")
         for x in problems:
@@ -648,6 +996,10 @@ def main():
           "%d benchmarks, %d learning"
           % (c["papers"], c["peer_reviewed"], c["preprints"], c["toolkits"],
              c["datasets"], c["benchmarks"], c["learning"]))
+    if topic_ids:
+        print("  %d topic pages per language (%d languages), FAQ entries on About: %s"
+              % (len(topic_ids), len(langs),
+                 ", ".join("%s %d" % kv for kv in sorted(faq_counts.items()))))
     if cfg.get("_url_from_repo"):
         print("  note: `url` is empty in site.config.yml, so the GitHub Pages "
               "address was used. Set it once the domain is ready.")

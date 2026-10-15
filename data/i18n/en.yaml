@@ -302,6 +302,26 @@ pages:
     <h2>Citing</h2>
     <p>The list changes continuously, so cite a fixed snapshot: the repository URL together with a commit hash, or the page URL with the date you accessed it.</p>
 
+    <h2 id="topics">Browse by topic</h2>
+    <p>Each topic has its own page with a short introduction, a start-here reading list, its newest papers and the datasets and toolkits that go with them.</p>
+    {{TOPIC_LINKS}}
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <section class="faq">
+    <h3>Which datasets are best for sparse-view CT?</h3>
+    <p>The most widely used are LoDoPaB-CT and the Mayo Clinic LDCT-and-Projection-data, from which sparse sinograms are simulated, and the AAPM DL-Sparse-View CT challenge data, which isolates the sparse-view problem with noiseless 128-view sinograms. For measured rather than simulated data, use 2DeteCT, the FleX-ray walnut collection or SparseBeads. The <a href="{{ROOT}}topics/sparse-view/">sparse-view CT topic page</a> lists them next to the key papers, and the <a href="{{ROOT}}?tab=datasets">dataset table</a> has all {{N_DATASETS}} datasets.</p>
+    <h3>Which open-source toolkits are used for low-dose CT research?</h3>
+    <p>For reconstruction, the ASTRA Toolbox, TIGRE, ODL and the Core Imaging Library (CIL) provide projectors and iterative solvers, and DeepInverse and LION add learned and unrolled methods in PyTorch. To create realistic low-dose data from full-dose images, use the LD-CT simulator. See the <a href="{{ROOT}}topics/low-dose/">low-dose CT topic page</a> and the <a href="{{ROOT}}?tab=toolkits">toolkit table</a>.</p>
+    <h3>How are entries verified?</h3>
+    <p>Every paper link is resolved against Crossref, arXiv or the publisher’s own record and the title is matched against that record, and every URL is checked. Venues are confirmed from the DOI, and papers without a peer-reviewed venue are marked as preprints. The checks catch broken links and mismatched records, not every mistake, so rely on the original paper for any detail that matters.</p>
+    <h3>How often is the list updated?</h3>
+    <p>The list is updated continuously, and the last content update was on {{UPDATED}}. New papers, corrected venues and repaired links are added as they are checked, and the README, data.json and this site are regenerated from the same source files on every change.</p>
+    <h3>How should I cite this list?</h3>
+    <p>Cite a fixed snapshot, because the list changes continuously: the repository URL ({{REPO_URL}}) with a commit hash, or the page URL with the date you accessed it. To cite a method you found here, cite the original paper instead.</p>
+    <h3>How can I suggest a paper or report a mistake?</h3>
+    <p>Open a GitHub issue or send an email, as described on the <a href="{{ROOT}}contact/">contact page</a>. For a paper, send its DOI or arXiv link and, if there is one, its code repository and the <a href="#topics">topic</a> it belongs to. The list does not accept outside pull requests, and every suggestion is checked before anything is added.</p>
+    </section>
+
   contact: |-
     <p class="kicker">Contact</p>
     <h1>Contact</h1>
