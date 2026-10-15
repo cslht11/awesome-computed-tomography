@@ -13,6 +13,17 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-15 — Stats show the last-updated date, not the paper-year span
+
+### Changed
+
+- The README stats strip, the site stats row and the coverage sentences now
+  show "Updated 2026-10-15" (from the new `last_updated` field in
+  `data/meta.yaml`) instead of the paper-year span "1917–2026", so a visitor
+  can tell at a glance whether the list is still maintained. Bump
+  `last_updated` whenever content changes; `scripts/build.py --check` fails
+  if it is missing or not a YYYY-MM-DD date.
+
 ## 2026-10-12 — DC-PnPDP findable by its name
 
 ### Fixed
