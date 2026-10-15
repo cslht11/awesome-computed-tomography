@@ -3107,3 +3107,10 @@
   year: 2026
   topics: [sparse-view, cbct, dynamic]
   paper: "https://arxiv.org/abs/2610.18518"
+
+- id: "noise2match"
+  abbr: "Noise2Match"
+  title: "Noise2Match: Self-Supervised Low-Dose CT Denoising via Adaptive Inter-Slice Matching"
+  year: 2026
+  topics: [low-dose, self-supervised, cbct]
+  paper: "https://arxiv.org/abs/2610.18379"
