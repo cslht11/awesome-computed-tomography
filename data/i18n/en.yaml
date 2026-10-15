@@ -201,6 +201,7 @@ readme:
     Coverage: {papers} papers (updated {updated}), {toolkits} toolkits, {datasets} datasets,
     {benchmarks} benchmarks/challenges, {learning} learning resources. Every paper link
     was resolved against Crossref, arXiv or the publisher's own record, and every URL was checked.
+  browseCollection: "[Browse all {n} entries on the website]({url})"
   papersHeading: "Papers"
   # The JSON-LD ItemList's `name` — the machine-readable title of the paper
   # collection, which needs to be more explicit than the section heading.
@@ -217,7 +218,6 @@ readme:
     a projection model.
   benchmarksHeading: "Benchmarks"
   learningHeading: "Learning"
-  preprintLabel: "preprint"
   licenseHeading: "License"
   # ---- hero / navigation
   heroTagline: >-
@@ -237,28 +237,6 @@ readme:
   statDatasetsCell: "{datasets} datasets"
   statBenchmarksCell: "{benchmarks} benchmarks"
   statSpanCell: "Updated {updated}"
-
-  # ---- paper list
-  topicCount: "<sub>{desc} \u00b7 {n} papers</sub>"
-  linkPaper: "Paper"
-  linkCode: "Code"
-  linkProject: "Project"
-  linkData: "Data"
-
-  # ---- dataset Data column. The three kinds come from the marker at the head
-  # of each note; see scripts/build.py's _MARKERS.
-  colData: "Data"
-  kindProjImage: "proj + image"
-  kindProjections: "projections"
-  kindImage: "image"
-
-  # ---- learning group labels
-  learnBooks: "Books"
-  learnCourses: "Courses"
-  learnTutorials: "Tutorials"
-  learnTools: "Tools"
-  learnLists: "Other lists"
-  learnMore: "More"
 
   # ---- shared
   backToTop: "back to top"
@@ -283,7 +261,6 @@ readme:
     [MIT](LICENSE) — including the client scripts the build copies into `site/`.
     License columns describe the listed projects, not this one, and each entry
     points to a paper rather than copying it.
-
 
 # ---------------------------------------------------------------- pages
 # Bodies of the static pages under web/pages/. Kept here rather than in the

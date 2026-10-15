@@ -14,7 +14,7 @@ import io
 import os
 import re
 import sys
-from collections import OrderedDict, Counter
+from collections import Counter
 
 try:
     import yaml
@@ -102,15 +102,6 @@ def slug(text):
     """
     s = re.sub(r"[^\w\- ]", "", text.lower(), flags=re.UNICODE)
     return s.replace(" ", "-")
-
-
-def esc(text):
-    """Escape pipes so table cells do not break."""
-    return str(text).replace("|", "\\|").strip()
-
-
-def link(url, label):
-    return "[%s](%s)" % (label, url) if url else ""
 
 
 def url_of(e, *keys):
@@ -250,112 +241,16 @@ def top_link(ov):
             % ov.readme("backToTop", "back to top"))
 
 
-def head_token(title):
-    """First whitespace-delimited token of a title, punctuation trimmed.
-
-    Used to decide whether an abbreviation is really the head of the title.
-    "A benchmark ..." has head token "A", so abbr "A" qualifies; "ART ..."
-    has head token "ART", so abbr "AR" does not.
-    """
-    first = title.strip().split()
-    return first[0].rstrip(".,:;").lower() if first else ""
-
-
-def drop_trailing_parens(rest, name):
-    """Remove an abbreviation repeated in trailing parentheses.
-
-    Titles harvested from Crossref often end with the abbreviation again
-    ("... reconstruction (LoDoPaB-CT)"). The head already prints it, so the
-    parentheses are pure clutter. Only drops a trailing group whose body is
-    the abbreviation, optionally prefixed by a venue.
-    """
-    m = re.search(r"\(([^()]*)\)\s*$", rest)
-    if not m:
-        return rest
-    body = m.group(1).strip()
-    if body.lower() == name.lower() or body.lower().endswith(": " + name.lower()) \
-            or body.lower().split(", ")[-1] == name.lower():
-        return rest[:m.start()].rstrip(" ,;")
-    return rest
-
-
-def paper_head(e):
-    name = e.get("abbr")
-    title = e["title"]
-    if name and title.lower().startswith(name.lower()) \
-            and head_token(title) == name.lower():
-        # avoid "**[DM4CT]** DM4CT: ..." duplication
-        rest = title[len(name):].lstrip(" :—–-,")
-        rest = drop_trailing_parens(rest, name)
-        return "**%s: %s**" % (name, rest) if rest else "**%s**" % name
-    if name:
-        return "**%s: %s**" % (name, title)
-    return "**%s**" % title
-
-
-LINK_LABELS = (("paper", "linkPaper", "Paper"), ("code", "linkCode", "Code"),
-               ("project", "linkProject", "Project"), ("data", "linkData", "Data"))
-
-
-def render_papers(papers, meta, ov):
-    out = []
-    by_topic = OrderedDict((t["id"], []) for t in meta["topics"])
-    for e in papers:
-        for t in e["topics"]:
-            by_topic[t].append(e)
-
-    for t in meta["topics"]:
-        items = by_topic[t["id"]]
-        if not items:
-            continue
-        items.sort(key=lambda e: (-int(e["year"]), (e.get("abbr") or e["title"]).lower()))
-        local = ov.topic(t["id"])
-        out.append("### %s\n" % (local.get("name") or t["name"]))
-        desc = local.get("desc") or t.get("desc")
-        if desc:
-            # Strip both the ASCII and the full-width full stop: an English
-            # topic description ends in ".", its Chinese translation in "。",
-            # and the count follows on the same line.
-            out.append(fill(ov.readme("topicCount", "<sub>{desc} · {n} papers</sub>"),
-                            {"desc": desc.rstrip(".\u3002"), "n": len(items)}) + "\n")
-        for e in items:
-            # Venue first in italics, preprints say so: the two are told apart at a glance.
-            where = "_%s %s_" % (e["venue"], e["year"]) if e.get("venue") \
-                else "_%s %s_" % (ov.readme("preprintLabel", "preprint"), e["year"])
-            links = []
-            for k, ikey, lab in LINK_LABELS:
-                if e.get(k):
-                    links.append("[%s](%s)" % (ov.readme(ikey, lab), e[k]))
-            out.append("- %s — %s%s" % (paper_head(e), where,
-                                         (" · " + " · ".join(links)) if links else ""))
-            # A few landmark entries carry a `note`. It is rendered as an
-            # indented paragraph tied to the bullet above, so an entry can say
-            # why it matters without breaking the one-line-per-paper rhythm.
-            # Only entries that actually have one emit the blank line, so the
-            # ordinary one-line-per-paper spacing stays untouched.
-            note = ov.item("papers", e["id"]).get("note") or e.get("note")
-            if note:
-                out.append("")
-                out.append("  " + " ".join(note.split()))
-        out.append("")
-    return "\n".join(out)
-
-
-def render_table(header, rows):
-    out = ["| " + " | ".join(header) + " |",
-           "|" + "|".join([" --- "] * len(header)) + "|"]
-    for r in rows:
-        out.append("| " + " | ".join(r) + " |")
-    return "\n".join(out) + "\n"
-
-
-def render_topic_grid(papers, meta, ov, cols=3):
+def render_topic_grid(papers, meta, ov, site_base, cols=3):
+    # Same 3-column grid as before, but each cell now links to the site with
+    # that topic already selected instead of to an in-page anchor: the
+    # per-topic paper lists live on the website, not in the README.
     cells = []
     for t in meta["topics"]:
         n = sum(1 for e in papers if t["id"] in e["topics"])
         if n:
             nm = ov.topic(t["id"]).get("name") or t["name"]
-            cells.append("[%s](#%s) <sub>%d</sub>" % (nm, slug(nm), n))
+            cells.append("[%s](%s?tab=papers&topic=%s) <sub>%d</sub>" % (nm, site_base, t["id"], n))
     while len(cells) % cols:
         cells.append("")
     rows = [cells[i:i + cols] for i in range(0, len(cells), cols)]
@@ -363,112 +258,6 @@ def render_topic_grid(papers, meta, ov, cols=3):
     for r in rows:
         out.append("| " + " | ".join(r) + " |")
     return "\n".join(out) + "\n"
-
-
-def item_name(e, table, ov):
-    """Display name for a table row.
-
-    An overlay normally translates only a row's ``note``, but it may also
-    rename the row itself — ``learning."CT Principles and Algorithms".name``
-    exists precisely to show the Chinese title. Falls back to the English name
-    in ``data/*.yaml``.
-    """
-    return ov.item(table, e["name"]).get("name") or e["name"]
-
-
-def render_toolkits(items, ov):
-    if not items:
-        return ""
-    items = sorted(items, key=lambda e: -(e.get("stars") or 0))
-    rows = []
-    for e in items:
-        nm = "[**%s**](%s)" % (item_name(e, "toolkits", ov), url_of(e, "repo", "url"))
-        note = ov.item("toolkits", e["name"]).get("note") or e.get("note", "")
-        rows.append([nm, esc(e.get("language", "-")), str(e.get("stars", "-")),
-                     esc(note)])
-    return render_table([ov.ui("tableToolkit", "Toolkit"),
-                         ov.ui("tableLanguage", "Language"),
-                         ov.ui("tableStars", "Stars"),
-                         ov.ui("tableDescription", "Description")], rows)
-
-
-_MARKERS = (("**Projection + image.**", "proj + image"),
-            ("**Projection only.**", "projections"))
-
-
-def _dataset_kind(note):
-    note = note or ""
-    for m, kind in _MARKERS:
-        if note.startswith(m):
-            return kind, note[len(m):].strip()
-    # The marker itself stays English in every language (see render_datasets),
-    # but the sentence it introduces ends in "." in English and "。" in
-    # Chinese, so both terminators have to be accepted.
-    note = re.sub(r"\s*\*\*Image domain only\*\*[^.]*[.\u3002]", "", note).strip()
-    return "image", note
-
-
-def render_datasets(items, ov):
-    if not items:
-        return ""
-    rows = []
-    kind_labels = {"proj + image": ov.readme("kindProjImage", "proj + image"),
-                   "projections": ov.readme("kindProjections", "projections"),
-                   "image": ov.readme("kindImage", "image")}
-    for e in items:
-        # The leading marker is a data-format convention and stays English, so
-        # it can be stripped here whatever language it sits in; the label shown
-        # in the Data column is what gets translated.
-        shown = ov.item("datasets", e["name"]).get("note") or e.get("note", "")
-        kind, shown = _dataset_kind(shown)
-        nm = "[**%s**](%s)" % (item_name(e, "datasets", ov), url_of(e, "url", "repo"))
-        rows.append([nm, esc(e.get("modality", "-")), kind_labels.get(kind, kind),
-                     esc(e.get("license", "-")), esc(shown)])
-    return ov.readme("legendDatasets") + "\n\n" + render_table(
-        [ov.ui("tableDataset", "Dataset"), ov.ui("tableModality", "Modality"),
-         ov.readme("colData", "Data"), ov.ui("tableLicense", "License"),
-         ov.ui("tableDescription", "Description")], rows)
-
-
-def render_benchmarks(items, ov):
-    if not items:
-        return ""
-    rows = []
-    for e in sorted(items, key=lambda x: -(x.get("year") or 0)):
-        nm = "[**%s**](%s)" % (item_name(e, "benchmarks", ov), url_of(e, "url", "repo"))
-        note = ov.item("benchmarks", e["name"]).get("note") or e.get("note", "")
-        rows.append([nm, str(e.get("year", "-")),
-                     esc(", ".join(e.get("tasks") or []) or "-"),
-                     esc(note)])
-    return render_table([ov.ui("tableBenchmark", "Benchmark / Challenge"),
-                         ov.ui("tableYear", "Year"), ov.ui("tableTasks", "Tasks"),
-                         ov.ui("tableDescription", "Description")], rows)
-
-
-LEARN_GROUPS = (("book", "learnBooks", "Books"), ("course", "learnCourses", "Courses"),
-                ("tutorial", "learnTutorials", "Tutorials"),
-                ("tool", "learnTools", "Tools"), ("list", "learnLists", "Other lists"))
-
-
-def render_learning(items, ov):
-    if not items:
-        return ""
-    out = []
-    known = {k for k, _, _ in LEARN_GROUPS}
-    groups = list(LEARN_GROUPS) + [("_other", "learnMore", "More")]
-    for key, ikey, label in groups:
-        g = [e for e in items if (e.get("type") == key) or
-             (key == "_other" and e.get("type") not in known)]
-        if not g:
-            continue
-        out.append("**%s**\n" % ov.readme(ikey, label))
-        for e in sorted(g, key=lambda e: e["name"].lower()):
-            note = ov.item("learning", e["name"]).get("note") or e.get("note", "")
-            out.append("- [%s](%s) — %s"
-                       % (item_name(e, "learning", ov), url_of(e, "url", "repo"),
-                          note))
-        out.append("")
-    return "\n".join(out)
 
 
 def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
@@ -502,6 +291,11 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
 
     def head(key):
         return "## %s\n" % heads[key]
+
+    # Browse rows link to the reader's own language on the site: the English
+    # README points at the site root, the Chinese one at /zh/.
+    lang_path = next((e.get("path") or "" for e in langs if e["code"] == ov.code), "")
+    site_base = SITE_URL + lang_path
 
     # The seven-number stats strip. Every cell carries its own unit wording, so
     # a language can put the unit first, or drop the plural, without any of this
@@ -547,26 +341,19 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
     # pasted wall of keywords buys nothing and just breaks up the page. The
     # findable words live in the repository description and the topic list.
     parts.append(head("papersHeading"))
-    parts.append(render_topic_grid(papers, meta, ov))
-    parts.append(ov.readme("legendPapers", "") + "\n")
-    parts.append(render_papers(papers, meta, ov))
+    parts.append(render_topic_grid(papers, meta, ov, site_base))
     parts.append(top_link(ov))
 
-    parts.append(head("toolkitsHeading"))
-    parts.append(render_toolkits(toolkits, ov))
-    parts.append(top_link(ov))
-
-    parts.append(head("datasetsHeading"))
-    parts.append(render_datasets(datasets, ov))
-    parts.append(top_link(ov))
-
-    parts.append(head("benchmarksHeading"))
-    parts.append(render_benchmarks(benchmarks, ov))
-    parts.append(top_link(ov))
-
-    parts.append(head("learningHeading"))
-    parts.append(render_learning(learning, ov))
-    parts.append(top_link(ov))
+    # The entries themselves live on the website; each section keeps its
+    # heading and points at the site tab with that collection selected.
+    for key, tab, n in (("toolkitsHeading", "toolkits", subs["toolkits"]),
+                        ("datasetsHeading", "datasets", subs["datasets"]),
+                        ("benchmarksHeading", "benchmarks", subs["benchmarks"]),
+                        ("learningHeading", "learning", subs["learning"])):
+        parts.append(head(key))
+        parts.append(fill(ov.readme("browseCollection", ""),
+                          {"n": n, "url": site_base + "?tab=" + tab}) + "\n")
+        parts.append(top_link(ov))
 
     parts.append(head("contactHeading"))
     parts.append(fill(ov.readme("contactBody", ""), subs) + "\n")
