@@ -1044,6 +1044,9 @@ ssdae: >-
 statistical-image-reconstruction-using-mixed-poisson-gauss: >-
   Statistical image reconstruction (SIR) methods for X-ray CT produce high-quality and accurate images, while greatly reducing patient exposure to radiation. This paper proposes a novel SIR method called MPG (mixed Poisson-Gaussian).
 
+stcnet: >-
+  We propose STCNet, a sparse-view 4D CBCT reconstruction framework using spatial-temporal consistency learning. From only 16 projections per respiratory phase, it combines physics-driven positional encoding for geometric consistency with temporal encoding for motion, jointly optimizing projection and image domains.
+
 steerable-conditional-diffusion-2025: >-
   Denoising diffusion models have emerged as the go-to generative framework for solving inverse problems in imaging. To address this discrepancy during train-test time and improve reconstruction accuracy, we introduce a novel sampling framework called Steerable Conditional Diffusion.
 
