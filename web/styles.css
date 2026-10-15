@@ -222,13 +222,16 @@ header .gres { color: var(--fg); width: max(100%, 380px); }
 
 .stats {
   margin: 48px auto 0; max-width: 860px;
-  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  /* The last column sizes to its content: the Updated date (26px, 10 chars)
+     is a hair wider than an equal sixth, so an equal grid let the browser
+     break it at a hyphen while every other value stayed on one line. */
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)) max-content;
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
 }
 .stats div { padding: 18px 8px; }
 .stats div + div { border-left: 1px solid var(--border); }
 .stats dt { font-size: 12.5px; color: var(--fg-faint); }
-.stats dd { margin: 2px 0 0; font: 600 26px/1.2 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.stats dd { margin: 2px 0 0; font: 600 26px/1.2 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* ---------------------------------------------------------------- global search */
 
@@ -502,7 +505,7 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   .hero { padding: 40px 0 24px; }
   .lead { font-size: 17px; }
   .hero-art { width: 80px; height: 80px; margin-bottom: 16px; }
-  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 32px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)) max-content; margin-top: 32px; }
   .stats div:nth-child(4) { border-left: 0; }
   .stats div:nth-child(n+4) { border-top: 1px solid var(--border); }
   .stats dd { font-size: 22px; }
