@@ -3085,3 +3085,18 @@
     pages 262–277; the link is P. C. Parks's English translation, "On the
     determination of functions from their integral values along certain
     manifolds", IEEE Transactions on Medical Imaging 5(4):170–176, 1986.
+
+- id: "ad-gs"
+  abbr: "AD-GS"
+  title: "AD-GS: Anatomical Density-guided 3D Gaussian Splatting for Sparse-View Dental CBCT Reconstruction"
+  year: 2026
+  topics: [sparse-view, cbct, gaussian]
+  paper: "https://arxiv.org/abs/2610.14963"
+  code: "https://github.com/yulinjiaxue/AD-GS-BMVC2026"
+
+- id: "tomotransformer"
+  abbr: "TomoTransformer"
+  title: "TomoTransformer: Towards a Foundation Model for CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, geometry]
+  paper: "https://arxiv.org/abs/2609.37605"
