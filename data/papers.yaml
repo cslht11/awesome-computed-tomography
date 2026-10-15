@@ -3135,3 +3135,238 @@
     Grassmannians as operators on convex bodies, and Aleksandrov-Fenchel
     inequalities for projection and mean section bodies. Included as
     theoretical background for the Radon transform.
+
+- id: "gan-noise-reduction-low-dose-ct"
+  title: "Generative Adversarial Networks for Noise Reduction in Low-Dose CT"
+  year: 2017
+  venue: "TMI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/TMI.2017.2708987"
+
+- id: "cycle-consistent-adversarial-denoising-network"
+  title: "Cycle-Consistent Adversarial Denoising Network for Multiphase Coronary CT Angiography"
+  year: 2019
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.13284"
+
+- id: "smgan"
+  abbr: "SMGAN"
+  title: "Structure-sensitive Multi-scale Deep Neural Network for Low-Dose CT Denoising"
+  year: 2018
+  venue: "IEEE Access"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/ACCESS.2018.2858196"
+
+- id: "cpce"
+  abbr: "CPCE"
+  title: "3D Convolutional Encoder-Decoder Network for Low-Dose CT via Transfer Learning from a 2D Trained Network"
+  year: 2018
+  venue: "TMI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/TMI.2018.2832217"
+
+- id: "tomogan"
+  abbr: "TomoGAN"
+  title: "TomoGAN: Low-Dose Synchrotron X-Ray Tomography with Generative Adversarial Networks"
+  year: 2020
+  venue: "J Opt Soc Am A"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1364/JOSAA.375595"
+
+- id: "gan-circle"
+  abbr: "GAN-CIRCLE"
+  title: "CT Super-resolution GAN Constrained by the Identical, Residual, and Cycle Learning Ensemble (GAN-CIRCLE)"
+  year: 2019
+  venue: "TMI"
+  topics: [other]
+  paper: "https://doi.org/10.1109/TMI.2019.2922960"
+
+- id: "sparse-view-ct-reconstruction-wasserstein-gans"
+  title: "Sparse-View CT Reconstruction Using Wasserstein GANs"
+  year: 2018
+  venue: "MLMIR"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1007/978-3-030-00129-2_9"
+
+- id: "adversarial-sparse-view-cbct-artifact-reduction"
+  title: "Adversarial Sparse-View CBCT Artifact Reduction"
+  year: 2018
+  venue: "MICCAI"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1007/978-3-030-00928-1_18"
+
+- id: "conditional-gans-metal-artifact-reduction-ear"
+  title: "Conditional Generative Adversarial Networks for Metal Artifact Reduction in CT Images of the Ear"
+  year: 2018
+  venue: "MICCAI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1007/978-3-030-00928-1_1"
+
+- id: "x2ct-gan"
+  abbr: "X2CT-GAN"
+  title: "X2CT-GAN: Reconstructing CT from Biplanar X-Rays with Generative Adversarial Networks"
+  year: 2019
+  venue: "CVPR"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1109/CVPR.2019.01087"
+  code: "https://github.com/kylekma/x2ct"
+
+- id: "coil"
+  abbr: "CoIL"
+  title: "CoIL: Coordinate-Based Internal Learning for Tomographic Imaging"
+  year: 2021
+  venue: "TCI"
+  topics: [self-supervised]
+  paper: "https://doi.org/10.1109/TCI.2021.3125564"
+
+- id: "difir-ct"
+  abbr: "DiFiR-CT"
+  title: "DiFiR-CT: Distance field representation to resolve motion artifacts in computed tomography"
+  year: 2023
+  venue: "Med Phys"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1002/mp.16157"
+  code: "https://github.com/KunalMGupta/DIFIR-CT"
+
+- id: "streak-artifacts-reduction-implicit-neural-representation"
+  title: "Streak artifacts reduction algorithm using an implicit neural representation in sparse-view CT"
+  year: 2022
+  venue: "SPIE MI"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1117/12.2610722"
+
+- id: "scope"
+  abbr: "SCOPE"
+  title: "Self-Supervised Coordinate Projection Network for Sparse-View Computed Tomography"
+  year: 2023
+  venue: "TCI"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1109/TCI.2023.3281196"
+  code: "https://github.com/iwuqing/SCOPE"
+
+- id: "neurec"
+  abbr: "NeuRec"
+  title: "NeuRec: Incorporating Interpatient prior to Sparse-View Image Reconstruction for Neurorehabilitation"
+  year: 2022
+  venue: "Biomed. Res. Int."
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1155/2022/5426643"
+
+- id: "mepnet"
+  abbr: "MEPNet"
+  title: "MEPNet: A Model-Driven Equivariant Proximal Network for Joint Sparse-View Reconstruction and Metal Artifact Reduction in CT Images"
+  year: 2023
+  venue: "MICCAI"
+  topics: [sparse-view, metal-artifact]
+  paper: "https://doi.org/10.1007/978-3-031-43999-5_11"
+  code: "https://github.com/hongwang01/MEPNet"
+
+- id: "stinr"
+  abbr: "STINR"
+  title: "Dynamic cone-beam CT reconstruction using spatial and temporal implicit neural representation learning (STINR)"
+  year: 2023
+  venue: "PMB"
+  topics: [dynamic, cbct]
+  paper: "https://doi.org/10.1088/1361-6560/acb30d"
+
+- id: "dif-net"
+  abbr: "DIF-Net"
+  title: "Learning Deep Intensity Field for Extremely Sparse-View CBCT Reconstruction"
+  year: 2023
+  venue: "MICCAI"
+  topics: [cbct, sparse-view]
+  paper: "https://doi.org/10.1007/978-3-031-43999-5_2"
+  code: "https://github.com/xmed-lab/DIF-Net"
+
+- id: "artifact-reduction-3d-4d-cbct-review"
+  title: "Artifact Reduction in 3D and 4D Cone-beam Computed Tomography Images with Deep Learning -- A Review"
+  year: 2024
+  venue: "IEEE Access"
+  topics: [survey, cbct]
+  paper: "https://doi.org/10.1109/ACCESS.2024.3353195"
+
+- id: "diffusion-probabilistic-priors-zero-shot-low-dose-ct"
+  title: "Diffusion Probabilistic Priors for Zero-Shot Low-Dose CT Image Denoising"
+  year: 2023
+  topics: [low-dose, diffusion]
+  paper: "https://arxiv.org/abs/2305.15887"
+  code: "https://github.com/DeepXuan/Dn-Dp"
+
+- id: "corediff"
+  abbr: "CoreDiff"
+  title: "CoreDiff: Contextual Error-Modulated Generalized Diffusion Model for Low-Dose CT Denoising and Generalization"
+  year: 2024
+  venue: "TMI"
+  topics: [low-dose, diffusion]
+  paper: "https://doi.org/10.1109/TMI.2023.3320812"
+  code: "https://github.com/qgao21/CoreDiff"
+
+- id: "pseudoinverse-diffusion-low-dose-ct"
+  title: "Pseudoinverse Diffusion Models for Generative CT Image Reconstruction from Low Dose Data"
+  year: 2025
+  topics: [low-dose, diffusion]
+  paper: "https://arxiv.org/abs/2502.15064"
+
+- id: "rn-sdes"
+  abbr: "RN-SDEs"
+  title: "RN-SDEs: Limited-Angle CT Reconstruction with Residual Null-Space Diffusion Stochastic Differential Equations"
+  year: 2024
+  topics: [limited-angle, diffusion]
+  paper: "https://arxiv.org/abs/2409.13930"
+
+- id: "diffux2ct"
+  abbr: "DiffuX2CT"
+  title: "DiffuX2CT: Diffusion Learning to Reconstruct CT Images from Biplanar X-Rays"
+  year: 2024
+  topics: [sparse-view, diffusion]
+  paper: "https://arxiv.org/abs/2407.13545"
+
+- id: "diffusionblend"
+  abbr: "DiffusionBlend"
+  title: "DiffusionBlend: Learning 3D Image Prior through Position-aware Diffusion Score Blending for 3D Computed Tomography Reconstruction"
+  year: 2024
+  venue: "NeurIPS"
+  topics: [diffusion, sparse-view]
+  paper: "https://arxiv.org/abs/2406.10211"
+
+- id: "parallel-diffusion-sparse-view-cone-beam-breast-ct"
+  title: "Parallel Diffusion Model-based Sparse-view Cone-beam Breast CT"
+  year: 2023
+  topics: [cbct, diffusion]
+  paper: "https://arxiv.org/abs/2303.12861"
+
+- id: "ddlm"
+  abbr: "DDLM"
+  title: "Diffusion Denoising for Low-Dose-CT Model"
+  year: 2023
+  topics: [low-dose, diffusion]
+  paper: "https://arxiv.org/abs/2301.11482"
+  note: "Author note on arXiv: the method and experiments contain errors and need revision."
+
+- id: "osdm"
+  abbr: "OSDM"
+  title: "One Sample Diffusion Model in Projection Domain for Low-Dose CT Imaging"
+  year: 2022
+  topics: [low-dose, diffusion]
+  paper: "https://arxiv.org/abs/2212.03630"
+
+- id: "patch-based-ddpm-sparse-view-ct"
+  title: "Patch-Based Denoising Diffusion Probabilistic Model for Sparse-View CT Reconstruction"
+  year: 2022
+  topics: [sparse-view, diffusion]
+  paper: "https://arxiv.org/abs/2211.10388"
+
+- id: "human-guided-shade-artifact-suppression-cbct-mdct"
+  title: "Human-Guided Shade Artifact Suppression in CBCT-to-MDCT Translation via Schrödinger Bridge with Conditional Diffusion"
+  year: 2026
+  venue: "TRPMS"
+  topics: [cbct, diffusion]
+  paper: "https://doi.org/10.1109/TRPMS.2026.3663178"
+
+- id: "fcdm"
+  abbr: "FCDM"
+  title: "FCDM: A Physics-Guided Bidirectional Frequency Aware Convolution and Diffusion-Based Model for Sinogram Inpainting"
+  year: 2024
+  topics: [sparse-view, diffusion]
+  paper: "https://arxiv.org/abs/2409.06714"
