@@ -1,0 +1,233 @@
+# Dataset and benchmark pages: /datasets/<slug>/, /benchmarks/<slug>/ and the
+# /datasets/ index (each in English and Chinese).
+#
+# scripts/resource_pages.py decides which rows of data/datasets.yaml and
+# data/benchmarks.yaml get a page of their own. Every fact on those pages is
+# read from the directory record itself (note, modality, tasks, licence, year,
+# links) or from data/papers.yaml; nothing here adds facts. A row gets a page
+# only when it has real content:
+#
+#   - a description: its `note` is at least `min_note` characters long, and
+#   - an official link, and
+#   - at least one connection in the repository: a topic page lists it
+#     (data/topics.yaml `match` / `also`), or a paper in data/papers.yaml names
+#     it (title, note or abstract blurb; see `aliases`) or links to it.
+#
+# Rows that fail stay in the directory tables on the homepage; the build prints
+# which were skipped and why. `skip` removes a row that would otherwise pass,
+# with the reason recorded here.
+#
+# Per-row settings, keyed by the exact `name` in datasets.yaml / benchmarks.yaml
+# (the build fails if a name does not exist):
+#   slug      URL segment, when the name does not make a good one
+#   short     display name used in <title>, when the full name is a sentence
+#   aliases   extra strings that, found in a paper's title, note or abstract
+#             blurb, mean the paper uses or describes this entry. Matching is
+#             case-insensitive on word boundaries. Each alias must be a name
+#             the entry's own record or a paper actually uses for it.
+#   cite      ids in data/papers.yaml that describe this entry (its descriptor
+#             or challenge paper); shown as "How to cite" and as the JSON-LD
+#             `citation`.
+
+min_note: 80
+
+datasets:
+  "LoDoPaB-CT":
+    aliases: ["LoDoPaB"]
+    cite: [lodopab-ct]
+  "LDCT-and-Projection-data":
+    slug: ldct-and-projection-data
+  "Helsinki Tomography Challenge 2022":
+    aliases: ["Helsinki Tomography Challenge"]
+  "SPARE 4D-CBCT":
+    slug: spare-4d-cbct
+    cite: [spare]
+  "Cone-Beam CT (CBCT) Head & Neck":
+    slug: cbct-head-and-neck
+    short: "CBCT Head & Neck (TCIA)"
+  "Finnish Inverse Problems Society (FIPS) datasets":
+    slug: fips-datasets
+    short: "FIPS tomography datasets"
+  "COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset":
+    slug: cobra2026
+    short: "COBRA2026"
+  "MORE: Multi-Organ Medical Image REconstruction Dataset":
+    slug: more
+    short: "MORE"
+  "Walnut-21 (two dose levels)":
+    slug: walnut-21
+  "FleX-ray Walnut CBCT Collection (CWI)":
+    slug: flex-ray-walnuts
+    short: "FleX-ray Walnut CBCT Collection"
+  "Carved cheese (FIPS)":
+    slug: carved-cheese
+  "LoDoPaB-CT (benchmark release paper)":
+    skip: "Not a separate dataset: it is the Scientific Data descriptor of LoDoPaB-CT, which is cited on the LoDoPaB-CT page."
+
+benchmarks:
+  "AAPM Low-Dose CT Grand Challenge":
+    slug: aapm-low-dose-ct-grand-challenge
+    aliases: ["AAPM-Mayo", "Low-dose CT Grand Challenge"]
+  "Helsinki Tomography Challenge":
+    aliases: ["Helsinki Tomography Challenge"]
+  "LoDoPaB-CT benchmark":
+    aliases: ["LoDoPaB"]
+    cite: [lodopab-ct]
+  "SPARE Challenge":
+    aliases: ["SPARE: Sparse-view reconstruction challenge"]
+    cite: [spare]
+  "CTooth / CTooth+":
+    slug: ctooth
+    short: "CTooth / CTooth+"
+  "Noise2Noise denoising protocol":
+    aliases: ["Noise2Noise"]
+  "Generating synthetic computed tomography for radiotherapy: SynthRAD2025 challenge report":
+    slug: synthrad2025
+    short: "SynthRAD2025"
+
+# Page strings. English is the source; Chinese falls back to it per key.
+strings:
+  en:
+    home: Home
+    indexTitle: "CT Reconstruction Datasets and Benchmarks"
+    indexCrumb: "Datasets & benchmarks"
+    indexDesc: "Open CT reconstruction datasets and benchmarks: projection and image data, modality, licence and the papers and topics that use each one."
+    indexLede: "{n_ds} datasets and {n_bm} benchmarks from the directory have a page of their own, with the data they contain, their licence, the topics they belong to and the papers in the directory that use them."
+    indexRest: "Another {n_rest} entries, mostly segmentation and detection collections with no reconstruction topic or paper in the directory yet, are listed in the full [dataset table](/?tab=datasets) and [benchmark table](/?tab=benchmarks)."
+    indexGuide: "Not sure which one to use? Read the guide [how to choose a CT reconstruction dataset](/guides/choosing-a-ct-reconstruction-dataset/)."
+    datasets: Datasets
+    benchmarks: Benchmarks
+    kindDataset: Dataset
+    kindBenchmark: Benchmark
+    titleDataset: "{short}: {modality_ct} dataset ({license})"
+    titleDatasetNoLicense: "{short}: {modality_ct} dataset"
+    titleBenchmark: "{short}: CT benchmark ({year})"
+    colName: Name
+    colData: Data
+    colModality: Modality
+    colLicense: Licence
+    colYear: Year
+    colTasks: Tasks
+    colPaper: Paper
+    colVenue: Venue
+    colLinks: Links
+    factType: Type
+    factData: Data
+    factModality: Modality
+    factTasks: Tasks
+    factLicense: "Licence (of the dataset)"
+    factYear: Year
+    factLink: Official page
+    factHomepage: Homepage
+    factDoi: DOI
+    domainBoth: "Projection + image"
+    domainProjection: "Projection only"
+    domainImage: "Image only"
+    domainUnknown: "Not stated"
+    papers: "Papers in the directory that use or describe it"
+    papersLede: "Papers whose title, note or abstract summary in the directory names this entry, or that link to it."
+    cite: "How to cite"
+    citeLede: "The paper that describes this entry:"
+    topics: "Related topics"
+    topicsLede: "Topic pages that list this entry among their datasets and benchmarks."
+    related: "Related entries"
+    relatedLede: "Directory entries that share its official page or name it in their description."
+    guides: Guides
+    entryGuidesLede: "Guides that compare this entry with the alternatives."
+    backIndex: "All datasets and benchmarks"
+    source: "Everything on this page comes from the directory record (last content update {updated}). Licence terms and access conditions can change: check the official page before you download or redistribute the data."
+    official: "official page"
+    preprint: preprint
+    guidesTitle: "CT Reconstruction Guides"
+    guidesCrumb: Guides
+    guidesDesc: "Practical guides to CT reconstruction research: sparse-view reconstruction, low-dose CT denoising and choosing a dataset, built from the verified directory."
+    guidesLede: "Short, practical guides built from the directory: each answers one question, compares the options in a table and links to the topic and dataset pages behind it."
+    guideKicker: Guide
+    updated: "Last updated: {date}"
+    faq: "Frequently asked questions"
+    onThisPage: "Topic pages"
+    topicGuides: Guides
+    topicGuidesLede: "Guides that cover this topic."
+    colFamily: "Method family"
+    colWhat: "What it is"
+    colPapers: Papers
+    colWithCode: "With code"
+    colRecent: "Most recent with code"
+    colWhy: "Why read it"
+    colLanguage: Language
+    colProvides: "What it provides"
+    colEvaluates: "What it evaluates"
+    relatedPages: "Related pages"
+    otherGuides: "Other guides"
+  zh:
+    home: 首页
+    indexTitle: "CT 重建数据集与基准"
+    indexCrumb: "数据集与基准"
+    indexDesc: "开放的 CT 重建数据集与基准：投影与图像数据、成像方式、许可，以及使用它们的论文和主题。"
+    indexLede: "目录中有 {n_ds} 个数据集和 {n_bm} 个基准拥有单独的页面，列出其包含的数据、许可、所属主题，以及目录中使用它们的论文。"
+    indexRest: "另有 {n_rest} 个条目（多为分割与检测数据集，目录中尚无与之相关的重建主题或论文）列在完整的[数据集表格](/?tab=datasets)和[基准表格](/?tab=benchmarks)中。"
+    indexGuide: "不确定该用哪一个？请阅读指南[如何选择 CT 重建数据集](/guides/choosing-a-ct-reconstruction-dataset/)。"
+    datasets: 数据集
+    benchmarks: 基准
+    kindDataset: 数据集
+    kindBenchmark: 基准
+    titleDataset: "{short}：{modality_ct} 数据集（{license}）"
+    titleDatasetNoLicense: "{short}：{modality_ct} 数据集"
+    titleBenchmark: "{short}：CT 基准（{year}）"
+    colName: 名称
+    colData: 数据
+    colModality: 成像方式
+    colLicense: 许可
+    colYear: 年份
+    colTasks: 任务
+    colPaper: 论文
+    colVenue: 发表出处
+    colLinks: 链接
+    factType: 类型
+    factData: 数据
+    factModality: 成像方式
+    factTasks: 任务
+    factLicense: "许可（数据集本身的）"
+    factYear: 年份
+    factLink: 官方页面
+    factHomepage: 主页
+    factDoi: DOI
+    domainBoth: "投影 + 图像"
+    domainProjection: "仅投影"
+    domainImage: "仅图像"
+    domainUnknown: "未注明"
+    papers: "目录中使用或描述它的论文"
+    papersLede: "在目录中，标题、备注或摘要概述提到该条目，或链接到它的论文。"
+    cite: "如何引用"
+    citeLede: "描述该条目的论文："
+    topics: "相关主题"
+    topicsLede: "在数据集与基准中列出该条目的主题页。"
+    related: "相关条目"
+    relatedLede: "与它共用官方页面，或在描述中提到它的目录条目。"
+    guides: 指南
+    entryGuidesLede: "把该条目与其他选择放在一起比较的指南。"
+    backIndex: "全部数据集与基准"
+    source: "本页所有内容均来自目录记录（最近一次内容更新：{updated}）。许可条款和访问条件可能变化，下载或再分发数据前请以官方页面为准。"
+    official: "官方页面"
+    preprint: 预印本
+    guidesTitle: "CT 重建指南"
+    guidesCrumb: 指南
+    guidesDesc: "CT 重建研究实用指南：稀疏视角重建、低剂量 CT 去噪与数据集选择，内容均来自经过核验的目录。"
+    guidesLede: "基于目录编写的简短实用指南：每篇回答一个问题，用表格比较各种选择，并链接到背后的主题页和数据集页。"
+    guideKicker: 指南
+    updated: "最近更新：{date}"
+    faq: "常见问题"
+    onThisPage: "主题页"
+    topicGuides: 指南
+    topicGuidesLede: "涵盖本主题的指南。"
+    colFamily: "方法族"
+    colWhat: "简介"
+    colPapers: 论文数
+    colWithCode: "附代码"
+    colRecent: "最新的附代码论文"
+    colWhy: "推荐理由"
+    colLanguage: 语言
+    colProvides: "提供什么"
+    colEvaluates: "评估内容"
+    relatedPages: "相关页面"
+    otherGuides: "其他指南"

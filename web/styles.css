@@ -548,3 +548,14 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   header.top, .toolbar, #topics, footer, .scrim { display: none; }
   li.paper { break-inside: avoid; }
 }
+
+/* Dataset / benchmark pages and guides. */
+.prose table.facts { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 15px; }
+.prose table.facts th, .prose table.facts td { text-align: left; vertical-align: top; padding: 8px 14px 8px 0; border-bottom: 1px solid var(--border); }
+.prose table.facts th { width: 13em; font-weight: 600; color: var(--fg-faint); white-space: nowrap; }
+.prose table.facts td { overflow-wrap: anywhere; }
+.prose .updated { margin: -6px 0 18px; font-size: 14px; color: var(--fg-faint); }
+.prose .src-note { margin-top: 28px; font-size: 14px; color: var(--fg-faint); }
+@media (max-width: 640px) {
+  .prose table.facts th { width: auto; white-space: normal; }
+}

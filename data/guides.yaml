@@ -1,0 +1,249 @@
+# Evergreen guides: /guides/<slug>/ and /zh/guides/<slug>/, plus the /guides/
+# index. Rendered by scripts/resource_pages.py.
+#
+# The prose here is editorial, but every fact in it has to be checkable against
+# the repository: paper titles, years, venues and links come from
+# data/papers.yaml, and dataset and benchmark facts from the notes in
+# data/datasets.yaml and data/benchmarks.yaml. The comparison tables are
+# generated from that data, so they never go stale. Do not write numbers into
+# the prose; use the {tokens} below, which are filled from the live data:
+#
+#   {n_papers_<topic>} / {n_code_<topic>}   papers on a topic / of them with code
+#                                           (topic id with - written as _)
+#   {n_dataset_pages} {n_benchmark_pages}   entries with a page of their own
+#   {n_proj} {n_proj_both} {n_proj_only}    dataset pages with projection data
+#   {n_image_only}                          dataset pages that are image only
+#   {n_fan2d} {n_cone}                      2D fan-beam / cone-beam dataset pages
+#   {n_nc}                                  dataset pages with an NC licence
+#   {proj_names}                            names of dataset pages with projections
+#   {proj_low_dose}                         ... of those, the ones on the low-dose topic
+#
+# Links: [text](/path/) is a link inside the site, resolved for each language;
+# the build fails if the target page is not generated. [text](https://...) is
+# an outside link. **bold** is allowed. Paragraphs are separated by a blank line.
+#
+# Table types (blocks[].table.type):
+#   families   topic + families: papers on `topic` that also carry each family
+#   resources  kind (datasets|benchmarks) + topic (entries that topic page
+#              lists) or all: true; only entries with a page of their own
+#   toolkits   names: rows of data/toolkits.yaml by exact name
+#   start      topic: that topic's "Start here" list from data/topics.yaml
+#
+# `topics` are the topic pages that link to the guide, and that it links back to.
+
+updated: 2026-10-16
+published: 2026-10-16
+
+guides:
+  # ------------------------------------------------------------- sparse-view
+  - slug: sparse-view-ct-reconstruction
+    topics: [sparse-view]
+    en:
+      title: "Sparse-View CT Reconstruction: Methods, Datasets and Where to Start"
+      description: "A practical guide to sparse-view CT reconstruction: method families compared, open datasets with raw projections, and papers with code to start from."
+      answer: |
+        Sparse-view CT reconstruction recovers an image from projections taken at only a small number of angles. To get started, pair one classical baseline (TV-regularised iterative reconstruction) with one learned method that has released code, and test both on a dataset that ships raw projections: [LoDoPaB-CT](/datasets/lodopab-ct/) or the [AAPM DL-Sparse-View CT data](/datasets/aapm-dl-sparse-view-ct-data/) for simulated sinograms, [2DeteCT](/datasets/2detect/) or the [FleX-ray walnuts](/datasets/flex-ray-walnuts/) for measured ones.
+
+        The directory lists {n_papers_sparse_view} sparse-view papers, {n_code_sparse_view} of them with code. The tables below are generated from those records.
+    zh:
+      title: "稀疏视角 CT 重建：方法、数据集与入门路径"
+      description: "稀疏视角 CT 重建实用指南：方法族对比、带原始投影的开放数据集，以及可以入手的带代码论文。"
+      answer: |
+        稀疏视角 CT 重建是指只用少量角度的投影来恢复图像。入门时，建议把一个经典基线（TV 正则化迭代重建）和一个已公开代码的学习方法搭配起来，并在带原始投影的数据集上同时测试：模拟正弦图可以用 [LoDoPaB-CT](/datasets/lodopab-ct/) 或 [AAPM DL-Sparse-View CT 数据](/datasets/aapm-dl-sparse-view-ct-data/)，实测数据可以用 [2DeteCT](/datasets/2detect/) 或 [FleX-ray 核桃数据集](/datasets/flex-ray-walnuts/)。
+
+        目录目前收录 {n_papers_sparse_view} 篇稀疏视角论文，其中 {n_code_sparse_view} 篇附代码。下面的表格都由这些记录生成。
+    blocks:
+      - h2: {en: "Method families compared", zh: "方法族对比"}
+        text:
+          en: |
+            Sparse-view papers in the directory are also tagged with the method family they use, and each family has its own topic page. The table counts the sparse-view papers in each family and names the most recent one with released code. A paper can belong to more than one family.
+          zh: |
+            目录中的稀疏视角论文同时标注了所用的方法族，每个方法族都有自己的主题页。下表统计了每个方法族中的稀疏视角论文数量，并列出其中最新一篇已公开代码的论文。一篇论文可以属于多个方法族。
+        table: {type: families, topic: sparse-view, families: [classical, unrolling, self-supervised, diffusion, inr, gaussian]}
+      - h2: {en: "Datasets and benchmarks", zh: "数据集与基准"}
+        text:
+          en: |
+            Benchmarks usually simulate sparse sinograms by keeping a subset of the angles of a full scan, so datasets that ship raw projections are the most useful. Measured datasets test whether a method holds up on real data. Every entry below has its own page with its licence and the papers that use it.
+          zh: |
+            基准测试通常从完整扫描中保留一部分角度来模拟稀疏正弦图，因此带原始投影的数据集最有用；实测数据集则用来检验方法在真实数据上是否站得住。下面每个条目都有自己的页面，列出其许可和使用它的论文。
+        table: {type: resources, kind: datasets, topic: sparse-view}
+      - table: {type: resources, kind: benchmarks, topic: sparse-view}
+      - h2: {en: "Where to start", zh: "从哪里开始"}
+        text:
+          en: |
+            These are the maintainers' start-here picks from the [sparse-view CT topic page](/topics/sparse-view/), from the classical TV baseline to per-scan neural fields and Gaussian splatting. For data with a contiguous missing wedge rather than spread-out gaps, see [limited-angle tomography](/topics/limited-angle/) instead.
+          zh: |
+            以下是[稀疏视角 CT 主题页](/topics/sparse-view/)中维护者挑选的入门论文，从经典的 TV 基线到逐扫描拟合的神经场和高斯溅射。如果缺失的是连续的一段角度（缺失楔形），而不是分散的间隔，请改看[有限角层析](/topics/limited-angle/)。
+        table: {type: start, topic: sparse-view}
+    faq:
+      - en:
+          q: "What is sparse-view CT?"
+          a: "Sparse-view CT reconstructs an image from projections taken at only a small number of angles, typically tens rather than the hundreds or thousands of views in a standard scan. Fewer views mean lower dose and faster acquisition, but filtered back-projection then produces strong streak artifacts."
+        zh:
+          q: "什么是稀疏视角 CT？"
+          a: "稀疏视角 CT 是指只用少量角度的投影来重建图像，通常是几十个视角，而标准扫描需要数百到上千个视角。视角越少，剂量越低、采集越快，但滤波反投影会因此产生严重的条状伪影。"
+      - en:
+          q: "How is sparse-view CT different from limited-angle CT?"
+          a: "In sparse-view CT the missing views are gaps spread across the scan. In limited-angle CT they are contiguous, a missing wedge of directions, so edges whose orientation falls inside the wedge are essentially invisible and the problem is more severely ill-posed. Each has its own topic page."
+        zh:
+          q: "稀疏视角 CT 与有限角 CT 有什么区别？"
+          a: "稀疏视角 CT 缺失的视角是分散在整个扫描中的间隔；有限角 CT 缺失的则是连续的一段，即一个角度楔形，取向落在楔形内的边缘几乎不会在测量中留下信息，因此问题更加病态。两者各有自己的主题页。"
+      - en:
+          q: "Which dataset should I use for sparse-view CT?"
+          a: "For simulated sparse sinograms, [LoDoPaB-CT](/datasets/lodopab-ct/) and the [AAPM DL-Sparse-View CT data](/datasets/aapm-dl-sparse-view-ct-data/); the latter isolates the sparse-view problem with noiseless 128-view sinograms. For measured data, use [2DeteCT](/datasets/2detect/), the [FleX-ray walnut collection](/datasets/flex-ray-walnuts/) or [SparseBeads](/datasets/sparsebeads/)."
+        zh:
+          q: "稀疏视角 CT 应该用哪个数据集？"
+          a: "模拟稀疏正弦图可以用 [LoDoPaB-CT](/datasets/lodopab-ct/) 和 [AAPM DL-Sparse-View CT 数据](/datasets/aapm-dl-sparse-view-ct-data/)，后者用无噪声的 128 视角正弦图把稀疏视角问题单独剥离出来。实测数据可以用 [2DeteCT](/datasets/2detect/)、[FleX-ray 核桃数据集](/datasets/flex-ray-walnuts/)或 [SparseBeads](/datasets/sparsebeads/)。"
+      - en:
+          q: "Do I need training data for sparse-view reconstruction?"
+          a: "Not always. Per-scan representations such as implicit neural fields and Gaussian splatting are fitted to each scan, and self-supervised methods train without paired data. NAF, for example, is a self-supervised neural attenuation field for sparse-view CBCT that fits each scan without training data."
+        zh:
+          q: "稀疏视角重建一定需要训练数据吗？"
+          a: "不一定。隐式神经场和高斯溅射等逐扫描表示是针对每次扫描单独拟合的，自监督方法也不需要成对数据。例如 NAF 是用于稀疏视角 CBCT 的自监督神经衰减场，无需训练数据、逐个扫描拟合。"
+
+  # ---------------------------------------------------------------- low-dose
+  - slug: low-dose-ct-denoising
+    topics: [low-dose, self-supervised]
+    en:
+      title: "Low-Dose CT Denoising: Benchmarks, Datasets and Toolkits"
+      description: "Low-dose CT denoising compared: the AAPM/Mayo and LoDoPaB-CT benchmarks, open low-dose datasets, and the toolkits used to simulate dose and reconstruct."
+      answer: |
+        For low-dose CT denoising, evaluate on the Mayo Clinic data from the [2016 AAPM Low-Dose CT Grand Challenge](/benchmarks/aapm-low-dose-ct-grand-challenge/), now released as [LDCT-and-Projection-data](/datasets/ldct-and-projection-data/) on TCIA, and on [LoDoPaB-CT](/datasets/lodopab-ct/), the main simulated benchmark. Nearly every low-dose CT paper still reports on the AAPM split. Reconstruct with an open toolkit such as the ASTRA Toolbox, TIGRE, ODL or CIL, and use the LD-CT simulator when you need dose levels a dataset does not have.
+
+        The directory lists {n_papers_low_dose} low-dose CT papers, {n_code_low_dose} of them with code. The tables below are generated from those records.
+    zh:
+      title: "低剂量 CT 去噪：基准、数据集与工具库"
+      description: "低剂量 CT 去噪对比：AAPM/Mayo 与 LoDoPaB-CT 基准、开放的低剂量数据集，以及用于模拟剂量和重建的工具库。"
+      answer: |
+        做低剂量 CT 去噪，应在 [2016 年 AAPM 低剂量 CT 大挑战](/benchmarks/aapm-low-dose-ct-grand-challenge/)的 Mayo Clinic 数据（现以 [LDCT-and-Projection-data](/datasets/ldct-and-projection-data/) 在 TCIA 发布）以及主要的模拟基准 [LoDoPaB-CT](/datasets/lodopab-ct/) 上评估。几乎每一篇低剂量 CT 论文至今仍在 AAPM 的切分上报告结果。重建可以用 ASTRA Toolbox、TIGRE、ODL 或 CIL 等开源工具库；如果需要数据集里没有的剂量水平，可以用 LD-CT simulator 生成。
+
+        目录目前收录 {n_papers_low_dose} 篇低剂量 CT 论文，其中 {n_code_low_dose} 篇附代码。下面的表格都由这些记录生成。
+    blocks:
+      - h2: {en: "Benchmarks compared", zh: "基准对比"}
+        text:
+          en: |
+            These are the benchmarks and evaluation protocols the [low-dose CT topic page](/topics/low-dose/) lists, with the year each started and what it measures. Each has its own page with the papers in the directory that report on it.
+          zh: |
+            以下是[低剂量 CT 主题页](/topics/low-dose/)列出的基准与评估协议，包括各自的起始年份和评估内容。每个条目都有自己的页面，列出目录中在其上报告结果的论文。
+        table: {type: resources, kind: benchmarks, topic: low-dose}
+      - h2: {en: "Datasets", zh: "数据集"}
+        text:
+          en: |
+            For projection-domain or dual-domain methods you need raw sinograms; image-domain denoisers can also train on reconstructed slices. The data column says which a dataset ships.
+          zh: |
+            投影域或双域方法需要原始正弦图；图像域去噪器也可以在重建好的切片上训练。“数据”一列说明每个数据集提供的是哪一种。
+        table: {type: resources, kind: datasets, topic: low-dose}
+      - h2: {en: "Toolkits", zh: "工具库"}
+        text:
+          en: |
+            General reconstruction toolkits provide projectors and iterative solvers, PyTorch libraries add learned and unrolled methods, and simulators turn full-dose images into realistic low-dose ones. Licences are those of the toolkits.
+          zh: |
+            通用重建工具库提供投影算子和迭代求解器，PyTorch 库提供学习型方法和展开方法，模拟器则把全剂量图像转换成逼真的低剂量图像。表中的许可是各工具库自己的许可。
+        table: {type: toolkits, names: ["ASTRA Toolbox", "TIGRE", "ODL", "Core Imaging Library (CIL)", "DeepInverse", "LION", "LD-CT simulator", "Physics-ArX"]}
+      - h2: {en: "Where to start", zh: "从哪里开始"}
+        text:
+          en: |
+            The maintainers' start-here picks from the low-dose CT topic page: the standard CNN baseline, a GAN with a perceptual loss, a transformer, the LoDoPaB-CT descriptor and a self-supervised method. More methods that train without clean targets are on the [self-supervised topic page](/topics/self-supervised/).
+          zh: |
+            低剂量 CT 主题页中维护者挑选的入门论文：标准 CNN 基线、带感知损失的 GAN、Transformer、LoDoPaB-CT 的数据描述论文，以及一个自监督方法。更多无需干净目标的方法见[自监督主题页](/topics/self-supervised/)。
+        table: {type: start, topic: low-dose}
+    faq:
+      - en:
+          q: "What is the standard benchmark for low-dose CT denoising?"
+          a: "The Mayo Clinic data from the 2016 AAPM Low-Dose CT Grand Challenge, which established the quarter-dose / 10% / 5% protocol; nearly every low-dose CT paper still reports on that split. The data are now released as LDCT-and-Projection-data on TCIA. LoDoPaB-CT is the main simulated benchmark."
+        zh:
+          q: "低剂量 CT 去噪的标准基准是什么？"
+          a: "2016 年 AAPM 低剂量 CT 大挑战中的 Mayo Clinic 数据，它确立了 1/4 剂量 / 10% / 5% 协议，几乎每一篇低剂量 CT 论文至今仍在该切分上报告结果。这批数据现以 LDCT-and-Projection-data 在 TCIA 发布。LoDoPaB-CT 则是主要的模拟基准。"
+      - en:
+          q: "Which low-dose CT datasets include projection data?"
+          a: "Among the low-dose datasets with a page here, these ship projection data: {proj_low_dose}. The [low-dose datasets table](#guide-table-datasets) shows the rest."
+        zh:
+          q: "哪些低剂量 CT 数据集提供投影数据？"
+          a: "在本站有单独页面的低剂量数据集中，提供投影数据的有：{proj_low_dose}。其余数据集见上方的[数据集表格](#guide-table-datasets)。"
+      - en:
+          q: "Is LoDoPaB-CT enough on its own?"
+          a: "It is simulated from LIDC/IDRI chest scans at a single noise level (N0 = 4096), so other dose levels have to be re-simulated. Report on a real-data benchmark such as the Mayo data as well."
+        zh:
+          q: "只用 LoDoPaB-CT 够吗？"
+          a: "它由 LIDC/IDRI 胸部扫描仿真而来，只有单一噪声水平（N0 = 4096），其他剂量水平需要自行重新仿真。建议同时在 Mayo 数据等真实数据基准上报告结果。"
+      - en:
+          q: "Can I train a low-dose CT denoiser without full-dose images?"
+          a: "Yes. Self-supervised methods avoid the need for paired full-dose images. Noise2Noise popularised training a denoiser without clean targets, and on CT it became the standard no-clean-ground-truth evaluation protocol."
+        zh:
+          q: "没有全剂量图像能训练低剂量 CT 去噪器吗？"
+          a: "可以。自监督方法免去了对成对全剂量图像的需求。Noise2Noise 推广了不需要干净目标的去噪器训练方式，在 CT 上它成了“没有干净真值”时的标准评估协议。"
+
+  # ---------------------------------------------------------- dataset choice
+  - slug: choosing-a-ct-reconstruction-dataset
+    topics: []          # linked from every topic page that lists a dataset page
+    en:
+      title: "How to Choose a CT Reconstruction Dataset"
+      description: "How to choose a CT reconstruction dataset: projection or image data, fan-beam or cone-beam geometry, measured or simulated scans, and licence, in one table."
+      answer: |
+        Choose a CT reconstruction dataset by asking four questions in order: does it ship raw projections, does its geometry match yours (2D fan-beam, helical or cone-beam), is it measured or simulated, and does its licence allow your use. Of the {n_dataset_pages} datasets with a page here, {n_proj} include projection data, which is what you need to test a reconstruction method rather than an image post-processor.
+
+        The table at the end compares all of them; each name links to a page with the full record and the papers that use it.
+    zh:
+      title: "如何选择 CT 重建数据集"
+      description: "如何选择 CT 重建数据集：投影还是图像、扇束还是锥束几何、实测还是仿真，以及许可，一张表对比。"
+      answer: |
+        选择 CT 重建数据集时，按顺序回答四个问题：是否提供原始投影；几何是否与你的一致（二维扇束、螺旋还是锥束）；是实测还是仿真；许可是否允许你的用途。在本站有单独页面的 {n_dataset_pages} 个数据集中，有 {n_proj} 个包含投影数据——要检验的是重建方法而不是图像后处理器时，需要的正是这种数据。
+
+        文末的表格对比了全部数据集；每个名称都链接到一个页面，列出完整记录和使用它的论文。
+    blocks:
+      - h2: {en: "1. Projections or images only", zh: "1. 有投影，还是只有图像"}
+        text:
+          en: |
+            A reconstruction method needs sinograms. The directory records what each dataset contains: of the dataset pages here, {n_proj_both} ship projections and images, {n_proj_only} ship projections only, and {n_image_only} are image collections; the rest do not say. Image-only collections such as ToothFairy2 are still useful for pretraining and for downstream evaluation.
+          zh: |
+            重建方法需要正弦图。目录记录了每个数据集包含的内容：在本站的数据集页面中，{n_proj_both} 个同时提供投影和图像，{n_proj_only} 个只提供投影，{n_image_only} 个是图像集合，其余没有注明。ToothFairy2 这类只有图像的数据集仍可用于预训练和下游评估。
+      - h2: {en: "2. Geometry", zh: "2. 几何"}
+        text:
+          en: |
+            {n_fan2d} of the datasets here are 2D fan-beam, which is quick to iterate on; {n_cone} are cone-beam, which is what [cone-beam CT](/topics/cbct/) methods need. A method developed on 2D slices does not automatically carry over to a 3D cone-beam geometry.
+          zh: |
+            这里的数据集中有 {n_fan2d} 个是二维扇束，便于快速迭代；{n_cone} 个是锥束，[锥束 CT](/topics/cbct/) 方法需要的正是这种。在二维切片上开发的方法，并不能自动迁移到三维锥束几何。
+      - h2: {en: "3. Measured or simulated", zh: "3. 实测还是仿真"}
+        text:
+          en: |
+            Simulated data give exact ground truth and any protocol you like: [LoDoPaB-CT](/datasets/lodopab-ct/) is simulated from LIDC/IDRI, and the [AAPM DL-Sparse-View CT data](/datasets/aapm-dl-sparse-view-ct-data/) use noiseless phantoms. Measured data show whether a method survives real acquisitions: [2DeteCT](/datasets/2detect/) has real experimental slices at three dose levels, and the [Helsinki Tomography Challenge 2022](/datasets/helsinki-tomography-challenge-2022/) data are real limited-angle sinograms.
+          zh: |
+            仿真数据有精确的真值，协议也可以随意设定：[LoDoPaB-CT](/datasets/lodopab-ct/) 由 LIDC/IDRI 仿真而来，[AAPM DL-Sparse-View CT 数据](/datasets/aapm-dl-sparse-view-ct-data/)使用无噪声体模。实测数据则能说明方法在真实采集中是否站得住：[2DeteCT](/datasets/2detect/) 提供三个剂量水平的真实实验切片，[Helsinki Tomography Challenge 2022](/datasets/helsinki-tomography-challenge-2022/) 提供真实的有限角正弦图。
+      - h2: {en: "4. Licence and access", zh: "4. 许可与访问"}
+        text:
+          en: |
+            {n_nc} of the datasets here carry a NonCommercial (NC) licence, and some parts need an access request: the head scans in [LDCT-and-Projection-data](/datasets/ldct-and-projection-data/) need an NIH controlled-access request. The licence column describes each dataset, not this list; check the official page before you redistribute anything.
+          zh: |
+            这里有 {n_nc} 个数据集采用非商业（NC）许可，有些部分还需要申请访问：[LDCT-and-Projection-data](/datasets/ldct-and-projection-data/) 中的头部扫描需按 NIH 受控访问流程申请。许可一列描述的是各数据集本身，而不是本列表；再分发任何内容前请先查看官方页面。
+      - h2: {en: "All datasets compared", zh: "全部数据集对比"}
+        text:
+          en: |
+            Every dataset with a page here, projection data first. Benchmarks built on these datasets are on the [datasets and benchmarks page](/datasets/).
+          zh: |
+            本站有单独页面的全部数据集，带投影数据的排在前面。基于这些数据集的基准见[数据集与基准页面](/datasets/)。
+        table: {type: resources, kind: datasets, all: true}
+    faq:
+      - en:
+          q: "Which CT datasets include raw projection data?"
+          a: "Among the datasets with a page here: {proj_names}."
+        zh:
+          q: "哪些 CT 数据集提供原始投影数据？"
+          a: "在本站有单独页面的数据集中：{proj_names}。"
+      - en:
+          q: "Which dataset should I use for limited-angle CT?"
+          a: "The [Helsinki Tomography Challenge 2022](/datasets/helsinki-tomography-challenge-2022/) data are real limited-angle sinograms, and the accompanying challenge defines the standard limited-angle protocol. For sparse-view CT, see the [sparse-view guide](/guides/sparse-view-ct-reconstruction/)."
+        zh:
+          q: "有限角 CT 应该用哪个数据集？"
+          a: "[Helsinki Tomography Challenge 2022](/datasets/helsinki-tomography-challenge-2022/) 提供真实的有限角正弦图，配套挑战赛定义了标准的有限角协议。稀疏视角 CT 请参阅[稀疏视角指南](/guides/sparse-view-ct-reconstruction/)。"
+      - en:
+          q: "Can I use these datasets commercially?"
+          a: "Not all of them: {n_nc} of the datasets here carry a NonCommercial (NC) licence. The licence shown on each page is the dataset's own, not this list's; check the official page for the current terms."
+        zh:
+          q: "这些数据集可以商用吗？"
+          a: "并非全部可以：这里有 {n_nc} 个数据集采用非商业（NC）许可。每个页面上显示的是数据集自己的许可，而不是本列表的许可；当前条款请以官方页面为准。"
+      - en:
+          q: "What is the difference between a dataset and a benchmark here?"
+          a: "A dataset entry is a collection of scans. A benchmark entry is a challenge, benchmark or standard evaluation protocol, often built on a dataset: the LoDoPaB-CT benchmark, for example, evaluates on the LoDoPaB-CT split. Both are listed on the [datasets and benchmarks page](/datasets/)."
+        zh:
+          q: "这里的“数据集”和“基准”有什么区别？"
+          a: "数据集条目是一组扫描数据；基准条目是挑战赛、基准或标准评估协议，通常建立在某个数据集之上，例如 LoDoPaB-CT 基准就在 LoDoPaB-CT 的切分上评估。两者都列在[数据集与基准页面](/datasets/)上。"

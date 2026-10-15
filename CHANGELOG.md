@@ -13,6 +13,52 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-16 — Dataset and benchmark pages, and three guides
+
+### Added
+
+- **`/datasets/<slug>/` and `/benchmarks/<slug>/`** (English and Chinese) for
+  the 21 datasets and 11 benchmarks in the directory with real content: a
+  description, an official link, and at least one topic page or paper in the
+  directory that uses them. Each page shows the data the entry ships
+  (projection and/or image, as its note states), modality, tasks, the
+  dataset's own licence, official links and DOI where the record has one, the
+  paper that describes it, the papers in the directory that name or link it,
+  its topic pages, related entries and guides. Each has its own title,
+  description, canonical URL, hreflang alternates, a `BreadcrumbList` and a
+  schema.org `Dataset` block built from the same record as the visible page.
+  The other 28 entries, mostly segmentation and detection collections with no
+  reconstruction topic or paper in the directory yet, stay in the directory
+  tables; `build_site.py` prints each one it skips and why. Which entries get
+  a page, their URL slugs and the aliases used to find the papers that use
+  them live in the new `data/resources.yaml`.
+- **`/datasets/`**, an index of every dataset and benchmark page.
+- **Three guides under `/guides/`**, with a `/guides/` index:
+  [sparse-view CT reconstruction](https://computedtomography.org/guides/sparse-view-ct-reconstruction/),
+  [low-dose CT denoising](https://computedtomography.org/guides/low-dose-ct-denoising/) and
+  [how to choose a CT reconstruction dataset](https://computedtomography.org/guides/choosing-a-ct-reconstruction-dataset/).
+  Each opens with the answer, compares the options in tables generated from
+  the directory (method families, datasets, benchmarks, toolkits, start-here
+  papers), shows a last-updated date and ends with a short FAQ whose
+  `FAQPage` JSON-LD is built from the visible text. Prose lives in
+  `data/guides.yaml`; every count in it is filled from the live data.
+- Topic pages link the dataset and benchmark pages they list (the official
+  site stays one click away) and the guides that cover them; the About page
+  links `/datasets/`, `/guides/` and each guide. All new pages are in
+  `sitemap.xml` and `llms.txt`. The homepage is unchanged.
+- `build_site.py` fails if a new page lacks its canonical, hreflang,
+  breadcrumb or JSON-LD, is missing from the sitemap, has no inbound link, or
+  if a guide links a page that is not generated. `tests/test_seo.js` also
+  checks that each `Dataset` block matches the visible name, description,
+  licence, DOI and citation, and that each guide's FAQ and last-updated date
+  match its JSON-LD.
+
+### Fixed
+
+- A paper title that starts with its abbreviation followed by a comma
+  (LoDoPaB-CT) no longer renders as "LoDoPaB-CT: , a benchmark …" on topic
+  pages.
+
 ## 2026-10-16 — A changelog page, and the homepage described as a data catalog
 
 ### Added

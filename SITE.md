@@ -33,6 +33,9 @@ PyYAML.
 | `scripts/export_site_data.py` | yes | `data/*.yaml` -> the JSON payload. Also usable on its own. |
 | `scripts/build_site.py` | yes | Assembles templates + payload + origin into `site/`, once per language. |
 | `scripts/changelog.py` | yes | Parses `CHANGELOG.md` into dated entries (newest first) and renders them for `/changelog/` and `/zh/changelog/`. Fails the build on an undated `##` heading or a date more than a day in the future. The Chinese edition reads each entry's translation from `CHANGELOG.zh-CN.md`, matched by date and the `<!-- en: … -->` title line; an untranslated entry falls back to English (marked `lang="en"`, with a note on the page), and a translation whose English entry no longer exists fails the build. |
+| `data/resources.yaml` | yes | Which dataset/benchmark rows get a page at `/datasets/<slug>/` or `/benchmarks/<slug>/`, their slugs, short names, paper-matching aliases and descriptor papers, plus the page strings (en/zh). The rule for which rows qualify is documented at the top of the file; every fact on the pages comes from `data/datasets.yaml` / `data/benchmarks.yaml` / `data/papers.yaml`. |
+| `data/guides.yaml` | yes | The evergreen guides at `/guides/<slug>/`: editorial prose (en/zh) with `{tokens}` filled from live data, the generated comparison tables they show, and their FAQ. |
+| `scripts/resource_pages.py` | yes | Selects and renders the dataset, benchmark and guide pages and their two indexes; called by `build_site.py`. |
 | `site/` | **no** | Build output. Git-ignored. Delete it freely; it is regenerated. |
 
 The licence in the page footer, the JSON-LD `license` field and the

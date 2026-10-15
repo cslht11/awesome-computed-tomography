@@ -6,6 +6,21 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-16 — 新增数据集与基准页面，以及三篇指南
+<!-- en: Dataset and benchmark pages, and three guides -->
+
+### 新增
+
+- **`/datasets/<slug>/` 与 `/benchmarks/<slug>/`**（中英文）：为目录中内容充实的 21 个数据集和 11 个基准各建一个页面——即有描述、有官方链接，并且目录中至少有一个主题页或一篇论文用到它们。每个页面列出该条目提供的数据（按其备注所述，投影和／或图像）、成像方式、任务、数据集本身的许可、官方链接和记录中已有的 DOI、描述它的论文、目录中提到或链接它的论文、相关主题页、相关条目和指南。每个页面都有自己的标题、描述、canonical URL、hreflang 互链、一个 `BreadcrumbList`，以及一个与页面可见内容出自同一记录的 schema.org `Dataset` 块。其余 28 个条目（多为目录中尚无相关重建主题或论文的分割与检测数据集）仍保留在目录表格中；`build_site.py` 会逐一打印被跳过的条目及原因。哪些条目建页、它们的 URL slug，以及用来查找使用它们的论文的别名，都写在新文件 `data/resources.yaml` 中。
+- **`/datasets/`**：列出所有数据集与基准页面的索引页。
+- **`/guides/` 下的三篇指南**及 `/guides/` 索引页：[稀疏视角 CT 重建](https://computedtomography.org/zh/guides/sparse-view-ct-reconstruction/)、[低剂量 CT 去噪](https://computedtomography.org/zh/guides/low-dose-ct-denoising/) 和 [如何选择 CT 重建数据集](https://computedtomography.org/zh/guides/choosing-a-ct-reconstruction-dataset/)。每篇开头先给出答案，用由目录数据生成的表格比较各种选择（方法族、数据集、基准、工具库、入门论文），标明最近更新日期，最后附一组简短的常见问题，其 `FAQPage` JSON-LD 由页面上可见的文字生成。正文写在 `data/guides.yaml` 中，其中所有数字都由实时数据填入。
+- 主题页现在会链接到它所列出的数据集与基准页面（官方网站仍保留一键可达的链接）以及涵盖该主题的指南；“关于”页面链接到 `/datasets/`、`/guides/` 和每篇指南。所有新页面都收录在 `sitemap.xml` 和 `llms.txt` 中。首页没有任何变化。
+- 如果新页面缺少 canonical、hreflang、面包屑或 JSON-LD，未收录在 sitemap 中，没有任何页面链接到它，或某篇指南链接了一个不会生成的页面，`build_site.py` 会构建失败。`tests/test_seo.js` 还会检查每个 `Dataset` 块与页面上可见的名称、描述、许可、DOI 和引用一致，以及每篇指南的常见问题和最近更新日期与其 JSON-LD 一致。
+
+### 修复
+
+- 以缩写加逗号开头的论文标题（LoDoPaB-CT）在主题页上不再显示成“LoDoPaB-CT: , a benchmark …”。
+
 ## 2026-10-16 — 新增更新日志页面，首页以数据目录的形式描述
 <!-- en: A changelog page, and the homepage described as a data catalog -->
 
