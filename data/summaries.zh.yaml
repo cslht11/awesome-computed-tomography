@@ -1303,3 +1303,6 @@ human-guided-shade-artifact-suppression-cbct-mdct: >-
 
 fcdm: >-
   FCDM 用结合双向频域推理、角感知掩码与物理引导正则化的扩散框架修复稀疏视角正弦图，在真实数据集上超过 0.93 SSIM 与 31 dB PSNR。
+
+streak-artifacts-reduction-implicit-neural-representation: >-
+  该方法消除稀疏视角 CT 中 FBP 重建的条纹伪影：利用已知系统参数与先验图像估计伪影，用隐式神经表示建模病人特异性的衰减。仅用单个病人的稀疏投影优化，避免对训练数据群体产生偏倚。
