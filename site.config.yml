@@ -62,3 +62,8 @@ content_license_url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 analytics_token: "292ebc432b3d4f9899d87241d6212e62"
 
 contact_email: "heitieya@163.com"
+
+# IndexNow key (free; tells Bing and other IndexNow engines when pages change).
+# build_site.py writes site/<key>.txt and the deploy workflow pings
+# api.indexnow.org after each deploy. Not a secret: the protocol publishes it.
+indexnow_key: "4bf21e09101203f8d88708830000689d"

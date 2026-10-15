@@ -320,6 +320,41 @@ def render_robots(base):
     return "User-agent: *\nAllow: /\nCrawl-delay: 1\n\nSitemap: %ssitemap.xml\n" % base
 
 
+def render_llms(cfg, base, c, topics):
+    """site/llms.txt: a plain-Markdown map of the site for AI answer engines
+    (llmstxt.org proposal). Counts and topics come from the same payload as the
+    page, so it cannot go stale. Cheap to ship; its effect is unproven."""
+    lines = [
+        "# %s" % cfg["title"], "",
+        "> A curated, verified directory of computed tomography (CT / CBCT /",
+        "> micro-CT) reconstruction research: %d papers (%d-%d), %d toolkits,"
+        % (c["papers"], c["year_min"], c["year_max"], c["toolkits"]),
+        "> %d datasets, %d benchmarks and %d learning resources, grouped by"
+        % (c["datasets"], c["benchmarks"], c["learning"]),
+        "> problem and method family. Content licence: %s." % cfg["content_license"],
+        "",
+        "Entries are checked against Crossref, arXiv and publisher records. "
+        "Last updated %s." % c["updated"], "",
+        "## Directory", "",
+        "- [Paper directory (English)](%s): searchable list of all papers, "
+        "toolkits, datasets and benchmarks" % base,
+        "- [论文目录（中文）](%szh/): Chinese edition of the same directory" % base,
+        "- [About](%sabout/): scope, sourcing, verification and how to cite" % base,
+        "- [Contact](%scontact/): how to suggest or correct an entry" % base,
+        "", "## Data", "",
+        "- [data.json](%sdata.json): machine-readable export of the full "
+        "catalogue (English)" % base,
+        "- [data.json (中文)](%szh/data.json): the same catalogue with Chinese "
+        "notes" % base,
+        "- [GitHub repository](%s): source YAML data; the site is generated "
+        "from it" % cfg["repo_url"],
+        "", "## Topics", "",
+    ]
+    for t in topics:
+        lines.append("- %s (%d papers): %s" % (t["name"], t["count"], t["desc"]))
+    return "\n".join(lines) + "\n"
+
+
 # ------------------------------------------------------------------- config
 def load_config():
     if not os.path.exists(CONFIG):
@@ -523,6 +558,14 @@ def main():
               json.dumps(payload, ensure_ascii=False, indent=1) + "\n")
 
     write(os.path.join(out, "robots.txt"), render_robots(base))
+    en_payload = build_payload(i18n.SOURCE)
+    write(os.path.join(out, "llms.txt"),
+          render_llms(cfg, base, en_payload["counts"], en_payload["topics"]))
+    # IndexNow (Bing, Yandex, ...): the key file must be served at the site
+    # root; the deploy workflow pings api.indexnow.org with the sitemap URLs.
+    if cfg.get("indexnow_key"):
+        write(os.path.join(out, "%s.txt" % cfg["indexnow_key"]),
+              cfg["indexnow_key"] + "\n")
     write(os.path.join(out, "sitemap.xml"), render_sitemap(sitemap_urls, today))
     write(os.path.join(out, ".nojekyll"), "")
 
