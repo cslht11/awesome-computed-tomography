@@ -21,18 +21,18 @@
 #             are filled from the data counts first.
 #
 # Placeholders available in both: {papers} {peer} {peer_pct} {preprints}
-# {toolkits} {datasets} {benchmarks} {learning} {year_min} {year_max}
+# {toolkits} {datasets} {benchmarks} {learning} {updated} {year_min} {year_max}
 # {title} {tagline} {repo} {repo_url} {build_date} {code_license}
 # {code_license_url} {content_license} {content_license_url} {license_year}
 
 lang: en
 
 tagline: "A curated, verified list of CT reconstruction research"
-# {papers} / {toolkits} / {year_min} and friends are filled in at build time —
+# {papers} / {toolkits} / {updated} and friends are filled in at build time —
 # never write a count out here, it is stale the moment a paper is added.
 description: >-
   A curated list of computed tomography (CT / CBCT / micro-CT) reconstruction
-  resources: {papers} papers from {year_min} to {year_max}, {toolkits} toolkits,
+  resources: {papers} papers (updated {updated}), {toolkits} toolkits,
   {datasets} datasets, {benchmarks} benchmarks and {learning} learning
   resources, covering sparse-view, limited-angle, low-dose, metal-artifact,
   spectral, cone-beam and 4D/dynamic CT.
@@ -68,7 +68,7 @@ ui:
   # The one-line summary under the hero. Same numbers as the README's
   # `readme.coverage`, phrased as a bare list rather than a sentence. Carries
   # its own full stop, because the terminator differs by language.
-  coverage: "{papers} papers ({year_min}–{year_max}), {toolkits} toolkits, {datasets} datasets, {benchmarks} benchmarks, {learning} learning resources."
+  coverage: "{papers} papers (updated {updated}), {toolkits} toolkits, {datasets} datasets, {benchmarks} benchmarks, {learning} learning resources."
   browsePapers: "Browse papers"
   contribute: "Contribute"
 
@@ -132,7 +132,7 @@ ui:
 
   # ---- footer and no-script fallback
   footer1: >-
-    **{title}** — {tagline}. {papers} papers ({year_min}–{year_max}),
+    **{title}** — {tagline}. {papers} papers (updated {updated}),
     {peer} of them at a peer-reviewed venue ({peer_pct}%), {preprints} preprints;
     {toolkits} toolkits, {datasets} datasets, {benchmarks} benchmarks,
     {learning} learning resources.
@@ -163,7 +163,7 @@ ui:
   github: "GitHub"
   heroLead: "{tagline} — {coverage} Every paper link resolved against Crossref, arXiv or the publisher’s own record."
   statLabelPeer: "Peer-reviewed"
-  statLabelYears: "Years"
+  statLabelYears: "Updated"
   labelHasCode: "Has code"
   labelFrom: "From"
   labelSort: "Sort"
@@ -198,7 +198,7 @@ readme:
     against Crossref, arXiv or the publisher's record. For search and filters,
     use the **[website]({site_url})**.
   coverage: >-
-    Coverage: {papers} papers ({year_min}–{year_max}), {toolkits} toolkits, {datasets} datasets,
+    Coverage: {papers} papers (updated {updated}), {toolkits} toolkits, {datasets} datasets,
     {benchmarks} benchmarks/challenges, {learning} learning resources. Every paper link
     was resolved against Crossref, arXiv or the publisher's own record, and every URL was checked.
   papersHeading: "Papers"
@@ -236,7 +236,7 @@ readme:
   statToolkitsCell: "{toolkits} toolkits"
   statDatasetsCell: "{datasets} datasets"
   statBenchmarksCell: "{benchmarks} benchmarks"
-  statSpanCell: "{year_min}\u2013{year_max}"
+  statSpanCell: "Updated {updated}"
 
   # ---- paper list
   topicCount: "<sub>{desc} \u00b7 {n} papers</sub>"

@@ -23,10 +23,10 @@
 lang: zh-Hans
 
 tagline: "经过核验的 CT 重建研究精选列表"
-# {papers} / {toolkits} / {year_min} 等在构建时填入——这里不要写死数字，
+# {papers} / {toolkits} / {updated} 等在构建时填入——这里不要写死数字，
 # 加一篇论文就会变陈旧。
 description: >-
-  计算机断层成像（CT / CBCT / 显微 CT）重建资源精选列表：{papers} 篇论文（{year_min}–{year_max}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准与挑战赛、{learning} 项学习资源，覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D/动态 CT。
+  计算机断层成像（CT / CBCT / 显微 CT）重建资源精选列表：{papers} 篇论文（更新于 {updated}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准与挑战赛、{learning} 项学习资源，覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D/动态 CT。
 # 网站 <meta name="keywords">。搜索引擎基本忽略这个标签，所以刻意写短：
 # 一个术语对应一个实际覆盖的方向，与 meta.yaml 里的主题 id 对齐。GitHub 也不读它，
 # 那里的可发现性来自仓库 description 和 topics，不是靠堆关键词。
@@ -50,7 +50,7 @@ ui:
   # ---- 首屏
   eyebrow: "计算机断层成像 · 重建"
   heroTitle: "一张经过核验的 CT 重建研究地图"
-  coverage: "{papers} 篇论文（{year_min}–{year_max}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。"
+  coverage: "{papers} 篇论文（更新于 {updated}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。"
   browsePapers: "浏览论文"
   contribute: "参与贡献"
 
@@ -114,7 +114,7 @@ ui:
 
   # ---- 页脚与无脚本回退
   footer1: >-
-    **{title}** — {tagline}。共 {papers} 篇论文（{year_min}–{year_max}），其中 {peer} 篇发表于同行评审会议或期刊（{peer_pct}%），{preprints} 篇为预印本；另有 {toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。
+    **{title}** — {tagline}。共 {papers} 篇论文（更新于 {updated}），其中 {peer} 篇发表于同行评审会议或期刊（{peer_pct}%），{preprints} 篇为预印本；另有 {toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。
   footer2: >-
     每条论文链接均已对照 Crossref、arXiv 或出版方官方记录核验，每个 URL 也都检查过。数据来源是 [{repo}]({repo_url}) 中的 `data/*.yaml`；README 由同一批文件生成，两者不会不一致。
   footer3: >-
@@ -132,7 +132,7 @@ ui:
   github: "GitHub"
   heroLead: "{tagline} — {coverage} 每篇论文的链接都经 Crossref、arXiv 或出版方自身记录核验。"
   statLabelPeer: "同行评审"
-  statLabelYears: "年份"
+  statLabelYears: "更新于"
   labelHasCode: "有代码"
   labelFrom: "起始"
   labelSort: "排序"
@@ -162,7 +162,7 @@ ui:
 readme:
   blurb: "覆盖稀疏视角、有限角、低剂量、金属伪影、能谱、锥束与 4D CT——从 FBP 与迭代求解器，到展开式网络、扩散先验、神经场与高斯溅射。每条论文链接均对照 Crossref、arXiv 或出版方记录核验。检索与筛选请使用 **[网站]({site_url})**。"
   coverage: >-
-    覆盖范围：{papers} 篇论文（{year_min}–{year_max}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准/挑战赛、{learning} 项学习资源。每条论文链接均已对照 Crossref、arXiv 或出版方官方记录核验，每个 URL 也都检查过。
+    覆盖范围：{papers} 篇论文（更新于 {updated}）、{toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准/挑战赛、{learning} 项学习资源。每条论文链接均已对照 Crossref、arXiv 或出版方官方记录核验，每个 URL 也都检查过。
   papersHeading: "论文"
   legendPapers: "同一主题内按最新在前排列。每条条目以斜体给出出处与年份；_预印本_ 表示该工作尚未（或还未）发表于同行评审的会议或期刊，年份取首次公开的时间。"
   toolkitsHeading: "工具包与库"
@@ -184,7 +184,7 @@ readme:
   statToolkitsCell: "{toolkits} 个工具包"
   statDatasetsCell: "{datasets} 个数据集"
   statBenchmarksCell: "{benchmarks} 个基准"
-  statSpanCell: "{year_min}\u2013{year_max}"
+  statSpanCell: "更新于 {updated}"
   topicCount: "<sub>{desc} \u00b7 {n} 篇论文</sub>"
   linkPaper: "论文"
   linkCode: "代码"
