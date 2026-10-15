@@ -875,6 +875,9 @@ radioactive-3d-gaussian-ray-tracing-for-tomographic-reconstr: >-
 radon-1917: >-
   Radon 1917 年的论文定义了线积分变换：探讨函数能否由沿直线的积分唯一恢复，并给出二维情形的反演及推广。
 
+radon-transforms-aleksandrov-fenchel: >-
+  本文研究格拉斯曼流形上的 Radon 变换，把它看作凸体上的几何算子，联系 Minkowski 投影体映射与 Goodey-Weil 平均截面体映射。证明了关于混合体积平均值的新的 Aleksandrov-Fenchel 不等式，进而证明平均截面体的全部内蕴体积都是对数凹的。
+
 ram: >-
   本文提出一种全新的非迭代、轻量架构：它把关于前向算子（采集物理与噪声参数）的知识纳入模型，而不依赖展开。
 
