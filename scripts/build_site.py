@@ -291,6 +291,12 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
         '<script type="application/ld+json">%s</script>' % safe_json(ld_list),
     ]
 
+    # Search-engine ownership tags (Google Search Console HTML-tag method).
+    # Removing this un-verifies the site, so keep it.
+    gsv = cfg.get("google_site_verification")
+    if gsv:
+        bits.append('<meta name="google-site-verification" content="%s">' % esc(gsv))
+
     token = cfg.get("analytics_token")
     if token:
         bits.append(

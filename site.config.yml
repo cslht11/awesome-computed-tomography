@@ -67,3 +67,7 @@ contact_email: "heitieya@163.com"
 # build_site.py writes site/<key>.txt and the deploy workflow pings
 # api.indexnow.org after each deploy. Not a secret: the protocol publishes it.
 indexnow_key: "4bf21e09101203f8d88708830000689d"
+
+# Google Search Console ownership (HTML-tag method, added 2026-10-15).
+# Emitted on every page's <head>. Do not remove: GSC re-checks it.
+google_site_verification: "Z-PjN02d1LpmjoForWuTuTzBe6ZAXTIbwMduXNB4iCk"
