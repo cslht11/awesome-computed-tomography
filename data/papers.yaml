@@ -3100,3 +3100,10 @@
   year: 2026
   topics: [sparse-view, geometry]
   paper: "https://arxiv.org/abs/2609.37605"
+
+- id: "stcnet"
+  abbr: "STCNet"
+  title: "Dual-Domain Sparse-View 4D CBCT Reconstruction with Spatial-Temporal Consistency Learning"
+  year: 2026
+  topics: [sparse-view, cbct, dynamic]
+  paper: "https://arxiv.org/abs/2610.18518"
