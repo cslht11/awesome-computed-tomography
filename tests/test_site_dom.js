@@ -106,8 +106,17 @@ async function testEnglish() {
     doc.querySelectorAll("#papers-list .p-title a").length === 0);
   const blurred = doc.querySelectorAll("#papers-list .p-titletext.has-blurb[data-blurb]");
   ok("papers with a blurb are marked", blurred.length > 0, blurred.length + " titles");
-  ok("papers without a blurb are inert",
-    doc.querySelectorAll("#papers-list .p-titletext:not(.has-blurb)").length > 0);
+  /* Coverage is a moving target — every paper carries a blurb today, none
+     might tomorrow. What has to hold either way: only titles marked
+     `has-blurb` carry a `data-blurb`, so a title without one can never become
+     hoverable. (The earlier form asserted that at least one paper lacked a
+     blurb, which quietly turned into a false failure once coverage hit 100%.) */
+  const allTitles = doc.querySelectorAll("#papers-list .p-titletext");
+  const marked = doc.querySelectorAll("#papers-list .p-titletext.has-blurb");
+  const withData = doc.querySelectorAll("#papers-list .p-titletext[data-blurb]");
+  ok("has-blurb and data-blurb agree",
+    marked.length === withData.length && marked.length <= allTitles.length,
+    marked.length + " of " + allTitles.length + " titles carry a blurb");
   if (blurred.length) {
     const first = blurred[0];
     const want = first.getAttribute("data-blurb").trim();

@@ -13,6 +13,22 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-15 — Clean-up after the blurb work
+
+### Removed
+
+- `TODO-summaries.md` — the checklist of papers still lacking a blurb. Coverage
+  reached 401/401 in both languages, so the file only invited work that no
+  longer existed.
+
+### Fixed
+
+- `tests/test_site_dom.js` asserted that at least one paper had **no** blurb, to
+  prove such a title stays inert. That premise expired the moment coverage hit
+  100%, quietly turning the assertion into a permanent false failure. It now
+  checks what actually has to hold — `has-blurb` and `data-blurb` agree, so a
+  title without a blurb can never become hoverable.
+
 ## 2026-10-15 — README is a landing page; the full lists live on the website
 
 ### Changed
