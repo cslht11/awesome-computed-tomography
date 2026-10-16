@@ -1214,3 +1214,72 @@ zero-shot-low-dose-ct-denoising-via-sinogram-flicking: >-
 
 zhu-2006: >-
   Scatter causes severe artifacts in large-detector CT. This paper proposes scatter correction using a checkerboard primary modulator: the primary is modulated at high frequency while scatter stays low-frequency, so filtering and demodulation separate them, cutting error from 74.2% to below 1% in simulations.
+
+gan-noise-reduction-low-dose-ct: >-
+  Trains a generator CNN to map low-dose CT to routine-dose CT, with a discriminator CNN as an adversarial loss alongside voxelwise loss. On a calcium-insert phantom and patient cardiac CT at 20% dose, the combined loss gave the highest PSNR and improved coronary calcium quantification.
+
+cycle-consistent-adversarial-denoising-network: >-
+  Learns denoising between low-dose and routine-dose phases of multiphase coronary CTA without paired scans, using a cycle-consistent adversarial network with cycle-consistency and identity losses. It reduces noise while preserving texture and edges and creates no artificial features, improving diagnostic quality.
+
+smgan: >-
+  Proposes SMGAN, a 3D structure-sensitive multi-scale GAN that uses volumetric information and compares training losses for low-dose CT denoising. It preserves structural and texture information from normal-dose CT while suppressing noise and artifacts, beating competing methods in radiologists' visual assessments.
+
+cpce: >-
+  Introduces the CPCE encoder-decoder network in 2D and 3D under a GAN framework for low-dose CT denoising, where a 3D model extends a trained 2D network and is fine-tuned. The 3D network converges faster and denoises better than training from scratch, suppressing noise while preserving subtle structures.
+
+tomogan: >-
+  Presents TomoGAN, a GAN denoiser for low-dose synchrotron x-ray tomography, evaluated under two fixed photon budgets: sufficient low-dose projections and limited high-dose projections. It raises SSIM from 0.18 to 0.9 on simulated data and to 0.41 on experimental data, beating SIRT with FBP followed by denoising.
+
+gan-circle: >-
+  Presents GAN-CIRCLE, a semi-supervised GAN recovering denoised, deblurred high-resolution CT from noisy low-resolution inputs, with cycle-consistency in Wasserstein distance plus joint structural constraints. On three large-scale CT datasets it is accurate, efficient, and robust for super-resolution restoration.
+
+sparse-view-ct-reconstruction-wasserstein-gans: >-
+  Reconstructs 2D CT slices directly from a limited number of projection images with a Wasserstein GAN, combining an adversarial loss with an L1 content loss. It clearly beats FBP, and the adversarial loss yields sharper images with more structure than L1-only training, though enough projections remain necessary.
+
+adversarial-sparse-view-cbct-artifact-reduction: >-
+  A post-processing method that removes artifacts from sparsely reconstructed CBCT with an image-to-image GAN trained adversarially with a perceptual loss. A feature-pyramid discriminator with a focus map targets streak artifacts across scales, correcting cone-beam artifacts from clinical CBCT using 1/3 of projections.
+
+conditional-gans-metal-artifact-reduction-ear: >-
+  Trains a conditional GAN on paired pre- and post-implantation CTs of 90 ears to map artifact-affected ear CT to artifact-free CT, with band-wise normalization as preprocessing. On 74 test ears it halves the segmentation surface error versus the prior method, to 0.18 mm on average.
+
+x2ct-gan: >-
+  Reconstructs a 3D CT volume from two orthogonal X-rays with a GAN whose generator lifts 2D X-rays to 3D CT, fusing features from both views and combining MSE and adversarial losses. On a public chest CT dataset it produces high-quality CT volumes, offering a CT-like 3D view from a low-cost X-ray machine.
+
+coil: >-
+  CoIL trains an MLP to encode the complete measurement field, mapping measurement coordinates to responses using only the test object's own measurements. The completed high-fidelity measurement field feeds existing reconstruction methods, consistently improving them on sparse-view CT.
+
+difir-ct: >-
+  DiFiR-CT resolves motion artifacts without explicitly estimating motion: it represents object boundaries with a neural signed distance field and regresses a solution consistent with the acquired sinogram under spatial and temporal smoothness constraints, outperforming FBP across three motion scenarios.
+
+scope: >-
+  SCOPE reconstructs an artifact-free CT image from a single sparse-view sinogram: an INR constrains the solution space via a continuity prior, then a re-projection strategy generates a dense-view sinogram, improving PSNR by at least 3 dB over supervised baselines.
+
+mepnet: >-
+  MEPNet tackles joint sparse-view reconstruction and metal artifact reduction with a dual-domain model and a model-driven equivariant proximal network, whose proximal operator uses a rotation-equivariant CNN to encode CT scanning's rotational prior, beating conventional proximal networks with fewer parameters.
+
+stinr: >-
+  STINR represents a dynamic CBCT series with spatial and temporal MLPs optimized against acquired projections (one per volume), aided by PCA-based patient-specific motion models. It tracks lung tumors to under 2 mm center-of-mass error with reconstructed-volume errors below 10%.
+
+dif-net: >-
+  DIF-Net reformulates CBCT reconstruction as regressing each 3D point's intensity from extremely sparse (<10) projections, fusing view-specific features in a continuous intensity field. It reconstructs high-quality, high-resolution CBCT within 1.6 seconds, outperforming state-of-the-art methods.
+
+artifact-reduction-3d-4d-cbct-review: >-
+  This review surveys deep-learning artifact reduction for 3D and 4D cone-beam CT, covering motion, metal, and low-dose artifacts with projection- and volume-domain methods and networks embedded in reconstruction, and notes a trend toward generative models.
+
+diffusion-probabilistic-priors-zero-shot-low-dose-ct: >-
+  This method trains a cascaded unconditional diffusion model on normal-dose CT only and denoises low-dose CT zero-shot, introducing the low-dose image as likelihood in the reverse process and iteratively solving MAP problems with adaptive likelihood-prior balancing.
+
+corediff: >-
+  CoreDiff replaces Gaussian noise with low-dose CT images as the diffusion starting point and uses a mean-preserving degradation operator plus a contextual error-modulated restoration network, cutting sampling steps and generalizing to new dose levels from a single image.
+
+diffux2ct: >-
+  DiffuX2CT models CT reconstruction from orthogonal biplanar X-rays as a conditional diffusion process, using a tri-plane decoupling generator and implicit neural decoder for structure-controllable reconstruction with faithful textures.
+
+diffusionblend: >-
+  DiffusionBlend learns a 3D image prior through position-aware 3D-patch diffusion score blending, reconstructing large 3D CT volumes in sparse-view and limited-angle settings with z-axis consistency.
+
+patch-based-ddpm-sparse-view-ct: >-
+  This patch-based DDPM is trained on patches from fully sampled projection data and inpaints down-sampled projection data for sparse-view CT, needing no paired data and enabling unsupervised, memory-efficient reconstruction.
+
+human-guided-shade-artifact-suppression-cbct-mdct: >-
+  This framework translates CBCT to MDCT with a Schrodinger-bridge formulation combining GAN-derived priors and human-guided conditional diffusion, using binary human feedback and tournament-based preference selection to suppress shade artifacts.
