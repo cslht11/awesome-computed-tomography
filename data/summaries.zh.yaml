@@ -1253,9 +1253,6 @@ difir-ct: >-
 scope: >-
   SCOPE 从单条稀疏视角正弦图重建无伪影 CT 图像：INR 通过连续性先验约束解空间，随后重投影策略生成稠密视角正弦图，PSNR 比有监督基线至少提升 3 dB。
 
-neurec: >-
-  NeuRec 通过向病态逆问题中加入跨病人先验，将基于坐标的重建推广到多个病人，而不是让一个 MLP 过拟合单个病人。它在测量稀缺的稀疏视角重建上，图像质量优于现有最优方法。
-
 mepnet: >-
   MEPNet 用双域模型和模型驱动的等变近端网络处理联合稀疏视角重建与金属伪影消除，其近端算子用旋转等变 CNN 编码 CT 扫描的旋转先验，以更少的参数优于传统近端网络。
 
@@ -1274,35 +1271,14 @@ diffusion-probabilistic-priors-zero-shot-low-dose-ct: >-
 corediff: >-
   CoreDiff 用低剂量 CT 图像替代高斯噪声作为扩散起点，并采用均值保持退化算子与上下文误差调制复原网络，减少采样步数，仅用单张图像即可泛化到新的剂量水平。
 
-pseudoinverse-diffusion-low-dose-ct: >-
-  该工作为基于分数的扩散模型定义了矩阵控制的前向过程，使其匹配低剂量 CT 噪声而非收敛到白噪声，减少分数评估次数，同时保留 CT 噪声纹理与相关性。
-
-rn-sdes: >-
-  RN-SDEs 以均值回归扩散 SDE 作为有限角 CT 的先验，并用基于 Range-Null Space 分解的校正保证数据一致性，从严重退化的测量中恢复高质量图像。
-
 diffux2ct: >-
   DiffuX2CT 将从正交双平面 X 光重建 CT 建模为条件扩散过程，采用三平面解耦生成器与隐式神经解码器，实现结构可控、纹理保真的重建。
 
 diffusionblend: >-
   DiffusionBlend 通过位置感知的 3D-patch 扩散分数混合学习 3D 图像先验，在稀疏视角与有限角设置下重建大尺度 3D CT 体数据并保持 z 轴一致性。
 
-parallel-diffusion-sparse-view-cone-beam-breast-ct: >-
-  该工作将 DDPM 改造成并行的双域框架用于稀疏视角乳腺锥束 CT，协同训练两个分别处理投影域与图像域的 DDPM，以一半至三分之一的标准剂量达到有竞争力的重建质量。
-
-ddlm: >-
-  DDLM 通过预训练扩散模型的条件采样生成无噪 CT 图像，无需训练与调参，是完全无监督的低剂量 CT 重建方法。
-
-osdm: >-
-  OSDM 仅用一条正弦图，通过其结构 Hankel 矩阵提取大量张量训练基于分数的模型，再迭代应用 SDE 求解器与数据一致性步骤，最后用滤波反投影重建图像。
-
 patch-based-ddpm-sparse-view-ct: >-
   该基于 patch 的 DDPM 在全采样投影数据的 patch 上训练，对下采样投影数据做修复，用于稀疏视角 CT，无需配对数据，可实现无监督、内存高效的重建。
 
 human-guided-shade-artifact-suppression-cbct-mdct: >-
   该框架用 Schrödinger Bridge 公式结合 GAN 先验与人类引导的条件扩散实现 CBCT 到 MDCT 的转换，通过二值人类反馈与基于 tournament 的偏好选择抑制阴影伪影。
-
-fcdm: >-
-  FCDM 用结合双向频域推理、角感知掩码与物理引导正则化的扩散框架修复稀疏视角正弦图，在真实数据集上超过 0.93 SSIM 与 31 dB PSNR。
-
-streak-artifacts-reduction-implicit-neural-representation: >-
-  该方法消除稀疏视角 CT 中 FBP 重建的条纹伪影：利用已知系统参数与先验图像估计伪影，用隐式神经表示建模病人特异性的衰减。仅用单个病人的稀疏投影优化，避免对训练数据群体产生偏倚。
