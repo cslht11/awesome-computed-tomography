@@ -42,6 +42,7 @@ from export_site_data import build_payload  # noqa: E402
 import i18n  # noqa: E402
 import changelog  # noqa: E402
 import resource_pages as RP  # noqa: E402
+import brand_assets  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(ROOT, "web")
@@ -85,6 +86,14 @@ def write(path, text):
         os.makedirs(d)
     with io.open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(text)
+
+
+def write_bytes(path, data):
+    d = os.path.dirname(path)
+    if d and not os.path.isdir(d):
+        os.makedirs(d)
+    with open(path, "wb") as f:
+        f.write(data)
 
 
 def esc(s):
@@ -286,7 +295,7 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
         '<meta property="og:title" content="%s \u2014 %s">' % (esc(title), esc(top_for(ov, entry["code"], "tagline", cfg["tagline"]))),
         '<meta property="og:description" content="%s">' % esc(desc),
         '<meta property="og:locale" content="%s">' % esc(entry["og_locale"]),
-        '<meta name="twitter:card" content="summary">',
+        brand_assets.head_brand(root),
         '<meta name="twitter:title" content="%s \u2014 %s">' % (esc(title), esc(top_for(ov, entry["code"], "tagline", cfg["tagline"]))),
         '<meta name="twitter:description" content="%s">' % esc(desc),
         '<link rel="license" href="%s">' % esc(cfg["content_license_url"]),
@@ -686,6 +695,7 @@ def head_extra_topic(cfg, base, langs, entry, tid, title, desc, payload):
              '<meta property="og:title" content="%s">' % esc(title),
              '<meta property="og:description" content="%s">' % esc(desc),
              '<meta property="og:locale" content="%s">' % esc(entry["og_locale"])]
+    bits.append(brand_assets.head_brand(base))
     home = i18n.url_for(base, entry)
     topic = dict((t["id"], t) for t in payload["topics"])[tid]
     papers = [p for p in payload["papers"] if tid in p["topics"]][:TOPIC_PAPER_CAP]
@@ -801,6 +811,7 @@ def head_extra_changelog(cfg, base, langs, entry, ov, desc):
              '<meta property="og:title" content="%s">' % esc(title),
              '<meta property="og:description" content="%s">' % esc(desc),
              '<meta property="og:locale" content="%s">' % esc(entry["og_locale"])]
+    bits.append(brand_assets.head_brand(base))
     crumbs = {
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
@@ -1101,6 +1112,10 @@ def main():
             if left:
                 sys.exit("%s/%s: unreplaced placeholders: %s"
                          % (code, name, ", ".join(sorted(set(left)))))
+            # Every page carries the favicon + share image, even the
+            # standalone pages whose head comes from page.html.
+            html_ = add_to_head(html_, lang_base + name + "/",
+                                brand_assets.head_brand(base))
             if name == "about":
                 ld, nfaq = faq_jsonld(html_)
                 faq_counts[code] = nfaq
@@ -1219,6 +1234,15 @@ def main():
     write(os.path.join(out, "llms.txt"),
           render_llms(cfg, base, en_payload["counts"], en_payload["topics"],
                       set(topic_ids), rp_pages, rp_guides, payload_en))
+    # Brand files: the favicon, the iOS touch icon and the share image.
+    # Generated from assets/logo.svg's geometry (brand_assets), so the repo
+    # carries no binary blobs and the build stays stdlib-only.
+    write(os.path.join(out, "favicon.svg"),
+          read(os.path.join(ROOT, "assets", "logo.svg")))
+    write_bytes(os.path.join(out, "favicon.ico"), brand_assets.favicon_ico())
+    write_bytes(os.path.join(out, "apple-touch-icon.png"),
+                brand_assets.apple_touch_icon())
+    write_bytes(os.path.join(out, "og-image.png"), brand_assets.og_image())
     # IndexNow (Bing, Yandex, ...): the key file must be served at the site
     # root; the deploy workflow pings api.indexnow.org with the sitemap URLs.
     if cfg.get("indexnow_key"):
@@ -1314,6 +1338,31 @@ def main():
                 problems.append("%s/about: no link to topic page %s" % (entry["code"], tid))
         if faq_counts.get(entry["code"], 0) and '"FAQPage"' not in about:
             problems.append("%s/about: FAQ present but FAQPage JSON-LD missing" % entry["code"])
+
+    # ------------------------------------------------------------- brand
+    # Every page must carry the favicon + share image, or a new page type
+    # silently ships without them again. The files themselves must exist:
+    # a head that points at a missing favicon.ico is worse than no favicon.
+    for name in ("favicon.svg", "favicon.ico", "apple-touch-icon.png",
+                 "og-image.png"):
+        f = os.path.join(out, name)
+        if not os.path.exists(f) or os.path.getsize(f) == 0:
+            problems.append("brand file %s was not written" % name)
+    for dirpath, _, files in os.walk(out):
+        for fn in files:
+            if not fn.endswith(".html"):
+                continue
+            f = os.path.join(dirpath, fn)
+            page = read(f)
+            if 'rel="icon"' not in page:
+                problems.append("%s: favicon link missing"
+                                % os.path.relpath(f, out))
+            if 'property="og:image"' not in page:
+                problems.append("%s: og:image missing"
+                                % os.path.relpath(f, out))
+            if page.count('name="twitter:card"') != 1:
+                problems.append("%s: twitter:card must appear exactly once"
+                                % os.path.relpath(f, out))
 
     # ------------------------------------------------- changelog + DataCatalog
     # The changelog page must be canonical, carry every hreflang alternate,
