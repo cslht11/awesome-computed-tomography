@@ -371,3 +371,185 @@
   tasks: [reconstruction, cbct]
   license: CC BY 4.0
   note: "**Projection + image.** A 3D cone-beam CT scan of a walnut, with flat-field-corrected projection images, a metadata file describing the measurement geometry and settings, and pictures of an example reconstruction. Format compatible with HelTomo."
+
+- name: 4D CBCT phantom dataset
+  url: https://zenodo.org/records/10303690
+  modality: cone-beam, 4D
+  tasks: [dynamic, cbct, reconstruction]
+  license: CC BY-NC-SA 4.0
+  note: "**Projection only.** Six time-resolved (4D) cone-beam CT scans of a dynamic thorax phantom (CIRS 008A) on a Varian TrueBeam, with sin/cos^4 motion patterns."
+
+- name: Dynamic sparse nanotomography (PEFC)
+  url: https://zenodo.org/records/12662041
+  modality: nanotomography, dynamic
+  tasks: [dynamic, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** Raw projection data (.h5 / sinograms) of dynamic PEFC catalyst hydration, plus two simulated sinogram sets with ground truth and reconstruction code (non-rigid ASTRA)."
+
+- name: Multienergy fan-beam CT bird chest
+  url: https://zenodo.org/records/11388131
+  modality: 2D fan-beam, multienergy
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** Raw projection data (.tif) of a quail chest at 3 X-ray spectra (50 / 80 / 120 kV), 720 projections each, with pre-built 2D sinograms and FBP examples."
+
+- name: RabbitCT
+  url: https://zenodo.org/records/21267885
+  modality: cone-beam
+  tasks: [reconstruction, cbct, benchmarking]
+  license: CC BY 4.0
+  note: "**Projection + image.** C-arm cone-beam CT benchmark: 496 projections of a rabbit post-mortem scan, calibrated 3×4 projection matrices, a reference reconstruction and a development kit."
+
+- name: Dynamic anthropomorphic thorax phantom (4DCT + CBCT)
+  url: https://zenodo.org/records/17256015
+  modality: cone-beam, 4D
+  tasks: [dynamic, cbct, reconstruction]
+  license: CC BY 4.0
+  note: "4DCT (Siemens) + CBCT (Varian Halcyon) scans of a dynamic anthropomorphic thorax phantom (Maastricht), with patient-specific breathing traces. Files are DICOM + processed data + breathing curves; the record does not state whether raw projections are included."
+
+- name: Shepp-Logan-like phantom (fan-beam, experimental)
+  url: https://zenodo.org/records/19933728
+  modality: 2D fan-beam
+  tasks: [reconstruction, sparse-view, limited-angle]
+  license: CC BY 4.0
+  note: "**Projection only.** Experimental 2D fan-beam data of a laser-cut Shepp-Logan-like phantom (PMMA / epoxy / air) from the CWI FleX-ray lab: 901 raw projections plus dark- and flat-field images and scan scripts."
+
+- name: SkyScan 1172 µCT grains
+  url: https://zenodo.org/records/12744181
+  modality: micro-CT
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** Micro-CT of grains on a SkyScan 1172: 996 projection TIFFs with metadata (jyvat.log)."
+
+- name: LE01 XRCT
+  url: https://zenodo.org/records/21669376
+  modality: micro-CT
+  tasks: [reconstruction, segmentation]
+  license: CC BY 4.0
+  note: "**Projection + image.** XRCT raw projections (37 GB) of the LE01 sample, plus an Avizo project with reconstructed + segmented volume, reconstruction metadata and a particle-analysis table. 0.03 mm isotropic voxels."
+
+- name: Tomato micro-CT
+  url: https://zenodo.org/records/21263177
+  modality: cone-beam
+  tasks: [reconstruction, cbct]
+  license: CC BY 4.0
+  note: "**Projection only.** Micro-CT of a tomato (MILabs U-CT): 720 X-ray projections in TIFF with geometry metadata, for cone-beam reconstruction testing."
+
+- name: Preclinical NEMA IQ phantom
+  url: https://zenodo.org/records/4646835
+  modality: cone-beam
+  tasks: [reconstruction, cbct]
+  license: CC BY 4.0
+  note: "**Projection + image.** Preclinical NEMA image-quality phantom on a Siemens Inveon: raw projection images (.cat) + FDK reconstruction, 3 bed positions × 121 projections."
+
+- name: Spherical fiducials in C-arm CBCT
+  url: https://zenodo.org/records/4445444
+  modality: cone-beam
+  tasks: [reconstruction, cbct, geometry]
+  license: CC BY 4.0
+  note: "**Projection + image.** Two C-arm cone-beam CT datasets for localizing spherical fiducials: projection cine loops + 3D reconstructions + projection matrices + MATLAB code, in DICOM."
+
+- name: RECAST3D cone-beam test data
+  url: https://zenodo.org/records/1154166
+  modality: cone-beam
+  tasks: [reconstruction, cbct]
+  license: CC BY 4.0
+  note: "**Projection only.** Two cone-beam test datasets (wooden egg + poppy-seed putty) from a FlexRay scanner, packaged with the full scan settings, for real-time quasi-3D reconstruction (RECAST3D)."
+
+- name: Spectral CT multi-material (DTU)
+  url: https://zenodo.org/records/4482071
+  modality: spectral CT
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** Raw energy-resolved CT projections of an iodine-cylinder phantom from a photon-counting CT scanner (DTU Physics), with MATLAB loading / reconstruction code (FBP / SIRT) and ASTRA geometry."
+
+- name: Micro-CT time-series (4D)
+  url: https://zenodo.org/records/4293394
+  modality: micro-CT, dynamic
+  tasks: [dynamic, reconstruction]
+  license: CC BY 4.0
+  note: "Micro X-ray CT time-series (Diamond I13-2): 21 tomograms × 91 projections, with a CGLS reconstruction via Savu. Single 192.7 GB archive; the record does not state whether it contains raw projections or only the CGLS reconstruction."
+
+- name: Laminography (Lego)
+  url: https://zenodo.org/records/2540509
+  modality: laminography
+  tasks: [reconstruction, limited-angle]
+  license: CC BY 4.0
+  note: "**Projection + image.** Laminography in the lab: a Lego sample imaged with a conventional X-ray CT scanner — computed laminography + limited-angle CT, with raw projection data + final reconstructions + MATLAB code."
+
+- name: Polychromatic CBCT phantom (simulated)
+  url: https://zenodo.org/records/17078431
+  modality: cone-beam
+  tasks: [reconstruction, cbct]
+  license: CC BY 4.0
+  note: "**Projection only.** Simulated polychromatic cone-beam CT projection images of a numerical phantom (PolyBoneAlTi), generated with LEAP at 85 kV."
+
+- name: Crystals in clay micro-CT
+  url: https://zenodo.org/records/4912635
+  modality: micro-CT
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** Micro-CT of clay with crystals (DTU Nikon XTek): projection TIFFs + .xtekct metadata + reconstruction volume (.vol) + centre-slice sinogram."
+
+- name: SESAME ID10-BEATS synchrotron CT
+  url: https://zenodo.org/records/20795982
+  modality: synchrotron CT
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Image only.** Synchrotron X-ray CT reconstructions from the ID10-BEATS beamline (SESAME): a wasp, a historic terracotta figurine and Egyptian blue pigment. Files are reconstructions only; no raw projections."
+
+- name: Ptychotomography nanoporous glass
+  url: https://zenodo.org/records/3539581
+  modality: ptychotomography
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** High-resolution ptychotomography of nanoporous glass (PSI cSAXS): unaligned complex-valued projections, aligned phase sinogram and delta tomogram. Note: ptychographic physics differs from conventional CT."
+
+- name: CBCT esophagus segmentation (psCBCT)
+  url: https://zenodo.org/records/5035494
+  modality: cone-beam (synthetic)
+  tasks: [segmentation]
+  license: CC BY 4.0
+  note: "**Image only.** Paired planning-CT / physics-augmented pseudo-CBCT (psCBCT) images with organ-at-risk segmentations (23 pairs), for segmentation and CBCT→CT conversion. No raw projections; the psCBCT images are synthetic."
+
+- name: NIH/3T3 fibroblast SXT
+  url: https://zenodo.org/records/7186217
+  modality: soft X-ray tomography
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Image only.** 3D reconstruction of an NIH/3T3 mouse fibroblast cell by soft X-ray tomography (SXT-100), tilt range −53° to 53.5°. Single .mrc reconstruction volume; no raw projections."
+
+- name: Two-phase flow 4D micro-CT + reconstruction software
+  url: https://zenodo.org/records/10050812
+  modality: micro-CT, 4D
+  tasks: [dynamic, reconstruction]
+  license: CC BY 4.0
+  note: "Restricted access (files not publicly listed). A 4D micro-CT dataset + reconstruction software for two-phase flow in porous media (laboratory-based micro-CT). Whether raw projections are included cannot be determined from the public record."
+
+- name: Pediatric CT noise texture (XCAT)
+  url: https://zenodo.org/records/12538350
+  modality: simulated CT
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Image only.** Simulated routine- and quarter-dose CT of an anthropomorphic XCAT phantom (MIRT), for noise-texture augmentation. No raw projections; simulation data, not measured scans."
+
+- name: GranulaX
+  url: https://zenodo.org/records/22295109
+  modality: micro-CT
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** Raw CT data (RAW format) of granular microstructures + preview image. The record's specification fields are unfilled placeholders (voxel size, scanner, sample, reconstruction method), so usability is unverified."
+
+- name: Micro-CT spiders (amber)
+  url: https://zenodo.org/records/5504523
+  modality: micro-CT
+  tasks: [reconstruction]
+  license: CC0
+  note: "**Projection + image.** Micro-CT of mid-Cretaceous lagonomegopid spiders in Burmese amber: raw Micro-CT TIFFs + 3D reconstruction. A paleontology specimen scan, not designed as a reconstruction benchmark. Dryad DOI 10.5061/dryad.7m0cfxpv0."
+
+- name: Walnut micro-CT (Saarland)
+  url: https://zenodo.org/records/7115152
+  modality: micro-CT
+  tasks: [reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** Micro-CT of a single walnut (Saarland): 1601 acquired projections (TIFF stack) + reconstructed volume (pyXIT). Sixth walnut in the library; a different acquisition from the other five."
