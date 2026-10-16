@@ -17,7 +17,7 @@
   url: https://www.fips.fi/HTC2022.php
   year: 2022
   tasks: [limited-angle, reconstruction]
-  note: "Real measured limited-angle sinograms. A purely learned network trained on synthetic data won; the only model-based entry (CIL, directional TV) placed third — evidence that classical methods stay competitive at limited angle."
+  note: "Real measured limited-angle sinograms. A purely learned network trained on synthetic data won; the only model-based entry (CIL, directional TV) placed third — evidence that classical methods stay competitive at limited angle. Baseline: the winning TUD–HHU implementation, a synthetic-data-trained network predicting segmentations from subsampled sinograms — [HTC2022-TUD-HHU-version-1](https://github.com/99991/htc2022-tud-hhu-version-1) (model weights removed from the repo; see its README for the mirror)."
 
 - name: LoDoPaB-CT benchmark
   url: https://lodopab.grand-challenge.org/
