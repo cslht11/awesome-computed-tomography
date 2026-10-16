@@ -410,6 +410,24 @@
       }));
   }
 
+  /* A dataset / benchmark name links to its own page on this site when it has
+     one (payload `page`, relative to the language root); the official page
+     stays one click away as a separate external link. */
+  function resourceName(r) {
+    var label = esc(r.label || r.name);
+    if (!r.page) {
+      return '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + label + "</a>";
+    }
+    var G = DATA.guides || {};
+    var html = '<a href="' + esc(r.page) + '">' + label + "</a>";
+    if (r.url) {
+      html += ' <a class="ext" href="' + esc(r.url) + '" target="_blank" rel="noopener" title="' +
+        esc(G.officialTitle || "official page") + '"><span class="mono">' +
+        esc(G.official || "[official]") + "</span></a>";
+    }
+    return html;
+  }
+
   function renderDatasets() {
     renderTable(document.getElementById("t-datasets"),
       [{ label: t("tableDataset", "Dataset") }, { label: t("tableModality", "Modality") },
@@ -417,7 +435,7 @@
        { label: t("tableLicense", "License"), cls: "n" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
       DATA.datasets.map(function (d) {
-        var nm = '<a href="' + esc(d.url) + '" target="_blank" rel="noopener">' + esc(d.label || d.name) + "</a>";
+        var nm = resourceName(d);
         return ["@@HTML@@" + nm, d.modality || "-",
                 (d.tasks || []).join(", ") || "-",
                 d.license || "-", "@@HTML@@" + mdInline(d.note)];
@@ -432,7 +450,7 @@
        { label: t("tableTasks", "Tasks"), cls: "tasks" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
       rows.map(function (b) {
-        var nm = '<a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.label || b.name) + "</a>";
+        var nm = resourceName(b);
         return ["@@HTML@@" + nm, b.year == null ? "-" : String(b.year),
                 (b.tasks || []).join(", ") || "-", "@@HTML@@" + mdInline(b.note)];
       }));
@@ -444,13 +462,30 @@
       return (order[a.type] || 9) - (order[b.type] || 9) ||
              (a.label || a.name).localeCompare(b.label || b.name);
     });
-    renderTable(document.getElementById("t-learning"),
-      [{ label: t("tableResource", "Resource") }, { label: t("tableType", "Type"), cls: "n" },
-       { label: t("tableNotes", "Notes"), cls: "note" }],
+    var host = document.getElementById("t-learning");
+    var cols = [{ label: t("tableResource", "Resource") }, { label: t("tableType", "Type"), cls: "n" },
+       { label: t("tableNotes", "Notes"), cls: "note" }];
+    renderTable(host, cols,
       rows.map(function (l) {
         var nm = '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label || l.name) + "</a>";
         return ["@@HTML@@" + nm, l.type || "-", "@@HTML@@" + mdInline(l.note)];
       }));
+    /* The site's own guides, as a small group above the outside resources. */
+    var G = DATA.guides;
+    var table = host.querySelector("table");
+    if (!G || !(G.items || []).length || !table) return;
+    var lab = function (i) { return ' data-label="' + esc(cols[i].label) + '"'; };
+    var html = '<tr class="grp-head"><th colspan="3" scope="rowgroup">' + esc(G.label) +
+      ' <a href="' + esc(G.index) + '">' + esc(G.indexLabel) + " \u2192</a></th></tr>" +
+      G.items.map(function (g) {
+        return "<tr><td" + lab(0) + '><a href="' + esc(g.url) + '">' + esc(g.title) + "</a></td>" +
+          '<td class="n"' + lab(1) + ">" + esc(G.kind) + "</td>" +
+          '<td class="note"' + lab(2) + ">" + esc(g.note) + "</td></tr>";
+      }).join("");
+    var tb = document.createElement("tbody");
+    tb.className = "grp-guides";
+    tb.innerHTML = html;
+    table.insertBefore(tb, table.querySelector("tbody"));
   }
 
   function renderTopics() {

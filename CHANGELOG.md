@@ -13,6 +13,28 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-16 — Homepage links to the dataset, benchmark and guide pages
+
+### Changed
+
+- In the homepage **Datasets** and **Benchmarks** tabs, the name of each of the
+  21 datasets and 11 benchmarks that has a page of its own now links to that
+  page (`/datasets/<slug>/`, `/benchmarks/<slug>/`; `/zh/...` on the Chinese
+  homepage). The official page is still one click away as a separate
+  `[official]` link beside the name. Entries without a page are unchanged.
+- The **Learning** tab opens with a small **Guides** group listing the three
+  guides, with a link to the `/guides/` index.
+- `tests/test_seo.js` now checks that the homepage links exactly these pages
+  (every dataset and benchmark page, the three guides and `/guides/`) and that
+  each link resolves to a built page; `tests/test_site_dom.js` checks the
+  rendered tabs.
+
+### Fixed
+
+- The "updated" date in the site footer is now the date in Asia/Shanghai
+  rather than the build server's UTC date, so a build early in the morning no
+  longer shows yesterday.
+
 ## 2026-10-16 — Dataset and benchmark pages, and three guides
 
 ### Added

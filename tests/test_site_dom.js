@@ -81,6 +81,31 @@ function paperTitles(win) {
   );
 }
 
+/* Dataset / benchmark names link to their own page (official link kept
+   beside it), and the Learning tab opens with the Guides group. Every such
+   link must resolve to a page in the build. */
+function homeDetailLinks(doc, prefix) {
+  const exists = (href) => fs.existsSync(path.join(SITE, prefix, href, "index.html"));
+  ["datasets", "benchmarks"].forEach(function (kind) {
+    const rows = Array.prototype.slice.call(doc.querySelectorAll("#t-" + kind + " tbody tr"));
+    const linked = rows.filter((r) => {
+      const a = r.querySelector("td:first-child a");
+      return a && a.getAttribute("href").indexOf(kind + "/") === 0;
+    });
+    ok(kind + " tab: names link to detail pages", linked.length > 0, linked.length + " of " + rows.length + " rows");
+    ok(kind + " tab: those rows keep the official link (new tab)",
+      linked.every((r) => !!r.querySelector('td:first-child a.ext[target="_blank"][href^="http"]')));
+    const broken = linked.map((r) => r.querySelector("td:first-child a").getAttribute("href")).filter((h) => !exists(h));
+    ok(kind + " tab: every detail link resolves", broken.length === 0, broken.join(", "));
+  });
+  const gl = Array.prototype.map.call(doc.querySelectorAll("#t-learning tbody.grp-guides a"),
+    (a) => a.getAttribute("href"));
+  ok("learning tab: Guides group lists 3 guides + /guides/",
+    gl.length === 4 && gl.indexOf("guides/") !== -1 && gl.every((h) => exists(h)), gl.join(", "));
+  const first = doc.querySelector("#t-learning table tbody");
+  ok("learning tab: Guides group is at the top", !!first && first.classList.contains("grp-guides"));
+}
+
 async function testEnglish() {
   console.log("\n[en] site/index.html");
   const dom = await openPage("index.html");
@@ -96,6 +121,8 @@ async function testEnglish() {
     const n = doc.querySelectorAll("#" + id + " tr").length;
     ok("init() completed: #" + id + " has rows", n > 0, n + " rows");
   });
+
+  homeDetailLinks(doc, "");
 
   /* ---- hover cards -----------------------------------------------------
      A paper title used to be an <a> to the same URL as the `paper` link beside
@@ -170,6 +197,8 @@ async function testChinese() {
   console.log("\n[zh] site/zh/index.html");
   const dom = await openPage(path.join("zh", "index.html"));
   const win = dom.window, doc = win.document;
+
+  homeDetailLinks(doc, "zh");
 
   const q = doc.getElementById("q");
   typeInput(win, q, "稀疏视角");

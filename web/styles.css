@@ -424,6 +424,11 @@ table.grid td:nth-child(2) { min-width: 12ch; }
 table.grid td.n { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--fg-muted); }
 table.grid td.tasks { min-width: 16ch; color: var(--fg-muted); }
 table.grid td.note { color: var(--fg-muted); min-width: 32ch; }
+table.grid td:first-child a.ext { font-weight: 400; color: var(--fg-faint); }
+table.grid td:first-child a.ext:hover { color: var(--accent); }
+table.grid tr.grp-head th { padding-top: 6px; color: var(--fg-muted); }
+table.grid tr.grp-head th a { margin-left: 10px; font-weight: 500; color: var(--accent); }
+table.grid tbody.grp-guides tr:last-child td { border-bottom-color: var(--border-strong); }
 
 /* ---------------------------------------------------------------- footer */
 
@@ -538,6 +543,7 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   table.grid td:not(:first-child)::before { content: attr(data-label) " · "; color: var(--fg-faint); font-size: 12.5px; }
   table.grid td.note::before { content: none; }
   table.grid td.note { margin-top: 6px; }
+  table.grid tr.grp-head th { display: block; padding: 0; border: 0; white-space: normal; }
   li.paper { grid-template-columns: minmax(0, 1fr); }
   .p-links { grid-column: 1; grid-row: auto; align-self: start; margin-top: 6px; }
   .p-links a { padding: 6px 14px; }

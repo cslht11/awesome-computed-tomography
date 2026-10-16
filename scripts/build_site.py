@@ -907,7 +907,8 @@ def main():
     # rebuilds the payload so each language's data.json carries its own notes.
     payload = build_payload(i18n.SOURCE)
     c = payload["counts"]
-    today = datetime.date.today().isoformat()
+    # The site is maintained from Asia/Shanghai (UTC+8, no DST); stamp its date, not the build server's UTC one.
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat()
 
     peer_pct = round(100.0 * c["peer_reviewed"] / c["papers"]) if c["papers"] else 0
     # The coverage sentence now comes from ui.coverage per language, so it reads
@@ -960,6 +961,7 @@ def main():
     res_cfg, guides_doc = RP.load_config()
     rp_pages, rp_skipped = RP.select(payload, topic_doc, topic_resources, res_cfg)
     rp_res = dict(((pg["kind"], pg["name"]), pg["rel"]) for pg in rp_pages)
+    rp_table = dict(((pg["table"], pg["name"]), pg["rel"]) for pg in rp_pages)
     rp_guides = guides_doc.get("guides") or []
     rp_topic_guides = guide_topic_map(rp_guides, rp_pages)
     payload_en = payload
@@ -989,6 +991,26 @@ def main():
             tr = ov.topic(t["id"])
             t["name"] = tr.get("name") or t["name"]
             t["desc"] = tr.get("desc") or t["desc"]
+
+        # Homepage links to the detail pages and guides (web/app.js renders
+        # them): a row's own page, relative to the language root, and the
+        # Guides group at the top of the Learning tab.
+        for table in ("datasets", "benchmarks"):
+            for r in payload[table]:
+                rel = rp_table.get((table, r["name"]))
+                if rel:
+                    r["page"] = rel
+        rs_home = RP.strings(res_cfg, code)
+        payload["guides"] = {
+            "label": rs_home["guides"], "kind": rs_home["guideKicker"],
+            "official": rs_home["homeOfficial"], "officialTitle": rs_home["official"],
+            "index": RP.GUIDES_PATH, "indexLabel": rs_home["homeGuidesAll"],
+            "items": [{"url": RP.GUIDES_PATH + g["slug"] + "/",
+                       "title": ((g.get(code) or {}).get("title") or g["en"]["title"]).strip(),
+                       "note": ((g.get(code) or {}).get("description")
+                                or g["en"]["description"]).strip()}
+                      for g in rp_guides],
+        }
 
         # Absolute, so the same string works from any directory depth.
         switch = "".join(
