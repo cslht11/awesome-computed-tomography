@@ -13,6 +13,16 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-17 — Chinese notes for the 35 new datasets
+
+### Fixed
+
+- The 35 dataset entries added on 2026-10-16 (26 from Zenodo, 9 from FIPS) came
+  with English notes only, so the Chinese site fell back to English for every
+  one of them — the build said `35 of 169 table notes still fall back to
+  English`. All 35 now carry Chinese notes and the count is back to `0 of 169`;
+  the Chinese dataset list is Chinese end to end again.
+
 ## 2026-10-16 — Homepage links to the dataset, benchmark and guide pages
 
 ### Changed

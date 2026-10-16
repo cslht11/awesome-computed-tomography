@@ -453,6 +453,76 @@ datasets:
     note: "同一批工业 CT 试件的五个剂量级别，其中含一次近乎无噪的参考扫描，全部预先配准，跨剂量级别的切片彼此对齐。与医学低剂量数据集的关键差别在于几何与试件——这是工业硬件的检测数据而非临床解剖，所以当目标是 NDT 流水线而非诊断流程时，它才是该用的基准。每级 4000 张 1250×1250 切片；因 Zenodo 单次上传上限 50 GB，拆分为三个存档。"
   "Carved cheese (FIPS)":
     note: "**Projection only.** 芬兰逆问题学会发布的一个雕花奶酪单层二维切片，提供三种分辨率，并附带把 X 射线变换写成显式线性算子的测量矩阵。正弦图之外还把前向算子直接交到你手上，可省掉一整类几何不匹配的错误，这也是它在把重建方法移植到真实实测数据时始终作为标准首测的原因。文档见 arXiv:1705.05732。"
+  "3D cross phantom (FIPS, dynamic)":
+    note: "**Projection only.** 三维十字体模的时变二维扇束正弦图（按分辨率不同为 16 或 30 个时间帧），随附静态与动态测量矩阵，把 X 射线变换编码为显式线性算子。文档见 arXiv:1809.00166。"
+  "Emoji phantom (FIPS, dynamic)":
+    note: "**Projection only.** 由小陶瓷石拼成的 33 张表情脸（15 种不同表情）的单个二维切片，来自实测的 60 投影扇束正弦图，附静态与动态测量矩阵。相比单一形状的十字体模，它的用处在于表情形状的多样性。文档见 arXiv:1802.09397。"
+  "Walnut (FIPS, 2D fan-beam)":
+    note: "**Projection + image.** 核桃单个二维切片的实测 120 投影扇束正弦图，三种分辨率并附测量矩阵；另有一套 1200 投影数据，配高分辨率 FBP 重建作真值。文档见 arXiv:1502.04064。"
+  "Lotus root (FIPS)":
+    note: "**Projection only.** 藕的单个二维切片，其孔洞被填入不同化学元素；两种分辨率并附测量矩阵，另有 FBP、Landweber 与 Tikhonov 重建的 MATLAB 代码。文档见 arXiv:1609.07299。"
+  "Gel phantom (FIPS, dynamic)":
+    note: "**Projection only.** 对注入液体造影剂的动态琼脂糖凝胶体模二维切片做的 17 次连续 X 射线测量，两种分辨率，另含对首帧的加密采样与额外的第 18 个时间步。不含前向算子，但格式支持无矩阵算子，以及 CPU 与 CUDA GPU 上的 FBP。文档见 arXiv:2003.02841。"
+  "STEMPO (FIPS, dynamic phantom)":
+    note: "**Projection + image.** 由电机驱动、计算机控制的动态层析体模，含二维与三维几何下的静态与动态扫描、以插值得到的近似真值，以及 FBP、FDK、变分与低秩+稀疏方法的示例代码；格式兼容 HelTomo 与 ASTRA。文档见 arXiv:2209.12471。"
+  "Chicken bone CBCT (FIPS, 4 dose levels)":
+    note: "**Projection only.** 同一根鸡骨在四个剂量水平下的锥束扫描（通过管电流与探测器曝光时间调节），每次均含平场校正后的投影与几何元数据。剂量水平相互配对，使它在已知解剖结构下成为低剂量去噪的干净测试床。"
+  "Pine cone CBCT (FIPS)":
+    note: "**Projection + image.** 松果的三维锥束 CT 扫描，含平场校正投影图像、描述测量几何与参数的元数据文件、样本照片，以及一例 FDK 重建。格式兼容 HelTomo。"
+  "Walnut CBCT (FIPS, 3D)":
+    note: "**Projection + image.** 核桃的三维锥束 CT 扫描，含平场校正投影图像、描述测量几何与参数的元数据文件，以及一例重建结果图。格式兼容 HelTomo。"
+  "4D CBCT phantom dataset":
+    note: "**Projection only.** 动态胸部体模（CIRS 008A）在 Varian TrueBeam 上的 6 次时间分辨（四维）锥束 CT 扫描，运动模式为 sin/cos⁴。"
+  "Dynamic sparse nanotomography (PEFC)":
+    note: "**Projection + image.** PEFC 催化剂水化过程的动态原始投影数据（.h5 / 正弦图），另有两套带真值的模拟正弦图与重建代码（非刚性 ASTRA）。"
+  "Multienergy fan-beam CT bird chest":
+    note: "**Projection + image.** 鹌鹑胸腔在 3 种 X 射线能谱（50 / 80 / 120 kV）下的原始投影数据（.tif），每种 720 个投影，含预制的二维正弦图与 FBP 示例。"
+  "RabbitCT":
+    note: "**Projection + image.** C 形臂锥束 CT 基准：兔尸扫描的 496 个投影、标定后的 3×4 投影矩阵、参考重建，以及一套开发套件。"
+  "Dynamic anthropomorphic thorax phantom (4DCT + CBCT)":
+    note: "动态拟人胸部体模（马斯特里赫特）的 4DCT（Siemens）与 CBCT（Varian Halcyon）扫描，含患者个体的呼吸曲线。文件为 DICOM + 处理后数据 + 呼吸曲线；记录未说明是否包含原始投影。"
+  "Shepp-Logan-like phantom (fan-beam, experimental)":
+    note: "**Projection only.** 激光切割的类 Shepp-Logan 体模（PMMA / 环氧树脂 / 空气）的实测二维扇束数据，来自 CWI FleX-ray 实验室：901 个原始投影，另有暗场与平场图像及扫描脚本。"
+  "SkyScan 1172 µCT grains":
+    note: "**Projection only.** SkyScan 1172 上颗粒的显微 CT：996 张投影 TIFF，附元数据（jyvat.log）。"
+  "LE01 XRCT":
+    note: "**Projection + image.** LE01 样本的 XRCT 原始投影（37 GB），另有 Avizo 工程文件（含重建与分割体）、重建元数据与颗粒分析表。0.03 mm 各向同性体素。"
+  "Tomato micro-CT":
+    note: "**Projection only.** 番茄的显微 CT（MILabs U-CT）：720 个 X 射线投影 TIFF 及几何元数据，用于锥束重建测试。"
+  "Preclinical NEMA IQ phantom":
+    note: "**Projection + image.** Siemens Inveon 上的临床前 NEMA 图像质量体模：原始投影图像（.cat）+ FDK 重建，3 个床位 × 121 投影。"
+  "Spherical fiducials in C-arm CBCT":
+    note: "**Projection + image.** 两套用于定位球形标记点的 C 形臂锥束 CT 数据集：投影电影循环 + 三维重建 + 投影矩阵 + MATLAB 代码，均为 DICOM。"
+  "RECAST3D cone-beam test data":
+    note: "**Projection only.** FlexRay 扫描仪上的两套锥束测试数据集（木蛋与罂粟籽腻子），打包了完整扫描参数，用于实时准三维重建（RECAST3D）。"
+  "Spectral CT multi-material (DTU)":
+    note: "**Projection + image.** 来自光子计数 CT 扫描仪（DTU Physics）的碘柱体模能量分辨原始投影，附 MATLAB 读取与重建代码（FBP / SIRT）以及 ASTRA 几何。"
+  "Micro-CT time-series (4D)":
+    note: "显微 X 射线 CT 时间序列（Diamond I13-2）：21 个断层图 × 91 投影，经 Savu 做 CGLS 重建。单个 192.7 GB 归档；记录未说明其中是原始投影还是仅含 CGLS 重建。"
+  "Laminography (Lego)":
+    note: "**Projection + image.** 实验室层析成像：用常规 X 射线 CT 扫描仪对乐高样本成像——计算机分层成像加有限角 CT，含原始投影数据、最终重建与 MATLAB 代码。"
+  "Polychromatic CBCT phantom (simulated)":
+    note: "**Projection only.** 数值体模（PolyBoneAlTi）的多色锥束 CT 模拟投影图像，用 LEAP 在 85 kV 下生成。"
+  "Crystals in clay micro-CT":
+    note: "**Projection + image.** 含晶体的黏土的显微 CT（DTU Nikon XTek）：投影 TIFF + .xtekct 元数据 + 重建体（.vol）+ 中心层正弦图。"
+  "SESAME ID10-BEATS synchrotron CT":
+    note: "**Image only.** 来自 ID10-BEATS 光束线（SESAME）的同步辐射 X 射线 CT 重建：一只黄蜂、一尊历史陶俑与埃及蓝颜料。文件只有重建结果，没有原始投影。"
+  "Ptychotomography nanoporous glass":
+    note: "**Projection + image.** 纳米多孔玻璃的高分辨率叠层成像层析（PSI cSAXS）：未对齐的复值投影、对齐后的相位正弦图与 delta 断层图。注意：叠层成像的物理机制与传统 CT 不同。"
+  "CBCT esophagus segmentation (psCBCT)":
+    note: "**Image only.** 配对的计划 CT 与物理增强伪 CBCT（psCBCT）图像及危及器官分割（23 对），用于分割与 CBCT→CT 转换。没有原始投影；psCBCT 图像为合成。"
+  "NIH/3T3 fibroblast SXT":
+    note: "**Image only.** 用软 X 射线层析（SXT-100）对 NIH/3T3 小鼠成纤维细胞做的三维重建，倾角范围 −53° 至 53.5°。单个 .mrc 重建体；没有原始投影。"
+  "Two-phase flow 4D micro-CT + reconstruction software":
+    note: "**受限访问**（文件未公开列出）。多孔介质中两相流的四维显微 CT 数据集加重建软件（实验室显微 CT）。公开记录无法确定是否包含原始投影。"
+  "Pediatric CT noise texture (XCAT)":
+    note: "**Image only.** 拟人 XCAT 体模（MIRT）的常规剂量与四分之一剂量 CT 模拟图像，用于噪声纹理增强。没有原始投影；属模拟数据而非实测扫描。"
+  "GranulaX":
+    note: "**Projection only.** 颗粒微结构的原始 CT 数据（RAW 格式）+ 预览图。记录中的规格字段仍是未填的占位符（体素尺寸、扫描仪、样本、重建方法），因此可用性未经验证。"
+  "Micro-CT spiders (amber)":
+    note: "**Projection + image.** 缅甸琥珀中白垩纪中期 lagonomegopid 蜘蛛的显微 CT：原始显微 CT TIFF + 三维重建。这是古生物标本扫描，并非为重建基准而设计。Dryad DOI 10.5061/dryad.7m0cfxpv0。"
+  "Walnut micro-CT (Saarland)":
+    note: "**Projection + image.** 单个核桃的显微 CT（Saarland）：1601 个采集投影（TIFF 栈）+ 重建体（pyXIT）。这是库中第 6 个核桃，采集方式与其他 5 个不同。"
 benchmarks:
   "AAPM Low-Dose CT Grand Challenge":
     note: "确立了 1/4 剂量 / 10% / 5% 协议与 Mayo 腹部队列的挑战赛。几乎每一篇低剂量 CT 论文至今仍在该切分上报告结果。"
