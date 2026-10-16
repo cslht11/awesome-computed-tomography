@@ -279,9 +279,10 @@ So the rule is: **do not let a pull request come into existence on this reposito
 | Apply a dependency bump by hand, as a cslht11 commit, then close the bot's PR unmerged | Merge a bot's pull request "just this once" |
 | Keep Dependabot **security alerts** on — they are a separate setting, need no config file, and create no commits | Assume closing an unmerged pull request keeps the graph clean |
 
-Three guards are in place. The first two ship in `hooks/` and are installed by
+Four guards are in place. The first two ship in `hooks/` and are installed by
 `sh scripts/install-hooks.sh` — Git never enables a repository's own `hooks/`
-directory on its own, so a fresh clone has no protection until that is run:
+directory on its own, so **a fresh clone starts with no protection at all until
+that is run**:
 
 1. **`hooks/pre-commit`** refuses any commit whose `user.email` is not
    `cslht11@users.noreply.github.com`. This catches the account-mix-up case:
@@ -291,7 +292,12 @@ directory on its own, so a fresh clone has no protection until that is run:
    signs with *the pull request author's* identity, which has nothing to do with
    local `git config`, so `pre-commit` cannot see it coming. It is what would have
    stopped `dependabot[bot]` at the door.
-3. **Verify after pushing**, because no hook can see what GitHub computed:
+3. **The `Sole authorship` step in `validate.yml`** applies the same rule
+   **server-side**, so it holds for a checkout that never ran the installer —
+   which is exactly how a batch of commits signed with a personal address
+   reached `main` on 2026-10-15. A local hook is a convenience; this one cannot
+   be skipped, and it leaves a record in the run.
+4. **Verify after pushing**, because nothing above sees what GitHub computed:
    ```
    curl -s https://github.com/cslht11/awesome-computed-tomography/graphs/contributors-data \
      | grep -o '"login":"[^"]*"'
@@ -301,6 +307,25 @@ directory on its own, so a fresh clone has no protection until that is run:
    endpoint the Insights page reads, so it is the page's own answer, not a proxy
    for it. (`gh api repos/.../graphs/contributors-data` will 404: the endpoint has
    no `/repos/` prefix and is not part of the REST API.)
+
+### Which addresses count as cslht11
+
+The rule is "authored by cslht11", not "one exact string". **Two** addresses are
+accepted, because commits reach `main` by two different routes:
+
+| Address | How it gets there |
+| --- | --- |
+| `cslht11@users.noreply.github.com` | A commit made from a local checkout — the identity `hooks/pre-commit` pins. |
+| `heitieya@163.com` | A commit made through the **GitHub Contents API** (a connector push). GitHub signs those with the account's *primary* email, and that endpoint takes **no author parameter at all** — the address is not the caller's to choose. |
+
+Rejecting the second would protect nothing: it would fail every
+connector-authored push while still accepting locally-made ones, which is the
+opposite of the intent. What must never appear is a commit attributed to a
+*different* account — that is the failure all four guards exist for.
+
+If the account's primary email ever changes, add the new address to the list in
+`.github/workflows/validate.yml` (and to this table) — otherwise connector
+pushes will start failing.
 
 One thing worth knowing, because it is counter-intuitive and it changes what is
 worth doing about it: **the contributor graph counts commits on the default branch

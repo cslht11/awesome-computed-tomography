@@ -35,7 +35,23 @@ jobs:
       # skip it — the check runs on the server side of the push.
       - name: Sole authorship
         run: |
-          want="cslht11 <cslht11@users.noreply.github.com>"
+          # The rule is "cslht11 and nobody else", not "one exact string".
+          # Two addresses are legitimate and both resolve to cslht11:
+          #
+          #   cslht11@users.noreply.github.com — a commit made from a local
+          #     checkout; the identity hooks/pre-commit pins.
+          #
+          #   heitieya@163.com — a commit made through the GitHub Contents API
+          #     (a connector push). GitHub signs those with the account's
+          #     *primary* email, and that endpoint takes no author parameter at
+          #     all, so the address is not the caller's to choose. Rejecting it
+          #     would not protect anything — it would just block every
+          #     connector-authored push while still passing locally-made ones.
+          #
+          # What must never appear is a commit attributed to a *different*
+          # account. That is the failure this gate exists for.
+          name="cslht11"
+          mails="cslht11@users.noreply.github.com heitieya@163.com"
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             base="${{ github.event.pull_request.base.sha }}"
           else
@@ -50,15 +66,20 @@ jobs:
             range="$base..HEAD"
           fi
           echo "checking $range"
-          bad=$(git log --format='%h %an <%ae>' "$range" | grep -v " $want\$" || true)
+          bad=$(git log --format='%h %an <%ae>' "$range" |
+            awk -v n="$name" -v m="$mails" '
+              BEGIN { split(m, a, " "); for (i in a) ok[a[i]] = 1 }
+              { mail = $3; gsub(/^<|>$/, "", mail)
+                if ($2 != n || !(mail in ok)) print }')
           if [ -n "$bad" ]; then
-            echo "::error::commits signed by an account other than cslht11 — each one becomes a permanent second contributor"
+            echo "::error::commits attributed to an account other than cslht11 — each one becomes a permanent second contributor"
             echo "$bad"
             echo ""
-            echo "Fix: git rebase --exec 'git commit --amend --reset-author --no-edit' <base>"
+            echo "From a local checkout, fix the author and re-push with:"
+            echo "    git rebase --exec 'git commit --amend --reset-author --no-edit' <base>"
             exit 1
           fi
-          echo "OK: every commit in $range is signed by cslht11"
+          echo "OK: every commit in $range is attributed to cslht11"
 
       - uses: actions/setup-python@v7
         with:

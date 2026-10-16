@@ -162,21 +162,33 @@ Merged as #1 (squash `6736652`). No change to existing pages, styles or data.
 
 ### Added
 
-- **`validate` now fails when any commit in the pushed range is not signed by
-  `cslht11`.** GitHub attributes a commit by the email on it, and the
-  contributor graph counts the default branch only — so a single commit with
-  another address becomes a permanent second "author", which is why this
-  repository had to be rebuilt on 2026-10-12.
+- **`validate` fails when a pushed commit is attributed to an account other
+  than `cslht11`.** GitHub attributes a commit by the email on it, and the
+  contributor graph counts the default branch only — so a single commit bearing
+  another account's address becomes a permanent second "author", which is why
+  this repository had to be rebuilt on 2026-10-12.
 
   `hooks/pre-push` already enforces this locally, and deliberately checks the
   commits themselves rather than `user.email`. But a hook in `hooks/` is not
   enabled until someone runs `scripts/install-hooks.sh`, so **a fresh clone
   starts with no gate at all** — which is how a batch of commits signed with a
-  personal address reached `main` on 2026-10-15. Repeating the check on the
-  server side of the push closes that gap.
+  personal address reached `main` on 2026-10-15. Doing it in CI closes that gap:
+  it cannot be skipped, and it leaves a record in the run.
 
 - `actions/checkout` now uses `fetch-depth: 0`, so the check walks the pushed
   range instead of only the tip.
+
+### Fixed
+
+- The check accepts **two** addresses, not one:
+  `cslht11@users.noreply.github.com` (a local commit) and `heitieya@163.com`
+  (a commit made through the GitHub Contents API — a connector push; GitHub
+  signs those with the account's *primary* email, and the endpoint has no author
+  parameter, so the address is not the caller's to choose). The first draft
+  pinned the noreply address alone, which would have failed every
+  connector-authored push while still passing locally-made ones. The rule is
+  "authored by cslht11", not "one exact string"; `MAINTENANCE.md` now spells
+  this out in a table, with the reason each address is legitimate.
 
 ## 2026-10-15 — Clean-up after the blurb work
 
