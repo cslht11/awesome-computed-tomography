@@ -6,6 +6,19 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-16 — 首页链接到数据集、基准和指南页面
+<!-- en: Homepage links to the dataset, benchmark and guide pages -->
+
+### 变更
+
+- 首页的**数据集**和**基准与挑战赛**标签页中，21 个数据集和 11 个基准凡有单独页面的，名称现在都链接到该页面（`/datasets/<slug>/`、`/benchmarks/<slug>/`；中文首页链接到 `/zh/...`）。官方网站仍可一键到达：名称旁另有一个单独的 `[官网]` 链接。没有单独页面的条目保持不变。
+- **学习资源**标签页顶部新增一个小的**指南**分组，列出三篇指南，并附有 `/guides/` 索引页的链接。
+- `tests/test_seo.js` 现在检查首页恰好链接到这些页面（每个数据集与基准页面、三篇指南和 `/guides/`），且每个链接都指向已生成的页面；`tests/test_site_dom.js` 检查渲染后的标签页。
+
+### 修复
+
+- 网站页脚中的“更新于”日期现在使用 Asia/Shanghai 时区的日期，而不是构建服务器的 UTC 日期，清晨构建时不再显示前一天。
+
 ## 2026-10-16 — 新增数据集与基准页面，以及三篇指南
 <!-- en: Dataset and benchmark pages, and three guides -->
 

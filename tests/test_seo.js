@@ -290,9 +290,25 @@ for (const L of LANGS) {
   }
   ok("topic pages link dataset/benchmark pages and guides", topicLinks > 0 && !topicBroken.length,
      topicLinks + " links" + (topicBroken.length ? ", broken: " + topicBroken.join(", ") : ""));
+  // The homepage links the new pages only from its Datasets, Benchmarks and
+  // Learning tabs, which web/app.js renders from data.json: a row's `page`
+  // and the Guides group. Exactly these links: every page row and guide, plus
+  // the /guides/ index, nothing else, and each resolves to a built page.
   const homeMain = mainOf(home);
-  ok("homepage body unchanged: no link to the new pages",
-     !/href="(?!https?:)[^"]*(datasets|guides|benchmarks)\//.test(homeMain));
+  const data = JSON.parse(read(L.prefix + "data.json"));
+  const pageRels = [].concat(data.datasets, data.benchmarks).filter((r) => r.page).map((r) => r.page);
+  const G = data.guides || {};
+  const homeRels = pageRels.concat((G.items || []).map((g) => g.url), G.index ? [G.index] : []);
+  const wantRels = resources.concat(guides).map((u) => u.slice(base.length)).concat(["guides/"]);
+  const same = (a, b) => a.length === b.length && [...a].sort().join("|") === [...b].sort().join("|");
+  ok("homepage links exactly the dataset/benchmark pages, the guides and /guides/",
+     same(homeRels, wantRels), pageRels.length + " entries + " + (G.items || []).length + " guides + index");
+  const missing = homeRels.filter((r) => !fs.existsSync(path.join(SITE, L.prefix, r, "index.html")));
+  ok("every homepage detail/guide link resolves to a built page", missing.length === 0, missing.join(", "));
+  const allowed = new Set(wantRels);
+  const stray = [...homeMain.matchAll(/href="(?!https?:)([^"]*(?:datasets|guides|benchmarks)\/[^"]*)"/g)]
+    .map((m) => m[1].replace(/^\.\//, "")).filter((h) => !allowed.has(h));
+  ok("homepage body: no other link to the new pages", stray.length === 0, stray.join(", "));
 }
 
 console.log("\nacross languages");

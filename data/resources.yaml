@@ -159,6 +159,8 @@ strings:
     colEvaluates: "What it evaluates"
     relatedPages: "Related pages"
     otherGuides: "Other guides"
+    homeOfficial: "[official]"
+    homeGuidesAll: "All guides"
   zh:
     home: 首页
     indexTitle: "CT 重建数据集与基准"
@@ -231,3 +233,5 @@ strings:
     colEvaluates: "评估内容"
     relatedPages: "相关页面"
     otherGuides: "其他指南"
+    homeOfficial: "[官网]"
+    homeGuidesAll: "全部指南"
