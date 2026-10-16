@@ -15,8 +15,8 @@
 
 **EN** · [中文](README.zh-CN.md)
 
-| 427 papers | 87% peer-reviewed | 100 with code | 45 toolkits | 76 datasets | 19 benchmarks | Updated 2026-10-16 |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 427 papers | 45 toolkits | 76 datasets | 19 benchmarks | Updated 2026-10-16 |
+| :-: | :-: | :-: | :-: | :-: |
 
 Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D CT — from FBP and iterative solvers to unrolled networks, diffusion priors, neural fields and Gaussian splatting. Every paper link is resolved against Crossref, arXiv or the publisher's record. For search and filters, use the **[website](https://computedtomography.org/)**.
 

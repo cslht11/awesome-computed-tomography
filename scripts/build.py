@@ -52,12 +52,8 @@ def write(path, text):
 def counts(papers, toolkits, datasets, benchmarks, learning):
     years = [int(e["year"]) for e in papers] or [0]
     n = len(papers)
-    nvenue = sum(1 for e in papers if e.get("venue"))
     return {
         "papers": n,
-        "peer": nvenue,
-        "peer_pct": round(100.0 * nvenue / n) if n else 0,
-        "preprints": n - nvenue,
         "toolkits": len(toolkits or []),
         "datasets": len(datasets or []),
         "benchmarks": len(benchmarks or []),
@@ -265,7 +261,6 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
     subs["tagline"] = ov.top("tagline")
     subs["content_license"] = "CC BY-NC-SA 4.0"
     subs["code_license"] = "MIT"
-    subs["ncode"] = sum(1 for e in papers if e.get("code"))
 
     def badge(label, msg, color):
         q = lambda x: str(x).replace("-", "--").replace(" ", "%20").replace("_", "__")
@@ -292,12 +287,10 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
     lang_path = next((e.get("path") or "" for e in langs if e["code"] == ov.code), "")
     site_base = SITE_URL + lang_path
 
-    # The seven-number stats strip. Every cell carries its own unit wording, so
+    # The five-number stats strip. Every cell carries its own unit wording, so
     # a language can put the unit first, or drop the plural, without any of this
     # code having to know about it.
     cells = [fill(ov.readme("statPapersCell", "{papers} papers"), subs),
-             fill(ov.readme("statPeerCell", "{peer_pct}% peer-reviewed"), subs),
-             fill(ov.readme("statCodeCell", "{ncode} with code"), subs),
              fill(ov.readme("statToolkitsCell", "{toolkits} toolkits"), subs),
              fill(ov.readme("statDatasetsCell", "{datasets} datasets"), subs),
              fill(ov.readme("statBenchmarksCell", "{benchmarks} benchmarks"), subs),

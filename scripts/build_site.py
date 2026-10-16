@@ -943,7 +943,6 @@ def main():
     # The site is maintained from Asia/Shanghai (UTC+8, no DST); stamp its date, not the build server's UTC one.
     today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat()
 
-    peer_pct = round(100.0 * c["peer_reviewed"] / c["papers"]) if c["papers"] else 0
     # The coverage sentence now comes from ui.coverage per language, so it reads
     # in the page's own language; see `shared["coverage"]` below.
 
@@ -955,7 +954,7 @@ def main():
     # Tokens available inside every ui.* and readme.* string. Only ever numbers
     # and known-safe config values — see the header comment in data/i18n/en.yaml.
     tokens = {
-        "papers": c["papers"], "peer": c["peer_reviewed"], "peer_pct": peer_pct,
+        "papers": c["papers"],
         "preprints": c["preprints"], "toolkits": c["toolkits"],
         "datasets": c["datasets"], "benchmarks": c["benchmarks"],
         "learning": c["learning"], "year_min": c["year_min"],
@@ -1072,9 +1071,6 @@ def main():
             "{{HTML_LANG}}": esc(entry["html"]),
             "{{LANG_SWITCH}}": switch,
             "{{N_PAPERS}}": str(c["papers"]),
-            "{{N_PEER}}": str(c["peer_reviewed"]),
-            "{{PEER_PCT}}": str(peer_pct),
-            "{{N_PREPRINT}}": str(c["preprints"]),
             "{{N_TOOLKITS}}": str(c["toolkits"]),
             "{{N_DATASETS}}": str(c["datasets"]),
             "{{N_BENCHMARKS}}": str(c["benchmarks"]),
