@@ -20,7 +20,7 @@
 #   readme.*  Markdown, written into the README as-is, except that {placeholders}
 #             are filled from the data counts first.
 #
-# Placeholders available in both: {papers} {peer} {peer_pct} {preprints}
+# Placeholders available in both: {papers} {preprints}
 # {toolkits} {datasets} {benchmarks} {learning} {updated} {year_min} {year_max}
 # {title} {tagline} {repo} {repo_url} {build_date} {code_license}
 # {code_license_url} {content_license} {content_license_url} {license_year}
@@ -75,7 +75,6 @@ ui:
   # ---- stat tiles
   statsAria: "What is in the list"
   statPapers: "papers"
-  statPeer: "peer-reviewed"
   statToolkits: "toolkits"
   statDatasets: "datasets"
   statBenchmarks: "benchmarks"
@@ -133,7 +132,7 @@ ui:
   # ---- footer and no-script fallback
   footer1: >-
     **{title}** — {tagline}. {papers} papers (updated {updated}),
-    {peer} of them at a peer-reviewed venue ({peer_pct}%), {preprints} preprints;
+    including {preprints} preprints;
     {toolkits} toolkits, {datasets} datasets, {benchmarks} benchmarks,
     {learning} learning resources.
   footer2: >-
@@ -162,7 +161,6 @@ ui:
   drawerTitle: "Sections"
   github: "GitHub"
   heroLead: "{tagline} — {coverage} Every paper link resolved against Crossref, arXiv or the publisher’s own record."
-  statLabelPeer: "Peer-reviewed"
   statLabelYears: "Updated"
   labelHasCode: "Has code"
   labelFrom: "From"
@@ -199,7 +197,7 @@ ui:
   # Homepage DataCatalog JSON-LD. Counts are filled from the live data, and
   # every sentence must stay true of what the homepage itself shows.
   ldPapersName: "CT reconstruction papers"
-  ldPapersDesc: "{papers} papers on CT image reconstruction, {peer_pct}% of them with a peer-reviewed venue and the rest marked as preprints. Each record gives the venue, the year, its topics and links to the paper and, where available, its code, project page and data."
+  ldPapersDesc: "{papers} papers on CT image reconstruction, papers without a peer-reviewed venue marked as preprints. Each record gives the venue, the year, its topics and links to the paper and, where available, its code, project page and data."
   ldDatasetsName: "CT datasets"
   ldDatasetsDesc: "{datasets} CT datasets for reconstruction research, each listed with its modality, the tasks it supports, its licence and notes on what it contains."
   ldBenchmarksName: "CT reconstruction benchmarks and challenges"
@@ -246,8 +244,6 @@ readme:
   # ---- stats strip. Each cell carries its own unit wording so a language can
   # put the unit first, or drop the plural, without touching the renderer.
   statPapersCell: "{papers} papers"
-  statPeerCell: "{peer_pct}% peer-reviewed"
-  statCodeCell: "{ncode} with code"
   statToolkitsCell: "{toolkits} toolkits"
   statDatasetsCell: "{datasets} datasets"
   statBenchmarksCell: "{benchmarks} benchmarks"
@@ -293,7 +289,7 @@ pages:
     <h2>How entries are verified</h2>
     <ul>
       <li><strong>Identity.</strong> Every paper link is resolved against Crossref, arXiv or the publisher’s own record, and the title is matched against that record, so an entry cannot quietly point at a different paper.</li>
-      <li><strong>Venue.</strong> {{N_PEER}} papers ({{PEER_PCT}}%) carry a peer-reviewed venue, confirmed from the DOI rather than from search results. The other {{N_PREPRINT}} are marked <em>preprint</em> and dated by their first public posting.</li>
+      <li><strong>Venue.</strong> Paper venues are confirmed from the DOI rather than from search results. Papers without a peer-reviewed venue are marked <em>preprint</em> and dated by their first public posting.</li>
       <li><strong>Links.</strong> Every URL is checked. Code links point at the authors’ own repositories where they exist.</li>
     </ul>
     <p>Checks catch broken links and mismatched records, not every mistake. A venue, a year or a category can still be wrong. If a detail matters for your work, follow the link and rely on the original paper.</p>

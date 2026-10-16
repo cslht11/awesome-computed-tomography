@@ -57,7 +57,6 @@ ui:
   # ---- 统计卡
   statsAria: "列表内容概览"
   statPapers: "篇论文"
-  statPeer: "同行评审"
   statToolkits: "个工具包"
   statDatasets: "个数据集"
   statBenchmarks: "个基准"
@@ -114,7 +113,7 @@ ui:
 
   # ---- 页脚与无脚本回退
   footer1: >-
-    **{title}** — {tagline}。共 {papers} 篇论文（更新于 {updated}），其中 {peer} 篇发表于同行评审会议或期刊（{peer_pct}%），{preprints} 篇为预印本；另有 {toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。
+    **{title}** — {tagline}。共 {papers} 篇论文（更新于 {updated}），其中 {preprints} 篇为预印本；另有 {toolkits} 个工具包、{datasets} 个数据集、{benchmarks} 个基准、{learning} 项学习资源。
   footer2: >-
     每条论文链接均已对照 Crossref、arXiv 或出版方官方记录核验，每个 URL 也都检查过。数据来源是 [{repo}]({repo_url}) 中的 `data/*.yaml`；README 由同一批文件生成，两者不会不一致。
   footer3: >-
@@ -131,7 +130,6 @@ ui:
   drawerTitle: "栏目"
   github: "GitHub"
   heroLead: "{tagline} — {coverage} 每篇论文的链接都经 Crossref、arXiv 或出版方自身记录核验。"
-  statLabelPeer: "同行评审"
   statLabelYears: "更新于"
   labelHasCode: "有代码"
   labelFrom: "起始"
@@ -166,7 +164,7 @@ ui:
   changelogEntries: "共 {n} 条，时间从 {first} 到 {latest}。"
   changelogUntranslated: "其中 {n} 条尚未译成中文，暂以英文显示。"
   ldPapersName: "CT 重建论文"
-  ldPapersDesc: "{papers} 篇 CT 图像重建论文，其中 {peer_pct}% 有同行评审的发表出处，其余标注为预印本。每条记录给出出处、年份、所属主题，以及论文链接，并在有的情况下附上代码、项目主页和数据链接。"
+  ldPapersDesc: "{papers} 篇 CT 图像重建论文，没有同行评审发表出处的标注为预印本。每条记录给出出处、年份、所属主题，以及论文链接，并在有的情况下附上代码、项目主页和数据链接。"
   ldDatasetsName: "CT 数据集"
   ldDatasetsDesc: "{datasets} 个用于重建研究的 CT 数据集，每个都列出其模态、适用任务、许可以及内容说明。"
   ldBenchmarksName: "CT 重建基准与挑战赛"
@@ -192,8 +190,6 @@ readme:
   badgePapers: "论文"
   badgeLicense: "许可"
   statPapersCell: "{papers} 篇论文"
-  statPeerCell: "{peer_pct}% 同行评审"
-  statCodeCell: "{ncode} 项附代码"
   statToolkitsCell: "{toolkits} 个工具包"
   statDatasetsCell: "{datasets} 个数据集"
   statBenchmarksCell: "{benchmarks} 个基准"
@@ -575,7 +571,7 @@ pages:
     <h2>条目如何核验</h2>
     <ul>
       <li><strong>身份。</strong> 每条论文链接都对照 Crossref、arXiv 或出版方自身的记录解析，并与该记录的标题比对，因此条目不会悄悄指向另一篇论文。</li>
-      <li><strong>发表出处。</strong> {{N_PEER}} 篇（{{PEER_PCT}}%）具有同行评审的发表出处，以 DOI 为准而非搜索结果。其余 {{N_PREPRINT}} 篇标记为<em>预印本</em>，按首次公开日期标注。</li>
+      <li><strong>发表出处。</strong> 论文出处以 DOI 为准而非搜索结果。没有同行评审发表出处的论文标记为<em>预印本</em>，按首次公开日期标注。</li>
       <li><strong>链接。</strong> 每个 URL 都经过检查。若作者提供了代码仓库，代码链接指向作者自己的仓库。</li>
     </ul>
     <p>这些检查能发现失效链接和记录不匹配，但无法发现所有错误。某个发表出处、年份或分类仍可能出错。如果某个细节对你的工作很关键，请顺着链接以原始论文为准。</p>
