@@ -308,3 +308,52 @@
   tasks: [reconstruction, sparse-view, limited-angle]
   license: CC BY 4.0
   note: "**Projection only.** A single 2D slice of a carved cheese from the Finnish Inverse Problems Society, published at three resolutions together with the measurement matrices that encode the X-ray transform as an explicit linear operator. Getting the forward operator handed to you alongside the sinogram removes an entire class of geometry-matching bugs, which is why it stays a standard first test whenever a reconstruction method is ported onto real measured data. Documentation lives at arXiv:1705.05732."
+
+- name: 3D cross phantom (FIPS, dynamic)
+  url: https://doi.org/10.5281/zenodo.1446516
+  modality: 2D fan-beam, dynamic
+  tasks: [dynamic, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** Time-dependent 2D fan-beam sinograms of a 3D cross phantom (16 or 30 time frames depending on resolution), shipped with static and dynamic measurement matrices that encode the X-ray transform as an explicit linear operator. Documentation lives at arXiv:1809.00166."
+
+- name: Emoji phantom (FIPS, dynamic)
+  url: https://doi.org/10.5281/zenodo.1183532
+  modality: 2D fan-beam, dynamic
+  tasks: [dynamic, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** A single 2D slice of 33 emoji faces (15 different emoji) made of small ceramic stones, from a measured 60-projection fan-beam sinogram, with static and dynamic measurement matrices. The shape diversity across emoji faces is what sets it apart from the single-shape cross phantom. Documentation lives at arXiv:1802.09397."
+
+- name: Walnut (FIPS, 2D fan-beam)
+  url: https://doi.org/10.5281/zenodo.1254206
+  modality: 2D fan-beam
+  tasks: [reconstruction, sparse-view, limited-angle]
+  license: CC BY 4.0
+  note: "**Projection + image.** A single 2D slice of a walnut from a measured 120-projection fan-beam sinogram, at three resolutions with the measurement matrices, plus a 1200-projection set with a high-resolution FBP reconstruction as ground truth. Documentation lives at arXiv:1502.04064."
+
+- name: Lotus root (FIPS)
+  url: https://doi.org/10.5281/zenodo.1254204
+  modality: 2D fan-beam
+  tasks: [reconstruction, sparse-view, limited-angle]
+  license: CC BY 4.0
+  note: "**Projection only.** A single 2D slice of a lotus root whose holes are filled with different chemical elements, at two resolutions with the measurement matrices, plus MATLAB code for FBP, Landweber and Tikhonov reconstructions. Documentation lives at arXiv:1609.07299."
+
+- name: Gel phantom (FIPS, dynamic)
+  url: https://doi.org/10.5281/zenodo.3696816
+  modality: 2D, dynamic
+  tasks: [dynamic, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** Seventeen consecutive X-ray measurements of a 2D slice of a dynamic agarose-gel phantom perfused with a liquid contrast agent, at two resolutions, plus denser sampling of the first and an extra 18th time step. No forward operators are shipped, but the format supports matrix-free operators and FBP on CPU and CUDA GPUs. Documentation lives at arXiv:2003.02841."
+
+- name: STEMPO (FIPS, dynamic phantom)
+  url: https://doi.org/10.5281/zenodo.7081688
+  modality: fan-beam / cone-beam, dynamic
+  tasks: [dynamic, reconstruction, cbct]
+  license: CC BY 4.0
+  note: "**Projection + image.** A computer-controlled motor-powered phantom for dynamic tomography, with static and dynamic scans in 2D and 3D geometry, an approximate ground truth via interpolation, and example code for FBP, FDK, variational and low-rank+sparse methods; format compatible with HelTomo and ASTRA. Documentation lives at arXiv:2209.12471."
+
+- name: Chicken bone CBCT (FIPS, 4 dose levels)
+  url: https://zenodo.org/records/6990764
+  modality: cone-beam
+  tasks: [low-dose, denoising, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection only.** Four cone-beam scans of the same chicken bone at four dose levels, varied via tube current and detector exposure time, each with flat-field-corrected projections and geometry metadata. The matched dose levels make it a clean test bed for low-dose denoising against known anatomy."
