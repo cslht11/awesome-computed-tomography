@@ -27,6 +27,8 @@ import sys
 
 import yaml
 
+import brand_assets
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESOURCES_FILE = os.path.join(ROOT, "data", "resources.yaml")
 GUIDES_FILE = os.path.join(ROOT, "data", "guides.yaml")
@@ -284,9 +286,10 @@ def paras(text):
     return [x.strip() for x in re.split(r"\n\s*\n", (text or "").strip()) if x.strip()]
 
 
-def head_bits(urls, entry, langs_default, url, title, desc, blocks):
+def head_bits(urls, entry, langs_default, url, title, desc, blocks, origin):
     """hreflang alternates, Open Graph and JSON-LD blocks for one page.
-    ``urls`` is [(hreflang, url)] for every language."""
+    ``urls`` is [(hreflang, url)] for every language. ``origin`` is the
+    site root the favicon and share image live under."""
     bits = ['<link rel="alternate" hreflang="%s" href="%s">' % (esc(hl), esc(u)) for hl, u in urls]
     bits.append('<link rel="alternate" hreflang="x-default" href="%s">' % esc(langs_default))
     bits += ['<meta property="og:type" content="website">',
@@ -294,6 +297,7 @@ def head_bits(urls, entry, langs_default, url, title, desc, blocks):
              '<meta property="og:title" content="%s">' % esc(title),
              '<meta property="og:description" content="%s">' % esc(desc),
              '<meta property="og:locale" content="%s">' % esc(entry["og_locale"])]
+    bits.append(brand_assets.head_brand(origin))
     for b in blocks:
         bits.append('<script type="application/ld+json">%s</script>' % safe_json(b))
     return "\n".join(bits)
@@ -569,7 +573,8 @@ class Site(object):
         crumbs = crumbs_ld([(self.home_name, home), (self.s["indexCrumb"], home + DATASETS_PATH),
                             (pg["name"], url)])
         urls, xdef = self.lang_urls(pg["rel"])
-        return head_bits(urls, self.entry, xdef, url, title, desc, [crumbs, ds])
+        return head_bits(urls, self.entry, xdef, url, title, desc, [crumbs, ds],
+                         self.base)
 
     # ---------------------------------------------------------- index page
     def resource_table(self, pgs, root, kind, show_note=False, tid=None):
@@ -637,7 +642,8 @@ class Site(object):
         crumbs = crumbs_ld([(self.home_name, self.lang_base), (self.s["indexCrumb"], url)])
         urls, xdef = self.lang_urls(DATASETS_PATH)
         return head_bits(urls, self.entry, xdef, url, title, desc,
-                         [crumbs, self.collection_ld(url, title, desc, items)])
+                         [crumbs, self.collection_ld(url, title, desc, items)],
+                         self.base)
 
     # -------------------------------------------------------------- guides
     def guide_members(self, g):
@@ -792,7 +798,8 @@ class Site(object):
         crumbs = crumbs_ld([(self.home_name, self.lang_base), (self.s["guidesCrumb"], self.lang_base + GUIDES_PATH),
                             (self.g_text(g, "title"), url)])
         urls, xdef = self.lang_urls(rel)
-        return head_bits(urls, self.entry, xdef, url, title, desc, [crumbs, art])
+        return head_bits(urls, self.entry, xdef, url, title, desc, [crumbs, art],
+                         self.base)
 
     def guides_index_body(self):
         s, root = self.s, "{{ROOT}}"
@@ -814,7 +821,8 @@ class Site(object):
         crumbs = crumbs_ld([(self.home_name, self.lang_base), (self.s["guidesCrumb"], url)])
         urls, xdef = self.lang_urls(GUIDES_PATH)
         return head_bits(urls, self.entry, xdef, url, title, desc,
-                         [crumbs, self.collection_ld(url, title, desc, items)])
+                         [crumbs, self.collection_ld(url, title, desc, items)],
+                         self.base)
 
 
 def i18n_overlay(code):
