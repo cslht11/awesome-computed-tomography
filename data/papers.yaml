@@ -3229,13 +3229,6 @@
   paper: "https://doi.org/10.1002/mp.16157"
   code: "https://github.com/KunalMGupta/DIFIR-CT"
 
-- id: "streak-artifacts-reduction-implicit-neural-representation"
-  title: "Streak artifacts reduction algorithm using an implicit neural representation in sparse-view CT"
-  year: 2022
-  venue: "SPIE MI"
-  topics: [sparse-view]
-  paper: "https://doi.org/10.1117/12.2610722"
-
 - id: "scope"
   abbr: "SCOPE"
   title: "Self-Supervised Coordinate Projection Network for Sparse-View Computed Tomography"
@@ -3244,14 +3237,6 @@
   topics: [sparse-view]
   paper: "https://doi.org/10.1109/TCI.2023.3281196"
   code: "https://github.com/iwuqing/SCOPE"
-
-- id: "neurec"
-  abbr: "NeuRec"
-  title: "NeuRec: Incorporating Interpatient prior to Sparse-View Image Reconstruction for Neurorehabilitation"
-  year: 2022
-  venue: "Biomed. Res. Int."
-  topics: [sparse-view]
-  paper: "https://doi.org/10.1155/2022/5426643"
 
 - id: "mepnet"
   abbr: "MEPNet"
@@ -3288,9 +3273,10 @@
 
 - id: "diffusion-probabilistic-priors-zero-shot-low-dose-ct"
   title: "Diffusion Probabilistic Priors for Zero-Shot Low-Dose CT Image Denoising"
-  year: 2023
+  year: 2024
+  venue: "Med Phys"
   topics: [low-dose, diffusion]
-  paper: "https://arxiv.org/abs/2305.15887"
+  paper: "https://doi.org/10.1002/mp.17431"
   code: "https://github.com/DeepXuan/Dn-Dp"
 
 - id: "corediff"
@@ -3302,25 +3288,13 @@
   paper: "https://doi.org/10.1109/TMI.2023.3320812"
   code: "https://github.com/qgao21/CoreDiff"
 
-- id: "pseudoinverse-diffusion-low-dose-ct"
-  title: "Pseudoinverse Diffusion Models for Generative CT Image Reconstruction from Low Dose Data"
-  year: 2025
-  topics: [low-dose, diffusion]
-  paper: "https://arxiv.org/abs/2502.15064"
-
-- id: "rn-sdes"
-  abbr: "RN-SDEs"
-  title: "RN-SDEs: Limited-Angle CT Reconstruction with Residual Null-Space Diffusion Stochastic Differential Equations"
-  year: 2024
-  topics: [limited-angle, diffusion]
-  paper: "https://arxiv.org/abs/2409.13930"
-
 - id: "diffux2ct"
   abbr: "DiffuX2CT"
   title: "DiffuX2CT: Diffusion Learning to Reconstruct CT Images from Biplanar X-Rays"
   year: 2024
+  venue: "ECCV"
   topics: [sparse-view, diffusion]
-  paper: "https://arxiv.org/abs/2407.13545"
+  paper: "https://doi.org/10.1007/978-3-031-72775-7_26"
 
 - id: "diffusionblend"
   abbr: "DiffusionBlend"
@@ -3329,27 +3303,6 @@
   venue: "NeurIPS"
   topics: [diffusion, sparse-view]
   paper: "https://arxiv.org/abs/2406.10211"
-
-- id: "parallel-diffusion-sparse-view-cone-beam-breast-ct"
-  title: "Parallel Diffusion Model-based Sparse-view Cone-beam Breast CT"
-  year: 2023
-  topics: [cbct, diffusion]
-  paper: "https://arxiv.org/abs/2303.12861"
-
-- id: "ddlm"
-  abbr: "DDLM"
-  title: "Diffusion Denoising for Low-Dose-CT Model"
-  year: 2023
-  topics: [low-dose, diffusion]
-  paper: "https://arxiv.org/abs/2301.11482"
-  note: "Author note on arXiv: the method and experiments contain errors and need revision."
-
-- id: "osdm"
-  abbr: "OSDM"
-  title: "One Sample Diffusion Model in Projection Domain for Low-Dose CT Imaging"
-  year: 2022
-  topics: [low-dose, diffusion]
-  paper: "https://arxiv.org/abs/2212.03630"
 
 - id: "patch-based-ddpm-sparse-view-ct"
   title: "Patch-Based Denoising Diffusion Probabilistic Model for Sparse-View CT Reconstruction"
@@ -3363,10 +3316,3 @@
   venue: "TRPMS"
   topics: [cbct, diffusion]
   paper: "https://doi.org/10.1109/TRPMS.2026.3663178"
-
-- id: "fcdm"
-  abbr: "FCDM"
-  title: "FCDM: A Physics-Guided Bidirectional Frequency Aware Convolution and Diffusion-Based Model for Sinogram Inpainting"
-  year: 2024
-  topics: [sparse-view, diffusion]
-  paper: "https://arxiv.org/abs/2409.06714"
