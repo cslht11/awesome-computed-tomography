@@ -295,7 +295,12 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
              fill(ov.readme("statDatasetsCell", "{datasets} datasets"), subs),
              fill(ov.readme("statBenchmarksCell", "{benchmarks} benchmarks"), subs),
              fill(ov.readme("statSpanCell", "Updated {updated}"), subs)]
-    strip = "| " + " | ".join(cells) + " |\n|" + "|".join([" :-: "] * len(cells)) + "|\n"
+    # Centered: a bare Markdown table is left-aligned on GitHub, and with
+    # five cells it no longer spans the page, so without the wrapper it
+    # reads as a stray line of text instead of the summary strip.
+    strip = ("<div align=\"center\">\n\n"
+             "| " + " | ".join(cells) + " |\n|" + "|".join([" :-: "] * len(cells)) + "|\n"
+             "\n</div>\n")
 
     nav = " \u00b7 ".join(
         ["**[{}]({})**".format(ov.readme("navWebsite", "Website"), SITE_URL)] +
