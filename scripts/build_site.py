@@ -825,6 +825,28 @@ def head_extra_changelog(cfg, base, langs, entry, ov, desc):
     return "\n".join(bits)
 
 
+def head_extra_static(cfg, base, langs, entry, name, title, desc, site_title):
+    """hreflang alternates + og for a standalone page (about/contact/privacy).
+
+    These pages take their head from web/page.html, which carries no
+    hreflang or og tags of its own — so without this they are the only
+    pages search engines see without them.
+    """
+    default = i18n.default_language(langs)
+    url = i18n.url_for(base, entry) + name + "/"
+    bits = ['<link rel="alternate" hreflang="%s" href="%s">'
+            % (esc(e["hreflang"]), esc(i18n.url_for(base, e) + name + "/"))
+            for e in langs]
+    bits.append('<link rel="alternate" hreflang="x-default" href="%s">'
+                % esc(i18n.url_for(base, default) + name + "/"))
+    bits += ['<meta property="og:type" content="website">',
+             '<meta property="og:url" content="%s">' % esc(url),
+             '<meta property="og:title" content="%s — %s">' % (esc(title), esc(site_title)),
+             '<meta property="og:description" content="%s">' % esc(desc),
+             '<meta property="og:locale" content="%s">' % esc(entry["og_locale"])]
+    return "\n".join(bits)
+
+
 def add_to_head(page, canonical, extra):
     """Insert extra <head> markup right after the canonical link."""
     tag = '<link rel="canonical" href="%s">' % esc(canonical)
@@ -1099,11 +1121,11 @@ def main():
                 + ['<li><a href="{{ROOT}}guides/%s/">%s</a></li>'
                    % (esc(g["slug"]), esc(((g.get(code) or {}).get("title") or g["en"]["title"])))
                    for g in rp_guides]))
+            p_title = ov.ui("page%sTitle" % name.title(), name.title())
+            p_desc = fill(ov.ui("page%sDesc" % name.title(), ""), shared)
             html_ = (tpl.replace("{{BODY}}", body)
-                     .replace("{{PAGE_TITLE}}",
-                              esc(ov.ui("page%sTitle" % name.title(), name.title())))
-                     .replace("{{PAGE_DESC}}",
-                              esc(fill(ov.ui("page%sDesc" % name.title(), ""), shared)))
+                     .replace("{{PAGE_TITLE}}", esc(p_title))
+                     .replace("{{PAGE_DESC}}", esc(p_desc))
                      .replace("{{PAGE_URL}}", esc(lang_base + name + "/"))
                      .replace("{{ROOT}}", "../"))
             for k, v in subs.items():
@@ -1116,6 +1138,13 @@ def main():
             # standalone pages whose head comes from page.html.
             html_ = add_to_head(html_, lang_base + name + "/",
                                 brand_assets.head_brand(base))
+            # ... and the standalone pages need hreflang + og too, for the
+            # same reason: page.html carries neither.
+            html_ = add_to_head(html_, lang_base + name + "/",
+                                head_extra_static(
+                                    cfg, base, langs, entry, name,
+                                    p_title, p_desc,
+                                    top_for(ov, code, "title", cfg["title"])))
             if name == "about":
                 ld, nfaq = faq_jsonld(html_)
                 faq_counts[code] = nfaq
@@ -1362,6 +1391,15 @@ def main():
                                 % os.path.relpath(f, out))
             if page.count('name="twitter:card"') != 1:
                 problems.append("%s: twitter:card must appear exactly once"
+                                % os.path.relpath(f, out))
+            # hreflang / og live in the head: the body also carries
+            # hreflang on the language switcher, which must not count.
+            head = page.split("</head>")[0]
+            if "hreflang" not in head:
+                problems.append("%s: hreflang missing from head"
+                                % os.path.relpath(f, out))
+            if 'property="og:' not in head:
+                problems.append("%s: og: tags missing from head"
                                 % os.path.relpath(f, out))
 
     # ------------------------------------------------- changelog + DataCatalog
