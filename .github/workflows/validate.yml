@@ -15,7 +15,50 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # fetch-depth: 0 — the authorship check below walks the pushed range,
+      # which a shallow (depth-1) checkout cannot see.
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # The contributor graph must contain exactly one account: cslht11.
+      # GitHub attributes a commit by the email *on the commit*, and the graph
+      # counts the default branch only — so a single commit signed with some
+      # other address becomes a permanent second "author". That is precisely
+      # why this repository was rebuilt on 2026-10-12, and why `refs/pull/*`
+      # (which cannot be deleted) is a reason to keep the default branch clean.
+      #
+      # hooks/pre-push enforces the same rule locally and checks the commits
+      # themselves rather than `user.email`. But a hook in `hooks/` is not
+      # enabled by Git until someone runs scripts/install-hooks.sh, so a fresh
+      # clone silently has no gate at all. Repeating it here means nothing can
+      # skip it — the check runs on the server side of the push.
+      - name: Sole authorship
+        run: |
+          want="cslht11 <cslht11@users.noreply.github.com>"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="${{ github.event.pull_request.base.sha }}"
+          else
+            base="${{ github.event.before }}"
+          fi
+          zero="0000000000000000000000000000000000000000"
+          if [ -z "$base" ] || [ "$base" = "$zero" ]; then
+            # New branch or a forced push: the range is unknowable, so fall
+            # back to the tip. Not airtight, but the local hook covers the rest.
+            range="HEAD~1..HEAD"
+          else
+            range="$base..HEAD"
+          fi
+          echo "checking $range"
+          bad=$(git log --format='%h %an <%ae>' "$range" | grep -v " $want\$" || true)
+          if [ -n "$bad" ]; then
+            echo "::error::commits signed by an account other than cslht11 — each one becomes a permanent second contributor"
+            echo "$bad"
+            echo ""
+            echo "Fix: git rebase --exec 'git commit --amend --reset-author --no-edit' <base>"
+            exit 1
+          fi
+          echo "OK: every commit in $range is signed by cslht11"
 
       - uses: actions/setup-python@v7
         with:
