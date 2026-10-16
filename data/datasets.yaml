@@ -357,3 +357,17 @@
   tasks: [low-dose, denoising, reconstruction]
   license: CC BY 4.0
   note: "**Projection only.** Four cone-beam scans of the same chicken bone at four dose levels, varied via tube current and detector exposure time, each with flat-field-corrected projections and geometry metadata. The matched dose levels make it a clean test bed for low-dose denoising against known anatomy."
+
+- name: Pine cone CBCT (FIPS)
+  url: https://zenodo.org/records/6985407
+  modality: cone-beam
+  tasks: [reconstruction, cbct]
+  license: CC BY 4.0
+  note: "**Projection + image.** A 3D cone-beam CT scan of a pine cone, with flat-field-corrected projection images, a metadata file describing the measurement geometry and settings, pictures of the sample and an example FDK reconstruction. Format compatible with HelTomo."
+
+- name: Walnut CBCT (FIPS, 3D)
+  url: https://zenodo.org/records/6986012
+  modality: cone-beam
+  tasks: [reconstruction, cbct]
+  license: CC BY 4.0
+  note: "**Projection + image.** A 3D cone-beam CT scan of a walnut, with flat-field-corrected projection images, a metadata file describing the measurement geometry and settings, and pictures of an example reconstruction. Format compatible with HelTomo."
