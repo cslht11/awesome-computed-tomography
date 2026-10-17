@@ -553,3 +553,24 @@
   tasks: [reconstruction]
   license: CC BY 4.0
   note: "**Projection + image.** Micro-CT of a single walnut (Saarland): 1601 acquired projections (TIFF stack) + reconstructed volume (pyXIT). Sixth walnut in the library; a different acquisition from the other five."
+
+- name: Apple CT Data (simulated parallel-beam)
+  url: https://doi.org/10.5281/zenodo.4212301
+  modality: parallel-beam (simulated)
+  tasks: [reconstruction, sparse-view, segmentation]
+  license: CC BY 4.0
+  note: "**Projection + image.** 94 apples with internal defects, three simulated parallel-beam sets (noiseless, 5% Gaussian noise, scattering noise) at 50 angles, with defect labels and ground-truth reconstructions in six companion uploads. Simulated from real cone-beam scans; this upload carries the simulated sets only. Documentation lives at arXiv:2012.13346."
+
+- name: Play-Doh + stones (CWI, 131 samples)
+  url: https://doi.org/10.5281/zenodo.5866228
+  modality: cone-beam micro-CT
+  tasks: [reconstruction, segmentation]
+  license: CC BY 4.0
+  note: "**Projection + image.** 131 Play-Doh samples with 0–8 inserted stones, 1800 projections each over 360° plus flat/dark-field images; a processed ground-truth version lives in Zenodo 5681008. Split across five Zenodo deposits (this link is Part 1). Built for supervised foreign-object detection."
+
+- name: Deep-sea bamboo corals (µCT)
+  url: https://data.bas.ac.uk/metadata.php?id=GB/NERC/BAS/PDC/01752
+  modality: micro-CT
+  tasks: [segmentation]
+  license: see source
+  note: "**Image only.** Reconstructed 8-bit TIFF stacks of two deep-sea bamboo coral species (Acanella arbuscula, 5 specimens; Keratoisis sp., 4 specimens) at 15/50 µm voxels; no raw projections (available from the authors only). Total 103.51 GB. Documentation lives at Williams et al., Sci Data 2024."

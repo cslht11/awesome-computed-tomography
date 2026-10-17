@@ -382,3 +382,11 @@
   license: See source
   tags: [micro-CT, GPU, iterative, geometry, trajectories, kernel-level]
   note: A research-oriented GPU iterative reconstruction framework that exposes the projection–correction–backprojection pipeline all the way down to the individual CUDA kernels, so non-ideal acquisition effects can be folded into the operators themselves instead of being bolted on afterwards as corrections. Geometry is carried as per-projection homogeneous view matrices, which keeps the kernels agnostic to the scan path — circular, helical, offset and conveyor-belt trajectories all work, as do motion- and deformation-aware, event-based 4D and extended-field-of-view cases. Aimed squarely at micro-CT under unconventional acquisition. Described in arXiv:2609.30166; the paper announces no code repository, so this entry points at the preprint until one appears.
+
+- name: PFITRE
+  repo: chonghangzhao/PFITRE
+  language: Python
+  license: MIT
+  stars: 11
+  tags: [limited-angle, nano-tomography, iterative, CNN]
+  note: Perception Fused Iterative Tomography Reconstruction Engine — a CNN carrying perceptual knowledge as a regularizer inside an iterative solver, correcting limited-angle artefacts in X-ray nano-tomography. Ships a demo, a data-generation script and pretrained weights (Google Drive). From Brookhaven National Lab (NSLS-II); published in npj Computational Materials 2025.

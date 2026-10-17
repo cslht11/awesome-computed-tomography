@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 427 papers | 45 toolkits | 76 datasets | 19 benchmarks | Updated 2026-10-16 |
+| 427 papers | 46 toolkits | 79 datasets | 19 benchmarks | Updated 2026-10-17 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -37,11 +37,11 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 ## Toolkits
 
-[Browse all 45 entries on the website](https://computedtomography.org/?tab=toolkits)
+[Browse all 46 entries on the website](https://computedtomography.org/?tab=toolkits)
 
 ## Datasets
 
-[Browse all 76 entries on the website](https://computedtomography.org/?tab=datasets)
+[Browse all 79 entries on the website](https://computedtomography.org/?tab=datasets)
 
 ## Benchmarks
 
