@@ -354,3 +354,30 @@ boyd-admm-2011: >-
 
 fista-2009: >-
   Proposes FISTA, a fast iterative shrinkage-thresholding algorithm that keeps ISTA's computational simplicity but converges significantly faster, with a proven better global rate.
+
+cnn-mar: >-
+  Proposes a CNN-based metal artifact reduction framework that fuses the original and pre-corrected CT images to suppress artifacts, then builds a CNN prior whose forward projections replace the metal-affected projections before FBP reconstruction.
+
+dudonet: >-
+  Proposes DuDoNet, an end-to-end trainable dual-domain network that simultaneously restores sinogram consistency and enhances CT images, linked by a novel Radon inversion layer that lets gradients back-propagate from the image to the sinogram domain.
+
+nerp: >-
+  Proposes NeRP, which represents the image as a continuous function parameterized by an MLP, embeds a prior image into the network as initialization, and optimizes the network against the physics of sparsely sampled measurements; it needs no large-scale training data and generalizes across CT and MRI.
+
+adn: >-
+  Proposes ADN, the first unsupervised metal artifact reduction approach, which disentangles metal artifacts from CT images in latent space and supports artifact reduction, artifact transfer, and self-reconstruction with specialized losses, generalizing better to clinical data than supervised models.
+
+noise2inverse: >-
+  Proposes Noise2Inverse, a self-supervised CNN denoiser for linear reconstruction algorithms that trains without any clean or noisy target data by splitting measurements into statistically independent reconstructions; it beats state-of-the-art denoisers and total-variation minimization on simulated and real CT data.
+
+transct: >-
+  Proposes TransCT, a transformer-based network for low-dose CT enhancement that splits the noisy image into high- and low-frequency parts, refines high-frequency texture features with a three-encoder-three-decoder transformer, and restores the image piecewise; it outperforms prior methods on the Mayo LDCT dataset.
+
+mednerf: >-
+  Proposes MedNeRF, a neural radiance field model that learns a continuous representation of CT scans by disentangling shape and volumetric depth from 2D images, reconstructing CT projections from a few or even a single-view X-ray; trained on chest and knee datasets with high-fidelity renderings.
+
+srcnn-cbct: >-
+  Proposes SR-CNN, a symmetric residual CNN that sharpens edges and anatomical detail in under-sampled CBCT reconstructed with total-variation regularization; on real-projection patient data it matches fully-sampled FDK quality from as few as 120 half-fan projections and improves tumor localization.
+
+neat: >-
+  Presents NeAT, an adaptive hierarchical neural rendering pipeline for multi-view inverse rendering that combines neural features with an adaptive explicit representation, culling empty space and sampling complex regions densely; for semi-transparent tomography it beats optimization-based solvers and runs faster.

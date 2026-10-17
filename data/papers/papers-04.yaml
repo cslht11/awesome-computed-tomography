@@ -924,3 +924,87 @@
   venue: "SIAM J. Imaging Sci."
   topics: [classical, sparse-view]
   paper: "https://doi.org/10.1137/080716542"
+
+- id: "cnn-mar"
+  abbr: "CNN-MAR"
+  title: "Convolutional Neural Network Based Metal Artifact Reduction in X-Ray Computed Tomography"
+  year: 2018
+  venue: "TMI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/TMI.2018.2823083"
+  note: "First CNN-based metal artifact reduction."
+
+- id: "dudonet"
+  abbr: "DuDoNet"
+  title: "DuDoNet: Dual Domain Network for CT Metal Artifact Reduction"
+  year: 2019
+  venue: "CVPR"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/CVPR.2019.01076"
+  note: "First end-to-end dual-domain MAR network."
+
+- id: "nerp"
+  abbr: "NeRP"
+  title: "NeRP: Implicit Neural Representation Learning With Prior Embedding for Sparsely Sampled Image Reconstruction"
+  year: 2024
+  venue: "TNNLS"
+  topics: [inr, sparse-view]
+  paper: "https://doi.org/10.1109/TNNLS.2022.3177134"
+  code: "https://github.com/liyues/NeRP"
+  note: "Implicit neural representation with prior embedding; needs no large training set."
+
+- id: "adn"
+  abbr: "ADN"
+  title: "ADN: Artifact Disentanglement Network for Unsupervised Metal Artifact Reduction"
+  year: 2020
+  venue: "TMI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/TMI.2019.2933425"
+  code: "https://github.com/liaohaofu/adn"
+  note: "First unsupervised MAR approach."
+
+- id: "noise2inverse"
+  abbr: "Noise2Inverse"
+  title: "Noise2Inverse: Self-Supervised Deep Convolutional Denoising for Tomography"
+  year: 2020
+  venue: "TCI"
+  topics: [low-dose, self-supervised]
+  paper: "https://doi.org/10.1109/TCI.2020.3019647"
+  note: "Trains a denoiser from statistically independent split reconstructions; needs no clean data."
+
+- id: "transct"
+  abbr: "TransCT"
+  title: "TransCT: Dual-Path Transformer for Low Dose Computed Tomography"
+  year: 2021
+  venue: "MICCAI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1007/978-3-030-87231-1_6"
+  note: "Dual-path Transformer for low-dose CT enhancement."
+
+- id: "mednerf"
+  abbr: "MedNeRF"
+  title: "MedNeRF: Medical Neural Radiance Fields for Reconstructing 3D-aware CT-Projections from a Single X-ray"
+  year: 2022
+  venue: "EMBC"
+  topics: [inr, sparse-view]
+  paper: "https://doi.org/10.1109/EMBC48229.2022.9871757"
+  code: "https://github.com/abrilcf/mednerf"
+  note: "Reconstructs CT projections from a single X-ray."
+
+- id: "srcnn-cbct"
+  abbr: "SR-CNN"
+  title: "Augmentation of CBCT Reconstructed From Under-Sampled Projections Using Deep Learning"
+  year: 2019
+  venue: "TMI"
+  topics: [cbct, sparse-view]
+  paper: "https://doi.org/10.1109/TMI.2019.2912791"
+  note: "Symmetric residual CNN sharpening under-sampled CBCT for image-guided radiotherapy."
+
+- id: "neat"
+  abbr: "NeAT"
+  title: "NeAT: Neural Adaptive Tomography"
+  year: 2022
+  venue: "ACM Trans. Graph."
+  topics: [inr]
+  paper: "https://doi.org/10.1145/3528223.3530121"
+  note: "Adaptive hierarchical neural rendering for tomography."
