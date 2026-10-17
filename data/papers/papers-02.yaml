@@ -29,6 +29,7 @@
   year: 2019
   topics: [sparse-view]
   paper: "https://doi.org/10.1038/s41551-019-0466-4"
+  code: "https://github.com/liyues/PatRecon"
   venue: "Nat Biomed Eng"
 
 - id: "sisvm"
@@ -135,6 +136,7 @@
   venue: "TMI"
   topics: [unrolling]
   paper: "https://doi.org/10.1109/tmi.2018.2805692"
+  code: "https://github.com/maybe198376/LEARN"
 
 - id: "lpd"
   abbr: "LPD"
@@ -143,6 +145,7 @@
   venue: "TMI"
   topics: [unrolling]
   paper: "https://doi.org/10.1109/tmi.2018.2799231"
+  code: "https://github.com/adler-j/learned_primal_dual"
 
 - id: "nlctf"
   abbr: "NLCTF"
@@ -184,6 +187,7 @@
   venue: "TMI"
   topics: [sparse-view]
   paper: "https://doi.org/10.1109/TMI.2018.2823768"
+  code: "https://github.com/hanyoseob/framing-u-net"
 
 - id: "wavresnet"
   abbr: "WavResNet"
@@ -192,6 +196,7 @@
   venue: "TMI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/TMI.2018.2823756"
+  code: "https://github.com/eunh/low_dose_CT"
 
 - id: "wgan-vgg"
   abbr: "WGAN-VGG"
@@ -240,6 +245,7 @@
   venue: "TMI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/tmi.2017.2753138"
+  code: "https://github.com/wudufan/KSAERecon"
 
 - id: "lodopab-ct"
   abbr: "LoDoPaB-CT"
@@ -310,6 +316,7 @@
   venue: "ISBI"
   topics: [low-dose, self-supervised]
   paper: "https://doi.org/10.1109/isbi48211.2021.9433944"
+  code: "https://github.com/mozanunal/SparseCT"
 
 - id: "non-circular-scan-trajectories-for-reducing-cone-beam-artifa"
   title: "Non-circular scan trajectories for reducing cone-beam artifacts in Gamma Knife CBCT images: a simulation study"
@@ -336,6 +343,7 @@
   venue: "Med Phys"
   topics: [diffusion, cbct]
   paper: "https://doi.org/10.1002/mp.70617"
+  code: "https://github.com/ALZAHRAALTALIB/EqDiff-CT"
 
 - id: "limited-angle-cbct-reconstruction-via-geometry-integrated-cy"
   title: "Limited-Angle CBCT Reconstruction via Geometry-Integrated Cycle-domain Denoising Diffusion Probabilistic Models"
@@ -476,6 +484,7 @@
   year: 2026
   topics: [diffusion, geometry, sparse-view]
   paper: "https://arxiv.org/abs/2604.21960"
+  code: "https://github.com/SwissDataScienceCenter/cbct_cdpa"
 
 - id: "cone-beam-ct-image-quality-enhancement-using-a-latent-diffus"
   title: "Cone-Beam CT Image Quality Enhancement Using A Latent Diffusion Model Trained with Simulated CBCT Artifacts"
@@ -541,6 +550,7 @@
   year: 2025
   topics: [sparse-view, cbct]
   paper: "https://arxiv.org/abs/2512.00873"
+  code: "https://github.com/Mors20/DeepPriorCBCT"
 
 - id: "ordered-subsets-multi-diffusion-model-for-sparse-view-ct-rec"
   title: "Ordered-subsets Multi-diffusion Model for Sparse-view CT Reconstruction"
@@ -561,6 +571,7 @@
   venue: "ECCV"
   topics: [gaussian, geometry]
   paper: "https://doi.org/10.1007/978-3-032-37235-2_24"
+  code: "https://github.com/yulunwu0108/Perturbed-Gaussian-Ensemble"
 
 - id: "mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-"
   abbr: "MInDI-3D"
@@ -636,6 +647,7 @@
   venue: "CAIP"
   topics: [geometry, cbct]
   paper: "https://doi.org/10.1007/978-3-032-05060-1_6"
+  code: "https://github.com/MaxTschuchnig/EnhancingSyntheticCTfromCBCTviaMultimodalFusionandEnd-To-EndRegistration"
 
 - id: "when-are-diffusion-priors-helpful-in-sparse-reconstruction-a"
   title: "When are Diffusion Priors Helpful in Sparse Reconstruction? A Study with Sparse-view CT"
@@ -704,6 +716,7 @@
   venue: "TCI"
   topics: [limited-angle, self-supervised]
   paper: "https://doi.org/10.1109/tci.2026.3684416"
+  code: "https://github.com/D1rk123/equivariance2inverse"
 
 - id: "zero-shot-ct-super-resolution-using-diffusion-based-2d-proje"
   abbr: "NAB-GS"

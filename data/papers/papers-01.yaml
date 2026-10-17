@@ -118,6 +118,7 @@
   venue: "TCI"
   topics: [inr, diffusion]
   paper: "https://doi.org/10.1109/tci.2026.3707041"
+  code: "https://github.com/yqx7150/Diff-NAF"
 
 - id: "motion-grad"
   abbr: "Motion-Grad"
@@ -166,6 +167,7 @@
   year: 2024
   topics: [classical]
   paper: "https://arxiv.org/abs/2401.16039"
+  code: "https://github.com/sypsyp97/Trainable-Fourier-Series"
 
 - id: "dif-gaussian"
   abbr: "DIF-Gaussian"
@@ -311,6 +313,7 @@
   venue: "TMLR"
   topics: [inr]
   paper: "https://arxiv.org/abs/2202.10847"
+  code: "https://github.com/bobby-he/uncertainr"
 
 - id: "3dip"
   abbr: "3DIP"
@@ -319,6 +322,7 @@
   venue: "CVPR"
   topics: [diffusion]
   paper: "https://doi.org/10.1109/cvpr52729.2023.02159"
+  code: "https://github.com/HJ-harry/DiffusionMBIR"
 
 - id: "ascon"
   abbr: "ASCON"
@@ -431,6 +435,7 @@
   venue: "Patterns"
   topics: [unrolling, self-supervised]
   paper: "https://doi.org/10.1016/j.patter.2022.100474"
+  code: "https://zenodo.org/record/5497811"
 
 - id: "acid-b"
   abbr: "ACID-B"
@@ -439,6 +444,7 @@
   venue: "Patterns"
   topics: [unrolling, self-supervised]
   paper: "https://doi.org/10.1016/j.patter.2022.100475"
+  code: "https://zenodo.org/record/5497811"
 
 - id: "ccn-cl"
   abbr: "CCN-CL"
@@ -480,6 +486,7 @@
   venue: "Med Image Anal"
   topics: [survey, diffusion]
   paper: "https://doi.org/10.1016/j.media.2023.102846"
+  code: "https://github.com/amirhossein-kz/Awesome-Diffusion-Models-in-Medical-Imaging"
 
 - id: "dream-net"
   abbr: "DREAM-Net"
@@ -702,6 +709,7 @@
   venue: "TMI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/TMI.2021.3088344"
+  code: "https://github.com/xwj01/MAGIC"
 
 - id: "map-nn"
   abbr: "MAP-NN"
@@ -751,6 +759,7 @@
   venue: "TMI"
   topics: [unrolling, classical]
   paper: "https://doi.org/10.1109/tmi.2021.3090257"
+  code: "https://github.com/xxxxtao/VVBPTensor-net"
 
 - id: "cadl"
   abbr: "CADL"
