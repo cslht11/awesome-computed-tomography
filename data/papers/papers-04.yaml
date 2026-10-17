@@ -19,6 +19,7 @@
   venue: "TPAMI"
   topics: [sparse-view, geometry]
   paper: "https://doi.org/10.1109/TPAMI.2025.3600072"
+  code: "https://github.com/cabouman/mbirjax"
 
 - id: "pnp-proximal-trajectory-2024"
   title: "Plug-and-Play Learned Proximal Trajectory for 3D Sparse-View X-Ray Computed Tomography"
@@ -26,6 +27,7 @@
   venue: "ECCV"
   topics: [sparse-view, unrolling]
   paper: "https://doi.org/10.1007/978-3-031-72761-0_13"
+  code: "https://github.com/romainvo/pnp-learned-proximal-trajectory"
 
 - id: "dolce-2023"
   abbr: "Dolce"
@@ -34,6 +36,7 @@
   venue: "ICCV"
   topics: [limited-angle, diffusion]
   paper: "https://doi.org/10.1109/ICCV51070.2023.00963"
+  code: "https://github.com/wustl-cig/DOLCE"
 
 - id: "neural-field-denoising-2024"
   title: "Neural Field Regularization by Denoising for 3D Sparse-View X-Ray Computed Tomography"
@@ -57,6 +60,7 @@
   venue: "npj Comput Mater"
   topics: [limited-angle, other]
   paper: "https://doi.org/10.1038/s41524-025-01724-0"
+  code: "https://github.com/chonghangzhao/PFITRE"
 
 # --- WOS library sweep: high-citation classics not previously listed ---
 
@@ -300,6 +304,7 @@
   venue: "TMI"
   topics: [diffusion, sparse-view]
   paper: "https://doi.org/10.1109/tmi.2023.3325824"
+  code: "https://zenodo.org/record/8266123"
 
 - id: "coded-aperture"
   title: "Coded aperture optimization in compressive X-ray tomography: a gradient descent approach"
@@ -570,6 +575,7 @@
   venue: "J Opt Soc Am A"
   topics: [low-dose]
   paper: "https://doi.org/10.1364/JOSAA.375595"
+  code: "https://github.com/lzhengchun/TomoGAN"
 
 - id: "gan-circle"
   abbr: "GAN-CIRCLE"
@@ -578,6 +584,7 @@
   venue: "TMI"
   topics: [other]
   paper: "https://doi.org/10.1109/TMI.2019.2922960"
+  code: "https://github.com/charlesyou999648/GAN-CIRCLE"
 
 - id: "sparse-view-ct-reconstruction-wasserstein-gans"
   title: "Sparse-View CT Reconstruction Using Wasserstein GANs"
@@ -700,6 +707,7 @@
   venue: "NeurIPS"
   topics: [diffusion, sparse-view]
   paper: "https://arxiv.org/abs/2406.10211"
+  code: "https://github.com/efzero/DiffusionBlend"
 
 - id: "patch-based-ddpm-sparse-view-ct"
   title: "Patch-Based Denoising Diffusion Probabilistic Model for Sparse-View CT Reconstruction"
@@ -979,6 +987,7 @@
   venue: "MICCAI"
   topics: [low-dose]
   paper: "https://doi.org/10.1007/978-3-030-87231-1_6"
+  code: "https://github.com/zzc623/TransCT"
   note: "Dual-path Transformer for low-dose CT enhancement."
 
 - id: "mednerf"

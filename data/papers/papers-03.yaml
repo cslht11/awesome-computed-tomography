@@ -28,6 +28,7 @@
   venue: "IJCNN"
   topics: [diffusion, low-dose, unrolling]
   paper: "https://arxiv.org/abs/2609.18943"
+  code: "https://github.com/imamahasane/DACD"
 
 - id: "k-neas-scalable-multi-material-ct-reconstruction-using-neura"
   title: "$K$-NeAS: Scalable Multi-Material CT Reconstruction Using Neural SDFs"
@@ -35,6 +36,7 @@
   venue: "Off-Grid Workshop"
   topics: [spectral]
   paper: "https://arxiv.org/abs/2607.14415"
+  code: "https://github.com/dakshshah03/K-NeAS"
 
 - id: "3d-cbct-artefact-removal-using-perpendicular-score-based-dif"
   title: "3D CBCT Artefact Removal Using Perpendicular Score-Based Diffusion Models"
@@ -42,6 +44,7 @@
   venue: "DGM4MICCAI"
   topics: [diffusion, cbct]
   paper: "https://doi.org/10.1007/978-3-032-05472-2_24"
+  code: "https://github.com/SusanneSchaub/TPDM_Implant_Inpainting"
 
 - id: "high-fidelity-3d-tooth-reconstruction-by-fusing-intraoral-sc"
   title: "High-Fidelity 3D Tooth Reconstruction by Fusing Intraoral Scans and CBCT Data via a Deep Implicit Representation"
@@ -414,6 +417,7 @@
   venue: "ICLR"
   topics: [limited-angle, other]
   paper: "https://arxiv.org/abs/2505.12261"
+  code: "https://github.com/hanchenwang/OpenPros"
   project: "https://open-pros.github.io/"
 
 - id: "dc-pnpdp"
@@ -758,6 +762,7 @@
   venue: "TMI"
   topics: [diffusion, sparse-view]
   paper: "https://doi.org/10.1109/tmi.2024.3524797"
+  code: "https://github.com/alexdenker/SteerableConditionalDiffusion"
 
 - id: "cascaded-diffusion-discrepancy-2025"
   title: "Mitigating Data Consistency Induced Discrepancy in Cascaded Diffusion Models for Sparse-View CT Reconstruction"
@@ -827,6 +832,7 @@
   venue: "TCI"
   topics: [sparse-view, cbct]
   paper: "https://doi.org/10.1109/TCI.2022.3225680"
+  code: "https://github.com/gtm2122/SparseViewCT-TCI"
 
 - id: "dip-warm-start-2022"
   title: "An Educated Warm Start for Deep Image Prior-Based Micro CT Reconstruction"
@@ -834,6 +840,7 @@
   venue: "TCI"
   topics: [self-supervised, sparse-view]
   paper: "https://doi.org/10.1109/tci.2022.3233188"
+  code: "https://educateddip.github.io/docs.educated_deep_image_prior/"
 
 - id: "multi-scale-learned-iterative-2020"
   title: "Multi-Scale Learned Iterative Reconstruction"
@@ -841,6 +848,7 @@
   venue: "TCI"
   topics: [unrolling, sparse-view]
   paper: "https://doi.org/10.1109/TCI.2020.2990299"
+  code: "https://github.com/asHauptmann/multiscale"
 
 - id: "sire-net-2025"
   abbr: "SIRE-Net"
