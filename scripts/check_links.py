@@ -19,7 +19,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-import yaml
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Papers live in data/papers/*.yaml shards now; build.load() merges them,
+# so this checker keeps seeing every paper without caring about the layout.
+from build import load as build_load  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -110,11 +113,7 @@ def http_status(url, tries=3):
 def main():
     rows = []
     for fn in FILES:
-        p = os.path.join(DATA, fn)
-        if not os.path.exists(p):
-            continue
-        with io.open(p, encoding="utf-8") as f:
-            items = yaml.safe_load(f) or []
+        items = build_load(fn) or []
         for i, e in enumerate(items):
             if not isinstance(e, dict):
                 continue

@@ -10,6 +10,7 @@ Usage:
 
 import argparse
 import datetime
+import glob
 import io
 import os
 import re
@@ -81,11 +82,64 @@ def switcher(langs, current):
 
 
 def load(name):
+    """Load a data file, transparently merging shards when the single file
+    is gone.
+
+    papers.yaml / summaries.yaml / summaries.zh.yaml are sharded into
+    data/<stem>/<stem>-NN.yaml (NN = 01, 02, ...) because a single file
+    outgrew the ~131 KB per-file push limit. The shards are contiguous
+    slices of the old single file in sorted order, so merging them in
+    sorted filename order reproduces the old file exactly. New entries go
+    on the LAST shard; split it again if it approaches the push limit.
+
+    A plain data/<name> still wins when it exists, so every other data
+    file keeps working unchanged. Duplicate ids (list shards) or keys
+    (mapping shards) fail loudly instead of silently shadowing.
+    """
     path = os.path.join(DATA, name)
-    if not os.path.exists(path):
+    if os.path.exists(path):
+        with io.open(path, encoding="utf-8") as f:
+            return yaml.safe_load(f)
+    stem, ext = os.path.splitext(name)
+    shard_dir = os.path.join(DATA, stem)
+    if not os.path.isdir(shard_dir):
         return None
-    with io.open(path, encoding="utf-8") as f:
-        return yaml.safe_load(f)
+    docs = []
+    for shard in sorted(glob.glob(os.path.join(shard_dir, stem + "-*" + ext))):
+        with io.open(shard, encoding="utf-8") as f:
+            doc = yaml.safe_load(f)
+        if doc is not None:
+            docs.append((shard, doc))
+    if not docs:
+        return None
+    if isinstance(docs[0][1], list):
+        merged, seen = [], set()
+        for shard, doc in docs:
+            if not isinstance(doc, list):
+                raise ValueError("%s: shard %s is not a list" % (name, shard))
+            for e in doc:
+                if isinstance(e, dict) and "id" in e:
+                    if e["id"] in seen:
+                        raise ValueError(
+                            "%s: duplicate id '%s' across shards"
+                            % (name, e["id"]))
+                    seen.add(e["id"])
+                merged.append(e)
+        return merged
+    if isinstance(docs[0][1], dict):
+        merged = {}
+        for shard, doc in docs:
+            if not isinstance(doc, dict):
+                raise ValueError("%s: shard %s is not a mapping"
+                                 % (name, shard))
+            for k, v in doc.items():
+                if k in merged:
+                    raise ValueError(
+                        "%s: duplicate key '%s' across shards" % (name, k))
+                merged[k] = v
+        return merged
+    raise ValueError("%s: shards have unsupported type %s"
+                     % (name, type(docs[0][1]).__name__))
 
 
 def slug(text):
