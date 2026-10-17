@@ -1,0 +1,926 @@
+- id: "spie-dir-2023"
+  abbr: "SPIE-DIR"
+  title: "SPIE-DIR: Self-Prior Information Enhanced Deep Iterative Reconstruction Using Two Complementary Limited-Angle Scans for DECT"
+  year: 2023
+  venue: "TIM"
+  topics: [sparse-view, limited-angle, unrolling]
+  paper: "https://doi.org/10.1109/tim.2022.3227549"
+
+- id: "binary-ct-limited-view-2026"
+  title: "High-Precision Image Reconstruction for Binary-Valued X-Ray CT From Limited-View Projections"
+  year: 2026
+  venue: "TIM"
+  topics: [limited-angle, other]
+  paper: "https://doi.org/10.1109/tim.2026.3670565"
+
+- id: "view-covariance-loss-2026"
+  title: "Tomographic Sparse View Selection Using the View Covariance Loss"
+  year: 2026
+  venue: "TPAMI"
+  topics: [sparse-view, geometry]
+  paper: "https://doi.org/10.1109/TPAMI.2025.3600072"
+
+- id: "pnp-proximal-trajectory-2024"
+  title: "Plug-and-Play Learned Proximal Trajectory for 3D Sparse-View X-Ray Computed Tomography"
+  year: 2024
+  venue: "ECCV"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1007/978-3-031-72761-0_13"
+
+- id: "dolce-2023"
+  abbr: "Dolce"
+  title: "DOLCE: A Model-Based Probabilistic Diffusion Framework for Limited-Angle CT Reconstruction"
+  year: 2023
+  venue: "ICCV"
+  topics: [limited-angle, diffusion]
+  paper: "https://doi.org/10.1109/ICCV51070.2023.00963"
+
+- id: "neural-field-denoising-2024"
+  title: "Neural Field Regularization by Denoising for 3D Sparse-View X-Ray Computed Tomography"
+  year: 2024
+  venue: "3DV"
+  topics: [inr, sparse-view]
+  paper: "https://doi.org/10.1109/3dv62453.2024.00094"
+
+- id: "horuseye-2026"
+  abbr: "HorusEye"
+  title: "HorusEye: A self-supervised foundation model for generalizable X-ray tomography restoration"
+  year: 2026
+  venue: "Nat Comput Sci"
+  topics: [self-supervised, other]
+  paper: "https://doi.org/10.1038/s43588-026-00973-3"
+  code: "https://github.com/Arturia-Pendragon-Iris/HorusEye"
+
+- id: "limited-angle-nano-ct-2025"
+  title: "Limited-angle x-ray nano-tomography with machine-learning enabled iterative reconstruction engine"
+  year: 2025
+  venue: "npj Comput Mater"
+  topics: [limited-angle, other]
+  paper: "https://doi.org/10.1038/s41524-025-01724-0"
+
+# --- WOS library sweep: high-citation classics not previously listed ---
+
+- id: "cnn-inverse"
+  title: "Deep Convolutional Neural Network for Inverse Problems in Imaging"
+  year: 2017
+  venue: "TIP"
+  topics: [sparse-view, low-dose]
+  paper: "https://doi.org/10.1109/tip.2017.2713099"
+
+- id: "ldct-cnn"
+  title: "Low-dose CT via convolutional neural network"
+  year: 2017
+  venue: "BOE"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1364/boe.8.000679"
+
+- id: "why-fbp"
+  title: "Why do commercial CT scanners still employ traditional, filtered back-projection for image reconstruction?"
+  year: 2009
+  venue: "Inverse Problems"
+  topics: [survey, classical]
+  paper: "https://doi.org/10.1088/0266-5611/25/12/123009"
+
+- id: "sv-cbct-eval"
+  title: "Evaluation of sparse-view reconstruction from flat-panel-detector cone-beam CT"
+  year: 2010
+  venue: "PMB"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1088/0031-9155/55/22/001"
+
+- id: "awtv"
+  abbr: "AWTV"
+  title: "Adaptive-weighted total variation minimization for sparse data toward low-dose x-ray computed tomography image reconstruction"
+  year: 2012
+  venue: "PMB"
+  topics: [sparse-view, low-dose, classical]
+  paper: "https://doi.org/10.1088/0031-9155/57/23/7923"
+
+- id: "atv-limited-angle"
+  abbr: "ATV"
+  title: "A limited-angle CT reconstruction method based on anisotropic TV minimization"
+  year: 2013
+  venue: "PMB"
+  topics: [limited-angle, classical]
+  paper: "https://doi.org/10.1088/0031-9155/58/7/2119"
+
+- id: "cs-cbct-fom"
+  title: "Compressed sensing based cone-beam computed tomography reconstruction with a first-order method"
+  year: 2010
+  venue: "Med Phys"
+  topics: [sparse-view, cbct, classical]
+  paper: "https://doi.org/10.1118/1.3481510"
+
+- id: "sv-tgv"
+  abbr: "TGV"
+  title: "Sparse-view x-ray CT reconstruction via total generalized variation regularization"
+  year: 2014
+  venue: "PMB"
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1088/0031-9155/59/12/2997"
+
+- id: "sv-spectral-lr"
+  title: "Sparse-View Spectral CT Reconstruction Using Spectral Patch-Based Low-Rank Penalty"
+  year: 2015
+  venue: "TMI"
+  topics: [sparse-view, spectral]
+  paper: "https://doi.org/10.1109/tmi.2014.2380993"
+
+- id: "tv-stokes"
+  abbr: "TV-Stokes"
+  title: "Total Variation-Stokes Strategy for Sparse-View X-ray CT Image Reconstruction"
+  year: 2014
+  venue: "TMI"
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1109/tmi.2013.2295738"
+
+- id: "dual-dict"
+  title: "Few-view image reconstruction with dual dictionaries"
+  year: 2012
+  venue: "PMB"
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1088/0031-9155/57/1/173"
+
+- id: "csc-ct"
+  title: "Convolutional Sparse Coding for Compressed Sensing CT Reconstruction"
+  year: 2019
+  venue: "TMI"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1109/tmi.2019.2906853"
+
+- id: "ratv"
+  abbr: "ReATV"
+  title: "Reweighted Anisotropic Total Variation Minimization for Limited-Angle CT Reconstruction"
+  year: 2017
+  venue: "TNS"
+  topics: [limited-angle, classical]
+  paper: "https://doi.org/10.1109/tns.2017.2750199"
+
+- id: "nlm-review"
+  title: "Applications of nonlocal means algorithm in low-dose X-ray CT image processing and reconstruction: A review"
+  year: 2017
+  venue: "Med Phys"
+  topics: [low-dose, survey]
+  paper: "https://doi.org/10.1002/mp.12097"
+
+- id: "ndi-tv"
+  title: "Iterative Image Reconstruction for Sparse-View CT Using Normal-Dose Image Induced Total Variation Prior"
+  year: 2013
+  venue: "PLoS One"
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1371/journal.pone.0079709"
+
+- id: "cl-vs-ct"
+  title: "Comparison of image quality in computed laminography and tomography"
+  year: 2012
+  venue: "Opt. Express"
+  topics: [limited-angle, other]
+  paper: "https://doi.org/10.1364/oe.20.000794"
+
+- id: "4dcbct-prior"
+  title: "A technique for estimating 4D-CBCT using prior knowledge and limited-angle projections"
+  year: 2013
+  venue: "Med Phys"
+  topics: [limited-angle, dynamic, cbct]
+  paper: "https://doi.org/10.1118/1.4825097"
+
+- id: "tomo-21st"
+  title: "Tomographic Reconstruction in the 21st Century"
+  year: 2010
+  venue: "SPM"
+  topics: [survey]
+  paper: "https://doi.org/10.1109/msp.2010.936743"
+
+- id: "ssdae"
+  abbr: "SSDA"
+  title: "Low-dose CT restoration via stacked sparse denoising autoencoders"
+  year: 2018
+  venue: "Neurocomputing"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1016/j.neucom.2018.01.015"
+
+- id: "offset-cbct"
+  title: "Optimization-based image reconstruction from sparse-view data in offset-detector CBCT"
+  year: 2013
+  venue: "PMB"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1088/0031-9155/58/2/205"
+
+- id: "live"
+  abbr: "LIVE"
+  title: "A limited-angle intrafraction verification (LIVE) system for radiation therapy"
+  year: 2014
+  venue: "Med Phys"
+  topics: [limited-angle, cbct]
+  paper: "https://doi.org/10.1118/1.4861820"
+
+- id: "dior"
+  abbr: "DIOR"
+  title: "DIOR: Deep Iterative Optimization-Based Residual-Learning for Limited-Angle CT Reconstruction"
+  year: 2022
+  venue: "TMI"
+  topics: [limited-angle, unrolling]
+  paper: "https://doi.org/10.1109/tmi.2022.3148110"
+
+- id: "dear"
+  abbr: "DEAR"
+  title: "Deep Embedding-Attention-Refinement for Sparse-View CT Reconstruction"
+  year: 2023
+  venue: "TIM"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1109/tim.2022.3221136"
+
+- id: "sparse-sampling"
+  title: "Effects of sparse sampling schemes on image quality in low-dose CT"
+  year: 2013
+  venue: "Med Phys"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1118/1.4825096"
+
+- id: "l0-grad"
+  title: "Edge-preserving reconstruction from sparse projections of limited-angle computed tomography using L0-regularized gradient prior"
+  year: 2017
+  venue: "Rev. Sci. Instrum."
+  topics: [limited-angle, sparse-view, classical]
+  paper: "https://doi.org/10.1063/1.4981132"
+
+- id: "spare"
+  abbr: "SPARE"
+  title: "SPARE: Sparse-view reconstruction challenge for 4D cone-beam CT from a 1-min scan"
+  year: 2019
+  venue: "Med Phys"
+  topics: [sparse-view, cbct, dynamic]
+  paper: "https://doi.org/10.1002/mp.13687"
+
+- id: "shearlet"
+  title: "Iterative CT Reconstruction Using Shearlet-Based Regularization"
+  year: 2013
+  venue: "TNS"
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1109/tns.2013.2275994"
+
+- id: "arm-cbct"
+  title: "Artifact-resistant motion estimation with a patient-specific artifact model for motion-compensated cone-beam CT"
+  year: 2013
+  venue: "Med Phys"
+  topics: [geometry, cbct]
+  paper: "https://doi.org/10.1118/1.4820537"
+
+- id: "sparse-tomography"
+  title: "Sparse Tomography"
+  year: 2013
+  venue: "SIAM J. Sci. Comput."
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1137/120876277"
+
+- id: "linct-tv-admm"
+  title: "Image reconstruction based on total-variation minimization and alternating direction method in linear scan computed tomography"
+  year: 2013
+  venue: "Chinese Phys. B"
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1088/1674-1056/22/7/078701"
+
+- id: "dl-incomplete"
+  title: "A deep learning reconstruction framework for X-ray computed tomography with incomplete data"
+  year: 2019
+  venue: "PLoS One"
+  topics: [sparse-view, limited-angle]
+  paper: "https://doi.org/10.1371/journal.pone.0224426"
+
+- id: "lowmas-sparseview"
+  title: "Low-dose X-ray computed tomography image reconstruction with a combined low-mAs and sparse-view protocol"
+  year: 2014
+  venue: "Opt. Express"
+  topics: [low-dose, sparse-view]
+  paper: "https://doi.org/10.1364/oe.22.015190"
+
+- id: "wav-sgm"
+  title: "Wavelet-Improved Score-Based Generative Model for Medical Imaging"
+  year: 2024
+  venue: "TMI"
+  topics: [diffusion, sparse-view]
+  paper: "https://doi.org/10.1109/tmi.2023.3325824"
+
+- id: "coded-aperture"
+  title: "Coded aperture optimization in compressive X-ray tomography: a gradient descent approach"
+  year: 2017
+  venue: "Opt. Express"
+  topics: [other, sparse-view]
+  paper: "https://doi.org/10.1364/oe.25.023833"
+
+- id: "dir-view-interp"
+  title: "Directional View Interpolation for Compensation of Sparse Angular Sampling in Cone-Beam CT"
+  year: 2009
+  venue: "TMI"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1109/tmi.2008.2011550"
+
+- id: "airnet"
+  abbr: "AirNet"
+  title: "AirNet: Fused analytical and iterative reconstruction with deep neural network regularization for sparse-data CT"
+  year: 2020
+  venue: "Med Phys"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1002/mp.14170"
+
+- id: "cargo-fewview"
+  title: "X-ray cargo container inspection system with few-view projection imaging"
+  year: 2009
+  venue: "NIMA"
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1016/j.nima.2008.08.151"
+
+- id: "tensor-dl"
+  title: "Tensor-based dictionary learning for dynamic tomographic reconstruction"
+  year: 2015
+  venue: "PMB"
+  topics: [dynamic, sparse-view]
+  paper: "https://doi.org/10.1088/0031-9155/60/7/2803"
+
+- id: "dts-deform"
+  title: "A novel digital tomosynthesis (DTS) reconstruction method using a deformation field map"
+  year: 2008
+  venue: "Med Phys"
+  topics: [limited-angle, geometry]
+  paper: "https://doi.org/10.1118/1.2940725"
+
+- id: "dbt-task"
+  title: "Task-based performance analysis of FBP, SART and ML for digital breast tomosynthesis using signal CNR and Channelised Hotelling Observers"
+  year: 2011
+  venue: "Med Image Anal"
+  topics: [survey, classical, limited-angle]
+  paper: "https://doi.org/10.1016/j.media.2010.07.004"
+
+- id: "sister"
+  abbr: "SISTER"
+  title: "SISTER: Spectral-Image Similarity-Based Tensor With Enhanced-Sparsity Reconstruction for Sparse-View Multi-Energy CT"
+  year: 2020
+  venue: "TCI"
+  topics: [sparse-view, spectral]
+  paper: "https://doi.org/10.1109/tci.2019.2956886"
+
+- id: "mw-cnn"
+  title: "Sparse-view CT reconstruction based on multi-level wavelet convolution neural network"
+  year: 2020
+  venue: "Phys. Med."
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1016/j.ejmp.2020.11.021"
+
+- id: "l1l2"
+  title: "Limited-Angle CT Reconstruction via the L1/L2 Minimization"
+  year: 2021
+  venue: "SIAM J. Imaging Sci."
+  topics: [limited-angle, classical]
+  paper: "https://doi.org/10.1137/20m1341490"
+
+- id: "irr-tv"
+  title: "Few-View Projection Reconstruction With an Iterative Reconstruction-Reprojection Algorithm and TV Constraint"
+  year: 2009
+  venue: "TNS"
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1109/tns.2008.2009990"
+
+- id: "dl-cl"
+  title: "Deep learning based image reconstruction algorithm for limited-angle translational computed tomography"
+  year: 2020
+  venue: "PLoS One"
+  topics: [limited-angle]
+  paper: "https://doi.org/10.1371/journal.pone.0226963"
+
+- id: "admm-net-la"
+  title: "ADMM-based deep reconstruction for limited-angle CT"
+  year: 2019
+  venue: "PMB"
+  topics: [limited-angle, unrolling]
+  paper: "https://doi.org/10.1088/1361-6560/ab1aba"
+
+- id: "cd-net"
+  abbr: "CD-Net"
+  title: "CD-Net: Comprehensive Domain Network With Spectral Complementary for DECT Sparse-View Reconstruction"
+  year: 2021
+  venue: "TCI"
+  topics: [sparse-view, spectral]
+  paper: "https://doi.org/10.1109/tci.2021.3070184"
+
+- id: "lab-lamino"
+  title: "Laminography in the lab: imaging planar objects using a conventional x-ray CT scanner"
+  year: 2019
+  venue: "Meas. Sci. Technol."
+  topics: [limited-angle, other]
+  paper: "https://doi.org/10.1088/1361-6501/aafcae"
+
+- id: "tv-wtf"
+  title: "An Image Reconstruction Method Based on Total Variation and Wavelet Tight Frame for Limited-Angle CT"
+  year: 2018
+  venue: "IEEE Access"
+  topics: [limited-angle, classical]
+  paper: "https://doi.org/10.1109/access.2017.2779148"
+
+- id: "lr-tv-perfusion"
+  title: "Low-dose cerebral perfusion computed tomography image restoration via low-rank and total variation regularizations"
+  year: 2016
+  venue: "Neurocomputing"
+  topics: [low-dose, dynamic]
+  paper: "https://doi.org/10.1016/j.neucom.2016.01.090"
+
+- id: "kbr-perfusion"
+  title: "Low-Dose Dynamic Cerebral Perfusion Computed Tomography Reconstruction via Kronecker-Basis-Representation Tensor Sparsity Regularization"
+  year: 2017
+  venue: "TMI"
+  topics: [low-dose, dynamic]
+  paper: "https://doi.org/10.1109/tmi.2017.2749212"
+
+- id: "pbac"
+  abbr: "PBAC"
+  title: "Prior-based artifact correction (PBAC) in computed tomography"
+  year: 2014
+  venue: "Med Phys"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1118/1.4851536"
+
+- id: "fc-cs-rpca"
+  title: "Feature constrained compressed sensing CT image reconstruction from incomplete data via robust principal component analysis of the database"
+  year: 2013
+  venue: "PMB"
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1088/0031-9155/58/12/4047"
+
+- id: "spir-de"
+  abbr: "SPIR"
+  title: "Dual energy CT with one full scan and a second sparse-view scan using structure preserving iterative reconstruction (SPIR)"
+  year: 2016
+  venue: "PMB"
+  topics: [sparse-view, spectral]
+  paper: "https://doi.org/10.1088/0031-9155/61/18/6684"
+
+- id: "isia"
+  title: "An improved statistical iterative algorithm for sparse-view and limited-angle CT image reconstruction"
+  year: 2017
+  venue: "Sci. Rep."
+  topics: [sparse-view, limited-angle, classical]
+  paper: "https://doi.org/10.1038/s41598-017-11222-z"
+
+- id: "special"
+  abbr: "SPECIAL"
+  title: "SPECIAL: Single-Shot Projection Error Correction Integrated Adversarial Learning for Limited-Angle CT"
+  year: 2021
+  venue: "TCI"
+  topics: [limited-angle, unrolling]
+  paper: "https://doi.org/10.1109/tci.2021.3098922"
+
+- id: "l0-fewview"
+  title: "Image reconstruction from few views by L0-norm optimization"
+  year: 2014
+  venue: "Chinese Phys. B"
+  topics: [sparse-view, classical]
+  paper: "https://doi.org/10.1088/1674-1056/23/7/078703"
+
+# --- the origin of the forward model. Everything analytic in this list (FBP,
+# FDK, the Fourier slice theorem) inverts the transform introduced here, 54
+# years before the first CT scanner. The 1917 original has no DOI; `paper`
+# points at P. C. Parks's English translation, which does.
+- id: "radon-1917"
+  title: "Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten (Johann Radon)"
+  year: 1917
+  venue: "Ber. Verh. Sächs. Akad. Wiss. Leipzig, Math.-Phys. Kl."
+  topics: [classical]
+  paper: "https://doi.org/10.1109/TMI.1986.4307775"
+  note: >-
+    The paper that defines the Radon transform — the forward operator every
+    analytic method here inverts, published 54 years before the first CT
+    scanner. The original appeared in the Leipzig academy reports, volume 69,
+    pages 262–277; the link is P. C. Parks's English translation, "On the
+    determination of functions from their integral values along certain
+    manifolds", IEEE Transactions on Medical Imaging 5(4):170–176, 1986.
+
+- id: "ad-gs"
+  abbr: "AD-GS"
+  title: "AD-GS: Anatomical Density-guided 3D Gaussian Splatting for Sparse-View Dental CBCT Reconstruction"
+  year: 2026
+  topics: [sparse-view, cbct, gaussian]
+  paper: "https://arxiv.org/abs/2610.14963"
+  code: "https://github.com/yulinjiaxue/AD-GS-BMVC2026"
+
+- id: "tomotransformer"
+  abbr: "TomoTransformer"
+  title: "TomoTransformer: Towards a Foundation Model for CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, geometry]
+  paper: "https://arxiv.org/abs/2609.37605"
+
+- id: "stcnet"
+  abbr: "STCNet"
+  title: "Dual-Domain Sparse-View 4D CBCT Reconstruction with Spatial-Temporal Consistency Learning"
+  year: 2026
+  topics: [sparse-view, cbct, dynamic]
+  paper: "https://arxiv.org/abs/2610.18518"
+
+- id: "noise2match"
+  abbr: "Noise2Match"
+  title: "Noise2Match: Self-Supervised Low-Dose CT Denoising via Adaptive Inter-Slice Matching"
+  year: 2026
+  topics: [low-dose, self-supervised, cbct]
+  paper: "https://arxiv.org/abs/2610.18379"
+
+- id: "radon-transforms-aleksandrov-fenchel"
+  title: "Radon Transforms of Projection Functions and Aleksandrov-Fenchel Inequalities"
+  year: 2026
+  topics: [classical]
+  paper: "https://arxiv.org/abs/2610.18268"
+  note: >-
+    Pure convex geometry, not a CT reconstruction method: Radon transforms on
+    Grassmannians as operators on convex bodies, and Aleksandrov-Fenchel
+    inequalities for projection and mean section bodies. Included as
+    theoretical background for the Radon transform.
+
+- id: "gan-noise-reduction-low-dose-ct"
+  title: "Generative Adversarial Networks for Noise Reduction in Low-Dose CT"
+  year: 2017
+  venue: "TMI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/TMI.2017.2708987"
+
+- id: "cycle-consistent-adversarial-denoising-network"
+  title: "Cycle-Consistent Adversarial Denoising Network for Multiphase Coronary CT Angiography"
+  year: 2019
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.13284"
+
+- id: "smgan"
+  abbr: "SMGAN"
+  title: "Structure-sensitive Multi-scale Deep Neural Network for Low-Dose CT Denoising"
+  year: 2018
+  venue: "IEEE Access"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/ACCESS.2018.2858196"
+
+- id: "cpce"
+  abbr: "CPCE"
+  title: "3D Convolutional Encoder-Decoder Network for Low-Dose CT via Transfer Learning from a 2D Trained Network"
+  year: 2018
+  venue: "TMI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/TMI.2018.2832217"
+
+- id: "tomogan"
+  abbr: "TomoGAN"
+  title: "TomoGAN: Low-Dose Synchrotron X-Ray Tomography with Generative Adversarial Networks"
+  year: 2020
+  venue: "J Opt Soc Am A"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1364/JOSAA.375595"
+
+- id: "gan-circle"
+  abbr: "GAN-CIRCLE"
+  title: "CT Super-resolution GAN Constrained by the Identical, Residual, and Cycle Learning Ensemble (GAN-CIRCLE)"
+  year: 2019
+  venue: "TMI"
+  topics: [other]
+  paper: "https://doi.org/10.1109/TMI.2019.2922960"
+
+- id: "sparse-view-ct-reconstruction-wasserstein-gans"
+  title: "Sparse-View CT Reconstruction Using Wasserstein GANs"
+  year: 2018
+  venue: "MLMIR"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1007/978-3-030-00129-2_9"
+
+- id: "adversarial-sparse-view-cbct-artifact-reduction"
+  title: "Adversarial Sparse-View CBCT Artifact Reduction"
+  year: 2018
+  venue: "MICCAI"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1007/978-3-030-00928-1_18"
+
+- id: "conditional-gans-metal-artifact-reduction-ear"
+  title: "Conditional Generative Adversarial Networks for Metal Artifact Reduction in CT Images of the Ear"
+  year: 2018
+  venue: "MICCAI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1007/978-3-030-00928-1_1"
+
+- id: "x2ct-gan"
+  abbr: "X2CT-GAN"
+  title: "X2CT-GAN: Reconstructing CT from Biplanar X-Rays with Generative Adversarial Networks"
+  year: 2019
+  venue: "CVPR"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1109/CVPR.2019.01087"
+  code: "https://github.com/kylekma/x2ct"
+
+- id: "coil"
+  abbr: "CoIL"
+  title: "CoIL: Coordinate-Based Internal Learning for Tomographic Imaging"
+  year: 2021
+  venue: "TCI"
+  topics: [self-supervised]
+  paper: "https://doi.org/10.1109/TCI.2021.3125564"
+
+- id: "difir-ct"
+  abbr: "DiFiR-CT"
+  title: "DiFiR-CT: Distance field representation to resolve motion artifacts in computed tomography"
+  year: 2023
+  venue: "Med Phys"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1002/mp.16157"
+  code: "https://github.com/KunalMGupta/DIFIR-CT"
+
+- id: "scope"
+  abbr: "SCOPE"
+  title: "Self-Supervised Coordinate Projection Network for Sparse-View Computed Tomography"
+  year: 2023
+  venue: "TCI"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1109/TCI.2023.3281196"
+  code: "https://github.com/iwuqing/SCOPE"
+
+- id: "mepnet"
+  abbr: "MEPNet"
+  title: "MEPNet: A Model-Driven Equivariant Proximal Network for Joint Sparse-View Reconstruction and Metal Artifact Reduction in CT Images"
+  year: 2023
+  venue: "MICCAI"
+  topics: [sparse-view, metal-artifact]
+  paper: "https://doi.org/10.1007/978-3-031-43999-5_11"
+  code: "https://github.com/hongwang01/MEPNet"
+
+- id: "stinr"
+  abbr: "STINR"
+  title: "Dynamic cone-beam CT reconstruction using spatial and temporal implicit neural representation learning (STINR)"
+  year: 2023
+  venue: "PMB"
+  topics: [dynamic, cbct]
+  paper: "https://doi.org/10.1088/1361-6560/acb30d"
+
+- id: "dif-net"
+  abbr: "DIF-Net"
+  title: "Learning Deep Intensity Field for Extremely Sparse-View CBCT Reconstruction"
+  year: 2023
+  venue: "MICCAI"
+  topics: [cbct, sparse-view]
+  paper: "https://doi.org/10.1007/978-3-031-43999-5_2"
+  code: "https://github.com/xmed-lab/DIF-Net"
+
+- id: "artifact-reduction-3d-4d-cbct-review"
+  title: "Artifact Reduction in 3D and 4D Cone-beam Computed Tomography Images with Deep Learning -- A Review"
+  year: 2024
+  venue: "IEEE Access"
+  topics: [survey, cbct]
+  paper: "https://doi.org/10.1109/ACCESS.2024.3353195"
+
+- id: "diffusion-probabilistic-priors-zero-shot-low-dose-ct"
+  title: "Diffusion Probabilistic Priors for Zero-Shot Low-Dose CT Image Denoising"
+  year: 2024
+  venue: "Med Phys"
+  topics: [low-dose, diffusion]
+  paper: "https://doi.org/10.1002/mp.17431"
+  code: "https://github.com/DeepXuan/Dn-Dp"
+
+- id: "corediff"
+  abbr: "CoreDiff"
+  title: "CoreDiff: Contextual Error-Modulated Generalized Diffusion Model for Low-Dose CT Denoising and Generalization"
+  year: 2024
+  venue: "TMI"
+  topics: [low-dose, diffusion]
+  paper: "https://doi.org/10.1109/TMI.2023.3320812"
+  code: "https://github.com/qgao21/CoreDiff"
+
+- id: "diffux2ct"
+  abbr: "DiffuX2CT"
+  title: "DiffuX2CT: Diffusion Learning to Reconstruct CT Images from Biplanar X-Rays"
+  year: 2024
+  venue: "ECCV"
+  topics: [sparse-view, diffusion]
+  paper: "https://doi.org/10.1007/978-3-031-72775-7_26"
+
+- id: "diffusionblend"
+  abbr: "DiffusionBlend"
+  title: "DiffusionBlend: Learning 3D Image Prior through Position-aware Diffusion Score Blending for 3D Computed Tomography Reconstruction"
+  year: 2024
+  venue: "NeurIPS"
+  topics: [diffusion, sparse-view]
+  paper: "https://arxiv.org/abs/2406.10211"
+
+- id: "patch-based-ddpm-sparse-view-ct"
+  title: "Patch-Based Denoising Diffusion Probabilistic Model for Sparse-View CT Reconstruction"
+  year: 2022
+  topics: [sparse-view, diffusion]
+  paper: "https://arxiv.org/abs/2211.10388"
+
+- id: "human-guided-shade-artifact-suppression-cbct-mdct"
+  title: "Human-Guided Shade Artifact Suppression in CBCT-to-MDCT Translation via Schrödinger Bridge with Conditional Diffusion"
+  year: 2026
+  venue: "TRPMS"
+  topics: [cbct, diffusion]
+  paper: "https://doi.org/10.1109/TRPMS.2026.3663178"
+
+- id: "art-1970"
+  abbr: "ART"
+  title: "Algebraic Reconstruction Techniques (ART) for three-dimensional electron microscopy and X-ray photography"
+  year: 1970
+  venue: "J. Theor. Biol."
+  topics: [classical]
+  paper: "https://doi.org/10.1016/0022-5193%2870%2990109-8"
+  note: "The founding paper of iterative reconstruction."
+
+- id: "sirt-1972"
+  abbr: "SIRT"
+  title: "Iterative methods for the three-dimensional reconstruction of an object from projections"
+  year: 1972
+  venue: "J. Theor. Biol."
+  topics: [classical]
+  paper: "https://doi.org/10.1016/0022-5193%2872%2990180-4"
+
+- id: "cormack-1963"
+  title: "Representation of a Function by Its Line Integrals, with Some Radiological Applications"
+  year: 1963
+  venue: "J. Appl. Phys."
+  topics: [classical]
+  paper: "https://doi.org/10.1063/1.1729798"
+  note: "Nobel-prize foundation of CT."
+
+- id: "tuy-1983"
+  title: "An Inversion Formula for Cone-Beam Reconstruction"
+  year: 1983
+  venue: "SIAM J. Appl. Math."
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1137/0143035"
+  note: "Tuy-Smith data-sufficiency condition."
+
+- id: "kalender-mar-1987"
+  title: "Reduction of CT artifacts caused by metallic implants"
+  year: 1987
+  venue: "Radiology"
+  topics: [metal-artifact, classical]
+  paper: "https://doi.org/10.1148/radiology.164.2.3602406"
+
+- id: "parker-1982"
+  title: "Optimal short scan convolution reconstruction for fan beam CT"
+  year: 1982
+  venue: "Med Phys"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1118/1.595078"
+  note: "Parker weighting for short-scan reconstruction."
+
+- id: "smith-1985"
+  title: "Image Reconstruction from Cone-Beam Projections: Necessary and Sufficient Conditions and Reconstruction Methods"
+  year: 1985
+  venue: "TMI"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1109/tmi.1985.4307689"
+
+- id: "herman-1979"
+  title: "Correction for beam hardening in computed tomography"
+  year: 1979
+  venue: "PMB"
+  topics: [metal-artifact, classical]
+  paper: "https://doi.org/10.1088/0031-9155/24/1/008"
+
+- id: "wang-conebeam-1993"
+  title: "A general cone-beam reconstruction algorithm"
+  year: 1993
+  venue: "TMI"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1109/42.241876"
+
+- id: "joseph-spital-1978"
+  title: "A Method for Correcting Bone Induced Artifacts in Computed Tomography Scanners"
+  year: 1978
+  venue: "JCAT"
+  topics: [metal-artifact, classical]
+  paper: "https://doi.org/10.1097/00004728-197801000-00017"
+
+- id: "nmar-2010"
+  abbr: "NMAR"
+  title: "Normalized metal artifact reduction (NMAR) in computed tomography"
+  year: 2010
+  venue: "Med Phys"
+  topics: [metal-artifact, classical]
+  paper: "https://doi.org/10.1118/1.3484090"
+  note: "The standard MAR method."
+
+- id: "katsevich-2002"
+  title: "Theoretically Exact Filtered Backprojection-Type Inversion Algorithm for Spiral CT"
+  year: 2002
+  venue: "SIAM J. Appl. Math."
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1137/S0036139901387186"
+  note: "First exact helical cone-beam FBP algorithm."
+
+- id: "grangeat-1991"
+  title: "Mathematical framework of cone beam 3D reconstruction via the first derivative of the Radon transform"
+  year: 1991
+  venue: "Lecture Notes in Math. 1497"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1007/BFb0084509"
+  note: "Grangeat's fundamental relation."
+
+- id: "defrise-clack-1994"
+  title: "A cone-beam reconstruction algorithm using shift-variant filtering and cone-beam backprojection"
+  year: 1994
+  venue: "TMI"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1109/42.276157"
+
+- id: "kudo-interior-2008"
+  title: "Tiny a priori knowledge solves the interior problem in computed tomography"
+  year: 2008
+  venue: "PMB"
+  topics: [classical, limited-angle]
+  paper: "https://doi.org/10.1088/0031-9155/53/9/001"
+
+- id: "bouman-sauer-1993"
+  abbr: "GGMRF"
+  title: "A generalized Gaussian image model for edge-preserving MAP estimation"
+  year: 1993
+  venue: "TIP"
+  topics: [classical, low-dose]
+  paper: "https://doi.org/10.1109/83.236536"
+
+- id: "sauer-bouman-1993"
+  abbr: "ICD"
+  title: "A local update strategy for iterative reconstruction from projections"
+  year: 1993
+  venue: "TSP"
+  topics: [classical]
+  paper: "https://doi.org/10.1109/78.193196"
+
+- id: "fessler-rogers-1996"
+  title: "Spatial resolution properties of penalized-likelihood image reconstruction: space-invariant tomographs"
+  year: 1996
+  venue: "TIP"
+  topics: [classical, low-dose]
+  paper: "https://doi.org/10.1109/83.535846"
+
+- id: "os-sart-2004"
+  abbr: "OS-SART"
+  title: "Ordered-subset simultaneous algebraic reconstruction techniques (OS-SART)"
+  year: 2004
+  venue: "J. X-ray Sci. Technol."
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.3233/xst-2004-00110"
+
+- id: "chambolle-pock-2011"
+  title: "A First-Order Primal-Dual Algorithm for Convex Problems with Applications to Imaging"
+  year: 2011
+  venue: "JMIV"
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1007/s10851-010-0251-1"
+  note: "The primal-dual solver behind TV CT."
+
+- id: "split-bregman-2009"
+  title: "The Split Bregman Method for L1-Regularized Problems"
+  year: 2009
+  venue: "SIAM J. Imaging Sci."
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1137/080725891"
+
+- id: "ista-2004"
+  abbr: "ISTA"
+  title: "An iterative thresholding algorithm for linear inverse problems with a sparsity constraint"
+  year: 2004
+  venue: "Comm. Pure Appl. Math."
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1002/cpa.20042"
+  note: "Origin of ISTA."
+
+- id: "pnp-2013"
+  abbr: "PnP"
+  title: "Plug-and-Play priors for model based reconstruction"
+  year: 2013
+  venue: "IEEE GlobalSIP"
+  topics: [classical, low-dose]
+  paper: "https://doi.org/10.1109/globalsip.2013.6737048"
+  note: "Founding plug-and-play paper."
+
+- id: "red-2017"
+  abbr: "RED"
+  title: "The Little Engine That Could: Regularization by Denoising (RED)"
+  year: 2017
+  venue: "SIAM J. Imaging Sci."
+  topics: [classical, low-dose]
+  paper: "https://doi.org/10.1137/16m1102884"
+
+- id: "chambolle-2004"
+  title: "An Algorithm for Total Variation Minimization and Applications"
+  year: 2004
+  venue: "JMIV"
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1023/b:jmiv.0000011325.36760.1e"
+
+- id: "boyd-admm-2011"
+  abbr: "ADMM"
+  title: "Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers"
+  year: 2011
+  venue: "Found. Trends Mach. Learn."
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1561/9781601984616"
+  note: "The ADMM reference."
+
+- id: "fista-2009"
+  abbr: "FISTA"
+  title: "A Fast Iterative Shrinkage-Thresholding Algorithm for Linear Inverse Problems"
+  year: 2009
+  venue: "SIAM J. Imaging Sci."
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1137/080716542"

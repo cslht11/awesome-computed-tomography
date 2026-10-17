@@ -1,0 +1,859 @@
+- id: "diffnr-diffusion-enhanced-neural-representation-optimization"
+  abbr: "DiffNR"
+  title: "DiffNR: Diffusion-Enhanced Neural Representation Optimization for Sparse-View 3D Tomographic Reconstruction"
+  year: 2026
+  venue: "AAAI"
+  topics: [inr, diffusion, sparse-view]
+  paper: "https://doi.org/10.1609/aaai.v40i11.37871"
+  project: "https://ooonesevennn.github.io/DiffNR/"
+
+- id: "field-of-view-extension-in-dental-cone-beam-ct-via-implicit-"
+  title: "Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement"
+  year: 2026
+  venue: "MICAD"
+  topics: [inr, diffusion, cbct]
+  paper: "https://arxiv.org/abs/2609.28110"
+  code: "https://github.com/SusanneSchaub/CBCT-FOV-Extension"
+
+- id: "diffusion-based-limited-angle-ct-reconstruction-under-noisy-"
+  title: "Diffusion-Based Limited-Angle CT Reconstruction under Noisy Conditions"
+  year: 2025
+  venue: "ICIP"
+  topics: [diffusion, limited-angle]
+  paper: "https://doi.org/10.1109/icipw68931.2025.11386431"
+
+- id: "dose-aware-cold-diffusion-with-physics-consistency-for-gener"
+  title: "Dose-Aware Cold Diffusion with Physics Consistency for Generalizable Low-Dose CT Reconstruction"
+  year: 2026
+  venue: "IJCNN"
+  topics: [diffusion, low-dose, unrolling]
+  paper: "https://arxiv.org/abs/2609.18943"
+
+- id: "k-neas-scalable-multi-material-ct-reconstruction-using-neura"
+  title: "$K$-NeAS: Scalable Multi-Material CT Reconstruction Using Neural SDFs"
+  year: 2026
+  venue: "Off-Grid Workshop"
+  topics: [spectral]
+  paper: "https://arxiv.org/abs/2607.14415"
+
+- id: "3d-cbct-artefact-removal-using-perpendicular-score-based-dif"
+  title: "3D CBCT Artefact Removal Using Perpendicular Score-Based Diffusion Models"
+  year: 2025
+  venue: "DGM4MICCAI"
+  topics: [diffusion, cbct]
+  paper: "https://doi.org/10.1007/978-3-032-05472-2_24"
+
+- id: "high-fidelity-3d-tooth-reconstruction-by-fusing-intraoral-sc"
+  title: "High-Fidelity 3D Tooth Reconstruction by Fusing Intraoral Scans and CBCT Data via a Deep Implicit Representation"
+  year: 2026
+  venue: "ISBI"
+  topics: [cbct]
+  paper: "https://arxiv.org/abs/2601.15358"
+
+- id: "balancing-efficiency-and-restoration-lightweight-mamba-based"
+  title: "Balancing Efficiency and Restoration: Lightweight Mamba-Based Model for CT Metal Artifact Reduction"
+  year: 2026
+  venue: "TRPMS"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/trpms.2026.3674764"
+  code: "https://github.com/RICKand-MORTY/MARMamba"
+
+- id: "gb-svfbp-gaussian-based-shift-variant-fbp-neural-network"
+  abbr: "GB-SVFBP"
+  title: "GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network"
+  year: 2026
+  topics: [geometry, unrolling]
+  paper: "https://arxiv.org/abs/2607.11584"
+
+- id: "remar-ds-recalibrated-feature-learning-for-metal-artifact-re"
+  abbr: "ReMAR-DS"
+  title: "ReMAR-DS: Recalibrated Feature Learning for Metal Artifact Reduction and CT Domain Transformation"
+  year: 2025
+  venue: "ICIAP"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1007/978-3-032-10192-1_18"
+
+- id: "leveraging-image-editing-foundation-models-for-data-efficien"
+  title: "Leveraging Image Editing Foundation Models for Data-Efficient CT Metal Artifact Reduction"
+  year: 2026
+  venue: "CVPRW"
+  topics: [metal-artifact]
+  paper: "https://arxiv.org/abs/2604.05934"
+  code: "https://github.com/ahmetemirdagi/CT-EditMAR"
+
+- id: "unsupervised-metal-artifact-reduction-in-dental-cbct-using-f"
+  title: "Unsupervised Metal Artifact Reduction in Dental CBCT using Fine-tuned Cycle-Consistent Adversarial Networks"
+  year: 2026
+  venue: "Digital"
+  topics: [metal-artifact, self-supervised, cbct]
+  paper: "https://doi.org/10.3390/digital6020031"
+
+- id: "find-net-fourier-integrated-network-with-dictionary-kernels-"
+  title: "FIND-Net -- Fourier-Integrated Network with Dictionary Kernels for Metal Artifact Reduction"
+  year: 2025
+  venue: "MICCAI"
+  topics: [metal-artifact, unrolling]
+  paper: "https://doi.org/10.1007/978-3-032-05169-1_19"
+  code: "https://github.com/Farid-Tasharofi/FIND-Net"
+
+- id: "glfc-unified-global-local-feature-and-contrast-learning-with"
+  abbr: "GLFC"
+  title: "GLFC: Unified Global-Local Feature and Contrast Learning with Mamba-Enhanced UNet for Synthetic CT Generation from CBCT"
+  year: 2025
+  venue: "ISBI"
+  topics: [cbct]
+  paper: "https://arxiv.org/abs/2501.02992"
+  code: "https://github.com/HiLab-git/GLFC"
+
+- id: "synthetic-ct-image-generation-from-cbct-a-systematic-review"
+  title: "Synthetic CT image generation from CBCT: A Systematic Review"
+  year: 2025
+  venue: "TRPMS"
+  topics: [cbct, survey]
+  paper: "https://doi.org/10.1109/trpms.2025.3533749"
+
+- id: "voxelsynth3d-interpretable-volumetric-image-domain-metal-art"
+  abbr: "VoxelSynth3D"
+  title: "VoxelSynth3D: Interpretable Volumetric Image-Domain Metal Artifact Reduction with a Paired Synthetic CLINIC-Metal Benchmark"
+  year: 2026
+  venue: "BHI"
+  topics: [metal-artifact]
+  paper: "https://arxiv.org/abs/2610.01512"
+
+- id: "bigger-isn-t-always-better-towards-a-general-prior-for-medic"
+  title: "Bigger Isn't Always Better: Towards a General Prior for Medical Image Reconstruction"
+  year: 2025
+  venue: "IJCV"
+  topics: [diffusion]
+  paper: "https://doi.org/10.1007/s11263-026-02904-1"
+  code: "https://github.com/VLOGroup/bigger-isnt-always-better"
+
+- id: "insideout-integrated-rgb-radiative-gaussian-splatting-for-co"
+  abbr: "InsideOut"
+  title: "InsideOut: Integrated RGB-Radiative Gaussian Splatting for Comprehensive 3D Object Representation"
+  year: 2025
+  venue: "ICCV"
+  topics: [gaussian]
+  paper: "https://doi.org/10.1109/iccv51701.2025.02395"
+
+- id: "ultrafast-deep-learning-based-scatter-estimation-in-cone-bea"
+  title: "Ultrafast Deep Learning-Based Scatter Estimation in Cone-Beam Computed Tomography"
+  year: 2025
+  topics: [scatter, cbct]
+  paper: "https://arxiv.org/abs/2509.08973"
+
+- id: "joint-decoupled-iterative-cbct-reconstruction-with-hybrid-sc"
+  title: "Joint-decoupled iterative CBCT reconstruction with hybrid scatter estimation and voxel-adaptive beam hardening correction"
+  year: 2026
+  topics: [scatter, cbct]
+  paper: "https://arxiv.org/abs/2607.15812"
+
+- id: "physics-inspired-gaussian-kolmogorov-arnold-networks-for-x-r"
+  title: "Physics-Inspired Gaussian Kolmogorov-Arnold Networks for X-ray Scatter Correction in Cone-Beam CT"
+  year: 2025
+  topics: [scatter, cbct]
+  paper: "https://arxiv.org/abs/2510.24579"
+
+- id: "alvarez-1976"
+  title: "Energy-Selective Reconstructions in X-Ray Computerised Tomography"
+  year: 1976
+  venue: "PMB"
+  topics: [spectral]
+  paper: "https://doi.org/10.1088/0031-9155/21/5/002"
+
+- id: "deman-2001"
+  title: "An Iterative Maximum-Likelihood Polychromatic Algorithm for CT"
+  year: 2001
+  venue: "TMI"
+  topics: [spectral]
+  paper: "https://doi.org/10.1109/42.959297"
+
+- id: "elbakri-2002"
+  title: "Statistical Image Reconstruction for Polyenergetic X-Ray Computed Tomography"
+  year: 2002
+  venue: "TMI"
+  topics: [spectral]
+  paper: "https://doi.org/10.1109/42.993128"
+
+- id: "roessl-2007"
+  title: "K-Edge Imaging in X-Ray Computed Tomography Using Multi-Bin Photon Counting Detectors"
+  year: 2007
+  venue: "PMB"
+  topics: [spectral]
+  paper: "https://doi.org/10.1088/0031-9155/52/15/020"
+
+- id: "schlomka-2008"
+  title: "Experimental Feasibility of Multi-Energy Photon-Counting K-Edge Imaging in Pre-Clinical Computed Tomography"
+  year: 2008
+  venue: "PMB"
+  topics: [spectral]
+  paper: "https://doi.org/10.1088/0031-9155/53/15/002"
+
+- id: "mccollough-2015"
+  title: "Dual- and Multi-Energy CT: Principles, Technical Approaches, and Clinical Applications"
+  year: 2015
+  venue: "Radiology"
+  topics: [spectral, survey]
+  paper: "https://doi.org/10.1148/radiol.2015142631"
+
+- id: "siewerdsen-2001"
+  title: "Cone-Beam Computed Tomography with a Flat-Panel Imager: Magnitude and Effects of X-Ray Scatter"
+  year: 2001
+  venue: "Med Phys"
+  topics: [scatter, cbct]
+  paper: "https://doi.org/10.1118/1.1339879"
+
+- id: "zbijewski-2006"
+  title: "Efficient Monte Carlo Based Scatter Artifact Reduction in Cone-Beam Micro-CT"
+  year: 2006
+  venue: "TMI"
+  topics: [scatter]
+  paper: "https://doi.org/10.1109/tmi.2006.872328"
+
+- id: "zhu-2006"
+  title: "Scatter Correction Method for X-Ray CT Using Primary Modulation: Theory and Preliminary Results"
+  year: 2006
+  venue: "TMI"
+  topics: [scatter]
+  paper: "https://doi.org/10.1109/tmi.2006.884636"
+
+- id: "scatter-rev-p2"
+  title: "A General Framework and Review of Scatter Correction Methods in Cone-Beam CT: Part 2 — Scatter Estimation Approaches"
+  year: 2011
+  venue: "Med Phys"
+  topics: [scatter, survey]
+  paper: "https://doi.org/10.1118/1.3589140"
+
+- id: "maier-2019"
+  title: "Real-Time Scatter Estimation for Medical CT Using the Deep Scatter Estimation: Method and Robustness Analysis with Respect to Different Anatomies, Dose Levels, Tube Voltages, and Data Truncation"
+  year: 2019
+  venue: "Med Phys"
+  topics: [scatter]
+  paper: "https://doi.org/10.1002/mp.13274"
+
+- id: "sonke-2005"
+  title: "Respiratory Correlated Cone Beam CT"
+  year: 2005
+  venue: "Med Phys"
+  topics: [dynamic, cbct]
+  paper: "https://doi.org/10.1118/1.1869074"
+
+- id: "piccs"
+  abbr: "PICCS"
+  title: "Prior Image Constrained Compressed Sensing (PICCS): A Method to Accurately Reconstruct Dynamic CT Images from Highly Undersampled Projection Data Sets"
+  year: 2008
+  venue: "Med Phys"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1118/1.2836423"
+
+- id: "leng-2008"
+  title: "High Temporal Resolution and Streak-Free Four-Dimensional Cone-Beam Computed Tomography"
+  year: 2008
+  venue: "PMB"
+  topics: [dynamic, cbct]
+  paper: "https://doi.org/10.1088/0031-9155/53/20/006"
+
+- id: "rit-2009"
+  title: "On-the-Fly Motion-Compensated Cone-Beam CT Using an A Priori Model of the Respiratory Motion"
+  year: 2009
+  venue: "Med Phys"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1118/1.3115691"
+
+- id: "bergner-2010"
+  title: "An Investigation of 4D Cone-Beam CT Algorithms for Slowly Rotating Scanners"
+  year: 2010
+  venue: "Med Phys"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1118/1.3480986"
+
+- id: "gao-2012"
+  title: "4D Cone Beam CT via Spatiotemporal Tensor Framelet"
+  year: 2012
+  venue: "Med Phys"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1118/1.4762288"
+
+- id: "3d-field-of-junctions"
+  title: "3D Field of Junctions: A Noise-Robust, Training-Free Structural Prior for Volumetric Inverse Problems"
+  year: 2026
+  venue: "ECCV"
+  topics: [self-supervised, sparse-view]
+  paper: "https://doi.org/10.1007/978-3-032-37255-0_34"
+  code: "https://github.com/voilalab/3D-Field-of-Junctions"
+
+- id: "at-fulltilt"
+  title: "At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections"
+  year: 2026
+  venue: "NeurIPS"
+  topics: [other]
+  paper: "https://arxiv.org/abs/2604.10766"
+
+- id: "cryoderec"
+  abbr: "CryoDeRec"
+  title: "A Supervised Multi-task Framework for Joint cryo-ET Restoration Enabled by Generative Physical Simulation"
+  year: 2026
+  venue: "CVPR"
+  topics: [limited-angle, other]
+  paper: "https://openaccess.thecvf.com/content/CVPR2026/html/Wang_A_Supervised_Multi-task_Framework_for_Joint_cryo-ET_Restoration_Enabled_by_CVPR_2026_paper.html"
+  code: "https://github.com/ZhidongYang/CryoDeRec"
+
+- id: "dinr"
+  abbr: "DINR"
+  title: "Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data"
+  year: 2026
+  venue: "ICASSP"
+  topics: [inr, diffusion, self-supervised]
+  paper: "https://arxiv.org/abs/2603.10947"
+
+- id: "dynamic-black-hole-emission-tomography"
+  title: "Dynamic Black-hole Emission Tomography with Physics-Informed Neural Fields"
+  year: 2026
+  venue: "CVPR"
+  topics: [inr, dynamic, other]
+  paper: "https://arxiv.org/abs/2602.08029"
+
+- id: "efficient-unrolled-networks"
+  title: "Efficient Unrolled Networks for Large-Scale 3D Inverse Problems"
+  year: 2026
+  venue: "CVPR"
+  topics: [unrolling, sparse-view]
+  paper: "https://arxiv.org/abs/2601.02141"
+  code: "https://github.com/romainvo/efficient-unrolling"
+
+- id: "event-based-bos-tomography"
+  title: "Event-Based Sparse-View Background-Oriented Schlieren Tomography"
+  year: 2026
+  venue: "ECCV"
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1007/978-3-032-37335-9_18"
+
+- id: "exact-gs"
+  abbr: "Exact-GS"
+  title: "Exact-GS: Mathematically Rigorous and Accurate 3D Gaussian Splatting for 3D X-Ray Reconstruction"
+  year: 2026
+  venue: "CVPR"
+  topics: [gaussian, geometry]
+  paper: "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Exact-GS_Mathematically_Rigorous_and_Accurate_3D_Gaussian_Splatting_for_3D_CVPR_2026_paper.html"
+  code: "https://github.com/brucee1323/Exact-GS"
+
+- id: "gh-naf"
+  abbr: "GH-NAF"
+  title: "GH-NAF: Grid-Adaptive Hash-Level-Attended Neural Attenuation Fields for Discrepancy-Aware CBCT"
+  year: 2026
+  venue: "CVPR"
+  topics: [inr, cbct]
+  paper: "https://openaccess.thecvf.com/content/CVPR2026/html/Oh_GH-NAF_Grid-Adaptive_Hash-Level-Attended_Neural_Attenuation_Fields_for_Discrepancy-Aware_CBCT_CVPR_2026_paper.html"
+  code: "https://github.com/seongje-oh/GH-NAF"
+
+- id: "iscs"
+  abbr: "ISCS"
+  title: "Improving 2D Diffusion Models for 3D Medical Imaging with Inter-Slice Consistent Stochasticity"
+  year: 2026
+  venue: "ICLR"
+  topics: [diffusion, sparse-view]
+  paper: "https://arxiv.org/abs/2602.04162"
+  code: "https://github.com/duchenhe/ISCS"
+
+- id: "klip"
+  abbr: "KLIP"
+  title: "KLIP: Localized Distribution Shift Detection via KL-Divergence with Diffusion Priors in Inverse Problems"
+  year: 2026
+  venue: "CVPR"
+  topics: [diffusion, sparse-view]
+  paper: "https://arxiv.org/abs/2605.31596"
+  code: "https://github.com/voilalab/KLIP"
+
+- id: "low-level-dataset-distillation"
+  title: "Low-Level Dataset Distillation for Medical Image Enhancement"
+  year: 2026
+  venue: "ECCV"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1007/978-3-032-37574-2_25"
+  code: "https://github.com/xufz123/Med_LLDD"
+
+- id: "medgmae"
+  abbr: "MedGMAE"
+  title: "MedGMAE: Gaussian Masked Autoencoders for Medical Volumetric Representation Learning"
+  year: 2026
+  venue: "ICLR"
+  topics: [self-supervised, gaussian]
+  paper: "https://openreview.net/forum?id=Z2XIRLv535"
+  code: "https://github.com/windrise/MedGMAE"
+
+- id: "nab"
+  abbr: "NAB"
+  title: "NAB: Neural Adaptive Binning for Sparse-View CT Reconstruction"
+  year: 2026
+  venue: "ICLR"
+  topics: [sparse-view, inr]
+  paper: "https://arxiv.org/abs/2602.02356"
+  code: "https://github.com/Wangduo-Xie/NAB_CT_reconstruction"
+
+- id: "neuromorphic-xray-ct"
+  title: "Neuromorphic X-Ray Computed Tomography"
+  year: 2026
+  venue: "ECCV"
+  topics: [other]
+  paper: "https://doi.org/10.1007/978-3-032-37577-3_8"
+  project: "https://wanghongjian98.github.io/projects/neuroxct/"
+
+- id: "ngps"
+  abbr: "NGPS"
+  title: "NGPS: Structure-Preserving Self-Supervised Denoising via Neighbor-Guided Patch Sampling"
+  year: 2026
+  venue: "ECCV"
+  topics: [self-supervised, cbct]
+  paper: "https://doi.org/10.1007/978-3-032-37225-3_29"
+  code: "https://github.com/cv-cho/NGPS"
+
+- id: "openpros"
+  abbr: "OpenPros"
+  title: "OpenPros: A Large-Scale Dataset for Limited View Prostate Ultrasound Computed Tomography"
+  year: 2026
+  venue: "ICLR"
+  topics: [limited-angle, other]
+  paper: "https://arxiv.org/abs/2505.12261"
+  project: "https://open-pros.github.io/"
+
+- id: "dc-pnpdp"
+  abbr: "DC-PnPDP"
+  title: "Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction"
+  year: 2026
+  venue: "ICML"
+  topics: [diffusion, sparse-view, limited-angle, classical]
+  paper: "https://arxiv.org/abs/2602.23214"
+  code: "https://github.com/duchenhe/DC-PnPDP"
+  project: "https://duchenhe.com/project/DCPnPDP/"
+
+- id: "phydict"
+  abbr: "PhyDiCT"
+  title: "PhyDiCT: Plug-and-Play CT Reconstruction from Sparse X-Rays via Differentiable Rendering and Strong Priors"
+  year: 2026
+  venue: "MICCAI"
+  topics: [sparse-view, diffusion]
+  paper: "https://doi.org/10.1007/978-3-032-38179-8_38"
+  code: "https://github.com/batmanlab/PhyDiCT"
+
+- id: "ox-nerf"
+  abbr: "OX-NeRF"
+  title: "OX-NeRF: 3D X-ray Tomography Reconstruction from Sparse Views Using Implicit Neural Representation"
+  year: 2026
+  topics: [sparse-view, inr]
+  paper: "https://arxiv.org/abs/2610.11547"
+
+- id: "cbct-pose-trajectory-optimisation"
+  title: "Gradient-Based Trajectory Optimisation over Continuous Poses for Sparse-View Cone-Beam CT"
+  year: 2026
+  topics: [sparse-view, cbct, geometry]
+  paper: "https://arxiv.org/abs/2610.09579"
+
+- id: "gaussian-material-fields"
+  title: "Gaussian Material Fields for Volumetric Multi-Energy CT Decomposition"
+  year: 2026
+  topics: [spectral]
+  paper: "https://arxiv.org/abs/2610.09492"
+
+- id: "lingo"
+  abbr: "LINGO"
+  title: "LINGO: Latent Initialization and Gradient Optimization for Sparse-view X-ray Novel View Synthesis and CT Reconstruction with 3D Gaussian Splatting"
+  year: 2026
+  topics: [sparse-view, gaussian]
+  paper: "https://arxiv.org/abs/2609.22849"
+
+- id: "view-dependent-detector-displacement-cbct"
+  title: "Model-Based Iterative Reconstruction with View-Dependent Detector Displacements for Cone-Beam CT"
+  year: 2026
+  topics: [cbct, geometry, classical]
+  paper: "https://arxiv.org/abs/2609.22032"
+
+- id: "deep-pseudo-proximal-map"
+  title: "Deep Pseudo-Proximal Map: A Self-Supervised Data-Fitting Agent for Iterative Reconstruction"
+  year: 2026
+  topics: [classical, self-supervised]
+  paper: "https://arxiv.org/abs/2609.30727"
+
+- id: "ram"
+  abbr: "RAM"
+  title: "Reconstruct Anything Model: A Lightweight General Model for Computational Imaging"
+  year: 2026
+  venue: "ICLR"
+  topics: [unrolling]
+  paper: "https://arxiv.org/abs/2503.08915"
+  code: "https://github.com/matthieutrs/ram"
+
+- id: "riner"
+  abbr: "Riner"
+  title: "Unsupervised Multi-Parameter Inverse Solving for Reducing Ring Artifacts in 3D X-Ray CBCT"
+  year: 2026
+  venue: "AAAI"
+  topics: [cbct, geometry]
+  paper: "https://arxiv.org/abs/2412.05853"
+  code: "https://github.com/iwuqing/Riner"
+
+- id: "spectral-consistent-flow"
+  title: "Spectral Consistent Flow for One-Step 3D Medical Image Translation"
+  year: 2026
+  venue: "ECCV"
+  topics: [diffusion, cbct]
+  paper: "https://doi.org/10.1007/978-3-032-37550-6_4"
+
+- id: "variational-garrote"
+  title: "Variational Garrote for Sparse Inverse Problems"
+  year: 2026
+  venue: "J. Comput. Sci."
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1016/j.jocs.2026.102980"
+
+- id: "vodasure"
+  abbr: "VoDaSuRe"
+  title: "VoDaSuRe: A Large-Scale Dataset Revealing Domain Shift in Volumetric Super-Resolution"
+  year: 2026
+  venue: "CVPR"
+  topics: [other]
+  paper: "https://arxiv.org/abs/2603.23153"
+  project: "https://augusthoeg.github.io/VoDaSuRe/"
+
+- id: "xden-1k"
+  abbr: "XDen-1K"
+  title: "XDen-1K: A Density Field Dataset of Real-World Objects"
+  year: 2026
+  venue: "ECCV"
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1007/978-3-032-37029-7_29"
+
+- id: "pixel-wise-metrics-reliability"
+  title: "Are Pixel-Wise Metrics Reliable for Sparse-View Computed Tomography Reconstruction?"
+  year: 2025
+  venue: "NeurIPS"
+  topics: [survey, sparse-view]
+  paper: "https://arxiv.org/abs/2506.02093"
+  code: "https://github.com/MrGiovanni/CARE"
+
+- id: "coco-pnp"
+  abbr: "CoCo-PnP"
+  title: "Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems"
+  year: 2025
+  venue: "NeurIPS"
+  topics: [unrolling, classical]
+  paper: "https://arxiv.org/abs/2505.08909"
+  code: "https://github.com/FizzzFizzz/CoCo-PnP"
+
+- id: "coord-sos-pact"
+  title: "Coordinate-Based Speed of Sound Recovery for Aberration-Corrected Photoacoustic Computed Tomography"
+  year: 2025
+  venue: "ICCV"
+  topics: [inr, other]
+  paper: "https://doi.org/10.1109/iccv51701.2025.02550"
+  project: "https://lukeli0425.github.io/Coord-SoS-PACT/"
+
+- id: "photon-pile-up-normalizing-flow"
+  title: "Modeling X-Ray Photon Pile-Up with a Normalizing Flow"
+  year: 2025
+  venue: "NeurIPS Workshop"
+  topics: [spectral, other]
+  paper: "https://arxiv.org/abs/2511.11863"
+
+- id: "diffraction-neural-volumetric-prior"
+  title: "Recover Biological Structure from Sparse-View Diffraction Images with Neural Volumetric Prior"
+  year: 2025
+  venue: "ICCV"
+  topics: [inr, sparse-view, other]
+  paper: "https://doi.org/10.1109/iccv51701.2025.02578"
+
+- id: "sdb"
+  abbr: "SDB"
+  title: "System-Embedded Diffusion Bridge Models"
+  year: 2025
+  venue: "NeurIPS"
+  topics: [diffusion, classical]
+  paper: "https://arxiv.org/abs/2506.23726"
+  code: "https://github.com/sobieskibj/sdb"
+
+- id: "vol3dgs"
+  abbr: "Vol3DGS"
+  title: "Volumetrically Consistent 3D Gaussian Rasterization"
+  year: 2025
+  venue: "CVPR"
+  topics: [gaussian]
+  paper: "https://arxiv.org/abs/2412.03378"
+  code: "https://github.com/chinmay0301ucsd/Vol3DGS"
+
+- id: "x-gaussian"
+  abbr: "X-Gaussian"
+  title: "Radiative Gaussian Splatting for Efficient X-Ray Novel View Synthesis"
+  year: 2024
+  venue: "ECCV"
+  topics: [gaussian]
+  paper: "https://doi.org/10.1007/978-3-031-73232-4_16"
+  code: "https://github.com/caiyuanhao1998/X-Gaussian"
+
+# ---- foundational, industrial-NDT and strong-venue entries recovered from the
+# author's own review bibliography (P5_review/Review.bib). Every venue and year
+# below was resolved back from the DOI, not taken from the bib.
+
+- id: "ramachandran-lakshminarayanan-1971"
+  title: "Three-dimensional Reconstruction from Radiographs and Electron Micrographs: Application of Convolutions instead of Fourier Transforms"
+  year: 1971
+  venue: "PNAS"
+  topics: [classical]
+  paper: "https://doi.org/10.1073/pnas.68.9.2236"
+
+- id: "shepp-logan-1974"
+  abbr: "Shepp-Logan"
+  title: "The Fourier reconstruction of a head section"
+  year: 1974
+  venue: "TNS"
+  topics: [classical]
+  paper: "https://doi.org/10.1109/tns.1974.6499235"
+
+- id: "mlem-1982"
+  abbr: "MLEM"
+  title: "Maximum Likelihood Reconstruction for Emission Tomography"
+  year: 1982
+  venue: "TMI"
+  topics: [classical]
+  paper: "https://doi.org/10.1109/tmi.1982.4307558"
+
+- id: "fdk-1984"
+  abbr: "FDK"
+  title: "Practical cone-beam algorithm"
+  year: 1984
+  venue: "JOSA A"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1364/JOSAA.1.000612"
+
+- id: "sart-1984"
+  abbr: "SART"
+  title: "Simultaneous Algebraic Reconstruction Technique (SART): A superior implementation of the ART algorithm"
+  year: 1984
+  venue: "Ultrasonic Imaging"
+  topics: [classical]
+  paper: "https://doi.org/10.1016/0161-7346(84)90008-7"
+
+- id: "rof-tv-1992"
+  abbr: "ROF"
+  title: "Nonlinear total variation based noise removal algorithms"
+  year: 1992
+  venue: "Physica D"
+  topics: [classical]
+  paper: "https://doi.org/10.1016/0167-2789(92)90242-f"
+
+- id: "compressed-sensing-2006"
+  title: "Compressed sensing"
+  year: 2006
+  venue: "TIT"
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1109/tit.2006.871582"
+
+- id: "robust-uncertainty-2006"
+  title: "Robust uncertainty principles: exact signal reconstruction from highly incomplete frequency information"
+  year: 2006
+  venue: "TIT"
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1109/tit.2005.862083"
+
+- id: "ksvd-2006"
+  abbr: "K-SVD"
+  title: "K-SVD: An Algorithm for Designing Overcomplete Dictionaries for Sparse Representation"
+  year: 2006
+  venue: "TSP"
+  topics: [classical, low-dose]
+  paper: "https://doi.org/10.1109/tsp.2006.881199"
+
+- id: "sidky-pan-tv-2008"
+  title: "Image reconstruction in circular cone-beam computed tomography by constrained, total-variation minimization"
+  year: 2008
+  venue: "PMB"
+  topics: [classical, sparse-view, cbct]
+  paper: "https://doi.org/10.1088/0031-9155/53/17/021"
+
+- id: "dict-learning-low-dose-2012"
+  title: "Low-Dose X-ray CT Reconstruction via Dictionary Learning"
+  year: 2012
+  venue: "TMI"
+  topics: [classical, low-dose]
+  paper: "https://doi.org/10.1109/tmi.2012.2195669"
+
+- id: "high-energy-ct-metrology-review-2022"
+  title: "Review of high energy x-ray computed tomography for non-destructive dimensional metrology of large metallic advanced manufactured components"
+  year: 2022
+  venue: "RoPP"
+  topics: [survey, other]
+  paper: "https://doi.org/10.1088/1361-6633/ac43f6"
+
+- id: "dl-ct-incomplete-data-review-2024"
+  title: "A Review of Deep Learning CT Reconstruction From Incomplete Projection Data"
+  year: 2024
+  venue: "TRPMS"
+  topics: [survey, sparse-view, limited-angle]
+  paper: "https://doi.org/10.1109/trpms.2023.3316349"
+
+- id: "ml-industrial-ct-review-2024"
+  title: "Machine learning in industrial X-ray computed tomography - a review"
+  year: 2024
+  venue: "CIRP JMST"
+  topics: [survey, other]
+  paper: "https://doi.org/10.1016/j.cirpj.2024.05.004"
+
+- id: "sinogram-interpolation-2024"
+  title: "Machine learning based sinogram interpolation for X-ray computed tomography validated on experimental data"
+  year: 2024
+  venue: "Precis. Eng."
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1016/j.precisioneng.2024.02.020"
+
+- id: "fast-ct-ml-generalization-2025"
+  title: "Investigating the effects of machine learning generalization for enhancing accuracy in fast X-ray computed tomography for industrial metrology"
+  year: 2025
+  venue: "CIRP Annals"
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1016/j.cirp.2025.04.025"
+
+- id: "empirical-interpolation-projections-2023"
+  title: "Fast algorithms based on Empirical Interpolation Methods for selecting best projections in Sparse-View X-ray Computed Tomography using a priori information"
+  year: 2023
+  venue: "NDT&E Int."
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1016/j.ndteint.2022.102768"
+
+- id: "fast-ct-limited-projections-2023"
+  title: "The realisation of fast X-ray computed tomography using a limited number of projection images for dimensional metrology"
+  year: 2023
+  venue: "NDT&E Int."
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1016/j.ndteint.2023.102852"
+
+- id: "moreau-shearlet-tv-2020"
+  title: "Moreau-envelope-enhanced nonlocal shearlet transform and total variation for sparse-view CT reconstruction"
+  year: 2020
+  venue: "Meas. Sci. Technol."
+  topics: [classical, sparse-view]
+  paper: "https://doi.org/10.1088/1361-6501/aba282"
+
+- id: "learning-the-invisible-2019"
+  title: "Learning the invisible: a hybrid deep learning-shearlet framework for limited angle computed tomography"
+  year: 2019
+  venue: "Inverse Problems"
+  topics: [limited-angle, unrolling]
+  paper: "https://doi.org/10.1088/1361-6420/ab10ca"
+
+- id: "autodiff-ct-workflows-2024"
+  title: "How auto-differentiation can improve CT workflows: classical algorithms in a modern framework"
+  year: 2024
+  venue: "Opt. Express"
+  topics: [classical, other]
+  paper: "https://doi.org/10.1364/oe.502920"
+
+- id: "sparse-view-laminography-2014"
+  title: "Sparse-view computed laminography with a spherical sinusoidal scan for nondestructive testing"
+  year: 2014
+  venue: "Opt. Express"
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1364/oe.22.017745"
+
+- id: "steerable-conditional-diffusion-2025"
+  title: "Steerable Conditional Diffusion for Out-of-Distribution Adaptation in Medical Image Reconstruction"
+  year: 2025
+  venue: "TMI"
+  topics: [diffusion, sparse-view]
+  paper: "https://doi.org/10.1109/tmi.2024.3524797"
+
+- id: "cascaded-diffusion-discrepancy-2025"
+  title: "Mitigating Data Consistency Induced Discrepancy in Cascaded Diffusion Models for Sparse-View CT Reconstruction"
+  year: 2025
+  venue: "TMI"
+  topics: [diffusion, sparse-view]
+  paper: "https://doi.org/10.1109/tmi.2025.3557243"
+
+- id: "unsupervised-idbp-svct-2025"
+  title: "An unsupervised sparse-view CT reconstruction framework using combination of iterative deep image prior and ADMM"
+  year: 2025
+  venue: "Med Phys"
+  topics: [self-supervised, sparse-view]
+  paper: "https://doi.org/10.1002/mp.17933"
+
+- id: "mdst-2023"
+  abbr: "MDST"
+  title: "MDST: Multi-domain sparse-view CT reconstruction based on convolution and Swin Transformer"
+  year: 2023
+  venue: "PMB"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1088/1361-6560/acc2ab"
+
+- id: "dudodr-net-2022"
+  abbr: "DuDoDR-Net"
+  title: "DuDoDR-Net: Dual-domain data consistent recurrent network for simultaneous sparse view and metal artifact reduction in computed tomography"
+  year: 2022
+  venue: "Med Image Anal"
+  topics: [sparse-view, metal-artifact]
+  paper: "https://doi.org/10.1016/j.media.2021.102289"
+
+- id: "learn-plus-plus-2023"
+  abbr: "LEARN++"
+  title: "LEARN++: Recurrent Dual-Domain Reconstruction Network for Compressed Sensing CT"
+  year: 2023
+  venue: "TRPMS"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1109/trpms.2022.3222213"
+
+- id: "xgenrecon-2025"
+  abbr: "XGenRecon"
+  title: "XGenRecon: A New Perspective in Ultrasparse Volumetric CBCT Reconstruction Through Geometry-Controlled X-Ray Projection Generation"
+  year: 2025
+  venue: "TRPMS"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1109/trpms.2024.3420742"
+
+- id: "rbp-dip-2024"
+  abbr: "RBP-DIP"
+  title: "RBP-DIP: Residual back projection with deep image prior for ill-posed CT reconstruction"
+  year: 2024
+  venue: "Neural Netw."
+  topics: [self-supervised, sparse-view]
+  paper: "https://doi.org/10.1016/j.neunet.2024.106740"
+
+- id: "swap-net-2025"
+  abbr: "Swap-Net"
+  title: "Swap-Net: A Memory-Efficient 2.5D Network for Sparse-View 3D Cone Beam CT Reconstruction to ICF Applications"
+  year: 2025
+  venue: "TCI"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1109/tci.2025.3572699"
+
+- id: "sv-cbct-data-consistent-2023"
+  title: "Sparse-View Cone Beam CT Reconstruction Using Data-Consistent Supervised and Adversarial Learning From Scarce Training Data"
+  year: 2023
+  venue: "TCI"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1109/TCI.2022.3225680"
+
+- id: "dip-warm-start-2022"
+  title: "An Educated Warm Start for Deep Image Prior-Based Micro CT Reconstruction"
+  year: 2022
+  venue: "TCI"
+  topics: [self-supervised, sparse-view]
+  paper: "https://doi.org/10.1109/tci.2022.3233188"
+
+- id: "multi-scale-learned-iterative-2020"
+  title: "Multi-Scale Learned Iterative Reconstruction"
+  year: 2020
+  venue: "TCI"
+  topics: [unrolling, sparse-view]
+  paper: "https://doi.org/10.1109/TCI.2020.2990299"
+
+- id: "sire-net-2025"
+  abbr: "SIRE-Net"
+  title: "SIRE-Net: Structure-Integrated Refinement and Enhancement Network for Limited-Angle CT Reconstruction"
+  year: 2025
+  venue: "TIM"
+  topics: [limited-angle]
+  paper: "https://doi.org/10.1109/tim.2025.3568935"
+
+- id: "two-view-industrial-diffusion-2024"
+  title: "Two-View Industrial CT Reconstruction Based on a Multiscale Conditional Latent Diffusion Network"
+  year: 2024
+  venue: "TIM"
+  topics: [sparse-view, diffusion, other]
+  paper: "https://doi.org/10.1109/TIM.2024.3476543"
+
