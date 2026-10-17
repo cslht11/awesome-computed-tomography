@@ -1,0 +1,342 @@
+linct-tv-admm: >-
+  For linear-scan CT with limited-angle, insufficient data, this method reformulates TV minimization as a separable equality-constrained problem and solves it with the alternating direction method, showing robust, efficient reconstruction that outperforms some previous methods on simulations and real data.
+
+lingo: >-
+  In this paper, we propose a unified Latent Initialization and Gradient Optimization (LINGO) framework to address these issues. To evaluate the quality of initialization, we introduce the Initialization Point Cloud Structural Deviation (IPSD) metric.
+
+live: >-
+  Currently, no 3D or 4D volumetric x-ray imaging techniques are available for intrafraction verification of target position during actual treatment delivery or in-between treatment beams, which is critical for stereotactic radiosurgery (SRS) and stereotactic body radiation therapy (SBRT) treatments.
+
+lmfi: >-
+  LMFI reframes sparse-view CT as Fourier-domain interpolation, learning a multi-scale network to predict Cartesian 2D Fourier coefficients directly from available polar-coordinate coefficients, reaching state-of-the-art accuracy with higher efficiency.
+
+lodopab-ct: >-
+  Deep learning approaches for tomographic image reconstruction have become very effective and have been demonstrated to be competitive in the field. Comparing these approaches is a challenging task as they rely to a great extent on the data and setup used for training.
+
+low-dose-ct-using-denoising-diffusion-probabilistic-model-: >-
+  In this paper, to improve the LDCT denoising performance, we introduce the conditional denoising diffusion probabilistic model (DDPM) and show encouraging results with a high computational efficiency.
+
+low-level-dataset-distillation: >-
+  Medical image enhancement is clinically valuable, but existing methods require large-scale datasets to learn complex pixel-level mappings. To address this, we propose the first low-level DD method for medical image enhancement. Notably, downstream users cannot access raw patient data.
+
+lowmas-sparseview: >-
+  Low-dose CT can combine low-mAs acquisition with sparse-view sampling, but the resulting sinograms are noisy and incomplete. This paper proposes ASR-TV-POCS, a two-step strategy pairing adaptive sinogram restoration with total-variation POCS, improving noise reduction, contrast-to-noise ratio, and edge preservation.
+
+lpd: >-
+  We propose the Learned Primal-Dual algorithm for tomographic reconstruction. The algorithm accounts for a (possibly non-linear) forward operator in a deep neural network by unrolling a proximal primal-dual optimization method, but where the proximal operators have been replaced with convolutional neural networks.
+
+lr-tv-perfusion: >-
+  This paper restores low-dose cerebral perfusion CT by stacking sequential perfusion images into a low-rank matrix and applying non-convex spectral-norm and spatiotemporal total-variation regularization to exploit their similarity redundancy.
+
+lrtp: >-
+  This paper combines a low-rank representation of inter-channel correlations with a region-specific texture-preserving Markov random field in a unified Bayesian framework for photon-counting spectral CT, preserving texture while suppressing noise in each energy channel.
+
+lucid-learned-undersampling-adaptive-consistency-guided-infe: >-
+  We propose Lucid, a sparsity-adaptive, consistency-guided reconstruction framework based on a Flow Matching generative prior for sparse-view CT. During inference, the sampling sparsity level is explicitly incorporated to adapt the generative trajectory of a single pretrained model.
+
+magic: >-
+  Low-dose computed tomography (LDCT) scans, which can effectively alleviate the radiation problem, will degrade the imaging quality. In this paper, we propose a novel LDCT reconstruction network that unrolls the iterative scheme and performs in both image and manifold spaces.
+
+maier-2019: >-
+  X-ray scattering leads to CT images with a reduced contrast, inaccurate CT values as well as streak and cupping artifacts. Therefore, we propose the deep scatter estimation (DSE): a deep convolutional neural network to derive highly accurate scatter estimates in real time.
+
+malar: >-
+  MALAR enhances vascular intensity in ultra-low-dose-contrast CT angiography with a multiple adversarial learning framework: bilateral domain mapping, a dual correlation constraint, and an adaptive fusion module that suppresses high-noise metal interference.
+
+map-nn: >-
+  MAP-NN is a modularized neural network for low-dose CT that maps end-to-process rather than end-to-end, letting radiologists tune denoising depth per task; it matches commercial iterative reconstruction from three leading CT vendors.
+
+mar-4dec: >-
+  This review surveys nearly 40 years of metal artifact reduction in CT, from the physics of beam hardening, scatter, noise, and partial-volume effects to six classes of correction methods, and argues the future lies in combining improved acquisition with advanced reconstruction.
+
+mccollough-2015: >-
+  This review explains the physical principles of dual- and multi-energy CT, where a second X-ray spectrum enables differentiation of materials that share identical CT numbers. It surveys the technical approaches, including photon-counting detectors, and current and evolving clinical applications.
+
+mdst-2023: >-
+  Sparse-view computed tomography (SVCT), which can reduce the radiation doses administered to patients and hasten data acquisition, has become an area of particular interest to researchers. Most existing deep learning-based image reconstruction methods are based on convolutional neural networks (CNNs). Approach.
+
+medgmae: >-
+  MedGMAE replaces voxel reconstruction in masked autoencoders with 3D Gaussian primitive prediction, learning to predict full Gaussian parameter sets from sparse visible patches and outperforming MAE baselines on downstream medical tasks.
+
+metainv-net: >-
+  X-ray Computed Tomography (CT) is widely used in clinical applications such as diagnosis and image-guided interventions. In this paper, we propose a new deep learning based model for CT image reconstruction with the backbone network architecture built by unrolling an iterative algorithm.
+
+mgmar-metal-guided-metal-artifact-reduction-for-x-ray-comput: >-
+  We propose MGMAR, a metal-guided MAR method that explicitly leverages metal-related information throughout the reconstruction pipeline. This prior-embedded initialization reduces sensitivity to random initialization and accelerates convergence during measurement-specific refinement.
+
+mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-: >-
+  We present MInDI-3D (Medical Inversion by Direct Iteration in 3D), the first 3D conditional diffusion-based model for real-world sparse-view Cone Beam Computed Tomography (CBCT) artefact removal, aiming to reduce imaging radiation exposure.
+
+ml-industrial-ct-review-2024: >-
+  This review surveys machine and deep learning across the entire industrial X-ray CT workflow, from reconstruction to segmentation and feature characterization, and flags uncertainty quantification and explainability as keys to wider adoption.
+
+mlem-1982: >-
+  This paper gives an accurate Poisson statistical model for emission tomography and derives the EM algorithm that maximizes the likelihood of the observed detector counts, yielding an iterative maximum-likelihood reconstruction.
+
+momentum-net: >-
+  This paper proposes the first fast and convergent INN architecture, Momentum-Net, by generalizing a block-wise MBIR algorithm that uses momentum and majorizers with regression NNs.
+
+monstr-model-oriented-neutron-strain-tomographic-reconstruct: >-
+  In this paper, we introduce the model-oriented neutron strain tomographic reconstruction (MONSTR) algorithm that reconstructs the 2D residual strain tensor from the neutron Bragg edge strain measurements.
+
+moreau-shearlet-tv-2020: >-
+  Iterative computed tomography (CT) image reconstruction with sparse regularization can substantially reduce the amount of projection data. This is because employing local prior information, it is difficult to distinguish structural details from noise.
+
+motion-grad: >-
+  This paper introduces a novel approach to CBCT motion estimation using a gradient-based optimization algorithm, which leverages generalized derivatives of the backprojection operator for cone-beam CT geometries.
+
+multi-scale-learned-iterative-2020: >-
+  Model-based learned iterative reconstruction methods have recently been shown to outperform classical reconstruction algorithms. As a possible solution to these restrictions we propose a multi-scale learned iterative reconstruction scheme that computes iterates on discretisations of increasing resolution.
+
+mw-cnn: >-
+  MWCNN reconstructs sparse-view CT with a multi-level wavelet convolutional neural network applied to FBP reconstructions from 60, 120, and 180 projections, combining wavelet multi-scale analysis with deep learning.
+
+n2s: >-
+  We demonstrate that our method outperforms both conventional and compressed sensing based iterative reconstruction methods qualitatively and quantitatively in the reconstruction of analytic CT phantoms and real-world CT images in low-dose CT reconstruction task.
+
+nab: >-
+  Motivated by the observation that numerous industrial objects exhibit rectangular structures, we propose a novel Neural Adaptive Binning (NAB) method that effectively integrates rectangular priors into the reconstruction process. Specifically, our approach first maps coordinate space into a binned vector space.
+
+naf: >-
+  This paper proposes a novel and fast self-supervised solution for sparse-view CBCT reconstruction (Cone Beam Computed Tomography) that requires no external training data. We synthesize projections discretely and train the network by minimizing the error between real and synthesized projections.
+
+ndi-tv: >-
+  PWLS-ndiTV reconstructs sparse-view CT with a normal-dose-image-induced total variation prior, using a normal-dose image induced non-local means filter to reduce the influence of misalignment between the desired and prior images.
+
+neural-discrete-representation-learning-for-sparse-view-cbct: >-
+  Here, we propose DeepPriorCBCT - a three-stage deep learning framework that achieves diagnostic-grade reconstruction using only one-sixth of the conventional radiation dose. 4102 patients with 8675 CBCT scans from 12 centers were included to develop and validate DeepPriorCBCT.
+
+neural-field-denoising-2024: >-
+  This method conditions neural fields for 3D sparse-view CT with Regularization by Denoising, decoupling the denoiser from neural-field optimization to save memory, applying to any CT geometry including cone-beam, and matching or beating state-of-the-art quality with the lowest memory use.
+
+neuromorphic-xray-ct: >-
+  To bridge this gap, we introduce a Neuromorphic X-ray CT framework. Specifically, we propose an Event-enhanced Neural Attenuation Field (ENAF) that models the volumetric attenuation field by jointly leveraging sparse projections and event streams.
+
+ngps: >-
+  We propose Neighbor-Guided Patch Sampling (NGPS), a lightweight framework that constructs neighboring supervision under local inter-slice misalignment without explicit registration. Across the evaluated CT and synthetic-Rician MRI settings, NGPS improves fidelity and structure-sensitive metrics.
+
+nlctf: >-
+  Spectral computed tomography (CT) reconstructs material-dependent attenuation images with the projections of multiple narrow energy windows, it is meaningful for material identification and decomposition. The method constructs such a group by clustering up a series of non-local spatial-spectrum cubes.
+
+nlm-review: >-
+  Low-dose X-ray computed tomography ( LDCT ) imaging is highly recommended for use in the clinic because of growing concerns over excessive radiation exposure. It has since been adapted and applied to many other image types and various inverse problems.
+
+noise-inspired-diffusion-model-for-generalizable-low-dose-ct: >-
+  In this paper, we propose a noise-inspired diffusion model for generalizable LDCT reconstruction, termed NEED, which tailors diffusion models for noise characteristics of each domain. Source code is made available at https://github.com/qgao21/NEED.
+
+noise2match: >-
+  We propose Noise2Match, a self-supervised low-dose CT denoising method based on adaptive inter-slice matching. An inter-slice matching network models the label transition between adjacent slices and corrects the denoiser's outputs to satisfy the Noise2Noise equal-mean condition, and the method works for low-dose CBCT.
+
+non-circular-scan-trajectories-for-reducing-cone-beam-artifa: >-
+  Gamma Knife cone-beam computed tomography (CBCT) images are deteriorated by cone-beam artifacts whose magnitude increases along the superior direction. Approach. Main results. A line-arc-line trajectory with source axial steps of 3.5 mm removes virtually all cone-beam artifacts. Significance.
+
+nonperiodic-dynamic-ct-reconstruction-using-backward-warping: >-
+  Dynamic computed tomography (CT) reconstruction faces significant challenges in addressing motion artifacts, particularly for nonperiodic rapid movements such as cardiac imaging with fast heart rates. This paper presents a novel INR-based framework, BIRD, for nonperiodic dynamic CT reconstruction.
+
+offset-cbct: >-
+  Offsetting the CBCT detector enlarges the field of view, but analytic algorithms are unlikely to reconstruct accurate images from sparse-view data. This paper studies optimization-based algorithms, including adaptive-steepest-descent weighted POCS, which may yield useful images from fewer projections and reduce dose.
+
+openpros: >-
+  We introduce OPENPROS, the first large-scale benchmark dataset for limited-angle prostate USCT, designed to systematically evaluate machine learning methods for quantitative inverse problems.
+
+ordered-subsets-multi-diffusion-model-for-sparse-view-ct-rec: >-
+  Score-based diffusion models have shown significant promise in the field of sparse-view CT reconstruction. However, the projection dataset is large and riddled with redundancy. To address these issues, we propose the ordered-subsets multi-diffusion model (OSMM) for sparse-view CT reconstruction.
+
+ox-nerf: >-
+  To address this problem we present a new framework, Optimised X-ray Neural Radiance Fields (OX-NeRF), that combines cross-scene feature learning with scene-specific optimisation to reconstruct sets of related scenes.
+
+pbac: >-
+  Image quality in computed tomography (CT) often suffers from artifacts which may reduce the diagnostic value of the image. In many cases, these artifacts result from missing or corrupt regions in the projection data, e.g., in the case of metal, truncation, and limited angle artifacts.
+
+pde: >-
+  This paper proposes a regional adaptive variational PDE model for CT reconstruction that combines L2 gradient energy with total variation, using a threshold function to apply L2 in low-density regions and TV where features must be preserved.
+
+pdf: >-
+  The parameter-dependent framework PDF trains one reconstruction network on data from multiple geometries and dose levels, feeding geometry and dose parameters into multilayer perceptrons that modulate the network feature maps, matching geometry-specific networks while saving training cost.
+
+photon-pile-up-normalizing-flow: >-
+  We present a machine learning solution to this problem, using a simulation-based inference framework that allows us to estimate posterior distributions of physical source parameters from piled-up eROSITA data.
+
+phydict: >-
+  We propose PhyDiCT, a training-free framework that integrates a differentiable Physics-based forward model, grounded in the Beer-Lambert law, with a text-conditioned Diffusion as a strong prior to reconstruct 3D lung CT images.
+
+physics-inspired-gaussian-kolmogorov-arnold-networks-for-x-r: >-
+  Cone-beam CT (CBCT) employs a flat-panel detector to achieve three-dimensional imaging with high spatial resolution. To address this issue, we propose a deep learning-based scatter artifact correction method inspired by physical prior knowledge.
+
+piccs: >-
+  PICCS reconstructs dynamic CT image sequences from highly undersampled data by constraining compressed-sensing reconstruction of each time frame with a prior image built from the union of interleaved dynamic datasets, reaching an undersampling factor of 32 in vivo.
+
+piner: >-
+  PINER adapts black-box deep sparse-view CT models at test time without source data, using prior-informed implicit neural representations to build adapted inputs under unknown noise levels, and outperforms state-of-the-art methods across anatomical sites and black-box models.
+
+pixel-wise-metrics-reliability: >-
+  To address this limitation, we propose a suite of novel anatomy-aware evaluation metrics designed to assess structural completeness across anatomical structures, including large organs, small organs, intestines, and vessels.
+
+planet: >-
+  Sparse-view CT methods focus on network design but overlook which projection views to acquire. This paper proposes PLANet, which learns the importance of different view angles through reconstruction training and selects the most informative views, improving reconstruction quality in a unified deep-learning framework.
+
+pnp-proximal-trajectory-2024: >-
+  This chapter replaces the Gaussian denoiser in plug-and-play reconstruction with an artifact-specific restoration network trained along a predefined optimization trajectory, beating state-of-the-art PSNR on two 3D cone-beam CT datasets.
+
+polyner: >-
+  In this work, we present a novel Polychromatic neural representation (Polyner) to tackle the challenging problem of CT imaging when metallic implants exist within the human body. Polyner instead models the MAR problem from a nonlinear inverse problem perspective.
+
+prior-adapted-progressive-time-resolved-cbct-reconstruction-: >-
+  Cone-beam CT (CBCT) provides on-board volumetric anatomy for image guidance and treatment adaptation in radiotherapy. Via DREME-adapt, a virtual fraction is generated from a pre-treatment 4D-CT set of each patient for a clean, 'cold-start' reconstruction.
+
+projection-embedded-diffusion-bridge-for-ct-reconstruction-f: >-
+  Reconstructing CT images from incomplete projection data remains challenging due to the ill-posed nature of the problem. In this work, we propose the Projection Embedded Diffusion Bridge (PEDB). In addition, we introduce a free parameter to control the level of stochasticity in the reverse process.
+
+projection-volume-fidelity-divergence-diagnosing-and-control: >-
+  To characterize this behavior, we introduce geometry- and volume-level diagnostics that measure needle-like Gaussian degeneration and the stability of the voxelized density field. Based on these observations, we propose LADES, a ground-truth-free optimization controller for sparse-view Gaussian tomography.
+
+psrv: >-
+  This paper shows a deep-learning model trained to map a patient's projection radiograph to 3D anatomy can generate volumetric CT images from a single projection view, with potential use in image-guided interventions.
+
+ptpn: >-
+  A number of image-processing problems can be formulated as optimization problems. Aiming at solving this problem, this paper proposes an approach that employs deep reinforcement learning to train a system that can automatically adjust parameters in a human-like manner.
+
+r2-gaussian: >-
+  This paper introduces R$^2$-Gaussian, the first 3DGS-based framework for sparse-view tomographic reconstruction. To address this issue, we propose a novel rectification technique via refactoring the projection from 3D to 2D Gaussians.
+
+rad: >-
+  This paper derives quantitative measures of the bias in prior-image-based CT reconstruction and an analytical relationship between that bias and the prior regularization strength, enabling prospective selection of the strength to admit specific anatomical changes.
+
+radioactive-3d-gaussian-ray-tracing-for-tomographic-reconstr: >-
+  3D Gaussian Splatting (3DGS) has recently emerged in computer vision as a promising rendering technique. To address these limitations, we propose a tomographic reconstruction framework based on 3D Gaussian ray tracing.
+
+radon-1917: >-
+  This 1917 paper defines the line-integral transform: it asks whether a function can be uniquely recovered from its integrals along lines, and gives the inversion for the two-dimensional case with generalizations.
+
+radon-transforms-aleksandrov-fenchel: >-
+  We study Radon transforms on Grassmannians as geometric operators on convex bodies, relating Minkowski's projection body maps to Goodey-Weil mean section body maps. We prove new Aleksandrov-Fenchel inequalities for averages of mixed volumes, showing all intrinsic volumes of mean section bodies are log-concave.
+
+ram: >-
+  In this work, we propose a novel non-iterative, lightweight architecture that incorporates knowledge about the forward operator (acquisition physics and noise parameters) without relying on unrolling.
+
+ramachandran-lakshminarayanan-1971: >-
+  A new technique is proposed for the mathematical process of reconstruction of a three-dimensional object from its transmission shadowgraphs; it uses convolutions with functions defined in the real space of the object, without using Fourier transforms.
+
+ratv: >-
+  This reweighted anisotropic TV method tackles limited-angle CT by approximating the l0 sparsity measure better than l1 and assigning direction-dependent weights from the angular coverage, preventing blurred directions from harming edge detection and beating existing TV-based methods.
+
+rbp-dip-2024: >-
+  RBP-DIP improves deep image prior for highly ill-posed CT reconstruction by adding a residual back-projection connection to an untrained U-Net, strengthening regularization as the network weights are optimized each iteration.
+
+red-cnn: >-
+  Low-dose CT methods working on reconstructed images struggle to remove noise while preserving structure. This paper proposes RED-CNN, a residual encoder-decoder network combining autoencoder, deconvolution, and shortcut connections, competitive in noise suppression, structural preservation, and lesion detection.
+
+redaep: >-
+  REDAEP improves sparse-view CT reconstruction with a denoising autoencoding prior that uses variable augmentation to learn a higher-dimensional three-channel network and a robust Lp regression loss to preserve texture detail, achieving better performance than state-of-the-art methods.
+
+remar-ds-recalibrated-feature-learning-for-metal-artifact-re: >-
+  We propose a deep learning framework for metal artifact reduction (MAR) and domain transformation from kVCT to Mega-Voltage CT (MVCT). Unlike traditional MAR methods, our approach bridges the gap between high-resolution kVCT and artifact-resistant MVCT, enhancing radiotherapy planning.
+
+resolution-agnostic-neural-operators-for-multi-rate-sparse-v: >-
+  Sparse-view Computed Tomography (CT) reconstructs images from a limited number of X-ray projections to reduce radiation and scanning time, which is an ill-posed inverse problem. We propose Computed Tomography neural Operator (CTO), the first neural operator (NO) framework for CT reconstruction.
+
+revisiting-pose-sensitivity-in-splat-based-computed-tomograp: >-
+  X-ray computed tomography (CT) reconstructs volumetric representations of objects from projection images obtained by transmitting X-rays through a target. Through detailed analysis, we show that these artifacts primarily originate from pose inaccuracies in the acquisition geometry rather than from view sparsity itself.
+
+riner: >-
+  Ring artifacts are prevalent in 3D cone-beam computed tomography (CBCT) due to non-ideal responses of X-ray detectors, substantially affecting image quality and diagnostic reliability. In this work, we propose Riner, a new unsupervised RAR method.
+
+rit-2009: >-
+  Respiratory motion causes artifacts in cone-beam (CB) CT images acquired on slow rotating scanners integrated with linear accelerators. In this article, the authors develop an on-the-fly solution to estimate and compensate for the respiratory motion in the reconstruction of a 3D CBCT image from all the CB projections.
+
+robust-uncertainty-2006: >-
+  For example, we show how one can reconstruct a piecewise constant (one or two-dimensional) object from incomplete frequency samples--provided that the number of jumps (discontinuities) obeys the condition above--by minimizing other convex functionals such as the total-variation of $f$.
+
+robustness-and-stability-analysis-of-differentiable-shift-va: >-
+  In this work, we present a systematic study of the robustness and adaptability of differentiable SV-FBP under challenging acquisition settings. Instead, the spatial distribution of sampling points plays a more dominant role.
+
+roessl-2007: >-
+  This paper investigates K-edge imaging in X-ray CT with energy-sensitive photon-counting detectors, showing that energy-selective photon counting can measure the local density of a gadolinium-based contrast agent and distinguish contrast-filled lumen from plaque.
+
+rof-tv-1992: >-
+  The Rudin-Osher-Fatemi model removes image noise by minimizing total variation subject to noise-statistics constraints imposed via Lagrange multipliers, solved with a gradient-projection method that preserves sharp edges.
+
+sacnn: >-
+  SACNN denoises low-dose CT with a 3D self-attention CNN that captures long-range spatial context within and between slices, plus a self-supervised autoencoder perceptual loss, matching or beating state-of-the-art methods on the AAPM-Mayo low-dose CT data.
+
+sagan: >-
+  Low Dose Computed Tomography (LDCT) has offered tremendous benefits in radiation restricted applications, but the quantum noise as resulted by the insufficient number of photons could potentially harm the diagnostic performance. In this paper, a deep learning based approach was proposed to mitigate this problem.
+
+sart-1984: >-
+  SART improves the algebraic reconstruction technique by applying ART error-correction terms simultaneously for all rays in a projection, with longitudinal weighting and bilinear elements, yielding a good reconstruction in a single iteration.
+
+sax-nerf: >-
+  In this paper, we propose a framework, Structure-Aware X-ray Neural Radiodensity Fields (SAX-NeRF), for sparse-view X-ray 3D reconstruction. Firstly, we design a Line Segment-based Transformer (Lineformer) as the backbone of SAX-NeRF.
+
+scatter-dl: >-
+  This chapter reviews how X-ray scatter degrades cone-beam CT contrast, sharpness, noise, and background homogeneity, and surveys deep-learning scatter-correction methods and their clinical applications.
+
+scatter-rev: >-
+  Since scattered radiation in cone-beam volume CT implies severe degradation of CT images by quantification errors, artifacts, and noise increase, scatter suppression is one of the main issues related to image quality in CBCT imaging. Therefore additional references are included when ever it seems pertinent.
+
+scatter-rev-p2: >-
+  The main components of scatter correction procedures are scatter estimation and a scatter compensation algorithm. This paper completes a previous paper where a general framework for scatter compensation was presented under the prerequisite that a scatter estimation method is already available.
+
+schlomka-2008: >-
+  K-edge CT with energy-discriminating detectors promises material-specific imaging with high-Z contrast agents. This paper demonstrates quantitative K-edge imaging, separating iodine and gadolinium contrast agents from anatomical background with measured concentrations matching ground truth.
+
+sdb: >-
+  We introduce System embedded Diffusion Bridge Models (SDBs), a new class of supervised bridge methods that explicitly embed the known linear measurement system into the coefficients of a matrix-valued SDE.
+
+semantic-contrastive-learning-for-orthogonal-x-ray-computed-: >-
+  To address these challenges, we propose a novel semantic feature contrastive learning loss function that evaluates semantic similarity in high-level latent spaces and anatomical similarity in shallow latent spaces.
+
+semimar: >-
+  SemiMAR is a semi-supervised metal artifact reduction framework that learns only artifact-free parts with a single generator and infers artifacts by subtraction, distilling dual-domain knowledge with a contrastive-learning latent constraint to rival state-of-the-art semi-supervised MAR methods.
+
+senp: >-
+  Computed tomography (CT) is one of the most used imaging modalities for imaging both symptomatic and asymptomatic patients. The purpose of this paper is to improve the image quality of quarter dose images and to select the best hyperparameters using the regular dose image as ground truth.
+
+shape-guided-gaussian-splatting-for-sparse-view-x-ray-3d-rec: >-
+  This paper proposes a shape-guided Gaussian splatting framework for sparse-view X-ray 3D reconstructions. Our method ensures anatomically consistent reconstruction and improves PSNR by 2.83 dB over a state-of-the-art Gaussian splatting baseline with as few as 5 views.
+
+shearlet: >-
+  This paper applies shearlet-based regularization to iterative CT reconstruction, showing that the shearlet transform directional sensitivity preserves image texture better than total variation, which suffers from staircasing, though careless use can cause wavy artifacts.
+
+shepp-logan-1974: >-
+  This classic paper presents Fourier reconstruction of a head section, where a modified weighting function achieves accuracy, simplicity, low computation time, and low noise sensitivity, beating an iterative search algorithm that needed 12 iterations and was more noise-sensitive.
+
+sidky-pan-tv-2008: >-
+  This paper develops ASD-POCS, an iterative algorithm that minimizes total variation subject to data-consistency and non-negativity constraints, for circular cone-beam CT. It appears robust against cone-beam artifacts and is particularly useful when the angular range is limited or sampling is sparse.
+
+siewerdsen-2001: >-
+  This paper quantifies x-ray scatter in flat-panel cone-beam CT in terms of scatter-to-primary ratio as a function of object size and cone angle, showing that scatter degrades contrast-to-noise ratio and that the loss can be restored by increasing dose, slice thickness, or both.
+
+sinogram-interpolation-2024: >-
+  This paper proposes a deep-learning sinogram interpolation method that resamples acquired data into a spinogram representation to predict missing projections, validated on real XCT scans of five laser-sintered objects.
+
+sinonet: >-
+  Un-SinoNet recovers low-dose CT sinograms without paired training data, learning the gradient of low-dose sinograms in a purely unsupervised way under a maximum a posteriori framework driven by the noise-generating mechanism of CT measurement.
+
+sire-net-2025: >-
+  SIRE-Net reconstructs limited-angle CT of plate-type batteries with a generator combining a structure-preserving artifact-removal network and an attention-based contextual enhancement network, plus a WGAN-GP discriminator, reducing edge artifacts and preserving structure and detail on a real battery dataset.
+
+sister: >-
+  Multi-energy CT images suffer from severe noise. This paper proposes SISTER, which clusters similar spatial-spectral patches into fourth-order tensor groups and applies tensor decomposition with enhanced sparsity, improving edge preservation, feature recovery, and noise suppression over tensor dictionary learning.
+
+sisvm: >-
+  iCT-Net is a deep network with a common architecture trained to reconstruct CT images accurately from sinogram data under a variety of acquisition conditions, including entangled sparse-view and interior tomography problems.
+
+snaf: >-
+  In this paper, we propose SNAF for sparse-view CBCT reconstruction by learning the neural attenuation fields, where we have invented a novel view augmentation strategy to overcome the challenges introduced by insufficient data from sparse input views.
+
+sonke-2005: >-
+  A cone beam computed tomography (CBCT) scanner integrated with a linear accelerator is a powerful tool for image guided radiotherapy. We have developed an alternative respiratory correlated procedure for CBCT and evaluated its performance.
+
+soul-net: >-
+  To relieve these problems, in this paper, we propose a Sparse and lOw-rank UnroLling Network for spectral CT image reconstruction (SOUL-Net), that learns the parameters and thresholds in a data-driven manner.
+
+spare: >-
+  Currently, four-dimensional (4D) cone-beam computed tomography (CBCT) requires a 3-4 min full-fan scan to ensure usable image quality. Recent advancements in sparse-view 4D-CBCT reconstruction have opened the possibility to reduce scan time and dose. A total of 32 CBCT scans of nine patients were generated.
+
+sparse-sampling: >-
+  Various scanning methods and image reconstruction algorithms are actively investigated for low-dose computed tomography (CT) that can potentially reduce a health-risk related to radiation dose. The authors present five different sparse sampling schemes, and simulated those schemes to achieve a targeted dose reduction.
+
+sparse-tomography: >-
+  A wavelet-based sparsity-promoting reconstruction method is studied in the context of tomography with severely limited projection data. Such imaging problems are ill-posed inverse problems, or very sensitive to measurement and modeling errors.
+
