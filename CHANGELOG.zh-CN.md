@@ -6,6 +6,33 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-18 — 苹果、黏土与珊瑚数据集及 PFITRE 的中文说明
+<!-- en: Chinese notes for the Apple / Play-Doh / coral datasets and PFITRE -->
+
+### 修复
+
+- `2f27bbb` 新增的三个数据集与一个工具包（Apple CT 仿真数据、Play-Doh 黏土加石子、深海竹珊瑚、PFITRE）只带英文说明，中文站因此整段显示英文——构建报告 `4 of 173 table notes still fall back to English`。现在四条都有中文说明，计数回到 `0 of 173`。
+
+## 2026-10-17 — 35 个新数据集的中文说明
+<!-- en: Chinese notes for the 35 new datasets -->
+
+### 修复
+
+- 2026-10-16 新增的 35 条数据集（26 条来自 Zenodo，9 条来自 FIPS）只带英文说明，中文站会整段回落英文——构建报告 `35 of 169 table notes still fall back to English`。现在 35 条都有中文说明，计数回到 `0 of 169`；中文数据集列表恢复为全中文。
+
+## 2026-10-16 — 作者规则纳入 CI 强制
+<!-- en: The authorship rule is enforced in CI -->
+
+### 新增
+
+- **当推送范围内的提交被归属到 cslht11 之外的账号时，`validate` 会失败。** GitHub 按提交上的邮箱归属作者，而贡献者图只统计默认分支——因此一笔带着他人账号地址的提交会永久变成第二个“作者”，这也是本仓库不得不在 2026-10-12 重建的原因。
+- `hooks/pre-push` 已在本地执行同一规则，且刻意检查提交本身而非 `user.email`。但 `hooks/` 里的钩子要等有人运行 `scripts/install-hooks.sh` 才会启用，所以**全新克隆一开始完全没有闸门**——2026-10-15 那批带个人邮箱的提交就是这样进到 `main` 的。放到 CI 里堵上了这个缺口：它无法被跳过，而且会在运行记录里留痕。
+- `actions/checkout` 现在使用 `fetch-depth: 0`，以便检查推送范围而不只是末端提交。
+
+### 修复
+
+- 检查接受**两个**地址而非一个：`cslht11@users.noreply.github.com`（本地提交）与 `heitieya@163.com`（通过 GitHub Contents API 的提交，即连接器推送；GitHub 用账号主邮箱署名，且该端点没有作者参数，地址并非调用方可选）。第一版只钉住 noreply 地址，会把所有连接器推送判为失败、却仍放行本地提交。规则是“作者为 cslht11”，不是“某个精确字符串”；`MAINTENANCE.md` 现在用表格写明这一点以及两个地址各自合法的原因。
+
 ## 2026-10-16 — 首页链接到数据集、基准和指南页面
 <!-- en: Homepage links to the dataset, benchmark and guide pages -->
 
