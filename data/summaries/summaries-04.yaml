@@ -441,3 +441,11 @@ proct: >-
   Proposes ProCT, a prompted contextual transformer for universal incomplete-view CT reconstruction: view-aware prompting lets a single model handle diverse sparse-view and limited-angle settings, and artifact-aware contextual learning senses artifact patterns from in-context pairs.
 wcdps: >-
   Proposes wavelet-consistent diffusion posterior sampling for limited-angle and sparse-view CT: it enforces wavelet-domain consistency during diffusion sampling to reconstruct from incomplete measurements with sharp detail.
+cyclegan: >-
+  Introduces CycleGAN for unpaired image-to-image translation: two adversarial mappings G: X to Y and F: Y to X coupled by a cycle-consistency loss, learning domain translation without paired examples. The framework became foundational for unpaired low-dose CT denoising and cross-domain artifact reduction.
+msdnet: >-
+  Proposes the mixed-scale dense (MS-D) convolutional network: dilated convolutions capture multi-scale features with dense connections across all layers, using far fewer parameters than U-Net and learning from very small training sets. Widely adopted as a compact backbone for low-dose CT denoising.
+noise2noise: >-
+  Shows neural networks can learn image restoration from corrupted observations alone: training on pairs of independently noisy images reaches clean-target performance without clean data or explicit noise models. The principle underlies self-supervised CT approaches such as Noise2Inverse.
+deep-admm-net: >-
+  Unfolds the ADMM iterative solver for compressive sensing into a learnable deep architecture: each network stage mirrors one ADMM iteration, with transforms, shrinkage functions and penalty parameters trained end-to-end. A pioneering deep-unfolding design later adapted to CT reconstruction.

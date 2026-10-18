@@ -1210,3 +1210,39 @@
   topics: [limited-angle, sparse-view, diffusion]
   paper: "https://doi.org/10.1109/ICASSP55912.2026.11463988"
   note: "Wavelet-consistent diffusion posterior sampling for limited-angle and sparse-view CT."
+
+- id: "cyclegan"
+  abbr: "CycleGAN"
+  title: "Unpaired Image-to-Image Translation Using Cycle-Consistent Adversarial Networks"
+  year: 2017
+  venue: "ICCV"
+  topics: [other]
+  paper: "https://doi.org/10.1109/ICCV.2017.244"
+  note: "General unpaired image-to-image translation via cycle-consistent GANs; foundational for unpaired low-dose CT denoising and artifact reduction."
+
+- id: "msdnet"
+  abbr: "MS-DNet"
+  title: "A mixed-scale dense convolutional neural network for image analysis"
+  year: 2018
+  venue: "PNAS"
+  topics: [other]
+  paper: "https://doi.org/10.1073/pnas.1715832114"
+  note: "General mixed-scale dense CNN with dilated convolutions; compact architecture widely used for low-dose CT denoising."
+
+- id: "noise2noise"
+  abbr: "Noise2Noise"
+  title: "Noise2Noise: Learning Image Restoration without Clean Data"
+  year: 2018
+  venue: "ICML"
+  topics: [other]
+  paper: "https://proceedings.mlr.press/v80/lehtinen18a.html"
+  note: "General self-supervised denoising from noisy pairs only; the principle behind Noise2Inverse-style CT training."
+
+- id: "deep-admm-net"
+  abbr: "Deep-ADMM-Net"
+  title: "Deep ADMM-Net for Compressive Sensing MRI"
+  year: 2016
+  venue: "NeurIPS"
+  topics: [other]
+  paper: "https://proceedings.neurips.cc/paper/6406-deep-admm-net-for-compressive-sensing-mri.pdf"
+  note: "General deep unfolding of the ADMM solver; pioneering learned-iteration architecture later adapted to CT reconstruction."
