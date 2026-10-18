@@ -361,6 +361,8 @@ toolkits:
     note: "X 射线截面、源能谱建模、多材料射束硬化校正与双能分解。出自 LEAP 的作者，需要物理上诚实的能谱时，它与仿真器天然配合。"
   "pyHST2":
     note: "ESRF 光束线的重建代码——gridrec、FBP 与迭代方法，带用于传播型相位衬度层析的相位恢复。同步辐射领域长期的主力工具。"
+  "PFITRE":
+    note: "感知融合迭代层析重建引擎——把承载感知知识的 CNN 作为正则项嵌入迭代求解器，用于校正 X 射线纳米层析中的有限角伪影。附演示、数据生成脚本与预训练权重（Google Drive）。出自布鲁克海文国家实验室（NSLS-II），发表于 npj Computational Materials 2025。"
 
 # ------------------------------------------------------------------ 数据集
   "DIRECTT Reconstruction GUI":
@@ -445,6 +447,12 @@ datasets:
     note: "**Projection + image.** 48 组真实采集的珠体体模扫描，图像稀疏程度被系统地拉开梯度，专为稀疏正则化重建的基准评测而发布。灵感来自 SophiaBeads，是在已知真值下横比不同正则项时的参照点。"
   "Walnut-21 (two dose levels)":
     note: "**Projection only.** 21 颗核桃的高分辨率锥束扫描，每颗都以两个辐射剂量水平各采一次——同一物体的一版「干净」与一版「带噪」。这种配对采集正是它的用处：噪声水平可以直接对照已知解剖结构来比较，而不是靠推测。"
+  "Apple CT Data (simulated parallel-beam)":
+    note: "**Projection + image.** 94 个带内部缺陷的苹果，三套仿真平行束数据（无噪、5% 高斯噪声、散射噪声）各 50 个角度，缺陷标注与真值重建分布在六个配套上传中。由真实锥束扫描仿真而来；本上传只含仿真数据。文档见 arXiv:2012.13346。"
+  "Play-Doh + stones (CWI, 131 samples)":
+    note: "**Projection + image.** 131 个黏土样本，每个插入 0–8 颗石子，各 1800 个投影覆盖 360°，另有平场与暗场图像；处理后的真值版本在 Zenodo 5681008。数据分五个 Zenodo 存档发布（此链接为第 1 部分）。专为有监督异物检测而构建。"
+  "Deep-sea bamboo corals (µCT)":
+    note: "**Image only.** 两种深海竹珊瑚（Acanella arbuscula 5 个标本；Keratoisis sp. 4 个标本）的重建 8 位 TIFF 栈，体素 15/50 µm；没有原始投影（只能向作者索取）。共 103.51 GB。文档见 Williams et al., Sci Data 2024。"
 
 # ------------------------------------------------------- 基准与挑战赛
   "FleX-ray Walnut CBCT Collection (CWI)":

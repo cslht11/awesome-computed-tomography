@@ -13,6 +13,16 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-18 — Chinese notes for the Apple / Play-Doh / coral datasets and PFITRE
+
+### Fixed
+
+- The three datasets and one toolkit added in `2f27bbb` (Apple CT simulated,
+  Play-Doh + stones, deep-sea bamboo corals, PFITRE) shipped with English notes
+  only, so the Chinese site rendered them in English — the build reported
+  `4 of 173 table notes still fall back to English`. All four now carry Chinese
+  notes; the count is back to `0 of 173`.
+
 ## 2026-10-17 — Chinese notes for the 35 new datasets
 
 ### Fixed
