@@ -256,7 +256,13 @@
     // NB: not `var t` — that would shadow the t() string helper above, and the
     // first keystroke (which turns `t` into a timer id) would make the next
     // render() throw. Named `timer` so the two can never collide.
-    var timer; box.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(render, 80); });
+    var timer; box.addEventListener("input", function () {
+      clearTimeout(timer);
+      // Clearing the box also clears the committed filter (otherwise the
+      // old query keeps filtering the list with a stale ?q= in the URL).
+      if (!box.value.trim()) { q.value = ""; q.dispatchEvent(new Event("input")); tag.hidden = true; res.hidden = true; return; }
+      timer = setTimeout(render, 80);
+    });
     box.addEventListener("focus", function () { if (box.value.trim()) render(); });
     box.addEventListener("blur", function () { setTimeout(function () { res.hidden = true; }, 150); });
     box.addEventListener("keydown", function (e) {
