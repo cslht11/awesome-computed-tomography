@@ -418,3 +418,26 @@ tpaw-adaptive-tv-laminography: >-
 x-field: >-
   Proposes X-Field, the first 3D representation designed for X-ray imaging: 3D ellipsoids with distinct attenuation coefficients model each material's energy absorption via an efficient path-partitioning algorithm, plus hybrid progressive initialization and material-based optimization refining boundary geometry.
 
+
+dpka: >-
+  Proposes DPKA, a dual-domain deep prior framework for sparse-view CT reconstruction: it enforces projection-data constraints often neglected by CNN-only methods and fuses multi-scale features with attention, improving reconstruction quality under severe view undersampling.
+dudoswin: >-
+  Proposes DuDoSwin, a self-supervised dual-domain Swin Transformer for sparse-view CT reconstruction: it learns from undersampled measurements without paired ground truth by coupling sinogram-domain and image-domain Swin backbones.
+dual-agnet: >-
+  Proposes Dual-AGNet, a dual-domain attention-guided CNN for low-dose CBCT reconstruction: attention modules fuse projection-domain and image-domain features to suppress noise while preserving anatomical detail at reduced dose.
+indudonet-plus: >-
+  Proposes InDuDoNet+, a deep unfolding dual-domain network for CT metal artifact reduction: it unfolds a joint sinogram-image optimization with learned proximal operators, embedding CT geometry constraints for interpretable MAR.
+
+modl: >-
+  Introduces MoDL, a foundational model-based deep learning framework: it unrolls an iterative reconstruction with a CNN regularization prior while keeping the forward model explicit, so a small network suffices and the architecture transfers across inverse problems.
+tomoselfdeq: >-
+  Proposes TomoSelfDEQ, a self-supervised deep equilibrium framework for sparse-angle CT: it trains directly on undersampled measurements with theoretical guarantees matching fully-supervised updates, achieving state-of-the-art results with as few as 16 views.
+c2rv: >-
+  Proposes C2RV for sparse-view CBCT reconstruction: multi-scale 3D volumetric representations enable cross-regional learning in 3D space, and a scale-view cross-attention module adaptively aggregates multi-scale multi-view features for consistent reconstructions.
+
+leda: >-
+  Proposes LEDA, a plug-and-play language-engaged dual-space alignment loss for low-dose CT denoising: it leverages large language models to align denoised CT with text descriptions, alleviating over-smoothing and adding explainability.
+proct: >-
+  Proposes ProCT, a prompted contextual transformer for universal incomplete-view CT reconstruction: view-aware prompting lets a single model handle diverse sparse-view and limited-angle settings, and artifact-aware contextual learning senses artifact patterns from in-context pairs.
+wcdps: >-
+  Proposes wavelet-consistent diffusion posterior sampling for limited-angle and sparse-view CT: it enforces wavelet-domain consistency during diffusion sampling to reconstruct from incomplete measurements with sharp detail.

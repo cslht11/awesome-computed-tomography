@@ -1118,3 +1118,95 @@
   paper: "https://arxiv.org/abs/2605.17188"
   code: "https://github.com/Jayx-Wang/RDDM"
   note: "One-step residual-driven drifting model for high-fidelity low-dose CT denoising."
+
+- id: "dpka"
+  abbr: "DPKA"
+  title: "Dual-Domain deep prior guided sparse-view CT reconstruction with multi-scale fusion attention"
+  year: 2025
+  venue: "Sci Rep"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1038/s41598-025-02133-5"
+  note: "Dual-domain deep prior with multi-scale fusion attention for sparse-view CT reconstruction."
+
+- id: "dudoswin"
+  abbr: "DuDoSwin"
+  title: "Self-supervised Dual-domain Swin Transformer for Sparse-view CT Reconstruction"
+  year: 2026
+  venue: "BVM"
+  topics: [sparse-view, self-supervised]
+  paper: "https://doi.org/10.1007/978-3-658-51100-5_4"
+  note: "Self-supervised dual-domain Swin Transformer for sparse-view CT reconstruction."
+
+- id: "dual-agnet"
+  abbr: "Dual-AGNet"
+  title: "Dual-domain attention-guided convolutional neural network for low-dose cone-beam computed tomography reconstruction"
+  year: 2022
+  venue: "Knowl Based Syst"
+  topics: [low-dose, cbct]
+  paper: "https://doi.org/10.1016/j.knosys.2022.109295"
+  note: "Dual-domain attention-guided CNN for low-dose CBCT reconstruction."
+
+- id: "indudonet-plus"
+  abbr: "InDuDoNet+"
+  title: "InDuDoNet+: A deep unfolding dual domain network for metal artifact reduction in CT images"
+  year: 2023
+  venue: "Med Image Anal"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1016/j.media.2022.102729"
+  note: "Deep unfolding dual-domain network for CT metal artifact reduction."
+
+
+- id: "modl"
+  abbr: "MoDL"
+  title: "MoDL: Model-Based Deep Learning Architecture for Inverse Problems"
+  year: 2019
+  venue: "TMI"
+  topics: [unrolling]
+  paper: "https://doi.org/10.1109/TMI.2018.2865356"
+  note: "Foundational model-based deep learning framework unrolling iterative reconstruction with CNN priors."
+
+- id: "tomoselfdeq"
+  abbr: "TomoSelfDEQ"
+  title: "TomoSelfDEQ: Self-Supervised Deep Equilibrium Learning for Sparse-Angle CT Reconstruction"
+  year: 2025
+  venue: "SSVM"
+  topics: [sparse-view, self-supervised]
+  paper: "https://doi.org/10.1007/978-3-031-92366-1_26"
+  note: "Self-supervised deep equilibrium model training directly on undersampled CT measurements."
+
+- id: "c2rv"
+  abbr: "C2RV"
+  title: "C2RV: Cross-Regional and Cross-View Learning for Sparse-View CBCT Reconstruction"
+  year: 2024
+  venue: "CVPR"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1109/cvpr52733.2024.01065"
+  code: "https://github.com/xmed-lab/C2RV-CBCT"
+  note: "Cross-regional and cross-view learning with multi-scale volumetric representations for sparse-view CBCT."
+
+
+- id: "leda"
+  abbr: "LEDA"
+  title: "Low-dose CT Denoising with Language-engaged Dual-space Alignment"
+  year: 2024
+  venue: "BIBM"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/BIBM62325.2024.10822519"
+  note: "Language-engaged dual-space alignment loss using LLMs to guide low-dose CT denoising."
+
+- id: "proct"
+  abbr: "ProCT"
+  title: "Prompted Contextual Transformer for Incomplete-View CT Reconstruction"
+  year: 2023
+  topics: [sparse-view, limited-angle]
+  paper: "https://arxiv.org/abs/2312.07846"
+  code: "https://github.com/Masaaki-75/proct"
+  note: "Single prompted transformer handling diverse sparse-view and limited-angle settings via view-aware prompting."
+
+- id: "wcdps"
+  title: "Wavelet-Consistent Diffusion Posterior Sampling for Limited-Angle and Sparse CT"
+  year: 2026
+  venue: "ICASSP"
+  topics: [limited-angle, sparse-view, diffusion]
+  paper: "https://doi.org/10.1109/ICASSP55912.2026.11463988"
+  note: "Wavelet-consistent diffusion posterior sampling for limited-angle and sparse-view CT."

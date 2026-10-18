@@ -390,3 +390,27 @@
   stars: 11
   tags: [limited-angle, nano-tomography, iterative, CNN]
   note: Perception Fused Iterative Tomography Reconstruction Engine — a CNN carrying perceptual knowledge as a regularizer inside an iterative solver, correcting limited-angle artefacts in X-ray nano-tomography. Ships a demo, a data-generation script and pretrained weights (Google Drive). From Brookhaven National Lab (NSLS-II); published in npj Computational Materials 2025.
+
+- name: MIRTorch
+  repo: guanhuaw/MIRTorch
+  language: Python
+  license: See source
+  stars: 148
+  tags: [differentiable, GPU, iterative, reconstruction]
+  note: A PyTorch-powered differentiable image reconstruction and optimization toolbox for medical imaging.
+
+- name: xtomosim
+  repo: gjadick/xtomosim
+  language: Python
+  license: See source
+  stars: 1
+  tags: [simulation, x-ray, physics]
+  note: An X-ray computed tomography physical simulator in Python by Giavanna Jadick.
+
+- name: Dual-Domain-CT-Denoising
+  repo: gab9694/Dual-Domain-CT-Denoising
+  language: Python
+  license: See source
+  stars: 0
+  tags: [low-dose, denoising, dual-domain]
+  note: A deep learning framework for dual-domain low-dose CT denoising.
