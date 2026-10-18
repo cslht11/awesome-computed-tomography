@@ -394,3 +394,27 @@ contilnn: >-
 
 cbct-truncation-diffusion: >-
   Uses conditional generative diffusion models to complete truncated regions of CBCT projection data; versus RTK padding it gains 12 dB PSNR and 0.15 SSIM at the projection level and 9 dB PSNR with 0.10 SSIM on reconstructed volumes, beating GAN-based methods while preserving diagnostically relevant features.
+fast-iterative-sparse-angle-ct-lithium-battery: >-
+  Designs SART_TI, a geometry-aware sparse-angle CT algorithm for cylindrical lithium batteries with a radial-weighting template, diagonal sinogram interpolation and tangential smoothing; validated on simulated, X-ray and neutron data, it beats FBP and TV-SART at 10% projection coverage with fast convergence.
+
+flex-dd: >-
+  Proposes Flex-DD, a deep denoising model for sparse-view CT jointly exploiting a deep prior and a flexible hand-crafted prior: an ADMM algorithm optimizes it and an HQS framework incorporates it into reconstruction; ellipse-phantom and human-CT experiments show strong streak-artifact suppression with good convergence.
+
+lamigauss: >-
+  Proposes LamiGauss for sparse-view X-ray computed laminography: Gaussian-splatting radiative rasterization with a detector-to-world transform for the laminographic tilt angle, plus an initialization that filters common laminographic artifacts; it reconstructs directly from sparse projections on synthetic and real data.
+
+langmamba: >-
+  Introduces LangMamba, a language-driven Mamba framework for low-dose CT denoising: a two-stage strategy pre-trains a language-guided autoencoder mapping normal-dose CT into a vision-language-model semantic space, then guides denoising with a semantic-enhanced Mamba denoiser and a dual-space alignment loss.
+
+rcl-mamba: >-
+  Proposes RCL-Mamba, a measurement-oriented dual-domain state-space model for rotational sparse-view scanning computed laminography: it corrects rotational blur in the projection domain then sparse artifacts in the image domain via a Mamba-CNN dual branch; PCB scans cut views eightfold (512 to 64) without quality loss.
+
+rddm: >-
+  Proposes the Residual-Driven Drifting Model (RDDM) for high-fidelity low-dose CT denoising: a residual drifting field with attractive forces from LDCT-NDCT residuals and repulsive forces from generated residuals enables one-step denoising, avoiding diffusion models' multi-step inference cost while preserving details.
+
+tpaw-adaptive-tv-laminography: >-
+  Proposes truncated-projection adaptive weighting (TPAw) for linear computed laminography: a geometry-based TPAw factor suppresses ROI truncation error and the TPAw-LAwTV algorithm adds adaptive total-variation regularization; tests on simulated and real PCBs, hard disks and chips cut truncation and aliasing artifacts.
+
+x-field: >-
+  Proposes X-Field, the first 3D representation designed for X-ray imaging: 3D ellipsoids with distinct attenuation coefficients model each material's energy absorption via an efficient path-partitioning algorithm, plus hybrid progressive initialization and material-based optimization refining boundary geometry.
+

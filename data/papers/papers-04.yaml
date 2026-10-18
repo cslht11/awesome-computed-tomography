@@ -1048,3 +1048,73 @@
   topics: [cbct, diffusion]
   paper: "https://doi.org/10.1186/s12880-026-02818-x"
   note: "Conditional generative diffusion models complete truncated CBCT projections; 12 dB PSNR gain over RTK padding."
+- id: "langmamba"
+  abbr: "LangMamba"
+  title: "LangMamba: A Language-driven Mamba Framework for Low-dose CT Denoising with Vision-language Models"
+  year: 2025
+  venue: "IEEE Trans. Radiat. Plasma Med. Sci."
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/trpms.2025.3638141"
+  code: "https://github.com/hao1635/LangMamba"
+  note: "Language-driven Mamba denoising guided by VLM-derived semantic representations of normal-dose CT."
+
+- id: "x-field"
+  abbr: "X-Field"
+  title: "X-Field: A Physically Grounded Representation for 3D X-ray Reconstruction"
+  year: 2025
+  topics: [gaussian, sparse-view]
+  paper: "https://arxiv.org/abs/2503.08596"
+  code: "https://github.com/Brack-Wang/X-Field"
+  note: "First 3D representation designed for X-ray imaging: 3D ellipsoids with per-material attenuation coefficients."
+
+- id: "tpaw-adaptive-tv-laminography"
+  abbr: "TPAw-LAwTV"
+  title: "Truncated projection adaptive weighting combined with adaptive TV for artifact reduction in linear computed laminography"
+  year: 2026
+  venue: "Opt. Laser Technol."
+  topics: [other]
+  paper: "https://doi.org/10.1016/j.optlastec.2025.114348"
+  note: "TPAw-SIRT and TPAw-LAwTV correct ROI truncation in linear computed laminography with adaptive weighting plus TV."
+
+- id: "lamigauss"
+  abbr: "LamiGauss"
+  title: "LamiGauss: Pitching Radiative Gaussian for Sparse-View X-ray Laminography Reconstruction"
+  year: 2025
+  topics: [gaussian, sparse-view, other]
+  paper: "https://arxiv.org/abs/2509.13863"
+  note: "Radiative Gaussian splatting with a laminographic tilt-aware transform for sparse-view X-ray laminography."
+
+- id: "fast-iterative-sparse-angle-ct-lithium-battery"
+  title: "A fast iterative reconstruction method of sparse angle CT for cylindrical lithium battery"
+  year: 2026
+  venue: "Sens. Actuators A Phys."
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1016/j.sna.2025.117318"
+  note: "SART_TI: geometry-aware sparse-angle CT for cylindrical lithium batteries with radial weighting and sinogram interpolation."
+
+- id: "rcl-mamba"
+  abbr: "RCL-Mamba"
+  title: "RCL-Mamba: A Dual-domain State Space Model for Measurement-oriented Image Restoration in Rotational Sparse-View Scanning Computed Laminography"
+  year: 2026
+  venue: "Meas. Sci. Technol."
+  topics: [sparse-view, other]
+  paper: "https://doi.org/10.1088/1361-6501/ae9e60"
+  note: "Dual-domain Mamba restores rotational blur and sparse artifacts in rotational scanning computed laminography."
+
+- id: "flex-dd"
+  abbr: "Flex-DD"
+  title: "Flex-DD: Deep denoising model with flexible priors for sparse-view CT reconstruction"
+  year: 2025
+  venue: "Measurement"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1016/j.measurement.2025.118121"
+  note: "Deep denoising with flexible hand-crafted priors for sparse-view CT, optimized via ADMM and HQS."
+
+- id: "rddm"
+  abbr: "RDDM"
+  title: "RDDM: A Residual-Driven Drifting Model for High-Fidelity Low-Dose CT Denoising"
+  year: 2026
+  topics: [low-dose, diffusion]
+  paper: "https://arxiv.org/abs/2605.17188"
+  code: "https://github.com/Jayx-Wang/RDDM"
+  note: "One-step residual-driven drifting model for high-fidelity low-dose CT denoising."
