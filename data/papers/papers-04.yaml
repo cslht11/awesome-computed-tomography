@@ -1017,3 +1017,34 @@
   topics: [inr]
   paper: "https://doi.org/10.1145/3528223.3530121"
   note: "Adaptive hierarchical neural rendering for tomography."
+
+- id: "bayesian-multicontrast-ct"
+  title: "Bayesian Joint Reconstruction and Uncertainty Quantification for Limited-Data Multi-Contrast X-Ray CT"
+  year: 2026
+  topics: [sparse-view]
+  paper: "https://arxiv.org/abs/2610.21406"
+  note: "Joint Bayesian reconstruction of attenuation, phase and dark-field images with a joint total-variation prior and NUTS posterior sampling."
+
+- id: "temporal-ct-per-bundle"
+  title: "Per-Bundle, Pre-Reconstruction Inversion for Temporal CT: Flux-Compensation Design and Multi-Patient Generalization"
+  year: 2026
+  topics: [dynamic]
+  paper: "https://arxiv.org/abs/2610.19229"
+  note: "Per-bundle Poisson maximum-likelihood inversion with flux-compensation co-design and a training-free empirical-Bayes post-processor."
+
+- id: "contilnn"
+  abbr: "ContiLNN"
+  title: "ContiLNN: Mitigating Slice Sampling Discontinuity with Liquid Neural Networks for Medical Image Restoration"
+  year: 2026
+  topics: [low-dose]
+  paper: "https://arxiv.org/abs/2610.12337"
+  code: "https://github.com/Noah-hjl/ContiLNN"
+  note: "Bidirectional closed-form continuous-time liquid network modules for cross-slice modeling in CT denoising."
+
+- id: "cbct-truncation-diffusion"
+  title: "Truncation artifact reduction in cone-beam computed tomography scans using conditional generative diffusion models"
+  year: 2026
+  venue: "BMC Med Imaging"
+  topics: [cbct, diffusion]
+  paper: "https://doi.org/10.1186/s12880-026-02818-x"
+  note: "Conditional generative diffusion models complete truncated CBCT projections; 12 dB PSNR gain over RTK padding."
