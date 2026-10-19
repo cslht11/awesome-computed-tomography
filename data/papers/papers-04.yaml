@@ -1595,3 +1595,82 @@
   topics: [other]
   code: "https://github.com/JiaxinZhuang/CARE"
   note: "CT vision-language foundation model for comprehensive analysis across five major regions (not reconstruction); released as code and model without a published paper; included as a user-approved scope exception."
+
+- id: "ctpretrain"
+  abbr: "CTPretrain"
+  title: "Dual-Domain Pretraining Foundation Model for CT Image Reconstruction"
+  year: 2026
+  venue: "IEEE Trans. Radiat. Plasma Med. Sci."
+  topics: [low-dose, sparse-view, limited-angle, self-supervised]
+  paper: "https://doi.org/10.1109/trpms.2026.3669428"
+  code: "https://github.com/LinY-ct/CTPretrain"
+  note: "Dual-domain (sinogram + image) pretraining foundation model covering low-dose, sparse-view and limited-angle CT reconstruction."
+- id: "vfminr"
+  abbr: "VFMINR"
+  title: "Sparse-View CT Reconstruction via Implicit Neural Representation Learning Powered by Dual-Domain Vision Foundation Models"
+  year: 2026
+  venue: "IEEE Trans. Circuits Syst. Video Technol."
+  topics: [sparse-view, inr, self-supervised]
+  paper: "https://doi.org/10.1109/tcsvt.2026.3655963"
+  note: "Self-supervised INR that leverages dual-domain (spatial + frequency) visual foundation models to generalize sparse-view CT reconstruction across instances."
+- id: "ddn-fm"
+  abbr: "DDN-FM"
+  title: "A deep dictionary network-based foundation model for ultra-low-dose CT denoising"
+  year: 2026
+  topics: [low-dose, unrolling]
+  paper: "https://arxiv.org/abs/2609.16031"
+  note: "Architecture-interpretable deep dictionary network foundation model pretrained on 1M+ multi-organ images for unified ultra-low-dose CT denoising."
+- id: "unih3"
+  abbr: "UniH3"
+  title: "UniH³: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration"
+  year: 2026
+  venue: "ECCV"
+  topics: [other]
+  paper: "https://arxiv.org/abs/2609.11156"
+  code: "https://github.com/Yaziwel/UniH3"
+  note: "All-in-one medical image restoration unifying intra- and inter-task homogeneity (Hierarchical Homogeneity Memory, H2M) with heterogeneity handling, state-of-the-art on the MedIR-2D-500K and MedIR-3D-3K benchmarks covering PET, CT and MRI; included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
+
+- id: "restore-rwkv"
+  abbr: "Restore-RWKV"
+  title: "Restore-RWKV: Efficient and Effective Medical Image Restoration with RWKV"
+  year: 2026
+  venue: "JBHI"
+  topics: [other]
+  paper: "https://arxiv.org/abs/2407.11087"
+  code: "https://github.com/Yaziwel/Restore-RWKV"
+  note: "First RWKV-based model for medical image restoration, adapting RWKV to 2D with recurrent WKV attention of linear complexity and an omnidirectional token shift layer; covers PET synthesis, CT denoising, MRI super-resolution and all-in-one restoration; included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
+
+- id: "mamba-moe"
+  abbr: "Mamba-MoE"
+  title: "Mamba-MoE: Deterministic Intermediate Expert Isolation With a Shared Reconstruction Head for All-in-One Medical Image Restoration"
+  year: 2026
+  topics: [other]
+  code: "https://github.com/Yanglllz/Mamba-MoE"
+  note: "All-in-one medical image restoration (MRI super-resolution, CT denoising, PET restoration) injecting deterministic modality-matched residual experts into intermediate convolutions of a Mamba encoder-decoder with one shared reconstruction head; released as code without a public paper (manuscript under review); included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
+
+- id: "marr"
+  abbr: "MARR"
+  title: "MARR: Decoupling Policy, Execution, and Calibration for All-in-One Medical Image Restoration"
+  year: 2026
+  topics: [other]
+  paper: "https://arxiv.org/abs/2609.06645"
+  note: "All-in-one PET, CT and MRI restoration recast as decoupled degradation-aware policy routing, modality-private residual execution and image-domain calibration, outperforming thirteen re-trained methods on an all-in-one benchmark; claimed code link is dead; included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
+
+- id: "tuf"
+  abbr: "TUF"
+  title: "Towards Multi-scenario Generalization: Text-Guided Unified Framework for Low-Dose CT and Total-Body PET Reconstruction"
+  year: 2025
+  venue: "MICCAI"
+  topics: [other]
+  paper: "https://doi.org/10.1007/978-3-032-04937-7_59"
+  code: "https://github.com/AI-NMI/Text-Guided-Unified-Framework-for-Low-Dose-CT-and-Total-Body-PET-Reconstruction"
+  note: "Text-guided unified framework for low-dose CT and total-body PET reconstruction with multi-scenario generalization (MICCAI 2025 early accept, top 9%, pp. 621-630); included as a user-approved scope exception (CT reconstruction is one of two tasks, alongside PET)."
+- id: "ct-clip-chat"
+  abbr: "CT-CLIP/CT-CHAT"
+  title: "Generalist Foundation Models from a Multimodal Dataset for 3D Computed Tomography"
+  year: 2026
+  venue: "Nature Biomedical Engineering"
+  topics: [other]
+  paper: "https://doi.org/10.1038/s41551-025-01599-y"
+  code: "https://github.com/ibrahimethemhamamci/CT-CLIP"
+  note: "CT vision-language models (CT-CLIP + CT-CHAT; understanding, not reconstruction; CT-CHAT code at https://github.com/ibrahimethemhamamci/CT-CHAT); included as a user-approved scope exception."
