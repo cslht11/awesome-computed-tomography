@@ -1392,3 +1392,198 @@
   topics: [low-dose, metal-artifact, other]
   paper: "https://doi.org/10.1016/j.knosys.2026.116882"
   note: "Unified CT denoising, CT metal artifact reduction, MRI super-resolution, and PET synthesis with multi-scale mixture-of-experts and region-conditioned frequency prompts; no public code found."
+
+- id: "deep-mar"
+  abbr: "Deep-MAR"
+  title: "Fast Enhanced CT Metal Artifact Reduction Using Data Domain Deep Learning"
+  year: 2019
+  venue: "TCI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/tci.2019.2937221"
+  code: "https://github.com/mughanibu/DeepMAR"
+  note: "Adversarial network inpaints metal-corrupted traces in the projection-data domain; trained with X-ray-simulation data plus transfer learning on limited real data."
+
+- id: "dicdnet"
+  abbr: "DICDNet"
+  title: "DICDNet: Deep Interpretable Convolutional Dictionary Network for Metal Artifact Reduction in CT Images"
+  year: 2021
+  venue: "TMI"
+  topics: [metal-artifact, unrolling]
+  paper: "https://doi.org/10.1109/tmi.2021.3127074"
+  code: "https://github.com/hongwang01/DICDNet"
+  note: "Unrolls proximal-gradient iterations of a convolutional-dictionary MAR model into an interpretable network."
+
+- id: "oscnet"
+  abbr: "OSCNet"
+  title: "Orientation-Shared Convolution Representation for CT Metal Artifact Learning"
+  year: 2022
+  venue: "MICCAI"
+  topics: [metal-artifact, unrolling]
+  paper: "https://doi.org/10.1007/978-3-031-16446-0_63"
+  code: "https://github.com/hongwang01/OSCNet"
+  note: "Orientation-shared convolution with Fourier-series filter parametrization explicitly models the rotationally symmetric streaking of metal artifacts."
+
+- id: "quad-net"
+  abbr: "Quad-Net"
+  title: "Quad-Net: Quad-Domain Network for CT Metal Artifact Reduction"
+  year: 2024
+  venue: "TMI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/tmi.2024.3351722"
+  code: "https://github.com/longzilicart/Quad-Net"
+  note: "Quad-domain MAR: SFR-Net inpaints metal traces in sinogram and Fourier domains, IFR-Net refines the image with its Fourier spectrum; no precise metal masks needed."
+
+- id: "pnd-net"
+  abbr: "PND-Net"
+  title: "PND-Net: Physics-Inspired Non-Local Dual-Domain Network for Metal Artifact Reduction"
+  year: 2024
+  venue: "TMI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/tmi.2024.3354925"
+  code: "https://github.com/Ballbo5354/PND-Net"
+  note: "Physics-derived non-local sinogram decomposition (NSD-Net) plus image restoration (IR-Net); MC-verified artifact model and unpaired learning via F-Net."
+
+- id: "calimar-gan"
+  abbr: "CALIMAR-GAN"
+  title: "CALIMAR-GAN: An unpaired mask-guided attention network for metal artifact reduction in CT scans"
+  year: 2025
+  venue: "Comput. Med. Imaging Graph."
+  topics: [metal-artifact, self-supervised]
+  paper: "https://doi.org/10.1016/j.compmedimag.2025.102565"
+  code: "https://github.com/roberto722/calimar-gan"
+  note: "Unpaired GAN with guided attention and linear interpolation; PSNR 31.7 / SSIM 0.877 / FID 22.1 on simulated data, lowest FID (32.7) on real clinical scans."
+
+- id: "pdumsrnet"
+  abbr: "PDuMSRNet"
+  title: "Prompt Guiding Multi-Scale Adaptive Sparse Representation-driven Network for Low-Dose CT MAR"
+  year: 2025
+  venue: "MedIA"
+  topics: [metal-artifact, low-dose]
+  paper: "https://doi.org/10.1016/j.media.2025.103870"
+  code: "https://github.com/shibaoshun/PDuMSRNet"
+  note: "Single prompt-guided model for multiple dose levels; dual-domain PDuMSRNet built on multi-scale sparse representation PMSRNet."
+
+- id: "kmar-net"
+  abbr: "KMAR-Net"
+  title: "Deep learning-based metal artifact reduction in CT for total knee arthroplasty"
+  year: 2025
+  venue: "Sci Rep"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1038/s41598-025-21012-7"
+  code: "https://github.com/ljm861/KMAR-Net"
+  note: "Trained on 25,000 simulated pairs from 50 TKA patients; outperformed Philips O-MAR in visual grading of artifacts and soft tissue."
+
+- id: "diffusion-inr-mar"
+  title: "Diffusion model-regularized implicit neural representation for computed tomography metal artifact reduction"
+  year: 2026
+  venue: "Quant. Biol."
+  topics: [metal-artifact, diffusion, inr]
+  paper: "https://doi.org/10.1002/qub2.70031"
+  note: "Diffusion-model-regularized INR; data fidelity from physics-constrained INR, prior knowledge from pretrained diffusion model."
+
+- id: "praise-net"
+  abbr: "PRAISE-Net"
+  title: "PRAISE-Net: Deep Projection-Domain Data-Consistent Learning Network for CBCT Metal Artifact Reduction"
+  year: 2025
+  venue: "TIM"
+  topics: [metal-artifact, cbct, diffusion]
+  paper: "https://doi.org/10.1109/tim.2025.3551446"
+  note: "Low2High + PIG-DDPM projection-domain inpainting with CBCT domain adaptation; SOTA on public and private clinical CBCT datasets."
+
+- id: "dudoufnet"
+  abbr: "DuDoUFNet"
+  title: "DuDoUFNet: Dual-domain under-to-fully-complete progressive restoration network for simultaneous metal artifact reduction and low-dose CT reconstruction"
+  year: 2022
+  venue: "TMI"
+  topics: [metal-artifact, low-dose]
+  paper: "https://doi.org/10.1109/TMI.2022.3189759"
+  note: "Joint MAR + low-dose CT via two-stage progressive sinogram-to-image restoration."
+
+# Group C verification batch (2026-10-19): 2 CT-reconstruction-adjacent + 5 user-approved
+# scope-exception foundation models. Verified from arXiv pages / doi.org / GitHub.
+- id: "eda"
+  abbr: "EDA"
+  title: "Elucidating the Design Space of Arbitrary-Noise-Based Diffusion Models"
+  year: 2025
+  topics: [metal-artifact, diffusion]
+  paper: "https://arxiv.org/abs/2507.18534"
+  note: "Arbitrary-noise diffusion generalizing EDM for image restoration; validated on CT metal artifact removal with competitive results in 5 sampling steps."
+
+- id: "hounsworld"
+  abbr: "HounsWorld"
+  title: "HounsWorld: A Multimodal World Model for Hidden Patient-State Readout, Reconstruction, and Simulation"
+  year: 2026
+  topics: [low-dose, other]
+  paper: "https://arxiv.org/abs/2608.12904"
+  note: "3B multimodal CT world model unifying patient-state readout, reconstruction and simulation, including low-dose denoising and text-and-mask-to-volume generation."
+
+- id: "ct-fm"
+  abbr: "CT-FM"
+  title: "Vision Foundation Models for Computed Tomography"
+  year: 2025
+  topics: [other]
+  paper: "https://arxiv.org/abs/2501.09001"
+  code: "https://github.com/project-lighter/CT-FM"
+  note: "CT vision foundation model pretrained on 148,000 scans for segmentation, triage, retrieval and semantic understanding (not reconstruction); included as a user-approved scope exception."
+
+- id: "headct-fm"
+  abbr: "HeadCT-FM"
+  title: "3D foundation model for generalizable disease detection in head computed tomography"
+  year: 2026
+  venue: "Nat. Biomed. Eng."
+  topics: [other]
+  paper: "https://doi.org/10.1038/s41551-026-01668-w"
+  code: "https://github.com/NYUMedML/headCT_foundation"
+  note: "Self-supervised 3D head CT foundation model pretrained on 361,663 scans for hemorrhage/tumor detection (not reconstruction); included as a user-approved scope exception."
+
+- id: "medvae"
+  abbr: "MedVAE"
+  title: "MedVAE: Efficient Automated Interpretation of Medical Images with Large-Scale Generalizable Autoencoders"
+  year: 2025
+  topics: [other]
+  paper: "https://arxiv.org/abs/2502.14753"
+  code: "https://github.com/StanfordMIMI/MedVAE"
+  note: "Family of six large-scale 2D/3D medical autoencoders for efficient downstream embedding (not reconstruction); included as a user-approved scope exception."
+
+- id: "maisi"
+  abbr: "MAISI"
+  title: "MAISI: Medical AI for Synthetic Imaging"
+  year: 2024
+  topics: [other]
+  paper: "https://arxiv.org/abs/2409.11169"
+  code: "https://github.com/NVIDIA-Medtech/NV-Generate-CTMR"
+  note: "Latent diffusion model generating synthetic high-resolution 3D CT volumes with ControlNet anatomy conditioning (not reconstruction); included as a user-approved scope exception."
+
+- id: "generate-ct"
+  abbr: "GenerateCT"
+  title: "GenerateCT: Text-Conditional Generation of 3D Chest CT Volumes"
+  year: 2023
+  topics: [other]
+  paper: "https://arxiv.org/abs/2305.16037"
+  code: "https://github.com/ibrahimethemhamamci/GenerateCT"
+  note: "Text-conditional diffusion model generating 3D chest CT volumes from free-form medical text prompts (not reconstruction); included as a user-approved scope exception."
+
+# group D — industrial CT papers (verified 2026-10-19)
+- id: "industrial-ct-dual-mar"
+  title: "Metal Artifact Correction in Industrial CT Images Based on a Dual-Domain Joint Deep Learning Framework"
+  year: 2024
+  venue: "Applied Sciences"
+  topics: [metal-artifact, other]
+  paper: "https://doi.org/10.3390/app14083261"
+  code: "https://github.com/jiang-16/gan_jiang"
+  note: "Joint UNet (sinogram) + ResNet (image) MAR trained on analytical-simulation data; reported avg PSNR 36.13, SSIM 0.953."
+- id: "fid-net"
+  abbr: "FID-Net"
+  title: "FID-Net: an interpretable fourier and image domain convolutional dictionary network for industrial CT metal artifact reduction"
+  year: 2026
+  venue: "Measurement"
+  topics: [metal-artifact, other]
+  paper: "https://doi.org/10.1016/j.measurement.2026.121083"
+  note: "Unfolded dual-domain convolutional dictionary network; evaluated on real battery CT with synthetic and real artifacts."
+- id: "simurgh-scattercontrol"
+  title: "Combining Deep Learning and scatterControl for High-Throughput X-ray CT Based Non-Destructive Characterization of Large-Scale Casted Metallic Components"
+  year: 2025
+  venue: "Journal of Nondestructive Evaluation"
+  topics: [scatter, other]
+  paper: "https://doi.org/10.1007/s10921-025-01228-3"
+  note: "Simurgh 2.5D U-Net combined with ZEISS scatterControl hardware for high-throughput industrial XCT; scan time reduced over 10x with flaw detectability preserved."

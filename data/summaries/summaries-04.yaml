@@ -495,3 +495,64 @@ diffcode: >-
 
 allfreqnet: >-
   AllFreqNet unifies CT denoising, CT metal artifact reduction, MRI super-resolution, and PET synthesis via multi-scale experts and region-conditioned frequency prompts. It gains 0.54 dB PSNR on CT denoising, 0.47 dB on CT MAR, and 0.14 dB on MRI SR over the best all-in-one baselines, ranking second on PET synthesis.
+
+deep-mar: >-
+  Metal-corrupted projections are treated as missing data, completed in the projection-data domain by an adversarial network, then reconstructed via FBP. Training combines X-ray-simulation data with transfer learning on limited real scans, yielding a fast end-to-end MAR pipeline that fits CT workflows.
+
+dicdnet: >-
+  DICDNet models metal artifacts as a convolutional dictionary: the corrupted image is split into an artifact-free component and an artifact term of dictionary kernels. The problem is unrolled via proximal-gradient iterations into a learnable, interpretable network, strong on simulated and clinical data.
+
+oscnet: >-
+  OSCNet models the rotationally symmetric streaking of metal artifacts via orientation-shared convolution with Fourier-series filter parametrization. Extending the DICDNet unrolled framework, it separates artifacts from tissue, generalizes better, and preserves details on synthetic and clinical data.
+
+quad-net: >-
+  Quad-Net extends dual-domain MAR to four domains: SFR-Net inpaints metal-corrupted traces in the sinogram and Fourier domains, while IFR-Net refines the image with its Fourier spectrum. It needs no precise metal masks, adds little cost, and beats state-of-the-art MAR methods quantitatively, visually, and statistically.
+
+pnd-net: >-
+  PND-Net builds on a Monte-Carlo-verified physical property: beam hardening concentrates in the metal trace while the rest are non-local in the sinogram domain. NSD-Net extracts the artifact component, IR-Net suppresses artifacts under a consistency loss, and F-Net adds unpaired learning for robustness.
+
+calimar-gan: >-
+  Unpaired GAN for CT metal artifact reduction combining guided attention with linear interpolation, trained on unpaired simulated and clinical data. Simulated data: PSNR 31.7, SSIM 0.877, FID 22.1; real clinical scans: lowest FID (32.7), correlated with pixel-based metrics.
+
+pdumsrnet: >-
+  Joint low-dose CT reconstruction and metal artifact reduction (LDMAR): multi-scale sparsifying-frame-inspired PMSRNet with a prompt-guided scale-adaptive threshold generator; the dual-domain PDuMSRNet's prompt module takes dose level, metal mask and instance, so one model handles multiple dose levels.
+
+kmar-net: >-
+  CNN for metal artifact reduction after total knee arthroplasty, trained on 25,000 sinogram-simulated pairs from 50 patients. It beat projection completion on dark-streak area, mean attenuation and standard deviation, and outperformed Philips O-MAR on artifacts and soft tissue in visual grading.
+
+diffusion-inr-mar: >-
+  Unpaired CT metal artifact reduction with an implicit neural representation regularized by a pretrained diffusion model: the INR enforces physical constraints and data fidelity, the diffusion model supplies prior knowledge, avoiding the instability of supervised methods limited by scarce paired data.
+
+praise-net: >-
+  Projection-domain data-consistent network for CBCT metal artifact reduction: Low2High inpaints metal traces at low resolution then restores detail, a prior-informed PIG-DDPM inpaints fine regions, and CBCT domain adaptation bridges the simulation-to-clinic gap, beating SOTA on public and private CBCT datasets.
+
+dudoufnet: >-
+  Dual-domain under-to-fully-complete progressive restoration network for joint metal artifact reduction and low-dose CT (MARLD): a two-stage progressive design restores sinograms to images with reduced noise and streak artifacts, outperforming prior LDCT and MAR methods across various low-dose and metal settings.
+
+eda: >-
+  Proposes EDA, a framework extending EDM to arbitrary noise patterns for diffusion-based image restoration, proving greater noise complexity adds no computational overhead. Validated on MRI bias-field correction, CT metal artifact removal and shadow removal, EDA matches specialized methods with only 5 sampling steps.
+
+hounsworld: >-
+  HounsWorld is a 3B multimodal CT world model inferring a shared latent patient state from scans and clinical language, supporting state readout, report reconstruction, and simulation—low-dose denoising and text-and-mask-to-volume generation—plus HounsBench, a CT-centric benchmark with patient-disjoint splits.
+
+ct-fm: >-
+  CT-FM is a large-scale 3D image-based foundation model pretrained with label-agnostic contrastive learning on 148,000 CT scans from the Imaging Data Commons. Evaluated on segmentation, head CT triage, retrieval and semantic understanding, it beats state-of-the-art models; weights, code and data are open-sourced.
+
+headct-fm: >-
+  A self-supervised 3D foundation model pretrained on 361,663 non-contrast head CT scans, fine-tuned for hemorrhage and tumor detection. Evaluated on internal and external datasets, it shows superior downstream performance and strong in/out-of-distribution generalization, setting a new benchmark for head CT analysis.
+
+medvae: >-
+  MedVAE is a family of six large-scale 2D/3D autoencoders trained on 1,052,730 medical images with a novel two-stage approach. Using MedVAE latents instead of high-resolution images gives up to 70x downstream throughput gains while preserving clinically relevant features, and latents decode back to high-fidelity images.
+
+maisi: >-
+  MAISI is a latent diffusion model generating synthetic 3D CT volumes up to 512x512x768 with flexible volume dimensions and voxel spacing. With ControlNet conditioning on 127 anatomical structures, it produces accurately annotated synthetic images for downstream tasks, mitigating data scarcity and privacy concerns.
+
+generate-ct: >-
+  GenerateCT generates 3D chest CT volumes from free-form medical text prompts via a causal vision transformer, text-image alignment and a super-resolution diffusion model. Synthetic augmentation improved multi-abnormality AP by 11%; a classifier trained only on 100k synthetic CTs beat one trained on all real data.
+
+industrial-ct-dual-mar: >-
+  Joint dual-domain deep learning framework for MAR in industrial CT: a U-Net corrects the projection sinogram, the result is reconstructed and refined by a ResNet, with both networks jointly trained. On analytical-simulation datasets it reaches average PSNR 36.13 and SSIM 0.953, mitigating artifacts from beam hardening, scatter and noise.
+fid-net: >-
+  Interpretable Fourier/image dual-domain MAR network for industrial battery CT: unfolds iterative convolutional dictionary learning into network layers with a deformable multi-scale dictionary across both domains. The Fourier branch suppresses globally distributed streak artifacts while the image branch restores local battery textures; evaluated on real battery CT data.
+simurgh-scattercontrol: >-
+  Combines ZEISS scatterControl hardware scatter correction with a modified Simurgh 2.5D U-Net to enable high-throughput X-ray CT of large cast metallic components. Reduces scan time by over 10x while preserving flaw detectability, outperforming FDK, model-based iterative reconstruction and commercial DL models on industrial XCT data.
