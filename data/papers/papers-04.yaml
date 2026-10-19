@@ -1246,3 +1246,11 @@
   topics: [other]
   paper: "https://proceedings.neurips.cc/paper/6406-deep-admm-net-for-compressive-sensing-mri.pdf"
   note: "General deep unfolding of the ADMM solver; pioneering learned-iteration architecture later adapted to CT reconstruction."
+
+- id: "x-ray-computed-laminography-review"
+  title: "X-ray computed laminography: A brief review of mechanisms, reconstruction, applications and perspectives"
+  year: 2025
+  venue: "Mater. Today"
+  topics: [survey, other]
+  paper: "https://doi.org/10.1016/j.mattod.2025.02.023"
+  note: "Review of three decades of X-ray computed laminography: scan geometries, reconstruction methods, software and applications."

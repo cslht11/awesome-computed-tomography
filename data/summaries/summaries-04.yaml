@@ -449,3 +449,5 @@ noise2noise: >-
   Shows neural networks can learn image restoration from corrupted observations alone: training on pairs of independently noisy images reaches clean-target performance without clean data or explicit noise models. The principle underlies self-supervised CT approaches such as Noise2Inverse.
 deep-admm-net: >-
   Unfolds the ADMM iterative solver for compressive sensing into a learnable deep architecture: each network stage mirrors one ADMM iteration, with transforms, shrinkage functions and penalty parameters trained end-to-end. A pioneering deep-unfolding design later adapted to CT reconstruction.
+x-ray-computed-laminography-review: >-
+  Reviews three decades of X-ray computed laminography (CL): the angled rotation axis that complements CT for flat, high-aspect-ratio samples, scan geometries and setup, reconstruction methods and software, applications from PCBs to pouch batteries, plus advantages, limitations and future challenges.
