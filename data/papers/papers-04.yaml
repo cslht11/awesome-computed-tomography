@@ -1587,3 +1587,11 @@
   topics: [scatter, other]
   paper: "https://doi.org/10.1007/s10921-025-01228-3"
   note: "Simurgh 2.5D U-Net combined with ZEISS scatterControl hardware for high-throughput industrial XCT; scan time reduced over 10x with flaw detectability preserved."
+
+- id: "care-ct-foundation"
+  abbr: "CARE"
+  title: "A clinically validated CT foundation model with large-scale vision-language pretraining"
+  year: 2026
+  topics: [other]
+  code: "https://github.com/JiaxinZhuang/CARE"
+  note: "CT vision-language foundation model for comprehensive analysis across five major regions (not reconstruction); released as code and model without a published paper; included as a user-approved scope exception."
