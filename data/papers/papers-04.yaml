@@ -1281,3 +1281,22 @@
   topics: [low-dose, sparse-view, metal-artifact, self-supervised, diffusion]
   paper: "https://arxiv.org/abs/2506.02149"
   note: "Unsupervised CT reconstruction unifying data fidelity with a PFGM++ generative prior; evaluated on low-dose, sparse-view and metal-artifact scenarios."
+
+- id: "amifound"
+  abbr: "AMIFound"
+  title: "An all-in-one foundation model for multimodal medical image restoration and enhancement"
+  year: 2026
+  venue: "Nat. Mach. Intell."
+  topics: [metal-artifact, other]
+  paper: "https://doi.org/10.1038/s42256-026-01310-z"
+  code: "https://github.com/caoluyang0830/All-in-One-Medical-Image-Restoration"
+  note: "All-in-one restoration foundation model across 7 modalities, trained on 3.76M paired images; covers CT metal artifact removal on 37 CT datasets."
+
+- id: "amir"
+  abbr: "AMIR"
+  title: "All-In-One Medical Image Restoration via Task-Adaptive Routing"
+  year: 2024
+  venue: "MICCAI"
+  topics: [low-dose, other]
+  paper: "https://doi.org/10.1007/978-3-031-72104-5_7"
+  note: "Task-adaptive routing mitigates interference across MRI super-resolution, CT denoising (Mayo) and PET synthesis in one model; claimed code link is dead."

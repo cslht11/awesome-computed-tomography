@@ -459,3 +459,9 @@ tap-ct: >-
 
 force: >-
   FORCE unifies CT data fidelity with a Poisson flow generative model prior (PFGM/PFGM++) for unsupervised reconstruction. It targets low-dose, sparse-view and metal-artifact scenarios lacking paired training data, outperforming existing unsupervised methods.
+
+amifound: >-
+  AMIFound is an all-in-one foundation model for multimodal medical image restoration, trained on 3.76M images across 7 modalities (CT, MRI, PET, endoscopy, ultrasound, fundus, X-ray). A shared encoder with a dynamically routed expert pool covers 7 degradation types, including CT metal artifact removal on 37 CT datasets.
+
+amir: >-
+  AMIR tackles task interference in all-in-one image restoration via task-adaptive routing: a routing instruction module steers inputs to distinct spatial and channel pathways in a U-Net. One model handles MRI super-resolution, CT denoising on the NIH AAPM-Mayo dataset and PET synthesis, matching single-task performance.
