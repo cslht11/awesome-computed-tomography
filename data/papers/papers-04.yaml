@@ -1197,9 +1197,10 @@
 - id: "proct"
   abbr: "ProCT"
   title: "Prompted Contextual Transformer for Incomplete-View CT Reconstruction"
-  year: 2023
+  year: 2026
+  venue: "Pattern Recognit."
   topics: [sparse-view, limited-angle]
-  paper: "https://arxiv.org/abs/2312.07846"
+  paper: "https://doi.org/10.1016/j.patcog.2026.113513"
   code: "https://github.com/Masaaki-75/proct"
   note: "Single prompted transformer handling diverse sparse-view and limited-angle settings via view-aware prompting."
 
