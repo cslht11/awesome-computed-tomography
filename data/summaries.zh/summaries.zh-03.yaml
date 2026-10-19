@@ -667,3 +667,27 @@ simurgh-scattercontrol: >-
 
 care-ct-foundation: >-
   CARE 是经临床验证的 CT 基础模型，采用大规模视觉-语言预训练（基于 OpenCLIP），面向五大 CT 部位的综合分析。它为体素级、区域级和像素级识别以及视觉-语言任务（图文检索、报告生成）提供可泛化的表征；已公开代码与六个下游任务评估。
+
+ctpretrain: >-
+  CTPretrain 是面向低剂量、稀疏视角与有限角 CT 的双域预训练基础模型。它耦合 sinogram 域修复 transformer 与经可学习高斯带通分解预训练的 image 域修复 transformer，使单个模型适应不同类型与程度的退化。
+vfminr: >-
+  VFMINR 是面向稀疏视角 CT 的自监督 INR 框架，克服了 INR 一次只能处理一个实例的局限。双视觉基础模型提取 sinogram 的空间域与频域表示，融合后解码为可变分辨率混合特征网格，实现跨 SVCT 实例泛化。
+ddn-fm: >-
+  DDN-FM 是基于深度字典网络（DDN）的架构可解释超低剂量 CT 去噪基础模型。它级联卷积稀疏编码层与迭代软阈值，并在每层嵌入动态字典与阈值生成模块，在超过一百万张多器官图像上预训练。
+unih3: >-
+  UniH3 在统一的 all-in-one 医学图像复原模型中结合层级同质性与异质性：Hierarchical Homogeneity Memory（H2M）提炼并自适应检索任务内/任务间先验，通过 Homogeneity-Guided Attention（HGA）注入复原流程，同时 Heterogeneity Balancer 缓解多任务优化冲突。它在 MedIR-2D-500K 与 MedIR-3D-3K 基准上达到 state-of-the-art。
+
+restore-rwkv: >-
+  Restore-RWKV 是首个基于 RWKV 的医学图像复原模型，将 RWKV 适配到二维图像：用线性复杂度的 recurrent WKV（Re-WKV）注意力捕捉全局依赖，并以 omnidirectional token shift（Omni-Shift）层增强局部依赖。即使 1.16M 参数的轻量版本也能在 PET 合成、CT 去噪与 MRI 超分上达到或超越 state-of-the-art。
+
+mamba-moe: >-
+  Mamba-MoE 是面向 MRI 超分、CT 去噪与 PET 复原的 all-in-one 医学图像复原框架，在 AMIR 风格 Mamba 编解码器的中间卷积中注入确定性的模态匹配残差专家，并共用一个重建头。公开版本包含核心模型、120,000 步训练入口与严格的 checkpoint 评估代码。
+
+marr: >-
+  MARR 把 all-in-one 医学图像复原重新定义为三处解耦的适配：退化感知的 policy routing、模态专有残差执行与图像域残差校准，无需退化标签与模态专有模型。它在 all-in-one PET/CT/MRI 基准上超越 13 个同协议复现的方法，PSNR 分别达到 37.34、33.85 与 32.09 dB。
+
+tuf: >-
+  TUF 是面向多场景泛化的文本引导统一框架，以单个模型同时处理低剂量 CT 与全身 PET 重建。它与近年来具备视觉-语言解析对齐能力的复原模型（包括 Restore-RWKV、Restormer、PromptIR）对比验证，获 MICCAI 2025 early accept（top 9%）。
+# ct-clip-chat 的中文速读（忠实翻译，技术术语/缩写保留英文）。
+ct-clip-chat: >-
+  推出 CT-RATE 开放数据集（25,692 例 3D 胸部 CT 容积配放射科报告）；CT-CLIP 以对比语言-图像预训练对齐 CT 容积与报告文本，实现零样本多异常检测与容积/报告检索，优于监督基线；CT-CHAT 将 CT-CLIP 视觉编码器与 LLM 结合，用 270 万问答对微调，可对话并生成放射科报告。

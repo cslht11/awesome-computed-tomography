@@ -559,3 +559,27 @@ simurgh-scattercontrol: >-
 
 care-ct-foundation: >-
   CARE is a clinically validated CT foundation model with large-scale vision-language pretraining for comprehensive analysis across five major CT regions. It supports volume-, region- and pixel-level recognition plus vision-language tasks (retrieval, report generation); code and six downstream evaluations are released.
+
+ctpretrain: >-
+  CTPretrain is a dual-domain pretraining foundation model for low-dose, sparse-view and limited-angle CT. It couples a sinogram-domain restoration transformer with an image-domain one pretrained via learnable Gaussian bandpass decomposition, so one model adapts to different degradation types and levels.
+vfminr: >-
+  VFMINR is a self-supervised INR framework for sparse-view CT that overcomes INR's one-instance limit. Dual vision foundation models extract spatial- and frequency-domain sinogram representations, which are fused and decoded into variable-resolution hybrid feature grids to generalize across SVCT instances.
+ddn-fm: >-
+  DDN-FM is an architecture-interpretable foundation model for ultra-low-dose CT denoising built on a deep dictionary network. It cascades convolutional sparse-coding layers with iterative soft-thresholding plus dynamic dictionary and threshold-generation modules, pretrained on over one million multi-organ images.
+unih3: >-
+  UniH3 unifies hierarchical homogeneity and heterogeneity for all-in-one medical image restoration: a Homogeneity Memory distills cross-task priors retrieved via Homogeneity-Guided Attention, while a Heterogeneity Balancer mitigates multi-task conflicts, reaching state-of-the-art on MedIR-2D-500K and MedIR-3D-3K.
+
+restore-rwkv: >-
+  Restore-RWKV is the first RWKV-based model for medical image restoration, adapting RWKV to 2D images with linear-complexity recurrent WKV attention and an omnidirectional token shift layer. Even a 1.16M-parameter variant matches or beats state-of-the-art on PET synthesis, CT denoising and MRI super-resolution.
+
+mamba-moe: >-
+  Mamba-MoE restores MRI, CT and PET images with a single model, injecting deterministic modality-matched residual experts into intermediate convolutions of a Mamba encoder-decoder with one shared reconstruction head. The release includes the core model, a 120,000-step training entry point and evaluation code.
+
+marr: >-
+  MARR recasts all-in-one medical image restoration as three decoupled adaptations: degradation-aware policy routing, modality-private residual execution and output calibration, without degradation labels. On an all-in-one PET/CT/MRI benchmark it beats thirteen retrained methods, reaching 37.34, 33.85 and 32.09 dB PSNR.
+
+tuf: >-
+  TUF is a text-guided unified framework for low-dose CT and total-body PET reconstruction aimed at multi-scenario generalization with a single model. Benchmarked against recent vision-language-capable models including Restore-RWKV, Restormer and PromptIR, it was early accepted at MICCAI 2025 (top 9%).
+# EN summary for ct-clip-chat (verified against the published abstract).
+ct-clip-chat: >-
+  CT-CLIP contrastively aligns 3D chest CT volumes with radiology reports from the CT-RATE dataset (25,692 scans), enabling zero-shot multi-abnormality detection and retrieval that beats supervised baselines. Its vision encoder plus an LLM yields CT-CHAT, a chat model fine-tuned on 2.7M QA pairs for report generation.
