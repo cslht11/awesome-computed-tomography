@@ -52,7 +52,7 @@
   venue: "Nat Comput Sci"
   topics: [self-supervised, other]
   paper: "https://doi.org/10.1038/s43588-026-00973-3"
-  code: "https://github.com/Arturia-Pendragon-Iris/HorusEye"
+  code: "https://github.com/Arturia-Pendragon-Iris/HorusEye_XRT_Restoration"
 
 - id: "limited-angle-nano-ct-2025"
   title: "Limited-angle x-ray nano-tomography with machine-learning enabled iterative reconstruction engine"
