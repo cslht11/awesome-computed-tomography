@@ -451,3 +451,8 @@ deep-admm-net: >-
   Unfolds the ADMM iterative solver for compressive sensing into a learnable deep architecture: each network stage mirrors one ADMM iteration, with transforms, shrinkage functions and penalty parameters trained end-to-end. A pioneering deep-unfolding design later adapted to CT reconstruction.
 x-ray-computed-laminography-review: >-
   Reviews three decades of X-ray computed laminography (CL): the angled rotation axis that complements CT for flat, high-aspect-ratio samples, scan geometries and setup, reconstruction methods and software, applications from PCBs to pouch batteries, plus advantages, limitations and future challenges.
+
+merlin: >-
+  Merlin is a 3D vision-language foundation model for abdominal CT interpretation, pretrained on 15,331 volumetric scans with diagnosis codes and radiology reports. It performs zero-shot finding and phenotype classification, report generation and 3D segmentation, outperforming 2D VLMs on multi-site external tests.
+tap-ct: >-
+  TAP-CT adapts Vision Transformers and DINOv2 for volumetric data, enabling scalable self-supervised pretraining on 3D CT volumes with depth-aware patch embeddings and augmentations. Pretraining on 105K CT volumes yields robust frozen representations that generalize across downstream tasks with minimal fine-tuning.

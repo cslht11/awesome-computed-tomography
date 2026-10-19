@@ -1254,3 +1254,22 @@
   topics: [survey, other]
   paper: "https://doi.org/10.1016/j.mattod.2025.02.023"
   note: "Review of three decades of X-ray computed laminography: scan geometries, reconstruction methods, software and applications."
+
+
+- id: "merlin"
+  abbr: "Merlin"
+  title: "Merlin: A Computed Tomography Vision-Language Foundation Model and Dataset"
+  year: 2026
+  venue: "Nature"
+  topics: [other]
+  paper: "https://doi.org/10.1038/s41586-026-10181-8"
+  code: "https://github.com/StanfordMIMI/Merlin"
+  note: "CT vision-language foundation model for diagnosis and image understanding (not reconstruction); included as a user-approved scope exception."
+
+- id: "tap-ct"
+  abbr: "TAP-CT"
+  title: "TAP-CT: 3D Task-Agnostic Pretraining of Computed Tomography Foundation Models"
+  year: 2025
+  topics: [other]
+  paper: "https://arxiv.org/abs/2512.00872"
+  note: "Self-supervised 3D CT representation learning with ViT and DINOv2 (not reconstruction); included as a user-approved scope exception."
