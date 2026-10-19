@@ -7,7 +7,7 @@
 
 **A curated, verified list of CT reconstruction research** — papers, toolkits, datasets and benchmarks for CT, CBCT and micro-CT.
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-492-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-493-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
 
 **[Website](https://computedtomography.org/)** · [Papers](#papers) · [Toolkits](#toolkits) · [Datasets](#datasets) · [Benchmarks](#benchmarks) · [Learning](#learning)
 
@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 492 papers | 49 toolkits | 79 datasets | 19 benchmarks | Updated 2026-10-19 |
+| 493 papers | 49 toolkits | 79 datasets | 19 benchmarks | Updated 2026-10-19 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -28,11 +28,11 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 | | | |
 | --- | --- | --- |
-| [Surveys & Reviews](https://computedtomography.org/?tab=papers&topic=survey) <sub>25</sub> | [Classical & Iterative Reconstruction](https://computedtomography.org/?tab=papers&topic=classical) <sub>98</sub> | [Sparse-View CT](https://computedtomography.org/?tab=papers&topic=sparse-view) <sub>176</sub> |
-| [Limited-Angle Tomography](https://computedtomography.org/?tab=papers&topic=limited-angle) <sub>48</sub> | [Low-Dose CT Denoising](https://computedtomography.org/?tab=papers&topic=low-dose) <sub>77</sub> | [Metal Artifact Reduction](https://computedtomography.org/?tab=papers&topic=metal-artifact) <sub>31</sub> |
+| [Surveys & Reviews](https://computedtomography.org/?tab=papers&topic=survey) <sub>25</sub> | [Classical & Iterative Reconstruction](https://computedtomography.org/?tab=papers&topic=classical) <sub>98</sub> | [Sparse-View CT](https://computedtomography.org/?tab=papers&topic=sparse-view) <sub>177</sub> |
+| [Limited-Angle Tomography](https://computedtomography.org/?tab=papers&topic=limited-angle) <sub>48</sub> | [Low-Dose CT Denoising](https://computedtomography.org/?tab=papers&topic=low-dose) <sub>78</sub> | [Metal Artifact Reduction](https://computedtomography.org/?tab=papers&topic=metal-artifact) <sub>32</sub> |
 | [Spectral & Dual-Energy CT](https://computedtomography.org/?tab=papers&topic=spectral) <sub>19</sub> | [Cone-Beam CT](https://computedtomography.org/?tab=papers&topic=cbct) <sub>87</sub> | [Dynamic & 4D CT](https://computedtomography.org/?tab=papers&topic=dynamic) <sub>25</sub> |
 | [Scatter Correction](https://computedtomography.org/?tab=papers&topic=scatter) <sub>11</sub> | [Geometry Calibration & Motion Compensation](https://computedtomography.org/?tab=papers&topic=geometry) <sub>28</sub> | [Deep Unrolling & Model-Based Learning](https://computedtomography.org/?tab=papers&topic=unrolling) <sub>69</sub> |
-| [Self-Supervised & Untrained Methods](https://computedtomography.org/?tab=papers&topic=self-supervised) <sub>38</sub> | [Diffusion & Generative Priors](https://computedtomography.org/?tab=papers&topic=diffusion) <sub>65</sub> | [Implicit Neural Representations](https://computedtomography.org/?tab=papers&topic=inr) <sub>28</sub> |
+| [Self-Supervised & Untrained Methods](https://computedtomography.org/?tab=papers&topic=self-supervised) <sub>39</sub> | [Diffusion & Generative Priors](https://computedtomography.org/?tab=papers&topic=diffusion) <sub>66</sub> | [Implicit Neural Representations](https://computedtomography.org/?tab=papers&topic=inr) <sub>28</sub> |
 | [Gaussian Splatting](https://computedtomography.org/?tab=papers&topic=gaussian) <sub>28</sub> | [Other Topics](https://computedtomography.org/?tab=papers&topic=other) <sub>41</sub> |  |
 
 ## Toolkits
