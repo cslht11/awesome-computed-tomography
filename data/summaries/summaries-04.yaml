@@ -465,3 +465,33 @@ amifound: >-
 
 amir: >-
   AMIR tackles task interference in all-in-one image restoration via task-adaptive routing: a routing instruction module steers inputs to distinct spatial and channel pathways in a U-Net. One model handles MRI super-resolution, CT denoising on the NIH AAPM-Mayo dataset and PET synthesis, matching single-task performance.
+
+unisino: >-
+  UniSino is a foundation model for universal CT sinogram standardization that operates directly in the projection domain. Its physics-informed training generalizes across undersampling patterns, achieving superior reconstruction quality on four benchmark datasets in single and mixed undersampling cases.
+
+founddiff: >-
+  FoundDiff is a foundational diffusion model for generalizable low-dose CT denoising across dose levels and anatomies. It first uses DA-CLIP, a dose- and anatomy-aware contrastive model perceiving dose variation and salient anatomy, then DA-Diff, a diffusion model that adaptively denoises based on that perception.
+
+tomotx: >-
+  MSM treats a CT projection as a word token and a sinogram as a sentence, training a masked sinogram model with a transformer as a foundation model. It is fine-tuned for reconstruction under restrictions such as limited photon budgets, offering a data-driven approximation to the ill-posed CT inverse problem.
+
+fedm2ct: >-
+  FedM2CT is a federated framework for all-in-one CT reconstruction across vendors, geometries, and sampling protocols. It combines task-specific iRadonMAP with mutual learning between clients and server plus metadata-driven parameter aggregation, covering low-mAs, sparse-view, and limited-angle tasks.
+
+agenticct: >-
+  AgenticCT is an LLM-orchestrated multi-agent framework for mixed-degradation CT: a Supervisor estimates the degradation state, a Planner picks the execution order, and Processor Agents run the trajectory. It outperforms specialized and all-in-one baselines and generalizes better to out-of-distribution data.
+
+unimedir: >-
+  UniMedIR unifies six MedIR tasks via text-guided prompting and dual-domain modeling: task-expert-refined LLM prompts guide a transformer over spatial and frequency features. It covers CT denoising, metal artifact reduction, and sparse-view CT, with state-of-the-art all-in-one results and unseen-setting robustness.
+
+dapt: >-
+  DaPT is a Degradation-aware Prompted Transformer for unified medical image restoration. Compact prompts with optimal-transport regularization capture diverse degradations, and prompt-routed experts resolve task conflicts. On MRI, CT, and PET it outperforms state-of-the-art methods and generalizes to unseen settings.
+
+tat: >-
+  TAT is a task-adaptive Transformer for all-in-one medical image restoration. It generates task-specific weights to remove gradient conflicts and balances loss weights by learning difficulty. It achieves state-of-the-art on PET synthesis, CT denoising, and MRI super-resolution, in task-specific and all-in-one settings.
+
+diffcode: >-
+  DiffCode combines a task-adaptive VQ codebook bank with a latent diffusion strategy for all-in-one medical image restoration. The bank integrates task-specific HQ priors across tasks; latent diffusion refines latent features for prior retrieval. It beats prior methods on MRI SR, CT denoising, and PET synthesis.
+
+allfreqnet: >-
+  AllFreqNet unifies CT denoising, CT metal artifact reduction, MRI super-resolution, and PET synthesis via multi-scale experts and region-conditioned frequency prompts. It gains 0.54 dB PSNR on CT denoising, 0.47 dB on CT MAR, and 0.14 dB on MRI SR over the best all-in-one baselines, ranking second on PET synthesis.

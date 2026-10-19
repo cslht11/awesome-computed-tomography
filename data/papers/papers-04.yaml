@@ -1299,4 +1299,96 @@
   venue: "MICCAI"
   topics: [low-dose, other]
   paper: "https://doi.org/10.1007/978-3-031-72104-5_7"
-  note: "Task-adaptive routing mitigates interference across MRI super-resolution, CT denoising (Mayo) and PET synthesis in one model; claimed code link is dead."
+  code: "https://github.com/Yaziwel/All-In-One-Medical-Image-Restoration-via-Task-Adaptive-Routing"
+  note: "Task-adaptive routing mitigates interference across MRI super-resolution, CT denoising (Mayo) and PET synthesis in one model."
+- id: "unisino"
+  abbr: "UniSino"
+  title: "UniSino: Physics-Driven Foundational Model for Universal CT Sinogram Standardization"
+  year: 2025
+  topics: [sparse-view, low-dose]
+  paper: "https://arxiv.org/abs/2508.17816"
+  code: "https://github.com/yqx7150/UniSino"
+  note: "Physics-driven foundation model standardizing CT data directly in the sinogram domain across undersampling and noise; the official repo currently contains only a README with no implementation."
+
+- id: "founddiff"
+  abbr: "FoundDiff"
+  title: "FoundDiff: Foundational Diffusion Model for Generalizable Low-Dose CT Denoising"
+  year: 2025
+  topics: [low-dose, diffusion]
+  paper: "https://arxiv.org/abs/2508.17299"
+  code: "https://github.com/hao1635/FoundDiff"
+  note: "Two-stage DA-CLIP + DA-Diff framework for cross-dose, cross-anatomy generalizable low-dose CT denoising."
+
+- id: "tomotx"
+  abbr: "MSM/TomoTx"
+  title: "Masked Sinogram Model with Transformer for ill-Posed Computed Tomography Reconstruction: a Preliminary Study"
+  year: 2022
+  topics: [sparse-view, low-dose, self-supervised]
+  paper: "https://arxiv.org/abs/2209.01356"
+  code: "https://github.com/lzhengchun/TomoTx"
+  note: "Masked sinogram pretraining with a transformer treating projections as tokens; repo contains sparse-view and low-dose reconstruction subprojects."
+
+- id: "fedm2ct"
+  abbr: "FedM2CT"
+  title: "Federated Metadata-Constrained iRadonMAP Framework with Mutual Learning for All-in-One Computed Tomography Imaging"
+  year: 2025
+  venue: "Cyborg and Bionic Systems"
+  topics: [low-dose, sparse-view, limited-angle, geometry]
+  paper: "https://doi.org/10.34133/cbsystems.0376"
+  code: "https://github.com/wh888s/FedM2CT"
+  note: "Federated metadata-constrained iRadonMAP with mutual learning for all-in-one multi-geometry CT reconstruction across vendors and sampling protocols."
+
+- id: "agenticct"
+  abbr: "AgenticCT"
+  title: "LLM-Orchestrated Diagnose–Plan–Treat for Mixed-Degradation CT Reconstruction"
+  year: 2026
+  venue: "IJCAI"
+  topics: [low-dose, sparse-view, limited-angle, other]
+  paper: "https://doi.org/10.24963/ijcai.2026/17"
+  note: "An LLM-orchestrated multi-agent framework that diagnoses mixed-degradation severity, plans a topology-optimized restoration order, and executes it sequentially; claimed code link is dead."
+
+- id: "unimedir"
+  abbr: "UniMedIR"
+  title: "All-In-One Medical Image Restoration via Text-Guided Prompting and Dual-Domain Modeling"
+  year: 2026
+  venue: "Information Fusion"
+  topics: [sparse-view, low-dose, metal-artifact, other]
+  paper: "https://doi.org/10.1016/j.inffus.2026.104558"
+  code: "https://github.com/gluucose/UniMedIR"
+  note: "All-in-one MedIR using LLM-enhanced text prompts refined by a mixture of task experts, guiding a dual-domain transformer across six tasks including CT denoising, metal artifact reduction, and sparse-view CT."
+
+- id: "dapt"
+  abbr: "DaPT"
+  title: "Degradation-Aware Prompted Transformer for Unified Medical Image Restoration"
+  year: 2025
+  venue: "TIP"
+  topics: [other]
+  paper: "https://doi.org/10.1109/TIP.2025.3644795"
+  note: "A degradation-aware prompted transformer using spatially compact prompts with optimal-transport regularization and prompt-routed experts, validated on MRI, CT, and PET; code repo is a placeholder."
+
+- id: "tat"
+  abbr: "TAT"
+  title: "TAT: Task-Adaptive Transformer for All-in-One Medical Image Restoration"
+  year: 2025
+  topics: [low-dose, other]
+  paper: "https://arxiv.org/abs/2512.14550"
+  code: "https://github.com/Yaziwel/TAT"
+  note: "Task-adaptive transformer using task-specific weight generation and difficulty-based loss balancing for PET synthesis, CT denoising, and MRI super-resolution."
+
+- id: "diffcode"
+  abbr: "DiffCode"
+  title: "All-in-One Medical Image Restoration with Latent Diffusion-Enhanced Vector-Quantized Codebook Prior"
+  year: 2025
+  venue: "MICCAI"
+  topics: [low-dose, diffusion]
+  paper: "https://doi.org/10.1007/978-3-032-05325-1_7"
+  note: "All-in-one MRI super-resolution, CT denoising, and PET synthesis via a task-adaptive VQ codebook bank plus latent-diffusion prior retrieval; no public code found."
+
+- id: "allfreqnet"
+  abbr: "AllFreqNet"
+  title: "AllFreqNet: A unified frequency-enhanced all-in-one framework for medical image restoration"
+  year: 2026
+  venue: "Knowledge-Based Systems"
+  topics: [low-dose, metal-artifact, other]
+  paper: "https://doi.org/10.1016/j.knosys.2026.116882"
+  note: "Unified CT denoising, CT metal artifact reduction, MRI super-resolution, and PET synthesis with multi-scale mixture-of-experts and region-conditioned frequency prompts; no public code found."
