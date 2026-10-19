@@ -1273,3 +1273,11 @@
   topics: [other]
   paper: "https://arxiv.org/abs/2512.00872"
   note: "Self-supervised 3D CT representation learning with ViT and DINOv2 (not reconstruction); included as a user-approved scope exception."
+
+- id: "force"
+  abbr: "FORCE"
+  title: "Tomographic Foundation Model\u2014FORCE: Flow-Oriented Reconstruction Conditioning Engine"
+  year: 2025
+  topics: [low-dose, sparse-view, metal-artifact, self-supervised, diffusion]
+  paper: "https://arxiv.org/abs/2506.02149"
+  note: "Unsupervised CT reconstruction unifying data fidelity with a PFGM++ generative prior; evaluated on low-dose, sparse-view and metal-artifact scenarios."

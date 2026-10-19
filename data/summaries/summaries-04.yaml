@@ -456,3 +456,6 @@ merlin: >-
   Merlin is a 3D vision-language foundation model for abdominal CT interpretation, pretrained on 15,331 volumetric scans with diagnosis codes and radiology reports. It performs zero-shot finding and phenotype classification, report generation and 3D segmentation, outperforming 2D VLMs on multi-site external tests.
 tap-ct: >-
   TAP-CT adapts Vision Transformers and DINOv2 for volumetric data, enabling scalable self-supervised pretraining on 3D CT volumes with depth-aware patch embeddings and augmentations. Pretraining on 105K CT volumes yields robust frozen representations that generalize across downstream tasks with minimal fine-tuning.
+
+force: >-
+  FORCE unifies CT data fidelity with a Poisson flow generative model prior (PFGM/PFGM++) for unsupervised reconstruction. It targets low-dose, sparse-view and metal-artifact scenarios lacking paired training data, outperforming existing unsupervised methods.
