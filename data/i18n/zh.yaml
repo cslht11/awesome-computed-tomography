@@ -89,6 +89,7 @@ ui:
   tabDatasets: "数据集"
   tabBenchmarks: "基准与挑战赛"
   tabLearning: "学习资源"
+  tabTeams: "研究团队"
 
   # ---- 论文区
   emptyText: "没有论文符合当前筛选条件。"
@@ -148,6 +149,14 @@ ui:
   kindDataset: "数据集"
   kindBenchmark: "基准"
   kindLearning: "学习资源"
+  kindTeam: "研究团队"
+  # ---- 团队区
+  regionNorthAmerica: "北美"
+  regionEurope: "欧洲"
+  regionAsia: "亚洲"
+  teamsLead: "负责人"
+  teamsLegacy: "已成遗产"
+  teamsInLibrary: "本库收录："
   noMatch: "未找到与“{q}”匹配的结果"
   showAll: "显示全部 {n} 篇匹配论文 ↵"
   homepageTitle: "主页"
@@ -180,8 +189,10 @@ readme:
   toolkitsHeading: "工具包与库"
   datasetsHeading: "数据集"
   legendDatasets: "**数据**列说明一份发布包含什么：_投影域 + 图像域_ 表示既有原始投影又有参考体，因而可以对前向模型做端到端评分；_仅投影域_ 表示只有原始数据；_仅图像域_ 表示只有图像域数据，无法用来检验投影模型。"
+  legendTeams: "本库所收录论文、工具与数据的研究团队。每张卡片给出实验室主页，以及该团队已被本库收录的代表作。"
   benchmarksHeading: "基准与挑战赛"
   learningHeading: "学习资源"
+  teamsHeading: "研究团队"
   licenseHeading: "许可"
   # ---- hero / navigation
   heroTagline: "**一份经过核验的 CT 重建研究精选列表**——涵盖 CT、CBCT 与显微 CT 的论文、工具包、数据集与基准。"
