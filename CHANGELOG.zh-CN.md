@@ -6,6 +6,14 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-20 — 研究团队：20 个 CT 重建团队的目录
+<!-- en: Research Teams: a directory of 20 CT reconstruction groups -->
+
+### 新增
+
+- **网站新增"研究团队"标签页，数据来自新文件 `data/teams.yaml`。** 收录本库所收论文、工具与数据的 20 个研究团队——北美 9 个、欧洲 7 个、亚洲 4 个——每条给出所在机构、负责人、研究方向、简短的双语事实介绍，以及该团队已被本库收录的代表作链接。构建会像其他表一样校验这一分区：每个被引用的论文 id、工具包、数据集与基准都必须能解析到真实条目，每个方向标签都必须是合法的主题 id。
+- README 新增**研究团队**一节，指向该标签页；五格统计条保持不变。
+
 ## 2026-10-18 — 苹果、黏土与珊瑚数据集及 PFITRE 的中文说明
 <!-- en: Chinese notes for the Apple / Play-Doh / coral datasets and PFITRE -->
 
