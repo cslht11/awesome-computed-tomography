@@ -13,6 +13,13 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-20 — Research Teams: a directory of 20 CT reconstruction groups
+
+### Added
+
+- **A Teams tab on the website, backed by a new data file (`data/teams.yaml`).** Twenty research groups and labs whose papers, software or data appear in this directory — nine in North America, seven in Europe, four in Asia — each with its institution, principal investigators, research focus, a short factual introduction (in English and Chinese) and links to the works of theirs already in the list. The build now validates the section like the other tables: every referenced paper id, toolkit, dataset and benchmark must resolve, and every focus tag must be a topic id.
+- The README gains a **Research Teams** section pointing at the tab; the five-cell stats strip is unchanged.
+
 ## 2026-10-18 — Chinese notes for the Apple / Play-Doh / coral datasets and PFITRE
 
 ### Fixed
