@@ -380,6 +380,18 @@ toolkits:
     note: "基于 ASTRA 工具箱的 Python 图形界面，用于 X 射线 CT 数据重建，并内置 DIRECTT 算法。DIRECTT 面向的正是只有极少量投影、且扫描轨迹任意的情形，并把采集路径本身一并纳入反问题求解——多数基于算子的工具箱基本不涉及这个角度。由德国联邦材料研究与测试研究所（BAM）开发，发表于 Review of Scientific Instruments 2020；运行 Main.py 即可启动。虽属小众、星标很少，但明确处理轨迹问题的工具本就寥寥无几。"
   "CTrex":
     note: "面向研究的 GPU 迭代重建框架，把「投影—校正—反投影」整条流水线一路暴露到单个 CUDA 核，因此非理想采集效应可以直接写进算子本身，而不是事后作为校正外挂上去。几何以逐投影的齐次视图矩阵承载，使核函数与扫描路径解耦——圆轨、螺旋、偏移、传送带轨迹都支持，也覆盖运动与形变感知、事件型四维成像以及扩展视野等场景。主要针对非常规采集条件下的显微 CT。见 arXiv:2609.30166；论文未公布代码仓库，故本条暂指向预印本，待仓库公开后再改。"
+  "MIRTorch":
+    note: "基于 PyTorch 的可微分图像重建与优化工具箱，面向医学影像。"
+  "xtomosim":
+    note: "由 Giavanna Jadick 编写的 Python X 射线 CT 物理仿真器。"
+  "Dual-Domain-CT-Denoising":
+    note: "面向低剂量 CT 的双域深度学习去噪框架。"
+  "diffct":
+    note: "FAU（Maier 课题组）的可微分 CUDA CT 投影器：逐视角任意轨迹，对体积与采集几何均可自动微分，project/backproject 为严格共轭对，支持多 GPU 与多节点。技术报告 2026-10-14（doi:10.20944/preprints202605.1446.v2）。"
+  "PYRO-NN":
+    note: "Python Reconstruction Operators in Neural Networks（FAU Maier 课题组）：把 known-operator CT 投影器做成神经网络层，用于端到端学习式重建，支持扇束/锥束几何。"
+  "X-Splat":
+    note: "统一的高斯溅射框架，联合 RGB 与 X 射线做三维重建：各基元共享同一套几何，借助 X 射线几何代理实现跨模态配准。SIGGRAPH Asia 2026 论文的代码（论文一节亦收录）。"
 datasets:
   "CT-RATE":
     note: "50,188 个重建完成的三维胸部 CT 体积（1,430 万张二维切片），来自 21,304 名患者的 25,692 次扫描；每个体积都配对一份影像科报告，并标注 18 类异常。体积由多种重建方法与窗宽窗位生成，因此天然带有重建差异——但只有图像域，不含原始投影。CT-CLIP 与 CT-CHAT 的训练语料。"
