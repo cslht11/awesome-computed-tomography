@@ -9,7 +9,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-537-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
 
-**[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源)
+**[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源) · [研究团队](#研究团队)
 
 </div>
 
@@ -50,6 +50,10 @@
 ## 学习资源
 
 [在网站上浏览全部 29 条](https://computedtomography.org/zh/?tab=learning)
+
+## 研究团队
+
+[在网站上浏览全部 20 条](https://computedtomography.org/zh/?tab=teams)
 
 ## 联系方式
 

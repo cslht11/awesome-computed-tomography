@@ -9,7 +9,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-537-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
 
-**[Website](https://computedtomography.org/)** · [Papers](#papers) · [Toolkits](#toolkits) · [Datasets](#datasets) · [Benchmarks](#benchmarks) · [Learning](#learning)
+**[Website](https://computedtomography.org/)** · [Papers](#papers) · [Toolkits](#toolkits) · [Datasets](#datasets) · [Benchmarks](#benchmarks) · [Learning](#learning) · [Research Teams](#research-teams)
 
 </div>
 
@@ -50,6 +50,10 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 ## Learning
 
 [Browse all 29 entries on the website](https://computedtomography.org/?tab=learning)
+
+## Research Teams
+
+[Browse all 20 entries on the website](https://computedtomography.org/?tab=teams)
 
 ## Contact
 

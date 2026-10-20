@@ -1,0 +1,604 @@
+# Research groups and labs whose papers, software or data appear in this
+# directory. Shown on the website's "Teams" tab; the README points at it.
+#
+# Fields: id (required, permanent, lower-case kebab-case — external links and
+#         anchors depend on it, never rename), name, name_zh (shown on both
+#         editions when set), institution, city, country, region
+#         (north-america | europe | asia), pi, homepage, focus (topic ids from
+#         data/meta.yaml), status (active | legacy), intro (EN; the ZH text
+#         lives in data/i18n/zh.yaml under `teams:` keyed by id), works
+#         (references that must resolve: papers by id, toolkits/datasets/
+#         benchmarks by name), software (optional), verified (last homepage
+#         check, YYYY-MM-DD).
+#
+# Inactive teams are removed unless their legacy is still widely used, in
+# which case status is set to `legacy`. Removal needs the maintainer's say-so.
+- id: rpi-wang-axis
+  name: "WANG-AXIS Lab / Biomedical Imaging Center (BIC)"
+  name_zh: "WANG-AXIS 实验室 / 生物医学成像中心"
+  institution: "Rensselaer Polytechnic Institute"
+  city: "Troy, NY"
+  country: "USA"
+  region: north-america
+  pi: ["Ge Wang"]
+  homepage: "https://wang-axis.github.io/resources/"
+  focus: [diffusion, self-supervised, low-dose, sparse-view, spectral]
+  status: active
+  intro: >
+    The WANG-AXIS Lab and the Biomedical Imaging Center (BIC) at Rensselaer
+    Polytechnic Institute, directed by Ge Wang, work on x-ray CT imaging
+    theory, systems, and reconstruction. The group's earlier work includes
+    spiral cone-beam CT reconstruction and interior tomography, and its recent
+    work applies deep learning to tomographic reconstruction, including the
+    FORCE framework (2025), which combines a Poisson flow generative prior
+    with data fidelity for reconstruction under low-dose, sparse-view, and
+    metal-artifact conditions. The center also operates CT hardware that
+    includes a photon-counting (MARS) spectral micro-CT scanner and a
+    grating-based x-ray phase-contrast imaging platform.
+  works:
+    papers: [force]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  software: "Code in the lab's GitHub organization (github.com/WANG-AXIS): FORCE, RDDM (low-dose CT denoising), LEARN (sparse-data CT reconstruction network), M3FM."
+  verified: 2026-10-20
+
+- id: uchicago-xray
+  name: "X-ray Tomographic Imaging Group"
+  name_zh: "X 射线断层成像课题组"
+  institution: "University of Chicago"
+  city: "Chicago, IL"
+  country: "USA"
+  region: north-america
+  pi: ["Xiaochuan Pan", "Emil Y. Sidky"]
+  homepage: "https://radiology.uchicago.edu/research/x-ray-tomographic-imaging-clinical-preclinical-security-and-synchrotron-ct"
+  focus: [classical, sparse-view, limited-angle, spectral, low-dose]
+  status: active
+  intro: >
+    The X-ray tomographic imaging group in the Department of Radiology at the
+    University of Chicago, led by Xiaochuan Pan and Emil Y. Sidky, develops
+    reconstruction algorithms and imaging systems for clinical, preclinical,
+    security, and synchrotron CT. The group is known for constrained
+    total-variation (TV) minimization reconstruction — the ASD-POCS algorithm
+    of Sidky & Pan (2008) — which minimizes image TV subject to data
+    constraints and reconstructs cone-beam CT images from sparse or
+    limited-angle data. Recent work from the group includes directional TV
+    algorithms, one-step spectral CT reconstruction, and reconstruction from
+    truncated projection data.
+  works:
+    papers: [sidky-pan-tv-2008]
+    toolkits: [leehoy/CTReconstruction]
+    datasets: []
+    benchmarks: []
+  software: "CTReconstruction (GitHub: leehoy/CTReconstruction) — reconstruction code associated with the group."
+  verified: 2026-10-20
+
+- id: jhu-istar
+  name: "I-STAR Lab (Imaging for Surgery, Therapy, and Radiology)"
+  name_zh: "I-STAR 实验室"
+  institution: "Johns Hopkins University"
+  city: "Baltimore, MD"
+  country: "USA"
+  region: north-america
+  pi: ["Jeffrey H. Siewerdsen", "J. Webster Stayman", "Wojciech Zbijewski"]
+  homepage: "https://istar.jhu.edu/"
+  focus: [cbct, scatter, geometry, spectral, metal-artifact]
+  status: active
+  intro: >
+    The I-STAR Lab (Imaging for Surgery, Therapy, and Radiology) at Johns
+    Hopkins University, led by Jeffrey Siewerdsen, J. Webster Stayman, and
+    Wojciech Zbijewski, works on cone-beam CT (CBCT) systems and 3D
+    reconstruction for image-guided interventions. Its research includes
+    penalized-likelihood (model-based) reconstruction, known-component
+    reconstruction for imaging in the presence of implants and other known
+    objects, and physics modeling of effects such as x-ray scatter, detector
+    lag, and system geometry. Early work from lab members quantified the
+    magnitude and effects of x-ray scatter in flat-panel CBCT
+    (Siewerdsen & Jaffray, 2001) and Monte Carlo-based scatter correction in
+    cone-beam micro-CT (Zbijewski & Beekman, 2006).
+  works:
+    papers: [siewerdsen-2001, zbijewski-2006]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  software: "The lab site (istar.jhu.edu) maintains a Downloads section for lab software and data; no single flagship public toolkit was identified."
+  verified: 2026-10-20
+
+- id: umich-fessler
+  name: "Fessler Group"
+  name_zh: "Fessler 课题组"
+  institution: "University of Michigan"
+  city: "Ann Arbor, MI"
+  country: "USA"
+  region: north-america
+  pi: ["Jeffrey A. Fessler"]
+  homepage: "https://medschool.umich.edu/profile/1686/jeffrey-fessler"
+  focus: [classical, unrolling, low-dose]
+  status: active
+  intro: >
+    Jeffrey Fessler's group at the University of Michigan works on statistical
+    (model-based) image reconstruction and the optimization algorithms behind
+    it, for CT as well as PET, SPECT, and MRI. Fessler & Rogers (1996)
+    analyzed the spatial resolution properties of penalized-likelihood
+    reconstruction for space-invariant tomographs, work that underlies later
+    methods for designing regularizers with controlled resolution properties.
+    The group maintains the Michigan Image Reconstruction Toolbox (MIRT) in
+    MATLAB and Julia (MIRT.jl) versions, and the PyTorch-based MIRTorch
+    toolbox for differentiable image reconstruction.
+  works:
+    papers: [fessler-rogers-1996]
+    toolkits: [MIRT, MIRTorch]
+    datasets: []
+    benchmarks: []
+  software: "MIRT — Michigan Image Reconstruction Toolbox (MATLAB; Julia port MIRT.jl under active development). MIRTorch — PyTorch-based differentiable reconstruction toolbox (PyPI: MIRTorch)."
+  verified: 2026-10-20
+
+- id: mayo-ctic
+  name: "CT Clinical Innovation Center"
+  name_zh: "CT 临床创新中心"
+  institution: "Mayo Clinic"
+  city: "Rochester, MN"
+  country: "USA"
+  region: north-america
+  pi: ["Cynthia H. McCollough", "Lifeng Yu"]
+  homepage: "https://www.mayo.edu/research/centers-programs/ct-clinical-innovation-center/overview"
+  focus: [low-dose, spectral, dynamic]
+  status: active
+  intro: >
+    The CT Clinical Innovation Center at Mayo Clinic, founded in 2004, develops
+    and evaluates new CT technology, clinical applications, and dose-reduction
+    techniques, with core faculty including Cynthia McCollough and Lifeng Yu.
+    Its work covers dual- and multi-energy CT and photon-counting-detector CT,
+    reviewed in McCollough et al. (2015). The center also created public data
+    resources for the CT research community: the 2016 AAPM Low-Dose CT Grand
+    Challenge, and the Low Dose CT Image and Projection Data library
+    (LDCT-and-Projection-data) hosted at The Cancer Imaging Archive, which
+    provides routine-dose and simulated low-dose projection data together with
+    full-dose images for 299 patient exams of the head, chest, and abdomen.
+  works:
+    papers: [mccollough-2015]
+    toolkits: []
+    datasets: [LDCT-and-Projection-data]
+    benchmarks: [AAPM Low-Dose CT Grand Challenge]
+  software: "LDCT-and-Projection-data library (TCIA) — 299 patient exams with routine-dose and simulated low-dose projection data. DICOM-CT-PD — open, vendor-neutral data format for CT projection data developed by the center."
+  verified: 2026-10-20
+
+- id: uwisc-chen
+  name: "CT Research Group (UW CT Lab)"
+  name_zh: "UW CT 实验室"
+  institution: "University of Wisconsin–Madison"
+  city: "Madison, WI"
+  country: "USA"
+  region: north-america
+  pi: ["Guang-Hong Chen"]
+  homepage: "https://www.radiology.wisc.edu/profile/guang-hong-chen"
+  focus: [low-dose, spectral, dynamic, sparse-view]
+  status: active
+  intro: >
+    Guang-Hong Chen's CT research group at the University of Wisconsin–Madison
+    works on reconstruction methods for low-dose and undersampled CT. Chen
+    introduced Prior Image Constrained Compressed Sensing (PICCS), which uses
+    a prior image as a constraint to reconstruct dynamic CT images from highly
+    undersampled projection data, and PICCS has been applied to cardiac
+    imaging, perfusion imaging, dual-energy CT, and C-arm CT. The group also
+    works on spectral and photon-counting detector CT; UW–Madison was the
+    first U.S. clinical evaluation site for GE Healthcare's silicon-based
+    photon-counting CT system, with first human scanning in November 2022.
+  works:
+    papers: [piccs, dl-piccs]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-20
+
+- id: purdue-bouman
+  name: "Bouman Group"
+  name_zh: "Bouman 课题组"
+  institution: "Purdue University"
+  city: "West Lafayette, IN"
+  country: "USA"
+  region: north-america
+  pi: ["Charles A. Bouman"]
+  homepage: "https://engineering.purdue.edu/~bouman/"
+  focus: [sparse-view, low-dose, classical, geometry]
+  status: active
+  intro: >
+    Charles Bouman's group at Purdue University works on model-based iterative
+    reconstruction (MBIR) for X-ray CT, formulating reconstruction as
+    statistical estimation with explicit forward models and
+    Markov-random-field priors. The MBIR statistical reconstruction work
+    carried out with Ken Sauer (University of Notre Dame) in the 1990s was
+    later commercialized by GE Healthcare as the Veo MBIR product for
+    low-dose clinical CT. The group maintains SVMBIR, an open-source
+    implementation of MBIR for parallel- and fan-beam CT, and has extended
+    model-based methods to distributed and multi-node reconstruction.
+  works:
+    papers: [bouman-sauer-1993, sauer-bouman-1993]
+    toolkits: [svmbir]
+    datasets: []
+    benchmarks: []
+  software: "SVMBIR (GitHub: cabouman/svmbir) — supervised MBIR for parallel/fan-beam CT."
+  verified: 2026-10-20
+
+- id: llnl-leap
+  name: "LEAP Project, Lawrence Livermore National Laboratory"
+  name_zh: "劳伦斯利弗莫尔国家实验室 LEAP 项目"
+  institution: "Lawrence Livermore National Laboratory"
+  city: "Livermore, CA"
+  country: "USA"
+  region: north-america
+  pi: ["Kyle Champley", "Hyojin Kim"]
+  homepage: "https://github.com/LLNL/LEAP"
+  focus: [geometry, spectral, cbct, other]
+  status: active
+  intro: >
+    The LEAP project at Lawrence Livermore National Laboratory provides a
+    library of 3D transmission CT algorithms — pre-processing, forward/back
+    projectors, and analytic (FBP/FDK) and iterative reconstruction — with
+    Python and C++ APIs and PyTorch bindings that make the projectors
+    differentiable for integration into deep-learning pipelines. The projectors
+    support multiple geometries on multi-GPU and multi-core CPU hardware and
+    are aimed at industrial and laboratory CT. Physics-based modeling and
+    correction (scatter, beam hardening, dual-energy decomposition) is provided
+    through the companion XrayPhysics package, a C/C++ library with Python
+    bindings for X-ray cross sections and source-spectra modeling.
+  works:
+    papers: []
+    toolkits: [LEAP, XrayPhysics]
+    datasets: []
+    benchmarks: []
+  software: "LEAP — LivermorE AI Projector for Computed Tomography (GitHub: LLNL/LEAP). XrayPhysics (GitHub: kylechampley/XrayPhysics) — cross sections, spectra modeling, multi-material beam-hardening correction, dual-energy decomposition."
+  verified: 2026-10-20
+
+- id: anl-aps-tomo
+  name: "APS Tomography Group"
+  name_zh: "先进光子源断层成像团队"
+  institution: "Argonne National Laboratory"
+  city: "Lemont, IL"
+  country: "USA"
+  region: north-america
+  pi: ["Francesco De Carlo", "Viktor Nikitin", "Doga Gürsoy"]
+  homepage: "https://tomobank.readthedocs.io/en/latest/"
+  focus: [classical, dynamic, cbct, other]
+  status: active
+  intro: >
+    The tomography group at the Advanced Photon Source of Argonne National
+    Laboratory develops the reconstruction and data-handling software used at
+    synchrotron micro- and nano-tomography beamlines. Its software output
+    includes TomoPy, a Python framework for pre-processing and reconstructing
+    synchrotron tomographic data (Gürsoy, De Carlo et al., 2014), and
+    TomocuPy, Viktor Nikitin's GPU pipeline that reconstructs data in
+    concurrent chunks. The group also curates TomoBank, a repository of
+    experimental and simulated tomography datasets with descriptors, provided
+    so that reconstruction methods can be developed and compared on shared
+    beamline data.
+  works:
+    papers: []
+    toolkits: [TomoPy]
+    datasets: [TomoBank]
+    benchmarks: []
+  software: "TomoPy (GitHub: tomopy/tomopy) — tomographic reconstruction in Python. TomocuPy — GPU-accelerated reconstruction pipeline (Nikitin, Journal of Synchrotron Radiation, 2023). TomoBank — open repository of synchrotron tomography datasets."
+  verified: 2026-10-20
+
+- id: fau-lme
+  name: "Pattern Recognition Lab (LME)"
+  name_zh: "模式识别实验室"
+  institution: "Friedrich-Alexander-Universität Erlangen-Nürnberg"
+  city: "Erlangen"
+  country: "Germany"
+  region: europe
+  pi: ["Andreas Maier"]
+  homepage: "https://lme.tf.fau.de/"
+  focus: [geometry, cbct, unrolling, diffusion]
+  status: active
+  intro: >
+    The Pattern Recognition Lab at FAU Erlangen-Nürnberg, headed by Andreas
+    Maier since 2015, applies machine learning to medical imaging, with a CT
+    line built around known operators — embedding the physics of projection
+    and reconstruction as differentiable layers inside neural networks. Its
+    software output includes PYRO-NN, a library of differentiable CT operators
+    for parallel, fan, and cone-beam geometries, and diffct, a
+    CUDA-accelerated differentiable CT library whose later versions support
+    non-circular and arbitrary acquisition trajectories. A DFG-funded project,
+    "Deep-Learning-basierte CBCT-Rekonstruktion beliebiger Trajektorien"
+    (36 months, 324,459 EUR, announced September 2025), develops
+    deep-learning-based CBCT reconstruction for arbitrary trajectories with
+    partners at TH Deggendorf and Stanford University, using FAU's RRZE
+    computing infrastructure.
+  works:
+    papers: []
+    toolkits: [diffct, PYRO-NN]
+    datasets: []
+    benchmarks: []
+  software: "diffct (GitHub: sypsyp97/diffct) — CUDA-accelerated differentiable CT library. PYRO-NN (GitHub: csyben/PYRO-NN) — differentiable CT reconstruction operators with PyTorch support and native CUDA kernels."
+  verified: 2026-10-20
+
+- id: cambridge-cia
+  name: "Computational Image Analysis (CIA) Group"
+  name_zh: "剑桥大学计算图像分析组"
+  institution: "University of Cambridge"
+  city: "Cambridge"
+  country: "United Kingdom"
+  region: europe
+  pi: ["Carola-Bibiane Schönlieb", "Ander Biguri"]
+  homepage: "https://www.damtp.cam.ac.uk/research/cia/"
+  focus: [unrolling, sparse-view, low-dose, self-supervised, cbct]
+  status: active
+  intro: >
+    The Computational Image Analysis group at Cambridge works on mathematical
+    imaging and inverse problems, with a dedicated CT remit on closing the gap
+    between mathematical advances and clinical practice. Its tomographic work
+    covers data-driven reconstruction methods — including iterative unrolled
+    methods, learned regularizers, and Plug-and-Play approaches — alongside
+    variational regularization, Krylov subspace solvers, and 4D imaging. The
+    group develops LION (Learned Iterative Optimization Networks), an open
+    software package that collects post-processing, unrolled,
+    learned-regularizer, Plug-and-Play and self-supervised CT reconstruction
+    methods with reproducible training pipelines and CT datasets.
+  works:
+    papers: []
+    toolkits: [LION]
+    datasets: []
+    benchmarks: []
+  software: "LION (Learned Iterative Optimization Networks) — data-driven CT reconstruction methods with reproducible training pipelines; the group also co-maintains the TIGRE toolbox for cone-beam reconstruction."
+  verified: 2026-10-20
+
+- id: cwi-ci
+  name: "Computational Imaging Group"
+  name_zh: "阿姆斯特丹 CWI 计算成像组"
+  institution: "Centrum Wiskunde & Informatica (CWI)"
+  city: "Amsterdam"
+  country: "Netherlands"
+  region: europe
+  pi: ["Tristan van Leeuwen"]
+  homepage: "https://www.cwi.nl/en/research/computational-imaging/"
+  focus: [classical, sparse-view, spectral, geometry, dynamic]
+  status: active
+  intro: >
+    The Computational Imaging group at CWI develops mathematics- and
+    algorithm-driven methods for 3D imaging across science, medicine and
+    industry, combining advanced acquisition, parameter estimation and
+    discrete tomography — including real-time reconstruction via RECAST3D and
+    the in-house FleX-ray lab that couples a custom CT scanner to advanced
+    processing and AI algorithms. It jointly developed the ASTRA Toolbox with
+    the University of Antwerp — a MATLAB/Python platform of high-performance
+    GPU primitives for 2D and 3D tomography used by researchers, industrial
+    partners, and large synchrotrons (ESRF, APS) — and tomosipo, its Pythonic
+    wrapper for 3D tomography with complex geometries, aimed at pairing fast
+    GPU compute with modern deep learning tools.
+  works:
+    papers: []
+    toolkits: ["ASTRA Toolbox", tomosipo]
+    datasets: ["FleX-ray Walnut CBCT Collection (CWI)"]
+    benchmarks: []
+  software: "ASTRA Toolbox (astra-toolbox.com) and tomosipo; RECAST3D for real-time visualization of tomographic imaging."
+  verified: 2026-10-20
+
+- id: uantwerp-visionlab
+  name: "imec-Vision Lab (ASTRA Group)"
+  name_zh: "安特卫普大学 imec 视觉实验室（ASTRA 组）"
+  institution: "University of Antwerp"
+  city: "Antwerp"
+  country: "Belgium"
+  region: europe
+  pi: ["Jan Sijbers", "Jan De Beenhouwer"]
+  homepage: "https://www.uantwerpen.be/en/research-groups/vision-lab/"
+  focus: [classical, geometry, dynamic, spectral, other]
+  status: active
+  intro: >
+    The ASTRA research group of imec-Vision Lab develops tomographic
+    reconstruction algorithms for electron, X-ray, neutron and magnetic
+    resonance imaging, focusing on the general reconstruction problems shared
+    across application fields rather than any single application. Key
+    expertises include phase-contrast X-ray CT, X-ray tomography for
+    non-standard acquisition geometries (e.g., laminography, tomosynthesis),
+    dynamic (4D) tomography and discrete tomography. The group developed the
+    ASTRA Toolbox — an open-source, GPU-accelerated software platform for
+    developing novel tomographic reconstruction methods — jointly with CWI's
+    Computational Imaging group.
+  works:
+    papers: []
+    toolkits: ["ASTRA Toolbox"]
+    datasets: []
+    benchmarks: []
+  software: "ASTRA Toolbox (developed jointly with CWI); DART-related discrete tomography methods."
+  verified: 2026-10-20
+
+- id: kth-oktem
+  name: "Mathematical Imaging Group (Ozan Öktem)"
+  name_zh: "瑞典皇家理工学院 Öktem 课题组"
+  institution: "KTH Royal Institute of Technology"
+  city: "Stockholm"
+  country: "Sweden"
+  region: europe
+  pi: ["Ozan Öktem"]
+  homepage: "https://www.kth.se/profile/ozan"
+  focus: [unrolling, classical, other, low-dose, sparse-view]
+  status: active
+  intro: >
+    Ozan Öktem's research at KTH combines inverse problems, convex
+    optimization and machine learning for medical imaging, with a line of
+    work on learned iterative (unrolled) reconstruction schemes. Together with
+    Jonas Adler he introduced the Learned Primal-Dual reconstruction method
+    (IEEE T-MI 2018) and the ODL (Operator Discretization Library) Python
+    library for inverse problems, which provides forward operators, geometries
+    and analytical methods used by many subsequent CT reconstruction studies.
+    The learned gradient tomography codebase implements the earlier iterative
+    deep network work (Adler & Öktem, "Solving ill-posed inverse problems
+    using iterative deep neural networks", Inverse Problems 2017).
+  works:
+    papers: []
+    toolkits: [ODL, "Learned Primal-Dual", "Learned Gradient Tomography"]
+    datasets: []
+    benchmarks: []
+  software: "ODL (odlgroup/odl) — operator discretization library for inverse problems; learned primal-dual and learned gradient tomography implementations."
+  verified: 2026-10-20
+
+- id: creatis-rit
+  name: "CREATIS Tomographic Reconstruction Group"
+  name_zh: "里昂 CREATIS 层析重建组"
+  institution: "CREATIS (CNRS / Inserm / INSA Lyon)"
+  city: "Lyon"
+  country: "France"
+  region: europe
+  pi: ["Simon Rit"]
+  homepage: "https://www.creatis.insa-lyon.fr/site/en"
+  focus: [cbct, dynamic, classical, sparse-view, other]
+  status: active
+  intro: >
+    Simon Rit's group at CREATIS works on tomographic reconstruction with a
+    focus on cone-beam CT for image-guided radiotherapy, including
+    regularized and sparse (compressive-sensing) CT methods and
+    motion-compensated X-ray CT for cardiac and respiratory motion — methods
+    that were transferred to a clinical solution in the Netherlands. The group
+    develops the Reconstruction Toolkit (RTK, openrtk.org), an open-source
+    cone-beam CT reconstruction toolkit built on ITK with GPU code from
+    Plastimatch, released under Apache 2.0 and distributed both as C++
+    classes/command-line tools and as Python packages (itkrtk) via PyPI. RTK
+    supports Elekta, Varian and IBA scanner inputs, CPU/GPU
+    Feldkamp-David-Kress reconstruction, 4D algorithms such as 4D ROOSTER, and
+    cylindrical-detector geometries used by diagnostic CT scanners.
+  works:
+    papers: []
+    toolkits: [RTK]
+    datasets: []
+    benchmarks: []
+  software: "RTK (Reconstruction Toolkit; GitHub: RTKConsortium/RTK, PyPI: itkrtk) — open-source cone-beam CT reconstruction toolkit built on ITK."
+  verified: 2026-10-20
+
+- id: stfc-cil
+  name: "Tomographic Imaging / Core Imaging Library (CIL) Group"
+  institution: "Science and Technology Facilities Council (STFC)"
+  city: "Harwell / Manchester"
+  country: "United Kingdom"
+  region: europe
+  pi: ["Edoardo Pasca", "Daniil Kazantsev", "Jakob Sauer Jørgensen"]
+  homepage: "https://tomographicimaging.github.io/CIL/"
+  focus: [classical, dynamic, spectral, other]
+  status: active
+  intro: >
+    The Tomographic Imaging group at the UK Science and Technology Facilities
+    Council (STFC), working with partners including the University of
+    Manchester through the Collaborative Computational Project in Tomographic
+    Imaging (CCPi), develops open-source software for tomographic image
+    reconstruction. Its Core Imaging Library (CIL) is a Python framework for
+    iterative, regularised reconstruction of datasets where filtered
+    back-projection is insufficient, such as noisy, incomplete,
+    non-standard-geometry or multichannel (dynamic and spectral) data. The
+    group also works on synergistic imaging, combining tomography with other
+    modalities and data sources in joint reconstruction problems.
+  works:
+    papers: []
+    toolkits: ["Core Imaging Library (CIL)", "CCPi Regularisation Toolkit", TomoPhantom]
+    datasets: []
+    benchmarks: []
+  software: "Core Imaging Library (CIL) — open-source Python reconstruction framework (GitHub: TomographicImaging/CIL), Apache-2.0. CCPi Regularisation Toolkit. TomoPhantom — 2D–4D analytical phantoms for reconstruction benchmarking."
+  verified: 2026-10-20
+
+- id: kaist-bispl
+  name: "BISPL (Bio Imaging & Signal Processing Lab)"
+  institution: "Korea Advanced Institute of Science and Technology (KAIST)"
+  city: "Daejeon"
+  country: "South Korea"
+  region: asia
+  pi: ["Jong Chul Ye"]
+  homepage: "https://gsai.kaist.ac.kr/"
+  focus: [diffusion, sparse-view, limited-angle, self-supervised]
+  status: active
+  intro: >
+    The Bio Imaging & Signal Processing Lab (BISPL) at KAIST, led by Jong Chul
+    Ye, works on signal processing and machine learning methods for biomedical
+    imaging. A central research line uses diffusion and score-based generative
+    models as priors for imaging inverse problems, including sparse-view and
+    limited-angle CT; its DiffusionMBIR method combines a pre-trained 2D
+    diffusion model with model-based iterative reconstruction and a
+    total-variation prior along the slice direction to solve 3D reconstruction
+    problems such as sparse-view and limited-angle tomography.
+  works:
+    papers: [3dip]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-20
+
+- id: tsinghua-ep-ct
+  name: "CT Imaging Group, Department of Engineering Physics"
+  name_zh: "清华大学工程物理系 CT 成像组"
+  institution: "Tsinghua University"
+  city: "Beijing"
+  country: "China"
+  region: asia
+  pi: ["Yuxiang Xing (邢宇翔)", "Li Zhang (张丽)"]
+  homepage: "https://www.ep.tsinghua.edu.cn/en/info/1034/1220.htm"
+  focus: [spectral, classical, geometry, metal-artifact]
+  status: active
+  intro: >
+    The CT imaging group in Tsinghua University's Department of Engineering
+    Physics, led by Yuxiang Xing and Li Zhang, studies X-ray CT imaging
+    systems and image reconstruction methods. Its research covers tomographic
+    reconstruction algorithms, photon-counting and spectral (multi-energy)
+    CT, and fixed multi-source CT system designs in which source arrays
+    replace gantry rotation. The group is based in the department's Key
+    Laboratory of Particle & Radiation Imaging (Ministry of Education).
+  works:
+    papers: []
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-20
+
+- id: seu-ct
+  name: "CT Reconstruction Groups (Chen / Luo)"
+  name_zh: "东南大学 CT 重建组（陈阳 / 罗守华）"
+  institution: "Southeast University"
+  city: "Nanjing"
+  country: "China"
+  region: asia
+  pi: ["Yang Chen (陈阳)", "Shouhua Luo (罗守华)"]
+  homepage: "https://bme.seu.edu.cn/lsh_en/main.htm"
+  focus: [low-dose, sparse-view, limited-angle, other]
+  status: active
+  intro: >
+    This entry covers two Southeast University groups working on CT
+    reconstruction in Nanjing: Yang Chen's group at the School of Computer
+    Science and Engineering (Laboratory of Image Science and Technology) and
+    Shouhua Luo's group at the School of Biological Science and Medical
+    Engineering. Their research addresses low-dose CT reconstruction and image
+    enhancement under non-ideal measurement conditions such as sparse views
+    and limited angles. In 2026 the CSE-led team published TAMP, an imaging
+    foundation model pre-trained on physics-simulated data for universal
+    enhancement of non-ideal measurement CT, in Nature Communications.
+  works:
+    papers: [tamp]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  software: "TAMP model code (announced in the paper for release at github.com/YutingHelist/TAMP); SimNICT — the physics-simulated pre-training dataset built for TAMP (announced via Hugging Face, YutingHelist/SimNICT)."
+  verified: 2026-10-20
+
+- id: hkust-xmed
+  name: "XMed Lab"
+  name_zh: "XMed 实验室"
+  institution: "Hong Kong University of Science and Technology"
+  city: "Hong Kong"
+  country: "China"
+  region: asia
+  pi: ["Xiaomeng Li (李小萌)"]
+  homepage: "https://xmengli.github.io/"
+  focus: [sparse-view, cbct, other]
+  status: active
+  intro: >
+    The XMed Lab at the Hong Kong University of Science and Technology, led by
+    Xiaomeng Li in the Department of Electronic and Computer Engineering,
+    works on medical AI and computer vision. Its DeepSparse model (IEEE
+    Transactions on Medical Imaging, 2026) is a foundation model for
+    sparse-view cone-beam CT reconstruction: it is pre-trained on a
+    large-scale abdominal CT dataset (AtlasAbdomenMini, ~7k volumes) and can
+    be fine-tuned to diverse anatomical targets with few labelled examples.
+  works:
+    papers: [deepsparse]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  software: "DeepSparse code (GitHub: xmed-lab/DeepSparse); pretrained and fine-tuned model weights released on Hugging Face."
+  verified: 2026-10-20
