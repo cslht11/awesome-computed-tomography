@@ -218,6 +218,87 @@ def render_static_papers(payload, ov):
     return "\n".join(rows)
 
 
+TEAM_REGIONS = (("north-america", "regionNorthAmerica", "North America"),
+                ("europe", "regionEurope", "Europe"),
+                ("asia", "regionAsia", "Asia"))
+
+
+def render_static_teams(payload, ov):
+    """Server-rendered team cards, grouped by region (like the paper list:
+    readable and crawlable without JavaScript).
+
+    Work references point at the work itself: a paper links to its primary
+    URL (there is no /p/<id>/ page on this site), the other tables link to
+    their tab, where the entry lives.
+    """
+    teams = payload.get("teams") or []
+    if not teams:
+        return ""
+    by_id = dict((p["id"], p) for p in payload["papers"])
+    topic_names = dict((t["id"], t["name"]) for t in payload["topics"])
+
+    def work_links(tm):
+        works = tm.get("works") or {}
+        out = []
+        for pid in works.get("papers") or []:
+            p = by_id.get(pid)
+            if not p:
+                continue
+            url = paper_url(p)
+            label = esc(paper_label(p))
+            out.append('<a href="%s" target="_blank" rel="noopener">%s</a>'
+                       % (esc(url), label) if url else label)
+        for table in ("toolkits", "datasets", "benchmarks"):
+            for n in works.get(table) or []:
+                out.append('<a href="?tab=%s">%s</a>' % (table, esc(n)))
+        return out
+
+    bits = []
+    for region, key, default in TEAM_REGIONS:
+        group = [tm for tm in teams if tm["region"] == region]
+        if not group:
+            continue
+        bits.append('<h3 class="region-head">%s</h3>'
+                    % esc(ov.ui(key, default)))
+        bits.append('<ul class="teams">')
+        for tm in group:
+            name = tm.get("label") or tm["name"]
+            head = '<a href="%s" target="_blank" rel="noopener">%s</a>' \
+                % (esc(tm["homepage"]), esc(name))
+            if tm.get("name_zh"):
+                head += ' <span class="t-namezh">%s</span>' % esc(tm["name_zh"])
+            if tm["status"] == "legacy":
+                head += ' <span class="t-badge">%s</span>' \
+                    % esc(ov.ui("teamsLegacy", "Legacy"))
+            where = " \u00b7 ".join(x for x in (tm["institution"],
+                                               ", ".join(y for y in
+                                                         (tm["city"], tm["country"]) if y)) if x)
+            meta = ['<span class="t-where">%s</span>' % esc(where)]
+            meta += ['<span class="sep">\u00b7</span>',
+                     '<span class="t-pi">%s %s</span>'
+                     % (esc(ov.ui("teamsLead", "Led by")),
+                        esc(", ".join(tm["pi"])))]
+            if tm["focus"]:
+                meta += ['<span class="sep">\u00b7</span>',
+                         '<span class="topics">%s</span>' % esc(" \u00b7 ".join(
+                             topic_names.get(t, t) for t in tm["focus"]))]
+            rows = ['<li class="team" id="team-%s">' % esc(tm["id"]),
+                    '<p class="t-name">%s</p>' % head,
+                    '<p class="t-meta">%s</p>' % "".join(meta),
+                    '<p class="t-intro">%s</p>' % esc(tm["intro"])]
+            links = work_links(tm)
+            if links:
+                rows.append('<p class="t-works"><span class="t-works-label">%s</span> %s</p>'
+                            % (esc(ov.ui("teamsInLibrary", "In this library:")),
+                               " \u00b7 ".join(links)))
+            if tm.get("software"):
+                rows.append('<p class="t-software">%s</p>' % md_inline(tm["software"]))
+            rows.append("</li>")
+            bits.append("\n".join(rows))
+        bits.append("</ul>")
+    return "\n".join(bits)
+
+
 def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
     """``base`` is this language's own canonical URL, ``root`` the site origin
     the hreflang alternates are built from. ``tokens`` holds the live counts,
@@ -420,6 +501,9 @@ def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(),
         "## Directory", "",
         "- [Paper directory (English)](%s): searchable list of all papers, "
         "toolkits, datasets and benchmarks" % base,
+        "- [Research teams](%s?tab=teams): %d research groups and labs behind "
+        "the papers, toolkits and datasets in this directory"
+        % (base, c.get("teams", 0)),
         "- [论文目录（中文）](%szh/): Chinese edition of the same directory" % base,
         "- [About](%sabout/): scope, sourcing, verification and how to cite" % base,
         "- [Contact](%scontact/): how to suggest or correct an entry" % base,
@@ -957,7 +1041,8 @@ def main():
         "papers": c["papers"],
         "preprints": c["preprints"], "toolkits": c["toolkits"],
         "datasets": c["datasets"], "benchmarks": c["benchmarks"],
-        "learning": c["learning"], "year_min": c["year_min"],
+        "learning": c["learning"], "teams": c.get("teams", 0),
+        "year_min": c["year_min"],
         "year_max": c["year_max"], "updated": str(meta["last_updated"]),
         "title": cfg["title"],
         "tagline": cfg["tagline"], "repo": cfg["repo"],
@@ -1056,7 +1141,9 @@ def main():
                                    ov, tokens),
             "{{DATA}}": safe_json(payload),
             "{{PAPERS_STATIC}}": render_static_papers(payload, ov),
+            "{{TEAMS_STATIC}}": render_static_teams(payload, ov),
             "{{PAPERS_LEGEND}}": md_inline(ov.readme("legendPapers", PAPERS_LEGEND)),
+            "{{TEAMS_LEGEND}}": md_inline(ov.readme("legendTeams", "")),
             "{{DATASET_LEGEND}}": md_inline(ov.readme("legendDatasets", DATASET_LEGEND)),
             "{{TITLE}}": esc(top_for(ov, code, "title", cfg["title"])),
             "{{TAGLINE}}": esc(top_for(ov, code, "tagline", cfg["tagline"])),
@@ -1075,6 +1162,7 @@ def main():
             "{{N_DATASETS}}": str(c["datasets"]),
             "{{N_BENCHMARKS}}": str(c["benchmarks"]),
             "{{N_LEARNING}}": str(c["learning"]),
+            "{{N_TEAMS}}": str(c.get("teams", 0)),
             "{{YEAR_MIN}}": str(c["year_min"]),
             "{{YEAR_MAX}}": str(c["year_max"]),
             "{{UPDATED}}": esc(str(meta["last_updated"])),
@@ -1330,6 +1418,14 @@ def main():
                     problems.append(
                         "%s/%s: %s %r has a translated note that did not reach "
                         "data.json" % (code, table, key_field, rec[key_field]))
+        # Teams carry their long text in `intro` rather than `note`, keyed by
+        # the team's id; the same dropped-translation guard applies.
+        for rec in data.get("teams") or []:
+            want = ov.item("teams", rec["id"]).get("intro")
+            if want and rec.get("intro") != re.sub(r"\s+", " ", want).strip():
+                problems.append(
+                    "%s/teams: id %r has a translated intro that did not reach "
+                    "data.json" % (code, rec["id"]))
 
     # ------------------------------------------------------------ topic pages
     # Every topic page must name itself as canonical and carry the full set of
