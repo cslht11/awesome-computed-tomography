@@ -414,3 +414,12 @@
   stars: 0
   tags: [low-dose, denoising, dual-domain]
   note: A deep learning framework for dual-domain low-dose CT denoising.
+
+- name: diffct
+  repo: sypsyp97/diffct
+  homepage: https://sypsyp97.github.io/diffct/
+  language: Python / CUDA
+  license: Apache-2.0
+  stars: 27
+  tags: [differentiable, GPU, projector, FBP, FDK, arbitrary-trajectory]
+  note: "Differentiable CUDA CT projectors from FAU (Maier group): arbitrary per-view trajectories, autograd through volume and acquisition geometry, exact-adjoint project/backproject pairs, multi-GPU/multi-node. Technical report 2026-10-14 (doi:10.20944/preprints202605.1446.v2)."
