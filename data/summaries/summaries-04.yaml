@@ -583,3 +583,6 @@ tuf: >-
 # EN summary for ct-clip-chat (verified against the published abstract).
 ct-clip-chat: >-
   CT-CLIP contrastively aligns 3D chest CT volumes with radiology reports from the CT-RATE dataset (25,692 scans), enabling zero-shot multi-abnormality detection and retrieval that beats supervised baselines. Its vision encoder plus an LLM yields CT-CHAT, a chat model fine-tuned on 2.7M QA pairs for report generation.
+# EN summary for x-splat (verified against the arXiv abstract).
+x-splat: >-
+  X-Splat unifies RGB and X-ray 3D reconstruction in one Gaussian representation: all primitives share geometry and only surface-proximal ones carry appearance. Registration via multi-view stereo and X-ray geometric proxies plus a surface-depth consistency loss yields robust cross-modal alignment.
