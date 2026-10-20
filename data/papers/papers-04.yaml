@@ -1675,3 +1675,12 @@
   paper: "https://doi.org/10.1038/s41551-025-01599-y"
   code: "https://github.com/ibrahimethemhamamci/CT-CLIP"
   note: "CT vision-language models (CT-CLIP + CT-CHAT; understanding, not reconstruction; CT-CHAT code at https://github.com/ibrahimethemhamamci/CT-CHAT); included as a user-approved scope exception."
+- id: "x-splat"
+  abbr: "X-Splat"
+  title: "X-Splat: Unified Gaussian Splatting for Joint RGB and X-ray 3D Reconstruction"
+  year: 2026
+  venue: "SIGGRAPH Asia"
+  topics: [gaussian, cbct, geometry]
+  paper: "https://arxiv.org/abs/2610.23237"
+  code: "https://github.com/zezeaaa/X-Splat"
+  note: "Unified Gaussian representation for joint RGB and X-ray 3D reconstruction: all primitives share one geometry, only surface-proximal ones carry appearance; cross-modal registration via multi-view stereo and X-ray geometric proxies."
