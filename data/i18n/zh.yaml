@@ -774,3 +774,197 @@ pages:
 
     <h2>变更</h2>
     <p>本政策变更时，本页顶部的日期会随之更改。</p>
+
+# ---- 研究团队（按 team id 覆盖 intro 与 institution；只写中文，不写排名）
+teams:
+  rpi-wang-axis:
+    institution: "伦斯勒理工学院"
+    intro: >
+      伦斯勒理工学院的 WANG-AXIS 实验室与生物医学成像中心（BIC）由 Ge Wang
+      领导，研究方向涵盖 X 射线 CT 成像理论、系统与重建。该团队早期的工作
+      包括螺旋锥束 CT 重建与内层析成像（interior tomography），近年的工作将
+      深度学习应用于断层重建，其中包括 FORCE 框架（2025），该框架将泊松流
+      （Poisson flow）生成先验与数据保真相结合，用于低剂量、稀疏视角和金属
+      伪影条件下的重建。该中心还运行包括光子计数（MARS）光谱显微 CT 扫描仪
+      和基于光栅的 X 射线相位衬度成像平台在内的 CT 实验设备。
+  uchicago-xray:
+    institution: "芝加哥大学"
+    intro: >
+      芝加哥大学放射学系的 X 射线断层成像课题组由 Xiaochuan Pan 与
+      Emil Y. Sidky 领导，为临床、临床前、安检和同步辐射 CT 开发重建算法与
+      成像系统。该团队以约束总变分（TV）最小化重建著称——即 Sidky 与 Pan
+      于 2008 年提出的 ASD-POCS 算法：它在满足数据约束的条件下最小化图像的
+      总变分，可从稀疏或有限角度数据重建锥束 CT 图像。该团队近年的工作包括
+      方向性 TV 算法、一步法光谱 CT 重建，以及截断投影数据的重建。
+  jhu-istar:
+    institution: "约翰斯·霍普金斯大学"
+    intro: >
+      约翰斯·霍普金斯大学的 I-STAR 实验室（手术、治疗与放射成像实验室）由
+      Jeffrey Siewerdsen、J. Webster Stayman 与 Wojciech Zbijewski 领导，
+      研究面向图像引导介入的锥束 CT（CBCT）系统与三维重建。其研究包括惩罚
+      似然（基于模型的）重建、用于在植入物等已知物体存在时成像的已知组件
+      重建（known-component reconstruction），以及对 X 射线散射、探测器迟滞
+      和系统几何等物理效应的建模。该实验室成员的早期工作量化了平板探测器
+      CBCT 中 X 射线散射的强度与影响（Siewerdsen 与 Jaffray，2001），以及
+      锥束显微 CT 中基于蒙特卡罗的散射校正（Zbijewski 与 Beekman，2006）。
+  umich-fessler:
+    institution: "密歇根大学"
+    intro: >
+      密歇根大学 Jeffrey Fessler 的课题组研究统计（基于模型的）图像重建
+      及其背后的优化算法，应用对象包括 CT、PET、SPECT 与 MRI。Fessler 与
+      Rogers（1996）分析了空间不变断层成像中惩罚似然重建的空间分辨率特性，
+      这项工作是后续设计具有可控分辨率特性的正则化方法的基础。该课题组维护
+      着密歇根图像重建工具箱（MIRT），提供 MATLAB 与 Julia（MIRT.jl）两个
+      版本，以及基于 PyTorch 的可微重建工具箱 MIRTorch。
+  mayo-ctic:
+    institution: "梅奥诊所"
+    intro: >
+      梅奥诊所的 CT 临床创新中心成立于 2004 年，负责开发和评估新的 CT 技术、
+      临床应用与剂量降低技术，核心成员包括 Cynthia McCollough 与 Lifeng Yu。
+      其工作涵盖双能与多能量 CT 以及光子计数探测器 CT，McCollough 等人
+      （2015）对该领域作过综述。该中心还为 CT 研究界建立了公开数据资源：
+      2016 年 AAPM 低剂量 CT 大挑战赛（Low-Dose CT Grand Challenge），以及
+      托管于癌症影像档案库（TCIA）的低剂量 CT 图像与投影数据集
+      （LDCT-and-Projection-data），该数据集提供 299 例头、胸、腹患者检查的
+      常规剂量与模拟低剂量投影数据及全剂量图像。
+  uwisc-chen:
+    institution: "威斯康星大学麦迪逊分校"
+    intro: >
+      威斯康星大学麦迪逊分校 Guang-Hong Chen 的 CT 研究组从事低剂量与欠采样
+      CT 的重建方法研究。Chen 提出了先验图像约束压缩感知（PICCS）方法，利用
+      一幅先验图像作为约束，从高度欠采样的投影数据重建动态 CT 图像；PICCS
+      已被应用于心脏成像、灌注成像、双能 CT 与 C 臂 CT。该组还从事能谱与
+      光子计数探测器 CT 研究；威斯康星大学麦迪逊分校是 GE 医疗硅基光子计数
+      CT 系统在美国的首个临床评估站点，并于 2022 年 11 月完成首批人体扫描。
+  purdue-bouman:
+    institution: "普渡大学"
+    intro: >
+      普渡大学 Charles Bouman 课题组从事 X 射线 CT 的基于模型的迭代重建
+      （MBIR）研究，将重建表述为带有显式前向模型和马尔可夫随机场先验的统计
+      估计问题。该组 20 世纪 90 年代与 Ken Sauer（圣母大学）合作的 MBIR
+      统计重建工作，后来被 GE 医疗商业化为用于低剂量临床 CT 的 Veo MBIR
+      产品。该组维护开源软件 SVMBIR——一个面向平行束与扇束 CT 的 MBIR
+      实现，并已将基于模型的方法扩展到分布式与多节点重建。
+  llnl-leap:
+    institution: "劳伦斯利弗莫尔国家实验室"
+    intro: >
+      劳伦斯利弗莫尔国家实验室的 LEAP 项目提供一套三维透射 CT 算法库，包含
+      预处理、正投影/反投影算子以及解析（FBP/FDK）与迭代重建算法，提供
+      Python 与 C++ 接口，并带有 PyTorch 绑定，使投影算子可微、可嵌入深度
+      学习流程。投影算子支持多种几何，并在多 GPU 与多核 CPU 硬件上运行，
+      面向工业与实验室 CT。基于物理的建模与校正（散射、束硬化、双能分解）
+      由配套软件 XrayPhysics 提供——一个带 Python 绑定的 C/C++ 库，用于 X
+      射线截面与源谱建模。
+  anl-aps-tomo:
+    institution: "阿贡国家实验室"
+    intro: >
+      阿贡国家实验室先进光子源的断层成像团队开发同步辐射微米与纳米断层
+      成像光束线所使用的重建与数据处理软件。其软件成果包括 TomoPy——一个
+      用于同步辐射断层数据预处理与重建的 Python 框架（Gürsoy、De Carlo 等，
+      2014），以及 TomocuPy——Viktor Nikitin 开发的以并发分块方式重建数据的
+      GPU 流水线。该团队还维护 TomoBank，一个收录实验与模拟断层数据集及
+      其描述信息的仓库，供研究者在共享的光束线数据上开发和比较重建方法。
+  fau-lme:
+    institution: "埃尔朗根-纽伦堡大学"
+    intro: >
+      埃尔朗根-纽伦堡大学（FAU）模式识别实验室自 2015 年起由 Andreas Maier
+      担任负责人，将机器学习应用于医学成像，其 CT 研究主线是"已知算子"
+      （known operator）方法——把投影与重建的物理过程作为可微层嵌入神经
+      网络。其软件成果包括 PYRO-NN，一个面向平行束、扇束与锥束几何的可微
+      CT 算子库，以及 diffct，一个 CUDA 加速的可微 CT 库，其后续版本支持
+      非圆与任意采集轨迹。德国研究联合会（DFG）资助的项目
+      "Deep-Learning-basierte CBCT-Rekonstruktion beliebiger Trajektorien"
+      （周期 36 个月，经费 324,459 欧元，2025 年 9 月公布）与代根多夫应用
+      技术大学及斯坦福大学合作，开发面向任意轨迹的基于深度学习的 CBCT
+      重建方法，并使用 FAU 区域计算中心（RRZE）的算力设施。
+  cambridge-cia:
+    institution: "剑桥大学"
+    intro: >
+      剑桥大学计算图像分析组从事数学成像与反问题研究，其 CT 方向致力于
+      弥合数学方法进展与临床落地之间的鸿沟。研究涵盖数据驱动重建方法
+      （包括迭代展开方法、学习正则项、即插即用方法），以及变分正则化、
+      Krylov 子空间求解器和四维成像。团队开发了开源软件包 LION（Learned
+      Iterative Optimization Networks），收录后处理、展开、学习正则项、
+      即插即用与自监督 CT 重建方法，并提供可复现的训练流程与 CT 数据集。
+  cwi-ci:
+    institution: "荷兰数学与计算机科学研究中心（CWI）"
+    intro: >
+      CWI 计算成像组开发以数学与算法驱动的三维成像方法，服务于科学、医学
+      与工业，结合先进采集、参数估计与离散层析成像，包括通过 RECAST3D
+      实现实时重建，以及 FleX-ray 实验室将定制 CT 扫描仪与先进处理和 AI
+      算法相连。该组与安特卫普大学联合开发了 ASTRA Toolbox——面向二维与
+      三维层析成像的高性能 GPU 基元 MATLAB/Python 平台，被科研人员、工业
+      伙伴及大型同步辐射装置（ESRF、APS）采用；还开发了其 Python 封装
+      tomosipo，用于复杂几何的三维层析，旨在把快速 GPU 计算与主流深度
+      学习工具结合。
+  uantwerp-visionlab:
+    institution: "安特卫普大学"
+    intro: >
+      imec 视觉实验室下属的 ASTRA 研究组面向电子、X 射线、中子与磁共振
+      成像开发层析重建算法，聚焦跨应用领域的通用重建问题。核心方向包括
+      相衬 X 射线 CT、非标准采集几何的 X 射线层析（例如层析合成
+      laminography、体层合成 tomosynthesis）、动态（4D）层析与离散层析。
+      该组与 CWI 计算成像组联合开发了 ASTRA Toolbox——开源 GPU 加速的
+      层析重建方法研发平台。
+  kth-oktem:
+    institution: "瑞典皇家理工学院"
+    intro: >
+      Öktem 在 KTH 的研究将反问题、凸优化与机器学习结合用于医学成像，
+      方向之一是学习式迭代（展开）重建方法。他与 Jonas Adler 提出了
+      Learned Primal-Dual 重建方法（IEEE T-MI 2018），并开发了反问题
+      Python 库 ODL（Operator Discretization Library），提供正向算子、几何
+      与解析方法，被后续众多 CT 重建研究采用。learned_gradient_tomography
+      代码库实现了早期的迭代深度网络工作（Adler & Öktem，《用迭代深度神经
+      网络求解不适定反问题》，Inverse Problems 2017）。
+  creatis-rit:
+    intro: >
+      Simon Rit 在 CREATIS 的团队从事层析重建研究，聚焦放疗图像引导的锥束
+      CT，包括正则化与稀疏（压缩感知）CT 方法，以及针对心脏与呼吸运动的
+      运动补偿 X 射线 CT（其方法已转移到荷兰的临床方案）。团队开发了开源
+      锥束 CT 重建工具包 RTK（openrtk.org），基于 ITK 构建、采用 Plastimatch
+      的 GPU 代码，按 Apache 2.0 许可发布，既提供 C++ 类与命令行工具，也
+      通过 PyPI 发布 Python 包（itkrtk）。RTK 支持 Elekta、Varian 与 IBA
+      扫描仪输入、CPU/GPU 的 Feldkamp-David-Kress 重建、4D ROOSTER 等四维
+      算法，以及诊断 CT 扫描仪的柱面探测器几何。
+  stfc-cil:
+    institution: "英国科学与技术设施委员会（STFC）"
+    intro: >
+      英国科学与技术设施委员会（STFC）的层析成像团队与曼彻斯特大学等伙伴
+      通过层析计算成像协作计算项目（CCPi）合作，开发用于层析图像重建的
+      开源软件。其核心成像库（CIL）是一个 Python 框架，用于对滤波反投影
+      不足以处理的数据进行迭代正则化重建，这类数据包括带噪、不完整、非
+      标准几何或多通道（动态与能谱）数据。该团队还研究协同成像，将层析
+      成像与其他模态和数据源结合进行联合重建。
+  kaist-bispl:
+    institution: "韩国科学技术院（KAIST）"
+    intro: >
+      韩国科学技术院（KAIST）的生物成像与信号处理实验室（BISPL）由
+      Jong Chul Ye 教授领导，研究面向生物医学成像的信号处理与机器学习
+      方法。其核心研究方向之一是将扩散模型与基于分数的生成模型用作先验
+      来求解成像逆问题，包括稀疏视角与有限角 CT；其 DiffusionMBIR 方法将
+      预训练的二维扩散模型与基于模型的迭代重建相结合，并沿层间方向施加
+      全变分先验，用于求解稀疏视角和有限角层析等三维重建问题。
+  tsinghua-ep-ct:
+    institution: "清华大学"
+    intro: >
+      清华大学工程物理系 CT 成像组由邢宇翔、张丽两位教师带领，研究 X 射线
+      CT 成像系统与图像重建方法。研究内容包括层析重建算法、光子计数与
+      能谱（多能）CT，以及以射线源阵列替代机架旋转的固定式多源 CT 系统
+      设计。该组依托系内的粒子技术与辐射成像教育部重点实验室开展工作。
+  seu-ct:
+    institution: "东南大学"
+    intro: >
+      本条目涵盖东南大学位于南京的两个 CT 重建研究组：计算机科学与工程
+      学院（影像科学与技术实验室）的陈阳教授组，以及生物科学与医学工程
+      学院的罗守华教授组。他们的研究面向低剂量 CT 重建，以及稀疏视角、
+      有限角等非理想测量条件下的图像增强。2026 年，由计算机学院团队主导
+      的 TAMP 发表于 Nature Communications，该工作是一个在物理仿真数据上
+      预训练、用于非理想测量 CT 通用增强的成像基础模型。
+  hkust-xmed:
+    institution: "香港科技大学"
+    intro: >
+      香港科技大学 XMed 实验室由电子与计算机工程学系的李小萌领导，研究
+      医学人工智能与计算机视觉。其 DeepSparse 模型（IEEE Transactions on
+      Medical Imaging，2026）是一个用于稀疏视角锥束 CT 重建的基础模型，在
+      大规模腹部 CT 数据集（AtlasAbdomenMini，约 7k 个体数据）上预训练，
+      并可用少量标注样本微调到不同解剖部位。
