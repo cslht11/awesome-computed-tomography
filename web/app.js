@@ -669,7 +669,7 @@
     var counts = {
       papers: DATA.papers.length, toolkits: DATA.toolkits.length,
       datasets: DATA.datasets.length, benchmarks: DATA.benchmarks.length,
-      learning: DATA.learning.length
+      learning: DATA.learning.length, teams: (DATA.teams || []).length
     };
     Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function (b) {
       var n = document.createElement("span");

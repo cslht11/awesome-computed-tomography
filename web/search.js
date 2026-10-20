@@ -408,9 +408,22 @@
       };
     }
 
+    /* A research team: names and people in the title field, affiliations and
+       focus areas as metadata, the intro as the body. */
+    function team(r) {
+      var focus = ((r.focus || []).map(function (id) {
+        return topicName[id] || id;
+      })).join(" ");
+      return {
+        title: join([r.name, r.name_zh]),
+        meta: join([r.institution, r.city, r.country, (r.pi || []).join(" "), focus, r.status]),
+        body: join([r.intro, r.software, hostOf(r.homepage)])
+      };
+    }
+
     return {
       papers: paper, toolkits: toolkit, datasets: dataset,
-      benchmarks: benchmark, learning: learning
+      benchmarks: benchmark, learning: learning, teams: team
     };
   }
 

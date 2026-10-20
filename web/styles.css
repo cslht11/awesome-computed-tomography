@@ -565,3 +565,36 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
 @media (max-width: 640px) {
   .prose table.facts th { width: auto; white-space: normal; }
 }
+
+/* ------------------------------------------------------------------ teams */
+
+.region-head {
+  margin: 26px 0 0;
+  font: 600 15px var(--display); letter-spacing: -.01em;
+  color: var(--fg);
+}
+ul.teams { list-style: none; margin: 4px 0 0; padding: 0; }
+li.team {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.t-name { margin: 0; font: 600 16px/1.42 var(--display); letter-spacing: -.012em; }
+.t-name a { color: var(--fg); }
+.t-name a:hover { color: var(--accent); text-decoration: none; }
+.t-namezh { font-weight: 400; color: var(--fg-muted); font-size: 14px; }
+.t-badge {
+  display: inline-block;
+  font: 600 11px var(--sans);
+  color: var(--accent); background: var(--accent-soft);
+  border-radius: 6px; padding: 1px 7px; margin-left: 8px; vertical-align: 1px;
+}
+.t-meta {
+  margin: 3px 0 0; font-size: 13.5px; color: var(--fg-muted);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
+}
+.t-meta .sep { color: var(--border-strong); }
+.t-meta .topics { color: var(--fg-faint); }
+.t-intro { margin: 7px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--fg); }
+.t-works { margin: 7px 0 0; font-size: 13.5px; color: var(--fg-muted); }
+.t-works-label { font-weight: 600; }
+.t-software { margin: 5px 0 0; font-size: 13.5px; color: var(--fg-faint); }

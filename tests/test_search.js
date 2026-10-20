@@ -129,7 +129,7 @@ function loadPayload(file) {
   (data.topics || []).forEach(function (t) { topicName[t.id] = t.name; });
   const m = S.mappers(topicName);
   const all = [];
-  ["papers", "toolkits", "datasets", "benchmarks", "learning"].forEach(function (kind) {
+  ["papers", "toolkits", "datasets", "benchmarks", "learning", "teams"].forEach(function (kind) {
     (data[kind] || []).forEach(function (row) { all.push({ kind: kind, rec: m[kind](row) }); });
   });
   return { all: all, index: S.build(all, function (e) { return e.rec; }), data: data };
@@ -180,6 +180,31 @@ ok("partial CJK query still returns results", S.search(ZH.index, "稀疏视角 z
   S.search(EN.index, q).slice(0, 5).forEach(function (h) { kinds[h.item.kind] = 1; });
   ok("search reaches beyond papers for " + JSON.stringify(q), Object.keys(kinds).length > 0);
 });
+
+/* Teams are searchable by PI name, institution and Chinese name: the point
+   of the section is finding *who* works on a problem, not only *what*. The
+   table is optional (a checkout may predate data/teams.yaml), so the count
+   assertion is consistency, not a fixed number — the section's contents
+   change as groups are added, exactly like the other tables. The search
+   assertions run whenever at least one team is present. */
+ok("teams are in the payload, equally in both languages",
+  (EN.data.teams || []).length === (ZH.data.teams || []).length,
+  "en=" + (EN.data.teams || []).length + " zh=" + (ZH.data.teams || []).length);
+if ((EN.data.teams || []).length) {
+  ok("EN search finds a team by PI (Maier)",
+    S.search(EN.index, "Maier").some(function (h) {
+      return h.item.kind === "teams" && h.item.rec.title.indexOf("Pattern Recognition") >= 0;
+    }),
+    topHits(EN, "Maier").map(function (h) { return h.kind + ":" + h.title; }).join(" | "));
+  ok("ZH search finds a team by PI (李小萌)",
+    S.search(ZH.index, "李小萌").some(function (h) { return h.item.kind === "teams"; }),
+    topHits(ZH, "李小萌").map(function (h) { return h.kind + ":" + h.title; }).join(" | "));
+  ok("ZH search finds Cambridge CIA by 剑桥",
+    S.search(ZH.index, "剑桥").some(function (h) {
+      return h.item.kind === "teams" && h.item.rec.title.indexOf("Computational Image Analysis") >= 0;
+    }),
+    topHits(ZH, "剑桥").map(function (h) { return h.kind + ":" + h.title; }).join(" | "));
+}
 
 /* ------------------------------------------------------------------ report */
 console.log("search core: %d passed, %d failed (%d records per language)",
