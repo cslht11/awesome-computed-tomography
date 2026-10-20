@@ -423,3 +423,19 @@
   stars: 27
   tags: [differentiable, GPU, projector, FBP, FDK, arbitrary-trajectory]
   note: "Differentiable CUDA CT projectors from FAU (Maier group): arbitrary per-view trajectories, autograd through volume and acquisition geometry, exact-adjoint project/backproject pairs, multi-GPU/multi-node. Technical report 2026-10-14 (doi:10.20944/preprints202605.1446.v2)."
+
+- name: PYRO-NN
+  repo: csyben/PYRO-NN
+  language: Python / CUDA
+  license: Apache-2.0
+  stars: 121
+  tags: [differentiable, GPU, projector, reconstruction, TensorFlow, PyTorch]
+  note: "Python Reconstruction Operators in Neural Networks (FAU Maier group): known-operator CT projectors as neural network layers for end-to-end learned reconstruction, with fan/cone-beam geometries."
+
+- name: X-Splat
+  repo: zezeaaa/X-Splat
+  language: Python
+  license: See source
+  stars: 3
+  tags: [gaussian, 3D-reconstruction, x-ray, multi-view]
+  note: "Unified Gaussian splatting for joint RGB and X-ray 3D reconstruction: shared geometry across primitives, cross-modal registration via X-ray geometric proxies. Code of the SIGGRAPH Asia 2026 paper (also listed under Papers)."
