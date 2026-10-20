@@ -31,6 +31,9 @@ Overlay shape — every section is optional::
     datasets: {}
     benchmarks: {}
     learning: {}
+    teams:                       # keyed by the team's permanent `id`
+      fau-lme:
+        intro: ...
 
 Two failure modes are treated very differently on purpose:
 
@@ -59,7 +62,7 @@ I18N_DIR = os.path.join(ROOT, "data", "i18n")
 #: The language everything else is written in and falls back to.
 SOURCE = "en"
 
-_SECTIONS = ("topics", "toolkits", "datasets", "benchmarks", "learning")
+_SECTIONS = ("topics", "toolkits", "datasets", "benchmarks", "learning", "teams")
 
 #: ``ui.*`` keys handed to ``web/app.js`` through ``payload.ui``. These must
 #: stay unfilled: ``noMatch`` / ``showAll`` carry ``{q}`` / ``{n}`` that the
@@ -67,6 +70,7 @@ _SECTIONS = ("topics", "toolkits", "datasets", "benchmarks", "learning")
 #: site build and the standalone data export publish an identical key set.
 JS_UI = {
     "kindPaper", "kindToolkit", "kindDataset", "kindBenchmark", "kindLearning",
+    "kindTeam",
     "noMatch", "showAll", "copyLink", "copied", "copyLinkTitle",
     "homepageTitle", "venuePreprint", "yearAndLater", "labelShare", "reset",
     "tableToolkit", "tableLanguage", "tableLicense", "tableStars", "tableNotes",

@@ -50,7 +50,7 @@ def write(path, text):
         f.write(text)
 
 
-def counts(papers, toolkits, datasets, benchmarks, learning):
+def counts(papers, toolkits, datasets, benchmarks, learning, teams=None):
     years = [int(e["year"]) for e in papers] or [0]
     n = len(papers)
     return {
@@ -59,6 +59,7 @@ def counts(papers, toolkits, datasets, benchmarks, learning):
         "datasets": len(datasets or []),
         "benchmarks": len(benchmarks or []),
         "learning": len(learning or []),
+        "teams": len(teams or []),
         "year_min": min(years),
         "year_max": max(years),
     }
@@ -191,7 +192,12 @@ def canonical_keys(e):
     return out
 
 
-def validate(meta, papers, toolkits, datasets, benchmarks, learning):
+TEAM_REGIONS = ("north-america", "europe", "asia")
+TEAM_STATUSES = ("active", "legacy")
+TEAM_INTRO_MAX = 1000
+
+
+def validate(meta, papers, toolkits, datasets, benchmarks, learning, teams=None):
     p = Problems()
     topics = [t["id"] for t in meta["topics"]]
     tset = set(topics)
@@ -259,7 +265,71 @@ def validate(meta, papers, toolkits, datasets, benchmarks, learning):
             seen2.add(e.get(key))
             if not (url_of(e, "url", "repo")):
                 p.add(w, "no url/repo")
+
+    validate_teams(p, meta, papers, toolkits, datasets, benchmarks, teams)
     return p
+
+
+def validate_teams(p, meta, papers, toolkits, datasets, benchmarks, teams):
+    """Rules for data/teams.yaml.
+
+    Backward compatible by construction: teams is None (or empty) when the
+    file does not exist yet, and a file that does not exist adds no problems.
+    """
+    if not teams:
+        return
+    topics = [t["id"] for t in meta["topics"]]
+    tset = set(topics)
+    paper_ids = set(e["id"] for e in (papers or []))
+    side_names = {
+        "toolkits": set(e["name"] for e in (toolkits or [])),
+        "datasets": set(e["name"] for e in (datasets or [])),
+        "benchmarks": set(e["name"] for e in (benchmarks or [])),
+    }
+    seen = set()
+    for i, e in enumerate(teams):
+        w = "teams[%d]" % i
+        for f in ("id", "name", "institution", "country", "region", "pi",
+                  "homepage", "focus", "status", "intro"):
+            if not e.get(f):
+                p.add(w, "missing required field '%s'" % f)
+        tid = e.get("id")
+        if tid in seen:
+            p.add(w, "duplicate id '%s'" % tid)
+        seen.add(tid)
+        if tid and not re.match(r"^[a-z0-9-]+$", str(tid)):
+            p.add(w, "id '%s' must be lower-case kebab-case" % tid)
+        if e.get("region") not in TEAM_REGIONS:
+            p.add(w, "region '%s' must be one of %s"
+                  % (e.get("region"), "/".join(TEAM_REGIONS)))
+        if e.get("status") not in TEAM_STATUSES:
+            p.add(w, "status '%s' must be one of %s"
+                  % (e.get("status"), "/".join(TEAM_STATUSES)))
+        hp = e.get("homepage")
+        if hp and not re.match(r"^https?://", str(hp)):
+            p.add(w, "homepage is not an http(s) url")
+        for t in e.get("focus") or []:
+            if t not in tset:
+                p.add(w, "unknown topic '%s'" % t)
+        works = e.get("works") or {}
+        for pid in works.get("papers") or []:
+            if pid not in paper_ids:
+                p.add(w, "works.papers '%s' does not exist in papers" % pid)
+        for table in ("toolkits", "datasets", "benchmarks"):
+            for n in works.get(table) or []:
+                if n not in side_names[table]:
+                    p.add(w, "works.%s '%s' does not exist in %s"
+                          % (table, n, table))
+        intro = str(e.get("intro") or "")
+        if len(intro) > TEAM_INTRO_MAX:
+            p.add(w, "intro is %d chars, over the %d cap"
+                  % (len(intro), TEAM_INTRO_MAX))
+        ver = e.get("verified")
+        if ver:
+            try:
+                datetime.date.fromisoformat(str(ver))
+            except ValueError:
+                p.add(w, "verified '%s' is not a YYYY-MM-DD date" % ver)
 
 
 # ---------------------------------------------------------------- render
@@ -305,8 +375,9 @@ def render_topic_grid(papers, meta, ov, site_base, cols=3):
     return "\n".join(out) + "\n"
 
 
-def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
-    subs = counts(papers, toolkits, datasets, benchmarks, learning)
+def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs,
+          teams=None):
+    subs = counts(papers, toolkits, datasets, benchmarks, learning, teams)
     subs["updated"] = str(meta["last_updated"])
     subs["repo"] = REPO
     subs["repo_url"] = "https://github.com/" + REPO
@@ -326,6 +397,7 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
                          ("datasetsHeading", "Datasets"),
                          ("benchmarksHeading", "Benchmarks"),
                          ("learningHeading", "Learning"),
+                         ("teamsHeading", "Research Teams"),
                          ("contactHeading", "Contact"),
                          ("licenseHeading", "License")):
         heads[key] = ov.readme(key, default)
@@ -356,11 +428,17 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
              "| " + " | ".join(cells) + " |\n|" + "|".join([" :-: "] * len(cells)) + "|\n"
              "\n</div>\n")
 
+    # The Teams section only exists once data/teams.yaml does. A checkout
+    # without it (or an empty one) still produces exactly the README it
+    # produced before the section was added.
+    has_teams = bool(teams)
+    nav_keys = ["papersHeading", "toolkitsHeading", "datasetsHeading",
+                "benchmarksHeading", "learningHeading"]
+    if has_teams:
+        nav_keys.append("teamsHeading")
     nav = " \u00b7 ".join(
         ["**[{}]({})**".format(ov.readme("navWebsite", "Website"), SITE_URL)] +
-        ["[%s](#%s)" % (heads[k], anchor(k))
-         for k in ("papersHeading", "toolkitsHeading", "datasetsHeading",
-                   "benchmarksHeading", "learningHeading")])
+        ["[%s](#%s)" % (heads[k], anchor(k)) for k in nav_keys])
 
     badges = " ".join([
         "[![Awesome](%s)](https://awesome.re)" % BADGE,
@@ -395,10 +473,13 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs):
     # No back-to-top link here: these sections are one line each, so the
     # link would be more chrome than content (it stays after the Papers
     # grid and at the bottom of the page, where it is actually useful).
-    for key, tab, n in (("toolkitsHeading", "toolkits", subs["toolkits"]),
-                        ("datasetsHeading", "datasets", subs["datasets"]),
-                        ("benchmarksHeading", "benchmarks", subs["benchmarks"]),
-                        ("learningHeading", "learning", subs["learning"])):
+    sections = [("toolkitsHeading", "toolkits", subs["toolkits"]),
+                ("datasetsHeading", "datasets", subs["datasets"]),
+                ("benchmarksHeading", "benchmarks", subs["benchmarks"]),
+                ("learningHeading", "learning", subs["learning"])]
+    if has_teams:
+        sections.append(("teamsHeading", "teams", subs["teams"]))
+    for key, tab, n in sections:
         parts.append(head(key))
         parts.append(fill(ov.readme("browseCollection", ""),
                           {"n": n, "url": site_base + "?tab=" + tab}) + "\n")
@@ -428,11 +509,13 @@ def main():
     datasets = load("datasets.yaml") or []
     benchmarks = load("benchmarks.yaml") or []
     learning = load("learning.yaml") or []
+    teams = load("teams.yaml") or []
 
     if not meta:
         sys.exit("data/meta.yaml is required")
 
-    problems = validate(meta, papers, toolkits, datasets, benchmarks, learning)
+    problems = validate(meta, papers, toolkits, datasets, benchmarks, learning,
+                        teams)
 
     langs = i18n.languages(meta)
     by_code = dict((e["code"], e) for e in langs)
@@ -452,6 +535,8 @@ def main():
     # topic id, a dropped dataset. Those silently stop applying, so they fail
     # the build; a merely *missing* translation does not (see scripts/i18n.py).
     names = dict((t, [e["name"] for e in items]) for t, items in tables.items())
+    # Teams are keyed by their permanent id, not by name.
+    names["teams"] = [e["id"] for e in teams]
     topic_ids = [t["id"] for t in meta["topics"]]
     overlays = {}
     for e in langs:
@@ -464,8 +549,8 @@ def main():
         for x in problems:
             print("  -", x)
         sys.exit(1)
-    print("validation OK: %d papers / %d toolkits / %d datasets / %d benchmarks / %d learning"
-          % (len(papers), len(toolkits), len(datasets), len(benchmarks), len(learning)))
+    print("validation OK: %d papers / %d toolkits / %d datasets / %d benchmarks / %d learning / %d teams"
+          % (len(papers), len(toolkits), len(datasets), len(benchmarks), len(learning), len(teams)))
 
     tc = Counter(t for e in papers for t in e["topics"])
     print("topic distribution:")
@@ -487,7 +572,7 @@ def main():
     for e in langs:
         ov = overlays[e["code"]]
         text = build(meta, papers, toolkits, datasets, benchmarks, learning,
-                     ov, langs)
+                     ov, langs, teams)
         write(os.path.join(ROOT, e["readme"]), text)
         note = ""
         if e["code"] != i18n.SOURCE:

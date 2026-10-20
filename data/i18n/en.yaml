@@ -107,6 +107,7 @@ ui:
   tabDatasets: "Datasets"
   tabBenchmarks: "Benchmarks"
   tabLearning: "Learning"
+  tabTeams: "Teams"
 
   # ---- papers panel
   emptyText: "No paper matches these filters."
@@ -179,6 +180,7 @@ ui:
   kindDataset: "Dataset"
   kindBenchmark: "Benchmark"
   kindLearning: "Learning"
+  kindTeam: "Team"
   noMatch: "No match for “{q}”"
   showAll: "Show all {n} matching papers ↵"
   homepageTitle: "homepage"
@@ -190,6 +192,13 @@ ui:
   pagePrivacyDesc: "What happens to your information when you visit {host}."
   pageChangelogTitle: "Changelog"
   pageChangelogDesc: "Every dated change to Awesome Computed Tomography, newest first: papers and datasets added, records corrected, and changes to the site."
+  # ---- teams panel
+  regionNorthAmerica: "North America"
+  regionEurope: "Europe"
+  regionAsia: "Asia"
+  teamsLead: "Led by"
+  teamsLegacy: "Legacy"
+  teamsInLibrary: "In this library:"
   changelogLede: "Every change to the list and to this site, newest first. The list does not tag releases: it is refined continuously, so changes are recorded by date rather than by version. To cite a fixed snapshot, use a commit hash."
   changelogSource: "This page is generated from {source} in the repository on every build."
   changelogEntries: "{n} entries, from {first} to {latest}."
@@ -229,8 +238,13 @@ readme:
     a reference volume, so a forward model can be scored end to end;
     _projections_ has raw data only; _image_ is image-domain only and cannot test
     a projection model.
+  legendTeams: >-
+    Research groups and labs whose papers, software or data appear in this
+    directory. Each card links the group's homepage and the works of theirs
+    already in the list.
   benchmarksHeading: "Benchmarks"
   learningHeading: "Learning"
+  teamsHeading: "Research Teams"
   licenseHeading: "License"
   # ---- hero / navigation
   heroTagline: >-

@@ -67,6 +67,9 @@ def build_payload(lang=None):
     datasets = load("datasets.yaml") or []
     benchmarks = load("benchmarks.yaml") or []
     learning = load("learning.yaml") or []
+    # The Teams table is optional: a checkout that predates data/teams.yaml
+    # still exports, with an empty team list.
+    teams = load("teams.yaml") or []
     # One-paragraph "what is this paper" blurbs, keyed by paper id. Optional by
     # design: papers without one simply get no hover card, and the list must
     # still build if the file is absent.
@@ -78,7 +81,8 @@ def build_payload(lang=None):
     local_blurbs = ({} if code == i18n.SOURCE
                     else (load("summaries.%s.yaml" % code) or {}))
 
-    problems = validate(meta, papers, toolkits, datasets, benchmarks, learning)
+    problems = validate(meta, papers, toolkits, datasets, benchmarks, learning,
+                        teams)
     if problems:
         print("VALIDATION FAILED (%d problem(s)):" % len(problems))
         for x in problems:
@@ -159,6 +163,36 @@ def build_payload(lang=None):
     years = [int(e["year"]) for e in papers] or [0]
     nvenue = sum(1 for e in papers if e.get("venue"))
 
+    out_teams = []
+    for e in teams:
+        # The overlay is keyed by team id (see scripts/i18n.py): a translation
+        # may override the intro (and the institution name) and keep everything
+        # else in English.
+        item = ov.item("teams", e["id"])
+        r = {
+            "id": e["id"],
+            "name": e["name"],
+            "institution": e["institution"],
+            "city": e.get("city") or "",
+            "country": e["country"],
+            "region": e["region"],
+            "pi": list(e["pi"]),
+            "homepage": e["homepage"],
+            "focus": list(e["focus"]),
+            "status": e["status"],
+            "intro": re.sub(r"\s+", " ", (item.get("intro") or e["intro"])).strip(),
+            "works": dict(e.get("works") or {}),
+        }
+        if item.get("name"):
+            r["label"] = item["name"]
+        if item.get("institution"):
+            r["institution"] = item["institution"]
+        if e.get("name_zh"):
+            r["name_zh"] = e["name_zh"]
+        if e.get("software"):
+            r["software"] = re.sub(r"\s+", " ", e["software"]).strip()
+        out_teams.append(r)
+
     return {
         "schema": SCHEMA,
         "generated": datetime.date.today().isoformat(),
@@ -170,6 +204,7 @@ def build_payload(lang=None):
             "datasets": len(datasets),
             "benchmarks": len(benchmarks),
             "learning": len(learning),
+            "teams": len(out_teams),
             "peer_reviewed": nvenue,
             "preprints": len(papers) - nvenue,
             "year_min": min(years),
@@ -186,6 +221,7 @@ def build_payload(lang=None):
         "benchmarks": side(benchmarks, "benchmarks", "name", ("url", "repo"),
                            ("year", "tasks", "note")),
         "learning": side(learning, "learning", "name", ("url", "repo"), ("type", "note")),
+        "teams": out_teams,
         # web/app.js reads DATA.ui and falls back to {} — omit it and every
         # label it renders goes blank. build_site.py adds the same block, so
         # both producers emit one identical payload shape.
