@@ -23,6 +23,9 @@
 
   var cyEl = document.getElementById("cy");
   if (!cyEl || typeof window.cytoscape === "undefined") return;
+  // web/graph3d.js loads first and claims the page when it can run;
+  // in that case the 2D view stands down entirely.
+  if (window.__GRAPH_3D_ACTIVE || window.__GRAPH_3D_CLAIMED) return;
 
   fetch(ROOT + "graph.json")
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -149,6 +152,24 @@
     if (fallback) fallback.hidden = true;
     var bar = document.getElementById("graph-bar");
     if (bar) bar.hidden = false;
+
+    // 2D/3D toggle: 2D is active here; the 3D button stores the choice
+    // and reloads into graph3d.js — or is hidden when 3D cannot run.
+    var view2dBtn = document.getElementById("graph-view-2d");
+    var view3dBtn = document.getElementById("graph-view-3d");
+    if (view2dBtn) view2dBtn.setAttribute("aria-pressed", "true");
+    if (view3dBtn) {
+      if (window.__GRAPH_3D_AVAILABLE) {
+        view3dBtn.setAttribute("aria-pressed", "false");
+        view3dBtn.addEventListener("click", function () {
+          try { window.localStorage.setItem("ct-graph-view", "3d"); }
+          catch (e) { /* preference is best-effort */ }
+          window.location.reload();
+        });
+      } else {
+        view3dBtn.hidden = true;
+      }
+    }
 
     function relayout() {
       cy.layout({ name: "cose", animate: false, padding: 24,
