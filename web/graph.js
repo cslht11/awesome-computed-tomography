@@ -1,15 +1,16 @@
-/* Knowledge graph explorer for /graph/ and /zh/graph/.
+/* Small-graph explorer for the per-category graph pages under
+ * /graph/ (backbone, datasets, one page per topic; EN + ZH).
  *
- * The data is graph.json, generated at build time from the same payload
- * as the rest of the site (scripts/graph.py), INCLUDING static node
- * positions computed offline by scripts/graph_layout.py. Nothing is
- * simulated or laid out in the browser: the renderer (vendored
- * sigma.js, WebGL, batched programs) only draws. Visibility is a
- * filter over precomputed coordinates, so expanding a node, switching
- * to the full graph or jumping via search never triggers a relayout —
- * the page opens on a backbone (teams + topics + toolkits) and the
- * rest arrives by expanding nodes, searching, or the full-graph
- * toggle, exactly as before, just without the wait.
+ * Each page loads ONLY its own slice — a small data.json generated at
+ * build time from the same payload as the rest of the site
+ * (scripts/graph.py + scripts/graph_slices.py), including static node
+ * positions computed offline by scripts/graph_layout.py. A slice is at
+ * most a few hundred nodes, so the page renders instantly and there is
+ * deliberately no full-graph mode: the category split is the filter.
+ * Nothing is simulated or laid out in the browser; the renderer
+ * (vendored sigma.js, WebGL, batched programs) only draws, and every
+ * node of the slice is visible at once. Clicking a node opens its
+ * detail panel and highlights its neighbours.
  *
  * Plain script, no modules, in the same style as app.js/search.js. If
  * sigma/graphology or the data fails to load, the server-rendered
@@ -21,6 +22,7 @@
   var S = window.GRAPH_STRINGS || {};
   var LANG = window.GRAPH_LANG || "en";
   var ROOT = window.GRAPH_ROOT || "../";
+  var DATA = window.GRAPH_DATA || "data.json";
 
   function t(key, fallback) { return S[key] || fallback || key; }
   function label(n) { return (LANG === "zh" && n.lz) ? n.lz : n.l; }
@@ -29,7 +31,7 @@
   if (!stage || typeof window.Sigma === "undefined" ||
       typeof window.graphology === "undefined") return;
 
-  fetch(ROOT + "graph.json")
+  fetch(DATA)
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (G) {
       try { init(G); }
@@ -49,17 +51,25 @@
   function init(G) {
     var byId = {};
     G.nodes.forEach(function (n) { byId[n.id] = n; });
-    var pos = G.pos || {};
+    // The wire format is compact (scripts/graph_slices.py): edges are
+    // [source, target, kind] index triples into the nodes array, with
+    // the kind strings in G.kinds; positions align with the nodes.
+    // Expand both back to id space once, here.
+    var pos = {};
+    G.nodes.forEach(function (n, i) { pos[n.id] = (G.pos || [])[i] || [0, 0]; });
+    var EDGES = G.edges.map(function (e) {
+      return [G.nodes[e[0]].id, G.nodes[e[1]].id, G.kinds[e[2]]];
+    });
 
-    // Degree over the *whole* graph drives node size, so a hub looks
-    // like a hub even before it is expanded.
+    // Degree within the slice drives node size, so a hub looks like a
+    // hub on its own page.
     var degree = {};
-    G.edges.forEach(function (e) {
+    EDGES.forEach(function (e) {
       degree[e[0]] = (degree[e[0]] || 0) + 1;
       degree[e[1]] = (degree[e[1]] || 0) + 1;
     });
     var neighbours = {};   // id -> [{id, kind, dir}] dir: 'out'|'in'
-    G.edges.forEach(function (e) {
+    EDGES.forEach(function (e) {
       (neighbours[e[0]] = neighbours[e[0]] || []).push({ id: e[1], kind: e[2], dir: "out" });
       (neighbours[e[1]] = neighbours[e[1]] || []).push({ id: e[0], kind: e[2], dir: "in" });
     });
@@ -74,8 +84,6 @@
       cites: "#e15759", authored: "#e8b4d8", coauthor: "#d8d8d8",
       focus: "#b39ddb", works: "#b39ddb", leads: "#b39ddb"
     };
-    var TYPE_ORDER = ["team", "topic", "paper", "toolkit", "dataset",
-                      "benchmark", "author", "venue", "learning", "guide"];
 
     function lighten(hex) {
       var n = parseInt(hex.slice(1), 16);
@@ -87,38 +95,8 @@
     Object.keys(COLORS).forEach(function (k) { DIM_COLORS[k] = lighten(COLORS[k]); });
 
     // ------------------------------------------------------------- state
-    var expanded = {};     // id -> true once its neighbourhood is shown
-    var fullMode = false;
-    var egoOnly = null;    // id whose ego network alone is shown
-    var typeOn = {};       // type -> bool (filter checkboxes)
-    TYPE_ORDER.forEach(function (ty) { typeOn[ty] = true; });
-    var regionWant = "";   // team-region dimming ("" = all regions)
     var selected = null;
     var hoverId = null;
-
-    var backbone = {};
-    (G.backbone || []).forEach(function (id) { backbone[id] = true; });
-
-    function visibleIds() {
-      var vis = {};
-      if (fullMode) {
-        G.nodes.forEach(function (n) { vis[n.id] = true; });
-      } else if (egoOnly) {
-        vis[egoOnly] = true;
-        (neighbours[egoOnly] || []).forEach(function (x) { vis[x.id] = true; });
-      } else {
-        Object.keys(backbone).forEach(function (id) { vis[id] = true; });
-        Object.keys(expanded).forEach(function (id) {
-          vis[id] = true;
-          (neighbours[id] || []).forEach(function (x) { vis[x.id] = true; });
-        });
-      }
-      Object.keys(vis).forEach(function (id) {
-        if (byId[id] && !typeOn[byId[id].t]) delete vis[id];
-      });
-      return vis;
-    }
-    var visNow = visibleIds();
 
     // Highlight set for hover/selection emphasis (ids + edge keys).
     var hlNodes = null, hlEdges = null;
@@ -131,7 +109,7 @@
       (neighbours[focus] || []).forEach(function (x) {
         hlNodes[x.id] = true;
       });
-      G.edges.forEach(function (e, i) {
+      EDGES.forEach(function (e, i) {
         if (e[0] === focus || e[1] === focus) hlEdges["e" + i] = true;
       });
     }
@@ -148,7 +126,7 @@
         ntype: n.t
       });
     });
-    G.edges.forEach(function (e, i) {
+    EDGES.forEach(function (e, i) {
       graph.addEdgeWithKey("e" + i, e[0], e[1], {
         kind: e[2],
         size: e[2] === "cites" ? 0.9 : 0.5,
@@ -172,31 +150,22 @@
       stagePadding: 30
     });
 
-    function nodeDimmed(id) {
-      var n = byId[id];
-      if (regionWant && n && n.t === "team" && n.m &&
-          n.m.region !== regionWant) return true;
-      if (hlNodes && !hlNodes[id]) return true;
-      return false;
-    }
-
     // Sigma 3's reducer contract: the return value REPLACES the node's
     // display data — it is not merged with the raw attributes. A
-    // partial return therefore drops x/y, sigma throws inside
-    // setSetting below, init() dies before any control is wired, and
-    // the fetch .catch() unhides the "could not be loaded" note even
-    // though the graph rendered. Always start from a copy of `data`.
+    // partial return therefore drops x/y and sigma throws inside
+    // setSetting, killing init before any control is wired. Always
+    // start from a copy of `data`.
     sigma.setSetting("nodeReducer", function (id, data) {
       var out = Object.assign({}, data);
-      if (!visNow[id]) { out.hidden = true; return out; }
       var n = byId[id];
-      // Backbone hubs always carry their (full) label; everyone else
-      // is labelled by the zoom threshold, and hover/selection forces
-      // the label of the node being inspected.
-      if ((backbone[id] && !egoOnly) || id === selected || id === hoverId) {
+      // Structural hubs always carry their label; everyone else is
+      // labelled by the zoom threshold, and hover/selection forces the
+      // label of the node being inspected.
+      if ((n && (n.t === "team" || n.t === "topic")) ||
+          id === selected || id === hoverId) {
         out.forceLabel = true;
       }
-      if (nodeDimmed(id)) {
+      if (hlNodes && !hlNodes[id]) {
         out.color = DIM_COLORS[n.t] || "#ddd";
         out.zIndex = 0;
       }
@@ -206,8 +175,6 @@
     });
     sigma.setSetting("edgeReducer", function (key, data) {
       var out = Object.assign({}, data);
-      var s = graph.source(key), tg = graph.target(key);
-      if (!visNow[s] || !visNow[tg]) { out.hidden = true; return out; }
       if (hlEdges && !hlEdges[key]) {
         out.color = "rgba(196,202,212,0.13)";
         out.zIndex = 0;
@@ -225,11 +192,10 @@
 
     // -------------------------------------------------------------- camera
     // Camera ratio = graph units per screen pixel (smaller = closer).
-    function frameIds(ids, animate) {
-      if (!ids.length) return;
+    function frameAll(animate) {
       var minx = 1e18, miny = 1e18, maxx = -1e18, maxy = -1e18;
-      ids.forEach(function (id) {
-        var p = pos[id];
+      G.nodes.forEach(function (n) {
+        var p = pos[n.id];
         if (!p) return;
         if (p[0] < minx) minx = p[0];
         if (p[0] > maxx) maxx = p[0];
@@ -246,26 +212,19 @@
       if (animate === false) cam.setState(target);
       else cam.animate(target, { duration: 550 });
     }
-    function frameVisible(animate) {
-      frameIds(Object.keys(visNow), animate);
-    }
-    frameVisible(false);
+    frameAll(false);
 
-    function refresh(frame) {
-      visNow = visibleIds();
+    function refresh() {
       computeHighlight();
       sigma.refresh();
-      updateCounts(visNow);
-      if (frame) frameVisible(true);
     }
 
-    function updateCounts(vis) {
-      var el = document.getElementById("graph-counts");
-      if (!el) return;
-      var shown = Object.keys(vis).length;
-      el.textContent = t("counts", "")
-        .replace("{shown}", shown).replace("{total}", G.nodes.length)
-        .replace("{edges}", G.edges.length);
+    var countsEl = document.getElementById("graph-counts");
+    if (countsEl) {
+      countsEl.textContent = t("counts", "")
+        .replace("{shown}", G.nodes.length)
+        .replace("{total}", G.nodes.length)
+        .replace("{edges}", EDGES.length);
     }
 
     // ---------------------------------------------------------- detail panel
@@ -323,7 +282,7 @@
           a.textContent = label(byId[x.id]);
           a.addEventListener("click", function (ev) {
             ev.preventDefault();
-            focusNode(x.id, true);
+            focusNode(x.id);
           });
           li.appendChild(a);
           ul.appendChild(li);
@@ -345,16 +304,12 @@
       } else {
         open.hidden = true;
       }
-      document.getElementById("gp-expand").textContent =
-        expanded[id] ? t("collapse", "Collapse") : t("expand", "Expand");
       panel.hidden = false;
     }
 
-    function focusNode(id, expandIt) {
-      if (!fullMode && egoOnly && egoOnly !== id) egoOnly = null;
-      if (expandIt) expanded[id] = true;
+    function focusNode(id) {
       selected = id;
-      refresh(false);
+      refresh();
       showPanel(id);
       // Fly to a window around the node (never zoom back out).
       var p = pos[id];
@@ -367,114 +322,38 @@
     }
 
     sigma.on("clickNode", function (ev) {
-      var id = ev.node;
-      if (!expanded[id] && !fullMode) expanded[id] = true;
-      selected = id;
-      refresh(false);
-      showPanel(id);
+      focusNode(ev.node);
     });
     sigma.on("clickStage", function () {
       selected = null;
       if (panel) panel.hidden = true;
-      refresh(false);
+      refresh();
     });
     sigma.on("enterNode", function (ev) {
       hoverId = ev.node;
       stage.style.cursor = "pointer";
-      computeHighlight();
-      sigma.refresh();
+      refresh();
     });
     sigma.on("leaveNode", function () {
       hoverId = null;
       stage.style.cursor = "";
-      computeHighlight();
-      sigma.refresh();
+      refresh();
     });
 
     // ------------------------------------------------------------- controls
-    document.getElementById("gp-expand").addEventListener("click", function () {
-      if (!selected) return;
-      if (expanded[selected]) delete expanded[selected]; else expanded[selected] = true;
-      refresh(false); showPanel(selected);
-    });
-    var egoBtn = document.getElementById("gp-ego");
-    egoBtn.addEventListener("click", function () {
-      if (!selected) return;
-      egoOnly = (egoOnly === selected) ? null : selected;
-      egoBtn.textContent = egoOnly ? t("showAll2", "Back to overview")
-                                   : t("egoOnly", "Only this network");
-      refresh(true); showPanel(selected);
-    });
-    document.getElementById("gp-close").addEventListener("click", function () {
-      panel.hidden = true; selected = null; refresh(false);
-    });
-
-    var fullBtn = document.getElementById("graph-full");
-    if (fullBtn) fullBtn.addEventListener("click", function () {
-      fullMode = !fullMode;
-      egoOnly = null;
-      egoBtn.textContent = t("egoOnly", "Only this network");
-      fullBtn.textContent = fullMode ? t("backbone", "Backbone view")
-                                     : t("fullGraph", "Full graph");
-      var warn = document.getElementById("graph-full-note");
-      if (warn) warn.hidden = !fullMode;
-      refresh(true);
+    var closeBtn = document.getElementById("gp-close");
+    if (closeBtn) closeBtn.addEventListener("click", function () {
+      panel.hidden = true; selected = null; refresh();
     });
     var resetBtn = document.getElementById("graph-reset");
     if (resetBtn) resetBtn.addEventListener("click", function () {
-      expanded = {}; egoOnly = null; fullMode = false;
       selected = null; hoverId = null;
       if (panel) panel.hidden = true;
-      if (fullBtn) fullBtn.textContent = t("fullGraph", "Full graph");
-      egoBtn.textContent = t("egoOnly", "Only this network");
-      refresh(true);
+      refresh();
+      frameAll(true);
     });
 
-    // Type filters + legend (one checkbox per type present in the data).
-    var legend = document.getElementById("graph-types");
-    if (legend) {
-      var present = {};
-      G.nodes.forEach(function (n) { present[n.t] = true; });
-      TYPE_ORDER.forEach(function (ty) {
-        if (!present[ty]) return;
-        var lab = document.createElement("label");
-        lab.className = "g-type";
-        var cb = document.createElement("input");
-        cb.type = "checkbox"; cb.checked = true; cb.value = ty;
-        cb.addEventListener("change", function () {
-          typeOn[ty] = cb.checked; refresh(false);
-        });
-        var dot = document.createElement("span");
-        dot.className = "g-dot"; dot.style.background = COLORS[ty];
-        lab.appendChild(cb); lab.appendChild(dot);
-        lab.appendChild(document.createTextNode(t("type_" + ty, ty)));
-        legend.appendChild(lab);
-      });
-    }
-
-    // Topic focus: jump straight to a topic's ego network.
-    var topicSel = document.getElementById("graph-topic");
-    if (topicSel) {
-      G.nodes.filter(function (n) { return n.t === "topic"; })
-        .sort(function (a, b) { return label(a).localeCompare(label(b)); })
-        .forEach(function (n) {
-          var o = document.createElement("option");
-          o.value = n.id; o.textContent = label(n);
-          topicSel.appendChild(o);
-        });
-      topicSel.addEventListener("change", function () {
-        if (topicSel.value) { egoOnly = null; focusNode(topicSel.value, true); }
-      });
-    }
-
-    // Region dimming for teams.
-    var regionSel = document.getElementById("graph-region");
-    if (regionSel) regionSel.addEventListener("change", function () {
-      regionWant = regionSel.value;
-      sigma.refresh();
-    });
-
-    // Search: datalist over every node's label.
+    // Search: datalist over this slice's node labels.
     var search = document.getElementById("graph-search");
     var list = document.getElementById("graph-search-list");
     if (search && list) {
@@ -488,11 +367,8 @@
       });
       search.addEventListener("change", function () {
         var id = byLabel[search.value.trim()];
-        if (id) { egoOnly = null; focusNode(id, true); }
+        if (id) focusNode(id);
       });
     }
-
-    updateCounts(visNow);
   }
 })();
-
