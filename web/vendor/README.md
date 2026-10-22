@@ -7,17 +7,20 @@ graph page degrades gracefully when any of them is absent.
 
 | File | Project | Version | License |
 | --- | --- | --- | --- |
-| `cytoscape.min.js` | Cytoscape.js — https://github.com/cytoscape/cytoscape.js | 3.30.2 | MIT |
-| `3d-force-graph.min.js` | 3d-force-graph — https://github.com/vasturiano/3d-force-graph | 1.80.1 | MIT |
-| `three-spritetext.min.js` | three-spritetext — https://github.com/vasturiano/three-spritetext | 1.10.0 | MIT |
-| `three.min.js` | three.js — https://github.com/mrdoob/three.js | 0.160.0 | MIT |
+| `graphology.min.js` | graphology — https://github.com/graphology/graphology | 0.25.4 | MIT |
+| `sigma.min.js` | sigma.js — https://github.com/jacomyal/sigma.js | 3.0.2 | MIT |
 
 Notes:
 
-- `3d-force-graph.min.js` is a self-contained UMD bundle (it inlines its
-  own three.js, r186) and defines the global `ForceGraph3D`.
-- `three-spritetext.min.js` needs a global `THREE`, which is the only job
-  of `three.min.js` here (0.160.0 is the last three.js release with an
-  official UMD build; the sprites it creates are rendered by the three.js
-  inlined in 3d-force-graph — the same arrangement as the library's own
-  text-nodes example).
+- Both are UMD builds defining browser globals (`graphology`, `Sigma`);
+  `web/graph.js` checks for both before touching the page, so a missing
+  file leaves the server-rendered static fallback in charge.
+- sigma.js renders with WebGL (batched node/edge programs). On a
+  browser where its WebGL2-era code cannot run, the globals stay
+  undefined and the static fallback serves the page instead.
+- Retired 2026-10-22, when the graph page moved to precomputed layout +
+  sigma: `cytoscape.min.js` (canvas renderer, runtime cose layout),
+  `3d-force-graph.min.js`, `three-spritetext.min.js`, `three.min.js`
+  (the 3D view: per-object three.js rendering + runtime force
+  simulation — too slow at ~1,000 nodes / ~6,600 edges, and its 2D/3D
+  toggle needed a full-page reload for every switch).
