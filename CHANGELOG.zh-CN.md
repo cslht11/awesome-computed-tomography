@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-22 — 知识图谱：3D 视图
+<!-- en: Knowledge Graph: a 3D view -->
+
+### 新增
+
+- **图谱页新增 3D 视图**（`/graph/`，中文版 `/zh/graph/`），由自托管的 3d-force-graph 库渲染。它使用同一份 `graph.json`，交互模型与 2D 版一致——团队/主题/工具包骨架、点选展开邻居、搜索时镜头飞向目标节点、按类型/主题/地区筛选、全图模式——场景可旋转、缩放和拖动。工具栏有 2D/3D 切换按钮，可切回 Cytoscape 视图（选择会被记住）；WebGL 或库文件不可用时，页面照旧由 2D 视图提供。为保证场景可读，常驻标签只给团队、主题和高度数枢纽节点，且一律显示完整文字；其余节点由悬停提示给出名称。
+
 ## 2026-10-22 — 知识图谱：目录中一切条目的关系网
 <!-- en: Knowledge Graph: how everything in the directory connects -->
 

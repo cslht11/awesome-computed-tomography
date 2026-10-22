@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-22 — Knowledge Graph: a 3D view
+
+### Added
+
+- **The graph page gains a 3D view** (`/graph/`, Chinese edition `/zh/graph/`), rendered with the vendored 3d-force-graph library. It shows the same `graph.json` and keeps the same interaction model — team/topic/toolkit backbone, click to expand a node's neighbourhood, search flies the camera to a node, type/topic/region filters, full-graph mode — in a scene the reader can rotate, zoom and drag. A 2D/3D toggle in the toolbar switches back to the Cytoscape view (the choice is remembered); where WebGL or the vendor files are unavailable the 2D view serves the page as before. To keep the scene readable, permanent labels are limited to teams, topics and high-degree hubs and always show the full text; every other node is named by its hover tooltip.
+
 ## 2026-10-22 — Knowledge Graph: how everything in the directory connects
 
 ### Added
