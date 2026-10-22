@@ -31,7 +31,16 @@
 
   fetch(ROOT + "graph.json")
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function (G) { init(G); })
+    .then(function (G) {
+      try { init(G); }
+      catch (err) {
+        // Surface init failures in the console before the catch below
+        // turns them into the generic load note — a swallowed init
+        // error once masqueraded as a data-load failure for a day.
+        if (window.console) console.error("graph init failed:", err);
+        throw err;
+      }
+    })
     .catch(function () {
       var note = document.getElementById("graph-load-note");
       if (note) note.hidden = false;
@@ -171,8 +180,14 @@
       return false;
     }
 
+    // Sigma 3's reducer contract: the return value REPLACES the node's
+    // display data — it is not merged with the raw attributes. A
+    // partial return therefore drops x/y, sigma throws inside
+    // setSetting below, init() dies before any control is wired, and
+    // the fetch .catch() unhides the "could not be loaded" note even
+    // though the graph rendered. Always start from a copy of `data`.
     sigma.setSetting("nodeReducer", function (id, data) {
-      var out = {};
+      var out = Object.assign({}, data);
       if (!visNow[id]) { out.hidden = true; return out; }
       var n = byId[id];
       // Backbone hubs always carry their (full) label; everyone else
@@ -190,7 +205,7 @@
       return out;
     });
     sigma.setSetting("edgeReducer", function (key, data) {
-      var out = {};
+      var out = Object.assign({}, data);
       var s = graph.source(key), tg = graph.target(key);
       if (!visNow[s] || !visNow[tg]) { out.hidden = true; return out; }
       if (hlEdges && !hlEdges[key]) {
