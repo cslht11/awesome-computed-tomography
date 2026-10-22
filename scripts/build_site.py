@@ -1569,7 +1569,7 @@ def main():
     # Static layout, computed once here (scripts/graph_layout.py): the
     # browser receives positions as data and never runs a simulation.
     graph["pos"] = graph_layout_mod.compute_positions(
-        graph["nodes"], graph["edges"])
+        graph["nodes"], graph["edges"], graph["backbone"])
     graph_text = json.dumps(graph, ensure_ascii=False, separators=(",", ":")) + "\n"
     for entry in langs:
         write(os.path.join(out, entry.get("path") or "", "graph.json"),
