@@ -1100,19 +1100,44 @@ def _asset_version(rel):
     return _ASSET_V[rel]
 
 
+def _datasets_note(ov, sl, payload_en):
+    """The datasets slice's honesty line, as HTML for under its intro.
+
+    The slice ships only resources with a recorded link to a paper
+    (scripts/graph_slices.py drops the rest), so the page says how
+    many that is out of the library's totals and points at the
+    datasets-and-benchmarks directory for everything else. Counts
+    come from the (trimmed) slice itself, so the line cannot drift
+    from what the graph actually shows.
+    """
+    types = Counter(n["t"] for n in sl["nodes"])
+    note = esc(ov.ui("graphDatasetsNote", ""))
+    note = note.replace("{d_shown}", str(types.get("dataset", 0)))
+    note = note.replace("{d_total}", str(len(payload_en["datasets"])))
+    note = note.replace("{b_shown}", str(types.get("benchmark", 0)))
+    note = note.replace("{b_total}", str(len(payload_en["benchmarks"])))
+    note = note.replace(
+        "{ds}", '<a href="{{ROOT}}datasets/">%s</a>'
+        % esc(ov.ui("graphDirDatasets", "datasets and benchmarks directory")))
+    return note
+
+
 def render_graph_slice_body(ov, code, title, intro, sl, back="../",
-                            data_v=""):
+                            data_v="", note_html=""):
     """The <main> of one category graph page: back link, controls,
     canvas, detail panel, and the no-JS fallback — this slice's own
     entries as a plain grouped list of links. `back` is the relative
     path to the graph index ("../" from graph/<category>/, "../../"
-    from graph/topic/<id>/)."""
+    from graph/topic/<id>/). `note_html` is an optional extra intro
+    paragraph (the datasets slice's shown-vs-total line)."""
     strings = graph_strings(ov)
     bits = ['<p class="graph-back"><a href="%s">%s</a></p>'
             % (esc(back), esc(ov.ui("graphBackToIndex",
                                     "\u2190 All graph categories"))),
             '<h1>%s</h1>' % esc(title),
             '<p class="lede">%s</p>' % esc(intro),
+            ('<p class="lede graph-note">%s</p>' % note_html)
+            if note_html else '',
             '<div id="graph-bar" class="graph-bar" hidden>',
             '<input id="graph-search" type="search" list="graph-search-list" '
             'placeholder="%s" aria-label="%s">'
@@ -1606,17 +1631,19 @@ def main():
         # loop body), so no page ships another category's nodes.
         slice_pages = [
             ("backbone", ov.ui("graphBackboneTitle", "Team backbone"),
-             ov.ui("graphBackboneIntro", ""), ov.ui("graphBackboneDesc", "")),
+             ov.ui("graphBackboneIntro", ""), ov.ui("graphBackboneDesc", ""),
+             ""),
             ("datasets",
              ov.ui("graphDatasetsTitle", "Datasets & the papers that use them"),
-             ov.ui("graphDatasetsIntro", ""), ov.ui("graphDatasetsDesc", "")),
+             ov.ui("graphDatasetsIntro", ""), ov.ui("graphDatasetsDesc", ""),
+             _datasets_note(ov, graph_slices["datasets"], payload_en)),
         ]
         for t in payload["topics"]:
             slice_pages.append(("topic/" + t["id"], t["name"],
                                 ov.ui("graphTopicIntro", ""),
-                                ov.ui("graphTopicDesc", "")))
+                                ov.ui("graphTopicDesc", ""), ""))
         grels = graph_rels.setdefault(code, [])
-        for name, title, intro, desc in slice_pages:
+        for name, title, intro, desc, note_html in slice_pages:
             rel = GRAPH_PATH + name + "/"
             url = lang_base + rel
             desc = re.sub(r"\s+", " ", fill(desc, shared)).strip()
@@ -1627,7 +1654,8 @@ def main():
                     back="../" * (depth - 1),
                     data_v=hashlib.sha256(
                         graph_slice_json[name].encode("utf-8")
-                    ).hexdigest()[:10]),
+                    ).hexdigest()[:10],
+                    note_html=note_html),
                 title, desc, url, "../" * depth,
                 subs, "%s/%s" % (code, rel))
             html_ = add_to_head(html_, url, head_extra_graph(
@@ -2081,22 +2109,43 @@ def main():
                                 % (code, rel, len(sdata["nodes"]),
                                    len(sdata["edges"])))
             types = Counter(n["t"] for n in sdata["nodes"])
+            # A slice ships only nodes with at least one edge inside
+            # it; the isolates it dropped ride along on the slice
+            # (sl["dropped"]), so completeness is slice + dropped.
+            gtype = dict((n["id"], n["t"]) for n in graph["nodes"])
+            dropped = Counter(gtype[i] for i in (sl.get("dropped") or [])
+                              if i in gtype)
+            sdeg = Counter()
+            for e in sdata["edges"]:
+                sdeg[sdata["nodes"][e[0]]["id"]] += 1
+                sdeg[sdata["nodes"][e[1]]["id"]] += 1
+            isolates = [n["id"] for n in sdata["nodes"]
+                        if sdeg[n["id"]] == 0]
+            if "dropped" in sl and isolates:
+                problems.append("%s/%s: slice ships %d isolated nodes "
+                                "(e.g. %s)"
+                                % (code, rel, len(isolates), isolates[0]))
             if name == "backbone":
                 for tname, want_n in (("team", len(payload_en["teams"])),
                                       ("topic", len(payload_en["topics"])),
                                       ("toolkit", len(payload_en["toolkits"])),
                                       ("guide", len(rp_guides))):
-                    if types.get(tname, 0) != want_n:
-                        problems.append("%s/%s: %s nodes %d != payload %d"
+                    if types.get(tname, 0) + dropped.get(tname, 0) != want_n:
+                        problems.append("%s/%s: %s nodes %d + %d dropped "
+                                        "!= payload %d"
                                         % (code, rel, tname,
-                                           types.get(tname, 0), want_n))
+                                           types.get(tname, 0),
+                                           dropped.get(tname, 0), want_n))
             if name == "datasets":
                 for tname, key in (("dataset", "datasets"),
                                    ("benchmark", "benchmarks")):
-                    if types.get(tname, 0) != len(payload_en[key]):
-                        problems.append("%s/%s: %s nodes %d != payload %d"
+                    if types.get(tname, 0) + dropped.get(tname, 0) \
+                            != len(payload_en[key]):
+                        problems.append("%s/%s: %s nodes %d + %d dropped "
+                                        "!= payload %d"
                                         % (code, rel, tname,
                                            types.get(tname, 0),
+                                           dropped.get(tname, 0),
                                            len(payload_en[key])))
             if name.startswith("topic/"):
                 tid = name[len("topic/"):]
