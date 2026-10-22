@@ -18,9 +18,12 @@ venue, author, guide. Edge kinds:
               weight it)
     focus     team -> topic, the team's declared research focus
     works     team -> paper/toolkit/dataset/benchmark it is known for
-    uses      paper uses or describes a dataset/benchmark (resource-page
-              evidence: named in the paper's title/note/blurb, linked from
-              it, or its citation paper)
+    uses      paper uses a dataset/benchmark in its experiments. Two
+              sources, in descending authority: data/graph/
+              paper_datasets.yaml (hand-verified paper by paper against
+              the experiments section; wins for every pair it covers),
+              then the resource-page derivation (named in the paper's
+              title/note/blurb, linked from it, or its citation paper)
     cite      the paper a resource page names as its citation
     sibling   two resources sharing an official link or naming each other
     code      a paper's code repository *is* a toolkit in the directory
@@ -54,10 +57,12 @@ AUTHOR_MIN_PAPERS = 3      # an author becomes a node at this many papers
 
 # ------------------------------------------------------------------ loading
 def load_enrichment():
-    """(authors_doc, citations_doc); either may be None when absent."""
+    """(authors_doc, citations_doc, paper_datasets_doc); any may be None
+    when its file is absent."""
     authors = load("graph/authors.yaml")
     citations = load("graph/citations.yaml")
-    return authors, citations
+    paper_datasets = load("graph/paper_datasets.yaml")
+    return authors, citations, paper_datasets
 
 
 def norm_person(name):
@@ -80,10 +85,11 @@ def _openalex_tail(url_or_id):
 
 
 # ---------------------------------------------------------------- validation
-def validate_graph(papers, teams, authors_doc, citations_doc):
+def validate_graph(papers, teams, authors_doc, citations_doc,
+                   paper_datasets_doc=None, dataset_names=None):
     """Integrity rules for data/graph/*.yaml, in build.py's Problems style.
 
-    Both files are optional; when present, every reference must resolve.
+    All files are optional; when present, every reference must resolve.
     Returns a list of problem strings (empty when all is well).
     """
     problems = []
@@ -136,6 +142,48 @@ def validate_graph(papers, teams, authors_doc, citations_doc):
                 if (a, b) in seen:
                     problems.append("%s: duplicate pair %s -> %s" % (w, a, b))
                 seen.add((a, b))
+    if paper_datasets_doc is not None:
+        if not isinstance(paper_datasets_doc, list):
+            problems.append("graph/paper_datasets: top level must be a list "
+                            "of {paper, uses} records")
+        else:
+            seen_pd = set()
+            for i, rec in enumerate(paper_datasets_doc):
+                w = "graph/paper_datasets[%d]" % i
+                if not isinstance(rec, dict):
+                    problems.append("%s: record must be a mapping" % w)
+                    continue
+                pid = rec.get("paper")
+                if pid not in paper_ids:
+                    problems.append("%s: paper %r is not in the library"
+                                    % (w, pid))
+                if pid in seen_pd:
+                    problems.append("%s: duplicate record for paper %r"
+                                    % (w, pid))
+                seen_pd.add(pid)
+                uses = rec.get("uses")
+                if not isinstance(uses, list) or not uses:
+                    problems.append("%s: uses must be a non-empty list" % w)
+                    continue
+                seen_ds = set()
+                for u in uses:
+                    if not isinstance(u, dict):
+                        problems.append("%s: every use must be a mapping" % w)
+                        continue
+                    ds = u.get("dataset")
+                    if dataset_names is not None and ds not in dataset_names:
+                        problems.append("%s: dataset %r is not a dataset in "
+                                        "the library" % (w, ds))
+                    if ds in seen_ds:
+                        problems.append("%s: dataset %r listed twice"
+                                        % (w, ds))
+                    seen_ds.add(ds)
+                    if u.get("usage") not in ("train", "eval", "both"):
+                        problems.append("%s: usage %r must be train, eval "
+                                        "or both" % (w, u.get("usage")))
+                    if not u.get("evidence"):
+                        problems.append("%s: every use needs its evidence "
+                                        "(section + quote)" % w)
     return problems
 
 
@@ -178,7 +226,8 @@ def _paper_url(p):
 
 # -------------------------------------------------------------------- build
 def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
-                guides, authors_doc=None, citations_doc=None):
+                guides, authors_doc=None, citations_doc=None,
+                paper_datasets_doc=None):
     """Project the payloads into {nodes, edges, backbone, stats}.
 
     ``payload`` / ``payload_zh`` are export_site_data payloads (English and
@@ -324,6 +373,24 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
             for name in works.get(tbl) or []:
                 edge("team:" + tm["id"], "%s:%s" % (kind, name), "works")
 
+    # --------------------------------- verified paper -> dataset usage
+    # data/graph/paper_datasets.yaml is verified by hand, one paper at a
+    # time, against the paper's own experiments section. It is
+    # authoritative for paper -> dataset usage: the resource-page
+    # derivation below skips every pair it covers.
+    verified_uses = set()
+    if paper_datasets_doc:
+        for rec in paper_datasets_doc:
+            if not isinstance(rec, dict):
+                continue
+            pid = rec.get("paper")
+            if pid not in papers_by_id:
+                continue
+            for u in rec.get("uses") or []:
+                if isinstance(u, dict) and u.get("dataset"):
+                    verified_uses.add((pid, u["dataset"]))
+                    edge("paper:" + pid, "dataset:" + u["dataset"], "uses")
+
     # ------------------------------------------- papers <-> resources
     for pg in rp_pages or []:
         kind = "dataset" if pg["table"] == "datasets" else "benchmark"
@@ -331,6 +398,8 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
         cites = set(pg.get("cite") or [])
         for pid in pg.get("papers") or []:
             if pid in papers_by_id:
+                if pg["table"] == "datasets" and (pid, pg["name"]) in verified_uses:
+                    continue
                 edge("paper:" + pid, target, "cite" if pid in cites else "uses")
         for tbl2, name2 in pg.get("related") or []:
             kind2 = "dataset" if tbl2 == "datasets" else "benchmark"
