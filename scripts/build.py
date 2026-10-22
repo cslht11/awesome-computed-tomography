@@ -517,6 +517,16 @@ def main():
     problems = validate(meta, papers, toolkits, datasets, benchmarks, learning,
                         teams)
 
+    # Graph enrichment (data/graph/*.yaml) is optional and graph-side
+    # only; when the files exist, their references must resolve. The rules
+    # live in scripts/graph.py with the graph builder that consumes them.
+    import graph as graph_mod
+    g_authors = load("graph/authors.yaml")
+    g_citations = load("graph/citations.yaml")
+    if g_authors is not None or g_citations is not None:
+        problems.extend(graph_mod.validate_graph(papers, teams,
+                                                 g_authors, g_citations))
+
     langs = i18n.languages(meta)
     by_code = dict((e["code"], e) for e in langs)
     if args.lang == "all":

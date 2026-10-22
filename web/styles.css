@@ -598,3 +598,65 @@ li.team {
 .t-works { margin: 7px 0 0; font-size: 13.5px; color: var(--fg-muted); }
 .t-works-label { font-weight: 600; }
 .t-software { margin: 5px 0 0; font-size: 13.5px; color: var(--fg-faint); }
+
+/* ---- knowledge graph (/graph/) ---- */
+.graph-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+  margin: 18px 0 10px;
+}
+.graph-bar input[type="search"] {
+  font: 400 14.5px var(--sans); color: var(--fg);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 7px 11px; min-width: 230px;
+}
+.graph-bar select {
+  font: 400 14px var(--sans); color: var(--fg);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 8px;
+}
+.graph-bar button, .gp-actions button {
+  font: 500 13.5px var(--sans); color: var(--fg);
+  background: var(--surface); border: 1px solid var(--border-strong);
+  border-radius: 8px; padding: 6px 12px; cursor: pointer;
+}
+.graph-bar button:hover, .gp-actions button:hover { border-color: var(--accent); }
+.g-lab { font-size: 13.5px; color: var(--fg-muted); display: inline-flex; align-items: center; gap: 6px; }
+.g-counts { font-size: 13px; color: var(--fg-faint); }
+.g-types { display: flex; flex-wrap: wrap; gap: 4px 12px; width: 100%; }
+.g-type { font-size: 13px; color: var(--fg-muted); display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.g-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.g-note { font-size: 13.5px; color: var(--fg-muted); }
+.graph-cy {
+  width: 100%; height: 68vh; min-height: 420px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg);
+}
+.graph-panel {
+  margin-top: 14px; padding: 16px 18px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--surface);
+  position: relative;
+}
+.gp-close {
+  position: absolute; top: 8px; right: 12px;
+  background: none; border: 0; font-size: 22px; line-height: 1;
+  color: var(--fg-muted); cursor: pointer;
+}
+.gp-type {
+  display: inline-block; font: 600 11px var(--sans); color: #fff;
+  border-radius: 6px; padding: 2px 8px;
+}
+.graph-panel h2 { margin: 8px 0 4px; font: 600 19px var(--display); }
+.gp-meta { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 8px 0; font-size: 14px; }
+.gp-meta dt { color: var(--fg-faint); }
+.gp-meta dd { margin: 0; color: var(--fg); }
+.gp-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 4px; }
+.gp-open { font-weight: 600; }
+.graph-panel h3 { margin: 14px 0 4px; font: 600 14.5px var(--display); }
+.graph-panel h4 { margin: 10px 0 2px; font: 600 13px var(--sans); color: var(--fg-muted); }
+#gp-neighbours ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+.graph-fallback .gf-team { font-size: 14.5px; margin: 6px 0; }
+@media (max-width: 720px) {
+  .graph-cy { height: 58vh; min-height: 340px; }
+  .graph-bar input[type="search"] { min-width: 0; width: 100%; }
+}
