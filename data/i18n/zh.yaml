@@ -263,6 +263,8 @@ readme:
   benchmarksHeading: "基准与挑战赛"
   learningHeading: "学习资源"
   teamsHeading: "研究团队"
+  graphHeading: "知识图谱"
+  graphBody: "把整个库画成一张关系网，按类拆成加载很快的小页：团队骨架、数据集与使用它们的论文，以及每个主题一张图——共 1,004 个节点、6,677 条关系，全部由上面的条目投影生成，并以 OpenAlex 的作者与引用数据富集。[打开知识图谱]({url})"
   licenseHeading: "许可"
   # ---- hero / navigation
   heroTagline: "**一份经过核验的 CT 重建研究精选列表**——涵盖 CT、CBCT 与显微 CT 的论文、工具包、数据集与基准。"

@@ -315,6 +315,13 @@ readme:
   benchmarksHeading: "Benchmarks"
   learningHeading: "Learning"
   teamsHeading: "Research Teams"
+  graphHeading: "Knowledge Graph"
+  graphBody: >-
+    The library as a relationship map, split into small pages that load
+    fast: a team backbone, datasets and the papers that use them, and one
+    graph per topic — 1,004 nodes and 6,677 relations projected from the
+    collections above and enriched with OpenAlex author and citation data.
+    [Explore the knowledge graph]({url})
   licenseHeading: "License"
   # ---- hero / navigation
   heroTagline: >-
