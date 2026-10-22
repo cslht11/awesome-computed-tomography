@@ -406,6 +406,7 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs,
                          ("benchmarksHeading", "Benchmarks"),
                          ("learningHeading", "Learning"),
                          ("teamsHeading", "Research Teams"),
+                         ("graphHeading", "Knowledge Graph"),
                          ("contactHeading", "Contact"),
                          ("licenseHeading", "License")):
         heads[key] = ov.readme(key, default)
@@ -444,6 +445,9 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs,
                 "benchmarksHeading", "learningHeading"]
     if has_teams:
         nav_keys.append("teamsHeading")
+    # The graph is derived from the collections at build time, so unlike
+    # Teams its nav entry and section are not conditional on any data file.
+    nav_keys.append("graphHeading")
     nav = " \u00b7 ".join(
         ["**[{}]({})**".format(ov.readme("navWebsite", "Website"), SITE_URL)] +
         ["[%s](#%s)" % (heads[k], anchor(k)) for k in nav_keys])
@@ -491,6 +495,12 @@ def build(meta, papers, toolkits, datasets, benchmarks, learning, ov, langs,
         parts.append(head(key))
         parts.append(fill(ov.readme("browseCollection", ""),
                           {"n": n, "url": site_base + "?tab=" + tab}) + "\n")
+
+    # The graph has no site tab of its own to browse; it gets a short
+    # paragraph and a link to the categorized graph index instead.
+    parts.append(head("graphHeading"))
+    parts.append(fill(ov.readme("graphBody", ""),
+                      {"url": site_base + "graph/"}) + "\n")
 
     parts.append(head("contactHeading"))
     parts.append(fill(ov.readme("contactBody", ""), subs) + "\n")

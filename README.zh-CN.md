@@ -9,7 +9,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-537-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
 
-**[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源) · [研究团队](#研究团队)
+**[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源) · [研究团队](#研究团队) · [知识图谱](#知识图谱)
 
 </div>
 
@@ -54,6 +54,10 @@
 ## 研究团队
 
 [在网站上浏览全部 20 条](https://computedtomography.org/zh/?tab=teams)
+
+## 知识图谱
+
+把整个库画成一张关系网，按类拆成加载很快的小页：团队骨架、数据集与使用它们的论文，以及每个主题一张图——共 1,004 个节点、6,677 条关系，全部由上面的条目投影生成，并以 OpenAlex 的作者与引用数据富集。[打开知识图谱](https://computedtomography.org/zh/graph/)
 
 ## 联系方式
 
