@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-22 — README 新增知识图谱一节
+<!-- en: README: Knowledge Graph section -->
+
+### 新增
+
+- **两版 README 现在都链到知识图谱。** 图谱在网站上早已上线，但 GitHub 首页一直没有提它：顶部快速导航与章节列表都止于研究团队一节。现在 `README.md` 与 `README.zh-CN.md` 在研究团队之后新增"知识图谱"一节——由 `scripts/build.py` 依新的 `graphHeading`/`graphBody` 文案生成——链到 computedtomography.org/graph/ 的分类图谱索引（中文版 /zh/graph/），导航行也加上同一链接。
+
 ## 2026-10-22 — 知识图谱：拆成分类小图谱
 <!-- en: Knowledge Graph: split into small per-category graphs -->
 
