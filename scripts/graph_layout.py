@@ -237,14 +237,20 @@ def _relax_separation(x, y, idxs, min_sep, width):
             break
 
 
-def compute_positions(nodes, edges, backbone_ids=None):
+def compute_positions(nodes, edges, backbone_ids=None, iterations=None,
+                      bb_iterations=None):
     """Lay out the graph; return {node_id: [x, y]} with int coords.
 
     `nodes` is graph.py's node list (dicts with "id"), `edges` its
     [source, target, kind] triples, `backbone_ids` the backbone node
     ids (teams/topics/toolkits — derived from node types when not
     given). Every node gets a position, including degree-0 nodes
-    (ring placement, see module docstring).
+    (ring placement, see module docstring). `iterations` /
+    `bb_iterations` override the phase lengths (the temperature
+    schedule is normalised, so a shorter run still anneals fully);
+    small per-category slices (scripts/graph_slices.py) pass fewer,
+    since 600 iterations over 200 nodes buys nothing the reader can
+    see and costs pure-Python minutes across 19 slices.
     """
     ids = [nd["id"] for nd in nodes]
     index = dict((nid, i) for i, nid in enumerate(ids))
@@ -285,15 +291,16 @@ def compute_positions(nodes, edges, backbone_ids=None):
         # opens on, so it gets the whole canvas to itself.
         bb_pairs = [(a, b) for a, b in pairs if a in bbset and b in bbset]
         _fr_subset(x, y, bb, bbset, bb_pairs, degree,
-                   _BB_ITERATIONS, width, k=width / math.sqrt(len(bb)),
+                   _BB_ITERATIONS if bb_iterations is None else bb_iterations,
+                   width, k=width / math.sqrt(len(bb)),
                    gravity=0.01, clamp=True)
         _relax_separation(x, y, bb, _BB_MIN_SEP, width)
         # Phase 2: everything else, backbone pinned as anchors.
         _fr_subset(x, y, linked, set(linked) - bbset, pairs, degree,
-                   _ITERATIONS, width)
+                   _ITERATIONS if iterations is None else iterations, width)
     else:
         _fr_subset(x, y, linked, set(linked), pairs, degree,
-                   _ITERATIONS, width)
+                   _ITERATIONS if iterations is None else iterations, width)
 
     # Degree-0 nodes: a tidy ring around the laid-out mass.
     if linked:

@@ -658,6 +658,23 @@ li.team {
 .graph-panel h4 { margin: 10px 0 2px; font: 600 13px var(--sans); color: var(--fg-muted); }
 #gp-neighbours ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
 .graph-fallback .gf-team { font-size: 14.5px; margin: 6px 0; }
+.graph-fallback h3 { margin: 14px 0 4px; font: 600 15px var(--display); }
+.graph-fallback ul { margin: 4px 0 10px; padding-left: 18px; font-size: 14px; }
+.graph-fallback li { margin: 2px 0; }
+.graph-back { font-size: 14px; margin: 2px 0 0; }
+.graph-cards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px; margin: 14px 0 8px;
+}
+.g-card {
+  display: block; border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px 16px; background: var(--surface);
+  text-decoration: none; color: var(--fg);
+}
+.g-card:hover { border-color: var(--accent); }
+.g-card h3 { margin: 0 0 4px; font: 600 16px var(--display); }
+.g-card p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--fg-muted); }
+.g-card .g-counts { display: block; margin-top: 8px; }
 @media (max-width: 720px) {
   .graph-cy { height: 58vh; min-height: 340px; }
   .graph-bar input[type="search"] { min-width: 0; width: 100%; }
