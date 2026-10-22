@@ -1,0 +1,115 @@
+# Verified paper -> dataset usage, for the knowledge graph (scripts/graph.py).
+#
+# HAND-VERIFIED, one paper at a time, against the paper's own experiments
+# section (arXiv / publisher / PMC full text; a code README alone never
+# suffices). An entry exists only where the paper actually USES the dataset
+# in its experiments; `usage` says how (train / eval / both), and `evidence`
+# records the section and the sentence that establishes the use. Papers
+# checked with no library-dataset use are NOT listed here — the per-batch
+# audit logs live in the maintainer's research notes.
+#
+# This file is authoritative for the pairs it covers: it supersedes the
+# resource-page derivation in scripts/graph.py for those pairs.
+# Dataset values are exact `name`s from data/datasets.yaml.
+
+- paper: cnn-inverse
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "IV-A Data Preparation (with IV-B Training Procedure: 475 training / 25 test images for the synthetic datasets, test from a different subject) — “The biomedical dataset is a synthetic dataset that comprises 500 real in-vivo CT images from the Low-dose Grand challenge competition from database made by the Mayo clinic.”"
+
+- paper: red-cnn
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "III-A-2) Clinical Data — “a real clinical database was used, which was authorized by Mayo Clinics for “the 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge”.”"
+
+- paper: lpd
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "Experiments, 'b) Human phantoms' (data description, Fig. 1) — “human abdomen CT scans as provided by Mayo Clinic for the AAPM Low Dose CT Grand Challenge”"
+
+- paper: deepcnn
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "III.4 Data Set — “In the 2016 CT low-dose Grand Challenge, only abdominal CT images were provided as the training data set”"
+
+- paper: wgan-vgg
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "III-A Experimental Datasets — “We used a real clinical dataset authorized for “the 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge” by Mayo Clinic for the training and evaluation of the proposed networks”"
+
+- paper: learn
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "III. Experimental Design and Representative Results — “a set of clinical data and images was used, which was established and authorized by Mayo Clinics for “the 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge”.”"
+
+- paper: tfu-net
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "IV-A Data Set — “As a training data, we used ten patient data provided by AAPM Low Dose CT Grand Challenge”"
+
+- paper: cnn-mar
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "II-A. Generating Metal-free and Metal-inserted Images — “clinical CT images are collected from online resources and “the 2016 Low-dose CT Grand Challenge” training dataset”"
+
+- paper: dudonet
+  uses:
+    - dataset: DeepLesion
+      usage: both
+      evidence: "4. Experimental Results — Metal Artifact Dataset — “Due to its high diversity and quality, we use a subset of images from DeepLesion to synthesize metal artifact.”"
+
+- paper: map-nn
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: train
+      evidence: "Methods — Training dataset for MAP-NN — “The training dataset we used is an authorized clinical low-dose CT dataset, which was used for the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge.”"
+
+- paper: cnnrpgd
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "V-A. Dataset — “Our dataset consists of clinically realistic invivo (512 × 512) CT scans of human abdomen from Mayo clinic for the AAPM Low Dose CT Grand Challenge”"
+
+- paper: wavresnet
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "III-C. Training dataset — “We used projection data obtained from “2016 Low-Dose CT Grand Challenge.””"
+
+- paper: ksae
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "Section III.A Datasets — “The experiments were carried on 2016 Low-dose CT Grand Challenge datasets, which contained projection and image data of the chest and abdomen from 10 different patients.”"
+
+- paper: cpce
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "Section IV.A Low-dose dataset with simulated noise — “The experimental data set stems from an authorized clinical low-dose CT dataset, which was made for the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge”"
+
+- paper: dlct
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "Section 2.5 Experiments — “We perform a tenfold cross validation on 2378 slices of ten different patients.” Identity: the acknowledgements credit McCollough, Mayo Clinic and AAPM (grants EB017095/EB017185) for providing the data; 2,378 slices / 10 patients is the documented composition of the 2016 Low-Dose CT Grand Challenge release."
+
+- paper: adn
+  uses:
+    - dataset: DeepLesion
+      usage: both
+      evidence: "Section IV-B Datasets — “For SYN, we randomly select 4,118 artifact-free CT images from DeepLesion [27] and follow the method from CNNMAR [4] to synthesize metal artifacts.”"
+
+- paper: magic
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "Section 3 Experiments and results — “To evaluate the performance of our MAGIC, the dataset “the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge” [50] was used in our experiments.”"

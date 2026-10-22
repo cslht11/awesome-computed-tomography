@@ -1,6 +1,10 @@
 # Learning resources: books, courses, tutorials and teaching tools.
-# Fields: name (required), url | repo (required), type, note
+# Fields: name (required), url | repo (required), type, tasks, note
 # type is one of: book | course | tutorial | tool | list
+# tasks holds topic ids from data/meta.yaml (same field the side tables
+# use); it is what connects a resource to topics in the knowledge graph.
+# Unlike datasets' free-form task words, every value must be a topic id —
+# scripts/build.py --check enforces that.
 #
 # Survey papers live in the Papers section (topic: `survey`) so that they are not
 # listed twice — see data/papers.yaml.
@@ -9,149 +13,178 @@
 - name: Principles of Computerized Tomographic Imaging
   url: https://www.slaney.org/pct/pct-toc.html
   type: book
+  tasks: [classical, cbct]
   note: "Kak & Slaney (1988). **Free online**, chapter by chapter as PDFs. The foundation: Radon transform, Fourier-slice theorem, FBP, algebraic reconstruction, fan/cone-beam rebinning. Read chapters 1-3 first."
 
 - name: The Mathematics of Computerized Tomography
   url: https://doi.org/10.1137/1.9780898719284
   type: book
+  tasks: [classical]
   note: "Natterer (1986, SIAM reissue). The rigorous inverse-problem treatment — Radon transform on Sobolev spaces, sampling theory, ill-posedness and regularisation."
 
 - name: Computed Tomography - From Photon Statistics to Modern Cone-Beam CT
   url: https://doi.org/10.1007/978-3-540-39408-2
   type: book
+  tasks: [classical, cbct]
   note: "Buzug (2008). The best single bridge from the physics (photon statistics, polychromaticity, detector response) to the reconstruction algorithms."
 
 - name: Fundamentals of Computerized Tomography - Image Reconstruction from Projections
   url: https://doi.org/10.1007/978-1-84628-723-7
   type: book
+  tasks: [classical]
   note: "Herman (2nd ed. 2009). Very practical, with explicit algorithms, pseudocode and a careful treatment of sampling and discretisation artefacts."
 
 - name: Medical Image Reconstruction - A Conceptual Tutorial
   url: https://doi.org/10.1007/978-3-642-05368-9
   type: book
+  tasks: [classical, cbct]
   note: "Zeng (2010). Deliberately intuition-first: explains *why* FBP, iterative and analytic methods behave the way they do, with minimal notation."
 
 - name: Foundations of Image Science
   url: https://doi.org/10.1002/0471722138
   type: book
+  tasks: [other]
   note: "Barrett & Myers (2004). The encyclopaedic reference for imaging-system theory — Fourier crosstalk, task-based assessment, and the mathematical basis of iterative reconstruction."
 
 - name: Computed Tomography - Principles, Design, Artifacts, and Recent Advances
   url: https://www.spiedigitallibrary.org/ebooks/PM/Computed-Tomography-Principles-Design-Artifacts-and-Recent-Advances-Third-Edition/eISBN-9781628418040/10.1117/3.1764041
   type: book
+  tasks: [classical, cbct]
   note: "Hsieh (3rd ed. 2015, SPIE). Written from inside a CT vendor: system design, dose, artefact taxonomy and clinical correction strategies."
 
 # ---------------------------------------------------------------- courses
 - name: Principles of Medical Imaging (MIT OCW 22.058)
   url: https://ocw.mit.edu/courses/22-058-principles-of-medical-imaging-fall-2002/
   type: course
+  tasks: [classical]
   note: "Free lecture notes and problem sets covering projection imaging, the Radon transform and reconstruction alongside MRI, ultrasound and PET."
 
 - name: ASTRA Toolbox documentation and tutorials
   url: https://astra-toolbox.com/docs/index.html
   type: tutorial
+  tasks: [classical, cbct]
   note: "The most accessible hands-on entry point: CPU/GPU forward and back projectors, FBP, SART/SIRT, CGLS, with runnable examples for each geometry."
 
 - name: TIGRE demos
   url: https://github.com/CERN/TIGRE/tree/master/Python/demos
   type: tutorial
+  tasks: [cbct, classical, geometry]
   note: "Runnable GPU demos from analytical FBP through iterative, total-variation and plug-and-play reconstruction, plus a CBCT geometry-calibration walkthrough."
 
 - name: ODL examples
   url: https://github.com/odlgroup/odl/tree/master/examples
   type: tutorial
+  tasks: [classical, cbct]
   note: "Shows how to express a CT problem as operators and functionals, then solve it with proximal methods — the clearest introduction to variational CT."
 
 - name: Radon transform in scikit-image
   url: https://scikit-image.org/docs/stable/auto_examples/transform/plot_radon_transform.html
   type: tutorial
+  tasks: [classical]
   note: "Twenty lines of code from a phantom to a sinogram and back with FBP; the fastest way to build intuition before touching a real geometry."
 
 - name: DeepInverse documentation
   url: https://deepinv.github.io/
   type: tutorial
+  tasks: [unrolling, diffusion]
   note: "Modern PyTorch-first tutorial track: physics operators, learned denoisers, plug-and-play and diffusion samplers, all with CT examples."
 
 # ---------------------------------------------------------------- teaching tools
 - name: XDesign
   url: https://github.com/AdvancedPhotonSource/xdesign
   type: tool
+  tasks: [other]
   note: "Configurable X-ray phantom generation, acquisition simulation and reconstruction benchmarking, built for developing and comparing new tomographic reconstruction methods; analytic solutions keep the simulations fast. Maintained by the Advanced Photon Source."
 
 - name: SpekPy
   url: https://pypi.org/project/spekpy/
   type: tool
+  tasks: [other]
   note: "X-ray tube spectrum simulation (TASMIP/IPEM lineage), distributed as a Python package. Use it to generate realistic polychromatic spectra for beam-hardening experiments."
 
 - name: TomoPhantom
   url: https://github.com/dkazanc/TomoPhantom
   type: tool
+  tasks: [dynamic, other]
   note: "Fast analytical 2D/3D/4D phantom generation with built-in noise and offset models; convenient for controlled reconstruction studies. Also listed among the toolkits."
 
 - name: gVXR (gVirtualXray)
   url: https://gvirtualxray.sourceforge.io/
   type: tool
+  tasks: [other]
   note: "GPU-accelerated X-ray projection simulator supporting arbitrary 3D scenes and polychromatic spectra — useful for building large synthetic projection datasets."
 
 - name: SimpleITK
   url: https://github.com/SimpleITK/SimpleITK
   type: tool
+  tasks: [other]
   note: "The standard I/O and resampling layer for medical volumes; almost every CT dataset in this list is easiest to load through it."
 
 # ---------------------------------------------------------------- related lists
 - name: Awesome CT Reconstruction (LoraLinH)
   url: https://github.com/LoraLinH/Awesome-CT-Reconstruction
   type: list
+  tasks: [survey]
   note: "The best-known prior CT reconstruction list. Useful for cross-checking coverage of the 2020-2024 literature."
 
 - name: CT Denoising Review
   url: https://github.com/SSinyu/CT-Denoising-Review
   type: list
+  tasks: [low-dose]
   note: "Dedicated to low-dose CT denoising, with an emphasis on the SSinyu/Mayo lineage of methods."
 
 - name: Awesome 3D Gaussian Splatting
   url: https://github.com/MrNeRF/awesome-3D-gaussian-splatting
   type: list
+  tasks: [gaussian]
   note: "The reference 3DGS list. Its tomography-adjacent entries (r2_gaussian, X-Gaussian, X2-Gaussian) are the bridge to Gaussian-splatting CT."
 
 - name: Awesome NeRF and 3DGS for SLAM
   url: https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM
   type: list
+  tasks: [inr, gaussian]
   note: "Neural-field literature in the robotics/vision community; the source of the implicit-representation techniques now being adapted to CT."
 
 - name: Low-Dose CT Denoising (code collection)
   url: https://github.com/houguanqun/Low-Dose-CT-denoising
   type: list
+  tasks: [low-dose]
   note: "A running collection of low-dose CT denoising code releases, organised by year — convenient for locating the implementation behind a given paper."
 
 - name: Awesome Medical Imaging
   url: https://github.com/fepegar/awesome-medical-imaging
   type: list
+  tasks: [other]
   note: "Broader medical image analysis resources: datasets, toolkits and pretrained models that are frequently reused in CT pipelines."
 
 # ---------------------------------------------------------------- physics reference tables
 - name: X-Ray Data Booklet
   url: https://xdb.lbl.gov/
   type: tool
+  tasks: [other]
   note: "**LBNL.** The standard quick reference for X-ray properties of the elements — absorption edges, fluorescence yields and scattering cross-sections. The first place to look when a simulation needs a physical constant."
 
 - name: NIST X-Ray Mass Attenuation Coefficients
   url: https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients
   type: tool
+  tasks: [other]
   note: "**NIST.** Authoritative tabulation of mu/rho and mu_en/rho across the periodic table. What XrayPhysics and SpekPy are internally calibrated against — useful whenever you need to sanity-check a polychromatic model."
 
 # ---------------------------------------------------------------- Chinese-language references
 - name: CT Principles and Algorithms
   url: https://www.google.com/search?q=%E5%BA%84%E5%A4%A9%E6%88%88+CT%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%97%E6%B3%95
   type: book
+  tasks: [classical]
   note: "庄天戈. The Chinese-language introduction to CT principles and algorithms; widely used as a first course text and the natural entry point for readers who prefer Chinese. The 1992 edition has no publisher page online, so the link is a title search."
 
 - name: Industrial CT Technology and Principles
   url: https://www.ecsponline.com/goods.php?id=47496
   type: book
+  tasks: [other]
   note: "张朝宗. The reference for industrial (non-destructive-testing) CT — geometry, sources, detectors and artefact sources on the industrial side, where the medical textbooks stop."
 
 - name: Medical Tomographic Image Reconstruction Simulation Experiments
   url: https://www.xduph.com/pages/BookDetail.aspx?doi=6cad1ac3-8019-4263-9773-ad8bd9e39203
   type: book
+  tasks: [classical, cbct]
   note: "黄力宇. A hands-on Chinese-language lab manual: builds each reconstruction algorithm as a simulation experiment rather than presenting it as theory."
