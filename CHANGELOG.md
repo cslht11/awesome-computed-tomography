@@ -13,6 +13,14 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-22 — Knowledge Graph: how everything in the directory connects
+
+### Added
+
+- **A Knowledge Graph page on the website (`/graph/`, Chinese edition `/zh/graph/`).** Every entry in the directory and the relations between them — 1,004 nodes and 6,603 edges at launch. The graph is generated at build time from the same data as the rest of the site (`graph.json`), so it can never drift out of step with the directory. It opens on a backbone of the 20 teams, 17 topics and 52 toolkits; selecting any node expands its neighbourhood, and search, type/topic/region filters and a full-graph mode are provided.
+- **Authorship and citation relations, from a new graph-side data set (`data/graph/`).** Author lists and reference lists were fetched from OpenAlex for all 537 papers: 531 matched (413 by DOI, 116 by arXiv id, 2 by title), giving 3,341 citation pairs where both papers are in the library. These live only in the graph data — the library entries themselves are unchanged and still carry no authors field. Author nodes are limited to authors with at least three papers in the library plus the 20 teams' PIs (189 authors); a PI is linked to their team only on an exact name match (19 of 20 teams). Venues with at least two papers in the library (59) are nodes too.
+- The build validates the graph like the other sections: every paper id referenced from `data/graph/` must exist, citation pairs must be new and acyclic of self-loops, and the generated graph's node counts must reconcile with the directory tables.
+
 ## 2026-10-20 — Research Teams: a directory of 20 CT reconstruction groups
 
 ### Added
