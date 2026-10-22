@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-22 — Knowledge Graph: split into small per-category graphs
+
+### Changed
+
+- **The single graph page is replaced by an index and one small graph per category.** The 1,004-node page asked every reader's browser to load and draw the whole graph at once, and on ordinary hardware it was too big and too slow to use. `/graph/` is now an index of categories: a team backbone (92 nodes: teams, topics, toolkits, guides), dataset relations (138 nodes: every dataset and benchmark plus the papers that use them), and one graph per topic (at most 250 nodes each). Each category page loads only its own slice — its nodes, edges and precomputed positions in a single small file (5–76 KB) generated at build time by a new step (`scripts/graph_slices.py`) — and keeps the same detail panel, neighbour highlighting and search. The full-graph mode is removed, and the monolithic `graph.json` with it: the category split is the filter now.
+
 ## 2026-10-22 — Knowledge Graph: precomputed layout, one fast renderer
 
 ### Changed
