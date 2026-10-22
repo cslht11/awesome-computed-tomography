@@ -220,7 +220,7 @@ def build_payload(lang=None):
                          ("modality", "tasks", "license", "note", "homepage", "year")),
         "benchmarks": side(benchmarks, "benchmarks", "name", ("url", "repo"),
                            ("year", "tasks", "note")),
-        "learning": side(learning, "learning", "name", ("url", "repo"), ("type", "note")),
+        "learning": side(learning, "learning", "name", ("url", "repo"), ("type", "note", "tasks")),
         "teams": out_teams,
         # web/app.js reads DATA.ui and falls back to {} — omit it and every
         # label it renders goes blank. build_site.py adds the same block, so

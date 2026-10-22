@@ -266,6 +266,14 @@ def validate(meta, papers, toolkits, datasets, benchmarks, learning, teams=None)
             if not (url_of(e, "url", "repo")):
                 p.add(w, "no url/repo")
 
+    # Learning resources carry topic ids in `tasks` (that is the field the
+    # side-table topic edges are built from); unlike datasets' free-form
+    # task words, every value here must be a real topic id.
+    for i, e in enumerate(learning or []):
+        for t in e.get("tasks") or []:
+            if t not in tset:
+                p.add("learning[%d]" % i, "unknown topic '%s' in tasks" % t)
+
     validate_teams(p, meta, papers, toolkits, datasets, benchmarks, teams)
     return p
 
@@ -523,9 +531,12 @@ def main():
     import graph as graph_mod
     g_authors = load("graph/authors.yaml")
     g_citations = load("graph/citations.yaml")
-    if g_authors is not None or g_citations is not None:
-        problems.extend(graph_mod.validate_graph(papers, teams,
-                                                 g_authors, g_citations))
+    g_paper_datasets = load("graph/paper_datasets.yaml")
+    if (g_authors is not None or g_citations is not None
+            or g_paper_datasets is not None):
+        problems.extend(graph_mod.validate_graph(
+            papers, teams, g_authors, g_citations, g_paper_datasets,
+            set(e["name"] for e in datasets)))
 
     langs = i18n.languages(meta)
     by_code = dict((e["code"], e) for e in langs)
