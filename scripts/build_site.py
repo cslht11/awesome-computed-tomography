@@ -34,6 +34,8 @@ import json
 import os
 import re
 import sys
+from collections import Counter
+
 import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -44,7 +46,7 @@ import changelog  # noqa: E402
 import resource_pages as RP  # noqa: E402
 import brand_assets  # noqa: E402
 import graph as graph_mod  # noqa: E402
-import graph_layout as graph_layout_mod  # noqa: E402
+import graph_slices as graph_slices_mod  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(ROOT, "web")
@@ -507,9 +509,10 @@ def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(),
         "the papers, toolkits and datasets in this directory"
         % (base, c.get("teams", 0)),
         "- [Knowledge graph](%sgraph/): how the papers, toolkits, datasets, "
-        "benchmarks, teams, topics, authors and venues in this directory "
-        "connect (Chinese edition: %szh/graph/; data: %sgraph.json)"
-        % (base, base, base),
+        "benchmarks, teams, topics and authors in this directory connect, "
+        "as small per-category graphs: a team backbone, dataset relations "
+        "and one graph per topic (Chinese edition: %szh/graph/)"
+        % (base, base),
         "- [论文目录（中文）](%szh/): Chinese edition of the same directory" % base,
         "- [About](%sabout/): scope, sourcing, verification and how to cite" % base,
         "- [Contact](%scontact/): how to suggest or correct an entry" % base,
@@ -915,43 +918,58 @@ def head_extra_changelog(cfg, base, langs, entry, ov, desc):
     return "\n".join(bits)
 
 
-# ------------------------------------------------------------ graph page
-# /graph/ and /zh/graph/: the knowledge graph (scripts/graph.py projects
-# the payload into graph.json at build time, scripts/graph_layout.py
-# adds static node positions computed offline, and web/graph.js renders
-# the result with the vendored sigma.js — WebGL, batched, no runtime
-# force simulation anywhere). The page degrades to a static
-# team -> works list when JavaScript or the vendor files are
+# ------------------------------------------------------------ graph pages
+# /graph/ and /zh/graph/: the knowledge graph, split into small
+# per-category graphs (user decision, 2026-10-22: the single-page
+# 1,004-node graph was too big and too slow to use). /graph/ itself is
+# now an index of category cards; each category is its own page —
+# /graph/backbone/, /graph/datasets/, /graph/topic/<id>/ — loading
+# only its own slice (scripts/graph.py projects the full graph,
+# scripts/graph_slices.py cuts it and precomputes positions with
+# scripts/graph_layout.py, web/graph.js renders one slice with the
+# vendored sigma.js — WebGL, batched, no runtime force simulation
+# anywhere, and no full-graph mode anywhere). Each page degrades to a
+# static list of its entries when JavaScript or the vendor files are
 # unavailable, so no build state can ship a blank page.
 GRAPH_PATH = "graph/"
 
 
-def head_extra_graph(cfg, base, langs, entry, ov, desc):
-    """hreflang alternates + og + brand + BreadcrumbList for /graph/."""
+def head_extra_graph(cfg, base, langs, entry, ov, desc, rel=GRAPH_PATH,
+                     title=None, parent=False):
+    """hreflang alternates + og + brand + BreadcrumbList for a graph page.
+
+    `rel` is the page's path under the language root ("graph/" for the
+    index, "graph/backbone/" etc. for a category page); `title` is the
+    page's own title (the index defaults to the graph title); `parent`
+    adds the graph index as a middle breadcrumb on category pages.
+    """
     default = i18n.default_language(langs)
     home = i18n.url_for(base, entry)
-    url = home + GRAPH_PATH
-    title = "%s \u2014 %s" % (ov.ui("pageGraphTitle", "Knowledge Graph"),
-                               top_for(ov, entry["code"], "title", cfg["title"]))
+    url = home + rel
+    site_title = top_for(ov, entry["code"], "title", cfg["title"])
+    if title is None:
+        title = ov.ui("pageGraphTitle", "Knowledge Graph")
     bits = ['<link rel="alternate" hreflang="%s" href="%s">'
-            % (esc(e["hreflang"]), esc(i18n.url_for(base, e) + GRAPH_PATH)) for e in langs]
+            % (esc(e["hreflang"]), esc(i18n.url_for(base, e) + rel)) for e in langs]
     bits.append('<link rel="alternate" hreflang="x-default" href="%s">'
-                % esc(i18n.url_for(base, default) + GRAPH_PATH))
+                % esc(i18n.url_for(base, default) + rel))
     bits += ['<meta property="og:type" content="website">',
              '<meta property="og:url" content="%s">' % esc(url),
-             '<meta property="og:title" content="%s">' % esc(title),
+             '<meta property="og:title" content="%s">'
+             % esc("%s \u2014 %s" % (title, site_title)),
              '<meta property="og:description" content="%s">' % esc(desc),
              '<meta property="og:locale" content="%s">' % esc(entry["og_locale"])]
     bits.append(brand_assets.head_brand(base))
-    crumbs = {
-        "@context": "https://schema.org", "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1,
-             "name": top_for(ov, entry["code"], "title", cfg["title"]), "item": home},
-            {"@type": "ListItem", "position": 2,
-             "name": ov.ui("pageGraphTitle", "Knowledge Graph"), "item": url},
-        ],
-    }
+    items = [{"@type": "ListItem", "position": 1,
+              "name": site_title, "item": home}]
+    if parent:
+        items.append({"@type": "ListItem", "position": 2,
+                      "name": ov.ui("pageGraphTitle", "Knowledge Graph"),
+                      "item": home + GRAPH_PATH})
+    items.append({"@type": "ListItem", "position": len(items) + 1,
+                  "name": title, "item": url})
+    crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList",
+              "itemListElement": items}
     bits.append('<script type="application/ld+json">%s</script>' % safe_json(crumbs))
     return "\n".join(bits)
 
@@ -965,12 +983,7 @@ def graph_strings(ov):
     def u(key, default=""):
         return ov.ui(key, default)
     out = {
-        "counts": u("graphCounts"), "expand": u("graphExpand", "Expand"),
-        "collapse": u("graphCollapse", "Collapse"),
-        "egoOnly": u("graphEgoOnly", "Only this network"),
-        "showAll2": u("graphShowOverview", "Back to overview"),
-        "backbone": u("graphBackbone", "Backbone view"),
-        "fullGraph": u("graphFullGraph", "Full graph"),
+        "counts": u("graphCounts"),
         "mYear": u("graphYear", "Year"), "mTitle": u("graphTitle", "Title"),
         "mVenue": u("graphVenue", "Venue"),
         "mInstitution": u("graphInstitution", "Institution"),
@@ -995,57 +1008,41 @@ def graph_strings(ov):
     return out
 
 
-def render_graph_body(payload, ov, code):
-    """The <main> of /graph/: controls, canvas, detail panel, and the
-    no-JS fallback (the team backbone as a plain list of links)."""
+def _graph_card(href, title, desc, counts):
+    return ('<a class="g-card" href="%s"><h3>%s</h3><p>%s</p>'
+            '<span class="g-counts">%s</span></a>'
+            % (esc(href), esc(title), esc(desc), esc(counts)))
+
+
+def render_graph_index_body(payload, ov, code, slices):
+    """The <main> of /graph/: an index of the per-category small
+    graphs — two overview cards, one card per topic — over the static
+    team -> works list the page has always carried (it is also the
+    no-JS content of the index; there is no canvas here any more)."""
+    def counts_of(name):
+        sl = slices[name]
+        return ov.ui("graphCardCounts", "{nodes} nodes \u00b7 {edges} relations") \
+            .replace("{nodes}", str(len(sl["nodes"]))) \
+            .replace("{edges}", str(len(sl["edges"])))
+
     by_id = dict((p["id"], p) for p in payload["papers"])
     bits = ['<h1>%s</h1>' % esc(ov.ui("pageGraphTitle", "Knowledge Graph")),
             '<p class="lede">%s</p>' % esc(ov.ui("graphIntro", "")),
-            '<div id="graph-bar" class="graph-bar" hidden>',
-            '<input id="graph-search" type="search" list="graph-search-list" '
-            'placeholder="%s" aria-label="%s">'
-            % (esc(ov.ui("graphSearchPlaceholder", "Search\u2026")),
-               esc(ov.ui("graphSearchPlaceholder", "Search\u2026"))),
-            '<datalist id="graph-search-list"></datalist>',
-            '<label class="g-lab">%s <select id="graph-topic">'
-            '<option value="">%s</option></select></label>'
-            % (esc(ov.ui("graphTopicLabel", "Topic")),
-               esc(ov.ui("graphAllTopics", "All topics"))),
-            '<label class="g-lab">%s <select id="graph-region">'
-            '<option value="">%s</option>'
-            % (esc(ov.ui("graphRegionLabel", "Team region")),
-               esc(ov.ui("graphRegionAll", "All regions")))]
-    for region, key, default in TEAM_REGIONS:
-        bits.append('<option value="%s">%s</option>'
-                    % (esc(region), esc(ov.ui(key, default))))
-    bits += ['</select></label>',
-             '<button type="button" id="graph-full">%s</button>'
-             % esc(ov.ui("graphFullGraph", "Full graph")),
-             '<button type="button" id="graph-reset">%s</button>'
-             % esc(ov.ui("graphReset", "Reset")),
-             '<span id="graph-counts" class="g-counts"></span>',
-             '<div id="graph-types" class="g-types"></div>',
-             '</div>',
-             '<p id="graph-full-note" class="g-note" hidden>%s</p>'
-             % esc(ov.ui("graphFullNote", "")),
-             '<div id="graph-stage" class="graph-cy"></div>',
-             '<aside id="graph-panel" class="graph-panel" hidden>',
-             '<button type="button" id="gp-close" class="gp-close" '
-             'aria-label="%s">\u00d7</button>' % esc(ov.ui("graphClose", "Close")),
-             '<span id="gp-type" class="gp-type"></span>',
-             '<h2 id="gp-name"></h2>',
-             '<dl id="gp-meta" class="gp-meta"></dl>',
-             '<p class="gp-actions">'
-             '<a id="gp-open" class="gp-open" href="#">%s</a> '
-             '<button type="button" id="gp-expand"></button> '
-             '<button type="button" id="gp-ego">%s</button></p>'
-             % (esc(ov.ui("graphOpen", "Open in the directory")),
-                esc(ov.ui("graphEgoOnly", "Only this network"))),
-             '<h3>%s</h3>' % esc(ov.ui("graphNeighbours", "Connections")),
-             '<div id="gp-neighbours"></div>',
-             '</aside>',
-             '<p id="graph-load-note" class="g-note" hidden>%s</p>'
-             % esc(ov.ui("graphLoadNote", "")),
+            '<h2>%s</h2>' % esc(ov.ui("graphSectionOverview", "Overview")),
+            '<div class="graph-cards">',
+            _graph_card("backbone/", ov.ui("graphBackboneTitle", "Team backbone"),
+                        ov.ui("graphBackboneDesc", ""), counts_of("backbone")),
+            _graph_card("datasets/",
+                        ov.ui("graphDatasetsTitle", "Datasets & the papers that use them"),
+                        ov.ui("graphDatasetsDesc", ""), counts_of("datasets")),
+            '</div>',
+            '<h2>%s</h2>' % esc(ov.ui("graphSectionTopics", "By topic")),
+            '<div class="graph-cards">']
+    for t in payload["topics"]:
+        bits.append(_graph_card("topic/%s/" % t["id"], t["name"],
+                                ov.ui("graphTopicDesc", ""),
+                                counts_of("topic/" + t["id"])))
+    bits += ['</div>',
              '<div id="graph-fallback" class="graph-fallback">',
              '<h2>%s</h2>' % esc(ov.ui("graphFallbackTitle",
                                        "Teams and their works in the library"))]
@@ -1066,11 +1063,82 @@ def render_graph_body(payload, ov, code):
                        esc(tm.get("label") or tm["name"]),
                        esc(tm["institution"]),
                        (" \u2014 " + " \u00b7 ".join(links)) if links else ""))
+    bits.append('</div>')
+    return "\n".join(bits)
+
+
+def _slice_label(n, code):
+    return (n.get("lz") if code == "zh" else None) or n["l"]
+
+
+def render_graph_slice_body(ov, code, title, intro, sl, back="../"):
+    """The <main> of one category graph page: back link, controls,
+    canvas, detail panel, and the no-JS fallback — this slice's own
+    entries as a plain grouped list of links. `back` is the relative
+    path to the graph index ("../" from graph/<category>/, "../../"
+    from graph/topic/<id>/)."""
+    strings = graph_strings(ov)
+    bits = ['<p class="graph-back"><a href="%s">%s</a></p>'
+            % (esc(back), esc(ov.ui("graphBackToIndex",
+                                    "\u2190 All graph categories"))),
+            '<h1>%s</h1>' % esc(title),
+            '<p class="lede">%s</p>' % esc(intro),
+            '<div id="graph-bar" class="graph-bar" hidden>',
+            '<input id="graph-search" type="search" list="graph-search-list" '
+            'placeholder="%s" aria-label="%s">'
+            % (esc(ov.ui("graphSearchPlaceholder", "Search\u2026")),
+               esc(ov.ui("graphSearchPlaceholder", "Search\u2026"))),
+            '<datalist id="graph-search-list"></datalist>',
+            '<button type="button" id="graph-reset">%s</button>'
+            % esc(ov.ui("graphReset", "Reset")),
+            '<span id="graph-counts" class="g-counts"></span>',
+            '</div>',
+            '<div id="graph-stage" class="graph-cy"></div>',
+            '<aside id="graph-panel" class="graph-panel" hidden>',
+            '<button type="button" id="gp-close" class="gp-close" '
+            'aria-label="%s">\u00d7</button>' % esc(ov.ui("graphClose", "Close")),
+            '<span id="gp-type" class="gp-type"></span>',
+            '<h2 id="gp-name"></h2>',
+            '<dl id="gp-meta" class="gp-meta"></dl>',
+            '<p class="gp-actions">'
+            '<a id="gp-open" class="gp-open" href="#">%s</a></p>'
+            % esc(ov.ui("graphOpen", "Open in the directory")),
+            '<h3>%s</h3>' % esc(ov.ui("graphNeighbours", "Connections")),
+            '<div id="gp-neighbours"></div>',
+            '</aside>',
+            '<p id="graph-load-note" class="g-note" hidden>%s</p>'
+            % esc(ov.ui("graphLoadNote", "")),
+            '<div id="graph-fallback" class="graph-fallback">',
+            '<h2>%s</h2>' % esc(title)]
+    groups = {}
+    for n in sl["nodes"]:
+        groups.setdefault(n["t"], []).append(n)
+    for ty in ("team", "topic", "paper", "toolkit", "dataset", "benchmark",
+               "author", "venue", "learning", "guide"):
+        members = groups.get(ty)
+        if not members:
+            continue
+        bits.append('<h3>%s</h3>' % esc(strings.get("type_" + ty, ty)))
+        bits.append('<ul>')
+        for n in sorted(members, key=lambda n: _slice_label(n, code).lower()):
+            lab = esc(_slice_label(n, code))
+            href = n.get("href")
+            if href:
+                if href.startswith(("http://", "https://")):
+                    bits.append('<li><a href="%s" target="_blank" '
+                                'rel="noopener">%s</a></li>' % (esc(href), lab))
+                else:
+                    bits.append('<li><a href="{{ROOT}}%s">%s</a></li>'
+                                % (esc(href), lab))
+            else:
+                bits.append('<li>%s</li>' % lab)
+        bits.append('</ul>')
     bits += ['</div>',
              '<script>window.GRAPH_STRINGS = %s;'
              'window.GRAPH_LANG = "%s";'
-             'window.GRAPH_ROOT = "{{ROOT}}";</script>'
-             % (safe_json(graph_strings(ov)), esc(code)),
+             'window.GRAPH_ROOT = "{{ROOT}}";'
+             'window.GRAPH_DATA = "data.json";</script>'
+             % (safe_json(strings), esc(code)),
              # One renderer: sigma (WebGL) over a graphology graph.
              # Missing vendor files leave window.Sigma undefined, and
              # graph.js then leaves the static fallback in charge.
@@ -1254,6 +1322,50 @@ def main():
     rp_topic_guides = guide_topic_map(rp_guides, rp_pages)
     payload_en = payload
     new_pages = {}          # code -> [rel path] of every page added here
+    graph_rels = {}         # code -> [rel path] of the graph category pages
+
+    # ------------------------------------------------------------ graph data
+    # The knowledge graph is projected once (scripts/graph.py) and cut
+    # into per-category slices (scripts/graph_slices.py), each with
+    # its own precomputed layout; the language loop below renders the
+    # index + one page per category and writes each slice's data.json
+    # at every language root (both editions carry both labels, so the
+    # files are identical). The enrichment files under data/graph/ are
+    # optional: absent, the graph is the P0 graph without authors or
+    # citation edges.
+    _enrichment = graph_mod.load_enrichment()
+    g_authors, g_citations = _enrichment[0], _enrichment[1]
+    # Tolerate a graph.py that predates the paper_datasets file (returns a
+    # 2-tuple): the graph then simply has no verified usage edges yet.
+    g_paper_datasets = _enrichment[2] if len(_enrichment) > 2 else None
+    g_problems = graph_mod.validate_graph(
+        payload_en["papers"], payload_en["teams"], g_authors, g_citations,
+        g_paper_datasets,
+        set(r["name"] for r in payload_en["datasets"]))
+    if g_problems:
+        print("GRAPH DATA INVALID:")
+        for x in g_problems:
+            print("  -", x)
+        sys.exit(1)
+    other = next((e["code"] for e in langs if e["code"] != i18n.SOURCE),
+                 i18n.SOURCE)
+    graph = graph_mod.build_graph(
+        payload_en, build_payload(other), topic_doc, topic_resources,
+        rp_pages, rp_guides, g_authors, g_citations, g_paper_datasets)
+    g_problems = graph_mod.check_graph(graph)
+    if g_problems:
+        print("GRAPH BUILD INVALID:")
+        for x in g_problems:
+            print("  -", x)
+        sys.exit(1)
+    graph_slices = graph_slices_mod.build_slices(graph)
+    graph_slice_json = {}
+    for name, sl in graph_slices.items():
+        graph_slice_json[name] = graph_slices_mod.slice_json(
+            graph_slices_mod.slice_payload(sl))
+        print("  graph slice %-24s %3d nodes, %4d edges, %.0f KB"
+              % (name, len(sl["nodes"]), len(sl["edges"]),
+                 len(graph_slice_json[name].encode("utf-8")) / 1024.0))
     try:
         _, cl_entries = changelog.parse()
     except changelog.ChangelogError as e:
@@ -1445,13 +1557,48 @@ def main():
 
         g_url = lang_base + GRAPH_PATH
         g_desc = re.sub(r"\s+", " ", fill(ov.ui("pageGraphDesc"), shared)).strip()
-        html_ = fill_page(tpl, render_graph_body(payload, ov, code),
+        html_ = fill_page(tpl, render_graph_index_body(payload, ov, code,
+                                                       graph_slices),
                           ov.ui("pageGraphTitle", "Knowledge Graph"), g_desc,
                           g_url, "../", subs, "%s/graph" % code)
         html_ = add_to_head(html_, g_url, head_extra_graph(
             cfg, base, langs, entry, ov, g_desc))
         write(os.path.join(sub, "graph", "index.html"), html_)
         sitemap_urls.append((g_url, "monthly", "0.5"))
+
+        # One small graph page per category slice; each loads only its
+        # own data.json (written beside data.json at the end of the
+        # loop body), so no page ships another category's nodes.
+        slice_pages = [
+            ("backbone", ov.ui("graphBackboneTitle", "Team backbone"),
+             ov.ui("graphBackboneIntro", ""), ov.ui("graphBackboneDesc", "")),
+            ("datasets",
+             ov.ui("graphDatasetsTitle", "Datasets & the papers that use them"),
+             ov.ui("graphDatasetsIntro", ""), ov.ui("graphDatasetsDesc", "")),
+        ]
+        for t in payload["topics"]:
+            slice_pages.append(("topic/" + t["id"], t["name"],
+                                ov.ui("graphTopicIntro", ""),
+                                ov.ui("graphTopicDesc", "")))
+        grels = graph_rels.setdefault(code, [])
+        for name, title, intro, desc in slice_pages:
+            rel = GRAPH_PATH + name + "/"
+            url = lang_base + rel
+            desc = re.sub(r"\s+", " ", fill(desc, shared)).strip()
+            depth = rel.rstrip("/").count("/") + 1
+            html_ = fill_page(
+                tpl, render_graph_slice_body(
+                    ov, code, title, intro, graph_slices[name],
+                    back="../" * (depth - 1)),
+                title, desc, url, "../" * depth,
+                subs, "%s/%s" % (code, rel))
+            html_ = add_to_head(html_, url, head_extra_graph(
+                cfg, base, langs, entry, ov, desc, rel=rel, title=title,
+                parent=True))
+            write(os.path.join(sub, "graph", *name.split("/"), "index.html"),
+                  html_)
+            sitemap_urls.append((url, "monthly", "0.5"))
+            grels.append(rel)
 
         for tid in topic_ids:
             tp = topic_doc["topics"][tid]
@@ -1535,51 +1682,11 @@ def main():
         write(os.path.join(sub, "data.json"),
               json.dumps(payload, ensure_ascii=False, indent=1) + "\n")
 
-    # ------------------------------------------------------------ graph data
-    # graph.json is one projection of the payloads (scripts/graph.py),
-    # written at every language root; both editions carry both labels, so
-    # the two files are identical. The enrichment files under data/graph/
-    # are optional: absent, the graph is the P0 graph without authors or
-    # citation edges.
-    _enrichment = graph_mod.load_enrichment()
-    g_authors, g_citations = _enrichment[0], _enrichment[1]
-    # Tolerate a graph.py that predates the paper_datasets file (returns a
-    # 2-tuple): the graph then simply has no verified usage edges yet.
-    g_paper_datasets = _enrichment[2] if len(_enrichment) > 2 else None
-    g_problems = graph_mod.validate_graph(
-        payload_en["papers"], payload_en["teams"], g_authors, g_citations,
-        g_paper_datasets,
-        set(r["name"] for r in payload_en["datasets"]))
-    if g_problems:
-        print("GRAPH DATA INVALID:")
-        for x in g_problems:
-            print("  -", x)
-        sys.exit(1)
-    other = next((e["code"] for e in langs if e["code"] != i18n.SOURCE),
-                 i18n.SOURCE)
-    graph = graph_mod.build_graph(
-        payload_en, build_payload(other), topic_doc, topic_resources,
-        rp_pages, rp_guides, g_authors, g_citations, g_paper_datasets)
-    g_problems = graph_mod.check_graph(graph)
-    if g_problems:
-        print("GRAPH BUILD INVALID:")
-        for x in g_problems:
-            print("  -", x)
-        sys.exit(1)
-    # Static layout, computed once here (scripts/graph_layout.py): the
-    # browser receives positions as data and never runs a simulation.
-    graph["pos"] = graph_layout_mod.compute_positions(
-        graph["nodes"], graph["edges"], graph["backbone"])
-    graph_text = json.dumps(graph, ensure_ascii=False, separators=(",", ":")) + "\n"
-    for entry in langs:
-        write(os.path.join(out, entry.get("path") or "", "graph.json"),
-              graph_text)
-    print("  graph: %d nodes (%s), %d edges (%s), %.0f KB"
-          % (len(graph["nodes"]),
-             ", ".join("%s %d" % kv for kv in sorted(graph["stats"]["nodes"].items())),
-             len(graph["edges"]),
-             ", ".join("%s %d" % kv for kv in sorted(graph["stats"]["edges"].items())),
-             len(graph_text.encode("utf-8")) / 1024.0))
+        # Each category page's own slice, beside its index.html; no
+        # monolithic graph.json exists any more.
+        for name, text in graph_slice_json.items():
+            write(os.path.join(sub, "graph", *name.split("/"), "data.json"),
+                  text)
 
     write(os.path.join(out, "robots.txt"), render_robots(base))
     en_payload = build_payload(i18n.SOURCE)
@@ -1848,9 +1955,13 @@ def main():
                     problems.append("%s/topics/%s: no link to guide %s" % (code, tid, g["slug"]))
 
     # ------------------------------------------------------------- graph
-    # The graph page must be canonical, carry every hreflang alternate and
-    # a BreadcrumbList, and appear in sitemap.xml; graph.json must parse
-    # and its node counts must reconcile with the payload it projects.
+    # The graph index must be canonical, carry every hreflang alternate
+    # and a BreadcrumbList, appear in sitemap.xml, and link every
+    # category page; each category page must meet the same bar, and its
+    # data.json must parse, match the slice the build computed, and
+    # reconcile with the payload it projects. The retired monolith
+    # (graph.json at a language root, a full-graph mode) must not
+    # reappear.
     for entry in langs:
         code = entry["code"]
         sub = os.path.join(out, entry.get("path") or "")
@@ -1859,6 +1970,9 @@ def main():
         if not os.path.exists(f):
             problems.append("%s: graph page was not written" % code)
             continue
+        if os.path.exists(os.path.join(sub, "graph.json")):
+            problems.append("%s: retired monolithic graph.json was written"
+                            % code)
         page = read(f)
         g_url = lang_base + GRAPH_PATH
         if ('<link rel="canonical" href="%s">' % esc(g_url)) not in page:
@@ -1872,19 +1986,75 @@ def main():
             problems.append("%s/graph: BreadcrumbList JSON-LD missing" % code)
         if "<loc>%s</loc>" % esc(g_url) not in sitemap:
             problems.append("%s/graph: not in sitemap.xml" % code)
-        gj = os.path.join(sub, "graph.json")
-        if not os.path.exists(gj):
-            problems.append("%s: graph.json was not written" % code)
-            continue
-        gdata = json.load(io.open(gj, encoding="utf-8"))
-        for tname, key in (("paper", "papers"), ("toolkit", "toolkits"),
-                           ("dataset", "datasets"), ("benchmark", "benchmarks"),
-                           ("learning", "learning"), ("team", "teams")):
-            if gdata["stats"]["nodes"].get(tname, 0) != len(payload_en[key]):
-                problems.append("%s/graph: %s nodes %d != payload %d"
-                                % (code, tname,
-                                   gdata["stats"]["nodes"].get(tname, 0),
-                                   len(payload_en[key])))
+        for rel in graph_rels.get(code, []):
+            name = rel[len(GRAPH_PATH):].rstrip("/")
+            if ('href="%s/"' % name) not in page:
+                problems.append("%s/graph: index does not link %s" % (code, rel))
+            pf = os.path.join(sub, rel, "index.html")
+            if not os.path.exists(pf):
+                problems.append("%s/%s: graph page was not written" % (code, rel))
+                continue
+            ppage = read(pf)
+            p_url = lang_base + rel
+            if ('<link rel="canonical" href="%s">' % esc(p_url)) not in ppage:
+                problems.append("%s/%s: canonical missing or wrong" % (code, rel))
+            want = [(e["hreflang"], i18n.url_for(base, e) + rel) for e in langs]
+            want.append(("x-default", i18n.url_for(base, default) + rel))
+            for hl, u in want:
+                if ('<link rel="alternate" hreflang="%s" href="%s">' % (esc(hl), esc(u))) not in ppage:
+                    problems.append("%s/%s: hreflang %s missing or wrong"
+                                    % (code, rel, hl))
+            if '"BreadcrumbList"' not in ppage:
+                problems.append("%s/%s: BreadcrumbList JSON-LD missing" % (code, rel))
+            if "<loc>%s</loc>" % esc(p_url) not in sitemap:
+                problems.append("%s/%s: not in sitemap.xml" % (code, rel))
+            if 'id="graph-full"' in ppage or "graph.json" in ppage:
+                problems.append("%s/%s: retired full-graph machinery present"
+                                % (code, rel))
+            if ('<p class="graph-back"><a href="%s">'
+                    % ("../" * rel.rstrip("/").count("/"))) not in ppage:
+                problems.append("%s/%s: back-to-index link wrong" % (code, rel))
+            dj = os.path.join(sub, rel, "data.json")
+            if not os.path.exists(dj):
+                problems.append("%s/%s: data.json was not written" % (code, rel))
+                continue
+            sdata = json.load(io.open(dj, encoding="utf-8"))
+            sl = graph_slices[name]
+            if len(sdata["nodes"]) != len(sl["nodes"]) \
+                    or len(sdata["edges"]) != len(sl["edges"]) \
+                    or len(sdata["pos"]) != len(sl["nodes"]):
+                problems.append("%s/%s: data.json does not match its slice "
+                                "(%d nodes / %d edges)"
+                                % (code, rel, len(sdata["nodes"]),
+                                   len(sdata["edges"])))
+            types = Counter(n["t"] for n in sdata["nodes"])
+            if name == "backbone":
+                for tname, want_n in (("team", len(payload_en["teams"])),
+                                      ("topic", len(payload_en["topics"])),
+                                      ("toolkit", len(payload_en["toolkits"])),
+                                      ("guide", len(rp_guides))):
+                    if types.get(tname, 0) != want_n:
+                        problems.append("%s/%s: %s nodes %d != payload %d"
+                                        % (code, rel, tname,
+                                           types.get(tname, 0), want_n))
+            if name == "datasets":
+                for tname, key in (("dataset", "datasets"),
+                                   ("benchmark", "benchmarks")):
+                    if types.get(tname, 0) != len(payload_en[key]):
+                        problems.append("%s/%s: %s nodes %d != payload %d"
+                                        % (code, rel, tname,
+                                           types.get(tname, 0),
+                                           len(payload_en[key])))
+            if name.startswith("topic/"):
+                tid = name[len("topic/"):]
+                if types.get("topic", 0) != 1 \
+                        or ("topic:" + tid) not in set(n["id"] for n in sdata["nodes"]):
+                    problems.append("%s/%s: its topic node is missing"
+                                    % (code, rel))
+                if len(sdata["nodes"]) > graph_slices_mod.CAP:
+                    problems.append("%s/%s: %d nodes over the %d cap"
+                                    % (code, rel, len(sdata["nodes"]),
+                                       graph_slices_mod.CAP))
 
     if problems:
         print("SITE CHECK FAILED:")
