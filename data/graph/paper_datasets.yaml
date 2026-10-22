@@ -113,3 +113,96 @@
     - dataset: LDCT-and-Projection-data
       usage: both
       evidence: "Section 3 Experiments and results — “To evaluate the performance of our MAGIC, the dataset “the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge” [50] was used in our experiments.”"
+
+- paper: naf
+  uses:
+    - dataset: LIDC-IDRI
+      usage: both
+      evidence: "3.1 Experimental settings (Data) — “The chest data are from LIDC-IDRI dataset [4], and the rest are from Open Scientific Visualization Datasets [12].” The model is trained on TIGRE-generated projections from these volumes and evaluated against the raw volumetric CT data."
+
+- paper: 3dip
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "4 Experimental setup — Dataset — “For both CT reconstruction tasks (i.e. SV-CT, LA-CT) we use the data from the AAPM 2016 CT low-dose grand challenge.” All volumes but one train the 2D score function and one volume is held out for testing (Appendix B.1)."
+
+- paper: intratomo
+  uses:
+    - dataset: LoDoPaB-CT
+      usage: both
+      evidence: "4.2 Applications — Limited angle tomography (Fig. 5, Table 1) — “for SL, LoDoPaB-CT data [43], Pepper, and Rose dataset, the iterative approaches (SART and TV) outperform the analytical solution (FBP), while the deep prior achieves the best performance among all baselines.” Self-supervised: trained on the object's own limited-angle projections and scored against ground truth, hence both."
+
+- paper: x2ct-gan
+  uses:
+    - dataset: LIDC-IDRI
+      usage: both
+      evidence: "5.1 Datasets — “we use the publicly available LIDC-IDRI dataset [1], which contains 1,018 chest CT scans” and “We randomly select 916 CT scans for training and the rest 102 CT scans are used for testing.” The paired X-rays are DRRs synthesized from these volumes."
+
+- paper: dip
+  uses:
+    - dataset: LoDoPaB-CT
+      usage: both
+      evidence: "6.1 The LoDoPaB-CT Dataset — “The low-dose parallel beam (LoDoPaB) CT dataset [25] consists of more than 40,000 two-dimensional CT images and corresponding simulated low-intensity measurements.” The standard split (35,820 training / 3,522 validation / 3,553 test pairs) is used; the method is trained on fractions of it and tested on test samples (§6.4)."
+
+- paper: dudodr-net-2022
+  uses:
+    - dataset: DeepLesion
+      usage: both
+      evidence: "3.1 Data Preparation — “we randomly chose 1200 CT images from the DeepLesion dataset (Yan et al., 2018) and collected 100 manually segmented metal implants” (1,000 images / 90 masks synthesize the training data; the remaining 200 images / 10 masks are for evaluation)."
+
+- paper: csc-ct
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "IV-A Simulated Results — “a dataset of clinical CT images, authorized by Mayo Clinic and downloaded from ”the NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge,” was used [57].” Ten images from this dataset train the predetermined filters and its images serve the reconstruction evaluations."
+
+- paper: pdf
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "Section 3 Experiments and Results — “the dataset “the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge”, which has 5936 full-dose CT images from 10 patients, was used in our experiments” (400 images from eight patients as the training set; 100 images from the remaining two patients as the testing set)."
+
+- paper: coil
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: eval
+      evidence: "Experiments (Fig. 4 caption) — “Eight 512 × 512 images from the scans of two patients in the AAPM human phantom dataset [96] were used for testing.” The dataset footnote identifies it as “The 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge”, i.e. the TCIA release catalogued here; test images only, hence eval."
+
+- paper: casredscan
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "V-A Data Preparation and Training — “we collected 10 whole body CT scans from the AAPM Low Dose CT Grand Challenge” (the derived 2D images are split patient-wise into 1,834 training / 428 validation / 1,135 test images)."
+    - dataset: DeepLesion
+      usage: both
+      evidence: "V-A Data Preparation and Training — “we collected 2900 2D CT slices from the DeepLesion dataset” (split into 1,960 training / 300 validation / 640 test images)."
+
+- paper: metainv-net
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "III-B Training Setting (with III-C Test Setting) — “The “2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge” data set has ten patients' normal dose CT images” (five patients' data as the training set; four other patients form the AAPM-Test set). The Pancreas-Test set is not counted: no NIH Pancreas-CT collection identity is established for it."
+
+- paper: ctformer
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "IV Experiments — Dataset — “A publicly released dataset from 2016 NIH-AAPM-Mayo Clinic LDCT Grand Challenge is used for model training and testing” (patient L506 held out for evaluation, the other nine patients for training)."
+
+- paper: indudonet
+  uses:
+    - dataset: DeepLesion
+      usage: both
+      evidence: "3 Experimental Results — Synthesized Data — “we randomly select a subset from the DeepLesion [27] to synthesize metal artifact data. … We choose 1,000 images and 90 metal masks to synthesize the training samples, and pair the additional 200 CT images from 12 patients with the remaining 10 metal masks” (for testing)."
+
+- paper: indudonet-plus
+  uses:
+    - dataset: DeepLesion
+      usage: both
+      evidence: "6.1 Details Description — Synthesized DeepLesion — “we randomly select a subset from the DeepLesion (Yan et al., 2018) to synthesize metal-corrupted CT images … We choose 1,000 clean CT images and 90 metal masks to synthesize the training samples, and pair the additional 200 CT images from 12 patients with the remaining 10 metal masks to generate 2,000 images for testing.”"
+
+- paper: datadriven
+  uses:
+    - dataset: LIDC-IDRI
+      usage: both
+      evidence: "Section 7 numerical examples (Table 7.6, Fig. 7.12) — “the adversarial regularizer from Section 4.7 on the LIDC/IDRI database (Armato et al. 2011) of lung scans” and “Training and test measurements have been simulated by taking the ray transform of the two-dimensional CT slices”."
