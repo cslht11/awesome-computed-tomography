@@ -514,6 +514,11 @@ def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(),
         "as small per-category graphs: a team backbone, dataset relations "
         "and one graph per topic (Chinese edition: %szh/graph/)"
         % (base, base),
+        "- [Team backbone graph](%sgraph/backbone/): the knowledge graph's "
+        "backbone — research teams, topics, toolkits and guides, and how "
+        "they connect" % base,
+        "- [Dataset relations graph](%sgraph/datasets/): which papers in "
+        "the directory use which datasets and benchmarks, as a graph" % base,
         "- [论文目录（中文）](%szh/): Chinese edition of the same directory" % base,
         "- [About](%sabout/): scope, sourcing, verification and how to cite" % base,
         "- [Contact](%scontact/): how to suggest or correct an entry" % base,
@@ -1688,8 +1693,15 @@ def main():
 
         t_ = rs["indexTitle"]
         d_ = rs["indexDesc"]
-        emit(RP.DATASETS_PATH, rsite.index_body(), t_, d_,
-             lambda t, d: rsite.index_head(t, d), 1)
+        # The datasets index also points at the graph's dataset slice
+        # (which papers use which datasets): a reader cross-link, and
+        # it keeps /graph/datasets/ from being an orphan page.
+        emit(RP.DATASETS_PATH,
+             rsite.index_body() +
+             '<p><a href="../graph/datasets/">%s</a></p>'
+             % esc(ov.ui("graphDatasetsTitle",
+                         "Datasets & the papers that use them")),
+             t_, d_, lambda t, d: rsite.index_head(t, d), 1)
         sitemap_urls.append((lang_base + RP.DATASETS_PATH, "weekly", "0.6"))
         for pg in rp_pages:
             t_ = rsite.resource_title(pg)
