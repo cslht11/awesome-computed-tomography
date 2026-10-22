@@ -13,8 +13,21 @@
  * detail panel and highlights its neighbours.
  *
  * Plain script, no modules, in the same style as app.js/search.js. If
- * sigma/graphology or the data fails to load, the server-rendered
- * fallback list stays visible and this file simply does nothing.
+ * sigma/graphology or the data fails to load — or if, after a
+ * successful load, nothing actually lands in the viewport — the
+ * server-rendered fallback list is (re)shown together with the load
+ * note, never a silent white box.
+ *
+ * CAMERA SPACE (hard-won, do not regress): sigma 3 normalizes the
+ * graph into a [0,1]x[0,1] square (extent centred on 0.5,0.5, scaled
+ * by the larger span) and its camera lives in THAT normalized space.
+ * Camera x/y are NOT raw layout units: framing with raw coordinates
+ * (e.g. x=397.5 for a slice spanning ~1000 units) parks the camera
+ * hundreds of graph-widths away, every node is culled, and the stage
+ * stays pure white while every DOM signal (counters, panels) reports
+ * success. That bug shipped twice (the monolith "fix" and the split)
+ * because headless checks never asserted painted pixels. All camera
+ * work below therefore goes through toNorm().
  */
 (function () {
   "use strict";
@@ -27,9 +40,19 @@
   function t(key, fallback) { return S[key] || fallback || key; }
   function label(n) { return (LANG === "zh" && n.lz) ? n.lz : n.l; }
 
+  function showLoadNote() {
+    var note = document.getElementById("graph-load-note");
+    if (note) note.hidden = false;
+  }
+
   var stage = document.getElementById("graph-stage");
-  if (!stage || typeof window.Sigma === "undefined" ||
-      typeof window.graphology === "undefined") return;
+  if (!stage) return;
+  if (typeof window.Sigma === "undefined" ||
+      typeof window.graphology === "undefined") {
+    // Library failed to load: say so instead of leaving a white box.
+    showLoadNote();
+    return;
+  }
 
   fetch(DATA)
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -43,10 +66,7 @@
         throw err;
       }
     })
-    .catch(function () {
-      var note = document.getElementById("graph-load-note");
-      if (note) note.hidden = false;
-    });
+    .catch(showLoadNote);
 
   function init(G) {
     var byId = {};
@@ -57,6 +77,28 @@
     // Expand both back to id space once, here.
     var pos = {};
     G.nodes.forEach(function (n, i) { pos[n.id] = (G.pos || [])[i] || [0, 0]; });
+
+    // Slice extent, and the exact normalization sigma 3 applies to
+    // the graph (centre of the extent, uniform scale by the larger
+    // span — see createNormalizationFunction in sigma's source).
+    // Camera targets must be expressed through toNorm(); raw layout
+    // units park the camera outside the graph (see header comment).
+    var ext = null;
+    G.nodes.forEach(function (n) {
+      var p = pos[n.id];
+      if (!ext) { ext = { minx: p[0], maxx: p[0], miny: p[1], maxy: p[1] }; return; }
+      if (p[0] < ext.minx) ext.minx = p[0];
+      if (p[0] > ext.maxx) ext.maxx = p[0];
+      if (p[1] < ext.miny) ext.miny = p[1];
+      if (p[1] > ext.maxy) ext.maxy = p[1];
+    });
+    var spanR = ext ? Math.max(ext.maxx - ext.minx, ext.maxy - ext.miny) : 0;
+    if (!(spanR > 0)) spanR = 1;
+    var extCx = ext ? (ext.minx + ext.maxx) / 2 : 0;
+    var extCy = ext ? (ext.miny + ext.maxy) / 2 : 0;
+    function toNorm(p) {
+      return { x: 0.5 + (p[0] - extCx) / spanR, y: 0.5 + (p[1] - extCy) / spanR };
+    }
     var EDGES = G.edges.map(function (e) {
       return [G.nodes[e[0]].id, G.nodes[e[1]].id, G.kinds[e[2]]];
     });
@@ -191,24 +233,13 @@
     if (bar) bar.hidden = false;
 
     // -------------------------------------------------------------- camera
-    // Camera ratio = graph units per screen pixel (smaller = closer).
+    // In normalized space the slice always sits centred on (0.5, 0.5)
+    // and ratio 1 frames it exactly (sigma's own correction fits it
+    // to the stage); 1.12 adds a small margin. Smaller ratio = closer.
     function frameAll(animate) {
-      var minx = 1e18, miny = 1e18, maxx = -1e18, maxy = -1e18;
-      G.nodes.forEach(function (n) {
-        var p = pos[n.id];
-        if (!p) return;
-        if (p[0] < minx) minx = p[0];
-        if (p[0] > maxx) maxx = p[0];
-        if (p[1] < miny) miny = p[1];
-        if (p[1] > maxy) maxy = p[1];
-      });
-      if (minx > maxx) return;
-      var cw = stage.clientWidth || 800, ch = stage.clientHeight || 500;
-      var w = Math.max(60, maxx - minx), h = Math.max(60, maxy - miny);
-      var ratio = Math.max(w / cw, h / ch) * 1.12;
-      ratio = Math.min(6, Math.max(0.04, ratio));
+      if (!G.nodes.length) return;
       var cam = sigma.getCamera();
-      var target = { x: (minx + maxx) / 2, y: (miny + maxy) / 2, ratio: ratio };
+      var target = { x: 0.5, y: 0.5, ratio: 1.12 };
       if (animate === false) cam.setState(target);
       else cam.animate(target, { duration: 550 });
     }
@@ -226,6 +257,35 @@
         .replace("{total}", G.nodes.length)
         .replace("{edges}", EDGES.length);
     }
+
+    // Paint watchdog: a successful init is not proof anything was
+    // drawn (the normalized-camera bug left every counter green over
+    // a white stage). Shortly after load, verify at least one node
+    // projects inside the stage; if none does, surface the failure —
+    // load note plus the static fallback list — instead of silence.
+    setTimeout(function () {
+      try {
+        if (!G.nodes.length) return;
+        var w = stage.clientWidth, h = stage.clientHeight, inside = 0;
+        for (var i = 0; i < G.nodes.length; i++) {
+          var p = pos[G.nodes[i].id];
+          var vp = sigma.graphToViewport({ x: p[0], y: p[1] });
+          if (vp.x >= -60 && vp.x <= w + 60 && vp.y >= -60 && vp.y <= h + 60) {
+            inside++;
+            break;
+          }
+        }
+        if (!inside) {
+          if (window.console) {
+            console.error("graph: no node projects into the viewport; " +
+                          "showing the fallback list");
+          }
+          showLoadNote();
+          var fb = document.getElementById("graph-fallback");
+          if (fb) fb.hidden = false;
+        }
+      } catch (e) { /* the watchdog must never break the page */ }
+    }, 900);
 
     // ---------------------------------------------------------- detail panel
     var panel = document.getElementById("graph-panel");
@@ -311,13 +371,16 @@
       selected = id;
       refresh();
       showPanel(id);
-      // Fly to a window around the node (never zoom back out).
+      // Fly to a window around the node (never zoom back out). The
+      // target is the node's NORMALIZED position; ratio 0.35 shows
+      // roughly the node's third of the slice around it.
       var p = pos[id];
       if (p) {
-        var cw = stage.clientWidth || 800;
         var cam = sigma.getCamera();
-        var ratio = Math.min(cam.ratio, Math.max(0.04, 620 / cw));
-        cam.animate({ x: p[0], y: p[1], ratio: ratio }, { duration: 550 });
+        var ratio = Math.min(cam.ratio, 0.35);
+        var target = toNorm(p);
+        target.ratio = ratio;
+        cam.animate(target, { duration: 550 });
       }
     }
 
