@@ -28,6 +28,7 @@ Usage:
 
 import argparse
 import datetime
+import hashlib
 import html
 import io
 import json
@@ -1071,7 +1072,31 @@ def _slice_label(n, code):
     return (n.get("lz") if code == "zh" else None) or n["l"]
 
 
-def render_graph_slice_body(ov, code, title, intro, sl, back="../"):
+_ASSET_V = {}
+
+
+def _asset_version(rel):
+    """Short content hash of a web/ source file, used as a ?v=
+    cache-buster on the graph pages' script URLs. The graph pages are
+    useless when their HTML, renderer and data come from different
+    deploys (a stale graph.js against a new page fails silently), so
+    every graph asset URL carries the hash of the bytes it serves:
+    a new deploy is a new URL, and version skew cannot occur."""
+    if rel not in _ASSET_V:
+        path = os.path.join(WEB, rel)
+        if os.path.exists(path):
+            with open(path, "rb") as fh:
+                _ASSET_V[rel] = hashlib.sha256(fh.read()).hexdigest()[:10]
+        else:
+            # Vendored libraries are optional at build time; a missing
+            # one simply gets no cache-buster (and no library at all —
+            # graph.js then surfaces the load note).
+            _ASSET_V[rel] = ""
+    return _ASSET_V[rel]
+
+
+def render_graph_slice_body(ov, code, title, intro, sl, back="../",
+                            data_v=""):
     """The <main> of one category graph page: back link, controls,
     canvas, detail panel, and the no-JS fallback — this slice's own
     entries as a plain grouped list of links. `back` is the relative
@@ -1137,14 +1162,19 @@ def render_graph_slice_body(ov, code, title, intro, sl, back="../"):
              '<script>window.GRAPH_STRINGS = %s;'
              'window.GRAPH_LANG = "%s";'
              'window.GRAPH_ROOT = "{{ROOT}}";'
-             'window.GRAPH_DATA = "data.json";</script>'
-             % (safe_json(strings), esc(code)),
+             'window.GRAPH_DATA = "data.json?v=%s";</script>'
+             % (safe_json(strings), esc(code), esc(data_v)),
              # One renderer: sigma (WebGL) over a graphology graph.
              # Missing vendor files leave window.Sigma undefined, and
              # graph.js then leaves the static fallback in charge.
-             '<script src="{{ROOT}}graphology.min.js"></script>',
-             '<script src="{{ROOT}}sigma.min.js"></script>',
-             '<script src="{{ROOT}}graph.js"></script>']
+             # The ?v= hashes keep HTML, renderer and data from the
+             # same deploy (see _asset_version).
+             '<script src="{{ROOT}}graphology.min.js?v=%s"></script>'
+             % _asset_version(os.path.join("vendor", "graphology.min.js")),
+             '<script src="{{ROOT}}sigma.min.js?v=%s"></script>'
+             % _asset_version(os.path.join("vendor", "sigma.min.js")),
+             '<script src="{{ROOT}}graph.js?v=%s"></script>'
+             % _asset_version("graph.js")]
     return "\n".join(bits)
 
 
@@ -1589,7 +1619,10 @@ def main():
             html_ = fill_page(
                 tpl, render_graph_slice_body(
                     ov, code, title, intro, graph_slices[name],
-                    back="../" * (depth - 1)),
+                    back="../" * (depth - 1),
+                    data_v=hashlib.sha256(
+                        graph_slice_json[name].encode("utf-8")
+                    ).hexdigest()[:10]),
                 title, desc, url, "../" * depth,
                 subs, "%s/%s" % (code, rel))
             html_ = add_to_head(html_, url, head_extra_graph(
@@ -2011,6 +2044,14 @@ def main():
             if 'id="graph-full"' in ppage or "graph.json" in ppage:
                 problems.append("%s/%s: retired full-graph machinery present"
                                 % (code, rel))
+            # HTML, renderer and slice data must be version-locked to
+            # one deploy (see _asset_version); an unversioned URL here
+            # means a future stale cache can pair them across deploys.
+            for marker in ('graphology.min.js?v=', 'sigma.min.js?v=',
+                           'graph.js?v=', 'data.json?v='):
+                if marker not in ppage:
+                    problems.append("%s/%s: graph asset URL lacks its "
+                                    "cache-buster (%s)" % (code, rel, marker))
             if ('<p class="graph-back"><a href="%s">'
                     % ("../" * rel.rstrip("/").count("/"))) not in ppage:
                 problems.append("%s/%s: back-to-index link wrong" % (code, rel))
