@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-22 — Knowledge Graph: precomputed layout, one fast renderer
+
+### Changed
+
+- **The graph page is now laid out at build time and drawn by a single WebGL renderer.** Node positions are computed offline by a new build step (`scripts/graph_layout.py`, a Fruchterman–Reingold layout with Barnes–Hut repulsion) and shipped inside `graph.json`; the browser no longer runs any force simulation. Rendering moves to the vendored sigma.js + graphology (batched WebGL programs), replacing both earlier views: the Cytoscape 2D view, which re-ran its cose layout on every interaction, and the 3d-force-graph 3D view, whose per-object three.js rendering lagged at this graph's size — switching between the two also cost a full-page reload and discarded the reader's place. The interaction model is unchanged — backbone first, click to expand, ego view, search, type/topic/region filters, full-graph mode, the same detail panel — it is simply fast now, and labels follow the zoom level instead of overlapping at every distance.
+
 ## 2026-10-22 — Knowledge Graph: a 3D view
 
 ### Added

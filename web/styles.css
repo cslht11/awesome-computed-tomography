@@ -630,12 +630,9 @@ li.team {
   width: 100%; height: 68vh; min-height: 420px;
   border: 1px solid var(--border); border-radius: 12px;
   background: var(--bg);
+  position: relative; overflow: hidden;
 }
-.g-view { display: inline-flex; border: 1px solid var(--border-strong); border-radius: 8px; overflow: hidden; }
-.g-view button { border: 0; border-radius: 0; }
-.g-view button[aria-pressed="true"] { background: var(--accent); color: #fff; }
-#graph3d { position: relative; overflow: hidden; }
-#graph3d canvas { display: block; }
+#graph-stage canvas { display: block; }
 .graph-panel {
   margin-top: 14px; padding: 16px 18px;
   border: 1px solid var(--border); border-radius: 12px;

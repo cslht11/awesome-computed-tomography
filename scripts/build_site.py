@@ -44,6 +44,7 @@ import changelog  # noqa: E402
 import resource_pages as RP  # noqa: E402
 import brand_assets  # noqa: E402
 import graph as graph_mod  # noqa: E402
+import graph_layout as graph_layout_mod  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(ROOT, "web")
@@ -916,11 +917,12 @@ def head_extra_changelog(cfg, base, langs, entry, ov, desc):
 
 # ------------------------------------------------------------ graph page
 # /graph/ and /zh/graph/: the knowledge graph (scripts/graph.py projects
-# the payload into graph.json at build time; web/graph.js renders it with
-# the vendored Cytoscape, web/graph3d.js with the vendored 3d-force-graph
-# when WebGL is available — the reader toggles between the two). The page
-# degrades to a static team -> works list when JavaScript or the vendor
-# files are unavailable, so no build state can ship a blank page.
+# the payload into graph.json at build time, scripts/graph_layout.py
+# adds static node positions computed offline, and web/graph.js renders
+# the result with the vendored sigma.js — WebGL, batched, no runtime
+# force simulation anywhere). The page degrades to a static
+# team -> works list when JavaScript or the vendor files are
+# unavailable, so no build state can ship a blank page.
 GRAPH_PATH = "graph/"
 
 
@@ -1017,12 +1019,6 @@ def render_graph_body(payload, ov, code):
         bits.append('<option value="%s">%s</option>'
                     % (esc(region), esc(ov.ui(key, default))))
     bits += ['</select></label>',
-             '<span class="g-view" role="group" aria-label="%s">'
-             '<button type="button" id="graph-view-2d">%s</button>'
-             '<button type="button" id="graph-view-3d">%s</button></span>'
-             % (esc(ov.ui("graphViewLabel", "View")),
-                esc(ov.ui("graphView2D", "2D")),
-                esc(ov.ui("graphView3D", "3D"))),
              '<button type="button" id="graph-full">%s</button>'
              % esc(ov.ui("graphFullGraph", "Full graph")),
              '<button type="button" id="graph-reset">%s</button>'
@@ -1032,8 +1028,7 @@ def render_graph_body(payload, ov, code):
              '</div>',
              '<p id="graph-full-note" class="g-note" hidden>%s</p>'
              % esc(ov.ui("graphFullNote", "")),
-             '<div id="cy" class="graph-cy"></div>',
-             '<div id="graph3d" class="graph-cy" hidden></div>',
+             '<div id="graph-stage" class="graph-cy"></div>',
              '<aside id="graph-panel" class="graph-panel" hidden>',
              '<button type="button" id="gp-close" class="gp-close" '
              'aria-label="%s">\u00d7</button>' % esc(ov.ui("graphClose", "Close")),
@@ -1076,15 +1071,11 @@ def render_graph_body(payload, ov, code):
              'window.GRAPH_LANG = "%s";'
              'window.GRAPH_ROOT = "{{ROOT}}";</script>'
              % (safe_json(graph_strings(ov)), esc(code)),
-             # graph3d.js loads before graph.js on purpose: when the 3D
-             # view can run it claims the page (window.__GRAPH_3D_CLAIMED)
-             # and the 2D script stands down. Missing vendor files simply
-             # leave the flags unset, so the 2D view takes over.
-             '<script src="{{ROOT}}three.min.js"></script>',
-             '<script src="{{ROOT}}three-spritetext.min.js"></script>',
-             '<script src="{{ROOT}}3d-force-graph.min.js"></script>',
-             '<script src="{{ROOT}}graph3d.js"></script>',
-             '<script src="{{ROOT}}cytoscape.min.js"></script>',
+             # One renderer: sigma (WebGL) over a graphology graph.
+             # Missing vendor files leave window.Sigma undefined, and
+             # graph.js then leaves the static fallback in charge.
+             '<script src="{{ROOT}}graphology.min.js"></script>',
+             '<script src="{{ROOT}}sigma.min.js"></script>',
              '<script src="{{ROOT}}graph.js"></script>']
     return "\n".join(bits)
 
@@ -1368,28 +1359,17 @@ def main():
         write(os.path.join(sub, "chrome.js"), read(os.path.join(WEB, "chrome.js")))
         write(os.path.join(sub, "lang.js"), read(os.path.join(WEB, "lang.js")))
         write(os.path.join(sub, "graph.js"), read(os.path.join(WEB, "graph.js")))
-        write(os.path.join(sub, "graph3d.js"), read(os.path.join(WEB, "graph3d.js")))
-        # The vendored Cytoscape is optional at build time: without it the
-        # graph page still ships, with its static fallback list visible.
-        vendor = os.path.join(WEB, "vendor", "cytoscape.min.js")
-        if os.path.exists(vendor):
-            write_bytes(os.path.join(sub, "cytoscape.min.js"),
-                        open(vendor, "rb").read())
-        else:
-            print("  note: web/vendor/cytoscape.min.js is absent; "
-                  "/graph/ will serve its static fallback")
-        # The 3D vendor set is likewise optional: any file missing, the
-        # graph page's 3D script leaves its flags unset and the 2D view
-        # (or the static fallback) serves the page instead.
-        for vend in ("three.min.js", "three-spritetext.min.js",
-                     "3d-force-graph.min.js"):
+        # The vendored sigma + graphology are optional at build time:
+        # without them the graph page still ships, with its static
+        # fallback list visible (graph.js checks for the globals).
+        for vend in ("graphology.min.js", "sigma.min.js"):
             vendor = os.path.join(WEB, "vendor", vend)
             if os.path.exists(vendor):
                 write_bytes(os.path.join(sub, vend),
                             open(vendor, "rb").read())
             else:
                 print("  note: web/vendor/%s is absent; "
-                      "/graph/ will not offer the 3D view" % vend)
+                      "/graph/ will serve its static fallback" % vend)
         sitemap_urls.append((lang_base, "weekly", "1.0"))
 
         for name in PAGES:
@@ -1586,6 +1566,10 @@ def main():
         for x in g_problems:
             print("  -", x)
         sys.exit(1)
+    # Static layout, computed once here (scripts/graph_layout.py): the
+    # browser receives positions as data and never runs a simulation.
+    graph["pos"] = graph_layout_mod.compute_positions(
+        graph["nodes"], graph["edges"])
     graph_text = json.dumps(graph, ensure_ascii=False, separators=(",", ":")) + "\n"
     for entry in langs:
         write(os.path.join(out, entry.get("path") or "", "graph.json"),

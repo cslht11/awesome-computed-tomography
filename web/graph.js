@@ -1,15 +1,19 @@
 /* Knowledge graph explorer for /graph/ and /zh/graph/.
  *
  * The data is graph.json, generated at build time from the same payload
- * as the rest of the site (scripts/graph.py). The page starts from a
- * backbone (teams + topics + toolkits) instead of the full graph: with
- * ~1000 nodes the full graph is a hairball, so papers, datasets and the
- * rest arrive by expanding a node (its one-hop neighbourhood), by
- * searching, or via the explicit full-graph toggle.
+ * as the rest of the site (scripts/graph.py), INCLUDING static node
+ * positions computed offline by scripts/graph_layout.py. Nothing is
+ * simulated or laid out in the browser: the renderer (vendored
+ * sigma.js, WebGL, batched programs) only draws. Visibility is a
+ * filter over precomputed coordinates, so expanding a node, switching
+ * to the full graph or jumping via search never triggers a relayout —
+ * the page opens on a backbone (teams + topics + toolkits) and the
+ * rest arrives by expanding nodes, searching, or the full-graph
+ * toggle, exactly as before, just without the wait.
  *
  * Plain script, no modules, in the same style as app.js/search.js. If
- * Cytoscape or the data fails to load, the server-rendered fallback list
- * stays visible and this file simply does nothing.
+ * sigma/graphology or the data fails to load, the server-rendered
+ * fallback list stays visible and this file simply does nothing.
  */
 (function () {
   "use strict";
@@ -21,11 +25,9 @@
   function t(key, fallback) { return S[key] || fallback || key; }
   function label(n) { return (LANG === "zh" && n.lz) ? n.lz : n.l; }
 
-  var cyEl = document.getElementById("cy");
-  if (!cyEl || typeof window.cytoscape === "undefined") return;
-  // web/graph3d.js loads first and claims the page when it can run;
-  // in that case the 2D view stands down entirely.
-  if (window.__GRAPH_3D_ACTIVE || window.__GRAPH_3D_CLAIMED) return;
+  var stage = document.getElementById("graph-stage");
+  if (!stage || typeof window.Sigma === "undefined" ||
+      typeof window.graphology === "undefined") return;
 
   fetch(ROOT + "graph.json")
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -38,6 +40,7 @@
   function init(G) {
     var byId = {};
     G.nodes.forEach(function (n) { byId[n.id] = n; });
+    var pos = G.pos || {};
 
     // Degree over the *whole* graph drives node size, so a hub looks
     // like a hub even before it is expanded.
@@ -58,14 +61,31 @@
       venue: "#8c564b", author: "#e377c2", learning: "#7f7f7f",
       guide: "#bcbd22"
     };
+    var EDGE_COLORS = {
+      cites: "#e15759", authored: "#e8b4d8", coauthor: "#d8d8d8",
+      focus: "#b39ddb", works: "#b39ddb", leads: "#b39ddb"
+    };
     var TYPE_ORDER = ["team", "topic", "paper", "toolkit", "dataset",
                       "benchmark", "author", "venue", "learning", "guide"];
 
+    function lighten(hex) {
+      var n = parseInt(hex.slice(1), 16);
+      function mix(c) { return Math.round(c + (255 - c) * 0.8); }
+      return "rgb(" + mix((n >> 16) & 255) + "," + mix((n >> 8) & 255) +
+             "," + mix(n & 255) + ")";
+    }
+    var DIM_COLORS = {};
+    Object.keys(COLORS).forEach(function (k) { DIM_COLORS[k] = lighten(COLORS[k]); });
+
+    // ------------------------------------------------------------- state
     var expanded = {};     // id -> true once its neighbourhood is shown
     var fullMode = false;
     var egoOnly = null;    // id whose ego network alone is shown
     var typeOn = {};       // type -> bool (filter checkboxes)
     TYPE_ORDER.forEach(function (ty) { typeOn[ty] = true; });
+    var regionWant = "";   // team-region dimming ("" = all regions)
+    var selected = null;
+    var hoverId = null;
 
     var backbone = {};
     (G.backbone || []).forEach(function (id) { backbone[id] = true; });
@@ -89,63 +109,98 @@
       });
       return vis;
     }
+    var visNow = visibleIds();
 
-    function elementsFor(vis) {
-      var els = [];
-      Object.keys(vis).forEach(function (id) {
-        var n = byId[id];
-        els.push({ data: {
-          id: id, label: label(n), type: n.t,
-          size: 14 + Math.min(30, Math.sqrt(degree[id] || 0) * 5),
-          color: COLORS[n.t] || "#999"
-        }});
+    // Highlight set for hover/selection emphasis (ids + edge keys).
+    var hlNodes = null, hlEdges = null;
+    function computeHighlight() {
+      var focus = hoverId || selected;
+      hlNodes = null; hlEdges = null;
+      if (!focus) return;
+      hlNodes = {}; hlEdges = {};
+      hlNodes[focus] = true;
+      (neighbours[focus] || []).forEach(function (x) {
+        hlNodes[x.id] = true;
       });
       G.edges.forEach(function (e, i) {
-        if (vis[e[0]] && vis[e[1]]) {
-          els.push({ data: { id: "e" + i, source: e[0], target: e[1], kind: e[2] } });
-        }
+        if (e[0] === focus || e[1] === focus) hlEdges["e" + i] = true;
       });
-      return els;
     }
 
-    var cy = window.cytoscape({
-      container: cyEl,
-      elements: elementsFor(visibleIds()),
-      style: [
-        { selector: "node", style: {
-            "background-color": "data(color)", "width": "data(size)",
-            "height": "data(size)", "label": "data(label)",
-            "font-size": 10, "color": "#888",
-            "text-valign": "bottom", "text-margin-y": 3,
-            "text-max-width": 110, "text-wrap": "ellipsis",
-            "border-width": 1, "border-color": "#fff"
-        }},
-        { selector: "node[type='topic'], node[type='team']", style: {
-            "font-size": 12, "font-weight": "bold", "color": "#666"
-        }},
-        { selector: "edge", style: {
-            "width": 1, "line-color": "#c9ced6", "curve-style": "bezier",
-            "target-arrow-shape": "none", "opacity": 0.75
-        }},
-        { selector: "edge[kind='cites']", style: {
-            "line-color": "#e15759", "line-style": "dashed", "width": 1.6,
-            "target-arrow-shape": "triangle", "target-arrow-color": "#e15759",
-            "opacity": 0.9
-        }},
-        { selector: "edge[kind='authored']", style: { "line-color": "#e8b4d8" } },
-        { selector: "edge[kind='coauthor']", style: {
-            "line-color": "#d8d8d8", "line-style": "dotted"
-        }},
-        { selector: "edge[kind='focus'], edge[kind='works'], edge[kind='leads']",
-          style: { "line-color": "#b39ddb", "width": 1.4 } },
-        { selector: "node:selected", style: {
-            "border-width": 3, "border-color": "#f2c230"
-        }},
-        { selector: ".dim", style: { "opacity": 0.12 } },
-        { selector: "edge.dim", style: { "opacity": 0.05 } }
-      ],
-      layout: { name: "cose", animate: false, padding: 24 },
-      minZoom: 0.15, maxZoom: 2.5
+    // ------------------------------------------------- graphology + sigma
+    var graph = new window.graphology.MultiGraph();
+    G.nodes.forEach(function (n) {
+      var p = pos[n.id] || [0, 0];
+      graph.addNode(n.id, {
+        label: label(n),
+        x: p[0], y: p[1],
+        size: 2.6 + Math.min(13, Math.sqrt(degree[n.id] || 0) * 1.5),
+        color: COLORS[n.t] || "#999",
+        ntype: n.t
+      });
+    });
+    G.edges.forEach(function (e, i) {
+      graph.addEdgeWithKey("e" + i, e[0], e[1], {
+        kind: e[2],
+        size: e[2] === "cites" ? 0.9 : 0.5,
+        color: EDGE_COLORS[e[2]] || "#c3c9d4",
+        type: e[2] === "cites" ? "arrow" : "line"
+      });
+    });
+
+    var sigma = new window.Sigma(graph, stage, {
+      renderLabels: true,
+      labelRenderedSizeThreshold: 5.5,
+      labelDensity: 0.12,
+      labelGridCellSize: 60,
+      labelSize: 12,
+      labelColor: { color: "#5a6270" },
+      defaultNodeColor: "#999",
+      defaultEdgeColor: "#c3c9d4",
+      minCameraRatio: 0.04,
+      maxCameraRatio: 6,
+      zIndex: true,
+      stagePadding: 30
+    });
+
+    function nodeDimmed(id) {
+      var n = byId[id];
+      if (regionWant && n && n.t === "team" && n.m &&
+          n.m.region !== regionWant) return true;
+      if (hlNodes && !hlNodes[id]) return true;
+      return false;
+    }
+
+    sigma.setSetting("nodeReducer", function (id, data) {
+      var out = {};
+      if (!visNow[id]) { out.hidden = true; return out; }
+      var n = byId[id];
+      // Backbone hubs always carry their (full) label; everyone else
+      // is labelled by the zoom threshold, and hover/selection forces
+      // the label of the node being inspected.
+      if ((backbone[id] && !egoOnly) || id === selected || id === hoverId) {
+        out.forceLabel = true;
+      }
+      if (nodeDimmed(id)) {
+        out.color = DIM_COLORS[n.t] || "#ddd";
+        out.zIndex = 0;
+      }
+      if (id === selected) { out.size = data.size * 1.3; out.zIndex = 3; }
+      else if (id === hoverId) { out.zIndex = 2; }
+      return out;
+    });
+    sigma.setSetting("edgeReducer", function (key, data) {
+      var out = {};
+      var s = graph.source(key), tg = graph.target(key);
+      if (!visNow[s] || !visNow[tg]) { out.hidden = true; return out; }
+      if (hlEdges && !hlEdges[key]) {
+        out.color = "rgba(196,202,212,0.13)";
+        out.zIndex = 0;
+      } else if (hlEdges) {
+        out.size = data.size * 1.7;
+        out.zIndex = 2;
+      }
+      return out;
     });
 
     var fallback = document.getElementById("graph-fallback");
@@ -153,41 +208,40 @@
     var bar = document.getElementById("graph-bar");
     if (bar) bar.hidden = false;
 
-    // 2D/3D toggle: 2D is active here; the 3D button stores the choice
-    // and reloads into graph3d.js — or is hidden when 3D cannot run.
-    var view2dBtn = document.getElementById("graph-view-2d");
-    var view3dBtn = document.getElementById("graph-view-3d");
-    if (view2dBtn) view2dBtn.setAttribute("aria-pressed", "true");
-    if (view3dBtn) {
-      if (window.__GRAPH_3D_AVAILABLE) {
-        view3dBtn.setAttribute("aria-pressed", "false");
-        view3dBtn.addEventListener("click", function () {
-          try { window.localStorage.setItem("ct-graph-view", "3d"); }
-          catch (e) { /* preference is best-effort */ }
-          window.location.reload();
-        });
-      } else {
-        view3dBtn.hidden = true;
-      }
-    }
-
-    function relayout() {
-      cy.layout({ name: "cose", animate: false, padding: 24,
-                  nodeRepulsion: fullMode ? 9000 : 5000 }).run();
-    }
-
-    function refresh(keepLayout) {
-      var vis = visibleIds();
-      var want = {};
-      elementsFor(vis).forEach(function (el) { want[el.data.id] = el; });
-      cy.elements().forEach(function (el) {
-        if (!want[el.id()]) el.remove();
+    // -------------------------------------------------------------- camera
+    // Camera ratio = graph units per screen pixel (smaller = closer).
+    function frameIds(ids, animate) {
+      if (!ids.length) return;
+      var minx = 1e18, miny = 1e18, maxx = -1e18, maxy = -1e18;
+      ids.forEach(function (id) {
+        var p = pos[id];
+        if (!p) return;
+        if (p[0] < minx) minx = p[0];
+        if (p[0] > maxx) maxx = p[0];
+        if (p[1] < miny) miny = p[1];
+        if (p[1] > maxy) maxy = p[1];
       });
-      Object.keys(want).forEach(function (id) {
-        if (cy.getElementById(id).empty()) cy.add(want[id]);
-      });
-      if (!keepLayout) relayout();
-      updateCounts(vis);
+      if (minx > maxx) return;
+      var cw = stage.clientWidth || 800, ch = stage.clientHeight || 500;
+      var w = Math.max(60, maxx - minx), h = Math.max(60, maxy - miny);
+      var ratio = Math.max(w / cw, h / ch) * 1.12;
+      ratio = Math.min(6, Math.max(0.04, ratio));
+      var cam = sigma.getCamera();
+      var target = { x: (minx + maxx) / 2, y: (miny + maxy) / 2, ratio: ratio };
+      if (animate === false) cam.setState(target);
+      else cam.animate(target, { duration: 550 });
+    }
+    function frameVisible(animate) {
+      frameIds(Object.keys(visNow), animate);
+    }
+    frameVisible(false);
+
+    function refresh(frame) {
+      visNow = visibleIds();
+      computeHighlight();
+      sigma.refresh();
+      updateCounts(visNow);
+      if (frame) frameVisible(true);
     }
 
     function updateCounts(vis) {
@@ -201,7 +255,6 @@
 
     // ---------------------------------------------------------- detail panel
     var panel = document.getElementById("graph-panel");
-    var selected = null;
 
     function metaRows(n) {
       var m = n.m || {};
@@ -224,7 +277,6 @@
     }
 
     function showPanel(id) {
-      selected = id;
       var n = byId[id];
       if (!panel || !n) return;
       document.getElementById("gp-type").textContent = t("type_" + n.t, n.t);
@@ -284,67 +336,83 @@
     }
 
     function focusNode(id, expandIt) {
-      if (fullMode) { /* everything already visible */ }
-      else if (egoOnly && egoOnly !== id) { egoOnly = null; }
+      if (!fullMode && egoOnly && egoOnly !== id) egoOnly = null;
       if (expandIt) expanded[id] = true;
-      refresh(true);
-      var el = cy.getElementById(id);
-      if (el.nonempty()) {
-        cy.animate({ center: { eles: el }, zoom: Math.max(cy.zoom(), 0.9) },
-                   { duration: 250 });
-        el.select();
-      }
+      selected = id;
+      refresh(false);
       showPanel(id);
-      relayoutSoft();
+      // Fly to a window around the node (never zoom back out).
+      var p = pos[id];
+      if (p) {
+        var cw = stage.clientWidth || 800;
+        var cam = sigma.getCamera();
+        var ratio = Math.min(cam.ratio, Math.max(0.04, 620 / cw));
+        cam.animate({ x: p[0], y: p[1], ratio: ratio }, { duration: 550 });
+      }
     }
 
-    var layoutTimer = null;
-    function relayoutSoft() {
-      if (layoutTimer) return;
-      layoutTimer = setTimeout(function () { layoutTimer = null; relayout(); }, 60);
-    }
-
-    cy.on("tap", "node", function (ev) {
-      var id = ev.target.id();
-      if (!expanded[id] && !fullMode) { expanded[id] = true; refresh(true); relayoutSoft(); }
+    sigma.on("clickNode", function (ev) {
+      var id = ev.node;
+      if (!expanded[id] && !fullMode) expanded[id] = true;
+      selected = id;
+      refresh(false);
       showPanel(id);
     });
-    cy.on("tap", function (ev) {
-      if (ev.target === cy) { panel.hidden = true; selected = null; }
+    sigma.on("clickStage", function () {
+      selected = null;
+      if (panel) panel.hidden = true;
+      refresh(false);
+    });
+    sigma.on("enterNode", function (ev) {
+      hoverId = ev.node;
+      stage.style.cursor = "pointer";
+      computeHighlight();
+      sigma.refresh();
+    });
+    sigma.on("leaveNode", function () {
+      hoverId = null;
+      stage.style.cursor = "";
+      computeHighlight();
+      sigma.refresh();
     });
 
     // ------------------------------------------------------------- controls
     document.getElementById("gp-expand").addEventListener("click", function () {
       if (!selected) return;
       if (expanded[selected]) delete expanded[selected]; else expanded[selected] = true;
-      refresh(true); relayoutSoft(); showPanel(selected);
+      refresh(false); showPanel(selected);
     });
-    document.getElementById("gp-ego").addEventListener("click", function () {
+    var egoBtn = document.getElementById("gp-ego");
+    egoBtn.addEventListener("click", function () {
       if (!selected) return;
       egoOnly = (egoOnly === selected) ? null : selected;
-      this.textContent = egoOnly ? t("showAll2", "Back to overview")
-                                 : t("egoOnly", "Only this network");
-      refresh(); showPanel(selected);
+      egoBtn.textContent = egoOnly ? t("showAll2", "Back to overview")
+                                   : t("egoOnly", "Only this network");
+      refresh(true); showPanel(selected);
     });
     document.getElementById("gp-close").addEventListener("click", function () {
-      panel.hidden = true; selected = null;
+      panel.hidden = true; selected = null; refresh(false);
     });
 
     var fullBtn = document.getElementById("graph-full");
     if (fullBtn) fullBtn.addEventListener("click", function () {
       fullMode = !fullMode;
       egoOnly = null;
+      egoBtn.textContent = t("egoOnly", "Only this network");
       fullBtn.textContent = fullMode ? t("backbone", "Backbone view")
                                      : t("fullGraph", "Full graph");
       var warn = document.getElementById("graph-full-note");
       if (warn) warn.hidden = !fullMode;
-      refresh();
+      refresh(true);
     });
     var resetBtn = document.getElementById("graph-reset");
     if (resetBtn) resetBtn.addEventListener("click", function () {
       expanded = {}; egoOnly = null; fullMode = false;
+      selected = null; hoverId = null;
+      if (panel) panel.hidden = true;
       if (fullBtn) fullBtn.textContent = t("fullGraph", "Full graph");
-      refresh();
+      egoBtn.textContent = t("egoOnly", "Only this network");
+      refresh(true);
     });
 
     // Type filters + legend (one checkbox per type present in the data).
@@ -359,7 +427,7 @@
         var cb = document.createElement("input");
         cb.type = "checkbox"; cb.checked = true; cb.value = ty;
         cb.addEventListener("change", function () {
-          typeOn[ty] = cb.checked; refresh(true);
+          typeOn[ty] = cb.checked; refresh(false);
         });
         var dot = document.createElement("span");
         dot.className = "g-dot"; dot.style.background = COLORS[ty];
@@ -387,12 +455,8 @@
     // Region dimming for teams.
     var regionSel = document.getElementById("graph-region");
     if (regionSel) regionSel.addEventListener("change", function () {
-      var want = regionSel.value;
-      cy.nodes().forEach(function (el) {
-        var n = byId[el.id()];
-        var dim = want && n && n.t === "team" && n.m && n.m.region !== want;
-        el.toggleClass("dim", !!dim);
-      });
+      regionWant = regionSel.value;
+      sigma.refresh();
     });
 
     // Search: datalist over every node's label.
@@ -413,6 +477,7 @@
       });
     }
 
-    updateCounts(visibleIds());
+    updateCounts(visNow);
   }
 })();
+

@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-22 — 知识图谱：预计算布局与单一快速渲染器
+<!-- en: Knowledge Graph: precomputed layout, one fast renderer -->
+
+### 变更
+
+- **图谱页改为在构建时完成布局，并由单一 WebGL 渲染器绘制。** 节点位置由新的构建步骤（`scripts/graph_layout.py`，带 Barnes–Hut 斥力的 Fruchterman–Reingold 布局）离线算好，随 `graph.json` 一起发布；浏览器不再运行任何力导向模拟。渲染改用自托管的 sigma.js + graphology（批量 WebGL 程序），取代此前的两个视图：Cytoscape 2D 视图（每次交互都要重跑 cose 布局）与 3d-force-graph 3D 视图（three.js 逐对象渲染，在这个规模下明显卡顿；且两者切换需要整页刷新、会丢失读者当前的位置）。交互方式不变——骨架优先、点击展开、自我网络、搜索、类型/主题/地区过滤、全图模式与同一个详情面板——只是现在快了，标签也随缩放层级显隐，不再在任何距离上互相重叠。
+
 ## 2026-10-22 — 知识图谱：3D 视图
 <!-- en: Knowledge Graph: a 3D view -->
 
