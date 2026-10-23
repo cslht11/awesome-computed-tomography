@@ -40,7 +40,7 @@ from collections import Counter
 import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build import load, validate, fill  # noqa: E402
+from build import load, validate, fill, validate_lineages  # noqa: E402
 from export_site_data import build_payload  # noqa: E402
 import i18n  # noqa: E402
 import changelog  # noqa: E402
@@ -488,7 +488,7 @@ def render_robots(base):
     return "User-agent: *\nAllow: /\nCrawl-delay: 1\n\nSitemap: %ssitemap.xml\n" % base
 
 
-def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(), payload=None):
+def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(), payload=None, lineages=()):
     """site/llms.txt: a plain-Markdown map of the site for AI answer engines
     (llmstxt.org proposal). Counts and topics come from the same payload as the
     page, so it cannot go stale. Cheap to ship; its effect is unproven."""
@@ -519,6 +519,15 @@ def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(),
         "they connect" % base,
         "- [Dataset relations graph](%sgraph/datasets/): which papers in "
         "the directory use which datasets and benchmarks, as a graph" % base,
+    ]
+    for lin in lineages or ():
+        lines.append("- [Curated lineage: %s](%sgraph/lineage/%s/): %s "
+                     "(Chinese edition: %szh/graph/lineage/%s/)"
+                     % (lin_text(lin["title"], i18n.SOURCE), base, lin["id"],
+                        re.sub(r"\s+", " ",
+                               lin_text(lin["description"], i18n.SOURCE)).strip(),
+                        base, lin["id"]))
+    lines += [
         "- [论文目录（中文）](%szh/): Chinese edition of the same directory" % base,
         "- [About](%sabout/): scope, sourcing, verification and how to cite" % base,
         "- [Contact](%scontact/): how to suggest or correct an entry" % base,
@@ -980,6 +989,84 @@ def head_extra_graph(cfg, base, langs, entry, ov, desc, rel=GRAPH_PATH,
     return "\n".join(bits)
 
 
+def lin_text(field, code):
+    """A {en, zh} text field from data/lineages.yaml in this language.
+
+    build.py's validate_lineages guarantees both languages are present,
+    so the English fallback here is only a belt over those braces.
+    """
+    if isinstance(field, dict):
+        return (field.get(code) or field.get(i18n.SOURCE) or "").strip()
+    return str(field or "").strip()
+
+
+def lin_rich(text):
+    """Lineage prose is written with light Markdown emphasis; render it
+    like the legends (md_inline) plus the single-star emphasis that
+    md_inline does not handle."""
+    return re.sub(r"\*([^*]+)\*", r"<em>\1</em>", md_inline(text))
+
+
+def render_lineage_body(payload, ov, code, lineage):
+    """The <main> of one /graph/lineage/<id>/ page: a vertical chain of
+    paper cards joined by written edge labels on a pure-CSS spine.
+
+    Purely static — no JavaScript, no canvas — so the page is complete
+    as served. Card facts (title, year, venue, links) come from the
+    payload, never from lineages.yaml, so an entry correction (a year,
+    a published-version link) reaches the card on the next build.
+    """
+    by_id = dict((p["id"], p) for p in payload["papers"])
+
+    def card(node):
+        p = by_id[node["paper"]]
+        url = paper_url(p)
+        label = esc(paper_label(p))
+        head = ('<a href="%s" target="_blank" rel="noopener">%s</a>'
+                % (esc(url), label)) if url else label
+        # A paper with no venue is a preprint; the card then shows the
+        # year alone rather than a "preprint" label the data does not
+        # carry (plan: venue line is "venue · year", year-only without).
+        meta = ("%s \u00b7 %d" % (esc(p["venue"]), p["year"])) if p["venue"] \
+            else str(p["year"])
+        links = " \u00b7 ".join(
+            '<a href="%s" target="_blank" rel="noopener">%s</a>'
+            % (esc(p["links"][k]), k.capitalize())
+            for k in PAPER_LINK_LABELS if p["links"].get(k))
+        rows = ['<span class="ln-year">%d</span>' % p["year"],
+                '<h3>%s</h3>' % head,
+                '<p class="ln-meta">%s</p>' % meta,
+                '<p class="ln-note">%s</p>' % lin_rich(lin_text(node["note"], code))]
+        if links:
+            rows.append('<p class="ln-links">%s</p>' % links)
+        return rows
+
+    bits = ['<p class="graph-back"><a href="../../">%s</a></p>'
+            % esc(ov.ui("graphBackToIndex", "\u2190 All graph categories")),
+            '<h1>%s</h1>' % esc(lin_text(lineage["title"], code)),
+            '<p class="lede">%s</p>' % lin_rich(lin_text(lineage["intro"], code)),
+            '<ol class="lineage">']
+    for i, node in enumerate(lineage["nodes"]):
+        if i:
+            bits.append('<li class="ln-edge"><p>%s</p></li>'
+                        % lin_rich(lin_text(node["edge"], code)))
+        rows = card(node)
+        # Optional side branch (unused by the v1 data; validate_lineages
+        # allows at most one fork in the whole file): the branch cards
+        # hang off this node's card in an indented block, each preceded
+        # by the label of the link from the main node.
+        for s in node.get("side") or []:
+            rows.append('<div class="ln-side">')
+            rows.append('<p class="ln-side-edge">%s</p>'
+                        % lin_rich(lin_text(s["edge"], code)))
+            rows += card(s)
+            rows.append('</div>')
+        bits.append('<li class="ln-node" id="%s">\n%s\n</li>'
+                    % (esc(node["paper"]), "\n".join(rows)))
+    bits.append('</ol>')
+    return "\n".join(bits)
+
+
 def graph_strings(ov):
     """The string table web/graph.js renders with, keyed as the JS expects.
 
@@ -1020,7 +1107,7 @@ def _graph_card(href, title, desc, counts):
             % (esc(href), esc(title), esc(desc), esc(counts)))
 
 
-def render_graph_index_body(payload, ov, code, slices):
+def render_graph_index_body(payload, ov, code, slices, lineages=()):
     """The <main> of /graph/: an index of the per-category small
     graphs — two overview cards, one card per topic — over the static
     team -> works list the page has always carried (it is also the
@@ -1041,9 +1128,25 @@ def render_graph_index_body(payload, ov, code, slices):
             _graph_card("datasets/",
                         ov.ui("graphDatasetsTitle", "Datasets & the papers that use them"),
                         ov.ui("graphDatasetsDesc", ""), counts_of("datasets")),
-            '</div>',
-            '<h2>%s</h2>' % esc(ov.ui("graphSectionTopics", "By topic")),
-            '<div class="graph-cards">']
+            '</div>']
+    if lineages:
+        bits += ['<h2>%s</h2>' % esc(ov.ui("graphSectionLineages", "Curated lineages")),
+                 '<div class="graph-cards">']
+        for lin in lineages:
+            years = [by_id[n["paper"]]["year"] for n in lin["nodes"]
+                     if n["paper"] in by_id]
+            counts = ov.ui("graphLineageCounts",
+                           "{n} milestones \u00b7 {y0}\u2013{y1}") \
+                .replace("{n}", str(len(lin["nodes"]))) \
+                .replace("{y0}", str(min(years))) \
+                .replace("{y1}", str(max(years)))
+            bits.append(_graph_card("lineage/%s/" % lin["id"],
+                                    lin_text(lin["title"], code),
+                                    lin_text(lin["description"], code),
+                                    counts))
+        bits.append('</div>')
+    bits += ['<h2>%s</h2>' % esc(ov.ui("graphSectionTopics", "By topic")),
+             '<div class="graph-cards">']
     for t in payload["topics"]:
         bits.append(_graph_card("topic/%s/" % t["id"], t["name"],
                                 ov.ui("graphTopicDesc", ""),
@@ -1383,6 +1486,7 @@ def main():
     payload_en = payload
     new_pages = {}          # code -> [rel path] of every page added here
     graph_rels = {}         # code -> [rel path] of the graph category pages
+    lineage_rels = {}       # code -> [rel path] of the lineage pages
 
     # ------------------------------------------------------------ graph data
     # The knowledge graph is projected once (scripts/graph.py) and cut
@@ -1430,6 +1534,20 @@ def main():
         _, cl_entries = changelog.parse()
     except changelog.ChangelogError as e:
         sys.exit(str(e))
+
+    # Curated lineages (data/lineages.yaml). Validated here as well as in
+    # build.py --check, because the renderer dereferences every paper id
+    # it names; the file is optional, like the graph enrichment files.
+    lineages_doc = load("lineages.yaml")
+    lineages = []
+    if lineages_doc is not None:
+        lin_problems = validate_lineages(payload["papers"], lineages_doc)
+        if lin_problems:
+            print("LINEAGE DATA INVALID:")
+            for x in lin_problems:
+                print("  -", x)
+            sys.exit(1)
+        lineages = lineages_doc.get("lineages") or []
 
     for entry in langs:
         code = entry["code"]
@@ -1618,7 +1736,7 @@ def main():
         g_url = lang_base + GRAPH_PATH
         g_desc = re.sub(r"\s+", " ", fill(ov.ui("pageGraphDesc"), shared)).strip()
         html_ = fill_page(tpl, render_graph_index_body(payload, ov, code,
-                                                       graph_slices),
+                                                       graph_slices, lineages),
                           ov.ui("pageGraphTitle", "Knowledge Graph"), g_desc,
                           g_url, "../", subs, "%s/graph" % code)
         html_ = add_to_head(html_, g_url, head_extra_graph(
@@ -1665,6 +1783,31 @@ def main():
                   html_)
             sitemap_urls.append((url, "monthly", "0.5"))
             grels.append(rel)
+
+        # One static page per curated lineage, under the graph index:
+        # a vertical card chain (render_lineage_body) — no slice, no
+        # data.json, no JavaScript, so none of the slice machinery or
+        # its self-checks applies to it.
+        lin_rels = lineage_rels.setdefault(code, [])
+        for lin in lineages:
+            rel = GRAPH_PATH + "lineage/" + lin["id"] + "/"
+            url = lang_base + rel
+            l_title = lin_text(lin["title"], code)
+            l_desc = re.sub(r"\s+", " ",
+                            fill(lin_text(lin["description"], code),
+                                 shared)).strip()
+            depth = rel.rstrip("/").count("/") + 1
+            html_ = fill_page(
+                tpl, render_lineage_body(payload, ov, code, lin),
+                l_title, l_desc, url, "../" * depth,
+                subs, "%s/%s" % (code, rel))
+            html_ = add_to_head(html_, url, head_extra_graph(
+                cfg, base, langs, entry, ov, l_desc, rel=rel, title=l_title,
+                parent=True))
+            write(os.path.join(sub, "graph", "lineage", lin["id"],
+                               "index.html"), html_)
+            sitemap_urls.append((url, "monthly", "0.5"))
+            lin_rels.append(rel)
 
         for tid in topic_ids:
             tp = topic_doc["topics"][tid]
@@ -1765,7 +1908,8 @@ def main():
     en_payload = build_payload(i18n.SOURCE)
     write(os.path.join(out, "llms.txt"),
           render_llms(cfg, base, en_payload["counts"], en_payload["topics"],
-                      set(topic_ids), rp_pages, rp_guides, payload_en))
+                      set(topic_ids), rp_pages, rp_guides, payload_en,
+                      lineages))
     # Brand files: the favicon, the iOS touch icon and the share image.
     # Generated from assets/logo.svg's geometry (brand_assets), so the repo
     # carries no binary blobs and the build stays stdlib-only.
@@ -2157,6 +2301,48 @@ def main():
                     problems.append("%s/%s: %d nodes over the %d cap"
                                     % (code, rel, len(sdata["nodes"]),
                                        graph_slices_mod.CAP))
+
+    # ------------------------------------------------------------- lineages
+    # Each curated lineage page must be canonical, carry every hreflang
+    # alternate and a BreadcrumbList, appear in sitemap.xml, and be
+    # linked from its own language's graph index (no orphans) — the
+    # same bar as the other graph pages, minus the slice data: a
+    # lineage page is static HTML end to end and ships no data.json.
+    for entry in langs:
+        code = entry["code"]
+        sub = os.path.join(out, entry.get("path") or "")
+        lang_base = i18n.url_for(base, entry)
+        gindex = os.path.join(sub, "graph", "index.html")
+        index_page = read(gindex) if os.path.exists(gindex) else ""
+        for rel in lineage_rels.get(code, []):
+            lid = rel[len(GRAPH_PATH + "lineage/"):].rstrip("/")
+            pf = os.path.join(sub, rel, "index.html")
+            if not os.path.exists(pf):
+                problems.append("%s/%s: lineage page was not written"
+                                % (code, rel))
+                continue
+            ppage = read(pf)
+            p_url = lang_base + rel
+            if ('<link rel="canonical" href="%s">' % esc(p_url)) not in ppage:
+                problems.append("%s/%s: canonical missing or wrong"
+                                % (code, rel))
+            want = [(e["hreflang"], i18n.url_for(base, e) + rel)
+                    for e in langs]
+            want.append(("x-default",
+                         i18n.url_for(base, default) + rel))
+            for hl, u in want:
+                if ('<link rel="alternate" hreflang="%s" href="%s">'
+                        % (esc(hl), esc(u))) not in ppage:
+                    problems.append("%s/%s: hreflang %s missing or wrong"
+                                    % (code, rel, hl))
+            if '"BreadcrumbList"' not in ppage:
+                problems.append("%s/%s: BreadcrumbList JSON-LD missing"
+                                % (code, rel))
+            if "<loc>%s</loc>" % esc(p_url) not in sitemap:
+                problems.append("%s/%s: not in sitemap.xml" % (code, rel))
+            if ('href="lineage/%s/"' % lid) not in index_page:
+                problems.append("%s/graph: index does not link lineage %s"
+                                % (code, lid))
 
     if problems:
         print("SITE CHECK FAILED:")
