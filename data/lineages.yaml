@@ -1,0 +1,94 @@
+# Curated lineages: hand-picked chains of papers under /graph/lineage/<id>/.
+# Every `paper:` must be an id in data/papers/ — build.py --check fails
+# loudly otherwise (same rule as data/graph enrichment references).
+# Card facts (title, year, venue, links) are NOT stored here: they render
+# from the paper entries themselves, so an entry correction reaches the
+# card automatically. Only the curated prose lives in this file, and every
+# text field must carry both languages — a missing translation fails the
+# build instead of silently falling back to English.
+lineages:
+  - id: fbp-to-foundation
+    title:
+      en: "From FBP to Foundation Models"
+      zh: "从 FBP 到基础模型"
+    description:
+      en: "A hand-curated lineage of CT reconstruction in eleven papers — how the field's answer to \"where does the prior come from?\" moved from a fixed filter to pretrained foundation models."
+      zh: "十一个里程碑看懂 CT 重建四十年：补全缺失测量的\"先验\"如何从固定滤波器一路走到预训练基础模型。"
+    intro:
+      en: "Eleven papers, four decades, one question: when the measurements are incomplete, where does the knowledge that fills the gaps come from? This curated chain opens with FDK — the cone-beam form of filtered back-projection that made volumetric CT practical — and follows the answer as it migrates: into a hand-written sparsity prior, into a plug-in denoiser, into learned networks, into generative diffusion priors, and finally into large pretrained foundation models. Each link states what the previous step could not do, and what idea came next."
+      zh: "十一个里程碑，四十年，一个问题：当测量不完整时，补全缺失信息的知识从哪里来？这条手工策展的脉络从 FDK 开始——它让滤波反投影（FBP）走进三维锥束、使容积 CT 变得实用——然后追踪这个答案的迁移：从手写的稀疏先验，到可插拔的去噪器，到学习型网络，到生成式扩散先验，直到大规模预训练的基础模型。每条边都写明：上一步卡在哪里，下一步的想法从何而来。"
+    nodes:
+      - paper: fdk-1984
+        note:
+          en: "FDK turns filtered back-projection into a practical 3D cone-beam algorithm — one filtering pass and one back-projection reconstruct a volume directly from cone-beam projections, exact on the midplane and close enough almost everywhere else."
+          zh: "FDK 把滤波反投影变成实用的三维锥束算法：一次滤波、一次反投影即可从锥束投影直接重建容积，在中间平面上精确、在其余位置足够接近——解析重建自此成为 CT 的默认引擎。"
+      - paper: sidky-pan-tv-2008
+        note:
+          en: "The compressed-sensing turn for CT: ASD-POCS reconstructs by minimizing total variation under data-consistency and non-negativity constraints — the first convincing proof that a cone-beam volume can be recovered from far fewer views than FDK needs."
+          zh: "CT 的压缩感知转折点：ASD-POCS 在数据一致性与非负约束下最小化全变分（TV），第一次有说服力地证明：锥束容积可以用远少于 FDK 所需的视角重建出来。"
+        edge:
+          en: "FDK is exact only when the data are complete. Cut the view count or the angular range and the analytic formula has nothing to say — the missing measurements must be filled by *assumptions about the image*. Sidky and Pan's assumption: real images are nearly piecewise-constant, so their gradient is sparse. Reconstruction becomes an optimization problem — minimize TV subject to staying consistent with the measured data — and the hand-written prior enters CT for good."
+          zh: "FDK 只在数据完整时精确。一旦减少视角或角范围，解析公式便无能为力——缺失的测量必须靠\"对图像的假设\"来补。Sidky 与 Pan 的假设是：真实图像近似分片常数，其梯度是稀疏的。于是重建变成一道优化题：在与实测数据一致的约束下最小化 TV。手写的先验自此进入 CT，再未离开。"
+      - paper: pnp-2013
+        note:
+          en: "The prior becomes a module: plug-and-play replaces the proximal operator inside a model-based iteration with any off-the-shelf denoiser, so the denoiser itself acts as an implicit prior."
+          zh: "先验自此成为模块：即插即用（PnP）用任意现成去噪器替换基于模型迭代中的近端算子，去噪器本身即是隐式先验——换先验不再需要重推数学，只需要换一个去噪器。"
+        edge:
+          en: "TV works, but it is one fixed guess about images, and every new hand-crafted prior demands its own bespoke solver. Venkatakrishnan, Bouman and Wohlberg notice that the prior's step inside these iterations is, mechanically, a denoising step — so they let you plug in *any* denoiser, including ones nobody can write a formula for. The prior stops being an equation and becomes a replaceable component. In 2013 the denoisers being plugged in are still classical — but the socket is ready for what comes next."
+          zh: "TV 有效，但它只是对图像的一种固定猜测，而且每换一种手写先验就要重推一套求解器。Venkatakrishnan、Bouman 与 Wohlberg 注意到：这类迭代中先验那一步在机制上就是一次去噪——于是他们允许插入*任意*去噪器，包括那些根本写不出公式的。先验不再是一个方程，而是一个可替换的部件。2013 年插进来的去噪器还是经典算法——但插座已经为接下来的一切准备好了。"
+      - paper: red-cnn
+        note:
+          en: "Learning enters through the back door: RED-CNN takes the FBP image as given and learns to clean it — a residual encoder-decoder combining autoencoder, deconvolution and shortcut connections that suppresses low-dose noise while preserving structure and lesions."
+          zh: "学习从后门进入：RED-CNN 不动重建本身，而是把 FBP 的结果拿来学着\"擦干净\"——残差编解码网络融合自编码器、反卷积与短路连接，在抑制低剂量噪声的同时保住结构与病灶。"
+        edge:
+          en: "PnP proved a denoiser can carry the prior — which raises the obvious question: why hand-craft the denoiser when it can be *learned* from data? The first wave of deep learning in CT answers in the simplest possible place: after reconstruction. Reconstruct with FBP as always, then let a trained CNN remove the noise and streaks. It works strikingly well — and its limits are just as clear: the network never sees the measurements, so it can smooth away real structure or hallucinate plausible texture, and nothing checks its output against the physics."
+          zh: "PnP 证明了去噪器可以承载先验——下一个问题顺理成章：去噪器为什么要手工设计，何不*从数据里学*？深度学习进入 CT 的第一波浪潮选了最简单的位置：重建之后。先照旧用 FBP 重建，再让训练好的 CNN 清除噪声与条纹伪影。效果出奇地好——局限也同样清楚：网络从未见过原始测量，它可能抹掉真实结构、也可能\"脑补\"出貌似合理的纹理，而且没有任何环节拿物理去校验它的输出。"
+      - paper: automap
+        note:
+          en: "The radical end-to-end answer: AUTOMAP recasts reconstruction itself as supervised learning, letting the mapping from sensor domain to image domain emerge from training data instead of being derived from geometry."
+          zh: "最激进的端到端回答：AUTOMAP 把重建本身重新表述为有监督学习，让传感器域到图像域的映射从训练数据中自行涌现，而不是由几何推导出来。"
+        edge:
+          en: "If a network can clean the image, why keep the analytic reconstruction at all? AUTOMAP, published in *Nature*, takes the opposite extreme from post-processing: learn the entire domain transform, projection data in, image out, with the manifold structure of real images doing the work that formulas used to do. It is a landmark of ambition — and a demonstration of the cost: the learned transform is welded to the geometry and distribution it was trained on, and it needs enormous training corpora to learn what FDK encodes in a page of math."
+          zh: "既然网络能擦图，为什么还要保留解析重建？发表在《自然》的 AUTOMAP 走向后处理的反面极端：把整条域变换都学出来——投影进、图像出，由真实图像的流形结构去承担公式曾经承担的工作。这是野心的里程碑，也是代价的演示：学到的变换与训练时的几何和数据分布焊死在一起，而且要用海量训练语料，才能学会 FDK 一页数学就写清的东西。"
+      - paper: lpd
+        note:
+          en: "The synthesis: LPD unrolls a proximal primal-dual optimization and replaces only the proximal operators with CNNs, keeping the (possibly non-linear) forward operator inside the network — physics stays in the loop, learning fills the steps nobody could hand-write."
+          zh: "合题：LPD 展开一个近端原对偶优化，只把其中的近端算子换成 CNN，（可非线性的）前向算子留在网络内部——物理留在环路里，学习只补那些没人能手写的步骤。"
+        edge:
+          en: "The field's answer to AUTOMAP's brittleness came the same year. Adler and Öktem keep the classical solver's skeleton — a primal-dual iteration that alternates between measurement space and image space — and learn only the proximal steps, as small CNNs. The forward operator is evaluated exactly at every iteration, so the reconstruction can never drift away from the measured data; the learned parts stay local and the training data requirement collapses. Unrolling becomes the era's dominant design pattern."
+          zh: "对 AUTOMAP 脆弱性的回答同年就到。Adler 与 Öktem 保留经典求解器的骨架——在测量空间与图像空间之间交替的原对偶迭代——只把近端步骤学成小 CNN。前向算子在每轮迭代中被精确求值，重建永远不会漂离实测数据；可学习的部分保持局部，训练数据需求大幅下降。\"展开\"（unrolling）自此成为这个时代的主导设计范式。"
+      - paper: modl
+        note:
+          en: "Unrolling, codified: MoDL alternates a CNN regularization prior with an exact data-consistency solve, sharing weights across iterations — a small network suffices, and the template transfers across inverse problems."
+          zh: "展开范式的成文法：MoDL 在 CNN 正则先验与精确数据一致性求解之间交替，并跨迭代共享权重——小网络即够用，且这套模板可迁移到各类逆问题。"
+        edge:
+          en: "LPD proved the pattern on tomography; MoDL writes it down as a general architecture for inverse problems. One CNN prior block, one exact data-consistency step, repeated — with the *same* network weights at every iteration, so the model stays small and trains on modest data. Where LPD learned iteration-specific operators, MoDL's discipline is economy: the physics does most of the work, the network only supplies the prior. Model-based deep learning now has a reference design that a decade of papers will instantiate."
+          zh: "LPD 在层析问题上验证了这套范式；MoDL 把它写成面向逆问题的通用架构。一个 CNN 先验模块、一步精确数据一致性求解，循环往复——而且每轮迭代用的是*同一套*网络权重，模型因此可以很小、用 modest 的数据就能训练。与 LPD 学习每轮专属算子不同，MoDL 的纪律是节约：物理承担大部分工作，网络只提供先验。基于模型的深度学习自此有了一个参考设计，此后十年的大量论文都是它的实例化。"
+      - paper: dolce-2023
+        note:
+          en: "The prior becomes a generative model of CT images themselves: DOLCE uses a conditional diffusion model as the image prior inside a model-based framework, and one pretrained model reaches state-of-the-art results across drastically different image types on real limited-angle data."
+          zh: "先验变成 CT 图像本身的生成模型：DOLCE 在模型驱动框架中以条件扩散模型充当图像先验，同一个预训练模型在真实有限角数据上、对差异极大的图像类型都达到最优水平。"
+        edge:
+          en: "The unrolled networks of 2018–19 still carry a discriminative CNN prior trained for one task and one degradation; change the protocol and you retrain. The next relocation of the prior: learn *what CT images look like*, full stop — a diffusion model trained as a generative prior — then couple it to the measurement model at reconstruction time. DOLCE does this for the hardest geometry, limited-angle CT, and the payoff is the one PnP promised in 2013 at a new scale: a single pretrained prior, plugged into the physics, generalizing across image types it was never fine-tuned on. The plug-in denoiser has grown into a generative model of the image manifold."
+          zh: "2018–19 年的展开网络带的仍是判别式 CNN 先验，为单一任务、单一退化训练；协议一变就要重训。先验的下一站：干脆学习*CT 图像本身长什么样*——一个作为生成先验训练的扩散模型——然后在重建时把它与测量模型耦合。DOLCE 在最难的几何（有限角 CT）上做成了这件事，回报正是 PnP 在 2013 年许诺、如今以新规模兑现的那件事：单一预训练先验，插进物理模型，即可泛化到从未微调过的图像类型。当年那个可插拔的去噪器，长成了一个图像流形的生成模型。"
+      - paper: force
+        note:
+          en: "The generative prior, packaged as a foundation model: FORCE unifies CT data fidelity with a PFGM++ generative prior for unsupervised reconstruction across low-dose, sparse-view and metal-artifact scenarios — no paired training data required."
+          zh: "生成先验被打包成基础模型：FORCE 把 CT 数据保真项与 PFGM++ 生成先验统一为无监督重建引擎，一个模型覆盖低剂量、稀疏视角与金属伪影，且不需要配对训练数据。"
+        edge:
+          en: "DOLCE showed a pretrained generative prior can serve many images, but it remained a framework for one problem family, trained and tuned per setting. FORCE asks the foundation-model question directly: can the prior-plus-physics package be made *task-agnostic* — one unsupervised engine that conditions on whatever measurements arrive, across low-dose, sparse-view and metal-artifact CT, without paired examples for any of them? Its answer replaces the diffusion prior with a Poisson-flow generative model (PFGM++) and presents the result as what its title claims: a tomographic foundation model."
+          zh: "DOLCE 证明了预训练生成先验可以服务许多图像，但它仍是一个面向单一问题族的框架，需要按设置训练与调参。FORCE 直接提出基础模型之问：先验加物理的这套组合能否做成*与任务无关*的——一个无监督引擎，来什么测量就以什么为条件，横跨低剂量、稀疏视角与金属伪影 CT，且不需要任何一类的配对样本？它的回答是用泊松流生成模型（PFGM++）替换扩散先验，并把成果如标题所言呈现为：断层成像基础模型。"
+      - paper: proct
+        note:
+          en: "One supervised model, many geometries: ProCT's view-aware prompting lets a single transformer handle diverse sparse-view and limited-angle settings, with artifact-aware contextual learning that senses artifact patterns from in-context pairs."
+          zh: "一个监督模型，多种几何：ProCT 的视角感知提示让单个 Transformer 处理多样的稀疏视角与有限角设置，伪影感知上下文学习则从上下文图像对中感知伪影模式。"
+        edge:
+          en: "FORCE reaches \"one model for everything\" through an unsupervised generative prior, sampled iteratively. ProCT is the supervised counter-answer: keep one transformer, and tell it what it is looking at. A view-aware prompt encodes the acquisition geometry, so the same weights serve many sparse-view and limited-angle protocols; in-context pairs teach it the artifact pattern of the current scan. The interface idea is borrowed from foundation models in language and vision — the model is not retrained per task, it is *prompted*."
+          zh: "FORCE 用无监督生成先验、以迭代采样的方式实现\"一个模型管一切\"。ProCT 给出监督式的另一路回答：保留单个 Transformer，但要把\"你在看什么\"告诉它。视角感知提示编码了采集几何，同一套权重即可服务多种稀疏视角与有限角协议；上下文图像对则让它感知当前扫描的伪影模式。这个接口思想借自语言与视觉基础模型——模型不再为每个任务重训，而是被*提示*。"
+      - paper: tamp
+        note:
+          en: "The foundation-model move in full: TAMP pretrains on 10.8M physics-driven simulated non-ideal-measurement images, then adapts with a parameter-efficient fine-tune on a few slices — one backbone for low-dose, sparse-view and limited-angle CT at once."
+          zh: "完整意义上的基础模型动作：TAMP 在 1080 万张物理驱动仿真的非理想测量图像上预训练，再以参数高效微调、仅用少量切片完成适配——一个骨干网络同时服务低剂量、稀疏视角与有限角 CT。"
+        edge:
+          en: "ProCT adapts one model to many settings, but the model is still trained at the scale of a single task family. TAMP completes the trajectory this chain has been tracing: pretrain at foundation scale — 10.8 million images simulated with the physics of non-ideal measurement — so that the prior is no longer a filter, a formula, a denoiser or even a sampler, but the accumulated statistics of CT itself, stored in a backbone that a few slices of fine-tuning can steer to a new protocol. In 1984 the knowledge lived in the filter design; in 2026 it lives in the pretraining corpus. The chain ends where the field now stands."
+          zh: "ProCT 让一个模型适配多种设置，但模型的训练规模仍停留在单一任务族。TAMP 完成了这条脉络一直在追踪的轨迹：以基础模型的规模预训练——1080 万张按非理想测量物理仿真的图像——于是先验不再是滤波器、不是公式、不是去噪器、甚至不是采样器，而是 CT 本身的统计规律，存放在一个只需少量切片微调即可转向新协议的骨干网络里。1984 年，知识住在滤波器的设计里；2026 年，知识住在预训练语料里。这条脉络结束在领域当下所站的位置。"

@@ -197,7 +197,8 @@ TEAM_STATUSES = ("active", "legacy")
 TEAM_INTRO_MAX = 1000
 
 
-def validate(meta, papers, toolkits, datasets, benchmarks, learning, teams=None):
+def validate(meta, papers, toolkits, datasets, benchmarks, learning, teams=None,
+             lineages=None):
     p = Problems()
     topics = [t["id"] for t in meta["topics"]]
     tset = set(topics)
@@ -275,6 +276,8 @@ def validate(meta, papers, toolkits, datasets, benchmarks, learning, teams=None)
                 p.add("learning[%d]" % i, "unknown topic '%s' in tasks" % t)
 
     validate_teams(p, meta, papers, toolkits, datasets, benchmarks, teams)
+    if lineages is not None:
+        p.extend(validate_lineages(papers, lineages))
     return p
 
 
@@ -338,6 +341,107 @@ def validate_teams(p, meta, papers, toolkits, datasets, benchmarks, teams):
                 datetime.date.fromisoformat(str(ver))
             except ValueError:
                 p.add(w, "verified '%s' is not a YYYY-MM-DD date" % ver)
+
+
+LINEAGE_SLUG_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+# A lineage slug becomes a URL segment under /graph/lineage/<slug>/; these
+# three are reserved because tests/test_seo.js sweeps sitemap URLs by
+# segment name (the 2026-10-22 incident: /graph/datasets/ was misread as
+# a dataset page). A slug colliding with one would inherit that sweep.
+LINEAGE_RESERVED_SLUGS = ("datasets", "benchmarks", "guides")
+
+
+def validate_lineages(papers, lineages):
+    """Rules for data/lineages.yaml (the curated /graph/lineage/ pages).
+
+    Returns a list of problem strings, like graph.validate_graph. The
+    file is optional at this layer — build.py's main always loads it,
+    and a missing file simply means no lineage pages — but a file that
+    exists must be fully consistent: lineage prose is curated, so unlike
+    the table overlays a missing translation is an error here, not a
+    silent English fallback, and a referenced paper that no longer
+    exists fails loudly (deleting a paper must clean this file too,
+    exactly like the graph enrichment files).
+    """
+    p = Problems()
+    if lineages is None:
+        return p
+    items = lineages.get("lineages") if isinstance(lineages, dict) else lineages
+    if not isinstance(items, list):
+        p.add("lineages", "top level must be a mapping with a 'lineages' list")
+        return p
+    by_id = dict((e.get("id"), e) for e in (papers or []))
+
+    def bilingual(w, field, value):
+        if not isinstance(value, dict):
+            p.add(w, "'%s' must be an {en, zh} mapping" % field)
+            return
+        for lang in ("en", "zh"):
+            if not str(value.get(lang) or "").strip():
+                p.add(w, "'%s.%s' is empty" % (field, lang))
+
+    seen_ids = set()
+    side_nodes = 0
+    for i, lin in enumerate(items):
+        w = "lineages[%d]" % i
+        lid = lin.get("id")
+        if not lid or not LINEAGE_SLUG_RE.match(str(lid)):
+            p.add(w, "id '%s' is not a slug" % lid)
+        if lid in seen_ids:
+            p.add(w, "duplicate id '%s'" % lid)
+        seen_ids.add(lid)
+        if lid in LINEAGE_RESERVED_SLUGS:
+            p.add(w, "id '%s' collides with a reserved URL segment" % lid)
+        for f in ("title", "description", "intro"):
+            bilingual(w, f, lin.get(f))
+        nodes = lin.get("nodes") or []
+        if len(nodes) < 3:
+            p.add(w, "lineage '%s' has %d nodes; a lineage needs at least 3"
+                  % (lid, len(nodes)))
+        seen_papers = set()
+        years = []
+        for j, node in enumerate(nodes):
+            nw = "%s.nodes[%d]" % (w, j)
+            pid = node.get("paper")
+            if pid not in by_id:
+                p.add(nw, "paper '%s' does not exist in papers" % pid)
+            else:
+                years.append(int(by_id[pid]["year"]))
+            if pid in seen_papers:
+                p.add(nw, "paper '%s' appears twice in this lineage" % pid)
+            seen_papers.add(pid)
+            bilingual(nw, "note", node.get("note"))
+            if j == 0:
+                if node.get("edge"):
+                    p.add(nw, "the first node must not carry an 'edge'")
+            else:
+                if not node.get("edge"):
+                    p.add(nw, "missing 'edge' (the link from the previous node)")
+                else:
+                    bilingual(nw, "edge", node.get("edge"))
+            side = node.get("side") or []
+            if side:
+                side_nodes += 1
+            for k, s in enumerate(side):
+                sw = "%s.side[%d]" % (nw, k)
+                spid = s.get("paper")
+                if spid not in by_id:
+                    p.add(sw, "paper '%s' does not exist in papers" % spid)
+                if spid in seen_papers:
+                    p.add(sw, "paper '%s' appears twice in this lineage" % spid)
+                seen_papers.add(spid)
+                bilingual(sw, "note", s.get("note"))
+                if not s.get("edge"):
+                    p.add(sw, "missing 'edge' (the link from its main node)")
+                else:
+                    bilingual(sw, "edge", s.get("edge"))
+        if years != sorted(years):
+            p.add(w, "node years are not non-decreasing (%s)"
+                  % ", ".join(str(y) for y in years))
+    if side_nodes > 1:
+        p.add("lineages", "%d nodes carry a 'side' branch; at most one "
+              "fork is allowed per file" % side_nodes)
+    return p
 
 
 # ---------------------------------------------------------------- render
@@ -528,12 +632,13 @@ def main():
     benchmarks = load("benchmarks.yaml") or []
     learning = load("learning.yaml") or []
     teams = load("teams.yaml") or []
+    lineages = load("lineages.yaml")
 
     if not meta:
         sys.exit("data/meta.yaml is required")
 
     problems = validate(meta, papers, toolkits, datasets, benchmarks, learning,
-                        teams)
+                        teams, lineages)
 
     # Graph enrichment (data/graph/*.yaml) is optional and graph-side
     # only; when the files exist, their references must resolve. The rules
