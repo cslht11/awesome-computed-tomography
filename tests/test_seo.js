@@ -311,6 +311,56 @@ for (const L of LANGS) {
   ok("homepage body: no other link to the new pages", stray.length === 0, stray.join(", "));
 }
 
+/* ---------------------------------------------------------------------------
+ * Curated lineage pages (/graph/lineage/<id>/): static card chains under
+ * the graph index. Scoped strictly to the /graph/lineage/ prefix — the
+ * dataset/benchmark/guide sweep above keys on URL segments and must
+ * never grow to cover these (the 2026-10-22 /graph/datasets/ incident),
+ * so lineage pages get their own block instead.
+ */
+const lineageUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
+  .filter((u) => u.includes("/graph/lineage/"));
+
+for (const L of LANGS) {
+  const base = ORIGIN + L.prefix;
+  const mine = lineageUrls.filter((u) => u.startsWith(base) && (L.prefix || !u.startsWith(ORIGIN + "zh/")));
+  console.log("\n[" + L.code + "] curated lineage pages");
+  ok("at least one lineage page in the sitemap", mine.length > 0, mine.length + " pages");
+  const ltitles = new Set(), ldescs = new Set();
+  const gindex = read(L.prefix + "graph/index.html");
+  let bad = [];
+  for (const url of mine) {
+    const f = fileFor(url);
+    if (!fs.existsSync(f)) { bad.push(url + ": file missing"); continue; }
+    const h = fs.readFileSync(f, "utf8");
+    const title = attr(h, /<title>([^<]*)<\/title>/);
+    const desc = attr(h, /<meta name="description" content="([^"]*)">/);
+    if (!title || ltitles.has(title)) bad.push(url + ": title missing or duplicate");
+    if (!desc || ldescs.has(desc)) bad.push(url + ": description missing or duplicate");
+    ltitles.add(title); ldescs.add(desc);
+    if (!h.includes('<link rel="canonical" href="' + url + '">')) bad.push(url + ": canonical");
+    const rel = url.slice(base.length);
+    for (const [hl, u] of [["en", ORIGIN + rel], ["zh-Hans", ORIGIN + "zh/" + rel], ["x-default", ORIGIN + rel]]) {
+      if (!h.includes('<link rel="alternate" hreflang="' + hl + '" href="' + u + '">')) bad.push(url + ": hreflang " + hl);
+    }
+    const crumbs = jsonld(h).find((b) => b["@type"] === "BreadcrumbList");
+    if (!crumbs || crumbs.itemListElement[crumbs.itemListElement.length - 1].item !== url)
+      bad.push(url + ": BreadcrumbList does not end at this page");
+    if (/\{\{[A-Z_]+\}\}/.test(h)) bad.push(url + ": placeholder leaked");
+    if (!gindex.includes('href="' + rel.slice("graph/".length) + '"'))
+      bad.push(url + ": graph index does not link it (orphan)");
+    for (const target of internalLinks(h, url)) {
+      if (!target.startsWith(ORIGIN)) continue;
+      const tf = path.join(SITE, target.slice(ORIGIN.length), target.endsWith("/") ? "index.html" : "");
+      if (!fs.existsSync(tf)) bad.push(url + ": broken internal link " + target);
+    }
+    if (L.code === "en" && !llms.includes(url)) bad.push(url + ": not in llms.txt");
+  }
+  ok("every lineage page: title, description, canonical, hreflang, BreadcrumbList, index link, working links",
+     bad.length === 0, bad.slice(0, 5).join("; ") || (mine.length + " pages"));
+  ok("lineage titles and descriptions unique", ltitles.size === mine.length && ldescs.size === mine.length);
+}
+
 console.log("\nacross languages");
 ok("titles are unique per language", titles.size === LANGS.length);
 ok("descriptions are unique per language", descs.size === LANGS.length);
