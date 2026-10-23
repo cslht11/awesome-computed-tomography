@@ -679,3 +679,63 @@ li.team {
   .graph-cy { height: 58vh; min-height: 340px; }
   .graph-bar input[type="search"] { min-width: 0; width: 100%; }
 }
+
+/* ---- curated lineages (/graph/lineage/<id>/) ----
+   A vertical chain of paper cards on a CSS spine; the edge label
+   rides on the spine between two cards (its block is pulled left
+   over the rail and padded with the page background, so the line
+   passes behind the text), and its height drives the spacing —
+   static document flow does the measuring a canvas would need.
+   No JavaScript: the page is complete as served. */
+.lineage {
+  list-style: none; margin: 26px 0 10px; padding: 0 0 0 64px;
+  position: relative; max-width: 46rem;
+}
+.lineage::before {
+  content: ""; position: absolute; left: 30px; top: 10px; bottom: 10px;
+  width: 2px; background: var(--border-strong);
+}
+.ln-node {
+  position: relative; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--surface);
+  padding: 14px 16px 12px;
+}
+.ln-year {
+  position: absolute; left: -61px; top: 14px;
+  width: 52px; text-align: center;
+  font: 600 12.5px var(--sans); color: var(--accent);
+  background: var(--accent-soft); border-radius: 999px; padding: 3px 0;
+}
+.ln-node h3 { margin: 0 0 2px; font: 600 16.5px/1.35 var(--display); }
+.ln-meta { margin: 0 0 6px; font-size: 13px; color: var(--fg-faint); }
+.ln-note { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--fg); }
+.ln-links { margin: 8px 0 0; font-size: 13.5px; font-weight: 600; }
+.ln-edge {
+  position: relative; margin: 0 0 0 -34px; padding: 14px 0;
+}
+.ln-edge::before {
+  content: ""; position: absolute; left: -5px; top: -1px;
+  border: 5px solid transparent; border-top: 7px solid var(--fg-faint);
+}
+.ln-edge p {
+  margin: 0; font-size: 14px; line-height: 1.6; color: var(--fg-muted);
+  background: var(--bg); padding: 2px 6px 2px 12px;
+}
+.ln-side {
+  margin: 12px 0 2px; padding: 10px 12px;
+  border-left: 3px solid var(--accent-soft);
+  background: var(--bg); border-radius: 0 8px 8px 0;
+}
+.ln-side .ln-year {
+  position: static; display: inline-block; width: auto;
+  padding: 3px 10px; margin-bottom: 4px;
+}
+.ln-side-edge {
+  margin: 0 0 8px; font-size: 13.5px; line-height: 1.55; color: var(--fg-muted);
+}
+@media (max-width: 720px) {
+  .lineage { padding-left: 52px; }
+  .lineage::before { left: 24px; }
+  .ln-year { left: -49px; width: 44px; font-size: 11.5px; }
+  .ln-edge { margin-left: -28px; }
+}

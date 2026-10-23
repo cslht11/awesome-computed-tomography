@@ -176,6 +176,8 @@ ui:
   graphSectionOverview: "总览"
   graphSectionTopics: "按主题"
   graphCardCounts: "{nodes} 个节点 · {edges} 条关系"
+  graphSectionLineages: "经典脉络"
+  graphLineageCounts: "{n} 个里程碑 · {y0}–{y1}"
   graphBackboneTitle: "团队骨架"
   graphBackboneIntro: "本目录的骨架：研究团队、主题，以及把它们连接起来的工具包与指南——哪个团队聚焦哪个主题、哪些工具与指南属于哪里。点选任意节点查看它的连接。"
   graphBackboneDesc: "知识图谱的骨架：本 CT 重建目录中的研究团队、主题、工具包与指南，以及它们之间的连接。"
