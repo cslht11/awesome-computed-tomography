@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-23 — Curated lineages: from FBP to foundation models
+
+### Added
+
+- **A new page type under the knowledge graph: curated lineages** (`/graph/lineage/fbp-to-foundation/`, Chinese edition `/zh/graph/lineage/fbp-to-foundation/`). A lineage is a short, hand-picked chain of papers read as one story, rendered as a vertical timeline of cards: every step carries a curator's note saying why it is a milestone, and every link between steps a written explanation of what the previous step could not do and what idea came next. The first lineage, *From FBP to Foundation Models*, follows eleven papers from FDK (1984) to TAMP (2026) and traces a single thread — where the prior lives: in a fixed filter, a hand-written sparsity assumption, a plug-in denoiser, a learned network, a generative diffusion model, and finally a pretrained foundation model. The chains live in a new data file, `data/lineages.yaml`, and the build validates them like the other curated sections: every referenced paper must exist in the directory, both languages must be complete, and the chain must run in chronological order — while the cards themselves take their titles, years, venues and links from the paper entries, so an entry correction reaches the card automatically. The graph index gains a "Curated lineages" section linking each lineage page. Unlike the graph's category pages, a lineage page is static HTML end to end: no slice data, no JavaScript, nothing to fail blank.
+
 ## 2026-10-22 — README: Knowledge Graph section
 
 ### Added
