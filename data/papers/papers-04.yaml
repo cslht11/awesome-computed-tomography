@@ -1079,9 +1079,10 @@
 - id: "lamigauss"
   abbr: "LamiGauss"
   title: "LamiGauss: Pitching Radiative Gaussian for Sparse-View X-ray Laminography Reconstruction"
-  year: 2025
+  year: 2026
+  venue: "ICASSP"
   topics: [gaussian, sparse-view, other]
-  paper: "https://arxiv.org/abs/2509.13863"
+  paper: "https://doi.org/10.1109/ICASSP55912.2026.11460905"
   note: "Radiative Gaussian splatting with a laminographic tilt-aware transform for sparse-view X-ray laminography."
 
 - id: "fast-iterative-sparse-angle-ct-lithium-battery"
