@@ -12,7 +12,7 @@
   var stage = root.querySelector(".tree-stage");
   var data = JSON.parse(root.querySelector("script.tree-layout").textContent);
   var W = data.width, H = data.height;
-  var scale = 1, tx = 0, ty = 0, MIN = 0.05, MAX = 3;
+  var scale = 1, tx = 0, ty = 0, MIN = 0.05, MAX = 3, interacted = false;
   function apply() {
     // The browser may have scrolled the (then scrollable) viewport
     // towards a #fragment target; that residue offsets the stage from
@@ -23,7 +23,11 @@
   }
   function fit() {
     var r = vp.getBoundingClientRect();
-    scale = Math.min(r.width / W, r.height / H, 1);
+    // A degenerate rect (script ran before the stylesheet laid the page
+    // out) would fling the tree off-view with a near-zero scale and
+    // nothing would ever repair it, so refuse to fit on one.
+    if (r.width < 50 || r.height < 50) return;
+    scale = Math.max(MIN, Math.min(r.width / W, r.height / H, 1));
     tx = (r.width - W * scale) / 2;
     ty = (r.height - H * scale) / 2;
     apply();
@@ -41,6 +45,11 @@
     zoomAt(r.width / 2, r.height / 2, scale * f);
   }
   fit();
+  // Refit once the document has fully loaded: the first fit can run
+  // before the stylesheet settles, and a stale transform from that
+  // moment is otherwise permanent. Never override a user who has
+  // already grabbed the canvas.
+  addEventListener("load", function () { if (!interacted) fit(); });
   vp.setAttribute("data-live", "1");
   var linked = null;
   if (location.hash.length > 1) {
@@ -65,20 +74,31 @@
   // script; centre once more then so the card ends up centred.
   if (linked) addEventListener("load", centreLinked);
   vp.addEventListener("wheel", function (e) {
+    interacted = true;
     e.preventDefault();
     var r = vp.getBoundingClientRect();
     zoomAt(e.clientX - r.left, e.clientY - r.top,
            scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12));
   }, { passive: false });
-  var pointers = new Map(), drag = null, pinch = null, downAt = null, moved = false;
+  var pointers = new Map(), drag = null, pinch = null, downAt = null, moved = false, capId = null;
+  function capture(pid) {
+    // Capture only once a gesture is really a drag (or a second finger
+    // joins for a pinch). Capturing on pointerdown retargets the
+    // following click to the viewport itself, so no card link — title,
+    // Paper, Code — could ever be clicked.
+    if (capId !== null) return;
+    try { vp.setPointerCapture(pid); capId = pid; } catch (err) { /* stale pointer */ }
+  }
   vp.addEventListener("pointerdown", function (e) {
-    try { vp.setPointerCapture(e.pointerId); } catch (err) { /* stale pointer */ }
+    interacted = true;
     pointers.set(e.pointerId, [e.clientX, e.clientY]);
     moved = false;
     if (pointers.size === 1) {
       drag = { x: e.clientX, y: e.clientY };
       downAt = { x: e.clientX, y: e.clientY };
+      capId = null;
     } else if (pointers.size === 2) {
+      capture(e.pointerId);
       var ps = Array.from(pointers.values());
       pinch = { d: Math.hypot(ps[0][0] - ps[1][0], ps[0][1] - ps[1][1]), s: scale };
       drag = null;
@@ -87,8 +107,12 @@
   vp.addEventListener("pointermove", function (e) {
     if (!pointers.has(e.pointerId)) return;
     pointers.set(e.pointerId, [e.clientX, e.clientY]);
-    if (downAt && Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) > 4)
+    // 10px, not 4: a tap — finger tremor included — wobbles a few px and
+    // must still reach its link; a real pan moves far more.
+    if (downAt && Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) > 10) {
       moved = true;
+      capture(e.pointerId);
+    }
     if (pinch && pointers.size === 2) {
       var ps = Array.from(pointers.values());
       var r = vp.getBoundingClientRect();
@@ -105,6 +129,7 @@
   });
   function release(e) {
     pointers.delete(e.pointerId);
+    if (e.pointerId === capId) capId = null;
     if (pointers.size < 2) pinch = null;
     if (pointers.size === 1) {
       var p = Array.from(pointers.values())[0];
@@ -124,6 +149,7 @@
   });
   root.querySelectorAll(".tree-btn").forEach(function (b) {
     b.addEventListener("click", function () {
+      interacted = true;
       var act = b.getAttribute("data-act");
       if (act === "in") zoomCentre(1.3);
       else if (act === "out") zoomCentre(1 / 1.3);
@@ -131,6 +157,7 @@
     });
   });
   vp.addEventListener("keydown", function (e) {
+    interacted = true;
     var step = 48;
     if (e.key === "ArrowLeft") tx += step;
     else if (e.key === "ArrowRight") tx -= step;

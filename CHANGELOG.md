@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-24 — Lineage tree card links are clickable
+
+### Fixed
+
+- **Links on lineage tree cards (title, Paper, Code) now open.** The canvas controller captured the pointer on every press, which retargets the following click to the canvas itself in Chrome, so no card link could ever be clicked — the reading-list links below the canvas were unaffected, which is why this went unnoticed. Capture now engages only once a gesture is really a drag (or a second finger joins for a pinch), and the decorative edge strokes no longer intercept pointer events, so taps and clicks reach the link underneath. Drag-pan click suppression is unchanged. The viewport fit is also hardened: it refuses a degenerate measurement (script running before the stylesheet lays the page out) and refits once the document has loaded, closing the race that could leave the tree collapsed off-view on a slow connection.
+
 ## 2026-10-24 — Language switcher stays on the page
 
 ### Fixed
