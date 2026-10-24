@@ -47,6 +47,7 @@ import changelog  # noqa: E402
 import resource_pages as RP  # noqa: E402
 import brand_assets  # noqa: E402
 import graph as graph_mod  # noqa: E402
+import lineage_tree  # noqa: E402
 import graph_slices as graph_slices_mod  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -1008,62 +1009,113 @@ def lin_rich(text):
 
 
 def render_lineage_body(payload, ov, code, lineage):
-    """The <main> of one /graph/lineage/<id>/ page: a vertical chain of
-    paper cards joined by written edge labels on a pure-CSS spine.
-
-    Purely static — no JavaScript, no canvas — so the page is complete
-    as served. Card facts (title, year, venue, links) come from the
-    payload, never from lineages.yaml, so an entry correction (a year,
-    a published-version link) reaches the card on the next build.
-    """
+    """The <main> of one /graph/lineage/<id>/ page: the family tree on
+    a pan/zoom canvas, with every node's full text in a reading list
+    below it. Card facts come from the payload, never the data file."""
     by_id = dict((p["id"], p) for p in payload["papers"])
+    # normalize_nodes: v2 tree data passes through; the retired v1 chain
+    # shape is synthesized into a single-chain tree (push sequencing).
+    nodes = lineage_tree.normalize_nodes(lineage)
+    by_key = dict((n["key"], n) for n in nodes)
+    pos, edges, width, height = lineage_tree.layout(nodes)
+    num = lineage_tree.num
 
-    def card(node):
-        p = by_id[node["paper"]]
+    def head_of(p):
         url = paper_url(p)
         label = esc(paper_label(p))
-        head = ('<a href="%s" target="_blank" rel="noopener">%s</a>'
+        return ('<a href="%s" target="_blank" rel="noopener">%s</a>'
                 % (esc(url), label)) if url else label
-        # A paper with no venue is a preprint; the card then shows the
-        # year alone rather than a "preprint" label the data does not
-        # carry (plan: venue line is "venue · year", year-only without).
-        meta = ("%s \u00b7 %d" % (esc(p["venue"]), p["year"])) if p["venue"] \
+
+    def meta_of(p):
+        # "venue · year", or the year alone for a preprint.
+        return ("%s \u00b7 %d" % (esc(p["venue"]), p["year"])) if p["venue"] \
             else str(p["year"])
-        links = " \u00b7 ".join(
+
+    def links_of(p):
+        return " \u00b7 ".join(
             '<a href="%s" target="_blank" rel="noopener">%s</a>'
             % (esc(p["links"][k]), k.capitalize())
             for k in PAPER_LINK_LABELS if p["links"].get(k))
-        rows = ['<span class="ln-year">%d</span>' % p["year"],
-                '<h3>%s</h3>' % head,
-                '<p class="ln-meta">%s</p>' % meta,
-                '<p class="ln-note">%s</p>' % lin_rich(lin_text(node["note"], code))]
-        if links:
-            rows.append('<p class="ln-links">%s</p>' % links)
-        return rows
+
+    def prose_of(n, cls):
+        return ('<p class="%s">%s</p>' % (cls, lin_rich(lin_text(n["prose"], code)))) if n.get("prose") else ""
 
     bits = ['<p class="graph-back"><a href="../../">%s</a></p>'
             % esc(ov.ui("graphBackToIndex", "\u2190 All graph categories")),
             '<h1>%s</h1>' % esc(lin_text(lineage["title"], code)),
-            '<p class="lede">%s</p>' % lin_rich(lin_text(lineage["intro"], code)),
-            '<ol class="lineage">']
-    for i, node in enumerate(lineage["nodes"]):
-        if i:
-            bits.append('<li class="ln-edge"><p>%s</p></li>'
-                        % lin_rich(lin_text(node["edge"], code)))
-        rows = card(node)
-        # Optional side branch (unused by the v1 data; validate_lineages
-        # allows at most one fork in the whole file): the branch cards
-        # hang off this node's card in an indented block, each preceded
-        # by the label of the link from the main node.
-        for s in node.get("side") or []:
-            rows.append('<div class="ln-side">')
-            rows.append('<p class="ln-side-edge">%s</p>'
-                        % lin_rich(lin_text(s["edge"], code)))
-            rows += card(s)
-            rows.append('</div>')
-        bits.append('<li class="ln-node" id="%s">\n%s\n</li>'
-                    % (esc(node["paper"]), "\n".join(rows)))
-    bits.append('</ol>')
+            '<p class="lede">%s</p>'
+            % lin_rich(lin_text(lineage["intro"], code))]
+
+    # ---- the canvas: positioned cards + one SVG connector layer.
+    stage = ['<div class="tree-stage" style="width:%spx;height:%spx">'
+             % (num(width), num(height))]
+    paths, heads = [], []
+    for _par, key, _lx, _ly, d in edges:
+        paths.append('<path d="%s"/>' % d)
+        x2, y2 = pos[key][0] + pos[key][2] / 2.0, pos[key][1]
+        heads.append('<polygon class="tn-arrowhead" points="%s,%s %s,%s %s,%s"/>'
+                     % (num(x2 - 5), num(y2 - 9), num(x2 + 5), num(y2 - 9), num(x2), num(y2)))
+    stage.append('<svg class="tree-edges" width="%s" height="%s" viewBox="0 0 %s %s" aria-hidden="true">%s%s</svg>'
+                 % (num(width), num(height), num(width), num(height), "".join(paths), "".join(heads)))
+    for _par, key, lx, ly, _d in edges:
+        stage.append('<span class="tn-label" style="left:%spx;top:%spx">%s</span>'
+                     % (num(lx), num(ly), esc(lin_text(by_key[key]["label"], code))))
+    for n in nodes:
+        x, y, w, h = pos[n["key"]]
+        box = ('style="left:%spx;top:%spx;width:%spx;height:%spx"'
+               % (num(x), num(y), num(w), num(h)))
+        if "group" in n:
+            stage.append('<div class="tn-group" id="%s" %s><h3>%s</h3><p class="tn-blurb">%s</p></div>'
+                         % (esc(n["key"]), box, esc(lin_text(n["group"], code)), esc(lin_text(n["blurb"], code))))
+        else:
+            p = by_id[n["paper"]]
+            rows = ['<span class="tn-year">%d</span>' % p["year"],
+                    '<h3>%s</h3>' % head_of(p), '<p class="tn-meta">%s</p>' % meta_of(p),
+                    '<p class="tn-note">%s</p>' % lin_rich(lin_text(n["note"], code))]
+            lk = links_of(p)
+            if lk:
+                rows.append('<p class="tn-links">%s</p>' % lk)
+            stage.append('<article class="tn-node" id="%s" %s>%s</article>'
+                         % (esc(n["paper"]), box, "".join(rows)))
+    stage.append("</div>")
+    layout = {"width": num(width), "height": num(height),
+              "nodes": [dict(key=n["key"], paper=n.get("paper"),
+                             group=("group" in n), x=num(pos[n["key"]][0]),
+                             y=num(pos[n["key"]][1]), w=num(pos[n["key"]][2]),
+                             h=num(pos[n["key"]][3])) for n in nodes],
+              "edges": [dict([("from", par), ("to", key)])
+                        for par, key, _lx, _ly, _d in edges]}
+    bits.append(
+        '<div class="tree-ui"><div class="tree-bar"><span class="tree-hint">%s</span>'
+        '<span class="tree-btns"><button type="button" class="tree-btn" data-act="out" aria-label="Zoom out">\u2212</button>'
+        '<button type="button" class="tree-btn" data-act="in" aria-label="Zoom in">+</button>'
+        '<button type="button" class="tree-btn" data-act="reset">%s</button></span></div>'
+        '<div class="tree-viewport" tabindex="0">%s</div>'
+        '<script type="application/json" class="tree-layout">%s</script>'
+        '<script src="{{ROOT}}lineage.js?v=%s"></script></div>'
+        % (esc(ov.ui("treeHint", "Drag to pan \u00b7 scroll to zoom")),
+           esc(ov.ui("treeReset", "Reset view")), "".join(stage),
+           safe_json(layout), _asset_version("lineage.js")))
+
+    # ---- the reading list: every node's full text, in file order
+    # (the data file is written depth-first, so this reads root-down).
+    items = []
+    for n in nodes:
+        if "group" in n:
+            items.append('<li class="lr-group" id="read-%s"><h3>%s</h3><p class="lr-blurb">%s</p>%s</li>'
+                         % (esc(n["key"]), esc(lin_text(n["group"], code)),
+                            esc(lin_text(n["blurb"], code)), prose_of(n, "lr-prose")))
+        else:
+            p = by_id[n["paper"]]
+            rows = ['<span class="lr-year">%d</span>' % p["year"],
+                    '<h3>%s</h3>' % head_of(p), '<p class="lr-meta">%s</p>' % meta_of(p),
+                    '<p class="lr-note">%s</p>' % lin_rich(lin_text(n["note"], code)),
+                    prose_of(n, "lr-prose")]
+            lk = links_of(p)
+            if lk:
+                rows.append('<p class="lr-links">%s</p>' % lk)
+            items.append('<li class="lr-item" id="read-%s">%s</li>' % (esc(n["paper"]), "".join(rows)))
+    bits.append('<section class="lineage-reading"><ol>%s</ol></section>' % "".join(items))
     return "\n".join(bits)
 
 
@@ -1133,11 +1185,12 @@ def render_graph_index_body(payload, ov, code, slices, lineages=()):
         bits += ['<h2>%s</h2>' % esc(ov.ui("graphSectionLineages", "Curated lineages")),
                  '<div class="graph-cards">']
         for lin in lineages:
-            years = [by_id[n["paper"]]["year"] for n in lin["nodes"]
-                     if n["paper"] in by_id]
+            # Milestones are the paper nodes; group boxes are structure.
+            pnodes = [n for n in lin["nodes"] if n.get("paper") in by_id]
+            years = [by_id[n["paper"]]["year"] for n in pnodes]
             counts = ov.ui("graphLineageCounts",
                            "{n} milestones \u00b7 {y0}\u2013{y1}") \
-                .replace("{n}", str(len(lin["nodes"]))) \
+                .replace("{n}", str(len(pnodes))) \
                 .replace("{y0}", str(min(years))) \
                 .replace("{y1}", str(max(years)))
             bits.append(_graph_card("lineage/%s/" % lin["id"],
@@ -1649,6 +1702,7 @@ def main():
         write(os.path.join(sub, "chrome.js"), read(os.path.join(WEB, "chrome.js")))
         write(os.path.join(sub, "lang.js"), read(os.path.join(WEB, "lang.js")))
         write(os.path.join(sub, "graph.js"), read(os.path.join(WEB, "graph.js")))
+        write(os.path.join(sub, "lineage.js"), read(os.path.join(WEB, "lineage.js")))
         # The vendored sigma + graphology are optional at build time:
         # without them the graph page still ships, with its static
         # fallback list visible (graph.js checks for the globals).
@@ -1785,9 +1839,8 @@ def main():
             grels.append(rel)
 
         # One static page per curated lineage, under the graph index:
-        # a vertical card chain (render_lineage_body) — no slice, no
-        # data.json, no JavaScript, so none of the slice machinery or
-        # its self-checks applies to it.
+        # the tree canvas (render_lineage_body) — no slice, no
+        # data.json, so none of the slice machinery applies to it.
         lin_rels = lineage_rels.setdefault(code, [])
         for lin in lineages:
             rel = GRAPH_PATH + "lineage/" + lin["id"] + "/"
@@ -2307,7 +2360,8 @@ def main():
     # alternate and a BreadcrumbList, appear in sitemap.xml, and be
     # linked from its own language's graph index (no orphans) — the
     # same bar as the other graph pages, minus the slice data: a
-    # lineage page is static HTML end to end and ships no data.json.
+    # lineage page ships no data.json; its canvas contract is the
+    # inline layout JSON checked below.
     for entry in langs:
         code = entry["code"]
         sub = os.path.join(out, entry.get("path") or "")
@@ -2343,6 +2397,30 @@ def main():
             if ('href="lineage/%s/"' % lid) not in index_page:
                 problems.append("%s/graph: index does not link lineage %s"
                                 % (code, lid))
+            # The tree canvas: the embedded layout JSON is the contract
+            # the viewport script and tests/test_seo.js both read, so
+            # the markup must agree with it (counts, bounds, no overlap).
+            _m = re.search(r'<script type="application/json" class="tree-layout">(.*?)</script>', ppage, re.S)
+            if not _m:
+                problems.append("%s/%s: tree layout JSON missing" % (code, rel))
+            else:
+                _lay = json.loads(_m.group(1))
+                _boxes = _lay["nodes"]
+                _papers = sum(1 for b in _boxes if not b["group"])
+                _svgm = re.search(r'<svg class="tree-edges".*?</svg>', ppage, re.S)
+                _paths = _svgm.group(0).count("<path") if _svgm else -1
+                for _what, _got, _want in (
+                        ("tn-node cards", ppage.count('class="tn-node"'), _papers),
+                        ("tn-group boxes", ppage.count('class="tn-group"'), len(_boxes) - _papers),
+                        ("svg paths", _paths, len(_lay["edges"])),
+                        ("edges vs nodes", len(_lay["edges"]), len(_boxes) - 1),
+                        ("tn-label chips", ppage.count('class="tn-label"'), len(_lay["edges"])),
+                        ("reading entries", ppage.count('class="lr-item"'), _papers)):
+                    if _got != _want:
+                        problems.append("%s/%s: %s = %d, layout JSON says %d"
+                                        % (code, rel, _what, _got, _want))
+                for _prob in lineage_tree.check_layout(_lay):
+                    problems.append("%s/%s: %s" % (code, rel, _prob))
 
     if problems:
         print("SITE CHECK FAILED:")
