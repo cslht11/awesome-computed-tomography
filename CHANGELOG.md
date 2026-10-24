@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-23 — Curated lineages: the family tree on one canvas
+
+### Changed
+
+- **The first curated lineage is now a forking family tree on one pan/zoom canvas.** The lineage page (`/graph/lineage/fbp-to-foundation/`) no longer draws its story as a vertical chain: the canvas carries a hand-curated tree of 29 papers plus two branch group boxes (representations, foundation models), forking from the analytic root FDK through total variation, plug-and-play priors, dual-domain networks, implicit and explicit representations, and generative priors, into foundation models. The layout is computed at build time — positioned cards, orthogonal connectors, and a short label naming each step — and the canvas pans and zooms (drag, scroll wheel, pinch, keyboard), opens fitted to the whole tree, and deep-links to a card via `#<paper-id>`. The curated long-form text moved below the canvas into a reading list in depth-first order, so the page's full text never depends on the canvas. `data/lineages.yaml` now stores the tree itself (single-parent links, canvas labels, group boxes) and the build validates it as a tree: exactly one root, no cycles or orphans, years non-decreasing along every root path. The graph index card counts paper milestones only ("29 milestones · 1984–2026").
+
 ## 2026-10-23 — Curated lineages: from FBP to foundation models
 
 ### Added
