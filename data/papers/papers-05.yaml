@@ -1,0 +1,71 @@
+# Batch: WANG-AXIS team sweep #1 (user-approved 2026-10-24, strong-recommend 8).
+- id: "uswin-limited-angle-cardiac"
+  abbr: "U-Swin"
+  title: "Hybrid U-Net and Swin-transformer network for limited-angle cardiac computed tomography"
+  year: 2024
+  venue: "PMB"
+  topics: [limited-angle, dynamic]
+  paper: "https://doi.org/10.1088/1361-6560/ad3db9"
+  note: "U-Net restores structure lost to missing projections while a Swin transformer captures global feature distribution; best at 120° and 90° limited-angle on synthetic XCAT and clinical Stanford COCA cardiac data."
+
+- id: "lama-dual-domain-sparse-view"
+  abbr: "LAMA"
+  title: "Learned Alternating Minimization Algorithm for Dual-Domain Sparse-View CT Reconstruction"
+  year: 2023
+  venue: "MICCAI"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1007/978-3-031-43999-5_17"
+  note: "Learned alternating minimization derived from a variational model with learnable non-smooth non-convex regularizers in both image and sinogram domains, with provable convergence."
+
+- id: "ultra-spectral-ct"
+  abbr: "ULTRA"
+  title: "Deep learning based spectral CT imaging"
+  year: 2021
+  venue: "Neural Netw."
+  topics: [spectral]
+  paper: "https://doi.org/10.1016/j.neunet.2021.08.026"
+  note: "ULTRA combines Lp-norm, total variation, residual learning and an anisotropic-adaptive U-Net with multi-scale fusion and cross-channel correlation for spectral CT; validated on three large-scale spectral CT datasets."
+
+- id: "virtual-monoenergetic-dl"
+  title: "Virtual Monoenergetic CT Imaging via Deep Learning"
+  year: 2020
+  venue: "Patterns"
+  topics: [spectral]
+  paper: "https://doi.org/10.1016/j.patter.2020.100128"
+  code: "https://github.com/WANG-AXIS/Deep-Learning"
+  note: "An improved residual network maps single-energy CT images to virtual monoenergetic images at a preset energy, with under 2% relative error versus dual-energy CT and comparable three-material decomposition."
+
+- id: "deep-silicon-pc-denoising-rl"
+  title: "Deep-silicon photon-counting x-ray projection denoising through reinforcement learning"
+  year: 2024
+  venue: "J. X-Ray Sci. Technol."
+  topics: [spectral]
+  paper: "https://doi.org/10.3233/XST-230278"
+  note: "A dueling double deep Q-network with a multi-agent scheme maximizes contrast-to-noise ratio for deep-silicon photon-counting CT projection denoising, improving single- and multi-channel scans consistently."
+
+- id: "ldm-dn-metal-artifact"
+  abbr: "LDM-DN"
+  title: "Low-Dimensional Manifold-Constrained Disentanglement Network for Metal Artifact Reduction"
+  year: 2022
+  venue: "TRPMS"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/TRPMS.2021.3122071"
+  note: "Constrains the disentanglement network's restored images to a low-dimensional patch manifold and mixes paired with unpaired data, recovering fine details that adversarial-only disentanglement loses."
+
+- id: "dual-stream-metal-streak"
+  title: "A dual-stream deep convolutional network for reducing metal streak artifacts in CT images"
+  year: 2019
+  venue: "PMB"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1088/1361-6560/ab4e3e"
+  note: "After NMAR pre-correction, a dual-stream residual network with a streak mask corrects metal streak artifacts; MSE versus perceptual loss compared, with image-domain deep learning shown highly effective."
+
+- id: "tod-net-low-dose"
+  abbr: "TOD-Net"
+  title: "Task-Oriented Low-Dose CT Image Denoising"
+  year: 2021
+  venue: "MICCAI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1007/978-3-030-87231-1_43"
+  code: "https://github.com/DIAL-RPI/Task-Oriented-CT-Denoising_TOD-Net"
+  note: "Task-oriented losses from downstream tasks guide denoising (TOD-Net), improving task-relevant regions and downstream method performance beyond task-agnostic losses."

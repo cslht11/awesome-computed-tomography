@@ -7,7 +7,7 @@
 
 **A curated, verified list of CT reconstruction research** — papers, toolkits, datasets and benchmarks for CT, CBCT and micro-CT.
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-537-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/website-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/papers-545-555?style=flat-square)](#papers) [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-555?style=flat-square)](#license)
 
 **[Website](https://computedtomography.org/)** · [Papers](#papers) · [Toolkits](#toolkits) · [Datasets](#datasets) · [Benchmarks](#benchmarks) · [Learning](#learning) · [Research Teams](#research-teams) · [Knowledge Graph](#knowledge-graph)
 
@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 537 papers | 52 toolkits | 79 datasets | 19 benchmarks | Updated 2026-10-24 |
+| 545 papers | 52 toolkits | 79 datasets | 19 benchmarks | Updated 2026-10-24 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -28,10 +28,10 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 | | | |
 | --- | --- | --- |
-| [Surveys & Reviews](https://computedtomography.org/?tab=papers&topic=survey) <sub>25</sub> | [Classical & Iterative Reconstruction](https://computedtomography.org/?tab=papers&topic=classical) <sub>98</sub> | [Sparse-View CT](https://computedtomography.org/?tab=papers&topic=sparse-view) <sub>184</sub> |
-| [Limited-Angle Tomography](https://computedtomography.org/?tab=papers&topic=limited-angle) <sub>51</sub> | [Low-Dose CT Denoising](https://computedtomography.org/?tab=papers&topic=low-dose) <sub>93</sub> | [Metal Artifact Reduction](https://computedtomography.org/?tab=papers&topic=metal-artifact) <sub>49</sub> |
-| [Spectral & Dual-Energy CT](https://computedtomography.org/?tab=papers&topic=spectral) <sub>19</sub> | [Cone-Beam CT](https://computedtomography.org/?tab=papers&topic=cbct) <sub>89</sub> | [Dynamic & 4D CT](https://computedtomography.org/?tab=papers&topic=dynamic) <sub>25</sub> |
-| [Scatter Correction](https://computedtomography.org/?tab=papers&topic=scatter) <sub>12</sub> | [Geometry Calibration & Motion Compensation](https://computedtomography.org/?tab=papers&topic=geometry) <sub>30</sub> | [Deep Unrolling & Model-Based Learning](https://computedtomography.org/?tab=papers&topic=unrolling) <sub>72</sub> |
+| [Surveys & Reviews](https://computedtomography.org/?tab=papers&topic=survey) <sub>25</sub> | [Classical & Iterative Reconstruction](https://computedtomography.org/?tab=papers&topic=classical) <sub>98</sub> | [Sparse-View CT](https://computedtomography.org/?tab=papers&topic=sparse-view) <sub>185</sub> |
+| [Limited-Angle Tomography](https://computedtomography.org/?tab=papers&topic=limited-angle) <sub>52</sub> | [Low-Dose CT Denoising](https://computedtomography.org/?tab=papers&topic=low-dose) <sub>94</sub> | [Metal Artifact Reduction](https://computedtomography.org/?tab=papers&topic=metal-artifact) <sub>51</sub> |
+| [Spectral & Dual-Energy CT](https://computedtomography.org/?tab=papers&topic=spectral) <sub>22</sub> | [Cone-Beam CT](https://computedtomography.org/?tab=papers&topic=cbct) <sub>89</sub> | [Dynamic & 4D CT](https://computedtomography.org/?tab=papers&topic=dynamic) <sub>26</sub> |
+| [Scatter Correction](https://computedtomography.org/?tab=papers&topic=scatter) <sub>12</sub> | [Geometry Calibration & Motion Compensation](https://computedtomography.org/?tab=papers&topic=geometry) <sub>30</sub> | [Deep Unrolling & Model-Based Learning](https://computedtomography.org/?tab=papers&topic=unrolling) <sub>73</sub> |
 | [Self-Supervised & Untrained Methods](https://computedtomography.org/?tab=papers&topic=self-supervised) <sub>43</sub> | [Diffusion & Generative Priors](https://computedtomography.org/?tab=papers&topic=diffusion) <sub>71</sub> | [Implicit Neural Representations](https://computedtomography.org/?tab=papers&topic=inr) <sub>30</sub> |
 | [Gaussian Splatting](https://computedtomography.org/?tab=papers&topic=gaussian) <sub>29</sub> | [Other Topics](https://computedtomography.org/?tab=papers&topic=other) <sub>64</sub> |  |
 

@@ -1,0 +1,24 @@
+# Batch: WANG-AXIS team sweep #1 (EN quick-reads, verified against publisher/Semantic Scholar abstracts 2026-10-24).
+uswin-limited-angle-cardiac: >-
+  U-Swin combines U-Net with a Swin transformer for limited-angle cardiac CT: the U-Net recovers structure lost to missing projections while the transformer captures global feature distribution. It outperforms prior deep-learning methods at 120° and 90° limited angles on synthetic XCAT and clinical Stanford COCA cardiac data, promising better freezing of the beating heart.
+
+lama-dual-domain-sparse-view: >-
+  LAMA is a learned alternating minimization algorithm derived from a variational model whose non-smooth non-convex regularizers are parameterized as deep networks in both image and sinogram domains. With smoothing and residual learning it claims lower complexity, better memory efficiency, provable convergence, and large gains over existing methods on several benchmark CT datasets.
+
+ultra-spectral-ct: >-
+  ULTRA tackles low-SNR spectral CT channels with an anisotropic-adaptive U-Net combining Lp-norm, total variation and residual learning, plus multi-scale fusion, multi-channel filtering and cross-channel correlation priors. It outperforms competing algorithms on three large-scale spectral CT datasets.
+
+virtual-monoenergetic-dl: >-
+  An improved residual network maps single-energy CT images to virtual monoenergetic images at a preset energy level, avoiding the added complexity and dose of dual-energy CT. Virtual monoenergetic images show under 2% relative error versus dual-energy CT, and three-material decomposition matches dual-energy accuracy.
+
+deep-silicon-pc-denoising-rl: >-
+  A dueling double deep Q-network with a multi-agent scheme denoises deep-silicon photon-counting CT projections by maximizing contrast-to-noise ratio, handling the non-stationarity of the data. Single- and multi-channel scans both improve significantly and consistently across channels.
+
+ldm-dn-metal-artifact: >-
+  LDM-DN adds a low-dimensional patch-manifold constraint to an adversarial disentanglement network for metal artifact reduction, so restored images stay on the manifold of CT patches. Mixing paired and unpaired data, it recovers small structural details that adversarial-only disentanglement loses and beats competing methods on synthetic and clinical data.
+
+dual-stream-metal-streak: >-
+  A dual-stream convolutional network corrects metal streak artifacts after NMAR pre-correction, using residual learning guided by a streak mask that focuses the network on artifact regions. Comparing MSE and perceptual losses, the study shows image-domain deep learning is highly effective for metal artifact reduction, including proton-therapy planning needs.
+
+tod-net-low-dose: >-
+  TOD-Net adds task-oriented losses from downstream tasks to low-dose CT denoising, so the network preserves the regions each downstream application actually needs. The task-oriented loss complements task-agnostic losses and broadly improves downstream method performance.
