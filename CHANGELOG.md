@@ -13,6 +13,14 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-24 — Chinese graph topic labels, and the test gate closes
+
+### Fixed
+
+- **Chinese graph pages show Chinese topic names now.** The graph was built from a payload that never got the topic-name translation, so every topic node on /zh/graph/ rendered in English while the index cards next to it were Chinese. Topic names are now translated in the payload itself, and the build fails if a translated slice's topic node lacks its translated label.
+- **A syntax error in a page script now fails the build.** The site's own scripts were never executed by CI, so a broken app.js / graph.js / lineage.js shipped green. The build now runs `node --check` over all six page scripts, which bites in both workflows because both run the build.
+- **The rendered-pages test now covers the lineage tree, a graph slice per language, and the drawer.** It asserts the pointer-capture rule directly (pointerdown alone must not capture, a real pan still must), that a clean tap's click reaches its card link, that the graph fallback list stays in charge with the right language's topic label, and that the drawer opens and closes. Wiring it into CI needs a workflow-file change, which the repo's app connection cannot push — the patch is handed over separately.
+
 ## 2026-10-24 — Sub-page nav marks the current section
 
 ### Fixed

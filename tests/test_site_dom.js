@@ -7,10 +7,11 @@
  * test cannot see — a missing element, a script that throws on load, a render
  * that aborts before the search box is wired.
  *
- * It is deliberately NOT part of CI. It needs jsdom from npm, and a workflow that
- * can go red for a reason unrelated to the change teaches people to ignore red —
- * the same argument SITE.md makes for the deploy workflow. Run it by hand before
- * pushing anything that touches web/:
+ * It runs in CI (validate.yml installs jsdom into a scratch prefix first),
+ * because the P0 audit found the rendered pages were otherwise untested:
+ * a syntax error in a page script, or a pointer-capture regression that
+ * swallows card-link clicks, shipped green. Run it by hand before pushing
+ * anything that touches web/:
  *
  *     python scripts/build_site.py
  *     npm install --prefix "$(mktemp -d)" jsdom      # or any scratch dir
@@ -25,9 +26,9 @@
 const fs = require("fs");
 const path = require("path");
 
-let JSDOM;
+let JSDOM, VirtualConsole;
 try {
-  ({ JSDOM } = require("jsdom"));
+  ({ JSDOM, VirtualConsole } = require("jsdom"));
 } catch (e) {
   console.error("jsdom is not installed (this test is local-only, by design).\n" +
     "Install it into a scratch prefix, then point NODE_PATH at it:\n" +
@@ -72,6 +73,42 @@ async function openPage(rel) {
 function typeInput(win, el, value) {
   el.value = value;
   el.dispatchEvent(new win.Event("input", { bubbles: true }));
+}
+
+/* Like openPage, but also captures jsdomError output (uncaught page-script
+   throws surface there) instead of letting it print and vanish. */
+async function openPageErrors(rel, beforeParse) {
+  const errors = [];
+  const vc = new VirtualConsole();
+  vc.on("jsdomError", (e) => errors.push(e && e.message ? e.message : String(e)));
+  const dom = await JSDOM.fromFile(path.join(SITE, rel), {
+    runScripts: "dangerously",
+    resources: "usable",
+    pretendToBeVisual: true,
+    virtualConsole: vc,
+    beforeParse: beforeParse
+  });
+  await new Promise((resolve) => {
+    if (dom.window.document.readyState === "complete") { resolve(); }
+    else { dom.window.addEventListener("load", resolve); }
+  });
+  await wait(350);
+  return { dom, errors };
+}
+
+/* Pointer events for the lineage viewport: jsdom may or may not ship
+   PointerEvent, so fall back to a MouseEvent with the fields the
+   handlers read (pointerId, clientX/Y) assigned afterwards. */
+function pointer(win, target, type, x, y, pid) {
+  let ev;
+  if (typeof win.PointerEvent === "function") {
+    ev = new win.PointerEvent(type, { bubbles: true, cancelable: true, pointerId: pid, clientX: x, clientY: y });
+  } else {
+    ev = new win.MouseEvent(type, { bubbles: true, cancelable: true, clientX: x, clientY: y });
+    ev.pointerId = pid;
+  }
+  target.dispatchEvent(ev);
+  return ev;
 }
 
 function paperTitles(win) {
@@ -229,14 +266,114 @@ async function testChinese() {
   win.close();
 }
 
+/* P0-4/P0-5: the lineage tree page. lineage.js only moves the stage, so
+   jsdom can run it for real: nodes render, and the pointer-capture rule
+   that once swallowed every card-link click is asserted directly — a
+   pointerdown must NOT capture (that retargets the following click to
+   the viewport in Chrome), a >10px move MUST capture (a real pan), and
+   a clean tap's click must reach its link. */
+async function testLineage() {
+  console.log("\n[lineage] site/graph/lineage/fbp-to-foundation/index.html");
+  const { dom, errors } = await openPageErrors(path.join("graph", "lineage", "fbp-to-foundation", "index.html"));
+  const win = dom.window, doc = win.document;
+  const vp = doc.querySelector(".tree-viewport");
+  ok("lineage script ran (viewport is live)", !!vp && vp.getAttribute("data-live") === "1");
+  ok("lineage cards rendered (29 papers + 2 groups)",
+    doc.querySelectorAll(".tn-node").length === 29 && doc.querySelectorAll(".tn-group").length === 2,
+    doc.querySelectorAll(".tn-node").length + " nodes, " + doc.querySelectorAll(".tn-group").length + " groups");
+  const link = doc.querySelector(".tn-node h3 a[href^=\"http\"]");
+  ok("card title links to a real URL", !!link, link ? link.getAttribute("href") : "—");
+  const ownErrors = errors.filter((m) => !/sigma|graphology|canvas|webgl/i.test(m));
+  ok("no page-script errors on load", ownErrors.length === 0, errors.join("; ") || "clean");
+
+  let captures = 0;
+  const native = vp.setPointerCapture;
+  vp.setPointerCapture = function () {
+    captures++;
+    if (native) { try { return native.apply(this, arguments); } catch (e) { /* jsdom stub */ } }
+  };
+  pointer(win, link, "pointerdown", 100, 100, 1);
+  ok("pointerdown alone does NOT capture (click must reach the link)", captures === 0, captures + " captures");
+  pointer(win, link, "pointermove", 102, 101, 1);
+  ok("a 2px wobble does NOT capture (tap tremor)", captures === 0, captures + " captures");
+  pointer(win, link, "pointermove", 160, 100, 1);
+  ok("a >10px move DOES capture (a real pan still works)", captures === 1, captures + " captures");
+  pointer(win, link, "pointerup", 160, 100, 1);
+
+  let clicked = false, prevented = null;
+  link.addEventListener("click", (e) => { clicked = true; prevented = e.defaultPrevented; });
+  pointer(win, link, "pointerdown", 100, 100, 2);
+  pointer(win, link, "pointerup", 100, 100, 2);
+  link.dispatchEvent(new win.MouseEvent("click", { bubbles: true, cancelable: true }));
+  ok("a clean tap's click reaches the card link", clicked && prevented === false,
+    "clicked=" + clicked + " prevented=" + prevented);
+
+  win.close();
+}
+
+/* P0-4: a graph slice page. jsdom has no WebGL and no file:// fetch, so
+   the sigma renderer cannot take over here by design; what must hold is
+   the graceful path — the static fallback list stays in charge, the load
+   note shows, no page script throws — plus the P0-1 label check: the
+   Chinese slice's topic entry reads Chinese, not English. */
+async function testGraphSlice() {
+  console.log("\n[graph] slice pages");
+  const noFetch = (window) => { window.fetch = () => Promise.reject(new Error("file fetch unavailable in jsdom")); };
+  for (const [rel, wantTopic, lang] of [
+    [path.join("graph", "topic", "sparse-view", "index.html"), "Sparse-View CT", "en"],
+    [path.join("zh", "graph", "topic", "sparse-view", "index.html"), "稀疏视角 CT", "zh"]
+  ]) {
+    const { dom, errors } = await openPageErrors(rel, noFetch);
+    const win = dom.window, doc = win.document;
+    const fb = doc.getElementById("graph-fallback");
+    ok("[" + lang + "] fallback list is present and visible",
+      !!fb && fb.hidden !== true, fb ? fb.querySelectorAll("li").length + " entries" : "missing");
+    ok("[" + lang + "] fallback has entries", !!fb && fb.querySelectorAll("li").length > 10,
+      fb ? fb.querySelectorAll("li").length + " entries" : "missing");
+    const topicLink = fb ? Array.prototype.find.call(
+      fb.querySelectorAll("a"), (a) => (a.getAttribute("href") || "").indexOf("topics/sparse-view/") !== -1) : null;
+    ok("[" + lang + "] topic entry reads " + wantTopic,
+      !!topicLink && topicLink.textContent.trim() === wantTopic,
+      topicLink ? topicLink.textContent.trim() : "no topic link");
+    const note = doc.getElementById("graph-load-note");
+    ok("[" + lang + "] load note shows when data cannot load", !!note && note.hidden === false);
+    const ownErrors = errors.filter((m) => !/sigma|graphology|canvas|webgl/i.test(m));
+    ok("[" + lang + "] no page-script errors on load", ownErrors.length === 0, errors.join("; ") || "clean");
+    win.close();
+  }
+}
+
+/* P0-5 (drawer half): chrome.js on a static page. */
+async function testDrawer() {
+  console.log("\n[drawer] site/about/index.html");
+  const { dom, errors } = await openPageErrors(path.join("about", "index.html"));
+  const win = dom.window, doc = win.document;
+  const menu = doc.getElementById("menu"), scrim = doc.getElementById("scrim");
+  ok("drawer controls exist", !!menu && !!scrim);
+  menu.click();
+  ok("menu opens the drawer", doc.body.classList.contains("drawer-open") && menu.getAttribute("aria-expanded") === "true"
+    && scrim.hidden === false);
+  scrim.click();
+  ok("scrim closes the drawer", !doc.body.classList.contains("drawer-open") && scrim.hidden === true);
+  menu.click();
+  doc.dispatchEvent(new win.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+  ok("Escape closes the drawer", !doc.body.classList.contains("drawer-open"));
+  const ownErrors = errors.filter((m) => !/sigma|graphology|canvas|webgl/i.test(m));
+  ok("no page-script errors on load", ownErrors.length === 0, errors.join("; ") || "clean");
+  win.close();
+}
+
 (async function () {
-  console.log("site search smoke test (jsdom, against the real build)");
+  console.log("site DOM smoke test (jsdom, against the real build)");
   await testEnglish();
   await testChinese();
+  await testLineage();
+  await testGraphSlice();
+  await testDrawer();
   console.log("\n%d passed, %d failed", pass, failures.length);
   if (failures.length) {
     failures.forEach((f) => console.log("  ✗ " + f));
     process.exit(1);
   }
-  console.log("site search smoke test passed ✓");
+  console.log("site DOM smoke test passed ✓");
 })().catch((e) => { console.error("the test itself threw:", e); process.exit(2); });

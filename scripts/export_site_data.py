@@ -90,6 +90,18 @@ def build_payload(lang=None):
         sys.exit(1)
 
     topics = meta["topics"]
+    if code != i18n.SOURCE:
+        # Topic names/descs are display text: translate them here, in the
+        # payload itself, so every consumer (homepage, graph slices,
+        # topic chips) reads the same language. A previous build only
+        # translated them in build_site's homepage loop, so the graph
+        # payload built straight from build_payload() kept English topic
+        # names and the ZH graph canvas rendered every topic node in
+        # English (P0-1).
+        topics = [dict(t,
+                       name=ov.topic(t["id"]).get("name") or t["name"],
+                       desc=ov.topic(t["id"]).get("desc") or t.get("desc", ""))
+                  for t in topics]
     topic_name = {t["id"]: t["name"] for t in topics}
 
     counts = {t["id"]: 0 for t in topics}

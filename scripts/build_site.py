@@ -1501,6 +1501,25 @@ def main():
 
     cfg = load_config()
 
+    # P0-3: CI never executed the site's own scripts, so a syntax error
+    # in app.js / graph.js / lineage.js / chrome.js / lang.js / search.js
+    # shipped green. Check them here, inside the build, so the failure
+    # bites in BOTH workflows (validate and deploy both run build_site.py)
+    # with no workflow-file change — the connector cannot edit .github/*.
+    # This is parse-only: it catches syntax errors, not top-level runtime
+    # throws; those are the DOM suite's job (tests/test_site_dom.js).
+    import shutil
+    import subprocess
+    node = shutil.which("node")
+    if not node:
+        sys.exit("node is required to syntax-check web/*.js")
+    for _js in ("search.js", "app.js", "chrome.js", "lang.js",
+                "graph.js", "lineage.js"):
+        _r = subprocess.run([node, "--check", os.path.join(WEB, _js)],
+                            capture_output=True, text=True)
+        if _r.returncode != 0:
+            sys.exit("web/%s fails node --check:\n%s" % (_js, _r.stderr))
+
     base = resolve_base(cfg, args.url)
     cfg["repo_url"] = "https://github.com/" + cfg["repo"]
 
@@ -1646,12 +1665,10 @@ def main():
         shared = dict(tokens)
         shared["coverage"] = fill(ov.ui("coverage"), tokens)
         payload["ui"] = js_ui(ov)
-        # Topic names and blurbs are display text too, and live in data/meta.yaml
-        # in English; the overlay is what makes them read in this language.
-        for t in payload["topics"]:
-            tr = ov.topic(t["id"])
-            t["name"] = tr.get("name") or t["name"]
-            t["desc"] = tr.get("desc") or t["desc"]
+        # Topic names/descs already arrive translated: build_payload()
+        # applies the overlay to the topics list itself. (A previous
+        # build translated them here only, which left the graph payload
+        # English — P0-1. Do not re-add a second translation point.)
 
         # Homepage links to the detail pages and guides (web/app.js renders
         # them): a row's own page, relative to the language root, and the
@@ -2271,6 +2288,7 @@ def main():
     # reconcile with the payload it projects. The retired monolith
     # (graph.json at a language root, a full-graph mode) must not
     # reappear.
+    _ov_by_code = {}
     for entry in langs:
         code = entry["code"]
         sub = os.path.join(out, entry.get("path") or "")
@@ -2345,6 +2363,26 @@ def main():
                                 % (code, rel, len(sdata["nodes"]),
                                    len(sdata["edges"])))
             types = Counter(n["t"] for n in sdata["nodes"])
+            # P0-1 regression: a translated slice's topic nodes must carry
+            # the overlay label (lz). graph.node() drops lz when it equals
+            # the English label, so only genuinely translated names are
+            # asserted here.
+            if code != i18n.SOURCE:
+                if code not in _ov_by_code:
+                    _ov_by_code[code] = i18n.load(code)
+                ov_c = _ov_by_code[code]
+                en_names = dict((t["id"], t["name"])
+                                for t in payload_en["topics"])
+                for n in sdata["nodes"]:
+                    if n["t"] != "topic":
+                        continue
+                    tid = n["id"][len("topic:"):]
+                    want = ov_c.topic(tid).get("name") or en_names.get(tid)
+                    if (want and want != en_names.get(tid)
+                            and n.get("lz") != want):
+                        problems.append(
+                            "%s/%s: topic node %s lacks label '%s' (has %r)"
+                            % (code, rel, tid, want, n.get("lz")))
             # A slice ships only nodes with at least one edge inside
             # it; the isolates it dropped ride along on the slice
             # (sl["dropped"]), so completeness is slice + dropped.

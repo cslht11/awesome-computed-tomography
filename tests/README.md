@@ -8,7 +8,7 @@ read. Run the site build first — all three read the generated files under
 python scripts/build_site.py
 node tests/test_search.js          # runs in CI; no packages needed
 node tests/test_seo.js             # runs in CI; no packages needed
-node tests/test_site_dom.js        # local only; needs jsdom
+node tests/test_site_dom.js        # runs in CI (validate.yml); needs jsdom
 ```
 
 ## `test_seo.js` — structured data and the changelog page
@@ -52,9 +52,17 @@ NODE_PATH=/tmp/ct-test/node_modules node tests/test_site_dom.js
 > `~/node_modules`, which on a developer machine is usually where editor tooling
 > (vue-language-server, pyright, playwright) keeps its packages.
 
-### Why this one is not in CI
+### Why this one is in CI now
 
-It would have to `npm install` on every run, and a job that can go red because a
-registry was unreachable is worse than no job: people learn to ignore red. The
-same argument SITE.md makes for keeping the deploy workflow off pull requests.
-Run it by hand before pushing anything that touches `web/`.
+It used to be local-only: it would have to `npm install` on every run, and a
+job that can go red because a registry was unreachable is worse than no job.
+The P0 audit reversed that call — the rendered pages were otherwise
+completely untested, so a syntax error in a page script or a
+pointer-capture regression that swallows card-link clicks shipped green.
+`validate.yml` now installs jsdom into a scratch prefix (`/tmp/ct-dom-test`,
+never the checkout) and runs this suite; a registry outage still fails the
+run, but that is the honest price of the only test that drives the real
+pages. It also covers the lineage tree page (pointer-capture rule, clean
+clicks), a graph slice page per language (fallback list, Chinese topic
+label), and the drawer. Run it by hand before pushing anything that
+touches `web/`.
