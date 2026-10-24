@@ -1,0 +1,17 @@
+# Batch: Purdue Bouman team sweep #7 (user-approved 2026-10-24, journal methods 2).
+- id: "tmgan"
+  abbr: "TMGAN"
+  title: "Texture Matching GAN for CT Image Enhancement"
+  year: 2025
+  venue: "J. Math. Imaging Vis."
+  topics: [low-dose]
+  paper: "https://doi.org/10.1007/s10851-025-01260-y"
+  note: "TMGAN uses parallel generators to separate anatomy from generated texture so the generated texture can match a target texture, improving image quality with clinically acceptable texture instead of inaccurate or hallucinated GAN detail."
+
+- id: "multi-slice-fusion-4d"
+  title: "Multi-Slice Fusion for Sparse-View and Limited-Angle 4D CT Reconstruction"
+  year: 2021
+  venue: "IEEE Trans. Comput. Imaging"
+  topics: [sparse-view, dynamic]
+  paper: "https://doi.org/10.1109/TCI.2021.3074881"
+  note: "Multi-slice fusion uses multi-agent consensus equilibrium (MACE) to fuse multiple low-dimensional denoisers for 4D cone-beam CT of dynamic samples, implemented on a distributed heterogeneous cluster; the 2019 ICCP version shares the group-page title '4D X-Ray CT Reconstruction using Multi-Slice Fusion' and is not a separate entry."

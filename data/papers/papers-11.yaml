@@ -1,0 +1,9 @@
+# Batch: LLNL LEAP team sweep #8 (user-approved 2026-10-24, journal methods 1).
+- id: "dinr-time-space"
+  abbr: "DINR"
+  title: "Distributed Stochastic Optimization of a Neural Representation Network for Time-Space Tomography Reconstruction"
+  year: 2025
+  venue: "IEEE Trans. Comput. Imaging"
+  topics: [dynamic, inr]
+  paper: "https://doi.org/10.1109/TCI.2025.3547265"
+  note: "A distributed stochastic training algorithm trains a distributed implicit neural representation (DINR) network for 4D time-space CT, forward/backward propagating only a small set of consecutive 4D object coordinates per iteration across compute nodes and GPUs, greatly cutting memory and compute while achieving high-fidelity reconstruction."

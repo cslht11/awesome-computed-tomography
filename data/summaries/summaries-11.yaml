@@ -1,0 +1,3 @@
+# Batch: LLNL LEAP team sweep #8 (EN quick-read, verified against IEEE/arXiv/Semantic Scholar 2026-10-24).
+dinr-time-space: >-
+  Conventional backprojection assumes the object stays static across projections, producing artifacts and inaccurate morphology for dynamic events or deforming objects in in situ experiments. A novel distributed stochastic training algorithm trains a distributed implicit neural representation (DINR) network, forward and backward propagating only a small set of consecutive 4D object coordinates per iteration, greatly reducing memory and compute across nodes and GPUs while achieving high-fidelity reconstruction. Simulated parallel-beam and experimental cone-beam X-ray CT data both show superior performance.

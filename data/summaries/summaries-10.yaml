@@ -1,0 +1,6 @@
+# Batch: Purdue Bouman team sweep #7 (EN quick-reads, verified against Springer/IEEE/arXiv 2026-10-24).
+tmgan: >-
+  Deep networks can denoise and sharpen CT to lower dose, but direct use often yields clinically undesirable texture, while ordinary GANs improving texture may introduce inaccurate or hallucinated detail. TMGAN uses parallel generators to separate anatomy from generated texture so the generated texture can match a target texture, improving image quality while producing clinically more acceptable texture.
+
+multi-slice-fusion-4d: >-
+  Four-dimensional and higher inverse problems are increasingly important, but 4D reconstruction depends on prior-model quality while advanced denoisers such as BM4D and deep CNNs mostly target 2D or 3D images and do not extend directly to higher dimensions. Multi-slice fusion uses multi-agent consensus equilibrium (MACE) to fuse multiple low-dimensional denoisers for 4D cone-beam CT of dynamic samples on a distributed heterogeneous cluster, and simulated and real sparse-view, limited-angle data show significant quality gains over conventional reconstruction with easy implementation and training.
