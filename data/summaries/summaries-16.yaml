@@ -1,0 +1,6 @@
+# Batch: Antwerp Vision Lab team sweep #13 (EN quick-reads, verified against Springer/Semantic Scholar 2026-10-25).
+swinir-dual-domain-sparse-view: >-
+  The dual-domain framework DDSwinIR recovers high-quality CT images from severely undersampled data in three stages — sinogram upsampling, deep-learning reconstruction and residual refinement — emphasizing early data consistency and sparse-view stitching. Experiments show better generalization when trained on sparse data and tested on denser data than the reverse, and better artifact suppression and detail preservation than conventional methods.
+
+to-recurse-low-dose: >-
+  Sparse-view CT images are split into small patches and converted to sequential input, using recurrent neural networks to remove streak artifacts and comparing them with feedforward networks. At low noise both recover similarly, while at high noise the recurrent network's mean squared error is better; per patch the recurrent network is more compute-efficient, but overall the feedforward network is more efficient.

@@ -1,0 +1,17 @@
+# Batch: Antwerp Vision Lab team sweep #13 (user-approved 2026-10-24, journal methods 2).
+- id: "swinir-dual-domain-sparse-view"
+  abbr: "DDSwinIR"
+  title: "SwinIR-based Dual-Domain Reconstruction for Sparse-View Computed Tomography"
+  year: 2025
+  venue: "Journal of Nondestructive Evaluation"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1007/s10921-025-01244-3"
+  note: "Dual-domain framework DDSwinIR in three stages — sinogram upsampling, deep-learning reconstruction, residual refinement — recovering high-quality CT from severely undersampled data, with early data consistency and sparse-view stitching; generalizes better from sparse training to denser testing than the reverse, beating conventional methods on artifact suppression and detail preservation."
+
+- id: "to-recurse-low-dose"
+  title: "To recurse or not to recurse: a low-dose CT study"
+  year: 2021
+  venue: "Progress in Artificial Intelligence"
+  topics: [sparse-view, low-dose]
+  paper: "https://doi.org/10.1007/s13748-020-00224-0"
+  note: "Sparse-view CT images are split into patches and treated as sequential input for recurrent neural networks removing streak artifacts, compared against feedforward networks; similar recovery at low noise, lower mean squared error for recurrent networks at high noise, more compute-efficient per patch for recurrent but more efficient overall for feedforward."

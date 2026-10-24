@@ -1,0 +1,50 @@
+# Batch: KTH Oktem team sweep #14 (user-approved 2026-10-24, journal methods 6).
+- id: "deep-microlocal-limited-angle"
+  title: "Deep microlocal reconstruction for limited-angle tomography"
+  year: 2022
+  venue: "Appl. Comput. Harmon. Anal."
+  topics: [limited-angle]
+  paper: "https://doi.org/10.1016/j.acha.2021.12.007"
+  note: "Simultaneously solves tomographic reconstruction and wavefront-set extraction, from a digital wavefront-set extractor and the microlocal canonical relation of the Radon transform; the network must extract both the true wavefront set and the true image from X-ray data, with a digital microlocal canonical relation for deep convolutional residual networks as theoretical basis."
+
+- id: "dictionary-learning-tomographic"
+  title: "Deep Learning-Based Dictionary Learning and Tomographic Image Reconstruction"
+  year: 2022
+  venue: "SIAM J. Imaging Sci."
+  topics: [low-dose]
+  paper: "https://doi.org/10.1137/21M1445697"
+  note: "Combines clinical low-dose tomographic reconstruction with sparse signal processing and deep learning, describing dictionary-based sparse representation statistically and interpreting dictionary learning as aligning a generative model distribution with the empirical signal distribution; sparse coding with a learned dictionary resembles a specific variational autoencoder with linear decoder and sparse-coding encoder, and dictionary regularization reaches performance comparable to existing model-based and data-driven methods."
+
+- id: "photon-counting-learned-forward"
+  title: "Photon-Counting CT Reconstruction With a Learned Forward Operator"
+  year: 2022
+  venue: "IEEE Trans. Comput. Imaging"
+  topics: [spectral]
+  paper: "https://doi.org/10.1109/TCI.2022.3183405"
+  code: "https://github.com/emastr/learned_ct_reconstruction"
+  note: "A trained deep convolutional network models inter-detector crosstalk as a partially learned forward operator, with proven convergence in second-order optimization for spectral CT; on physics-based small-scale CT experiments it improves PSNR by 20 dB over ignoring crosstalk and roughly halves the full model's compute time, generalizing well to unseen data."
+
+- id: "helical-learned-primal-dual"
+  title: "3D Helical CT Reconstruction With a Memory Efficient Learned Primal-Dual Architecture"
+  year: 2024
+  venue: "IEEE Trans. Comput. Imaging"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/TCI.2024.3463485"
+  note: "Adapts the Learned Primal-Dual architecture to 3D helical CT by splitting the helical trajectory into segments and applying unrolled LPD iterations per segment, enabling training and testing on full-size low-dose clinical data on a single 24GB GPU — claimed as the first unrolled deep-learning architecture applied to such data."
+
+- id: "sparse-view-elongated-objects"
+  title: "Sparse view tomographic reconstruction of elongated objects using learned primal-dual networks"
+  year: 2025
+  venue: "Eng. Appl. Artif. Intell."
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1016/j.engappai.2025.112295"
+  note: "Learned iterative reconstruction with Learned Primal-Dual networks for sequential-scan geometry, accumulating information across adjacent slices rather than reconstructing each slice alone; with only five source positions, log reconstruction is accurate enough to identify knots, heartwood and sapwood, assessed by a knot-segmentation U-Net. Publisher title uses 'learned primal-dual networks' (KTH list abbreviated it to 'learned-dual')."
+
+- id: "sdf-self-supervised-denoiser"
+  abbr: "SDF"
+  title: "SDF: A self-supervised denoiser framework for X-Ray computed tomography"
+  year: 2025
+  venue: "Appl. Math. Mod. Chall."
+  topics: [sparse-view, low-dose, self-supervised]
+  paper: "https://doi.org/10.3934/ammc.2025012"
+  note: "Self-supervised training of learned image denoisers for X-ray CT: pretraining uses only observed data and fine-tuning needs few images, training the denoiser in sinogram space to predict one sinogram subset from another with no ground-truth images; beats other analytical and self-supervised frameworks in PSNR on 2D fan-beam and 3D cone-beam CT, with fine-tuning gains retained."
