@@ -202,6 +202,8 @@ ui:
   graphCardCounts: "{nodes} nodes \u00b7 {edges} relations"
   graphSectionLineages: "Curated lineages"
   graphLineageCounts: "{n} milestones \u00b7 {y0}\u2013{y1}"
+  treeHint: "Drag to pan \u00b7 scroll to zoom"
+  treeReset: "Reset view"
   graphBackboneTitle: "Team backbone"
   graphBackboneIntro: "The directory's skeleton: the research teams, the topics, and the toolkits and guides that tie them together \u2014 which team focuses on which topic, and which tools and guides belong where. Select any node to see its connections."
   graphBackboneDesc: "The knowledge graph's backbone: research teams, topics, toolkits and guides in this CT reconstruction directory, and how they connect."
