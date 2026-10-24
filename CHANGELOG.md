@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-24 — Language switcher stays on the page
+
+### Fixed
+
+- **The 中文/EN switcher now switches the page you are on.** The switcher links were built once per language from the language root, so from every subpage — graph pages and the lineage tree, changelog, topic pages, dataset and guide pages, the standalone pages — switching language landed on the other language's homepage instead of the same page in the other language. The switcher is now generated per page, aimed at the page's own hreflang twin, and the SEO checks assert the target on every page in the sitemap.
+
 ## 2026-10-23 — Curated lineages: the family tree on one canvas
 
 ### Changed
