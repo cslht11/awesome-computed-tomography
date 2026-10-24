@@ -206,11 +206,10 @@ ui:
   pageGraphTitle: "Knowledge Graph"
   pageGraphDesc: "How everything in this CT reconstruction directory connects, as small per-category graphs: a team backbone, dataset relations, and one graph per topic."
   # ---- graph page
-  graphIntro: "How everything in this directory connects, split into small graphs that each load on their own: the backbone of teams, topics and toolkits, the datasets and the papers that use them, and one graph per topic. Pick a category to explore it."
+  graphIntro: "How everything in this directory connects, split into small graphs that each load on their own: the backbone of teams, topics and toolkits, the datasets and the papers that use them, the curated lineage trees, and one graph per topic. Pick a category to explore it."
   graphSectionOverview: "Overview"
   graphSectionTopics: "By topic"
   graphCardCounts: "{nodes} nodes \u00b7 {edges} relations"
-  graphSectionLineages: "Curated lineages"
   graphLineageCounts: "{n} milestones \u00b7 {y0}\u2013{y1}"
   treeHint: "Drag to pan \u00b7 scroll to zoom"
   treeReset: "Reset view"

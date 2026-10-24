@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-24 — Graph index folds lineages into Overview
+
+### Changed
+
+- **The /graph/ index now has two sections instead of three.** The curated lineage trees used to sit under their own "Curated lineages" heading with a single card, which made the page look fragmented. They now live in the Overview row next to the team backbone and the datasets cards, in the same reading order; "By topic" stays its own section, since 17 topic cards would drown the three overview cards. The index intro now mentions the lineage trees too.
+
 ## 2026-10-24 — Chinese graph topic labels, and the test gate closes
 
 ### Fixed

@@ -182,11 +182,10 @@ ui:
   pageGraphTitle: "知识图谱"
   pageGraphDesc: "本 CT 重建目录中一切条目的连接方式，按分类拆成小图：团队骨架、数据集关系，以及每个主题一张图。"
   # ---- 图谱页
-  graphIntro: "本目录中一切条目的连接方式，拆成一组各自独立加载的小图：由团队、主题与工具包构成的骨架，数据集与使用它们的论文，以及每个主题一张图。选择一个分类即可探索。"
+  graphIntro: "本目录中一切条目的连接方式，拆成一组各自独立加载的小图：由团队、主题与工具包构成的骨架，数据集与使用它们的论文，手工策展的谱系树，以及每个主题一张图。选择一个分类即可探索。"
   graphSectionOverview: "总览"
   graphSectionTopics: "按主题"
   graphCardCounts: "{nodes} 个节点 · {edges} 条关系"
-  graphSectionLineages: "经典脉络"
   graphLineageCounts: "{n} 个里程碑 · {y0}–{y1}"
   treeHint: "拖拽平移 · 滚轮缩放"
   treeReset: "重置视图"

@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-24 — 图谱索引把谱系树并入总览
+<!-- en: Graph index folds lineages into Overview -->
+
+### 变更
+
+- **/graph/ 索引现在是两个小标题，不再是三个。**此前手工策展的谱系树单独占一个"经典脉络"标题、下面只有一张卡，页面显得零散。现在它并入总览，和团队骨架、数据集两张卡排在一行，顺序不变；"按主题"仍单独成节，因为 17 张主题卡会淹没 3 张总览卡。索引导语里也补上了谱系树。
+
 ## 2026-10-24 — 中文图谱主题名修复，测试门关上
 <!-- en: Chinese graph topic labels, and the test gate closes -->
 

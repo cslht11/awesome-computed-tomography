@@ -1161,9 +1161,10 @@ def _graph_card(href, title, desc, counts):
 
 def render_graph_index_body(payload, ov, code, slices, lineages=()):
     """The <main> of /graph/: an index of the per-category small
-    graphs — two overview cards, one card per topic — over the static
-    team -> works list the page has always carried (it is also the
-    no-JS content of the index; there is no canvas here any more)."""
+    graphs — overview cards (backbone, datasets, lineage trees), one
+    card per topic — over the static team -> works list the page has
+    always carried (it is also the no-JS content of the index; there
+    is no canvas here any more)."""
     def counts_of(name):
         sl = slices[name]
         return ov.ui("graphCardCounts", "{nodes} nodes \u00b7 {edges} relations") \
@@ -1171,6 +1172,12 @@ def render_graph_index_body(payload, ov, code, slices, lineages=()):
             .replace("{edges}", str(len(sl["edges"])))
 
     by_id = dict((p["id"], p) for p in payload["papers"])
+    # One overview section: the library-wide views (backbone, datasets)
+    # plus the curated lineage trees. Lineages used to sit under their
+    # own heading, which left a single-card section and made the index
+    # look fragmented; they are index cards like the others, so they
+    # live in the same row now. Topics stay a section of their own:
+    # 17 cards would drown the three overview cards.
     bits = ['<h1>%s</h1>' % esc(ov.ui("pageGraphTitle", "Knowledge Graph")),
             '<p class="lede">%s</p>' % esc(ov.ui("graphIntro", "")),
             '<h2>%s</h2>' % esc(ov.ui("graphSectionOverview", "Overview")),
@@ -1179,25 +1186,21 @@ def render_graph_index_body(payload, ov, code, slices, lineages=()):
                         ov.ui("graphBackboneDesc", ""), counts_of("backbone")),
             _graph_card("datasets/",
                         ov.ui("graphDatasetsTitle", "Datasets & the papers that use them"),
-                        ov.ui("graphDatasetsDesc", ""), counts_of("datasets")),
-            '</div>']
-    if lineages:
-        bits += ['<h2>%s</h2>' % esc(ov.ui("graphSectionLineages", "Curated lineages")),
-                 '<div class="graph-cards">']
-        for lin in lineages:
-            # Milestones are the paper nodes; group boxes are structure.
-            pnodes = [n for n in lin["nodes"] if n.get("paper") in by_id]
-            years = [by_id[n["paper"]]["year"] for n in pnodes]
-            counts = ov.ui("graphLineageCounts",
-                           "{n} milestones \u00b7 {y0}\u2013{y1}") \
-                .replace("{n}", str(len(pnodes))) \
-                .replace("{y0}", str(min(years))) \
-                .replace("{y1}", str(max(years)))
-            bits.append(_graph_card("lineage/%s/" % lin["id"],
-                                    lin_text(lin["title"], code),
-                                    lin_text(lin["description"], code),
-                                    counts))
-        bits.append('</div>')
+                        ov.ui("graphDatasetsDesc", ""), counts_of("datasets"))]
+    for lin in lineages:
+        # Milestones are the paper nodes; group boxes are structure.
+        pnodes = [n for n in lin["nodes"] if n.get("paper") in by_id]
+        years = [by_id[n["paper"]]["year"] for n in pnodes]
+        counts = ov.ui("graphLineageCounts",
+                       "{n} milestones \u00b7 {y0}\u2013{y1}") \
+            .replace("{n}", str(len(pnodes))) \
+            .replace("{y0}", str(min(years))) \
+            .replace("{y1}", str(max(years)))
+        bits.append(_graph_card("lineage/%s/" % lin["id"],
+                                lin_text(lin["title"], code),
+                                lin_text(lin["description"], code),
+                                counts))
+    bits.append('</div>')
     bits += ['<h2>%s</h2>' % esc(ov.ui("graphSectionTopics", "By topic")),
              '<div class="graph-cards">']
     for t in payload["topics"]:
