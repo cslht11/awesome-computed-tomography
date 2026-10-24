@@ -47,6 +47,7 @@ Two failure modes are treated very differently on purpose:
   See :func:`check`.
 """
 
+import html
 import io
 import os
 import re
@@ -246,6 +247,21 @@ def default_language(langs):
 def url_for(base, entry):
     """``https://x.org/`` + ``zh/`` -> ``https://x.org/zh/``."""
     return base + (entry.get("path") or "")
+
+
+def switch_links(base, langs, code, rel):
+    """Visible language-switcher anchors for the page at ``rel`` — the path
+    below the language root ("" for the homepage itself). Every link points
+    at the SAME page in the other language: building the switcher once per
+    language from the root alone would drop the reader on the other
+    language's homepage from every subpage."""
+    return "".join(
+        '<a href="%s" hreflang="%s" lang="%s">%s</a>'
+        % (html.escape(url_for(base, e) + rel, quote=True),
+           html.escape(e["hreflang"], quote=True),
+           html.escape(e["html"], quote=True),
+           html.escape(e["label"], quote=True))
+        for e in langs if e["code"] != code)
 
 
 # ------------------------------------------------------------------ checking
