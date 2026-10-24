@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-24 — 语言切换停留在当前页
+<!-- en: Language switcher stays on the page -->
+
+### 修复
+
+- **中文/EN 切换现在切的是你正在看的这一页。**此前切换链接是按语言从语言根目录统一生成的，所以在任何子页面——图谱页与谱系树、更新日志、主题页、数据集与指南页、独立页面——点切换都会落到另一种语言的首页，而不是当前页的对应语言版本。现在切换链接按页生成，指向该页自身的 hreflang 对应页，SEO 检查也会对 sitemap 中的每一页断言这个目标。
+
 ## 2026-10-23 — 经典脉络：一张画布上的谱系树
 <!-- en: Curated lineages: the family tree on one canvas -->
 
