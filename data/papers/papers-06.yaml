@@ -1,0 +1,52 @@
+# Batch: JHU I-STAR team sweep #3 (user-approved 2026-10-24, journal methods 6).
+- id: "dps-nonlinear-measurement-model"
+  abbr: "DPS"
+  title: "CT reconstruction using diffusion posterior sampling conditioned on a nonlinear measurement model"
+  year: 2024
+  venue: "J. Med. Imaging"
+  topics: [other]
+  paper: "https://doi.org/10.1117/1.JMI.11.4.043504"
+  note: "Unconditional diffusion prior score combined with a nonlinear physical measurement model's likelihood score for posterior sampling, with no retraining for new systems; beats conventional reconstruction and the linear-model version in simulation."
+
+- id: "spectral-dps"
+  abbr: "Spectral DPS"
+  title: "Multi-Material Decomposition Using Spectral Diffusion Posterior Sampling"
+  year: 2025
+  venue: "TBME"
+  topics: [spectral]
+  paper: "https://doi.org/10.1109/TBME.2025.3543747"
+  note: "One unsupervised diffusion prior combined with any analytic physical system model, plus jumpstart sampling, Jacobian approximation and multi-step likelihood updates, for one-step reconstruction and multi-material decomposition; mean density error below 1% in uniform regions."
+
+- id: "mixed-prior-implants"
+  title: "Joint CT reconstruction of anatomy and implants using a mixed prior model"
+  year: 2025
+  venue: "J. Med. Imaging"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1117/1.JMI.12.5.053502"
+  note: "Learned prior for anatomy plus sparse prior for implants, with a mixed monoenergetic-polyenergetic forward model and multi-resolution implant model, alternating diffusion posterior sampling with classical optimization; beats frequency-split MAR and model-based reconstruction on stent and pedicle-screw simulations."
+
+- id: "blur-noise-restoration"
+  title: "Deep learning CT image restoration using system blur and noise models"
+  year: 2025
+  venue: "J. Med. Imaging"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1117/1.JMI.12.1.014003"
+  note: "System blur and noise characterizations enter as auxiliary inputs alongside the degraded image, with input-variable and weight-variable fusion compared; auxiliary inputs beat the no-auxiliary baseline on PSNR and SSIM and stay robust when blur/noise parameters deviate from truth."
+
+- id: "dl-vif-motion"
+  abbr: "DL-VIF"
+  title: "Reference-Free Learning-Based Similarity Metric for Motion Compensation in Cone-Beam CT"
+  year: 2022
+  venue: "PMB"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1088/1361-6560/ac749a"
+  note: "DL-VIF is a reference-free similarity metric learned by a CNN from motion-artifact features in real anatomy, embedded in an autofocus motion-compensation framework; it beats gradient entropy on post-compensation SSIM gain and variance in simulation and cadaver studies."
+
+- id: "dl-recon-brain-cbct"
+  abbr: "DL-Recon"
+  title: "Combining Physics-Based Models with Deep Learning Image Synthesis and Uncertainty in Intraoperative Cone-Beam CT of the Brain"
+  year: 2023
+  venue: "Med Phys"
+  topics: [cbct]
+  paper: "https://doi.org/10.1002/mp.16351"
+  note: "DL-Recon combines physics models with uncertainty-modulated conditional GAN synthesis of diagnostic CT from CBCT, estimates epistemic uncertainty by Monte Carlo dropout, and fuses synthesis with FBP weighted by spatial uncertainty; SSIM up 32% and lesion Dice up 25% in 20 head pairs plus 7 intraoperative neurosurgery pilots."

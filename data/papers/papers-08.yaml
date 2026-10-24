@@ -1,0 +1,199 @@
+# Batch: Mayo team sweep #5 (user-approved 2026-10-24, journal methods 23).
+- id: "model-based-motion-simulation-dynamic-wrist"
+  title: "Model-based motion simulation framework for deep learning-assisted motion correction in dynamic wrist CT"
+  year: 2026
+  venue: "PMB"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1088/1361-6560/aea684"
+  note: "Simulates synchronized carpal/soft-tissue motion with elastic deformation to generate paired static ground truth for 4D wrist CT; a physics-informed model trained only on simulation reduces motion artifacts in simulated, cadaver and in vivo data."
+
+- id: "hr-cnn-pcd-spatial-resolution"
+  abbr: "HR-CNN"
+  title: "Pushing the limits of spatial resolution in clinical PCD-CT using a dedicated high-resolution convolutional neural network (HR-CNN)"
+  year: 2026
+  venue: "Med Phys"
+  topics: [spectral]
+  paper: "https://doi.org/10.1002/mp.70382"
+  note: "Small field of view, sharp kernel and a dedicated HR-CNN denoiser reach 20-22 lp/cm phantom line-pair resolution on clinical PCD-CT, preferred by two chest radiologists on ILD cases."
+
+- id: "ct-harmonization-learned-vmi"
+  abbr: "TANZANITE"
+  title: "CT data harmonization via learned virtual monoenergetic imaging for cross-kV scan translation and radiomics reproducibility"
+  year: 2026
+  venue: "Med Phys"
+  topics: [spectral]
+  paper: "https://doi.org/10.1002/mp.70403"
+  note: "TANZANITE harmonizes scans across tube voltages in the virtual monoenergetic domain with multiple pretrained CNNs, improving CT-number consistency and organ-specific radiomics reproducibility without raw projections or scanner-specific training."
+
+- id: "diamond-monoenergetic-coronary"
+  abbr: "DIAMOND"
+  title: "Deep Learning-based Monoenergetic Imaging for Calcified Coronary Stenosis Assessment at Energy-integrating Detector CT"
+  year: 2026
+  venue: "Radiol. Cardiothorac. Imaging"
+  topics: [spectral]
+  paper: "https://doi.org/10.1148/ryct.250230"
+  note: "DIAMOND generates virtual monoenergetic images directly from energy-integrating detector CT, trained on ultra-high-resolution photon-counting CT VMIs, reducing blooming and bringing stenosis quantification closer to photon-counting CT."
+
+- id: "voi-helical-ct"
+  abbr: "VOI-Net"
+  title: "Deep learning-based volume of interest imaging in helical CT for image quality improvement and radiation dose reduction"
+  year: 2025
+  venue: "Br. J. Radiol."
+  topics: [other]
+  paper: "https://doi.org/10.1093/bjr/tqaf128"
+  note: "Concentrated exposure on the volume of interest plus a residual U-Net (VOI-Net) correcting truncation artifacts cuts dose by 71% within a 10 cm VOI without sacrificing in-VOI image quality."
+
+- id: "ilumenate-eid-cta"
+  abbr: "ILUMENATE"
+  title: "Learned high resolution energy-integrating detector CT angiography: Harnessing the power of ultra-high-resolution photon counting detector CT"
+  year: 2025
+  venue: "Med Phys"
+  topics: [spectral]
+  paper: "https://doi.org/10.1002/mp.17874"
+  note: "ILUMENATE CNN trained on ultra-high-resolution photon-counting CT data enhances energy-integrating detector CTA resolution, reduces calcium blooming and improves stenosis assessment."
+
+- id: "palette-low-dose-synthesis"
+  abbr: "PALETTE"
+  title: "Physics-informed model-based generative neural network for synthesizing scanner- and algorithm-specific low-dose CT exams"
+  year: 2025
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.17680"
+  note: "PALETTE combines physics-based noise prior generation, a Noise2Noisier subnetwork and a noise-texture synthesis subnetwork to synthesize scanner- and algorithm-specific low-dose CT exams as an image-domain alternative to projection-domain methods."
+
+- id: "uhr-pcd-temporal-bone-denoising"
+  title: "Ultra-High-Resolution Photon-Counting-Detector CT with a Dedicated Denoising Convolutional Neural Network for Enhanced Temporal Bone Imaging"
+  year: 2025
+  venue: "AJNR"
+  topics: [low-dose]
+  paper: "https://doi.org/10.3174/ajnr.A8572"
+  note: "A dedicated denoising CNN lets the sharpest reconstruction kernel keep its resolution on ultra-high-resolution photon-counting CT, cutting noise by 80% versus Hr96-QIR3 and ranking top for temporal-bone anatomy display."
+
+- id: "noise-texture-training-curation"
+  title: "Preserving noise texture through training data curation for deep learning denoising of high-resolution cardiac EID-CT"
+  year: 2025
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.17938"
+  note: "Comparing pure-noise estimates for U-Net training (high-low iterative-strength subtraction versus adjacent-slice subtraction), adjacent-slice subtraction best approximates the noise power spectrum while all models denoise high-resolution cardiac EID-CT by 74-79%."
+
+- id: "pkaid-net"
+  abbr: "PKAID-Net"
+  title: "Improved noise reduction in photon-counting detector CT using prior knowledge-aware iterative denoising neural network"
+  year: 2024
+  venue: "J. Med. Imaging"
+  topics: [spectral]
+  paper: "https://doi.org/10.1117/1.JMI.11.S1.S12804"
+  note: "PKAID-Net iteratively exploits energy-specific noise properties of virtual monoenergetic images with a low-noise VMI prior, cutting noise by 96% versus FBP and 65% versus iterative reconstruction while preserving spatial and spectral fidelity."
+
+- id: "zircon-multi-kernel-head-ct"
+  abbr: "ZIRCON"
+  title: "Multiple Kernel Synthesis of Head CT Using a Task-Based Loss Function"
+  year: 2024
+  venue: "J. Imaging Inform. Med."
+  topics: [low-dose]
+  paper: "https://doi.org/10.1007/s10278-023-00959-x"
+  note: "ZIRCON autoencoding U-Net takes smooth- and sharp-kernel low-dose head CT and, with a task loss optimized separately for brain and bone regions, outputs a single thin-slice low-noise series balancing soft-tissue contrast and bone sharpness."
+
+- id: "atom-cardiac-motion-correction"
+  abbr: "ATOM"
+  title: "Motion artifact correction in cardiac CT using cross-phase temporospatial information and synergistic attention gate and spatial transformer sub-networks"
+  year: 2024
+  venue: "PMB"
+  topics: [dynamic]
+  paper: "https://doi.org/10.1088/1361-6560/ad1b6a"
+  note: "ATOM combines attention gates with spatial transformer subnetworks and cross-phase temporospatial information to correct coronary CTA motion artifacts at 140 ms and 75 ms temporal resolution, confirmed by metrics and blinded reader scores."
+
+- id: "st-cnn-self-trained-denoising"
+  abbr: "ST_CNN"
+  title: "Self-trained deep convolutional neural network for noise reduction in CT"
+  year: 2023
+  venue: "J. Med. Imaging"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1117/1.JMI.10.4.044008"
+  note: "ST_CNN trains only on the patient's own projection data via repeated independent noise insertions and rotation augmentation, matching conventional supervised CNN image quality without any pre-existing training set."
+
+- id: "pie-net"
+  abbr: "Pie-Net"
+  title: "Pie-Net: Prior-information-enabled deep learning noise reduction for coronary CT angiography acquired with a photon counting detector CT"
+  year: 2023
+  venue: "Med Phys"
+  topics: [spectral]
+  paper: "https://doi.org/10.1002/mp.16411"
+  note: "Pie-Net uses a low-noise virtual monoenergetic image as prior to denoise high-resolution coronary photon-counting CTA VMIs, cutting noise by 95% versus FBP and 60% versus iterative reconstruction in 10 patients while preserving spatial and spectral properties."
+
+- id: "multislice-residual-cnn-denoising"
+  title: "Multislice input for 2D and 3D residual convolutional neural network noise reduction in CT"
+  year: 2023
+  venue: "J. Med. Imaging"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1117/1.JMI.10.1.014003"
+  note: "Comparing 2D and 3D residual CNNs with 1, 3 and 7 slice inputs, 2D models improve steadily with more input slices, making multislice input an effective strategy for 2D deep denoising."
+
+- id: "phantom-training-framework-denoising"
+  title: "Technical note: Phantom-based training framework for convolutional neural network CT noise reduction"
+  year: 2023
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.16093"
+  note: "Phantom scans supply pure-noise images that are superimposed on patient images to synthesize low-dose training data, achieving strong noise reduction on quarter-dose whole-body CT while preserving structure, without needing raw projections."
+
+- id: "agate-virtual-noncalcium"
+  abbr: "AGATE"
+  title: "Deep learning-based virtual noncalcium imaging in multiple myeloma using dual-energy CT"
+  year: 2022
+  venue: "Med Phys"
+  topics: [spectral]
+  paper: "https://doi.org/10.1002/mp.15934"
+  note: "AGATE dual-task CNN jointly quantifies material and denoises for virtual noncalcium imaging in multiple myeloma, keeping material quantification consistent across phantom sizes and doses while reducing noise and artifacts and improving focal lesion visualization."
+
+- id: "dedicated-cnn-uhr-pcd-denoising"
+  title: "Dedicated convolutional neural network for noise reduction in ultra-high-resolution photon-counting detector computed tomography"
+  year: 2022
+  venue: "PMB"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1088/1361-6560/ac8866"
+  note: "An image-domain U-Net trained with image-based noise insertion and spatially decoupled noise/signal strategies denoises ultra-high-resolution photon-counting CT from reconstructed images only, improving lesion and vessel visualization across 39 subjects."
+
+- id: "ufp-net-ultra-fast-pitch"
+  abbr: "UFP-Net"
+  title: "Deep learning enabled ultra-fast-pitch acquisition in clinical X-ray computed tomography"
+  year: 2021
+  venue: "Med Phys"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1002/mp.15176"
+  note: "UFP-Net recovers underlying anatomy from artifact images at pitch 2 and 3, substantially improving quality over standard FBP and enabling ultra-fast clinical CT acquisition without sacrificing image quality."
+
+- id: "incept-net-virtual-monoenergetic"
+  abbr: "Incept-net"
+  title: "Deep-learning-based direct synthesis of low-energy virtual monoenergetic images with multi-energy CT"
+  year: 2021
+  venue: "J. Med. Imaging"
+  topics: [spectral]
+  paper: "https://doi.org/10.1117/1.JMI.8.5.052104"
+  note: "Incept-net encoder-decoder with custom Inception modules directly synthesizes low-energy virtual monoenergetic images from multi-energy CT, cutting phantom noise by about 53% and strongly suppressing beam-hardening artifacts with better low-density insert CT accuracy than commercial VMI software."
+
+- id: "incept-net-direct-inversion"
+  abbr: "Incept-net"
+  title: "Deep-learning-based direct inversion for material decomposition"
+  year: 2020
+  venue: "Med Phys"
+  topics: [spectral]
+  paper: "https://doi.org/10.1002/mp.14523"
+  note: "Incept-net directly estimates basis-material mass density from multi-energy CT with a multi-branch multiscale encoder-decoder and image-gradient regularization, beating U-Net and conventional least-squares and total-variation decomposition on appearance, accuracy and noise."
+
+- id: "multi-kernel-synthesis-dcnn"
+  title: "Synthesizing images from multiple kernels using a deep convolutional neural network"
+  year: 2020
+  venue: "Med Phys"
+  topics: [other]
+  paper: "https://doi.org/10.1002/mp.13918"
+  note: "A deep CNN fuses smooth- and sharp-kernel images into a single output with slightly lower noise than the smooth-kernel image while retaining sharp-kernel features, reducing multi-series reconstruction, storage and reading burden."
+
+- id: "cnn-mar-uhr-pcd-ear"
+  title: "Convolutional neural network metal artifact reduction in ultra-high resolution photon counting detector CT of middle- and inner-ear implants"
+  year: 2026
+  venue: "Med Phys"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1002/mp.70711"
+  note: "An image-domain CNN trained on titanium and platinum stapes prosthesis phantom scans reduces metal artifacts near middle- and inner-ear implants, with a trade-off between artifact reduction and detail preservation under MSE training versus task-specific hyperparameters."

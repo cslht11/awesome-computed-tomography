@@ -1,0 +1,35 @@
+# Batch: Fessler team sweep #4 (user-approved 2026-10-24, journal/conference methods 4).
+- id: "dect-multra"
+  abbr: "DECT-MULTRA"
+  title: "DECT-MULTRA: Dual-Energy CT Image Decomposition With Learned Mixed Material Models and Efficient Clustering"
+  year: 2020
+  venue: "TMI"
+  topics: [spectral]
+  paper: "https://doi.org/10.1109/TMI.2019.2946177"
+  note: "PWLS estimation with a mixed material model (MULTRA) regularizer pre-learning within- and cross-material sparsifying transforms; image update alternates with sparse coding and clustering, both in closed form."
+
+- id: "bcd-net"
+  abbr: "BCD-Net"
+  title: "BCD-Net for Low-Dose CT Reconstruction: Acceleration, Convergence, and Generalization"
+  year: 2019
+  venue: "MICCAI"
+  topics: [low-dose, unrolling]
+  paper: "https://doi.org/10.1007/978-3-030-32226-7_4"
+  note: "Iterative regression network combining a denoising CNN with MBIR modules, with convergence properties and a faster MBIR solver; generalizes far beyond non-iterative FBPConvNet on clinical data."
+
+- id: "pwls-ultra"
+  abbr: "PWLS-ULTRA"
+  title: "PWLS-ULTRA: An Efficient Clustering and Learning-Based Approach for Low-Dose 3D CT Image Reconstruction"
+  year: 2018
+  venue: "TMI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/TMI.2018.2832007"
+  note: "PWLS with a union of pre-learned transforms (ULTRA) regularizer, alternating reconstruction with sparse coding and clustering, accelerated by relaxed linearized augmented Lagrangian and ordered subsets."
+
+- id: "dl-denoising-generalizability"
+  title: "Performance of a deep learning-based CT image denoising method: Generalizability over dose, reconstruction kernel, and slice thickness"
+  year: 2022
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.15430"
+  note: "Evaluation study: REDCNN denoising generalizes poorly across reconstruction kernels, is more robust to any dose when trained on mixed doses, and is not highly sensitive to slice thickness."

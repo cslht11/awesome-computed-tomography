@@ -1,0 +1,12 @@
+# Batch: Fessler team sweep #4 (EN quick-reads, verified against IEEE/Springer/PubMed/Semantic Scholar 2026-10-24).
+dect-multra: >-
+  DECT-MULTRA combines penalized weighted least squares estimation with a mixed material model regularizer (MULTRA) that pre-learns within- and cross-material sparsifying transforms for dual-energy CT material decomposition. Image update alternates with sparse coding and clustering, both in closed form, and validation on XCAT and clinical head data shows better material image quality and decomposition accuracy than compared methods.
+
+bcd-net: >-
+  BCD-Net is an iterative regression network combining a denoising CNN with model-based iterative reconstruction (MBIR) modules, here improved with convergence properties and a faster numerical solver for the MBIR block. Phantom experiments show faster and more accurate reconstruction than learned-transform MBIR and ADMM-Net, and clinical data show generalization far beyond the non-iterative FBPConvNet that lacks the MBIR block.
+
+pwls-ultra: >-
+  PWLS-ULTRA adds a union of pre-learned transforms (ULTRA) as regularization to penalized weighted least squares for low-dose CT, alternating image reconstruction with sparse coding and clustering and accelerating the reconstruction step with relaxed linearized augmented Lagrangian and ordered subsets. On 2D/3D XCAT and 3D helical chest-abdomen simulations it substantially improves quality at routine and low dose, beating non-adaptive edge-preserving PWLS and single-transform learning, and matching or beating overcomplete dictionary learning at much lower compute.
+
+dl-denoising-generalizability: >-
+  Using a residual encoder-decoder CNN (REDCNN) as example, this study tests how low-dose CT denoising generalizes across dose, reconstruction kernel and slice thickness, varying one parameter at a time and evaluating on patient, simulated and physical phantom data with MSE, MTF, noise power spectrum and low-contrast detectability. REDCNN generalizes poorly across kernels, is more robust to any dose when trained on mixed doses, and is not highly sensitive to slice thickness — suggesting generalization tracks how similar the test noise power spectrum is to training.

@@ -1,0 +1,15 @@
+# Batch: UWisc Chen team sweep #6 (EN quick-reads, verified against PubMed/PMC/IEEE/Semantic Scholar 2026-10-24; Wiley page for Deep-Interior was Cloudflare-blocked, cross-confirmed via PubMed + PMC).
+deep-interior: >-
+  Deep-Interior first transforms fan-beam projection data of an ROI at any location and size into an intermediate feature space via analytic weighted backprojection, then a supervised network deconvolves it to the true image. Numerical and experimental data show accurate reconstruction even for a 5 cm ROI, and any-size ROIs can be obtained by stitching small ROIs, enabling high-quantitative-accuracy interior tomography under divergent fan-beam short and super-short scans.
+
+deep-en-chroma-material-basis: >-
+  Single-kV CT does not directly provide material basis images; Deep-En-Chroma estimates water and iodine basis images from single-kV data with a physics-constrained deep network, while Deep-QC checks the estimates against the measured polychromatic sinogram and produces per-pixel error maps. Versus dual-energy CT, mean iodine difference is -0.25 mg/mL and water difference 0.0 g/mL, with median test-set RMSE of 14 and 0.73 mg/mL for water and iodine, showing clinically relevant basis images without dual-energy acquisition.
+
+scoutct-net: >-
+  Two-view scout images only support approximate uniform-attenuation patient models, insufficient for in-field or organ-specific dose modulation; ScoutCT-NET generates a 3D tomographic attenuation model end-to-end from two orthogonal scout views. Trained on 4214 retrospective cases and tested on 212, 95.0% of voxels pass a 5 mm/10% gamma criterion, and flux-field modulation and organ-specific plans based on the model are highly accurate, enabling precise pre-scan dose-modulation planning.
+
+high-pitch-helical-ct: >-
+  Multi-detector CT pitch is usually capped below 1.5 to avoid severe limited-view artifacts, leaving open whether pitch above 1.5 can yield clinically usable helical CT images. Synergistically combining conventional helical filtered backprojection, compressed sensing and deep learning, this study achieves accurate, largely artifact-free reconstruction for single-source multi-detector scans up to pitch 4.
+
+3d-dla: >-
+  3D-DLA generates three-dimensional cerebral angiography from a single contrast-enhanced C-arm cone-beam CT acquisition to reduce artifacts and radiation dose, using a deep CNN trained on 105 3D rotational angiography cases with over 150 million labeled voxels classifying each voxel as vessel, bone or soft tissue. Vessel classification accuracy is 98.7% on the test set with no residual bone signal except small ear-capsule and nasal-cavity structures, showing mask-free reconstruction accurately reproduces vascular anatomy and reduces misregistration artifacts.

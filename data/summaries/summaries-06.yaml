@@ -1,0 +1,18 @@
+# Batch: JHU I-STAR team sweep #3 (EN quick-reads, verified against Semantic Scholar/IEEE/IOP 2026-10-24; Wiley page for DL-Recon was Cloudflare-blocked, S2 record used. Year rule: formal volume year — Spectral DPS 2025 not 2024; DPS-nonlinear 2024 vol 11(4); blur-noise 2025 vol 12(1)).
+dps-nonlinear-measurement-model: >-
+  Diffusion posterior sampling combines an unconditional diffusion model's learned prior score with a likelihood score derived from a nonlinear physical measurement model, yielding a posterior score for reverse-diffusion sampling without retraining for new systems. Simulations show nonlinear diffusion posterior sampling beats conventional reconstruction and the linear-model version and delivers high-quality images across acquisition protocols.
+
+spectral-dps: >-
+  Spectral DPS combines a once-trained unsupervised diffusion prior with any analytic physical system model, adding jumpstart sampling, Jacobian approximation and multi-step likelihood updates for one-step reconstruction and multi-material decomposition. Simulated dual-layer and kV-switching systems and physical cone-beam CT phantom experiments show lower sampling variability and compute cost than baseline DPS, mean density error below 1% in uniform regions, and better accuracy and robustness than conditional denoising diffusion models.
+
+mixed-prior-implants: >-
+  Dense implants cause beam-hardening and partial-volume artifacts; this method uses a learned prior for anatomy and a sparse prior for implants, together with a mixed monoenergetic-polyenergetic forward model and a multi-resolution implant model, alternating diffusion posterior sampling with classical optimization. Cardiac stent and pedicle-screw simulations show clear implant structure and suppressed streak artifacts in anatomy, with SSIM and PSNR beating frequency-split metal artifact reduction and model-based reconstruction.
+
+blur-noise-restoration: >-
+  Blind CT image restoration is hard because noise and blur properties are unknown from the degraded image alone; this method feeds system blur and noise characterizations as auxiliary inputs alongside the degraded image, comparing input-variable and weight-variable fusion. Auxiliary inputs beat the no-auxiliary baseline on PSNR and SSIM and remain somewhat robust when blur and noise parameters deviate from truth.
+
+dl-vif-motion: >-
+  DL-VIF is a reference-free similarity metric learned by a CNN from motion-artifact-related features in real anatomy, serving as a no-reference replacement for visual image fidelity inside an autofocus motion-compensation framework. Simulation and cadaver studies show the 2-ResBlock architecture better reflects motion severity and extrapolates to unseen data while 3-ResBlock overfits less, and DL-VIF beats gradient entropy on post-compensation SSIM gain and variance, improving quality even on severely motion-degraded images.
+
+dl-recon-brain-cbct: >-
+  DL-Recon combines physics-based models with deep learning CBCT-to-diagnostic-CT synthesis using an uncertainty-modulated conditional GAN, estimates epistemic uncertainty by Monte Carlo dropout, and fuses synthesis with FBP weighted by spatial uncertainty. Training and validation on 20 real and simulated head CBCT pairs plus 7 intraoperative neurosurgery pilots show reduced synthesis error while preserving quality gains, with SSIM up to 32% higher and lesion-segmentation Dice up to 25% higher.

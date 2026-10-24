@@ -1,0 +1,69 @@
+# Batch: Mayo team sweep #5 (EN quick-reads, verified against publisher/PubMed/Semantic Scholar 2026-10-24).
+model-based-motion-simulation-dynamic-wrist: >-
+  A model-based motion simulation framework addresses scarce 4D wrist CT training data by simulating synchronized carpal and soft-tissue motion with elastic deformation to generate paired static ground truth. A physics-informed deep learning model trained only on simulation effectively reduces motion artifacts in simulated, cadaver and in vivo 4DCT, with significantly improved bone-region LIRS and SSIM.
+
+hr-cnn-pcd-spatial-resolution: >-
+  Clinical PCD-CT visual resolution is limited by large pixels and noise; combining a small field of view, a sharp kernel and a dedicated high-resolution CNN (HR-CNN) for denoising reaches 20-22 lp/cm phantom line-pair resolution. In five interstitial lung disease patients, HR-CNN images were unanimously preferred by two chest radiologists for overall quality, noise, spatial resolution and general preference.
+
+ct-harmonization-learned-vmi: >-
+  TANZANITE harmonizes CT scans across tube voltages in the virtual monoenergetic domain, using multiple pretrained CNNs to learn keV-to-keV conversion so scans at different kV become comparable. CT-number consistency and organ-specific radiomics reproducibility improve without raw projection data or scanner-specific training.
+
+diamond-monoenergetic-coronary: >-
+  DIAMOND generates virtual monoenergetic images at multiple energies directly from energy-integrating detector CT, trained on ultra-high-resolution photon-counting CT VMIs, to reduce blooming from heavily calcified plaques. It significantly reduces blooming and brings stenosis quantification closer to photon-counting CT, aiding calcified coronary stenosis assessment.
+
+voi-helical-ct: >-
+  Volume-of-interest imaging for multi-row helical CT concentrates exposure on the VOI and corrects truncation artifacts with a residual U-Net (VOI-Net). Within a 10 cm VOI, radiation dose drops by 71% without sacrificing in-VOI image quality, and radiologists confirm improved lesion depiction in chest and abdominopelvic simulations.
+
+ilumenate-eid-cta: >-
+  ILUMENATE is a CNN trained on ultra-high-resolution photon-counting CT data and applied to energy-integrating detector CTA, lifting the spatial-resolution limits of EID-CT for coronary angiography. Image resolution improves markedly, calcium blooming lessens, and overall image quality and stenosis assessment improve.
+
+palette-low-dose-synthesis: >-
+  PALETTE synthesizes scanner- and algorithm-specific low-dose CT exams by combining physics-based noise prior generation, a Noise2Noisier subnetwork and a noise-texture synthesis subnetwork. Its noise power spectrum peak frequency matches the reference and it produces anatomically realistic local and global noise textures, serving as an image-domain alternative to projection-domain methods.
+
+uhr-pcd-temporal-bone-denoising: >-
+  A dedicated denoising CNN lets the sharpest reconstruction kernel keep its resolution on ultra-high-resolution photon-counting CT for temporal bone imaging. Noise drops by 80% versus Hr96-QIR3 and 50% versus Hr84-QIR3, with top rankings for key temporal-bone anatomy display and overall image quality.
+
+noise-texture-training-curation: >-
+  Training a U-Net for high-resolution cardiac EID-CT denoising depends on unbiased pure-noise estimates; this study compares high-low iterative-strength subtraction versus adjacent-slice subtraction for estimating pure-noise images. All models denoise by 74-79%, while adjacent-slice subtraction better approximates the noise power spectrum, showing training-data curation matters for preserving noise texture and anatomical accuracy.
+
+pkaid-net: >-
+  PKAID-Net iteratively exploits energy-specific noise properties of virtual monoenergetic images with a low-noise VMI prior to denoise high-resolution photon-counting CT VMIs. Noise falls by 96% versus FBP and 65% versus iterative reconstruction while spatial and spectral fidelity are preserved.
+
+zircon-multi-kernel-head-ct: >-
+  ZIRCON takes smooth- and sharp-kernel low-dose head CT into an autoencoding U-Net and, with a task loss optimized separately for brain and bone regions, outputs a single thin-slice low-noise series. Thinner slices and the smooth-kernel loss improve gray-white matter contrast while balancing soft-tissue contrast and bone sharpness.
+
+atom-cardiac-motion-correction: >-
+  ATOM combines attention gates with spatial transformer subnetworks and cross-phase temporospatial information to correct coronary CTA motion artifacts at 140 ms and 75 ms temporal resolution. Objective metrics and blinded radiologist scores both show improved image quality, indicating good generalization.
+
+st-cnn-self-trained-denoising: >-
+  ST_CNN trains only on the patient's own projection data, generating paired training data through repeated independent noise insertions and rotation augmentation, without any pre-existing training set. Its image quality shows no significant difference from a conventional supervised CNN, showing comparable CT denoising is possible without external training data.
+
+pie-net: >-
+  Pie-Net uses a low-noise virtual monoenergetic image as prior information to denoise high-resolution coronary photon-counting CTA VMIs. In 10 patients, noise drops by 95% versus FBP and 60% versus iterative reconstruction while preserving the spatial and spectral properties of high-resolution images.
+
+multislice-residual-cnn-denoising: >-
+  Comparing 2D and 3D residual CNNs with 1, 3 and 7 slice inputs, 2D models improve steadily as input slices increase. Multislice input is therefore an effective strategy for improving 2D deep denoising models.
+
+phantom-training-framework-denoising: >-
+  Phantom scans supply pure-noise images that are superimposed on patient images to synthesize low-dose training data, solving the paired-data bottleneck when raw projections are unavailable. On quarter-dose whole-body low-dose CT it achieves strong noise reduction while preserving structure, and it can be implemented efficiently on any CT scanner.
+
+agate-virtual-noncalcium: >-
+  AGATE is a custom dual-task CNN that jointly quantifies material and denoises for virtual noncalcium imaging in multiple myeloma, where commercial methods suffer excess noise and artifacts from material decomposition. Material quantification stays consistent across phantom sizes and doses, virtual noncalcium noise and artifacts drop, and focal lesion visualization improves.
+
+dedicated-cnn-uhr-pcd-denoising: >-
+  An image-domain U-Net trained with image-based noise insertion and spatially decoupled noise/signal strategies denoises ultra-high-resolution photon-counting CT using only clinically available reconstructed images. Across 39 subjects covering skeletal survey, lung screening and head CTA, it improves lesion and vessel visualization in clinical use.
+
+ufp-net-ultra-fast-pitch: >-
+  Single-source helical CT pitch is usually capped at 1.5 because insufficient data causes artifacts; UFP-Net recovers underlying anatomy from artifact images at pitch 2 and 3. Compared with standard FBP it substantially improves image quality, showing deep learning can enable ultra-fast clinical CT acquisition without sacrificing quality.
+
+incept-net-virtual-monoenergetic: >-
+  Incept-net directly synthesizes low-energy virtual monoenergetic images from multi-energy CT with an encoder-decoder structure, custom Inception modules and a tailored training loss. Phantom noise drops by about 53% with strong beam-hardening suppression, and low-density insert CT accuracy beats commercial VMI software on unseen inserts and patient images.
+
+incept-net-direct-inversion: >-
+  Incept-net directly estimates basis-material mass density distributions from multi-energy CT images without conventional material decomposition, using a multi-branch multiscale encoder-decoder and image-gradient regularization for edge preservation and noise robustness. It beats U-Net and conventional least-squares and total-variation decomposition on appearance, quantitative accuracy and noise.
+
+multi-kernel-synthesis-dcnn: >-
+  Different reconstruction kernels trade noise against spatial resolution, forcing multiple series per CT exam; a deep CNN fuses smooth- and sharp-kernel images into a single output. The synthesized image has slightly lower noise than the smooth-kernel image while retaining sharp-kernel features, reducing computation, storage and reading burden.
+
+cnn-mar-uhr-pcd-ear: >-
+  Submillimeter middle- and inner-ear implant structures need ultra-high-resolution imaging, but metal artifacts obscure adjacent microstructures and subtle lesions; an image-domain CNN trained on titanium and platinum stapes prosthesis phantom scans reduces artifacts near the implants. MSE training trades artifact reduction against detail preservation, while a task-specific hyperparameter network lowers artifact severity.

@@ -1,0 +1,44 @@
+# Batch: UWisc Chen team sweep #6 (user-approved 2026-10-24, journal methods 5).
+- id: "deep-interior"
+  abbr: "Deep-Interior"
+  title: "Deep-Interior: A new pathway to interior tomographic image reconstruction via a weighted backprojection and deep learning"
+  year: 2024
+  venue: "Med Phys"
+  topics: [other]
+  paper: "https://doi.org/10.1002/mp.16880"
+  note: "Analytic weighted backprojection maps fan-beam projections of any ROI location/size to an intermediate feature space, then a supervised network deconvolves to the true image; accurate even for 5 cm ROIs under short and super-short scans."
+
+- id: "deep-en-chroma-material-basis"
+  abbr: "Deep-En-Chroma"
+  title: "A quality-checked and physics-constrained deep learning method to estimate material basis images from single-kV contrast-enhanced chest CT scans"
+  year: 2023
+  venue: "Med Phys"
+  topics: [spectral]
+  paper: "https://doi.org/10.1002/mp.16352"
+  note: "Deep-En-Chroma estimates water and iodine basis images from single-kV data with a physics-constrained network, and Deep-QC checks consistency with the measured polychromatic sinogram and gives per-pixel error maps."
+
+- id: "scoutct-net"
+  abbr: "ScoutCT-NET"
+  title: "Reconstruction of three-dimensional tomographic patient models for radiation dose modulation in CT from two scout views using deep learning"
+  year: 2022
+  venue: "Med Phys"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1002/mp.15414"
+  note: "ScoutCT-NET generates a 3D tomographic attenuation model end-to-end from two orthogonal scout views, trained on 4214 retrospective cases, enabling precise pre-scan dose-modulation planning."
+
+- id: "high-pitch-helical-ct"
+  title: "High Pitch Helical CT Reconstruction"
+  year: 2021
+  venue: "TMI"
+  topics: [other]
+  paper: "https://doi.org/10.1109/TMI.2021.3083210"
+  note: "Synergistic combination of conventional helical FBP, compressed sensing and deep learning achieves artifact-free accurate reconstruction for single-source multi-detector scans up to pitch 4, breaking the usual 1.5 pitch limit."
+
+- id: "3d-dla"
+  abbr: "3D-DLA"
+  title: "3D Deep Learning Angiography (3D-DLA) from C-arm Conebeam CT"
+  year: 2018
+  venue: "AJNR"
+  topics: [cbct]
+  paper: "https://doi.org/10.3174/ajnr.A5597"
+  note: "A deep CNN trained on 105 3D rotational angiography cases (over 150 million labeled voxels) classifies each voxel as vessel, bone or soft tissue, generating 3D cerebral angiography from a single contrast-enhanced C-arm cone-beam CT acquisition without a mask."
