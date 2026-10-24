@@ -355,13 +355,26 @@ def validate_lineages(papers, lineages):
     """Rules for data/lineages.yaml (the curated /graph/lineage/ pages).
 
     Returns a list of problem strings, like graph.validate_graph. The
-    file is optional at this layer — build.py's main always loads it,
-    and a missing file simply means no lineage pages — but a file that
+    file is optional at this layer \u2014 build.py's main always loads it,
+    and a missing file simply means no lineage pages \u2014 but a file that
     exists must be fully consistent: lineage prose is curated, so unlike
     the table overlays a missing translation is an error here, not a
     silent English fallback, and a referenced paper that no longer
     exists fails loudly (deleting a paper must clean this file too,
     exactly like the graph enrichment files).
+
+    Tree rules (v2): the nodes of a lineage form ONE tree. Every node
+    has a unique `key`; exactly one node is the root (`parent: null`);
+    every other node's `parent` is the key of its single parent, and
+    following parents from any node must reach the root without cycling
+    (no orphans, no cycles, no second tree). A node is either a paper
+    node \u2014 `paper` an id in data/papers/ and `key` equal to it \u2014 or a
+    group box with `group`/`blurb`, no paper and no note, and at least
+    two children. Paper years must be non-decreasing along every
+    root-to-leaf path; group boxes carry no year and are transparent
+    to that check. `label` (the canvas edge label) is required on every
+    non-root node and forbidden on the root; `note`/`prose` are
+    optional prose fields, but any present field must be bilingual.
     """
     p = Problems()
     if lineages is None:
@@ -381,7 +394,6 @@ def validate_lineages(papers, lineages):
                 p.add(w, "'%s.%s' is empty" % (field, lang))
 
     seen_ids = set()
-    side_nodes = 0
     for i, lin in enumerate(items):
         w = "lineages[%d]" % i
         lid = lin.get("id")
@@ -398,49 +410,108 @@ def validate_lineages(papers, lineages):
         if len(nodes) < 3:
             p.add(w, "lineage '%s' has %d nodes; a lineage needs at least 3"
                   % (lid, len(nodes)))
-        seen_papers = set()
-        years = []
+        by_key = {}
+        roots = []
         for j, node in enumerate(nodes):
             nw = "%s.nodes[%d]" % (w, j)
-            pid = node.get("paper")
-            if pid not in by_id:
-                p.add(nw, "paper '%s' does not exist in papers" % pid)
-            else:
-                years.append(int(by_id[pid]["year"]))
-            if pid in seen_papers:
-                p.add(nw, "paper '%s' appears twice in this lineage" % pid)
-            seen_papers.add(pid)
-            bilingual(nw, "note", node.get("note"))
-            if j == 0:
-                if node.get("edge"):
-                    p.add(nw, "the first node must not carry an 'edge'")
-            else:
-                if not node.get("edge"):
-                    p.add(nw, "missing 'edge' (the link from the previous node)")
+            key = node.get("key")
+            if not key:
+                p.add(nw, "node has no 'key'")
+                continue
+            if key in by_key:
+                p.add(nw, "duplicate key '%s'" % key)
+            by_key[key] = node
+            if node.get("parent") is None:
+                roots.append(key)
+        if len(roots) != 1:
+            p.add(w, "lineage '%s' has %d roots (parent: null); exactly "
+                     "one is required" % (lid, len(roots)))
+        children = {}
+        for j, node in enumerate(nodes):
+            nw = "%s.nodes[%d]" % (w, j)
+            key = node.get("key")
+            par = node.get("parent")
+            if par is not None:
+                if par not in by_key:
+                    p.add(nw, "parent '%s' is not a node key in this "
+                              "lineage" % par)
                 else:
-                    bilingual(nw, "edge", node.get("edge"))
-            side = node.get("side") or []
-            if side:
-                side_nodes += 1
-            for k, s in enumerate(side):
-                sw = "%s.side[%d]" % (nw, k)
-                spid = s.get("paper")
-                if spid not in by_id:
-                    p.add(sw, "paper '%s' does not exist in papers" % spid)
-                if spid in seen_papers:
-                    p.add(sw, "paper '%s' appears twice in this lineage" % spid)
-                seen_papers.add(spid)
-                bilingual(sw, "note", s.get("note"))
-                if not s.get("edge"):
-                    p.add(sw, "missing 'edge' (the link from its main node)")
+                    children.setdefault(par, []).append(key)
+        # Reachability from the root: catches cycles and orphans alike
+        # (a cycle detached from the root is never visited; a cycle
+        # through the root would need a parent on the root).
+        if len(roots) == 1:
+            seen, stack = set(), [roots[0]]
+            while stack:
+                cur = stack.pop()
+                if cur in seen:
+                    continue
+                seen.add(cur)
+                stack.extend(children.get(cur, []))
+            for key in by_key:
+                if key not in seen:
+                    p.add(w, "node '%s' is not reachable from the root "
+                             "'%s' (cycle or orphan)" % (key, roots[0]))
+        seen_papers = set()
+        for j, node in enumerate(nodes):
+            nw = "%s.nodes[%d]" % (w, j)
+            key = node.get("key")
+            is_group = "group" in node or "blurb" in node
+            if is_group:
+                if node.get("paper"):
+                    p.add(nw, "group box '%s' must not carry a 'paper'" % key)
+                if node.get("note"):
+                    p.add(nw, "group box '%s' must not carry a 'note' "
+                              "(use 'blurb')" % key)
+                bilingual(nw, "group", node.get("group"))
+                bilingual(nw, "blurb", node.get("blurb"))
+                if len(children.get(key, [])) < 2:
+                    p.add(nw, "group box '%s' has %d children; a group "
+                              "needs at least 2" % (key, len(children.get(key, []))))
+            else:
+                pid = node.get("paper")
+                if pid is None:
+                    p.add(nw, "node '%s' is neither a paper node nor a "
+                              "group box" % key)
                 else:
-                    bilingual(sw, "edge", s.get("edge"))
-        if years != sorted(years):
-            p.add(w, "node years are not non-decreasing (%s)"
-                  % ", ".join(str(y) for y in years))
-    if side_nodes > 1:
-        p.add("lineages", "%d nodes carry a 'side' branch; at most one "
-              "fork is allowed per file" % side_nodes)
+                    if key != pid:
+                        p.add(nw, "paper node key '%s' must equal its "
+                                  "paper id '%s'" % (key, pid))
+                    if pid not in by_id:
+                        p.add(nw, "paper '%s' does not exist in papers" % pid)
+                    if pid in seen_papers:
+                        p.add(nw, "paper '%s' appears twice in this lineage" % pid)
+                    seen_papers.add(pid)
+                if node.get("note") is not None:
+                    bilingual(nw, "note", node.get("note"))
+            if node.get("parent") is None:
+                if node.get("label"):
+                    p.add(nw, "the root must not carry a 'label'")
+            else:
+                if not node.get("label"):
+                    p.add(nw, "node '%s' is missing its 'label' (the "
+                              "canvas edge label)" % key)
+                else:
+                    bilingual(nw, "label", node.get("label"))
+            if node.get("prose") is not None:
+                bilingual(nw, "prose", node.get("prose"))
+        # Years non-decreasing along every root path; group boxes are
+        # transparent (they pass the inherited year bound through).
+        if len(roots) == 1:
+            def walk(key, bound, path):
+                node = by_key[key]
+                year = None
+                pid = node.get("paper")
+                if pid in by_id:
+                    year = int(by_id[pid]["year"])
+                    if bound is not None and year < bound:
+                        p.add(w, "year regression on path %s: '%s' is %d, "
+                                 "after an ancestor from %d"
+                              % (" > ".join(path + [key]), key, year, bound))
+                    bound = year
+                for kid in children.get(key, []):
+                    walk(kid, bound, path + [key])
+            walk(roots[0], None, [])
     return p
 
 

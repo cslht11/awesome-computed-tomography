@@ -1,94 +1,361 @@
-# Curated lineages: hand-picked chains of papers under /graph/lineage/<id>/.
-# Every `paper:` must be an id in data/papers/ — build.py --check fails
-# loudly otherwise (same rule as data/graph enrichment references).
-# Card facts (title, year, venue, links) are NOT stored here: they render
-# from the paper entries themselves, so an entry correction reaches the
-# card automatically. Only the curated prose lives in this file, and every
-# text field must carry both languages — a missing translation fails the
-# build instead of silently falling back to English.
+# Curated lineages: hand-picked family trees of papers under
+# /graph/lineage/<id>/. Nodes form ONE tree per lineage: every node has a
+# `key`, exactly one node is the root (`parent: null`), and every other
+# node's `parent` is the key of its single parent. A node is either a
+# paper node (`paper:` an id in data/papers/, `key` equal to it) or a
+# group box (`group:`/`blurb:`, no paper). build.py --check validates
+# the tree (one root, parents exist, no cycles, years non-decreasing
+# along every root path) and fails loudly on any dangling paper id, so
+# deleting a paper must clean this file too (same rule as data/graph).
+# Card facts (title, year, venue, links) are NOT stored here: they
+# render from the paper entries themselves, so an entry correction
+# reaches the card automatically. Only the curated prose lives in this
+# file: `note` (the one-line milestone), `label` (the short canvas edge
+# label) and `prose` (the long reading-list text). Every text field
+# must carry both languages -- a missing translation fails the build
+# instead of silently falling back to English. The file order of
+# `nodes:` is the reading-list order (depth-first); the canvas layout
+# is derived from the parent links at build time.
 lineages:
   - id: fbp-to-foundation
     title:
-      en: "From FBP to Foundation Models"
-      zh: "从 FBP 到基础模型"
+      en: "The CT Reconstruction Family Tree: From FBP to Foundation Models"
+      zh: "CT 重建谱系树：从 FBP 到基础模型"
     description:
-      en: "A hand-curated lineage of CT reconstruction in eleven papers — how the field's answer to \"where does the prior come from?\" moved from a fixed filter to pretrained foundation models."
-      zh: "十一个里程碑看懂 CT 重建四十年：补全缺失测量的\"先验\"如何从固定滤波器一路走到预训练基础模型。"
+      en: "A hand-curated family tree of CT reconstruction — 29 papers on one zoomable canvas, branching from the analytic root through dual-domain networks, implicit and explicit representations, and generative priors, into foundation models."
+      zh: "一张可缩放画布上的 CT 重建谱系树：29 篇手工策展的论文，从解析重建的根出发，分叉出双域网络、隐式与显式表示、生成先验，最终汇入基础模型。"
     intro:
-      en: "Eleven papers, four decades, one question: when the measurements are incomplete, where does the knowledge that fills the gaps come from? This curated chain opens with FDK — the cone-beam form of filtered back-projection that made volumetric CT practical — and follows the answer as it migrates: into a hand-written sparsity prior, into a plug-in denoiser, into learned networks, into generative diffusion priors, and finally into large pretrained foundation models. Each link states what the previous step could not do, and what idea came next."
-      zh: "十一个里程碑，四十年，一个问题：当测量不完整时，补全缺失信息的知识从哪里来？这条手工策展的脉络从 FDK 开始——它让滤波反投影（FBP）走进三维锥束、使容积 CT 变得实用——然后追踪这个答案的迁移：从手写的稀疏先验，到可插拔的去噪器，到学习型网络，到生成式扩散先验，直到大规模预训练的基础模型。每条边都写明：上一步卡在哪里，下一步的想法从何而来。"
+      en: "One tree, four decades, twenty-nine papers. CT reconstruction did not advance along a single line — it forked: into networks that repair the sinogram as well as the image, into coordinate networks that represent one scan at a time, into explicit Gaussian primitives, into generative priors, and finally into foundation models that try to hold all the branches at once. This hand-curated tree starts at FDK, the analytic root, and follows every fork. Each card is a paper in the library; each short label names the step that was taken; and the reading list below the canvas tells every step at full length."
+      zh: "一棵树，四十年，二十九篇论文。CT 重建不是沿一条直线前进的——它不断分叉：分出同时修复正弦图与图像的双域网络，分出逐次扫描现学的坐标网络，分出显式的三维高斯基元，分出生成式先验，最后汇入试图把所有分支收进一个模型的基础模型。这棵手工策展的谱系树从解析重建的根 FDK 出发，追踪每一次分叉。每张卡片都是库内的一篇论文，每条短标签点明迈出的那一步，画布下方的阅读清单则把每一步完整讲清。"
     nodes:
-      - paper: fdk-1984
+      - key: fdk-1984
+        paper: fdk-1984
+        parent: null
         note:
           en: "FDK turns filtered back-projection into a practical 3D cone-beam algorithm — one filtering pass and one back-projection reconstruct a volume directly from cone-beam projections, exact on the midplane and close enough almost everywhere else."
           zh: "FDK 把滤波反投影变成实用的三维锥束算法：一次滤波、一次反投影即可从锥束投影直接重建容积，在中间平面上精确、在其余位置足够接近——解析重建自此成为 CT 的默认引擎。"
-      - paper: sidky-pan-tv-2008
+      - key: sidky-pan-tv-2008
+        paper: sidky-pan-tv-2008
+        parent: fdk-1984
         note:
           en: "The compressed-sensing turn for CT: ASD-POCS reconstructs by minimizing total variation under data-consistency and non-negativity constraints — the first convincing proof that a cone-beam volume can be recovered from far fewer views than FDK needs."
           zh: "CT 的压缩感知转折点：ASD-POCS 在数据一致性与非负约束下最小化全变分（TV），第一次有说服力地证明：锥束容积可以用远少于 FDK 所需的视角重建出来。"
-        edge:
+        label:
+          en: "the hand-written prior enters"
+          zh: "手写先验登场"
+        prose:
           en: "FDK is exact only when the data are complete. Cut the view count or the angular range and the analytic formula has nothing to say — the missing measurements must be filled by *assumptions about the image*. Sidky and Pan's assumption: real images are nearly piecewise-constant, so their gradient is sparse. Reconstruction becomes an optimization problem — minimize TV subject to staying consistent with the measured data — and the hand-written prior enters CT for good."
           zh: "FDK 只在数据完整时精确。一旦减少视角或角范围，解析公式便无能为力——缺失的测量必须靠\"对图像的假设\"来补。Sidky 与 Pan 的假设是：真实图像近似分片常数，其梯度是稀疏的。于是重建变成一道优化题：在与实测数据一致的约束下最小化 TV。手写的先验自此进入 CT，再未离开。"
-      - paper: pnp-2013
+      - key: dict-learning-low-dose-2012
+        paper: dict-learning-low-dose-2012
+        parent: sidky-pan-tv-2008
+        note:
+          en: "Sparsity, second draft: instead of assuming the image gradient is sparse, learn a redundant dictionary of image patches and assume each patch is a sparse combination of its atoms — the sparse-representation era's canonical CT method, set inside a statistical iterative reconstruction."
+          zh: "稀疏性的第二稿：不再假设图像梯度稀疏，而是学一个图像块的冗余字典，假设每个图像块都是字典原子的稀疏组合——稀疏表示时代 CT 的代表方法，装在统计迭代重建框架里。"
+        label:
+          en: "sparsity, learned as a dictionary"
+          zh: "稀疏性写成字典"
+      - key: pnp-2013
+        paper: pnp-2013
+        parent: sidky-pan-tv-2008
         note:
           en: "The prior becomes a module: plug-and-play replaces the proximal operator inside a model-based iteration with any off-the-shelf denoiser, so the denoiser itself acts as an implicit prior."
           zh: "先验自此成为模块：即插即用（PnP）用任意现成去噪器替换基于模型迭代中的近端算子，去噪器本身即是隐式先验——换先验不再需要重推数学，只需要换一个去噪器。"
-        edge:
+        label:
+          en: "the prior becomes a plug-in module"
+          zh: "先验变成可插拔模块"
+        prose:
           en: "TV works, but it is one fixed guess about images, and every new hand-crafted prior demands its own bespoke solver. Venkatakrishnan, Bouman and Wohlberg notice that the prior's step inside these iterations is, mechanically, a denoising step — so they let you plug in *any* denoiser, including ones nobody can write a formula for. The prior stops being an equation and becomes a replaceable component. In 2013 the denoisers being plugged in are still classical — but the socket is ready for what comes next."
           zh: "TV 有效，但它只是对图像的一种固定猜测，而且每换一种手写先验就要重推一套求解器。Venkatakrishnan、Bouman 与 Wohlberg 注意到：这类迭代中先验那一步在机制上就是一次去噪——于是他们允许插入*任意*去噪器，包括那些根本写不出公式的。先验不再是一个方程，而是一个可替换的部件。2013 年插进来的去噪器还是经典算法——但插座已经为接下来的一切准备好了。"
-      - paper: red-cnn
+      - key: red-cnn
+        paper: red-cnn
+        parent: pnp-2013
         note:
           en: "Learning enters through the back door: RED-CNN takes the FBP image as given and learns to clean it — a residual encoder-decoder combining autoencoder, deconvolution and shortcut connections that suppresses low-dose noise while preserving structure and lesions."
           zh: "学习从后门进入：RED-CNN 不动重建本身，而是把 FBP 的结果拿来学着\"擦干净\"——残差编解码网络融合自编码器、反卷积与短路连接，在抑制低剂量噪声的同时保住结构与病灶。"
-        edge:
+        label:
+          en: "learn the plug-in denoiser"
+          zh: "把去噪器学出来"
+        prose:
           en: "PnP proved a denoiser can carry the prior — which raises the obvious question: why hand-craft the denoiser when it can be *learned* from data? The first wave of deep learning in CT answers in the simplest possible place: after reconstruction. Reconstruct with FBP as always, then let a trained CNN remove the noise and streaks. It works strikingly well — and its limits are just as clear: the network never sees the measurements, so it can smooth away real structure or hallucinate plausible texture, and nothing checks its output against the physics."
           zh: "PnP 证明了去噪器可以承载先验——下一个问题顺理成章：去噪器为什么要手工设计，何不*从数据里学*？深度学习进入 CT 的第一波浪潮选了最简单的位置：重建之后。先照旧用 FBP 重建，再让训练好的 CNN 清除噪声与条纹伪影。效果出奇地好——局限也同样清楚：网络从未见过原始测量，它可能抹掉真实结构、也可能\"脑补\"出貌似合理的纹理，而且没有任何环节拿物理去校验它的输出。"
-      - paper: automap
+      - key: wavresnet
+        paper: wavresnet
+        parent: red-cnn
+        note:
+          en: "Post-processing grows a theory: WavResNet denoises low-dose CT with a wavelet residual network built on framelet theory, pairing the framelet algorithm's performance guarantees with a CNN's expressive power."
+          zh: "后处理长出理论：WavResNet 用建立在框架小波理论上的小波残差网络为低剂量 CT 去噪，把框架算法的性能保证与 CNN 的表达力配成一对。"
+        label:
+          en: "framelet theory guides the denoiser"
+          zh: "框架小波给出去噪的结构"
+      - key: automap
+        paper: automap
+        parent: red-cnn
         note:
           en: "The radical end-to-end answer: AUTOMAP recasts reconstruction itself as supervised learning, letting the mapping from sensor domain to image domain emerge from training data instead of being derived from geometry."
           zh: "最激进的端到端回答：AUTOMAP 把重建本身重新表述为有监督学习，让传感器域到图像域的映射从训练数据中自行涌现，而不是由几何推导出来。"
-        edge:
+        label:
+          en: "why keep FBP at all?"
+          zh: "何不整条变换都学？"
+        prose:
           en: "If a network can clean the image, why keep the analytic reconstruction at all? AUTOMAP, published in *Nature*, takes the opposite extreme from post-processing: learn the entire domain transform, projection data in, image out, with the manifold structure of real images doing the work that formulas used to do. It is a landmark of ambition — and a demonstration of the cost: the learned transform is welded to the geometry and distribution it was trained on, and it needs enormous training corpora to learn what FDK encodes in a page of math."
           zh: "既然网络能擦图，为什么还要保留解析重建？发表在《自然》的 AUTOMAP 走向后处理的反面极端：把整条域变换都学出来——投影进、图像出，由真实图像的流形结构去承担公式曾经承担的工作。这是野心的里程碑，也是代价的演示：学到的变换与训练时的几何和数据分布焊死在一起，而且要用海量训练语料，才能学会 FDK 一页数学就写清的东西。"
-      - paper: lpd
+      - key: lpd
+        paper: lpd
+        parent: automap
         note:
           en: "The synthesis: LPD unrolls a proximal primal-dual optimization and replaces only the proximal operators with CNNs, keeping the (possibly non-linear) forward operator inside the network — physics stays in the loop, learning fills the steps nobody could hand-write."
           zh: "合题：LPD 展开一个近端原对偶优化，只把其中的近端算子换成 CNN，（可非线性的）前向算子留在网络内部——物理留在环路里，学习只补那些没人能手写的步骤。"
-        edge:
+        label:
+          en: "put the physics back in the loop"
+          zh: "把物理放回环路"
+        prose:
           en: "The field's answer to AUTOMAP's brittleness came the same year. Adler and Öktem keep the classical solver's skeleton — a primal-dual iteration that alternates between measurement space and image space — and learn only the proximal steps, as small CNNs. The forward operator is evaluated exactly at every iteration, so the reconstruction can never drift away from the measured data; the learned parts stay local and the training data requirement collapses. Unrolling becomes the era's dominant design pattern."
           zh: "对 AUTOMAP 脆弱性的回答同年就到。Adler 与 Öktem 保留经典求解器的骨架——在测量空间与图像空间之间交替的原对偶迭代——只把近端步骤学成小 CNN。前向算子在每轮迭代中被精确求值，重建永远不会漂离实测数据；可学习的部分保持局部，训练数据需求大幅下降。\"展开\"（unrolling）自此成为这个时代的主导设计范式。"
-      - paper: modl
+      - key: modl
+        paper: modl
+        parent: lpd
         note:
           en: "Unrolling, codified: MoDL alternates a CNN regularization prior with an exact data-consistency solve, sharing weights across iterations — a small network suffices, and the template transfers across inverse problems."
           zh: "展开范式的成文法：MoDL 在 CNN 正则先验与精确数据一致性求解之间交替，并跨迭代共享权重——小网络即够用，且这套模板可迁移到各类逆问题。"
-        edge:
+        label:
+          en: "unrolling becomes a template"
+          zh: "展开成文成法"
+        prose:
           en: "LPD proved the pattern on tomography; MoDL writes it down as a general architecture for inverse problems. One CNN prior block, one exact data-consistency step, repeated — with the *same* network weights at every iteration, so the model stays small and trains on modest data. Where LPD learned iteration-specific operators, MoDL's discipline is economy: the physics does most of the work, the network only supplies the prior. Model-based deep learning now has a reference design that a decade of papers will instantiate."
           zh: "LPD 在层析问题上验证了这套范式；MoDL 把它写成面向逆问题的通用架构。一个 CNN 先验模块、一步精确数据一致性求解，循环往复——而且每轮迭代用的是*同一套*网络权重，模型因此可以很小、用 modest 的数据就能训练。与 LPD 学习每轮专属算子不同，MoDL 的纪律是节约：物理承担大部分工作，网络只提供先验。基于模型的深度学习自此有了一个参考设计，此后十年的大量论文都是它的实例化。"
-      - paper: dolce-2023
+      - key: learn-plus-plus-2023
+        paper: learn-plus-plus-2023
+        parent: modl
+        note:
+          en: "The unrolled template, made recurrent: LEARN++ revisits learned iterative reconstruction for compressed-sensing CT as a recurrent dual-domain network, carrying the LEARN design of 2018 into the dual-domain era."
+          zh: "展开模板的循环化：LEARN++ 把压缩感知 CT 的学习型迭代重建重写为循环双域网络，把 2018 年 LEARN 的设计带进双域时代。"
+        label:
+          en: "the template recurses — and goes dual-domain"
+          zh: "模板走向循环与双域"
+      - key: g-representations
+        group:
+          en: "Learning the representation"
+          zh: "学表示本身"
+        blurb:
+          en: "The object itself becomes the model — as a coordinate field, or as explicit primitives."
+          zh: "物体本身成为模型——要么是坐标场，要么是显式基元。"
+        parent: modl
+        label:
+          en: "stop learning mappings; learn the object"
+          zh: "不学映射，学物体本身"
+        prose:
+          en: "MoDL's template assumes reconstruction is a mapping to be learned once and reused. Around 2021 a different instinct appears: stop learning mappings altogether, and learn a *representation of this one object* instead. A small coordinate network, optimised on the scan's own measurements, can stand in for the measurement field or the image itself — no training set, no distribution to overfit; the per-scan optimisation of the DIP era returns with better machinery. And once the object is a representation, it need not be a neural field: it can be a cloud of explicit Gaussian primitives, fitted by differentiable rendering. The two children of this box are those two answers — implicit and explicit — and they grow into the busiest branches of the 2020s tree."
+          zh: "MoDL 的模板预设重建是一个学一次、反复用的映射。2021 年前后出现了另一种直觉：干脆不学映射，转而学习*这一个物体本身的表示*。一个只用本次扫描的测量优化的小坐标网络，就可以顶替测量场或图像本身——没有训练集、没有要过拟合的分布，DIP 时代的逐扫描优化带着更好的工具回来了。而一旦物体成为一种表示，它也不必是神经场：它可以是一团显式的三维高斯基元，用可微渲染来拟合。这个分组框的两个孩子正是这两种回答——隐式与显式——它们长成了 2020 年代这棵树上最繁忙的两条枝。"
+      - key: coil
+        paper: coil
+        parent: g-representations
+        note:
+          en: "Internal learning: CoIL trains a coordinate MLP on the scan itself — the network encodes the object's complete measurement field from its own sparse measurements, and the completed field then feeds ordinary reconstruction."
+          zh: "内部学习：CoIL 只用当前扫描自身的测量训练一个坐标 MLP——网络编码出该物体完整的测量场，补全后的测量场再喂给常规重建方法。"
+        label:
+          en: "a coordinate MLP per scan"
+          zh: "每次扫描现学一个坐标网络"
+        prose:
+          en: "CoIL is the implicit line's cleanest early statement: an MLP that maps measurement coordinates to responses, trained only on the sparse measurements of the object on the table. The network *is* the completed measurement field; hand it to any ordinary reconstruction and sparse-view results improve. Nothing about the object class is learned in advance — the prior is the continuity of the field itself, a hand-written assumption wearing neural clothes, which makes this branch the tree's quiet echo of its 2008 root."
+          zh: "CoIL 是隐式这条线最早的干净表述：一个把测量坐标映射到响应的 MLP，只用台面上这个物体自身的稀疏测量训练。网络*就是*补全后的测量场；把它交给任何常规重建，稀疏视角的结果都会变好。关于物体类别的东西没有一样是预先学来的——先验就是场本身的连续性，一个穿着神经外衣的手写假设；正因如此，这条枝是这棵树对它 2008 年那个根的安静回声。"
+      - key: nerp
+        paper: nerp
+        parent: coil
+        note:
+          en: "The image as a continuous function: NeRP parameterises the image itself as an MLP, embeds a prior image as its initialisation, and optimises it against the measurement physics — no training set, and the same recipe crosses between CT and MRI."
+          zh: "图像即连续函数：NeRP 把图像本身参数化为一个 MLP，将先验图像嵌入网络作初始化，再按测量物理优化它——不需要训练集，同一套方法横跨 CT 与 MRI。"
+        label:
+          en: "embed a prior scan as the starting point"
+          zh: "把先验图像嵌作起点"
+      - key: sax-nerf
+        paper: sax-nerf
+        parent: coil
+        note:
+          en: "NeRF, made structure-aware for X-rays: SAX-NeRF builds a neural radiodensity field whose Lineformer backbone reasons over ray segments, reconstructing 3D volumes from sparse views."
+          zh: "为 X 射线做结构感知的 NeRF：SAX-NeRF 构建神经辐射密度场，以沿射线线段推理的 Lineformer 为骨干，从稀疏视角重建三维容积。"
+        label:
+          en: "radiance fields meet X-ray structure"
+          zh: "辐射场遇上 X 射线结构"
+      - key: x-gaussian
+        paper: x-gaussian
+        parent: g-representations
+        note:
+          en: "The explicit turn: X-Gaussian represents the object as a cloud of 3D Gaussian primitives and renders X-ray projections by differentiable radiative rasterisation — reconstruction becomes fitting the primitives until their renderings match the scan."
+          zh: "显式表示的开端：X-Gaussian 把物体表示为一团三维高斯基元，用可微辐射光栅化渲染 X 射线投影——重建变成不断调整基元，直到其渲染与实测投影吻合。"
+        label:
+          en: "the object as explicit Gaussian primitives"
+          zh: "物体写成显式高斯基元"
+        prose:
+          en: "The explicit sibling: where the implicit line hides the object inside a network's weights, X-Gaussian writes it out as primitives — a cloud of 3D Gaussians whose projections are rendered by a differentiable radiative rasteriser, the X-ray analogue of 3D Gaussian splatting. Fitting the scan becomes fitting the primitives. The representation is inspectable, editable and fast to render, and within two years it supports a full reconstruction framework (R2-Gaussian), a cross-modal unification (X-Splat) and a change of imaging geometry (LamiGauss)."
+          zh: "显式的那个兄弟：隐式线把物体藏进网络权重里，X-Gaussian 则把它写成基元——一团三维高斯，其投影由可微辐射光栅器渲染，这是 3D 高斯泼溅的 X 射线对应物。拟合扫描，从此就是拟合这团基元。这种表示可检视、可编辑、渲染快；两年之内，它就撑起了一个完整的重建框架（R2-Gaussian）、一次跨模态统一（X-Splat）和一次成像几何的迁移（LamiGauss）。"
+      - key: dif-gaussian
+        paper: dif-gaussian
+        parent: x-gaussian
+        note:
+          en: "Gaussians as a feature field: DIF-Gaussian lets 3D Gaussians carry feature distributions that supply extra spatial information for estimating the attenuation coefficients, targeting extremely sparse-view cone-beam CT."
+          zh: "高斯作特征场：DIF-Gaussian 让三维高斯承载特征分布，为衰减系数的估计提供额外的三维空间信息，主攻极端稀疏视角的锥束 CT。"
+        label:
+          en: "Gaussians as a feature field for CBCT"
+          zh: "高斯作特征场，攻坚稀疏 CBCT"
+      - key: r2-gaussian
+        paper: r2-gaussian
+        parent: x-gaussian
+        note:
+          en: "Splatting, made honest for tomography: R2-Gaussian rectifies how 3D Gaussians project to 2D, giving the first 3DGS framework built for sparse-view tomographic reconstruction rather than view synthesis."
+          zh: "为层析把泼溅数学做对：R²-Gaussian 校正了三维高斯向二维投影的方式，给出首个为稀疏视角层析重建（而非视角合成）而建的 3DGS 框架。"
+        label:
+          en: "rectify the splatting math for tomography"
+          zh: "为层析校正泼溅数学"
+      - key: x-splat
+        paper: x-splat
+        parent: r2-gaussian
+        note:
+          en: "One representation, two modalities: X-Splat's Gaussian primitives share a single geometry across RGB and X-ray, with only surface-proximal primitives carrying appearance — splatting grows from a CT technique into a unified 3D representation."
+          zh: "一套表示，两种模态：X-Splat 的高斯基元在 RGB 与 X 射线间共享同一套几何，仅近表面基元携带外观属性——泼溅从 CT 的技巧长成统一的三维表示。"
+        label:
+          en: "one representation for RGB and X-ray"
+          zh: "一套表示，RGB 与 X 射线合一"
+      - key: lamigauss
+        paper: lamigauss
+        parent: r2-gaussian
+        note:
+          en: "Gaussians leave the cone-beam nest: LamiGauss pitches radiative rasterisation into laminography geometry — a detector-to-world transform for the tilt angle plus an initialisation that filters laminographic artifacts — reconstructing plate-like objects directly from sparse projections."
+          zh: "高斯走出锥束的巢：LamiGauss 把辐射光栅化斜置进层析成像（laminography）几何——带倾角的探测器到世界坐标变换，外加滤除层析伪影的初始化策略——直接从稀疏投影重建板状物体。"
+        label:
+          en: "radiative Gaussians tilt into laminography"
+          zh: "辐射高斯斜进层析几何"
+      - key: dudonet
+        paper: dudonet
+        parent: red-cnn
+        note:
+          en: "The dual-domain turn: DuDoNet restores the sinogram and enhances the image inside one end-to-end network, joined by a Radon inversion layer that carries gradients between the two domains — metal artifacts are fought where they start, not only where they land."
+          zh: "双域转折：DuDoNet 在一个端到端网络里同时修复正弦图与增强图像，中间用 Radon 反演层让梯度在两域间流动——金属伪影要在它产生的地方打，而不只在它落下的地方。"
+        label:
+          en: "one domain is not enough: go dual"
+          zh: "单域不够——双域"
+        prose:
+          en: "Post-processing has a structural blind spot: it only ever sees the image, so whatever FBP discarded in the sinogram is gone for good — and for metal artifacts the corruption is *in* the sinogram, in the measurements themselves. DuDoNet's move is to work both sides of the Radon transform at once: restore the sinogram where the damage starts, reconstruct, then enhance the image, with a Radon inversion layer carrying gradients between the domains so the two halves train as one network. Single-domain gives way to dual-domain — and the idea proves durable enough to return, years later, as a pretraining strategy for foundation models (CTPretrain, in the foundation group below)."
+          zh: "后处理有一个结构性盲区：它永远只看得见图像，正弦图里被 FBP 丢掉的信息再也回不来——而对金属伪影来说，损坏恰恰*在*正弦图里、在测量本身之中。DuDoNet 的一步是同时在 Radon 变换的两侧工作：在损坏产生的地方修复正弦图，重建，再增强图像——中间用 Radon 反演层让梯度在两个域之间流动，使两半网络作为一个整体训练。单域自此让位于双域；而这个想法足够耐久，多年后又以基础模型预训练策略的身份归来（见下方基础模型组中的 CTPretrain）。"
+      - key: dudoufnet
+        paper: dudoufnet
+        parent: dudonet
+        note:
+          en: "Dual-domain, generalised: DuDoUFNet progressively restores under-complete sinograms into fully complete images in two stages, taking on metal artifacts and low dose as one joint problem rather than two separate ones."
+          zh: "双域的推广：DuDoUFNet 以两阶段渐进方式把不完整的正弦图修复成完整图像，将金属伪影与低剂量作为一个联合问题一起解决，而不是两个分开的毛病。"
+        label:
+          en: "restore both domains, progressively"
+          zh: "两域渐进，一并修复"
+      - key: indudonet-plus
+        paper: indudonet-plus
+        parent: dudoufnet
+        note:
+          en: "The two lines braid: InDuDoNet+ unfolds a joint sinogram–image optimisation into learned proximal operators with CT geometry constraints embedded — dual-domain learning written in the unrolled, interpretable form."
+          zh: "两条线在此编织：InDuDoNet+ 把正弦图—图像联合优化展开为可学习的近端算子，并嵌入 CT 几何约束——双域学习被写成展开式的、可解释的形态。"
+        label:
+          en: "dual-domain, written as unfolding"
+          zh: "双域写成展开式"
+      - key: 3dip
+        paper: 3dip
+        parent: pnp-2013
+        note:
+          en: "The borrowed prior: 3DIP — the paper the field cites as DiffusionMBIR — reconstructs 3D volumes with a pre-trained 2D diffusion model, coupled across the remaining dimension by a model-based prior at test time; no CT-specific training anywhere."
+          zh: "借来的先验：3DIP——领域里以 DiffusionMBIR 之名被引用的那篇——用预训练的 2D 扩散模型重建三维体，在测试时以模型驱动先验耦合剩余的维度；全程没有任何针对 CT 的训练。"
+        label:
+          en: "borrow a 2D diffusion model as the prior"
+          zh: "借一个 2D 扩散模型作先验"
+        prose:
+          en: "This is the paper the field cites as DiffusionMBIR: a pre-trained 2D diffusion model, applied slice by slice with a model-based coupling across the third dimension, solves 3D inverse problems — CT included — with no task-specific training. It proved a generative prior did not have to be trained on CT to reconstruct CT. Its sibling here, DOLCE, is the opposite answer: train one on CT anyway."
+          zh: "这就是领域里以 DiffusionMBIR 之名被引用的那篇：一个预训练的 2D 扩散模型，逐层使用、再以模型驱动的方式耦合第三个维度，解决包括 CT 在内的三维逆问题，全程不需要任务专属训练。它证明生成先验不必在 CT 上训练也能重建 CT。而它的兄弟 DOLCE 给出的是相反的回答：那就偏要在 CT 上训一个。"
+      - key: dolce-2023
+        paper: dolce-2023
+        parent: pnp-2013
         note:
           en: "The prior becomes a generative model of CT images themselves: DOLCE uses a conditional diffusion model as the image prior inside a model-based framework, and one pretrained model reaches state-of-the-art results across drastically different image types on real limited-angle data."
           zh: "先验变成 CT 图像本身的生成模型：DOLCE 在模型驱动框架中以条件扩散模型充当图像先验，同一个预训练模型在真实有限角数据上、对差异极大的图像类型都达到最优水平。"
-        edge:
+        label:
+          en: "train the prior on CT images themselves"
+          zh: "先验直接学 CT 图像本身"
+        prose:
           en: "The unrolled networks of 2018–19 still carry a discriminative CNN prior trained for one task and one degradation; change the protocol and you retrain. The next relocation of the prior: learn *what CT images look like*, full stop — a diffusion model trained as a generative prior — then couple it to the measurement model at reconstruction time. DOLCE does this for the hardest geometry, limited-angle CT, and the payoff is the one PnP promised in 2013 at a new scale: a single pretrained prior, plugged into the physics, generalizing across image types it was never fine-tuned on. The plug-in denoiser has grown into a generative model of the image manifold."
           zh: "2018–19 年的展开网络带的仍是判别式 CNN 先验，为单一任务、单一退化训练；协议一变就要重训。先验的下一站：干脆学习*CT 图像本身长什么样*——一个作为生成先验训练的扩散模型——然后在重建时把它与测量模型耦合。DOLCE 在最难的几何（有限角 CT）上做成了这件事，回报正是 PnP 在 2013 年许诺、如今以新规模兑现的那件事：单一预训练先验，插进物理模型，即可泛化到从未微调过的图像类型。当年那个可插拔的去噪器，长成了一个图像流形的生成模型。"
-      - paper: force
+      - key: dc-pnpdp
+        paper: dc-pnpdp
+        parent: dolce-2023
+        note:
+          en: "Full circle, one level up: DC-PnPDP restores the classical dual variable inside plug-and-play ADMM and puts a diffusion model in the prior seat, using integral feedback to force the data-consistency and prior steps into agreement."
+          zh: "绕回原点，但高了一层：DC-PnPDP 在即插即用 ADMM 中恢复经典对偶变量，并让扩散模型坐上先验的位置，以积分反馈迫使数据一致性与先验两步达成一致。"
+        label:
+          en: "PnP returns — now with diffusion inside"
+          zh: "PnP 归来——这次插的是扩散"
+        prose:
+          en: "Thirteen years after the socket was built, the plug comes home. DC-PnPDP puts a diffusion prior inside plug-and-play ADMM — and, dissatisfied with how loosely the prior step and the data step usually hold each other, restores the classical dual variable so an integral feedback term progressively forces the two into agreement. Every thread of this branch is in it: PnP's modularity, the generative prior, and the optimisation discipline of the unrolled era."
+          zh: "插座造好十三年后，插头回了家。DC-PnPDP 把扩散先验装进即插即用的 ADMM——并对先验步与数据步通常彼此握得太松这一点不满，恢复了经典对偶变量，用一个积分反馈项逐步迫使两者达成一致。这条枝的每根线都在里面：PnP 的模块化、生成式先验、以及展开时代的优化纪律。"
+      - key: g-foundation
+        group:
+          en: "Foundation models"
+          zh: "基础模型"
+        blurb:
+          en: "The prior at foundation scale: pretrained once, pointed at many degradations."
+          zh: "基础模型规模的先验：预训练一次，指向多种退化。"
+        parent: dolce-2023
+        label:
+          en: "the prior, packaged as a foundation model"
+          zh: "先验打包成基础模型"
+        prose:
+          en: "DOLCE showed a pretrained generative prior can serve many images, but it remained a framework for one problem family, trained and tuned per setting. FORCE asks the foundation-model question directly: can the prior-plus-physics package be made *task-agnostic* — one unsupervised engine that conditions on whatever measurements arrive, across low-dose, sparse-view and metal-artifact CT, without paired examples for any of them? Its answer replaces the diffusion prior with a Poisson-flow generative model (PFGM++) and presents the result as what its title claims: a tomographic foundation model."
+          zh: "DOLCE 证明了预训练生成先验可以服务许多图像，但它仍是一个面向单一问题族的框架，需要按设置训练与调参。FORCE 直接提出基础模型之问：先验加物理的这套组合能否做成*与任务无关*的——一个无监督引擎，来什么测量就以什么为条件，横跨低剂量、稀疏视角与金属伪影 CT，且不需要任何一类的配对样本？它的回答是用泊松流生成模型（PFGM++）替换扩散先验，并把成果如标题所言呈现为：断层成像基础模型。"
+      - key: force
+        paper: force
+        parent: g-foundation
         note:
           en: "The generative prior, packaged as a foundation model: FORCE unifies CT data fidelity with a PFGM++ generative prior for unsupervised reconstruction across low-dose, sparse-view and metal-artifact scenarios — no paired training data required."
           zh: "生成先验被打包成基础模型：FORCE 把 CT 数据保真项与 PFGM++ 生成先验统一为无监督重建引擎，一个模型覆盖低剂量、稀疏视角与金属伪影，且不需要配对训练数据。"
-        edge:
-          en: "DOLCE showed a pretrained generative prior can serve many images, but it remained a framework for one problem family, trained and tuned per setting. FORCE asks the foundation-model question directly: can the prior-plus-physics package be made *task-agnostic* — one unsupervised engine that conditions on whatever measurements arrive, across low-dose, sparse-view and metal-artifact CT, without paired examples for any of them? Its answer replaces the diffusion prior with a Poisson-flow generative model (PFGM++) and presents the result as what its title claims: a tomographic foundation model."
-          zh: "DOLCE 证明了预训练生成先验可以服务许多图像，但它仍是一个面向单一问题族的框架，需要按设置训练与调参。FORCE 直接提出基础模型之问：先验加物理的这套组合能否做成*与任务无关*的——一个无监督引擎，来什么测量就以什么为条件，横跨低剂量、稀疏视角与金属伪影 CT，且不需要任何一类的配对样本？它的回答是用泊松流生成模型（PFGM++）替换扩散先验，并把成果如标题所言呈现为：断层成像基础模型。"
-      - paper: proct
+        label:
+          en: "a generative prior, unsupervised"
+          zh: "生成先验，无监督"
+      - key: proct
+        paper: proct
+        parent: g-foundation
         note:
           en: "One supervised model, many geometries: ProCT's view-aware prompting lets a single transformer handle diverse sparse-view and limited-angle settings, with artifact-aware contextual learning that senses artifact patterns from in-context pairs."
           zh: "一个监督模型，多种几何：ProCT 的视角感知提示让单个 Transformer 处理多样的稀疏视角与有限角设置，伪影感知上下文学习则从上下文图像对中感知伪影模式。"
-        edge:
+        label:
+          en: "prompt it with the geometry"
+          zh: "用采集几何提示它"
+        prose:
           en: "FORCE reaches \"one model for everything\" through an unsupervised generative prior, sampled iteratively. ProCT is the supervised counter-answer: keep one transformer, and tell it what it is looking at. A view-aware prompt encodes the acquisition geometry, so the same weights serve many sparse-view and limited-angle protocols; in-context pairs teach it the artifact pattern of the current scan. The interface idea is borrowed from foundation models in language and vision — the model is not retrained per task, it is *prompted*."
           zh: "FORCE 用无监督生成先验、以迭代采样的方式实现\"一个模型管一切\"。ProCT 给出监督式的另一路回答：保留单个 Transformer，但要把\"你在看什么\"告诉它。视角感知提示编码了采集几何，同一套权重即可服务多种稀疏视角与有限角协议；上下文图像对则让它感知当前扫描的伪影模式。这个接口思想借自语言与视觉基础模型——模型不再为每个任务重训，而是被*提示*。"
-      - paper: tamp
+      - key: tamp
+        paper: tamp
+        parent: g-foundation
         note:
           en: "The foundation-model move in full: TAMP pretrains on 10.8M physics-driven simulated non-ideal-measurement images, then adapts with a parameter-efficient fine-tune on a few slices — one backbone for low-dose, sparse-view and limited-angle CT at once."
           zh: "完整意义上的基础模型动作：TAMP 在 1080 万张物理驱动仿真的非理想测量图像上预训练，再以参数高效微调、仅用少量切片完成适配——一个骨干网络同时服务低剂量、稀疏视角与有限角 CT。"
-        edge:
+        label:
+          en: "pretrain on physics-simulated millions"
+          zh: "千万级物理仿真预训练"
+        prose:
           en: "ProCT adapts one model to many settings, but the model is still trained at the scale of a single task family. TAMP completes the trajectory this chain has been tracing: pretrain at foundation scale — 10.8 million images simulated with the physics of non-ideal measurement — so that the prior is no longer a filter, a formula, a denoiser or even a sampler, but the accumulated statistics of CT itself, stored in a backbone that a few slices of fine-tuning can steer to a new protocol. In 1984 the knowledge lived in the filter design; in 2026 it lives in the pretraining corpus. The chain ends where the field now stands."
           zh: "ProCT 让一个模型适配多种设置，但模型的训练规模仍停留在单一任务族。TAMP 完成了这条脉络一直在追踪的轨迹：以基础模型的规模预训练——1080 万张按非理想测量物理仿真的图像——于是先验不再是滤波器、不是公式、不是去噪器、甚至不是采样器，而是 CT 本身的统计规律，存放在一个只需少量切片微调即可转向新协议的骨干网络里。1984 年，知识住在滤波器的设计里；2026 年，知识住在预训练语料里。这条脉络结束在领域当下所站的位置。"
+      - key: ctpretrain
+        paper: ctpretrain
+        parent: g-foundation
+        note:
+          en: "Pretraining, in both domains at once: CTPretrain couples a sinogram-domain restoration transformer with an image-domain one pre-trained through learnable Gaussian bandpass decomposition, so a single backbone adapts across low-dose, sparse-view and limited-angle degradations."
+          zh: "预训练，一次做两个域：CTPretrain 耦合正弦图域修复 transformer 与经可学习高斯带通分解预训练的图像域修复 transformer，使单个骨干适配低剂量、稀疏视角与有限角等不同退化。"
+        label:
+          en: "pretrain in both domains"
+          zh: "双域预训练"
+        prose:
+          en: "CTPretrain is where the dual-domain idea — born with DuDoNet in 2019 as a way to fight metal artifacts — returns as a foundation strategy: pre-train a sinogram-domain and an image-domain transformer together, and one backbone adapts across low-dose, sparse-view and limited-angle work. On the tree it sits in the foundation group, but its edge back to 2019 is written here, because a tree can only draw one parent."
+          zh: "CTPretrain 是双域想法以基础模型策略身份归来的地方——它 2019 年随 DuDoNet 出生时，是对付金属伪影的办法：把正弦图域与图像域两个 transformer 一起预训练，一个骨干便能适配低剂量、稀疏视角与有限角。它在树上坐在基础模型组里，但它通向 2019 年的那条边写在这里，因为一棵树只能画一个父亲。"
+      - key: amifound
+        paper: amifound
+        parent: g-foundation
+        note:
+          en: "The all-in-one endpoint: AMIFound trains one shared encoder with a dynamically routed expert pool on 3.76M images across seven modalities, covering seven degradation types — CT metal-artifact removal among them, on 37 CT datasets."
+          zh: "AMIFound 是多模态一体化路线的终点形态：共享编码器加动态路由专家池，在 7 种模态、376 万张图像上训练，覆盖 7 类退化——包括 37 个 CT 数据集上的金属伪影去除。"
+        label:
+          en: "one model, seven modalities"
+          zh: "一个模型，七种模态"

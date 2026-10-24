@@ -312,8 +312,10 @@ for (const L of LANGS) {
 }
 
 /* ---------------------------------------------------------------------------
- * Curated lineage pages (/graph/lineage/<id>/): static card chains under
- * the graph index. Scoped strictly to the /graph/lineage/ prefix — the
+ * Curated lineage pages (/graph/lineage/<id>/): forking family trees
+ * on a pan/zoom canvas (cards positioned at build time, one versioned
+ * lineage.js viewport controller) with a full-text reading list below.
+ * Scoped strictly to the /graph/lineage/ prefix — the
  * dataset/benchmark/guide sweep above keys on URL segments and must
  * never grow to cover these (the 2026-10-22 /graph/datasets/ incident),
  * so lineage pages get their own block instead.
@@ -347,6 +349,28 @@ for (const L of LANGS) {
     if (!crumbs || crumbs.itemListElement[crumbs.itemListElement.length - 1].item !== url)
       bad.push(url + ": BreadcrumbList does not end at this page");
     if (/\{\{[A-Z_]+\}\}/.test(h)) bad.push(url + ": placeholder leaked");
+    // Canvas structure: every expectation is read from the page's own
+    // embedded layout JSON, never hardcoded, so a future lineage with
+    // a different tree passes unchanged.
+    const lm = h.match(/<script type="application\/json" class="tree-layout">([\s\S]*?)<\/script>/);
+    if (!lm) bad.push(url + ": tree layout JSON missing");
+    else {
+      let lay = null;
+      try { lay = JSON.parse(lm[1]); } catch (e) { bad.push(url + ": layout JSON unparseable"); }
+      if (lay) {
+        const papers = lay.nodes.filter((n) => !n.group).length;
+        const count = (re) => (h.match(re) || []).length;
+        if (count(/class="tree-viewport"/g) !== 1) bad.push(url + ": tree-viewport != 1");
+        if (count(/class="tn-node"/g) !== papers) bad.push(url + ": tn-node != paper nodes (" + papers + ")");
+        if (count(/class="tn-group"/g) !== lay.nodes.length - papers) bad.push(url + ": tn-group != group boxes");
+        const svg = (h.match(/<svg class="tree-edges"[\s\S]*?<\/svg>/) || [""])[0];
+        if ((svg.match(/<path/g) || []).length !== lay.edges.length) bad.push(url + ": svg paths != edges");
+        if (lay.edges.length !== lay.nodes.length - 1) bad.push(url + ": edges != nodes - 1");
+        if (count(/class="tn-label"/g) !== lay.edges.length) bad.push(url + ": tn-label != edges");
+        if (count(/class="lr-item"/g) !== papers) bad.push(url + ": reading entries != paper nodes");
+        if (!/lineage\.js\?v=[0-9a-f]{10}/.test(h)) bad.push(url + ": versioned lineage.js missing");
+      }
+    }
     if (!gindex.includes('href="' + rel.slice("graph/".length) + '"'))
       bad.push(url + ": graph index does not link it (orphan)");
     for (const target of internalLinks(h, url)) {
