@@ -1,0 +1,6 @@
+# Batch: ANL APS team sweep #9 (EN quick-reads, verified against Nature pages 2026-10-25).
+low-dose-dcnn-tomography: >-
+  Synchrotron X-ray tomography enables fast, large-scale, high-resolution reconstruction of materials and biological tissue, but radiation-sensitive samples face a fundamental trade-off between long-acquisition damage and short-acquisition signal shortage. A deep convolutional network improves recorded projection quality so low-dose fast acquisition boosts the acquired tomographic signal at least 10-fold, with CNN-enhanced short-exposure SNR approaching long-exposure projections, validated on simulated samples and mouse brain data and usable for automated tracing of brain structures in low-dose data.
+
+limited-angle-deep-image-physics-priors: >-
+  In electron or X-ray tomography, sample holders or sample shapes may prevent acquiring projections at all angles, creating an ill-posed limited-angle problem where conventional reconstruction produces distortion and artifacts. A self-trained generative model combines data likelihood with an image prior in a single deep network, with total-variation regularization and an ADMM-based solver constraining the physics-based solution, and numerical results across missing-angle ranges and noise levels show effective limited-angle improvement.

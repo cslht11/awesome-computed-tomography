@@ -1,0 +1,50 @@
+# Batch: FAU Maier team sweep #10 (user-approved 2026-10-24, journal methods 6).
+- id: "known-operator-geometry-conversion"
+  title: "Known Operator Learning Enables Constrained Projection Geometry Conversion: Parallel to Cone-Beam for Hybrid MR/X-Ray Imaging"
+  year: 2020
+  venue: "TMI"
+  topics: [unrolling]
+  paper: "https://doi.org/10.1109/TMI.2020.2998179"
+  note: "A novel parallel-to-cone-beam rebinning formula mapped to a neural network with differentiable projection operators under the known-operator paradigm, learning only the remaining unknown operators; beats conventional baselines and transfers from simulation to real data without retraining."
+
+- id: "extended-fov-reconstruction"
+  title: "Deep learning-based extended field of view computed tomography image reconstruction: influence of network design on image estimation outside the scan field of view"
+  year: 2022
+  venue: "Biomed. Phys. Eng. Express"
+  topics: [other]
+  paper: "https://doi.org/10.1088/2057-1976/ac47fc"
+  note: "Deep learning extends the field of view and suppresses truncation artifacts, aiming at good patient-data estimation outside the scan FOV rather than fully diagnostic images; on 12 truncated test patients, U-Net with structural dissimilarity loss recovers outside-FOV regions best."
+
+- id: "two-view-topogram"
+  title: "Two-view topogram-based anatomy-guided CT reconstruction for prospective risk minimization"
+  year: 2024
+  venue: "Sci Rep"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1038/s41598-024-59731-y"
+  note: "A GAN-based optimization model reconstructs 3D volumes from only anteroposterior and lateral topograms, with a pretrained organ segmentation network and 3D perceptual loss for anatomical fidelity, raising mean organ Dice from a 0.63 baseline to 0.71 for prospective dose and risk estimation."
+
+- id: "trainable-joint-bilateral"
+  title: "Trainable joint bilateral filters for enhanced prediction stability in low-dose CT"
+  year: 2022
+  venue: "Sci Rep"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1038/s41598-022-22530-4"
+  code: "https://github.com/faebstn96/trainable-joint-bilateral-filter-source"
+  note: "A hybrid denoiser combining trainable joint bilateral filters with a convolutional denoising network predicting guidance images, bounding deep-network errors; trained on metal-free abdomen data, it improves denoising on metal-containing abdomen and head data."
+
+- id: "filter2noise"
+  abbr: "Filter2Noise"
+  title: "Filter2Noise: a framework for interpretable and zero-shot low-dose CT image denoising"
+  year: 2026
+  venue: "J. Med. Imaging"
+  topics: [low-dose, self-supervised]
+  paper: "https://doi.org/10.1117/1.JMI.13.2.024004"
+  note: "Filter2Noise replaces deep networks with attention-guided bilateral filters, learning from a single noisy image via Euclidean local shuffling and multi-scale self-supervised losses; 39.76 dB PSNR on the Mayo low-dose CT challenge with only 3.6k parameters, and a fully visualizable, interactively adjustable filter policy. Year follows the formal volume citation (JMI 13(2), 2026) though first seen online in 2025."
+
+- id: "ultralow-parameter-denoising"
+  title: "Ultralow-parameter denoising: Trainable bilateral filter layers in computed tomography"
+  year: 2022
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.15718"
+  note: "Bilateral-filter layers with only four trainable parameters per layer (three spatial, one range) compete with deep denoisers having hundreds of thousands of parameters, on X-ray microscopy bone data and the 2016 low-dose CT grand challenge data; described as open-source though no direct code link was shown on the checked pages."

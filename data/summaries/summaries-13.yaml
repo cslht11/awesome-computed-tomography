@@ -1,0 +1,12 @@
+# Batch: Cambridge CIA team sweep #11 (EN quick-reads, verified against IEEE/Nature/PLOS/AIMS 2026-10-25).
+learned-denoising-simulated-experimental: >-
+  Machine-learning denoising depends heavily on high-quality training data, and transfer from simulated to real noise is a key problem; using a large 2D CT dataset, this study systematically compares U-Net and MSD-Net trained on simulated versus experimental noise, in the sinogram and reconstruction domains. Simulated-data advantages in the sinogram domain do not necessarily transfer to the reconstruction domain, while direct sinogram-to-reconstruction mapping trained on experimental noise performs better, suggesting more realistic noise simulation is needed.
+
+task-specific-sampling-sparse-view: >-
+  Sparse-view CT is low-dose and fast but artifact-heavy, and generic sampling strategies are not necessarily suited to different scan regions and downstream clinical tasks; a multi-task deep learning framework learns optimal sampling strategies per task around a shared reconstruction network. Experiments across scan types and downstream tasks show improved imaging quality and downstream performance, and the shared network makes task modules easy to switch on existing equipment.
+
+phase-contrast-data-driven-prior: >-
+  Grating-interferometry phase-contrast CT combines conventional CT's 3D resolution with higher soft-tissue contrast, but grating defects and photon starvation amplify noise and the differential forward operator is highly ill-posed. A novel regularized iterative reconstruction combines an improved tomographic operator with a deep-network data-driven prior, supported by L-BFGS and nonexpansive-network convergence and stability analysis, and shows high-quality imaging on simulated and real measurements.
+
+noisier2inverse: >-
+  Noisier2Inverse is a self-supervised method for spatially correlated measurement noise that needs no ground truth and no explicit extrapolation, training on noisier data with a loss defined in measurement space to recover extrapolated images, and numerical evidence shows it beats previous self-supervised methods for correlated noise. CT is the primary experimental application: 2D parallel-beam CT on 32 Walnut CBCT and 107 cardiac CT cases with 512 projections and FBP initialization, plus a 64-projection sparse experiment, with no microscopy or seismic experiments in that section.

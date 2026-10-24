@@ -1,0 +1,12 @@
+# Batch: CWI team sweep #12 (EN quick-reads, verified against publisher/Semantic Scholar 2026-10-25).
+filter-design-noise-robust: >-
+  Conventional filtered backprojection degrades under noise, incomplete sampling or non-standard scan geometry; learning FBP filters and projection weights directly from training data improves robustness without sacrificing compute efficiency, formulated as regularized optimization of a linear inverse problem. 2D and 3D experiments beat conventional FBP and Feldkamp-Davis-Kress, and filters trained on synthetic data generalize well to real measurements with quality near advanced iterative methods at lower compute cost.
+
+cone-angle-artifact-reduction: >-
+  High cone-angle artifacts in circular cone-beam CT seriously affect diagnosis and treatment planning; exploiting the relation between artifacts and rotational scan geometry, this method efficiently reduces the 3D artifact problem to 2D and trains CNNs on radially sampled slices from CBCT scans, comparing U-Net with Mixed-Scale Dense networks. The geometry-aware reduction substantially reduces high cone-angle artifacts, beating Cartesian-slice deep learning and significantly improving subsequent segmentation accuracy.
+
+on-the-fly-resolution: >-
+  Tomographic 3D volume resolution is limited by detector pixel resolution and optics, while existing machine-learning super-resolution usually needs a training set of high-quality similar objects, infeasible for many tomography applications. Assuming self-similarity of local structure inside the object, this method combines a specially designed scan protocol with super-resolution machine learning and needs no similar-object training set; simulated and experimental validation show significantly improved tomographic resolution.
+
+msdnet-limited-data: >-
+  Under limited data, direct reconstruction algorithms are often inaccurate while more accurate iterative algorithms are computationally expensive, and prior encoder-decoder networks struggle with large tomographic images. Mixed-Scale Dense CNNs improve direct-algorithm reconstruction quality to avoid these drawbacks, and results across limited-data types (low projection counts, limited angular range, limited exposure/noise) and object types, on simulated and large-scale real experimental data, show significant quality gains over existing algorithms even under severely limited data.

@@ -1,0 +1,16 @@
+# Batch: ANL APS team sweep #9 (user-approved 2026-10-24, journal methods 2).
+- id: "low-dose-dcnn-tomography"
+  title: "Low-dose x-ray tomography through a deep convolutional neural network"
+  year: 2018
+  venue: "Sci Rep"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1038/s41598-018-19426-7"
+  note: "A deep CNN improves recorded projection quality so low-dose fast acquisition boosts the acquired X-ray tomographic signal at least 10-fold, with CNN-enhanced short-exposure SNR approaching long-exposure projections, validated on simulated samples and mouse brain data."
+
+- id: "limited-angle-deep-image-physics-priors"
+  title: "Limited-angle computed tomography with deep image and physics priors"
+  year: 2021
+  venue: "Sci Rep"
+  topics: [limited-angle]
+  paper: "https://doi.org/10.1038/s41598-021-97226-2"
+  note: "A self-trained generative model combines data likelihood with an image prior in a single deep network, with total-variation regularization and an ADMM solver constraining the physics-based solution; code and data available upon request only."

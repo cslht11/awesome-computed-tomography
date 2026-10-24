@@ -1,0 +1,35 @@
+# Batch: Cambridge CIA team sweep #11 (user-approved 2026-10-24, journal methods 4).
+- id: "learned-denoising-simulated-experimental"
+  title: "Learned denoising with simulated and experimental low-dose CT data"
+  year: 2026
+  venue: "Sci Rep"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1038/s41598-025-30457-9"
+  code: "https://github.com/CambridgeCIA/LIONscripts/paper_scripts/noise_paper"
+  note: "Systematic comparison of U-Net and MSD-Net trained on simulated versus experimental noise, in sinogram and reconstruction domains; simulated-noise advantages in the sinogram domain do not always transfer to the reconstruction domain, while direct sinogram-to-reconstruction mapping trained on experimental noise works better. Year follows the volume citation (vol. 16, 2026) though first published online 4 Dec 2025."
+
+- id: "task-specific-sampling-sparse-view"
+  title: "Learning Task-Specific Sampling Strategy for Sparse-View CT Reconstruction"
+  year: 2025
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1109/tim.2025.3554318"
+  note: "A multi-task deep learning framework learns optimal sampling strategies per downstream clinical task around a shared reconstruction network, improving imaging quality and downstream performance across scan types and tasks."
+
+- id: "phase-contrast-data-driven-prior"
+  title: "Iterative phase contrast CT reconstruction with novel tomographic operator and data-driven prior"
+  year: 2022
+  venue: "PLoS One"
+  topics: [other]
+  paper: "https://doi.org/10.1371/journal.pone.0272963"
+  note: "A regularized iterative reconstruction combining an improved tomographic operator with a deep-network data-driven prior, supported by L-BFGS and nonexpansive-network convergence and stability analysis, for grating-interferometry phase-contrast CT with grating defects and photon starvation."
+
+- id: "noisier2inverse"
+  abbr: "Noisier2Inverse"
+  title: "Noisier2Inverse: Self-Supervised Learning for Image Reconstruction With Correlated Noise"
+  year: 2025
+  venue: "IEEE Access"
+  topics: [sparse-view, self-supervised]
+  paper: "https://doi.org/10.1109/access.2025.3596557"
+  code: "https://github.com/Nadja1611/Noisier2Inverse-Joint-Denoising-and-Reconstruction-of-correlated-noise"
+  note: "Self-supervised joint denoising and reconstruction for spatially correlated measurement noise, trained on noisier data with a measurement-space loss and no ground truth or explicit extrapolation; CT is the primary experimental application (Walnut CBCT and cardiac CT, including a 64-projection sparse experiment)."

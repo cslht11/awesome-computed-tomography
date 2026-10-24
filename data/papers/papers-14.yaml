@@ -1,0 +1,34 @@
+# Batch: CWI team sweep #12 (user-approved 2026-10-24, journal methods 4).
+- id: "filter-design-noise-robust"
+  title: "Data-driven filter design for flexible and noise-robust tomographic imaging"
+  year: 2026
+  venue: "Appl. Math. Mod. Chall."
+  topics: [other]
+  paper: "https://doi.org/10.3934/ammc.2025018"
+  note: "Learns FBP filters and projection weights directly from training data, formulated as regularized optimization of a linear inverse problem; 2D and 3D experiments beat conventional FBP and FDK, with synthetic-trained filters generalizing to real measurements at near-iterative quality and lower compute."
+
+- id: "cone-angle-artifact-reduction"
+  title: "Efficient high cone-angle artifact reduction in circular cone-beam CT using deep learning with geometry-aware dimension reduction"
+  year: 2021
+  venue: "PMB"
+  topics: [cbct]
+  paper: "https://doi.org/10.1088/1361-6560/ac09a1"
+  note: "Geometry-aware dimension reduction turns the 3D cone-angle artifact problem into a 2D one, training CNNs (U-Net versus Mixed-Scale Dense compared) on radially sampled slices from CBCT scans; it substantially reduces high cone-angle artifacts, beating Cartesian-slice deep learning and improving downstream segmentation."
+
+- id: "on-the-fly-resolution"
+  title: "On-the-Fly Machine Learning for Improving Image Resolution in Tomography"
+  year: 2019
+  venue: "Appl. Sci."
+  topics: [other]
+  paper: "https://doi.org/10.3390/app9122445"
+  code: "https://github.com/ahendriksen/on_the_fly/tree/paper-release"
+  note: "On-the-fly super-resolution exploiting self-similarity of local structure inside the object, combining a specially designed scan protocol with super-resolution machine learning, with no training set of similar objects required; validated on simulated and experimental data."
+
+- id: "msdnet-limited-data"
+  abbr: "MSDNet"
+  title: "Improving Tomographic Reconstruction from Limited Data Using Mixed-Scale Dense Convolutional Neural Networks"
+  year: 2018
+  venue: "J. Imaging"
+  topics: [sparse-view, limited-angle]
+  paper: "https://doi.org/10.3390/jimaging4110128"
+  note: "Mixed-Scale Dense CNNs improve direct-algorithm reconstruction quality under limited data — low projection counts, limited angular range, and limited exposure/noise — beating existing algorithms on simulated and large-scale real experimental data."

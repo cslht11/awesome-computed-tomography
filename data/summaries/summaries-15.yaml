@@ -1,0 +1,18 @@
+# Batch: FAU Maier team sweep #10 (EN quick-reads, verified against IEEE/IOP/Nature/PubMed 2026-10-25; Filter2Noise year follows formal volume 2026, Differentiable Few-view confirmed conference and excluded).
+known-operator-geometry-conversion: >-
+  X-ray and MRI acquisition geometries differ fundamentally, and conventional rebinning loses resolution; a novel parallel-to-cone-beam rebinning formula is mapped to a neural network with differentiable projection operators under the known-operator paradigm, learning only the remaining unknown operators. The network beats conventional baselines and trains on simulation yet applies directly to real data without retraining or transfer learning.
+
+extended-fov-reconstruction: >-
+  When patients exceed the CT scan field of view, missing data causes truncation artifacts; deep learning extends the field of view and suppresses truncation artifacts, aiming at good patient-data estimation outside the scan FOV rather than fully diagnostic images. Comparing ConvNet, autoencoder and U-Net with L1, L2, structural dissimilarity and perceptual losses, U-Net with structural dissimilarity loss recovers outside-FOV regions best on 12 truncated test patients.
+
+two-view-topogram: >-
+  Prospective CT effective-dose estimation and risk minimization need anatomically correct CT volumes from as few projections as possible; a GAN-based optimization model reconstructs 3D volumes from only anteroposterior and lateral topograms, adding a pretrained organ segmentation network and 3D perceptual loss for anatomical structure. It slightly beats the baseline on reconstruction metrics and raises mean organ Dice from 0.63 to 0.71, with clearer organ shapes and boundaries for identifying relevant anatomy.
+
+trainable-joint-bilateral: >-
+  Low-dose CT denoising should cut patient dose while preserving quality, but deep denoising models generalize unstably beyond training data, limiting clinical use; a hybrid denoiser uses trainable joint bilateral filters with a convolutional denoising network predicting guidance images, combining deep feature extraction with traditional filter reliability. Trained on metal-free abdomen data and tested on metal-containing abdomen and head data, the hybrid improves denoising in metal regions and head data, showing trainable joint bilateral filters bound deep-network errors.
+
+filter2noise: >-
+  Black-box deep denoisers are hard for radiologists to verify and control, while zero-shot methods struggle with CT's spatially correlated noise; Filter2Noise replaces deep networks with attention-guided bilateral filters, learning from a single noisy image via Euclidean local shuffling and multi-scale self-supervised losses. On the Mayo low-dose CT challenge it reaches 39.76 dB PSNR, 1.88 dB above the next-best zero-shot method with only 3.6k parameters (about 1/360 of competitors), and photon-counting CT validation lifts low-dose images to contrast-to-noise ratios not significantly different from full dose, with a fully visualizable and interactively adjustable filter policy.
+
+ultralow-parameter-denoising: >-
+  Most data-driven denoisers use deep networks with hundreds of thousands of trainable parameters, hard to understand and prone to prediction failures; a bilateral-filter-based CT denoising framework uses only four trainable parameters per layer (three spatial, one range) and can integrate into any deep learning pipeline or work on raw detector and reconstructed data via differentiable backprojection. With very few parameters it competes with deep denoisers having hundreds of thousands of parameters, achieving competitive SSIM and PSNR on X-ray microscopy bone data and the 2016 low-dose CT grand challenge data.
