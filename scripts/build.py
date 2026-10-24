@@ -36,6 +36,13 @@ REPO = "cslht11/awesome-computed-tomography"
 BADGE = "https://awesome.re/badge.svg"
 DEFAULT_TITLE = "Awesome Computed Tomography"
 
+# Toolkit groups, in display order on the site's toolkits tab (each group is
+# sorted by stars within itself). data/toolkits.yaml carries the same
+# section order as comments; the `group` field is what the build reads.
+# Keep in sync with the TOOLKIT_GROUPS list in web/app.js.
+TOOLKIT_GROUPS = ("engines", "learning", "simulation", "io", "classical",
+                  "reference", "augmentation", "platforms", "operators")
+
 
 # ---------------------------------------------------------------- helpers
 def fill(text, subs):
@@ -266,6 +273,13 @@ def validate(meta, papers, toolkits, datasets, benchmarks, learning, teams=None,
             seen2.add(e.get(key))
             if not (url_of(e, "url", "repo")):
                 p.add(w, "no url/repo")
+
+    # The toolkits tab groups by `group` and sorts by stars inside each
+    # group; an entry without a known group would silently land in the
+    # fallback section, so fail loudly instead.
+    for i, e in enumerate(toolkits or []):
+        if e.get("group") not in TOOLKIT_GROUPS:
+            p.add("toolkits[%d]" % i, "unknown or missing group '%s'" % e.get("group"))
 
     # Learning resources carry topic ids in `tasks` (that is the field the
     # side-table topic edges are built from); unlike datasets' free-form

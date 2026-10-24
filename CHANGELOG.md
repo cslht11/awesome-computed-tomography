@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-24 — Toolkits tab groups by category, stars within each group
+
+### Changed
+
+- **The toolkits tab is now grouped by category, with stars deciding the order inside each group.** It used to be one flat list sorted by stars, so general-purpose giants (MONAI, 3D Slicer, pydicom) sat on top and CT-specific tools were buried far below, and the Stars column scrolled off-screen on phones, which made the order look arbitrary. The nine groups are the sections the data file already used (reconstruction engines, differentiable / learning, simulation & physics, I/O frameworks, classical / statistical, reference implementations, data augmentation & simulation, platforms & viewers, operators / physics / synchrotron). The star snapshot was also refreshed to today; ESRF's pyHST2 still shows no count because its GitLab project is not publicly measurable from here.
+
 ## 2026-10-24 — Lineage tree card links are clickable
 
 ### Fixed

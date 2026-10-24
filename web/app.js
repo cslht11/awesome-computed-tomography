@@ -387,27 +387,60 @@
     host.innerHTML = '<table class="grid">' + head + body + "</table>";
   }
 
+  // Toolkit groups, in display order; keep in sync with TOOLKIT_GROUPS in
+  // scripts/build.py. Rows inside a group sort by stars, highest first.
+  var TOOLKIT_GROUPS = [
+    ["engines", "toolkitGroupEngines", "Reconstruction engines"],
+    ["learning", "toolkitGroupLearning", "Differentiable / learning"],
+    ["simulation", "toolkitGroupSimulation", "Simulation & physics"],
+    ["io", "toolkitGroupIo", "I/O, frameworks, visualisation"],
+    ["classical", "toolkitGroupClassical", "Classical / statistical"],
+    ["reference", "toolkitGroupReference", "Reference implementations"],
+    ["augmentation", "toolkitGroupAugmentation", "Data augmentation & simulation"],
+    ["platforms", "toolkitGroupPlatforms", "Platforms & viewers"],
+    ["operators", "toolkitGroupOperators", "Operators, physics & synchrotron"]
+  ];
+
+  // NB: the callback parameter must NOT be named `t` — that would shadow the
+  // i18n helper t() above, and the `t("homepageTitle")` call below would
+  // then be calling a row object. It threw for every toolkit that carries a
+  // homepage, which aborted init() before the search box was ever wired up.
+  function toolkitRow(row) {
+    var nm = esc(row.label || row.name);
+    var html = '<a href="' + esc(row.url) + '" target="_blank" rel="noopener">' + nm + "</a>";
+    if (row.homepage) {
+      html += ' <a href="' + esc(row.homepage) + '" target="_blank" rel="noopener" title="' + t("homepageTitle", "homepage") + '">'
+            + '<span class="mono">[site]</span></a>';
+    }
+    return ["@@HTML@@" + html, row.language || "-", row.license || "-",
+            row.stars == null ? "-" : String(row.stars), "@@HTML@@" + mdInline(row.note)];
+  }
+
   function renderToolkits() {
-    var rows = DATA.toolkits.slice().sort(function (a, b) { return (b.stars || 0) - (a.stars || 0); });
-    renderTable(document.getElementById("t-toolkits"),
-      [{ label: t("tableToolkit", "Toolkit") }, { label: t("tableLanguage", "Language") },
-       { label: t("tableLicense", "License"), cls: "n" },
-       { label: t("tableStars", "Stars"), cls: "n" },
-       { label: t("tableNotes", "Notes"), cls: "note" }],
-      // NB: the callback parameter must NOT be named `t` — that would shadow the
-      // i18n helper t() above, and the `t("homepageTitle")` call below would
-      // then be calling a row object. It threw for every toolkit that carries a
-      // homepage, which aborted init() before the search box was ever wired up.
-      rows.map(function (row) {
-        var nm = esc(row.label || row.name);
-        var html = '<a href="' + esc(row.url) + '" target="_blank" rel="noopener">' + nm + "</a>";
-        if (row.homepage) {
-          html += ' <a href="' + esc(row.homepage) + '" target="_blank" rel="noopener" title="' + t("homepageTitle", "homepage") + '">'
-                + '<span class="mono">[site]</span></a>';
-        }
-        return ["@@HTML@@" + html, row.language || "-", row.license || "-",
-                row.stars == null ? "-" : String(row.stars), "@@HTML@@" + mdInline(row.note)];
-      }));
+    var cols = [{ label: t("tableToolkit", "Toolkit") }, { label: t("tableLanguage", "Language") },
+      { label: t("tableLicense", "License"), cls: "n" },
+      { label: t("tableStars", "Stars"), cls: "n" },
+      { label: t("tableNotes", "Notes"), cls: "note" }];
+    var byStars = function (a, b) { return (b.stars || 0) - (a.stars || 0); };
+    var html = "";
+    var seen = {};
+    TOOLKIT_GROUPS.forEach(function (g) {
+      var rows = DATA.toolkits.filter(function (r) { return r.group === g[0]; }).sort(byStars);
+      if (!rows.length) return;
+      rows.forEach(function (r) { seen[r.name] = true; });
+      var tmp = document.createElement("div");
+      renderTable(tmp, cols, rows.map(toolkitRow));
+      html += '<h3 class="toolkit-group">' + esc(t(g[1], g[2])) + " (" + rows.length + ")</h3>" + tmp.innerHTML;
+    });
+    // Defensive fallback: an entry with an unknown or missing group must
+    // never vanish from the tab; it lands in "Other" at the end.
+    var rest = DATA.toolkits.filter(function (r) { return !seen[r.name]; }).sort(byStars);
+    if (rest.length) {
+      var tmp = document.createElement("div");
+      renderTable(tmp, cols, rest.map(toolkitRow));
+      html += '<h3 class="toolkit-group">' + esc(t("toolkitGroupOther", "Other")) + " (" + rest.length + ")</h3>" + tmp.innerHTML;
+    }
+    document.getElementById("t-toolkits").innerHTML = html;
   }
 
   /* A dataset / benchmark name links to its own page on this site when it has

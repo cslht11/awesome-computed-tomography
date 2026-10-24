@@ -155,6 +155,12 @@ def build_payload(lang=None):
                     n = ov.item(table, e[key]).get("note") or e.get("note")
                     if n:
                         r["note"] = n
+                elif f == "stars":
+                    # 0 is a real count, not a missing value: the old
+                    # truthiness test dropped it, so a 0-star repo showed
+                    # "-" (unknown) instead of "0".
+                    if e.get(f) is not None:
+                        r[f] = e[f]
                 elif e.get(f):
                     r[f] = e[f]
             rows.append(r)
@@ -215,7 +221,7 @@ def build_payload(lang=None):
                     "count": counts.get(t["id"], 0)} for t in topics],
         "papers": out_papers,
         "toolkits": side(toolkits, "toolkits", "name", ("repo", "url"),
-                         ("language", "license", "stars", "tags", "note", "homepage")),
+                         ("language", "license", "stars", "tags", "note", "homepage", "group")),
         "datasets": side(datasets, "datasets", "name", ("url", "repo"),
                          ("modality", "tasks", "license", "note", "homepage", "year")),
         "benchmarks": side(benchmarks, "benchmarks", "name", ("url", "repo"),

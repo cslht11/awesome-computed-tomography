@@ -77,6 +77,10 @@ JS_UI = {
     "tableToolkit", "tableLanguage", "tableLicense", "tableStars", "tableNotes",
     "tableDataset", "tableModality", "tableTasks", "tableBenchmark",
     "tableYear", "tableResource", "tableType",
+    "toolkitGroupEngines", "toolkitGroupLearning", "toolkitGroupSimulation",
+    "toolkitGroupIo", "toolkitGroupClassical", "toolkitGroupReference",
+    "toolkitGroupAugmentation", "toolkitGroupPlatforms", "toolkitGroupOperators",
+    "toolkitGroupOther",
 }
 
 

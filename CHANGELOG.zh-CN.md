@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-24 — 工具包页按类别分组，组内按星标排序
+<!-- en: Toolkits tab groups by category, stars within each group -->
+
+### 变更
+
+- **工具包页现在先按类别分组，组内再按星标排序。**此前是整表按星标排，MONAI、3D Slicer、pydicom 这类通用大库永远霸占前面，CT 专属工具被埋在很后面，而且手机上星标列要横滑才看得到，顺序看起来毫无根据。九个分组就是数据文件本来就有的分节（重建引擎、可微 / 学习、仿真与物理、I/O 框架、经典 / 统计、参考实现、数据增强与仿真、平台与查看器、算子 / 物理与同步辐射）。星标快照也刷新到了今天；ESRF 的 pyHST2 因 GitLab 项目这边测不到，仍显示无星标。
+
 ## 2026-10-24 — 谱系树卡片链接可以点了
 <!-- en: Lineage tree card links are clickable -->
 

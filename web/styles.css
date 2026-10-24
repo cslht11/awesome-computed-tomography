@@ -418,6 +418,8 @@ table.grid {
 }
 table.grid th, table.grid td { text-align: left; padding: 14px 18px 14px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
 table.grid th { font-size: 12.5px; font-weight: 600; color: var(--fg-faint); border-bottom-color: var(--border-strong); white-space: nowrap; }
+.toolkit-group { margin: 20px 0 2px; font: 600 15px var(--display); }
+#t-toolkits .toolkit-group:first-child { margin-top: 4px; }
 table.grid td:first-child { min-width: 16ch; }
 table.grid td:first-child a { font-weight: 600; color: var(--accent); }
 table.grid td:nth-child(2) { min-width: 12ch; }
