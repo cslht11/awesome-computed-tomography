@@ -409,6 +409,34 @@ for (const L of LANGS) {
      bad.length === 0, bad.slice(0, 5).join("; ") || (urls.length + " pages"));
 }
 
+/* Sub-page nav underline: every page built from page.html carries
+ * data-nav links, and exactly the current section's link (if any) is
+ * marked aria-current="page" — the underline the homepage tabs get from
+ * aria-selected. A page with no section (changelog, about, ...) marks
+ * none; a page marking two, or the wrong one, fails here. (This is the
+ * regression test for the missing underline on /graph/ and friends:
+ * the nav used to be plain links with no current-state at all.) */
+{
+  console.log("\nsub-page nav current section");
+  const SECTION = { graph: "graph", datasets: "datasets", benchmarks: "benchmarks", guides: "learning", topics: "papers" };
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const bad = [];
+  for (const u of urls) {
+    const file = path.join(SITE, u.slice(ORIGIN.length), u.endsWith("/") ? "index.html" : "");
+    if (!fs.existsSync(file)) continue;
+    const h = fs.readFileSync(file, "utf8");
+    if (!h.includes("data-nav=")) continue;
+    const marked = [...h.matchAll(/data-nav="([^"]+)" aria-current="page"/g)].map((m) => m[1]);
+    const rel = u.slice(ORIGIN.length).replace(/^zh\//, "");
+    const want = SECTION[rel.split("/")[0]];
+    if (marked.length > 1) bad.push(u + ": " + marked.length + " marked");
+    else if (want && (marked.length !== 1 || marked[0] !== want)) bad.push(u + ": want " + want + ", got " + (marked[0] || "none"));
+    else if (!want && marked.length !== 0) bad.push(u + ": unexpected mark " + marked[0]);
+  }
+  ok("every sub-page marks exactly its own nav section (or none)",
+     bad.length === 0, bad.slice(0, 5).join("; ") || (urls.length + " pages"));
+}
+
 console.log("\nacross languages");
 ok("titles are unique per language", titles.size === LANGS.length);
 ok("descriptions are unique per language", descs.size === LANGS.length);

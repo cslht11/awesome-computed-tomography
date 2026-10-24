@@ -157,8 +157,9 @@ header.top {
 }
 #tabs .ti { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 #tabs button:hover, #tabs .nav-ext:hover { opacity: 1; text-decoration: none; }
-#tabs button[aria-selected="true"] { opacity: 1; font-weight: 600; }
-#tabs button[aria-selected="true"]::after {
+#tabs button[aria-selected="true"], #tabs .nav-ext[aria-current="page"] { opacity: 1; font-weight: 600; }
+#tabs button[aria-selected="true"]::after,
+#tabs .nav-ext[aria-current="page"]::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
   background: var(--hdr-fg); border-radius: 2px;
 }
@@ -499,8 +500,8 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   }
   #tabs .n { margin-left: auto; }
   #tabs .nav-ext.drawer-only { display: inline-flex; }
-  #tabs button[aria-selected="true"] { background: var(--surface); }
-  #tabs button[aria-selected="true"]::after { display: none; }
+  #tabs button[aria-selected="true"], #tabs .nav-ext[aria-current="page"] { background: var(--surface); }
+  #tabs button[aria-selected="true"]::after, #tabs .nav-ext[aria-current="page"]::after { display: none; }
   #tabs .n { display: inline; font-size: 13px; font-weight: 400; color: var(--fg-faint); }
   #tabs .nav-ext { font-size: 15px; }
   #tabs .nav-ext.drawer-only { margin-top: 14px; border-top: 1px solid var(--border); border-radius: 0; padding-top: 18px; }

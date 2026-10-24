@@ -1393,6 +1393,30 @@ def add_to_head(page, canonical, extra):
         sys.exit("canonical link %s not found while adding head markup" % canonical)
     return page.replace(tag, tag + "\n" + extra, 1)
 
+# Sub-page nav section for the underline: first path segment -> the nav
+# item that counts as "you are here". Pages with no entry (changelog,
+# about, contact, privacy) get no underline, honestly.
+_NAV_SECTION = {"graph": "graph", "datasets": "datasets",
+                "benchmarks": "benchmarks", "guides": "learning",
+                "topics": "papers"}
+
+
+def mark_nav(html_, where):
+    """Mark the current section's nav link in a page.html build.
+
+    ``where`` is "<lang>/<rel path>" (or "<lang>/<rel path>" for the
+    manual blocks); the first segment names the section. The nav links
+    carry data-nav="<section>", and the marked one gets aria-current,
+    which styles.css underlines exactly like a selected homepage tab.
+    """
+    rel = where.split("/", 1)[1] if "/" in where else ""
+    sec = _NAV_SECTION.get(rel.split("/")[0])
+    if not sec:
+        return html_
+    return html_.replace('class="nav-ext" data-nav="%s"' % sec,
+                         'class="nav-ext" data-nav="%s" aria-current="page"' % sec, 1)
+
+
 def fill_page(tpl, body, title, desc, url, root, subs, where, switch):
     """page.html filled for one standalone page; fails on a leftover {{X}}.
 
@@ -1407,6 +1431,7 @@ def fill_page(tpl, body, title, desc, url, root, subs, where, switch):
     for k, v in subs.items():
         html_ = html_.replace(k, v)
     html_ = html_.replace("{{LANG_SWITCH}}", switch)
+    html_ = mark_nav(html_, where)
     left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
     if left:
         sys.exit("%s: unreplaced placeholders: %s" % (where, ", ".join(sorted(set(left)))))
@@ -1744,6 +1769,7 @@ def main():
                 html_ = html_.replace(k, v)
             html_ = html_.replace("{{LANG_SWITCH}}", i18n.switch_links(
                 base, langs, code, name + "/"))
+            html_ = mark_nav(html_, "%s/%s" % (code, name))
             left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
             if left:
                 sys.exit("%s/%s: unreplaced placeholders: %s"
@@ -1783,6 +1809,7 @@ def main():
             html_ = html_.replace(k, v)
         html_ = html_.replace("{{LANG_SWITCH}}", i18n.switch_links(
             base, langs, code, CHANGELOG_PATH))
+        html_ = mark_nav(html_, "%s/changelog" % code)
         left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
         if left:
             sys.exit("%s/changelog: unreplaced placeholders: %s"
@@ -1889,6 +1916,7 @@ def main():
                 html_ = html_.replace(k, v)
             html_ = html_.replace("{{LANG_SWITCH}}", i18n.switch_links(
                 base, langs, code, "topics/" + tid + "/"))
+            html_ = mark_nav(html_, "%s/topics/%s" % (code, tid))
             left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
             if left:
                 sys.exit("%s/topics/%s: unreplaced placeholders: %s"

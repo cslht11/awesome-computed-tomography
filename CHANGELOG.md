@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-24 — Sub-page nav marks the current section
+
+### Fixed
+
+- **Every sub-page's nav now underlines the section you are in, like the homepage tabs do.** The sub-page nav was plain links with no current-state at all, so on /graph/ (and every dataset, benchmark, guide and topic page) no tab showed the underline — the Knowledge Graph entry looked broken next to the six homepage tabs. Pages built from the shared template now mark their own section (graph, datasets, benchmarks, guides under Learning, topics under Papers); pages with no section (changelog, about, contact, privacy) honestly mark none. The sub-page nav also gains the missing Teams link, so it finally lists the same seven sections as the homepage. The SEO checks assert the marking on every sitemap page.
+
 ## 2026-10-24 — Toolkits tab groups by category, stars within each group
 
 ### Changed
