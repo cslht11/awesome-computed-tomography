@@ -385,6 +385,30 @@ for (const L of LANGS) {
   ok("lineage titles and descriptions unique", ltitles.size === mine.length && ldescs.size === mine.length);
 }
 
+/* The visible language switcher, on every page in the sitemap: its link
+ * must point at the SAME page in the other language — the page's own
+ * hreflang alternate — never at that language's homepage. (Regression
+ * check: the switcher was once built once per language from the language
+ * root alone and shared by every page, so switching from any subpage
+ * dropped the reader on the other homepage.) */
+{
+  console.log("\nlanguage switcher");
+  const bad = [];
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  for (const u of urls) {
+    const file = path.join(SITE, u.slice(ORIGIN.length), u.endsWith("/") ? "index.html" : "");
+    if (!fs.existsSync(file)) { bad.push(u + ": page missing"); continue; }
+    const h = fs.readFileSync(file, "utf8");
+    const other = u.startsWith(ORIGIN + "zh/") ? "en" : "zh-Hans";
+    const alt = attr(h, new RegExp('<link rel="alternate" hreflang="' + other + '" href="([^"]+)"'));
+    const sw = attr(h, /<span class="lang-switch"><a href="([^"]+)"/);
+    if (!sw) bad.push(u + ": no language switcher");
+    else if (sw !== alt) bad.push(u + ": switcher " + sw + " != alternate " + alt);
+  }
+  ok("every page's language switcher points at the same page in the other language",
+     bad.length === 0, bad.slice(0, 5).join("; ") || (urls.length + " pages"));
+}
+
 console.log("\nacross languages");
 ok("titles are unique per language", titles.size === LANGS.length);
 ok("descriptions are unique per language", descs.size === LANGS.length);
