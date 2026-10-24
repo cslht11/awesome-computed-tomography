@@ -121,10 +121,10 @@ jobs:
       # reads the payloads the previous step generated (site/ is git-ignored, so
       # this is the only point at which they exist).
       #
-      # tests/test_site_dom.js, which drives the real pages in jsdom, is
-      # deliberately NOT here: it needs jsdom from npm, and a job that can go red
-      # because a registry was unreachable teaches people to ignore red. It is a
-      # pre-push check instead; tests/README.md says how to run it.
+      # tests/test_site_dom.js drives the real pages in jsdom (lineage
+      # pointer-capture rule, graph slice fallback, drawer). It needs
+      # jsdom from npm, installed into a scratch prefix below so the
+      # checkout itself stays dependency-free.
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -136,3 +136,10 @@ jobs:
       # Plain Node, no packages.
       - name: Test structured data and the changelog page
         run: node tests/test_seo.js
+
+      # The rendered pages, driven in jsdom. jsdom goes to a scratch
+      # prefix, never the checkout, so no package files pollute the repo.
+      - name: Test the rendered pages (jsdom)
+        run: |
+          npm install --prefix /tmp/ct-dom-test jsdom
+          NODE_PATH=/tmp/ct-dom-test/node_modules node tests/test_site_dom.js

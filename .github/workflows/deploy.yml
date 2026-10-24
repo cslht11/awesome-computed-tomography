@@ -37,6 +37,22 @@ jobs:
       - name: Build site
         run: python scripts/build_site.py
 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      # P0-2: the deploy must not ship what validation rejects. These are
+      # the same suites validate.yml runs; running them here makes a red
+      # test block the publish instead of merely mailing a failure after
+      # the fact. (build_site.py already fails both workflows on a JS
+      # syntax error via its built-in node --check.)
+      - name: Test the search core
+        run: node tests/test_search.js
+
+      # Structured data and the changelog page, read from the same build.
+      - name: Test structured data and the changelog page
+        run: node tests/test_seo.js
+
       # build_site.py asserts canonical/og:url match the configured origin and
       # that no github.io URL leaks in when a custom domain is set; reaching
       # this step means that passed.
