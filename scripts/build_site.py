@@ -1393,8 +1393,12 @@ def add_to_head(page, canonical, extra):
         sys.exit("canonical link %s not found while adding head markup" % canonical)
     return page.replace(tag, tag + "\n" + extra, 1)
 
-def fill_page(tpl, body, title, desc, url, root, subs, where):
-    """page.html filled for one standalone page; fails on a leftover {{X}}."""
+def fill_page(tpl, body, title, desc, url, root, subs, where, switch):
+    """page.html filled for one standalone page; fails on a leftover {{X}}.
+
+    ``switch`` is this page's own language-switcher HTML (see
+    i18n.switch_links): it is per-page, so it cannot ride in ``subs``,
+    which is built once per language."""
     html_ = (tpl.replace("{{BODY}}", body)
              .replace("{{PAGE_TITLE}}", esc(title))
              .replace("{{PAGE_DESC}}", esc(desc))
@@ -1402,6 +1406,7 @@ def fill_page(tpl, body, title, desc, url, root, subs, where):
              .replace("{{ROOT}}", root))
     for k, v in subs.items():
         html_ = html_.replace(k, v)
+    html_ = html_.replace("{{LANG_SWITCH}}", switch)
     left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
     if left:
         sys.exit("%s: unreplaced placeholders: %s" % (where, ", ".join(sorted(set(left)))))
@@ -1643,12 +1648,8 @@ def main():
                       for g in rp_guides],
         }
 
-        # Absolute, so the same string works from any directory depth.
-        switch = "".join(
-            '<a href="%s" hreflang="%s" lang="%s">%s</a>'
-            % (esc(i18n.url_for(base, e)), esc(e["hreflang"]),
-               esc(e["html"]), esc(e["label"]))
-            for e in langs if e["code"] != code)
+        # The homepage's own switcher: its twin is the other homepage.
+        switch = i18n.switch_links(base, langs, code, "")
 
         subs = {
             "{{HEAD}}": render_head(cfg, payload, lang_base, base, entry, langs,
@@ -1670,7 +1671,6 @@ def main():
             "{{BUILD_DATE}}": today,
             "{{COVERAGE}}": esc(shared["coverage"]),
             "{{HTML_LANG}}": esc(entry["html"]),
-            "{{LANG_SWITCH}}": switch,
             "{{N_PAPERS}}": str(c["papers"]),
             "{{N_TOOLKITS}}": str(c["toolkits"]),
             "{{N_DATASETS}}": str(c["datasets"]),
@@ -1686,6 +1686,7 @@ def main():
         page = index_tpl.replace("{{ROOT}}", "./")
         for k, v in subs.items():
             page = page.replace(k, v)
+        page = page.replace("{{LANG_SWITCH}}", switch)
         left = re.findall(r"\{\{[A-Z_]+\}\}", page)
         if left:
             sys.exit("%s: unreplaced placeholders: %s"
@@ -1741,6 +1742,8 @@ def main():
                      .replace("{{ROOT}}", "../"))
             for k, v in subs.items():
                 html_ = html_.replace(k, v)
+            html_ = html_.replace("{{LANG_SWITCH}}", i18n.switch_links(
+                base, langs, code, name + "/"))
             left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
             if left:
                 sys.exit("%s/%s: unreplaced placeholders: %s"
@@ -1778,6 +1781,8 @@ def main():
                  .replace("{{ROOT}}", "../"))
         for k, v in subs.items():
             html_ = html_.replace(k, v)
+        html_ = html_.replace("{{LANG_SWITCH}}", i18n.switch_links(
+            base, langs, code, CHANGELOG_PATH))
         left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
         if left:
             sys.exit("%s/changelog: unreplaced placeholders: %s"
@@ -1792,7 +1797,8 @@ def main():
         html_ = fill_page(tpl, render_graph_index_body(payload, ov, code,
                                                        graph_slices, lineages),
                           ov.ui("pageGraphTitle", "Knowledge Graph"), g_desc,
-                          g_url, "../", subs, "%s/graph" % code)
+                          g_url, "../", subs, "%s/graph" % code,
+                          i18n.switch_links(base, langs, code, GRAPH_PATH))
         html_ = add_to_head(html_, g_url, head_extra_graph(
             cfg, base, langs, entry, ov, g_desc))
         write(os.path.join(sub, "graph", "index.html"), html_)
@@ -1829,7 +1835,8 @@ def main():
                     ).hexdigest()[:10],
                     note_html=note_html),
                 title, desc, url, "../" * depth,
-                subs, "%s/%s" % (code, rel))
+                subs, "%s/%s" % (code, rel),
+                i18n.switch_links(base, langs, code, rel))
             html_ = add_to_head(html_, url, head_extra_graph(
                 cfg, base, langs, entry, ov, desc, rel=rel, title=title,
                 parent=True))
@@ -1853,7 +1860,8 @@ def main():
             html_ = fill_page(
                 tpl, render_lineage_body(payload, ov, code, lin),
                 l_title, l_desc, url, "../" * depth,
-                subs, "%s/%s" % (code, rel))
+                subs, "%s/%s" % (code, rel),
+                i18n.switch_links(base, langs, code, rel))
             html_ = add_to_head(html_, url, head_extra_graph(
                 cfg, base, langs, entry, ov, l_desc, rel=rel, title=l_title,
                 parent=True))
@@ -1879,6 +1887,8 @@ def main():
                      .replace("{{ROOT}}", "../../"))
             for k, v in subs.items():
                 html_ = html_.replace(k, v)
+            html_ = html_.replace("{{LANG_SWITCH}}", i18n.switch_links(
+                base, langs, code, "topics/" + tid + "/"))
             left = re.findall(r"\{\{[A-Z_]+\}\}", html_)
             if left:
                 sys.exit("%s/topics/%s: unreplaced placeholders: %s"
@@ -1905,7 +1915,8 @@ def main():
         def emit(rel, body, title, desc, head, depth):
             url = lang_base + rel
             html_ = fill_page(tpl, body, title, desc, url, "../" * depth, subs,
-                              "%s/%s" % (code, rel))
+                              "%s/%s" % (code, rel),
+                              i18n.switch_links(base, langs, code, rel))
             html_ = add_to_head(html_, url, head(
                 "%s \u2014 %s" % (title, site_t), desc))
             if rel.startswith(RP.GUIDES_PATH) and rel != RP.GUIDES_PATH:
