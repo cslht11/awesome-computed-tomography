@@ -22,3 +22,7 @@ dual-stream-metal-streak: >-
 
 tod-net-low-dose: >-
   TOD-Net adds task-oriented losses from downstream tasks to low-dose CT denoising, so the network preserves the regions each downstream application actually needs. The task-oriented loss complements task-agnostic losses and broadly improves downstream method performance.
+
+# Batch: UChicago team sweep #2 (EN quick-read, verified against IEEE/Semantic Scholar 2026-10-24).
+do-cnns-solve-ct-inverse-problem: >-
+  This study tests whether CNNs solve the sparse-view CT inverse problem, using a dedicated breast CT simulation with two object models to generate training and test image/data pairs. CNN reconstructions differ significantly from the ground-truth images while TVmin reconstructs the test images accurately. Under the tested CNN methods and object models, the sparse-view CT inverse problem is not solved — a conclusion that questions similar unsupported CNN claims in medical imaging.

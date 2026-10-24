@@ -69,3 +69,12 @@
   paper: "https://doi.org/10.1007/978-3-030-87231-1_43"
   code: "https://github.com/DIAL-RPI/Task-Oriented-CT-Denoising_TOD-Net"
   note: "Task-oriented losses from downstream tasks guide denoising (TOD-Net), improving task-relevant regions and downstream method performance beyond task-agnostic losses."
+
+# Batch: UChicago team sweep #2 (user-approved 2026-10-24, TBME paper only).
+- id: "do-cnns-solve-ct-inverse-problem"
+  title: "Do CNNs Solve the CT Inverse Problem?"
+  year: 2021
+  venue: "TBME"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1109/TBME.2020.3020741"
+  note: "Tests whether CNNs solve the sparse-view CT inverse problem on a dedicated breast CT simulation with two object models: CNN reconstructions differ significantly from ground truth while TVmin reconstructs accurately, so the inverse problem is not solved under the tested conditions."
