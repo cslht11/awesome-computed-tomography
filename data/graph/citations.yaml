@@ -129,6 +129,8 @@
 - from: accelerated-optimization-of-implicit-neural-representations-
   to: coil
 - from: accelerated-optimization-of-implicit-neural-representations-
+  to: do-cnns-solve-ct-inverse-problem
+- from: accelerated-optimization-of-implicit-neural-representations-
   to: nerp
 - from: accelerated-optimization-of-implicit-neural-representations-
   to: piner
@@ -138,6 +140,8 @@
   to: conditional-gans-metal-artifact-reduction-ear
 - from: acdnet
   to: deep-mar
+- from: acdnet
+  to: deep-sinogram-completion-mar
 - from: acdnet
   to: dicdnet
 - from: acdnet
@@ -174,6 +178,8 @@
   to: piccs
 - from: acid-a
   to: rof-tv-1992
+- from: acid-a
+  to: virtual-monoenergetic-dl
 - from: acid-b
   to: acid-a
 - from: acid-b
@@ -190,6 +196,20 @@
   to: ksae
 - from: acid-b
   to: learn
+- from: adain-tunable-cyclegan
+  to: cycle-consistent-adversarial-denoising-network
+- from: adain-tunable-cyclegan
+  to: cyclegan
+- from: adain-tunable-cyclegan
+  to: deepcnn
+- from: adain-tunable-cyclegan
+  to: gan-noise-reduction-low-dose-ct
+- from: adain-tunable-cyclegan
+  to: red-cnn
+- from: adain-tunable-cyclegan
+  to: wavresnet
+- from: adain-tunable-cyclegan
+  to: wgan-vgg
 - from: admm-net-la
   to: art-1970
 - from: admm-net-la
@@ -256,6 +276,12 @@
   to: sv-cbct-eval
 - from: adversarial-sparse-view-cbct-artifact-reduction
   to: wgan-vgg
+- from: agate-virtual-noncalcium
+  to: incept-net-direct-inversion
+- from: agate-virtual-noncalcium
+  to: incept-net-virtual-monoenergetic
+- from: agate-virtual-noncalcium
+  to: sim2real-material-decomposition
 - from: airnet
   to: 3padmm
 - from: airnet
@@ -335,6 +361,8 @@
 - from: artifact-reduction-3d-4d-cbct-review
   to: cyclegan
 - from: artifact-reduction-3d-4d-cbct-review
+  to: dbp-domain-conebeam-artifact
+- from: artifact-reduction-3d-4d-cbct-review
   to: deer
 - from: artifact-reduction-3d-4d-cbct-review
   to: dif-net
@@ -349,7 +377,11 @@
 - from: artifact-reduction-3d-4d-cbct-review
   to: maier-2019
 - from: artifact-reduction-3d-4d-cbct-review
+  to: multi-slice-fusion-4d
+- from: artifact-reduction-3d-4d-cbct-review
   to: parker-1982
+- from: artifact-reduction-3d-4d-cbct-review
+  to: prior-4d-cbct
 - from: artifact-reduction-3d-4d-cbct-review
   to: spare
 - from: artifact-reduction-3d-4d-cbct-review
@@ -370,6 +402,8 @@
   to: red-cnn
 - from: ascon
   to: wgan-vgg
+- from: atom-cardiac-motion-correction
+  to: incept-net-virtual-monoenergetic
 - from: atv-limited-angle
   to: piccs
 - from: atv-limited-angle
@@ -406,6 +440,16 @@
   to: sidky-pan-tv-2008
 - from: awtv
   to: sv-cbct-eval
+- from: bcd-net
+  to: cnn-inverse
+- from: bcd-net
+  to: fessler-rogers-1996
+- from: bcd-net
+  to: fista-2009
+- from: bcd-net
+  to: modl
+- from: bcd-net
+  to: red-2017
 - from: bergner-2010
   to: art-1970
 - from: bergner-2010
@@ -432,6 +476,8 @@
   to: csc-ct
 - from: binary-ct-limited-view-2026
   to: ct-evolution
+- from: binary-ct-limited-view-2026
+  to: dictionary-learning-tomographic
 - from: binary-ct-limited-view-2026
   to: iradonmap
 - from: binary-ct-limited-view-2026
@@ -509,7 +555,11 @@
 - from: calimar-gan
   to: cyclegan
 - from: calimar-gan
+  to: deep-sinogram-completion-mar
+- from: calimar-gan
   to: dicdnet
+- from: calimar-gan
+  to: dual-stream-metal-streak
 - from: calimar-gan
   to: idol-net
 - from: calimar-gan
@@ -519,13 +569,47 @@
 - from: calimar-gan
   to: kalender-mar-1987
 - from: calimar-gan
+  to: ldm-dn-metal-artifact
+- from: calimar-gan
   to: mar-4dec
+- from: calimar-gan
+  to: mar-self-supervised-cross-domain
 - from: calimar-gan
   to: nmar-2010
 - from: calimar-gan
   to: why-fbp
+- from: cardiac-cyclegan-noise-disentanglement
+  to: cycle-consistent-adversarial-denoising-network
+- from: cardiac-cyclegan-noise-disentanglement
+  to: cyclegan
+- from: cardiac-cyclegan-noise-disentanglement
+  to: deepcnn
+- from: cardiac-cyclegan-noise-disentanglement
+  to: noise2noise
+- from: cardiac-cyclegan-noise-disentanglement
+  to: red-cnn
+- from: cardiac-cyclegan-noise-disentanglement
+  to: wavresnet
+- from: cardiac-cyclegan-noise-disentanglement
+  to: wgan-vgg
 - from: cargo-fewview
   to: robust-uncertainty-2006
+- from: cas-pred-limited-angle-cbct
+  to: dd-net
+- from: cas-pred-limited-angle-cbct
+  to: dl
+- from: cas-pred-limited-angle-cbct
+  to: fdk-1984
+- from: cas-pred-limited-angle-cbct
+  to: hd-cnn
+- from: cas-pred-limited-angle-cbct
+  to: l0-grad
+- from: cas-pred-limited-angle-cbct
+  to: red-cnn
+- from: cas-pred-limited-angle-cbct
+  to: rof-tv-1992
+- from: cas-pred-limited-angle-cbct
+  to: special
 - from: cascaded-diffusion-discrepancy-2025
   to: 3dip
 - from: cascaded-diffusion-discrepancy-2025
@@ -560,6 +644,32 @@
   to: tfu-net
 - from: cascaded-diffusion-discrepancy-2025
   to: wav-sgm
+- from: cascaded-resunet-spectrum-loss
+  to: atv-limited-angle
+- from: cascaded-resunet-spectrum-loss
+  to: cnn-inverse
+- from: cascaded-resunet-spectrum-loss
+  to: cnnrpgd
+- from: cascaded-resunet-spectrum-loss
+  to: dd-net
+- from: cascaded-resunet-spectrum-loss
+  to: dict-learning-low-dose-2012
+- from: cascaded-resunet-spectrum-loss
+  to: dire-low-dose
+- from: cascaded-resunet-spectrum-loss
+  to: dnnss
+- from: cascaded-resunet-spectrum-loss
+  to: dp-resnet-low-dose
+- from: cascaded-resunet-spectrum-loss
+  to: hdnet
+- from: cascaded-resunet-spectrum-loss
+  to: learn
+- from: cascaded-resunet-spectrum-loss
+  to: red-cnn
+- from: cascaded-resunet-spectrum-loss
+  to: sidky-pan-tv-2008
+- from: cascaded-resunet-spectrum-loss
+  to: tfu-net
 - from: casredscan
   to: adversarial-sparse-view-cbct-artifact-reduction
 - from: casredscan
@@ -603,6 +713,8 @@
 - from: ccn-cl
   to: cpce
 - from: ccn-cl
+  to: dp-resnet-low-dose
+- from: ccn-cl
   to: ldct-cnn
 - from: ccn-cl
   to: learn
@@ -618,6 +730,12 @@
   to: wgan-vgg
 - from: cd-net
   to: dd-net
+- from: cd-net
+  to: dect-multra
+- from: cd-net
+  to: dp-resnet-low-dose
+- from: cd-net
+  to: dual-domain-sparse-helical
 - from: cd-net
   to: dudonet
 - from: cd-net
@@ -646,6 +764,8 @@
   to: wavresnet
 - from: cd-net
   to: wgan-vgg
+- from: cgan-stripe-artefact-removal
+  to: deep-mar
 - from: chambolle-2004
   to: rof-tv-1992
 - from: chambolle-pock-2011
@@ -669,11 +789,17 @@
 - from: clear
   to: deepcnn
 - from: clear
+  to: dire-low-dose
+- from: clear
   to: dl-ct-rev
 - from: clear
   to: dnnss
 - from: clear
+  to: dp-resnet-low-dose
+- from: clear
   to: drone
+- from: clear
+  to: dual-domain-sparse-helical
 - from: clear
   to: dudonet
 - from: clear
@@ -772,6 +898,10 @@
   to: red-cnn
 - from: cnn-mar
   to: ssdae
+- from: cnn-mar-uhr-pcd-ear
+  to: dental-metal-interpolation
+- from: cnn-mar-uhr-pcd-ear
+  to: nmar-2010
 - from: cnnrpgd
   to: bouman-sauer-1993
 - from: cnnrpgd
@@ -864,6 +994,18 @@
   to: cyclegan
 - from: conditional-gans-metal-artifact-reduction-ear
   to: mar-4dec
+- from: cone-angle-artifact-reduction
+  to: dbp-domain-conebeam-artifact
+- from: cone-angle-artifact-reduction
+  to: fdk-1984
+- from: cone-angle-artifact-reduction
+  to: msdnet
+- from: cone-angle-artifact-reduction
+  to: sidky-pan-tv-2008
+- from: cone-angle-artifact-reduction
+  to: smith-1985
+- from: cone-angle-artifact-reduction
+  to: tuy-1983
 - from: coord-sos-pact
   to: coil
 - from: coord-sos-pact
@@ -914,6 +1056,64 @@
   to: red-cnn
 - from: cpce
   to: sidky-pan-tv-2008
+- from: cross-limited-angle
+  to: acid-a
+- from: cross-limited-angle
+  to: acid-b
+- from: cross-limited-angle
+  to: admm-net-la
+- from: cross-limited-angle
+  to: atv-limited-angle
+- from: cross-limited-angle
+  to: casredscan
+- from: cross-limited-angle
+  to: cd-net
+- from: cross-limited-angle
+  to: clear
+- from: cross-limited-angle
+  to: cnnrpgd
+- from: cross-limited-angle
+  to: ctnet
+- from: cross-limited-angle
+  to: dd-net
+- from: cross-limited-angle
+  to: dear
+- from: cross-limited-angle
+  to: deep-admm-net
+- from: cross-limited-angle
+  to: dior
+- from: cross-limited-angle
+  to: dl
+- from: cross-limited-angle
+  to: dlct
+- from: cross-limited-angle
+  to: dp-resnet-low-dose
+- from: cross-limited-angle
+  to: dream-net
+- from: cross-limited-angle
+  to: drone
+- from: cross-limited-angle
+  to: dudoufnet
+- from: cross-limited-angle
+  to: hd-cnn
+- from: cross-limited-angle
+  to: l0-fewview
+- from: cross-limited-angle
+  to: nlctf
+- from: cross-limited-angle
+  to: prior-4d-cbct
+- from: cross-limited-angle
+  to: ratv
+- from: cross-limited-angle
+  to: sams-net-limited-angle
+- from: cross-limited-angle
+  to: sister
+- from: cross-limited-angle
+  to: special
+- from: cross-limited-angle
+  to: time-net-limited-angle-dect
+- from: cross-limited-angle
+  to: wgan-vgg
 - from: cross-modal-guidance-for-fast-diffusion-based-computed-tomog
   to: 3dip
 - from: cs-cbct-fom
@@ -956,6 +1156,8 @@
   to: lpd
 - from: csc-ct
   to: piccs
+- from: csc-ct
+  to: pwls-ultra
 - from: csc-ct
   to: red-cnn
 - from: csc-ct
@@ -1011,7 +1213,11 @@
 - from: ctformer
   to: dict-learning-low-dose-2012
 - from: ctformer
+  to: dire-low-dose
+- from: ctformer
   to: dl-ct-rev
+- from: ctformer
+  to: dp-resnet-low-dose
 - from: ctformer
   to: ksae
 - from: ctformer
@@ -1090,6 +1296,26 @@
   to: wavresnet
 - from: cycle-consistent-adversarial-denoising-network
   to: wgan-vgg
+- from: cycle-free-cyclegan
+  to: adain-tunable-cyclegan
+- from: cycle-free-cyclegan
+  to: cardiac-cyclegan-noise-disentanglement
+- from: cycle-free-cyclegan
+  to: cycle-consistent-adversarial-denoising-network
+- from: cycle-free-cyclegan
+  to: cyclegan
+- from: cycle-free-cyclegan
+  to: deepcnn
+- from: cycle-free-cyclegan
+  to: gan-circle
+- from: cycle-free-cyclegan
+  to: metal-artifact-beta-cyclegan
+- from: cycle-free-cyclegan
+  to: red-cnn
+- from: cycle-free-cyclegan
+  to: wavresnet
+- from: cycle-free-cyclegan
+  to: wgan-vgg
 - from: dadn
   to: awtv
 - from: dadn
@@ -1129,6 +1355,8 @@
 - from: dan-net
   to: deep-mar
 - from: dan-net
+  to: deep-sinogram-completion-mar
+- from: dan-net
   to: dudonet
 - from: dan-net
   to: kalender-mar-1987
@@ -1151,11 +1379,15 @@
 - from: data-efficient-limited-angle-ct-using-deep-priors-and-regula
   to: dl-cl
 - from: data-efficient-limited-angle-ct-using-deep-priors-and-regula
+  to: limited-angle-deep-image-physics-priors
+- from: data-efficient-limited-angle-ct-using-deep-priors-and-regula
   to: ptpn
 - from: data-efficient-limited-angle-ct-using-deep-priors-and-regula
   to: robust-uncertainty-2006
 - from: data-efficient-limited-angle-ct-using-deep-priors-and-regula
   to: sirt-1972
+- from: data-efficient-limited-angle-ct-using-deep-priors-and-regula
+  to: uswin-limited-angle-cardiac
 - from: datadriven
   to: 3padmm
 - from: datadriven
@@ -1201,7 +1433,11 @@
 - from: datadriven
   to: modl
 - from: datadriven
+  to: msdnet-limited-data
+- from: datadriven
   to: pnp-2013
+- from: datadriven
+  to: pwls-ultra
 - from: datadriven
   to: red-2017
 - from: datadriven
@@ -1222,6 +1458,26 @@
   to: wavresnet
 - from: datadriven
   to: wgan-vgg
+- from: dbp-domain-conebeam-artifact
+  to: cnn-inverse
+- from: dbp-domain-conebeam-artifact
+  to: cycle-consistent-adversarial-denoising-network
+- from: dbp-domain-conebeam-artifact
+  to: deepcnn
+- from: dbp-domain-conebeam-artifact
+  to: fdk-1984
+- from: dbp-domain-conebeam-artifact
+  to: one-network-all-rois
+- from: dbp-domain-conebeam-artifact
+  to: red-cnn
+- from: dbp-domain-conebeam-artifact
+  to: sidky-pan-tv-2008
+- from: dbp-domain-conebeam-artifact
+  to: tfu-net
+- from: dbp-domain-conebeam-artifact
+  to: tuy-1983
+- from: dbp-domain-conebeam-artifact
+  to: wavresnet
 - from: dbt-task
   to: art-1970
 - from: dbt-task
@@ -1230,6 +1486,46 @@
   to: sart-1984
 - from: dbt-task
   to: sirt-1972
+- from: dcdl-gs-sparse-view
+  to: clear
+- from: dcdl-gs-sparse-view
+  to: cnn-inverse
+- from: dcdl-gs-sparse-view
+  to: csc-ct
+- from: dcdl-gs-sparse-view
+  to: dd-net
+- from: dcdl-gs-sparse-view
+  to: dear
+- from: dcdl-gs-sparse-view
+  to: dict-learning-low-dose-2012
+- from: dcdl-gs-sparse-view
+  to: drone
+- from: dcdl-gs-sparse-view
+  to: edcnn
+- from: dcdl-gs-sparse-view
+  to: fista-net
+- from: dcdl-gs-sparse-view
+  to: hdnet
+- from: dcdl-gs-sparse-view
+  to: iradonmap
+- from: dcdl-gs-sparse-view
+  to: learn
+- from: dcdl-gs-sparse-view
+  to: learn-plus-plus-2023
+- from: dcdl-gs-sparse-view
+  to: lpd
+- from: dcdl-gs-sparse-view
+  to: red-cnn
+- from: dcdl-gs-sparse-view
+  to: redaep
+- from: dcdl-gs-sparse-view
+  to: sidky-pan-tv-2008
+- from: dcdl-gs-sparse-view
+  to: sv-tgv
+- from: dcdl-gs-sparse-view
+  to: wav-sgm
+- from: dcdl-gs-sparse-view
+  to: wavresnet
 - from: dctr
   to: cnn-inverse
 - from: dctr
@@ -1279,6 +1575,8 @@
 - from: ddcl
   to: dnnss
 - from: ddcl
+  to: dual-domain-sparse-helical
+- from: ddcl
   to: hd-cnn
 - from: ddcl
   to: map-nn
@@ -1320,6 +1618,8 @@
   to: tfu-net
 - from: dddm
   to: transct
+- from: deacnn
+  to: dp-resnet-low-dose
 - from: deacnn
   to: gan-noise-reduction-low-dose-ct
 - from: deacnn
@@ -1386,8 +1686,48 @@
   to: tensor-net
 - from: dear
   to: tfu-net
+- from: dear
+  to: ultra-spectral-ct
+- from: dear
+  to: virtual-monoenergetic-dl
+- from: dect-multra
+  to: dict-learning-low-dose-2012
+- from: dect-multra
+  to: ksvd-2006
+- from: dect-multra
+  to: mccollough-2015
+- from: dect-multra
+  to: pwls-ultra
+- from: dedicated-cnn-uhr-pcd-denoising
+  to: dl-ct-rev
+- from: dedicated-cnn-uhr-pcd-denoising
+  to: gan-noise-reduction-low-dose-ct
+- from: dedicated-cnn-uhr-pcd-denoising
+  to: multi-kernel-synthesis-dcnn
 - from: deep-admm-net
   to: boyd-admm-2011
+- from: deep-en-chroma-material-basis
+  to: cormack-1963
+- from: deep-en-chroma-material-basis
+  to: incept-net-direct-inversion
+- from: deep-en-chroma-material-basis
+  to: virtual-monoenergetic-dl
+- from: deep-interior
+  to: dl-ct-rev
+- from: deep-interior
+  to: end-to-end-deep-learning-for-interior-tomography-with-low-do
+- from: deep-interior
+  to: fdk-1984
+- from: deep-interior
+  to: kudo-interior-2008
+- from: deep-interior
+  to: one-network-all-rois
+- from: deep-interior
+  to: piccs
+- from: deep-interior
+  to: sisvm
+- from: deep-interior
+  to: tuy-1983
 - from: deep-mar
   to: cnn-inverse
 - from: deep-mar
@@ -1408,6 +1748,60 @@
   to: tfu-net
 - from: deep-mar
   to: viss
+- from: deep-microlocal-limited-angle
+  to: art-1970
+- from: deep-microlocal-limited-angle
+  to: atv-limited-angle
+- from: deep-microlocal-limited-angle
+  to: casredscan
+- from: deep-microlocal-limited-angle
+  to: chambolle-pock-2011
+- from: deep-microlocal-limited-angle
+  to: datadriven
+- from: deep-microlocal-limited-angle
+  to: l1l2
+- from: deep-microlocal-limited-angle
+  to: learning-the-invisible-2019
+- from: deep-microlocal-limited-angle
+  to: lpd
+- from: deep-microlocal-limited-angle
+  to: piccs
+- from: deep-microlocal-limited-angle
+  to: ratv
+- from: deep-microlocal-limited-angle
+  to: sart-1984
+- from: deep-microlocal-limited-angle
+  to: shepp-logan-1974
+- from: deep-microlocal-limited-angle
+  to: sirt-1972
+- from: deep-microlocal-limited-angle
+  to: tensor-dl
+- from: deep-silicon-pc-denoising-rl
+  to: drone
+- from: deep-silicon-pc-denoising-rl
+  to: ultra-spectral-ct
+- from: deep-silicon-pc-denoising-rl
+  to: wgan-vgg
+- from: deep-sinogram-completion-mar
+  to: adn
+- from: deep-sinogram-completion-mar
+  to: cnn-mar
+- from: deep-sinogram-completion-mar
+  to: conditional-gans-metal-artifact-reduction-ear
+- from: deep-sinogram-completion-mar
+  to: dd-net
+- from: deep-sinogram-completion-mar
+  to: dental-metal-interpolation
+- from: deep-sinogram-completion-mar
+  to: dudonet
+- from: deep-sinogram-completion-mar
+  to: kalender-mar-1987
+- from: deep-sinogram-completion-mar
+  to: mar-4dec
+- from: deep-sinogram-completion-mar
+  to: nmar-2010
+- from: deep-sinogram-completion-mar
+  to: noise2noise
 - from: deepcnn
   to: dict-learning-low-dose-2012
 - from: deepcnn
@@ -1496,12 +1890,76 @@
   to: smith-1985
 - from: defrise-clack-1994
   to: tuy-1983
+- from: delta-net-high-pitch-helical
+  to: acid-b
+- from: delta-net-high-pitch-helical
+  to: clear
+- from: delta-net-high-pitch-helical
+  to: cnn-inverse
+- from: delta-net-high-pitch-helical
+  to: cross-limited-angle
+- from: delta-net-high-pitch-helical
+  to: ctformer
+- from: delta-net-high-pitch-helical
+  to: dd-net
+- from: delta-net-high-pitch-helical
+  to: dior
+- from: delta-net-high-pitch-helical
+  to: dnnss
+- from: delta-net-high-pitch-helical
+  to: dream-net
+- from: delta-net-high-pitch-helical
+  to: dual-domain-sparse-helical
+- from: delta-net-high-pitch-helical
+  to: dudodr-net-2022
+- from: delta-net-high-pitch-helical
+  to: dudonet
+- from: delta-net-high-pitch-helical
+  to: dudotrans
+- from: delta-net-high-pitch-helical
+  to: fista-2009
+- from: delta-net-high-pitch-helical
+  to: fista-net
+- from: delta-net-high-pitch-helical
+  to: high-pitch-helical-ct
+- from: delta-net-high-pitch-helical
+  to: indudonet
+- from: delta-net-high-pitch-helical
+  to: indudonet-plus
+- from: delta-net-high-pitch-helical
+  to: learn
+- from: delta-net-high-pitch-helical
+  to: learn-plus-plus-2023
+- from: delta-net-high-pitch-helical
+  to: lrtp
+- from: delta-net-high-pitch-helical
+  to: red-cnn
+- from: delta-net-high-pitch-helical
+  to: sams-net-limited-angle
+- from: delta-net-high-pitch-helical
+  to: scope
+- from: delta-net-high-pitch-helical
+  to: sv-cbct-data-consistent-2023
+- from: delta-net-high-pitch-helical
+  to: sv-spectral-lr
+- from: delta-net-high-pitch-helical
+  to: ufp-net-ultra-fast-pitch
+- from: delta-net-high-pitch-helical
+  to: wgan-vgg
 - from: deman-2001
   to: alvarez-1976
 - from: deman-2001
   to: herman-1979
 - from: deman-2001
   to: joseph-spital-1978
+- from: dental-metal-interpolation
+  to: ldct-cnn
+- from: dental-metal-interpolation
+  to: mar-4dec
+- from: dental-metal-interpolation
+  to: red-cnn
+- from: dental-metal-interpolation
+  to: tfu-net
 - from: desdgan
   to: ldct-cnn
 - from: desdgan
@@ -1610,6 +2068,12 @@
   to: tomogan
 - from: dgr-2
   to: wgan-vgg
+- from: diamond-monoenergetic-coronary
+  to: deep-en-chroma-material-basis
+- from: diamond-monoenergetic-coronary
+  to: ilumenate-eid-cta
+- from: diamond-monoenergetic-coronary
+  to: virtual-monoenergetic-dl
 - from: dicdnet
   to: adn
 - from: dicdnet
@@ -1620,6 +2084,8 @@
   to: dan-net
 - from: dicdnet
   to: deep-mar
+- from: dicdnet
+  to: deep-sinogram-completion-mar
 - from: dicdnet
   to: dudonet
 - from: dicdnet
@@ -1644,6 +2110,44 @@
   to: robust-uncertainty-2006
 - from: dict-learning-low-dose-2012
   to: sauer-bouman-1993
+- from: dictionary-learning-tomographic
+  to: cnn-inverse
+- from: dictionary-learning-tomographic
+  to: csc-ct
+- from: dictionary-learning-tomographic
+  to: ct-evolution
+- from: dictionary-learning-tomographic
+  to: datadriven
+- from: dictionary-learning-tomographic
+  to: dict-learning-low-dose-2012
+- from: dictionary-learning-tomographic
+  to: dip
+- from: dictionary-learning-tomographic
+  to: elbakri-2002
+- from: dictionary-learning-tomographic
+  to: fdk-1984
+- from: dictionary-learning-tomographic
+  to: fista-2009
+- from: dictionary-learning-tomographic
+  to: ksvd-2006
+- from: dictionary-learning-tomographic
+  to: learn
+- from: dictionary-learning-tomographic
+  to: lpd
+- from: dictionary-learning-tomographic
+  to: pwls-ultra
+- from: dictionary-learning-tomographic
+  to: robust-uncertainty-2006
+- from: dictionary-learning-tomographic
+  to: rof-tv-1992
+- from: dictionary-learning-tomographic
+  to: shepp-logan-1974
+- from: dictionary-learning-tomographic
+  to: sparsity2dl
+- from: dictionary-learning-tomographic
+  to: spultra
+- from: dictionary-learning-tomographic
+  to: why-fbp
 - from: dif-gaussian
   to: art-1970
 - from: dif-gaussian
@@ -1729,6 +2233,8 @@
 - from: diffnaf
   to: generative-modeling-in-sinogram-domain-for-sparse-view-ct-
 - from: diffnaf
+  to: geometry-aware-attenuation-learning-sparse-view-cbct
+- from: diffnaf
   to: hdnet
 - from: diffnaf
   to: intratomo
@@ -1770,6 +2276,8 @@
   to: dolce-2023
 - from: diffusion-inr-mar
   to: cnn-mar
+- from: diffusion-inr-mar
+  to: deep-sinogram-completion-mar
 - from: diffusion-inr-mar
   to: dicdnet
 - from: diffusion-inr-mar
@@ -1832,6 +2340,14 @@
   to: rit-2009
 - from: digs-dynamic-cbct-reconstruction-using-deformation-informed-
   to: sonke-2005
+- from: dinr-time-space
+  to: dctr
+- from: dinr-time-space
+  to: fdk-1984
+- from: dinr-time-space
+  to: nerp
+- from: dinr-time-space
+  to: piccs
 - from: dior
   to: acid-a
 - from: dior
@@ -1858,6 +2374,8 @@
   to: dict-learning-low-dose-2012
 - from: dior
   to: dl
+- from: dior
+  to: dp-resnet-low-dose
 - from: dior
   to: dudodr-net-2022
 - from: dior
@@ -1907,6 +2425,8 @@
 - from: dip
   to: lpd
 - from: dip
+  to: msdnet-limited-data
+- from: dip
   to: radon-1917
 - from: dip
   to: red-cnn
@@ -1930,6 +2450,72 @@
   to: art-1970
 - from: dir-view-interp
   to: fdk-1984
+- from: dire-low-dose
+  to: atv-limited-angle
+- from: dire-low-dose
+  to: cnn-inverse
+- from: dire-low-dose
+  to: dd-net
+- from: dire-low-dose
+  to: deep-admm-net
+- from: dire-low-dose
+  to: deepcnn
+- from: dire-low-dose
+  to: dict-learning-low-dose-2012
+- from: dire-low-dose
+  to: elbakri-2002
+- from: dire-low-dose
+  to: gan-noise-reduction-low-dose-ct
+- from: dire-low-dose
+  to: learn
+- from: dire-low-dose
+  to: lpd
+- from: dire-low-dose
+  to: map-nn
+- from: dire-low-dose
+  to: noise2noise
+- from: dire-low-dose
+  to: red-cnn
+- from: dire-low-dose
+  to: sidky-pan-tv-2008
+- from: dire-low-dose
+  to: tv-stokes
+- from: dire-low-dose
+  to: wavresnet
+- from: direct-net-dect
+  to: alvarez-1976
+- from: direct-net-dect
+  to: cnn-invrev
+- from: direct-net-dect
+  to: cpce
+- from: direct-net-dect
+  to: wgan-vgg
+- from: disentangled-interior-low-dose
+  to: 3padmm
+- from: disentangled-interior-low-dose
+  to: casredscan
+- from: disentangled-interior-low-dose
+  to: corediff
+- from: disentangled-interior-low-dose
+  to: eagle-an-edge-aware-gradient-localization-enhanced-loss-fo
+- from: disentangled-interior-low-dose
+  to: end-to-end-deep-learning-for-interior-tomography-with-low-do
+- from: disentangled-interior-low-dose
+  to: ksae
+- from: disentangled-interior-low-dose
+  to: kudo-interior-2008
+- from: disentangled-interior-low-dose
+  to: map-nn
+- from: disentangled-interior-low-dose
+  to: mbdl-unsupervised-low-dose
+- from: disentangled-interior-low-dose
+  to: red-cnn
+- from: disentangled-interior-low-dose
+  to: sams-net-limited-angle
+- from: disentangled-interior-low-dose
+  to: tuy-1983
+- from: disentangled-interior-low-dose
+  to: wgan-vgg
 - from: dl
   to: art-1970
 - from: dl
@@ -1989,6 +2575,8 @@
 - from: dl-ct-incomplete-data-review-2024
   to: dd-net
 - from: dl-ct-incomplete-data-review-2024
+  to: deep-sinogram-completion-mar
+- from: dl-ct-incomplete-data-review-2024
   to: dict-learning-low-dose-2012
 - from: dl-ct-incomplete-data-review-2024
   to: dir-view-interp
@@ -2002,6 +2590,8 @@
   to: drone
 - from: dl-ct-incomplete-data-review-2024
   to: dual-dict
+- from: dl-ct-incomplete-data-review-2024
+  to: dual-stream-metal-streak
 - from: dl-ct-incomplete-data-review-2024
   to: dudodr-net-2022
 - from: dl-ct-incomplete-data-review-2024
@@ -2017,17 +2607,27 @@
 - from: dl-ct-incomplete-data-review-2024
   to: iradonmap
 - from: dl-ct-incomplete-data-review-2024
+  to: ldm-dn-metal-artifact
+- from: dl-ct-incomplete-data-review-2024
   to: learn-plus-plus-2023
 - from: dl-ct-incomplete-data-review-2024
   to: magic
+- from: dl-ct-incomplete-data-review-2024
+  to: mar-self-supervised-cross-domain
+- from: dl-ct-incomplete-data-review-2024
+  to: metal-artifact-beta-cyclegan
 - from: dl-ct-incomplete-data-review-2024
   to: nlctf
 - from: dl-ct-incomplete-data-review-2024
   to: noise2inverse
 - from: dl-ct-incomplete-data-review-2024
+  to: one-network-all-rois
+- from: dl-ct-incomplete-data-review-2024
   to: patch-based-ddpm-sparse-view-ct
 - from: dl-ct-incomplete-data-review-2024
   to: red-cnn
+- from: dl-ct-incomplete-data-review-2024
+  to: sams-net-limited-angle
 - from: dl-ct-incomplete-data-review-2024
   to: semimar
 - from: dl-ct-incomplete-data-review-2024
@@ -2055,6 +2655,8 @@
 - from: dl-ct-rev
   to: cyclegan
 - from: dl-ct-rev
+  to: dbp-domain-conebeam-artifact
+- from: dl-ct-rev
   to: deep-admm-net
 - from: dl-ct-rev
   to: deep-mar
@@ -2081,6 +2683,8 @@
 - from: dl-ct-rev
   to: noise2noise
 - from: dl-ct-rev
+  to: one-network-all-rois
+- from: dl-ct-rev
   to: shepp-logan-1974
 - from: dl-ct-rev
   to: sisvm
@@ -2088,6 +2692,16 @@
   to: sparsity2dl
 - from: dl-ct-rev
   to: wavresnet
+- from: dl-denoising-generalizability
+  to: cadl
+- from: dl-denoising-generalizability
+  to: elbakri-2002
+- from: dl-denoising-generalizability
+  to: ldct-cnn
+- from: dl-denoising-generalizability
+  to: red-cnn
+- from: dl-denoising-generalizability
+  to: wgan-vgg
 - from: dl-incomplete
   to: art-1970
 - from: dl-incomplete
@@ -2147,6 +2761,8 @@
 - from: dl-invprob
   to: rof-tv-1992
 - from: dl-piccs
+  to: bcd-net
+- from: dl-piccs
   to: cnn-inverse
 - from: dl-piccs
   to: cnnrpgd
@@ -2177,9 +2793,13 @@
 - from: dl-piccs
   to: lpd
 - from: dl-piccs
+  to: mbdl-unsupervised-low-dose
+- from: dl-piccs
   to: momentum-net
 - from: dl-piccs
   to: piccs
+- from: dl-piccs
+  to: pwls-ultra
 - from: dl-piccs
   to: red-cnn
 - from: dl-piccs
@@ -2190,6 +2810,24 @@
   to: tfu-net
 - from: dl-piccs
   to: wavresnet
+- from: dl-recon-brain-cbct
+  to: dl-piccs
+- from: dl-recon-brain-cbct
+  to: kalender-mar-1987
+- from: dl-recon-brain-cbct
+  to: ksae
+- from: dl-recon-brain-cbct
+  to: sidky-pan-tv-2008
+- from: dl-recon-brain-cbct
+  to: siewerdsen-2001
+- from: dl-recon-brain-cbct
+  to: zbijewski-2006
+- from: dl-vif-motion
+  to: bergner-2010
+- from: dl-vif-motion
+  to: rit-2009
+- from: dl-vif-motion
+  to: sonke-2005
 - from: dlct
   to: deepcnn
 - from: dlct
@@ -2216,6 +2854,20 @@
   to: sidky-pan-tv-2008
 - from: dnnss
   to: viss
+- from: do-cnns-solve-ct-inverse-problem
+  to: automap
+- from: do-cnns-solve-ct-inverse-problem
+  to: chambolle-pock-2011
+- from: do-cnns-solve-ct-inverse-problem
+  to: cnn-inverse
+- from: do-cnns-solve-ct-inverse-problem
+  to: compressed-sensing-2006
+- from: do-cnns-solve-ct-inverse-problem
+  to: robust-uncertainty-2006
+- from: do-cnns-solve-ct-inverse-problem
+  to: sidky-pan-tv-2008
+- from: do-cnns-solve-ct-inverse-problem
+  to: tfu-net
 - from: dolce-2023
   to: casredscan
 - from: dolce-2023
@@ -2249,6 +2901,8 @@
 - from: dolce-2023
   to: lpd
 - from: dolce-2023
+  to: multi-slice-fusion-4d
+- from: dolce-2023
   to: neat
 - from: dolce-2023
   to: pnp-2013
@@ -2264,6 +2918,22 @@
   to: uncertainr-uncertainty-quantification-of-end-to-end-implic
 - from: dolce-2023
   to: viss
+- from: dp-resnet-low-dose
+  to: atv-limited-angle
+- from: dp-resnet-low-dose
+  to: deepcnn
+- from: dp-resnet-low-dose
+  to: dict-learning-low-dose-2012
+- from: dp-resnet-low-dose
+  to: elbakri-2002
+- from: dp-resnet-low-dose
+  to: gan-noise-reduction-low-dose-ct
+- from: dp-resnet-low-dose
+  to: red-cnn
+- from: dp-resnet-low-dose
+  to: sidky-pan-tv-2008
+- from: dp-resnet-low-dose
+  to: wavresnet
 - from: dpka
   to: acid-a
 - from: dpka
@@ -2314,6 +2984,16 @@
   to: synergizing-physics-model-based-and-data-driven-methods-fo
 - from: dpka
   to: vvbp-tsvd
+- from: dps-nonlinear-measurement-model
+  to: deepcnn
+- from: dps-nonlinear-measurement-model
+  to: diffmed
+- from: dps-nonlinear-measurement-model
+  to: dolce-2023
+- from: dps-nonlinear-measurement-model
+  to: ksae
+- from: dps-nonlinear-measurement-model
+  to: patch-based-ddpm-sparse-view-ct
 - from: dream-net
   to: acid-a
 - from: dream-net
@@ -2347,9 +3027,13 @@
 - from: dream-net
   to: dnnss
 - from: dream-net
+  to: dp-resnet-low-dose
+- from: dream-net
   to: drone
 - from: dream-net
   to: dual-dict
+- from: dream-net
+  to: dual-domain-sparse-helical
 - from: dream-net
   to: fista-2009
 - from: dream-net
@@ -2459,6 +3143,8 @@
 - from: dsignet
   to: dlct
 - from: dsignet
+  to: dual-domain-sparse-helical
+- from: dsignet
   to: dudonet
 - from: dsignet
   to: fstensor
@@ -2497,6 +3183,8 @@
 - from: du-gan
   to: map-nn
 - from: du-gan
+  to: pwls-ultra
+- from: du-gan
   to: red-cnn
 - from: du-gan
   to: sacnn
@@ -2516,6 +3204,8 @@
   to: deacnn
 - from: dual-agnet
   to: dl-ct-rev
+- from: dual-agnet
+  to: dp-resnet-low-dose
 - from: dual-agnet
   to: drone
 - from: dual-agnet
@@ -2542,6 +3232,56 @@
   to: piccs
 - from: dual-dict
   to: sart-1984
+- from: dual-domain-sparse-helical
+  to: automap
+- from: dual-domain-sparse-helical
+  to: cnn-inverse
+- from: dual-domain-sparse-helical
+  to: cpce
+- from: dual-domain-sparse-helical
+  to: deepcnn
+- from: dual-domain-sparse-helical
+  to: dlct
+- from: dual-domain-sparse-helical
+  to: dp-resnet-low-dose
+- from: dual-domain-sparse-helical
+  to: elbakri-2002
+- from: dual-domain-sparse-helical
+  to: gan-noise-reduction-low-dose-ct
+- from: dual-domain-sparse-helical
+  to: katsevich-2002
+- from: dual-domain-sparse-helical
+  to: learn
+- from: dual-domain-sparse-helical
+  to: map-nn
+- from: dual-domain-sparse-helical
+  to: momentum-net
+- from: dual-domain-sparse-helical
+  to: red-cnn
+- from: dual-domain-sparse-helical
+  to: rof-tv-1992
+- from: dual-domain-sparse-helical
+  to: sisvm
+- from: dual-domain-sparse-helical
+  to: slice-wise-low-dose-cbct
+- from: dual-domain-sparse-helical
+  to: spultra
+- from: dual-domain-sparse-helical
+  to: statistical-image-reconstruction-using-mixed-poisson-gauss
+- from: dual-domain-sparse-helical
+  to: wgan-vgg
+- from: dual-stream-metal-streak
+  to: cnn-mar
+- from: dual-stream-metal-streak
+  to: cpce
+- from: dual-stream-metal-streak
+  to: kalender-mar-1987
+- from: dual-stream-metal-streak
+  to: mar-4dec
+- from: dual-stream-metal-streak
+  to: nmar-2010
+- from: dual-stream-metal-streak
+  to: wgan-vgg
 - from: dudodp-mar
   to: acdnet
 - from: dudodp-mar
@@ -2552,6 +3292,8 @@
   to: conditional-gans-metal-artifact-reduction-ear
 - from: dudodp-mar
   to: cyclegan
+- from: dudodp-mar
+  to: deep-sinogram-completion-mar
 - from: dudodp-mar
   to: dudodr-net-2022
 - from: dudodp-mar
@@ -2566,6 +3308,8 @@
   to: nmar-2010
 - from: dudodp-mar
   to: polyner
+- from: dudodp-mar
+  to: udamar-metal-artefact
 - from: dudodr-net-2022
   to: adversarial-sparse-view-cbct-artifact-reduction
 - from: dudodr-net-2022
@@ -2578,6 +3322,8 @@
   to: conditional-gans-metal-artifact-reduction-ear
 - from: dudodr-net-2022
   to: dd-net
+- from: dudodr-net-2022
+  to: deep-sinogram-completion-mar
 - from: dudodr-net-2022
   to: dict-learning-low-dose-2012
 - from: dudodr-net-2022
@@ -2647,11 +3393,17 @@
 - from: dudoufnet
   to: conditional-gans-metal-artifact-reduction-ear
 - from: dudoufnet
+  to: deep-sinogram-completion-mar
+- from: dudoufnet
+  to: dp-resnet-low-dose
+- from: dudoufnet
   to: dudodr-net-2022
 - from: dudoufnet
   to: dudonet
 - from: dudoufnet
   to: kalender-mar-1987
+- from: dudoufnet
+  to: mar-self-supervised-cross-domain
 - from: dudoufnet
   to: nmar-2010
 - from: dudoufnet
@@ -2688,6 +3440,8 @@
   to: deepcnn
 - from: easel
   to: dip
+- from: easel
+  to: dp-resnet-low-dose
 - from: easel
   to: elbakri-2002
 - from: easel
@@ -2755,6 +3509,8 @@
 - from: end-to-end-deep-learning-for-interior-tomography-with-low-do
   to: gan-noise-reduction-low-dose-ct
 - from: end-to-end-deep-learning-for-interior-tomography-with-low-do
+  to: one-network-all-rois
+- from: end-to-end-deep-learning-for-interior-tomography-with-low-do
   to: red-cnn
 - from: end-to-end-deep-learning-for-interior-tomography-with-low-do
   to: senp
@@ -2785,6 +3541,8 @@
 - from: epi-naf
   to: neat
 - from: epi-naf
+  to: sams-net-limited-angle
+- from: epi-naf
   to: sart-1984
 - from: epi-naf
   to: sax-nerf
@@ -2809,6 +3567,8 @@
 - from: equivariance2inverse-a-practical-self-supervised-ct-reconstr
   to: noise2inverse
 - from: equivariance2inverse-a-practical-self-supervised-ct-reconstr
+  to: noisier2inverse
+- from: equivariance2inverse-a-practical-self-supervised-ct-reconstr
   to: scope
 - from: equivariance2inverse-a-practical-self-supervised-ct-reconstr
   to: smith-1985
@@ -2828,6 +3588,8 @@
   to: dict-learning-low-dose-2012
 - from: etedn
   to: dnnss
+- from: etedn
+  to: dual-domain-sparse-helical
 - from: etedn
   to: dudonet
 - from: etedn
@@ -2850,6 +3612,12 @@
   to: sv-tgv
 - from: etedn
   to: wavresnet
+- from: extended-fov-reconstruction
+  to: cnn-mar
+- from: extended-fov-reconstruction
+  to: sacnn
+- from: extended-fov-reconstruction
+  to: wgan-vgg
 - from: extreme-few-view-ct-reconstruction-using-deep-inference
   to: cnn-inverse
 - from: extreme-few-view-ct-reconstruction-using-deep-inference
@@ -2922,6 +3690,34 @@
   to: sidky-pan-tv-2008
 - from: fc-cs-rpca
   to: split-bregman-2009
+- from: fda-recon-limited-angle-cbct
+  to: dior
+- from: fda-recon-limited-angle-cbct
+  to: dl-cl
+- from: fda-recon-limited-angle-cbct
+  to: dlct
+- from: fda-recon-limited-angle-cbct
+  to: dolce-2023
+- from: fda-recon-limited-angle-cbct
+  to: elbakri-2002
+- from: fda-recon-limited-angle-cbct
+  to: fdk-1984
+- from: fda-recon-limited-angle-cbct
+  to: isia
+- from: fda-recon-limited-angle-cbct
+  to: large-diffnet-planning-ct
+- from: fda-recon-limited-angle-cbct
+  to: piccs
+- from: fda-recon-limited-angle-cbct
+  to: sart-1984
+- from: fda-recon-limited-angle-cbct
+  to: sidky-pan-tv-2008
+- from: fda-recon-limited-angle-cbct
+  to: sire-net-2025
+- from: fda-recon-limited-angle-cbct
+  to: time-net-limited-angle-dect
+- from: fda-recon-limited-angle-cbct
+  to: udamar-metal-artefact
 - from: fdk-1984
   to: shepp-logan-1974
 - from: fdk-1984
@@ -2979,7 +3775,11 @@
 - from: fid-net
   to: cnn-mar
 - from: fid-net
+  to: deep-sinogram-completion-mar
+- from: fid-net
   to: dicdnet
+- from: fid-net
+  to: dual-stream-metal-streak
 - from: fid-net
   to: dudoufnet
 - from: fid-net
@@ -2994,6 +3794,18 @@
   to: quad-net
 - from: fid-net
   to: semimar
+- from: filter-design-noise-robust
+  to: art-1970
+- from: filter-design-noise-robust
+  to: fdk-1984
+- from: filter-design-noise-robust
+  to: shepp-logan-1974
+- from: filter-design-noise-robust
+  to: sirt-1972
+- from: filter-design-noise-robust
+  to: why-fbp
+- from: find-net-fourier-integrated-network-with-dictionary-kernels-
+  to: deep-sinogram-completion-mar
 - from: find-net-fourier-integrated-network-with-dictionary-kernels-
   to: dicdnet
 - from: find-net-fourier-integrated-network-with-dictionary-kernels-
@@ -3085,6 +3897,8 @@
 - from: font-sir
   to: dict-learning-low-dose-2012
 - from: font-sir
+  to: dire-low-dose
+- from: font-sir
   to: fstensor
 - from: font-sir
   to: ldct-cnn
@@ -3106,6 +3920,18 @@
   to: sidky-pan-tv-2008
 - from: font-sir
   to: sv-tgv
+- from: fourier-linogram-symmetric
+  to: dlct
+- from: fourier-linogram-symmetric
+  to: ksae
+- from: fourier-linogram-symmetric
+  to: map-nn
+- from: fourier-linogram-symmetric
+  to: red-cnn
+- from: fourier-linogram-symmetric
+  to: sisvm
+- from: fourier-linogram-symmetric
+  to: tfu-net
 - from: freeseed
   to: cnn-inverse
 - from: freeseed
@@ -3162,6 +3988,20 @@
   to: sonke-2005
 - from: gao-2012
   to: split-bregman-2009
+- from: gdp-net-ring-artifact
+  to: clear
+- from: gdp-net-ring-artifact
+  to: corediff
+- from: gdp-net-ring-artifact
+  to: dp-resnet-low-dose
+- from: gdp-net-ring-artifact
+  to: elbakri-2002
+- from: gdp-net-ring-artifact
+  to: indudonet-plus
+- from: gdp-net-ring-artifact
+  to: map-nn
+- from: gdp-net-ring-artifact
+  to: time-net-limited-angle-dect
 - from: generate-ct
   to: ct-evolution
 - from: generative-modeling-in-sinogram-domain-for-sparse-view-ct-
@@ -3196,6 +4036,82 @@
   to: viss
 - from: generative-modeling-in-sinogram-domain-for-sparse-view-ct-
   to: wgan-vgg
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: 3dip
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: cnn-inverse
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: dif-net
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: dnnss
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: dolce-2023
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: drone
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: fdk-1984
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: intratomo
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: mednerf
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: multi-scale-learned-iterative-2020
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: naf
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: neat
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: nerp
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: polyner
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: psrv
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: sart-1984
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: sax-nerf
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: scope
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: sidky-pan-tv-2008
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: snaf
+- from: geometry-aware-attenuation-learning-sparse-view-cbct
+  to: x2ct-gan
+- from: gglf
+  to: dl-vif-motion
+- from: glimpse-scalable-robust-ct
+  to: cnn-inverse
+- from: glimpse-scalable-robust-ct
+  to: cnn-invrev
+- from: glimpse-scalable-robust-ct
+  to: coil
+- from: glimpse-scalable-robust-ct
+  to: deepcnn
+- from: glimpse-scalable-robust-ct
+  to: dl-ct-rev
+- from: glimpse-scalable-robust-ct
+  to: dlct
+- from: glimpse-scalable-robust-ct
+  to: fdk-1984
+- from: glimpse-scalable-robust-ct
+  to: gmm-unnet
+- from: glimpse-scalable-robust-ct
+  to: iradonmap
+- from: glimpse-scalable-robust-ct
+  to: lodopab-ct
+- from: glimpse-scalable-robust-ct
+  to: lpd
+- from: glimpse-scalable-robust-ct
+  to: modl
+- from: glimpse-scalable-robust-ct
+  to: multi-scale-learned-iterative-2020
+- from: glimpse-scalable-robust-ct
+  to: naf
+- from: glimpse-scalable-robust-ct
+  to: sart-1984
+- from: glimpse-scalable-robust-ct
+  to: sisvm
 - from: gmm-unnet
   to: 3padmm
 - from: gmm-unnet
@@ -3206,6 +4122,8 @@
   to: cyclegan
 - from: gmm-unnet
   to: deep-mar
+- from: gmm-unnet
+  to: dp-resnet-low-dose
 - from: gmm-unnet
   to: imap-tv
 - from: gmm-unnet
@@ -3291,6 +4209,8 @@
 - from: hd-cnn
   to: dlct
 - from: hd-cnn
+  to: dp-resnet-low-dose
+- from: hd-cnn
   to: fc-cs-rpca
 - from: hd-cnn
   to: ldct-cnn
@@ -3320,6 +4240,8 @@
   to: dlct
 - from: hdnet
   to: dnnss
+- from: hdnet
+  to: dp-resnet-low-dose
 - from: hdnet
   to: dudonet
 - from: hdnet
@@ -3356,6 +4278,20 @@
   to: wavresnet
 - from: headct-fm
   to: merlin
+- from: helical-learned-primal-dual
+  to: chambolle-pock-2011
+- from: helical-learned-primal-dual
+  to: cnn-inverse
+- from: helical-learned-primal-dual
+  to: datadriven
+- from: helical-learned-primal-dual
+  to: elbakri-2002
+- from: helical-learned-primal-dual
+  to: lpd
+- from: helical-learned-primal-dual
+  to: multi-scale-learned-iterative-2020
+- from: helical-learned-primal-dual
+  to: noise2inverse
 - from: herman-1979
   to: alvarez-1976
 - from: high-energy-ct-metrology-review-2022
@@ -3372,6 +4308,12 @@
   to: scatter-rev
 - from: high-energy-ct-metrology-review-2022
   to: scatter-rev-p2
+- from: high-pitch-helical-ct
+  to: fdk-1984
+- from: high-pitch-helical-ct
+  to: piccs
+- from: high-pitch-helical-ct
+  to: tuy-1983
 - from: horuseye-2026
   to: ctformer
 - from: horuseye-2026
@@ -3398,6 +4340,10 @@
   to: sirt-1972
 - from: horuseye-2026
   to: wgan-vgg
+- from: hr-cnn-pcd-spatial-resolution
+  to: ldct-cnn
+- from: hr-cnn-pcd-spatial-resolution
+  to: red-cnn
 - from: ictnet
   to: automap
 - from: ictnet
@@ -3429,17 +4375,29 @@
 - from: idol-net
   to: deep-mar
 - from: idol-net
+  to: deep-sinogram-completion-mar
+- from: idol-net
+  to: dual-stream-metal-streak
+- from: idol-net
   to: dudonet
 - from: idol-net
   to: kalender-mar-1987
 - from: idol-net
   to: ldct-cnn
 - from: idol-net
+  to: ldm-dn-metal-artifact
+- from: idol-net
   to: magic
+- from: idol-net
+  to: mar-self-supervised-cross-domain
+- from: idol-net
+  to: metal-artifact-beta-cyclegan
 - from: idol-net
   to: nmar-2010
 - from: idol-net
   to: pdf
+- from: ilumenate-eid-cta
+  to: dedicated-cnn-uhr-pcd-denoising
 - from: imap-tv
   to: awtv
 - from: imap-tv
@@ -3454,6 +4412,18 @@
   to: sidky-pan-tv-2008
 - from: imap-tv
   to: tv-stokes
+- from: incept-net-direct-inversion
+  to: alvarez-1976
+- from: incept-net-direct-inversion
+  to: cnn-inverse
+- from: incept-net-direct-inversion
+  to: rad
+- from: incept-net-virtual-monoenergetic
+  to: incept-net-direct-inversion
+- from: incept-net-virtual-monoenergetic
+  to: mccollough-2015
+- from: incept-net-virtual-monoenergetic
+  to: piccs
 - from: incode
   to: nerp
 - from: indudonet
@@ -3464,6 +4434,8 @@
   to: conditional-gans-metal-artifact-reduction-ear
 - from: indudonet
   to: deep-mar
+- from: indudonet
+  to: deep-sinogram-completion-mar
 - from: indudonet
   to: dudonet
 - from: indudonet
@@ -3483,6 +4455,8 @@
 - from: indudonet-plus
   to: deep-mar
 - from: indudonet-plus
+  to: deep-sinogram-completion-mar
+- from: indudonet-plus
   to: dicdnet
 - from: indudonet-plus
   to: dudodr-net-2022
@@ -3501,9 +4475,15 @@
 - from: industrial-ct-dual-mar
   to: cnn-mar
 - from: industrial-ct-dual-mar
+  to: deep-sinogram-completion-mar
+- from: industrial-ct-dual-mar
   to: dudonet
 - from: industrial-ct-dual-mar
   to: indudonet-plus
+- from: interweaving-monochromatic
+  to: alvarez-1976
+- from: interweaving-monochromatic
+  to: schlomka-2008
 - from: intratomo
   to: art-1970
 - from: intratomo
@@ -3547,9 +4527,13 @@
 - from: iradonmap
   to: cormack-1963
 - from: iradonmap
+  to: dect-multra
+- from: iradonmap
   to: dict-learning-low-dose-2012
 - from: iradonmap
   to: dlct
+- from: iradonmap
+  to: dp-resnet-low-dose
 - from: iradonmap
   to: ksae
 - from: iradonmap
@@ -3599,7 +4583,17 @@
 - from: kmar-net
   to: cnn-mar
 - from: kmar-net
+  to: dual-stream-metal-streak
+- from: kmar-net
   to: mar-4dec
+- from: known-operator-geometry-conversion
+  to: automap
+- from: known-operator-geometry-conversion
+  to: cnn-inverse
+- from: known-operator-geometry-conversion
+  to: dlct
+- from: known-operator-geometry-conversion
+  to: lpd
 - from: ksae
   to: cnn-inverse
 - from: ksae
@@ -3680,6 +4674,68 @@
   to: sv-cbct-eval
 - from: lab-lamino
   to: tuy-1983
+- from: lama-dual-domain-sparse-view
+  to: cnn-inverse
+- from: lama-dual-domain-sparse-view
+  to: dd-net
+- from: lama-dual-domain-sparse-view
+  to: dnnss
+- from: lama-dual-domain-sparse-view
+  to: drone
+- from: lama-dual-domain-sparse-view
+  to: dudotrans
+- from: lama-dual-domain-sparse-view
+  to: learn
+- from: lama-dual-domain-sparse-view
+  to: learn-plus-plus-2023
+- from: lama-dual-domain-sparse-view
+  to: magic
+- from: lama-dual-domain-sparse-view
+  to: red-cnn
+- from: lama-dual-domain-sparse-view
+  to: rof-tv-1992
+- from: large-diffnet-planning-ct
+  to: 3padmm
+- from: large-diffnet-planning-ct
+  to: atv-limited-angle
+- from: large-diffnet-planning-ct
+  to: cnn-inverse
+- from: large-diffnet-planning-ct
+  to: cnnrpgd
+- from: large-diffnet-planning-ct
+  to: dlct
+- from: large-diffnet-planning-ct
+  to: dolce-2023
+- from: large-diffnet-planning-ct
+  to: dudonet
+- from: large-diffnet-planning-ct
+  to: fdk-1984
+- from: large-diffnet-planning-ct
+  to: learn
+- from: large-diffnet-planning-ct
+  to: lwcdnet-metal-artifact
+- from: large-diffnet-planning-ct
+  to: piccs
+- from: large-diffnet-planning-ct
+  to: praise-net
+- from: large-diffnet-planning-ct
+  to: robust-uncertainty-2006
+- from: large-diffnet-planning-ct
+  to: sams-net-limited-angle
+- from: large-diffnet-planning-ct
+  to: sea-net-limited-angle-cbct
+- from: large-diffnet-planning-ct
+  to: sidky-pan-tv-2008
+- from: large-diffnet-planning-ct
+  to: siewerdsen-2001
+- from: large-diffnet-planning-ct
+  to: special
+- from: large-diffnet-planning-ct
+  to: sv-tgv
+- from: large-diffnet-planning-ct
+  to: time-net-limited-angle-dect
+- from: large-diffnet-planning-ct
+  to: tuy-1983
 - from: latent-space-consistency-for-sparse-view-ct-reconstruction
   to: dd-net
 - from: latent-space-consistency-for-sparse-view-ct-reconstruction
@@ -3710,6 +4766,26 @@
   to: robust-uncertainty-2006
 - from: ldct-cnn
   to: sidky-pan-tv-2008
+- from: ldm-dn-metal-artifact
+  to: adn
+- from: ldm-dn-metal-artifact
+  to: cnn-mar
+- from: ldm-dn-metal-artifact
+  to: conditional-gans-metal-artifact-reduction-ear
+- from: ldm-dn-metal-artifact
+  to: cyclegan
+- from: ldm-dn-metal-artifact
+  to: deep-mar
+- from: ldm-dn-metal-artifact
+  to: dual-stream-metal-streak
+- from: ldm-dn-metal-artifact
+  to: dudonet
+- from: ldm-dn-metal-artifact
+  to: kalender-mar-1987
+- from: ldm-dn-metal-artifact
+  to: mar-4dec
+- from: ldm-dn-metal-artifact
+  to: nmar-2010
 - from: learn
   to: art-1970
 - from: learn
@@ -3763,6 +4839,8 @@
 - from: learn-plus-plus-2023
   to: dnnss
 - from: learn-plus-plus-2023
+  to: dp-resnet-low-dose
+- from: learn-plus-plus-2023
   to: drone
 - from: learn-plus-plus-2023
   to: dual-dict
@@ -3810,6 +4888,14 @@
   to: lpd
 - from: learned-convex-regularizers-for-inverse-problems
   to: red-2017
+- from: learned-denoising-simulated-experimental
+  to: elbakri-2002
+- from: learned-denoising-simulated-experimental
+  to: lodopab-ct
+- from: learned-denoising-simulated-experimental
+  to: msdnet
+- from: learned-denoising-simulated-experimental
+  to: msdnet-limited-data
 - from: learning-the-invisible-2019
   to: cnn-inverse
 - from: learning-the-invisible-2019
@@ -3850,6 +4936,22 @@
   to: robust-uncertainty-2006
 - from: leng-2008
   to: sonke-2005
+- from: limited-angle-deep-image-physics-priors
+  to: admm-net-la
+- from: limited-angle-deep-image-physics-priors
+  to: art-1970
+- from: limited-angle-deep-image-physics-priors
+  to: boyd-admm-2011
+- from: limited-angle-deep-image-physics-priors
+  to: compressed-sensing-2006
+- from: limited-angle-deep-image-physics-priors
+  to: ctnet
+- from: limited-angle-deep-image-physics-priors
+  to: dip
+- from: limited-angle-deep-image-physics-priors
+  to: robust-uncertainty-2006
+- from: limited-angle-deep-image-physics-priors
+  to: sirt-1972
 - from: limited-angle-nano-ct-2025
   to: admm-net-la
 - from: limited-angle-nano-ct-2025
@@ -3871,6 +4973,8 @@
 - from: limited-angle-nano-ct-2025
   to: fista-net
 - from: limited-angle-nano-ct-2025
+  to: limited-angle-deep-image-physics-priors
+- from: limited-angle-nano-ct-2025
   to: sart-1984
 - from: limited-angle-nano-ct-2025
   to: sidky-pan-tv-2008
@@ -3878,6 +4982,8 @@
   to: mlem-1982
 - from: limited-angle-spect-image-reconstruction-using-deep-image-pr
   to: ratv
+- from: limited-angle-spect-image-reconstruction-using-deep-image-pr
+  to: uswin-limited-angle-cardiac
 - from: linct-tv-admm
   to: piccs
 - from: linct-tv-admm
@@ -3926,6 +5032,12 @@
   to: red-cnn
 - from: lodopab-ct
   to: wgan-vgg
+- from: low-dose-dcnn-tomography
+  to: ldct-cnn
+- from: low-dose-dcnn-tomography
+  to: nlm-review
+- from: low-dose-dcnn-tomography
+  to: radon-1917
 - from: lowmas-sparseview
   to: awtv
 - from: lowmas-sparseview
@@ -3974,6 +5086,32 @@
   to: split-bregman-2009
 - from: lrtp
   to: sv-spectral-lr
+- from: lwcdnet-metal-artifact
+  to: acdnet
+- from: lwcdnet-metal-artifact
+  to: cnn-mar
+- from: lwcdnet-metal-artifact
+  to: conditional-gans-metal-artifact-reduction-ear
+- from: lwcdnet-metal-artifact
+  to: deep-mar
+- from: lwcdnet-metal-artifact
+  to: deep-sinogram-completion-mar
+- from: lwcdnet-metal-artifact
+  to: dicdnet
+- from: lwcdnet-metal-artifact
+  to: dudonet
+- from: lwcdnet-metal-artifact
+  to: indudonet
+- from: lwcdnet-metal-artifact
+  to: kalender-mar-1987
+- from: lwcdnet-metal-artifact
+  to: mar-4dec
+- from: lwcdnet-metal-artifact
+  to: nmar-2010
+- from: lwcdnet-metal-artifact
+  to: spear-net-limited-angle-dect
+- from: lwcdnet-metal-artifact
+  to: spie-dir-2023
 - from: magic
   to: 3padmm
 - from: magic
@@ -3999,6 +5137,8 @@
 - from: magic
   to: ldct-cnn
 - from: magic
+  to: ldm-dn-metal-artifact
+- from: magic
   to: learn
 - from: magic
   to: lpd
@@ -4008,6 +5148,8 @@
   to: nlm-review
 - from: magic
   to: pnp-2013
+- from: magic
+  to: pwls-ultra
 - from: magic
   to: red-cnn
 - from: magic
@@ -4065,6 +5207,8 @@
 - from: map-nn
   to: ldct-cnn
 - from: map-nn
+  to: pwls-ultra
+- from: map-nn
   to: red-cnn
 - from: map-nn
   to: sagan
@@ -4086,6 +5230,60 @@
   to: pbac
 - from: mar-4dec
   to: piccs
+- from: mar-self-supervised-cross-domain
+  to: adn
+- from: mar-self-supervised-cross-domain
+  to: cnn-inverse
+- from: mar-self-supervised-cross-domain
+  to: cnn-mar
+- from: mar-self-supervised-cross-domain
+  to: conditional-gans-metal-artifact-reduction-ear
+- from: mar-self-supervised-cross-domain
+  to: dd-net
+- from: mar-self-supervised-cross-domain
+  to: deep-mar
+- from: mar-self-supervised-cross-domain
+  to: deep-sinogram-completion-mar
+- from: mar-self-supervised-cross-domain
+  to: dudonet
+- from: mar-self-supervised-cross-domain
+  to: gan-noise-reduction-low-dose-ct
+- from: mar-self-supervised-cross-domain
+  to: kalender-mar-1987
+- from: mar-self-supervised-cross-domain
+  to: ldct-cnn
+- from: mar-self-supervised-cross-domain
+  to: mar-4dec
+- from: mar-self-supervised-cross-domain
+  to: nmar-2010
+- from: mar-self-supervised-cross-domain
+  to: red-cnn
+- from: mbdl-unsupervised-low-dose
+  to: 3padmm
+- from: mbdl-unsupervised-low-dose
+  to: cnnrpgd
+- from: mbdl-unsupervised-low-dose
+  to: cpce
+- from: mbdl-unsupervised-low-dose
+  to: dict-learning-low-dose-2012
+- from: mbdl-unsupervised-low-dose
+  to: dnnss
+- from: mbdl-unsupervised-low-dose
+  to: elbakri-2002
+- from: mbdl-unsupervised-low-dose
+  to: gan-noise-reduction-low-dose-ct
+- from: mbdl-unsupervised-low-dose
+  to: lpd
+- from: mbdl-unsupervised-low-dose
+  to: red-cnn
+- from: mbdl-unsupervised-low-dose
+  to: slice-wise-low-dose-cbct
+- from: mbdl-unsupervised-low-dose
+  to: ssdae
+- from: mbdl-unsupervised-low-dose
+  to: tfu-net
+- from: mbdl-unsupervised-low-dose
+  to: wgan-vgg
 - from: mccollough-2015
   to: alvarez-1976
 - from: mccollough-2015
@@ -4110,6 +5308,8 @@
   to: dior
 - from: mdst-2023
   to: dnnss
+- from: mdst-2023
+  to: dp-resnet-low-dose
 - from: mdst-2023
   to: dual-dict
 - from: mdst-2023
@@ -4160,6 +5360,8 @@
   to: dd-net
 - from: mepnet
   to: deep-mar
+- from: mepnet
+  to: deep-sinogram-completion-mar
 - from: mepnet
   to: dicdnet
 - from: mepnet
@@ -4214,14 +5416,74 @@
   to: sv-spectral-lr
 - from: metainv-net
   to: wgan-vgg
+- from: metal-artifact-beta-cyclegan
+  to: adn
+- from: metal-artifact-beta-cyclegan
+  to: cnn-mar
+- from: metal-artifact-beta-cyclegan
+  to: conditional-gans-metal-artifact-reduction-ear
+- from: metal-artifact-beta-cyclegan
+  to: cyclegan
+- from: metal-artifact-beta-cyclegan
+  to: deman-2001
+- from: metal-artifact-beta-cyclegan
+  to: dudonet
+- from: metal-artifact-beta-cyclegan
+  to: fdk-1984
+- from: metal-artifact-beta-cyclegan
+  to: kalender-mar-1987
+- from: metal-artifact-beta-cyclegan
+  to: mlem-1982
+- from: metal-artifact-beta-cyclegan
+  to: nmar-2010
 - from: mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-
   to: artifact-reduction-3d-4d-cbct-review
 - from: mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-
+  to: dps-nonlinear-measurement-model
+- from: mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-
   to: fdk-1984
+- from: mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-
+  to: prior-4d-cbct
 - from: mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-
   to: ramachandran-lakshminarayanan-1971
 - from: mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-
   to: sart-1984
+- from: mjcnet-planning-ct-limited-angle
+  to: automap
+- from: mjcnet-planning-ct-limited-angle
+  to: cd-net
+- from: mjcnet-planning-ct-limited-angle
+  to: clear
+- from: mjcnet-planning-ct-limited-angle
+  to: cnn-inverse
+- from: mjcnet-planning-ct-limited-angle
+  to: ctnet
+- from: mjcnet-planning-ct-limited-angle
+  to: dior
+- from: mjcnet-planning-ct-limited-angle
+  to: dlct
+- from: mjcnet-planning-ct-limited-angle
+  to: fdk-1984
+- from: mjcnet-planning-ct-limited-angle
+  to: fista-net
+- from: mjcnet-planning-ct-limited-angle
+  to: l1l2
+- from: mjcnet-planning-ct-limited-angle
+  to: learn
+- from: mjcnet-planning-ct-limited-angle
+  to: learn-plus-plus-2023
+- from: mjcnet-planning-ct-limited-angle
+  to: sea-net-limited-angle-cbct
+- from: mjcnet-planning-ct-limited-angle
+  to: sirt-1972
+- from: mjcnet-planning-ct-limited-angle
+  to: special
+- from: mjcnet-planning-ct-limited-angle
+  to: spie-dir-2023
+- from: mjcnet-planning-ct-limited-angle
+  to: time-net-limited-angle-dect
+- from: mjcnet-planning-ct-limited-angle
+  to: ultra-spectral-ct
 - from: ml-industrial-ct-review-2024
   to: airnet
 - from: ml-industrial-ct-review-2024
@@ -4246,6 +5508,18 @@
   to: sv-cbct-data-consistent-2023
 - from: mlem-1982
   to: shepp-logan-1974
+- from: model-based-motion-simulation-dynamic-wrist
+  to: atom-cardiac-motion-correction
+- from: model-based-motion-simulation-dynamic-wrist
+  to: fda-recon-limited-angle-cbct
+- from: model-based-motion-simulation-dynamic-wrist
+  to: incept-net-direct-inversion
+- from: model-based-motion-simulation-dynamic-wrist
+  to: sim2real-material-decomposition
+- from: model-based-motion-simulation-dynamic-wrist
+  to: udamar-metal-artefact
+- from: model-based-motion-simulation-dynamic-wrist
+  to: ufp-net-ultra-fast-pitch
 - from: modl
   to: cnn-inverse
 - from: modl
@@ -4258,6 +5532,8 @@
   to: fista-2009
 - from: modl
   to: red-cnn
+- from: momentum-net
+  to: bcd-net
 - from: momentum-net
   to: boyd-admm-2011
 - from: momentum-net
@@ -4291,7 +5567,57 @@
 - from: motion-grad
   to: defrise-clack-1994
 - from: motion-grad
+  to: dl-vif-motion
+- from: motion-grad
   to: gglf
+- from: msdnet-limited-data
+  to: cnn-inverse
+- from: msdnet-limited-data
+  to: ldct-cnn
+- from: msdnet-limited-data
+  to: low-dose-dcnn-tomography
+- from: msdnet-limited-data
+  to: lpd
+- from: msdnet-limited-data
+  to: msdnet
+- from: msdnet-limited-data
+  to: why-fbp
+- from: msdu-nets-dual-energy-limited-angle
+  to: cd-net
+- from: msdu-nets-dual-energy-limited-angle
+  to: dect-multra
+- from: msdu-nets-dual-energy-limited-angle
+  to: dolce-2023
+- from: msdu-nets-dual-energy-limited-angle
+  to: dual-dict
+- from: msdu-nets-dual-energy-limited-angle
+  to: grangeat-1991
+- from: msdu-nets-dual-energy-limited-angle
+  to: katsevich-2002
+- from: msdu-nets-dual-energy-limited-angle
+  to: mccollough-2015
+- from: msdu-nets-dual-energy-limited-angle
+  to: parker-1982
+- from: msdu-nets-dual-energy-limited-angle
+  to: sams-net-limited-angle
+- from: msdu-nets-dual-energy-limited-angle
+  to: spie-dir-2023
+- from: msdu-nets-dual-energy-limited-angle
+  to: spir-de
+- from: msdu-nets-dual-energy-limited-angle
+  to: time-net-limited-angle-dect
+- from: msdu-nets-dual-energy-limited-angle
+  to: tuy-1983
+- from: msdu-nets-dual-energy-limited-angle
+  to: wgan-vgg
+- from: multi-kernel-synthesis-dcnn
+  to: map-nn
+- from: multi-kernel-synthesis-dcnn
+  to: red-cnn
+- from: multi-kernel-synthesis-dcnn
+  to: sagan
+- from: multi-kernel-synthesis-dcnn
+  to: wgan-vgg
 - from: multi-scale-learned-iterative-2020
   to: automap
 - from: multi-scale-learned-iterative-2020
@@ -4308,6 +5634,34 @@
   to: msdnet
 - from: multi-scale-learned-iterative-2020
   to: rof-tv-1992
+- from: multi-slice-fusion-4d
+  to: boyd-admm-2011
+- from: multi-slice-fusion-4d
+  to: pnp-2013
+- from: multi-slice-fusion-4d
+  to: sauer-bouman-1993
+- from: multislice-residual-cnn-denoising
+  to: cpce
+- from: multislice-residual-cnn-denoising
+  to: ksvd-2006
+- from: multislice-residual-cnn-denoising
+  to: ldct-cnn
+- from: multislice-residual-cnn-denoising
+  to: red-cnn
+- from: multislice-residual-cnn-denoising
+  to: sacnn
+- from: multislice-residual-cnn-denoising
+  to: sidky-pan-tv-2008
+- from: multislice-residual-cnn-denoising
+  to: smgan
+- from: multislice-residual-cnn-denoising
+  to: wgan-vgg
+- from: mvss-pcr-self-supervised-denoising
+  to: cycle-consistent-adversarial-denoising-network
+- from: mvss-pcr-self-supervised-denoising
+  to: dadn
+- from: mvss-pcr-self-supervised-denoising
+  to: easel
 - from: mw-cnn
   to: cnn-inverse
 - from: mw-cnn
@@ -4320,6 +5674,8 @@
   to: learning-the-invisible-2019
 - from: mw-cnn
   to: lpd
+- from: mw-cnn
+  to: msdnet-limited-data
 - from: mw-cnn
   to: piccs
 - from: mw-cnn
@@ -4390,6 +5746,8 @@
   to: learn
 - from: neat
   to: lpd
+- from: neat
+  to: msdnet-limited-data
 - from: neat
   to: ndi-tv
 - from: neat
@@ -4493,6 +5851,8 @@
 - from: noise-inspired-diffusion-model-for-generalizable-low-dose-ct
   to: dl-ct-rev
 - from: noise-inspired-diffusion-model-for-generalizable-low-dose-ct
+  to: dp-resnet-low-dose
+- from: noise-inspired-diffusion-model-for-generalizable-low-dose-ct
   to: dudodr-net-2022
 - from: noise-inspired-diffusion-model-for-generalizable-low-dose-ct
   to: gmm-unnet
@@ -4504,6 +5864,16 @@
   to: pdf
 - from: noise-inspired-diffusion-model-for-generalizable-low-dose-ct
   to: red-cnn
+- from: noise-inspired-diffusion-model-for-generalizable-low-dose-ct
+  to: ufp-net-ultra-fast-pitch
+- from: noise-texture-training-curation
+  to: dedicated-cnn-uhr-pcd-denoising
+- from: noise-texture-training-curation
+  to: gan-noise-reduction-low-dose-ct
+- from: noise-texture-training-curation
+  to: multi-kernel-synthesis-dcnn
+- from: noise-texture-training-curation
+  to: uhr-pcd-temporal-bone-denoising
 - from: noise2inverse
   to: deepcnn
 - from: noise2inverse
@@ -4511,7 +5881,17 @@
 - from: noise2inverse
   to: msdnet
 - from: noise2inverse
+  to: msdnet-limited-data
+- from: noise2inverse
+  to: on-the-fly-resolution
+- from: noise2inverse
   to: pnp-2013
+- from: noisier2inverse
+  to: datadriven
+- from: noisier2inverse
+  to: dl-invprob
+- from: noisier2inverse
+  to: noise2inverse
 - from: offset-cbct
   to: art-1970
 - from: offset-cbct
@@ -4534,6 +5914,28 @@
   to: tuy-1983
 - from: offset-cbct
   to: why-fbp
+- from: on-the-fly-resolution
+  to: cnn-inverse
+- from: on-the-fly-resolution
+  to: fdk-1984
+- from: on-the-fly-resolution
+  to: msdnet
+- from: on-the-fly-resolution
+  to: msdnet-limited-data
+- from: on-the-fly-resolution
+  to: sidky-pan-tv-2008
+- from: on-the-fly-resolution
+  to: sv-cbct-eval
+- from: one-network-all-rois
+  to: cnn-inverse
+- from: one-network-all-rois
+  to: deepcnn
+- from: one-network-all-rois
+  to: red-cnn
+- from: one-network-all-rois
+  to: tfu-net
+- from: one-network-all-rois
+  to: wavresnet
 - from: os-sart-2004
   to: art-1970
 - from: os-sart-2004
@@ -4553,6 +5955,8 @@
 - from: oscnet
   to: deep-mar
 - from: oscnet
+  to: deep-sinogram-completion-mar
+- from: oscnet
   to: dicdnet
 - from: oscnet
   to: dudodr-net-2022
@@ -4568,6 +5972,8 @@
   to: kalender-mar-1987
 - from: oscnet
   to: nmar-2010
+- from: palette-low-dose-synthesis
+  to: ufp-net-ultra-fast-pitch
 - from: pbac
   to: atv-limited-angle
 - from: pbac
@@ -4641,6 +6047,10 @@
 - from: pdumsrnet
   to: deep-mar
 - from: pdumsrnet
+  to: deep-sinogram-completion-mar
+- from: pdumsrnet
+  to: dp-resnet-low-dose
+- from: pdumsrnet
   to: dudoufnet
 - from: pdumsrnet
   to: gmm-unnet
@@ -4654,6 +6064,28 @@
   to: red-cnn
 - from: pdumsrnet
   to: wgan-vgg
+- from: phantom-training-framework-denoising
+  to: red-cnn
+- from: phase-contrast-data-driven-prior
+  to: learned-convex-regularizers-for-inverse-problems
+- from: phase-contrast-data-driven-prior
+  to: lpd
+- from: phase-contrast-data-driven-prior
+  to: pnp-2013
+- from: phase-contrast-data-driven-prior
+  to: red-2017
+- from: phase-contrast-data-driven-prior
+  to: rof-tv-1992
+- from: photon-counting-learned-forward
+  to: cnn-inverse
+- from: photon-counting-learned-forward
+  to: datadriven
+- from: photon-counting-learned-forward
+  to: deepcnn
+- from: photon-counting-learned-forward
+  to: lpd
+- from: photon-counting-learned-forward
+  to: multi-scale-learned-iterative-2020
 - from: phydict
   to: ct-clip-chat
 - from: phydict
@@ -4662,6 +6094,16 @@
   to: compressed-sensing-2006
 - from: piccs
   to: robust-uncertainty-2006
+- from: pie-net
+  to: dedicated-cnn-uhr-pcd-denoising
+- from: pie-net
+  to: dl-ct-rev
+- from: pie-net
+  to: map-nn
+- from: pie-net
+  to: piccs
+- from: pie-net
+  to: red-cnn
 - from: piner
   to: 2-step-sparse-view-ct-reconstruction-with-a-domain-specifi
 - from: piner
@@ -4694,6 +6136,18 @@
   to: uncertainr-uncertainty-quantification-of-end-to-end-implic
 - from: piner
   to: x2ct-gan
+- from: pkaid-net
+  to: dedicated-cnn-uhr-pcd-denoising
+- from: pkaid-net
+  to: dl-ct-rev
+- from: pkaid-net
+  to: map-nn
+- from: pkaid-net
+  to: piccs
+- from: pkaid-net
+  to: pie-net
+- from: pkaid-net
+  to: red-cnn
 - from: planet
   to: casredscan
 - from: planet
@@ -4729,6 +6183,8 @@
 - from: pnd-net
   to: deep-mar
 - from: pnd-net
+  to: deep-sinogram-completion-mar
+- from: pnd-net
   to: dir-view-interp
 - from: pnd-net
   to: dudonet
@@ -4742,6 +6198,10 @@
   to: kalender-mar-1987
 - from: pnd-net
   to: mar-4dec
+- from: pnd-net
+  to: mar-self-supervised-cross-domain
+- from: pnd-net
+  to: metal-artifact-beta-cyclegan
 - from: pnd-net
   to: nmar-2010
 - from: pnd-net
@@ -4765,6 +6225,8 @@
 - from: pnp-proximal-trajectory-2024
   to: fista-2009
 - from: pnp-proximal-trajectory-2024
+  to: helical-learned-primal-dual
+- from: pnp-proximal-trajectory-2024
   to: ldct-cnn
 - from: pnp-proximal-trajectory-2024
   to: lodopab-ct
@@ -4783,11 +6245,45 @@
 - from: praise-net
   to: deep-mar
 - from: praise-net
+  to: deep-sinogram-completion-mar
+- from: praise-net
   to: dicdnet
 - from: praise-net
   to: kalender-mar-1987
 - from: praise-net
   to: nmar-2010
+- from: prior-4d-cbct
+  to: acid-a
+- from: prior-4d-cbct
+  to: acid-b
+- from: prior-4d-cbct
+  to: arm-cbct
+- from: prior-4d-cbct
+  to: automap
+- from: prior-4d-cbct
+  to: cnnrpgd
+- from: prior-4d-cbct
+  to: dd-net
+- from: prior-4d-cbct
+  to: deacnn
+- from: prior-4d-cbct
+  to: desdgan
+- from: prior-4d-cbct
+  to: fdk-1984
+- from: prior-4d-cbct
+  to: multi-slice-fusion-4d
+- from: prior-4d-cbct
+  to: piccs
+- from: prior-4d-cbct
+  to: red-cnn
+- from: prior-4d-cbct
+  to: spare
+- from: prior-4d-cbct
+  to: srcnn-cbct
+- from: prior-4d-cbct
+  to: sv-tgv
+- from: prior-4d-cbct
+  to: tfu-net
 - from: prior-adapted-progressive-time-resolved-cbct-reconstruction-
   to: 4dcbct-prior
 - from: prior-adapted-progressive-time-resolved-cbct-reconstruction-
@@ -4814,6 +6310,8 @@
   to: atv-limited-angle
 - from: proct
   to: cnn-inverse
+- from: proct
+  to: cross-limited-angle
 - from: proct
   to: dd-net
 - from: proct
@@ -4858,6 +6356,62 @@
   to: sidky-pan-tv-2008
 - from: ptpn
   to: split-bregman-2009
+- from: pwls-som-limited-view
+  to: admm-net-la
+- from: pwls-som-limited-view
+  to: atv-limited-angle
+- from: pwls-som-limited-view
+  to: casredscan
+- from: pwls-som-limited-view
+  to: dd-net
+- from: pwls-som-limited-view
+  to: dip-warm-start-2022
+- from: pwls-som-limited-view
+  to: dl-piccs
+- from: pwls-som-limited-view
+  to: dnnss
+- from: pwls-som-limited-view
+  to: dps-nonlinear-measurement-model
+- from: pwls-som-limited-view
+  to: drone
+- from: pwls-som-limited-view
+  to: dual-domain-sparse-helical
+- from: pwls-som-limited-view
+  to: learn
+- from: pwls-som-limited-view
+  to: map-nn
+- from: pwls-som-limited-view
+  to: mbdl-unsupervised-low-dose
+- from: pwls-som-limited-view
+  to: metainv-net
+- from: pwls-som-limited-view
+  to: piner
+- from: pwls-som-limited-view
+  to: sams-net-limited-angle
+- from: pwls-som-limited-view
+  to: special
+- from: pwls-som-limited-view
+  to: steerable-conditional-diffusion-2025
+- from: pwls-som-limited-view
+  to: sword
+- from: pwls-som-limited-view
+  to: tuy-1983
+- from: pwls-ultra
+  to: dict-learning-low-dose-2012
+- from: pwls-ultra
+  to: dual-dict
+- from: pwls-ultra
+  to: elbakri-2002
+- from: pwls-ultra
+  to: fdk-1984
+- from: pwls-ultra
+  to: ksvd-2006
+- from: pwls-ultra
+  to: nlm-review
+- from: pwls-ultra
+  to: piccs
+- from: pwls-ultra
+  to: sauer-bouman-1993
 - from: quad-net
   to: adn
 - from: quad-net
@@ -4867,6 +6421,8 @@
 - from: quad-net
   to: dan-net
 - from: quad-net
+  to: deep-sinogram-completion-mar
+- from: quad-net
   to: dl-ct-rev
 - from: quad-net
   to: dudonet
@@ -4875,9 +6431,13 @@
 - from: quad-net
   to: kalender-mar-1987
 - from: quad-net
+  to: ldm-dn-metal-artifact
+- from: quad-net
   to: map-nn
 - from: quad-net
   to: mar-4dec
+- from: quad-net
+  to: metal-artifact-beta-cyclegan
 - from: quad-net
   to: nmar-2010
 - from: quad-net
@@ -4928,6 +6488,8 @@
   to: dip
 - from: rbp-dip-2024
   to: dnnss
+- from: rbp-dip-2024
+  to: dp-resnet-low-dose
 - from: rbp-dip-2024
   to: drone
 - from: rbp-dip-2024
@@ -4981,6 +6543,8 @@
 - from: redaep
   to: mlem-1982
 - from: redaep
+  to: pwls-ultra
+- from: redaep
   to: rof-tv-1992
 - from: redaep
   to: sart-1984
@@ -4994,6 +6558,8 @@
   to: conditional-gans-metal-artifact-reduction-ear
 - from: remar-ds-recalibrated-feature-learning-for-metal-artifact-re
   to: dan-net
+- from: remar-ds-recalibrated-feature-learning-for-metal-artifact-re
+  to: deep-sinogram-completion-mar
 - from: remar-ds-recalibrated-feature-learning-for-metal-artifact-re
   to: dicdnet
 - from: remar-ds-recalibrated-feature-learning-for-metal-artifact-re
@@ -5058,6 +6624,50 @@
   to: red-cnn
 - from: sagan
   to: wgan-vgg
+- from: sams-net-limited-angle
+  to: admm-net-la
+- from: sams-net-limited-angle
+  to: adn
+- from: sams-net-limited-angle
+  to: atv-limited-angle
+- from: sams-net-limited-angle
+  to: automap
+- from: sams-net-limited-angle
+  to: boyd-admm-2011
+- from: sams-net-limited-angle
+  to: casredscan
+- from: sams-net-limited-angle
+  to: cnn-inverse
+- from: sams-net-limited-angle
+  to: ctnet
+- from: sams-net-limited-angle
+  to: dd-net
+- from: sams-net-limited-angle
+  to: dlct
+- from: sams-net-limited-angle
+  to: dudonet
+- from: sams-net-limited-angle
+  to: fourier-linogram-symmetric
+- from: sams-net-limited-angle
+  to: hd-cnn
+- from: sams-net-limited-angle
+  to: iradonmap
+- from: sams-net-limited-angle
+  to: irr-tv
+- from: sams-net-limited-angle
+  to: parker-1982
+- from: sams-net-limited-angle
+  to: ratv
+- from: sams-net-limited-angle
+  to: red-cnn
+- from: sams-net-limited-angle
+  to: special
+- from: sams-net-limited-angle
+  to: tensor-net
+- from: sams-net-limited-angle
+  to: tfu-net
+- from: sams-net-limited-angle
+  to: tuy-1983
 - from: sart-1984
   to: art-1970
 - from: sart-1984
@@ -5127,6 +6737,8 @@
 - from: scope
   to: dnnss
 - from: scope
+  to: dp-resnet-low-dose
+- from: scope
   to: elbakri-2002
 - from: scope
   to: intratomo
@@ -5148,6 +6760,80 @@
   to: tfu-net
 - from: scope
   to: uncertainr-uncertainty-quantification-of-end-to-end-implic
+- from: scoutct-net
+  to: automap
+- from: scoutct-net
+  to: cpce
+- from: scoutct-net
+  to: deepcnn
+- from: scoutct-net
+  to: dl-piccs
+- from: scoutct-net
+  to: extreme-few-view-ct-reconstruction-using-deep-inference
+- from: scoutct-net
+  to: gan-noise-reduction-low-dose-ct
+- from: scoutct-net
+  to: high-pitch-helical-ct
+- from: scoutct-net
+  to: learn
+- from: scoutct-net
+  to: momentum-net
+- from: scoutct-net
+  to: psrv
+- from: scoutct-net
+  to: rad
+- from: scoutct-net
+  to: red-cnn
+- from: scoutct-net
+  to: sisvm
+- from: scoutct-net
+  to: spultra
+- from: scoutct-net
+  to: wgan-vgg
+- from: scoutct-net
+  to: x2ct-gan
+- from: sdf-self-supervised-denoiser
+  to: ct-clip-chat
+- from: sdf-self-supervised-denoiser
+  to: datadriven
+- from: sdf-self-supervised-denoiser
+  to: helical-learned-primal-dual
+- from: sdf-self-supervised-denoiser
+  to: lpd
+- from: sea-net-limited-angle-cbct
+  to: admm-net-la
+- from: sea-net-limited-angle-cbct
+  to: airnet
+- from: sea-net-limited-angle-cbct
+  to: casredscan
+- from: sea-net-limited-angle-cbct
+  to: cnnrpgd
+- from: sea-net-limited-angle-cbct
+  to: ctnet
+- from: sea-net-limited-angle-cbct
+  to: dd-net
+- from: sea-net-limited-angle-cbct
+  to: dear
+- from: sea-net-limited-angle-cbct
+  to: dior
+- from: sea-net-limited-angle-cbct
+  to: dl
+- from: sea-net-limited-angle-cbct
+  to: dp-resnet-low-dose
+- from: sea-net-limited-angle-cbct
+  to: drone
+- from: sea-net-limited-angle-cbct
+  to: dudonet
+- from: sea-net-limited-angle-cbct
+  to: hd-cnn
+- from: sea-net-limited-angle-cbct
+  to: red-cnn
+- from: sea-net-limited-angle-cbct
+  to: sams-net-limited-angle
+- from: sea-net-limited-angle-cbct
+  to: special
+- from: sea-net-limited-angle-cbct
+  to: wgan-vgg
 - from: semimar
   to: adn
 - from: semimar
@@ -5157,11 +6843,21 @@
 - from: semimar
   to: deep-mar
 - from: semimar
+  to: deep-sinogram-completion-mar
+- from: semimar
+  to: dual-stream-metal-streak
+- from: semimar
   to: dudonet
 - from: semimar
   to: idol-net
 - from: semimar
+  to: ldm-dn-metal-artifact
+- from: semimar
   to: learn-plus-plus-2023
+- from: semimar
+  to: mar-self-supervised-cross-domain
+- from: semimar
+  to: metal-artifact-beta-cyclegan
 - from: semimar
   to: nmar-2010
 - from: semimar
@@ -5204,6 +6900,24 @@
   to: sauer-bouman-1993
 - from: siewerdsen-2001
   to: fdk-1984
+- from: sim2real-material-decomposition
+  to: alvarez-1976
+- from: sim2real-material-decomposition
+  to: cnn-inverse
+- from: sim2real-material-decomposition
+  to: datadriven
+- from: sim2real-material-decomposition
+  to: deepcnn
+- from: sim2real-material-decomposition
+  to: lpd
+- from: sim2real-material-decomposition
+  to: roessl-2007
+- from: sim2real-material-decomposition
+  to: schlomka-2008
+- from: sim2real-material-decomposition
+  to: sparsity2dl
+- from: sim2real-material-decomposition
+  to: sv-spectral-lr
 - from: simurgh-scattercontrol
   to: cnn-inverse
 - from: simurgh-scattercontrol
@@ -5241,6 +6955,10 @@
 - from: sinonet
   to: lpd
 - from: sinonet
+  to: mbdl-unsupervised-low-dose
+- from: sinonet
+  to: pwls-ultra
+- from: sinonet
   to: rad
 - from: sinonet
   to: red-cnn
@@ -5273,6 +6991,8 @@
 - from: sire-net-2025
   to: dsignet
 - from: sire-net-2025
+  to: dual-domain-sparse-helical
+- from: sire-net-2025
   to: ksae
 - from: sire-net-2025
   to: l0-grad
@@ -5285,6 +7005,12 @@
 - from: sire-net-2025
   to: red-cnn
 - from: sire-net-2025
+  to: sams-net-limited-angle
+- from: sire-net-2025
+  to: sea-net-limited-angle-cbct
+- from: sire-net-2025
+  to: spear-net-limited-angle-dect
+- from: sire-net-2025
   to: special
 - from: sire-net-2025
   to: spie-dir-2023
@@ -5292,10 +7018,14 @@
   to: sword
 - from: sire-net-2025
   to: tfu-net
+- from: sire-net-2025
+  to: time-net-limited-angle-dect
 - from: sirt-1972
   to: art-1970
 - from: sister
   to: boyd-admm-2011
+- from: sister
+  to: dp-resnet-low-dose
 - from: sister
   to: os-sart-2004
 - from: sister
@@ -5335,6 +7065,8 @@
 - from: sisvm
   to: ptpn
 - from: sisvm
+  to: pwls-ultra
+- from: sisvm
   to: radon-1917
 - from: sisvm
   to: red-cnn
@@ -5349,6 +7081,28 @@
 - from: sisvm
   to: wavresnet
 - from: sisvm
+  to: wgan-vgg
+- from: slice-wise-low-dose-cbct
+  to: cnn-mar
+- from: slice-wise-low-dose-cbct
+  to: deepcnn
+- from: slice-wise-low-dose-cbct
+  to: elbakri-2002
+- from: slice-wise-low-dose-cbct
+  to: ldct-cnn
+- from: slice-wise-low-dose-cbct
+  to: learn
+- from: slice-wise-low-dose-cbct
+  to: parker-1982
+- from: slice-wise-low-dose-cbct
+  to: piccs
+- from: slice-wise-low-dose-cbct
+  to: red-cnn
+- from: slice-wise-low-dose-cbct
+  to: sidky-pan-tv-2008
+- from: slice-wise-low-dose-cbct
+  to: tfu-net
+- from: slice-wise-low-dose-cbct
   to: wgan-vgg
 - from: smgan
   to: awtv
@@ -5381,6 +7135,8 @@
 - from: soul-net
   to: dict-learning-low-dose-2012
 - from: soul-net
+  to: dire-low-dose
+- from: soul-net
   to: fista-2009
 - from: soul-net
   to: font-sir
@@ -5395,6 +7151,8 @@
 - from: soul-net
   to: nlctf
 - from: soul-net
+  to: prior-4d-cbct
+- from: soul-net
   to: ratv
 - from: soul-net
   to: sidky-pan-tv-2008
@@ -5402,6 +7160,8 @@
   to: sister
 - from: soul-net
   to: sv-tgv
+- from: soul-net
+  to: ultra-spectral-ct
 - from: spare
   to: arm-cbct
 - from: spare
@@ -5451,7 +7211,25 @@
 - from: sparse-view-ct-reconstruction-wasserstein-gans
   to: deepcnn
 - from: sparse-view-ct-reconstruction-wasserstein-gans
+  to: low-dose-dcnn-tomography
+- from: sparse-view-ct-reconstruction-wasserstein-gans
   to: wgan-vgg
+- from: sparse-view-elongated-objects
+  to: chambolle-pock-2011
+- from: sparse-view-elongated-objects
+  to: cnn-inverse
+- from: sparse-view-elongated-objects
+  to: compressed-sensing-2006
+- from: sparse-view-elongated-objects
+  to: datadriven
+- from: sparse-view-elongated-objects
+  to: helical-learned-primal-dual
+- from: sparse-view-elongated-objects
+  to: ista-2004
+- from: sparse-view-elongated-objects
+  to: lpd
+- from: sparse-view-elongated-objects
+  to: rof-tv-1992
 - from: sparse-view-laminography-2014
   to: cl-vs-ct
 - from: sparse-view-laminography-2014
@@ -5476,6 +7254,8 @@
   to: compressed-sensing-2006
 - from: sparsity2dl
   to: cycle-consistent-adversarial-denoising-network
+- from: sparsity2dl
+  to: dect-multra
 - from: sparsity2dl
   to: deep-admm-net
 - from: sparsity2dl
@@ -5509,7 +7289,11 @@
 - from: sparsity2dl
   to: modl
 - from: sparsity2dl
+  to: one-network-all-rois
+- from: sparsity2dl
   to: piccs
+- from: sparsity2dl
+  to: pwls-ultra
 - from: sparsity2dl
   to: red-cnn
 - from: sparsity2dl
@@ -5525,6 +7309,30 @@
 - from: sparsity2dl
   to: wavresnet
 - from: sparsity2dl
+  to: wgan-vgg
+- from: spear-net-limited-angle-dect
+  to: cd-net
+- from: spear-net-limited-angle-dect
+  to: clear
+- from: spear-net-limited-angle-dect
+  to: cnn-inverse
+- from: spear-net-limited-angle-dect
+  to: deep-admm-net
+- from: spear-net-limited-angle-dect
+  to: dior
+- from: spear-net-limited-angle-dect
+  to: dual-dict
+- from: spear-net-limited-angle-dect
+  to: fc-cs-rpca
+- from: spear-net-limited-angle-dect
+  to: hd-cnn
+- from: spear-net-limited-angle-dect
+  to: piccs
+- from: spear-net-limited-angle-dect
+  to: special
+- from: spear-net-limited-angle-dect
+  to: wavresnet
+- from: spear-net-limited-angle-dect
   to: wgan-vgg
 - from: special
   to: admm-net-la
@@ -5550,6 +7358,8 @@
   to: dl
 - from: special
   to: dlct
+- from: special
+  to: dp-resnet-low-dose
 - from: special
   to: drone
 - from: special
@@ -5584,12 +7394,40 @@
   to: wgan-vgg
 - from: spectral-consistent-flow
   to: cyclegan
+- from: spectral-x-mamba
+  to: automap
+- from: spectral-x-mamba
+  to: calimar-gan
+- from: spectral-x-mamba
+  to: clear
+- from: spectral-x-mamba
+  to: csc-ct
+- from: spectral-x-mamba
+  to: dl-ct-rev
+- from: spectral-x-mamba
+  to: map-nn
+- from: spectral-x-mamba
+  to: mccollough-2015
+- from: spectral-x-mamba
+  to: nlctf
+- from: spectral-x-mamba
+  to: pie-net
+- from: spectral-x-mamba
+  to: red-cnn
+- from: spectral-x-mamba
+  to: sister
+- from: spectral-x-mamba
+  to: time-net-limited-angle-dect
+- from: spectral-x-mamba
+  to: ultra-spectral-ct
 - from: spie-dir-2023
   to: acid-b
 - from: spie-dir-2023
   to: adn
 - from: spie-dir-2023
   to: automap
+- from: spie-dir-2023
+  to: cardiac-cyclegan-noise-disentanglement
 - from: spie-dir-2023
   to: cd-net
 - from: spie-dir-2023
@@ -5603,11 +7441,17 @@
 - from: spie-dir-2023
   to: dior
 - from: spie-dir-2023
+  to: direct-net-dect
+- from: spie-dir-2023
   to: dl-ct-rev
 - from: spie-dir-2023
   to: dlct
 - from: spie-dir-2023
+  to: dp-resnet-low-dose
+- from: spie-dir-2023
   to: fdk-1984
+- from: spie-dir-2023
+  to: incept-net-direct-inversion
 - from: spie-dir-2023
   to: learn
 - from: spie-dir-2023
@@ -5632,6 +7476,10 @@
   to: spir-de
 - from: spie-dir-2023
   to: tfu-net
+- from: spie-dir-2023
+  to: time-net-limited-angle-dect
+- from: spie-dir-2023
+  to: virtual-monoenergetic-dl
 - from: spie-dir-2023
   to: wgan-vgg
 - from: spie-dir-2023
@@ -5719,6 +7567,8 @@
 - from: spultra
   to: piccs
 - from: spultra
+  to: pwls-ultra
+- from: spultra
   to: wavresnet
 - from: srcnn-cbct
   to: 4dcbct-prior
@@ -5756,6 +7606,40 @@
   to: red-cnn
 - from: ssdae
   to: sidky-pan-tv-2008
+- from: st-cnn-self-trained-denoising
+  to: cpce
+- from: st-cnn-self-trained-denoising
+  to: dedicated-cnn-uhr-pcd-denoising
+- from: st-cnn-self-trained-denoising
+  to: dental-metal-interpolation
+- from: st-cnn-self-trained-denoising
+  to: dl-ct-rev
+- from: st-cnn-self-trained-denoising
+  to: dl-denoising-generalizability
+- from: st-cnn-self-trained-denoising
+  to: dp-resnet-low-dose
+- from: st-cnn-self-trained-denoising
+  to: dual-stream-metal-streak
+- from: st-cnn-self-trained-denoising
+  to: dudoufnet
+- from: st-cnn-self-trained-denoising
+  to: gan-noise-reduction-low-dose-ct
+- from: st-cnn-self-trained-denoising
+  to: ldct-cnn
+- from: st-cnn-self-trained-denoising
+  to: map-nn
+- from: st-cnn-self-trained-denoising
+  to: multislice-residual-cnn-denoising
+- from: st-cnn-self-trained-denoising
+  to: red-cnn
+- from: st-cnn-self-trained-denoising
+  to: sisvm
+- from: st-cnn-self-trained-denoising
+  to: smgan
+- from: st-cnn-self-trained-denoising
+  to: wavresnet
+- from: st-cnn-self-trained-denoising
+  to: wgan-vgg
 - from: steerable-conditional-diffusion-2025
   to: 3dip
 - from: steerable-conditional-diffusion-2025
@@ -5795,6 +7679,8 @@
 - from: super
   to: 3padmm
 - from: super
+  to: bcd-net
+- from: super
   to: cnn-inverse
 - from: super
   to: cycle-consistent-adversarial-denoising-network
@@ -5825,6 +7711,8 @@
 - from: super
   to: pnp-2013
 - from: super
+  to: pwls-ultra
+- from: super
   to: red-cnn
 - from: super
   to: shepp-logan-1974
@@ -5853,6 +7741,8 @@
 - from: super-2
   to: lpd
 - from: super-2
+  to: pwls-ultra
+- from: super-2
   to: spultra
 - from: super-2
   to: wavresnet
@@ -5875,11 +7765,17 @@
 - from: sv-cbct-data-consistent-2023
   to: learn
 - from: sv-cbct-data-consistent-2023
+  to: low-dose-dcnn-tomography
+- from: sv-cbct-data-consistent-2023
   to: piccs
+- from: sv-cbct-data-consistent-2023
+  to: pwls-ultra
 - from: sv-cbct-data-consistent-2023
   to: red-cnn
 - from: sv-cbct-data-consistent-2023
   to: sauer-bouman-1993
+- from: sv-cbct-data-consistent-2023
+  to: scoutct-net
 - from: sv-cbct-data-consistent-2023
   to: sparsity2dl
 - from: sv-cbct-data-consistent-2023
@@ -5951,6 +7847,8 @@
 - from: swap-net-2025
   to: fdk-1984
 - from: swap-net-2025
+  to: helical-learned-primal-dual
+- from: swap-net-2025
   to: ksae
 - from: swap-net-2025
   to: learn
@@ -5963,11 +7861,15 @@
 - from: swap-net-2025
   to: pnp-2013
 - from: swap-net-2025
+  to: pwls-ultra
+- from: swap-net-2025
   to: red-cnn
 - from: swap-net-2025
   to: rof-tv-1992
 - from: swap-net-2025
   to: sauer-bouman-1993
+- from: swap-net-2025
+  to: scoutct-net
 - from: swap-net-2025
   to: sparsity2dl
 - from: swap-net-2025
@@ -5980,6 +7882,28 @@
   to: sv-spectral-lr
 - from: swap-net-2025
   to: why-fbp
+- from: swinir-dual-domain-sparse-view
+  to: cnnrpgd
+- from: swinir-dual-domain-sparse-view
+  to: dd-net
+- from: swinir-dual-domain-sparse-view
+  to: dddm
+- from: swinir-dual-domain-sparse-view
+  to: dip
+- from: swinir-dual-domain-sparse-view
+  to: drone
+- from: swinir-dual-domain-sparse-view
+  to: dudotrans
+- from: swinir-dual-domain-sparse-view
+  to: fdk-1984
+- from: swinir-dual-domain-sparse-view
+  to: generative-modeling-in-sinogram-domain-for-sparse-view-ct-
+- from: swinir-dual-domain-sparse-view
+  to: mdst-2023
+- from: swinir-dual-domain-sparse-view
+  to: mw-cnn
+- from: swinir-dual-domain-sparse-view
+  to: tfu-net
 - from: sword
   to: cnn-inverse
 - from: sword
@@ -6037,6 +7961,8 @@
 - from: synergizing-physics-model-based-and-data-driven-methods-fo
   to: pnp-2013
 - from: synergizing-physics-model-based-and-data-driven-methods-fo
+  to: pwls-ultra
+- from: synergizing-physics-model-based-and-data-driven-methods-fo
   to: red-2017
 - from: synergizing-physics-model-based-and-data-driven-methods-fo
   to: red-cnn
@@ -6054,6 +7980,36 @@
   to: wgan-vgg
 - from: synthetic-ct-image-generation-from-cbct-a-systematic-review
   to: cyclegan
+- from: task-specific-sampling-sparse-view
+  to: 3padmm
+- from: task-specific-sampling-sparse-view
+  to: automap
+- from: task-specific-sampling-sparse-view
+  to: cnn-inverse
+- from: task-specific-sampling-sparse-view
+  to: dd-net
+- from: task-specific-sampling-sparse-view
+  to: deepcnn
+- from: task-specific-sampling-sparse-view
+  to: drone
+- from: task-specific-sampling-sparse-view
+  to: freeseed
+- from: task-specific-sampling-sparse-view
+  to: hdnet
+- from: task-specific-sampling-sparse-view
+  to: iradonmap
+- from: task-specific-sampling-sparse-view
+  to: learn
+- from: task-specific-sampling-sparse-view
+  to: planet
+- from: task-specific-sampling-sparse-view
+  to: red-cnn
+- from: task-specific-sampling-sparse-view
+  to: tfu-net
+- from: task-specific-sampling-sparse-view
+  to: viss
+- from: task-specific-sampling-sparse-view
+  to: why-fbp
 - from: tat
   to: amir
 - from: tat
@@ -6102,6 +8058,10 @@
   to: deepcnn
 - from: tensor-net
   to: dnnss
+- from: tensor-net
+  to: dp-resnet-low-dose
+- from: tensor-net
+  to: dual-domain-sparse-helical
 - from: tensor-net
   to: gan-noise-reduction-low-dose-ct
 - from: tensor-net
@@ -6174,10 +8134,44 @@
   to: wgan-vgg
 - from: tfu-net
   to: why-fbp
+- from: time-net-limited-angle-dect
+  to: automap
+- from: time-net-limited-angle-dect
+  to: cardiac-cyclegan-noise-disentanglement
+- from: time-net-limited-angle-dect
+  to: cd-net
+- from: time-net-limited-angle-dect
+  to: clear
+- from: time-net-limited-angle-dect
+  to: dd-net
+- from: time-net-limited-angle-dect
+  to: dl-ct-rev
+- from: time-net-limited-angle-dect
+  to: dp-resnet-low-dose
+- from: time-net-limited-angle-dect
+  to: fdk-1984
+- from: time-net-limited-angle-dect
+  to: learn
+- from: time-net-limited-angle-dect
+  to: map-nn
+- from: time-net-limited-angle-dect
+  to: mccollough-2015
+- from: time-net-limited-angle-dect
+  to: red-cnn
+- from: time-net-limited-angle-dect
+  to: sacnn
+- from: time-net-limited-angle-dect
+  to: special
+- from: time-net-limited-angle-dect
+  to: transct
+- from: time-net-limited-angle-dect
+  to: wgan-vgg
 - from: time-resolved-dynamic-cbct-reconstruction-using-prior-model-
   to: 4dcbct-prior
 - from: time-resolved-dynamic-cbct-reconstruction-using-prior-model-
   to: fdk-1984
+- from: time-resolved-dynamic-cbct-reconstruction-using-prior-model-
+  to: prior-4d-cbct
 - from: time-resolved-dynamic-cbct-reconstruction-using-prior-model-
   to: prior-adapted-progressive-time-resolved-cbct-reconstruction-
 - from: time-resolved-dynamic-cbct-reconstruction-using-prior-model-
@@ -6186,6 +8180,46 @@
   to: spare
 - from: time-resolved-dynamic-cbct-reconstruction-using-prior-model-
   to: stinr
+- from: tmgan
+  to: cascaded-resunet-spectrum-loss
+- from: tmgan
+  to: deepcnn
+- from: tmgan
+  to: diffmed
+- from: tmgan
+  to: fdk-1984
+- from: tmgan
+  to: gan-circle
+- from: tmgan
+  to: gan-noise-reduction-low-dose-ct
+- from: tmgan
+  to: red-cnn
+- from: tmgan
+  to: sacnn
+- from: tmgan
+  to: wgan-vgg
+- from: to-recurse-low-dose
+  to: cnn-inverse
+- from: to-recurse-low-dose
+  to: deepcnn
+- from: to-recurse-low-dose
+  to: ldct-cnn
+- from: to-recurse-low-dose
+  to: learn
+- from: to-recurse-low-dose
+  to: msdnet
+- from: to-recurse-low-dose
+  to: msdnet-limited-data
+- from: to-recurse-low-dose
+  to: red-cnn
+- from: to-recurse-low-dose
+  to: wgan-vgg
+- from: tod-net-low-dose
+  to: ldct-cnn
+- from: tod-net-low-dose
+  to: sacnn
+- from: tod-net-low-dose
+  to: wgan-vgg
 - from: tomo-21st
   to: kudo-interior-2008
 - from: tomo-21st
@@ -6203,6 +8237,10 @@
 - from: tomogan
   to: gan-noise-reduction-low-dose-ct
 - from: tomogan
+  to: low-dose-dcnn-tomography
+- from: tomogan
+  to: msdnet-limited-data
+- from: tomogan
   to: tfu-net
 - from: tomogan
   to: wavresnet
@@ -6216,14 +8254,26 @@
   to: pnp-2013
 - from: tpaw-adaptive-tv-laminography
   to: x-ray-computed-laminography-review
+- from: trainable-joint-bilateral
+  to: adain-tunable-cyclegan
+- from: trainable-joint-bilateral
+  to: red-cnn
+- from: trainable-joint-bilateral
+  to: sacnn
+- from: trainable-joint-bilateral
+  to: ultralow-parameter-denoising
 - from: transct
   to: 3padmm
 - from: transct
   to: automap
 - from: transct
+  to: bcd-net
+- from: transct
   to: cnnrpgd
 - from: transct
   to: dd-net
+- from: transct
+  to: deep-sinogram-completion-mar
 - from: transct
   to: dict-learning-low-dose-2012
 - from: transct
@@ -6317,11 +8367,117 @@
 - from: two-view-industrial-diffusion-2024
   to: rof-tv-1992
 - from: two-view-industrial-diffusion-2024
+  to: scoutct-net
+- from: two-view-industrial-diffusion-2024
   to: sword
 - from: two-view-industrial-diffusion-2024
   to: tv-stokes
 - from: two-view-industrial-diffusion-2024
   to: x2ct-gan
+- from: two-view-topogram
+  to: scoutct-net
+- from: two-view-topogram
+  to: wgan-vgg
+- from: two-view-topogram
+  to: x2ct-gan
+- from: udamar-metal-artefact
+  to: adn
+- from: udamar-metal-artefact
+  to: cnn-mar
+- from: udamar-metal-artefact
+  to: cyclegan
+- from: udamar-metal-artefact
+  to: deep-mar
+- from: udamar-metal-artefact
+  to: deep-sinogram-completion-mar
+- from: udamar-metal-artefact
+  to: dental-metal-interpolation
+- from: udamar-metal-artefact
+  to: dicdnet
+- from: udamar-metal-artefact
+  to: dudonet
+- from: udamar-metal-artefact
+  to: idol-net
+- from: udamar-metal-artefact
+  to: kalender-mar-1987
+- from: udamar-metal-artefact
+  to: ldm-dn-metal-artifact
+- from: udamar-metal-artefact
+  to: mar-4dec
+- from: udamar-metal-artefact
+  to: metal-artifact-beta-cyclegan
+- from: udamar-metal-artefact
+  to: nmar-2010
+- from: ufp-net-ultra-fast-pitch
+  to: cnn-inverse
+- from: ufp-net-ultra-fast-pitch
+  to: deepcnn
+- from: ufp-net-ultra-fast-pitch
+  to: dlct
+- from: ufp-net-ultra-fast-pitch
+  to: incept-net-direct-inversion
+- from: ufp-net-ultra-fast-pitch
+  to: katsevich-2002
+- from: ufp-net-ultra-fast-pitch
+  to: learning-the-invisible-2019
+- from: ufp-net-ultra-fast-pitch
+  to: map-nn
+- from: ufp-net-ultra-fast-pitch
+  to: psrv
+- from: ufp-net-ultra-fast-pitch
+  to: sisvm
+- from: ufp-net-ultra-fast-pitch
+  to: wgan-vgg
+- from: uhr-pcd-temporal-bone-denoising
+  to: dedicated-cnn-uhr-pcd-denoising
+- from: uhr-pcd-temporal-bone-denoising
+  to: piccs
+- from: uhr-pcd-temporal-bone-denoising
+  to: pie-net
+- from: ultra-spectral-ct
+  to: admm-net-la
+- from: ultra-spectral-ct
+  to: cnn-inverse
+- from: ultra-spectral-ct
+  to: cnn-mar
+- from: ultra-spectral-ct
+  to: csc-ct
+- from: ultra-spectral-ct
+  to: dlct
+- from: ultra-spectral-ct
+  to: drone
+- from: ultra-spectral-ct
+  to: fstensor
+- from: ultra-spectral-ct
+  to: ldct-cnn
+- from: ultra-spectral-ct
+  to: learn
+- from: ultra-spectral-ct
+  to: learning-the-invisible-2019
+- from: ultra-spectral-ct
+  to: nlctf
+- from: ultra-spectral-ct
+  to: one-network-all-rois
+- from: ultra-spectral-ct
+  to: red-cnn
+- from: ultra-spectral-ct
+  to: sidky-pan-tv-2008
+- from: ultra-spectral-ct
+  to: sv-spectral-lr
+- from: ultra-spectral-ct
+  to: wgan-vgg
+- from: ultralow-parameter-denoising
+  to: deepcnn
+- from: ultralow-parameter-denoising
+  to: fdk-1984
+- from: ultralow-parameter-denoising
+  to: red-cnn
+- from: ultralow-parameter-denoising
+  to: sirt-1972
+- from: ultralow-parameter-denoising
+  to: wavresnet
+- from: ultralow-parameter-denoising
+  to: wgan-vgg
 - from: undip
   to: atv-limited-angle
 - from: undip
@@ -6340,6 +8496,8 @@
   to: dip
 - from: undip
   to: dnnss
+- from: undip
+  to: dp-resnet-low-dose
 - from: undip
   to: iradonmap
 - from: undip
@@ -6381,6 +8539,8 @@
 - from: unsupervised-idbp-svct-2025
   to: dear
 - from: unsupervised-idbp-svct-2025
+  to: deep-sinogram-completion-mar
+- from: unsupervised-idbp-svct-2025
   to: dgr-2
 - from: unsupervised-idbp-svct-2025
   to: dip
@@ -6394,6 +8554,8 @@
   to: learn-plus-plus-2023
 - from: unsupervised-idbp-svct-2025
   to: magic
+- from: unsupervised-idbp-svct-2025
+  to: one-network-all-rois
 - from: unsupervised-idbp-svct-2025
   to: ratv
 - from: unsupervised-idbp-svct-2025
@@ -6415,7 +8577,35 @@
 - from: unsupervised-metal-artifact-reduction-in-dental-cbct-using-f
   to: mar-4dec
 - from: unsupervised-metal-artifact-reduction-in-dental-cbct-using-f
+  to: metal-artifact-beta-cyclegan
+- from: unsupervised-metal-artifact-reduction-in-dental-cbct-using-f
   to: nmar-2010
+- from: uswin-limited-angle-cardiac
+  to: atv-limited-angle
+- from: uswin-limited-angle-cardiac
+  to: cnn-inverse
+- from: uswin-limited-angle-cardiac
+  to: cpce
+- from: uswin-limited-angle-cardiac
+  to: ctformer
+- from: uswin-limited-angle-cardiac
+  to: ctnet
+- from: uswin-limited-angle-cardiac
+  to: dd-net
+- from: uswin-limited-angle-cardiac
+  to: etedn
+- from: uswin-limited-angle-cardiac
+  to: quad-net
+- from: uswin-limited-angle-cardiac
+  to: red-cnn
+- from: uswin-limited-angle-cardiac
+  to: sart-1984
+- from: uswin-limited-angle-cardiac
+  to: sidky-pan-tv-2008
+- from: uswin-limited-angle-cardiac
+  to: tomogan
+- from: uswin-limited-angle-cardiac
+  to: wgan-vgg
 - from: variational-garrote
   to: compressed-sensing-2006
 - from: variational-garrote
@@ -6464,10 +8654,30 @@
   to: ramachandran-lakshminarayanan-1971
 - from: view-covariance-loss-2026
   to: tuy-1983
+- from: virtual-monoenergetic-dl
+  to: alvarez-1976
+- from: virtual-monoenergetic-dl
+  to: gan-circle
+- from: virtual-monoenergetic-dl
+  to: ldct-cnn
+- from: virtual-monoenergetic-dl
+  to: learn
+- from: virtual-monoenergetic-dl
+  to: mccollough-2015
+- from: virtual-monoenergetic-dl
+  to: red-cnn
+- from: virtual-monoenergetic-dl
+  to: wgan-vgg
 - from: viss
   to: dir-view-interp
 - from: viss
   to: fdk-1984
+- from: voi-helical-ct
+  to: deep-interior
+- from: voi-helical-ct
+  to: kudo-interior-2008
+- from: voi-helical-ct
+  to: one-network-all-rois
 - from: vvbp-tsvd
   to: cpce
 - from: vvbp-tsvd
@@ -6544,6 +8754,8 @@
   to: diffrecon
 - from: wcdps
   to: dl-ct-incomplete-data-review-2024
+- from: wcdps
+  to: dps-nonlinear-measurement-model
 - from: wcdps
   to: rof-tv-1992
 - from: wcdps
@@ -6623,6 +8835,8 @@
 - from: x2-gaussian
   to: naf
 - from: x2-gaussian
+  to: prior-4d-cbct
+- from: x2-gaussian
   to: rof-tv-1992
 - from: x2-gaussian
   to: sart-1984
@@ -6680,3 +8894,9 @@
   to: fdk-1984
 - from: zhu-2006
   to: siewerdsen-2001
+- from: zircon-multi-kernel-head-ct
+  to: dl-denoising-generalizability
+- from: zircon-multi-kernel-head-ct
+  to: multi-kernel-synthesis-dcnn
+- from: zircon-multi-kernel-head-ct
+  to: sagan

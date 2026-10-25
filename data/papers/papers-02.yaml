@@ -326,7 +326,7 @@
 
 - id: "end-to-end-deep-learning-for-interior-tomography-with-low-do"
   title: "End-to-End Deep Learning for Interior Tomography with Low-Dose X-ray CT"
-  year: 2025
+  year: 2022
   venue: "PMB"
   topics: [limited-angle, low-dose, unrolling]
   paper: "https://doi.org/10.1088/1361-6560/ac6560"

@@ -6743,7 +6743,7 @@ lamigauss:
     openalex_author_id: https://openalex.org/A5033880300
   - name: Jizhou Li
     openalex_author_id: https://openalex.org/A5031380605
-  matched_by: arxiv
+  matched_by: doi
 fast-iterative-sparse-angle-ct-lithium-battery:
   openalex: https://openalex.org/W4416707890
   authors:
@@ -7768,7 +7768,7 @@ ctpretrain:
   - name: Shuying Wang
     openalex_author_id: https://openalex.org/A5127782145
   - name: Mengle Qiu
-    openalex_author_id: null
+    openalex_author_id: https://openalex.org/A5159337266
   - name: Changsheng Feng
     openalex_author_id: https://openalex.org/A5127814958
   - name: Hang Guo
@@ -7968,3 +7968,1977 @@ x-splat:
   - name: Imari Sato
     openalex_author_id: https://openalex.org/A5133855849
   matched_by: arxiv
+uswin-limited-angle-cardiac:
+  openalex: https://openalex.org/W4394709974
+  authors:
+  - name: Yongshun Xu
+    openalex_author_id: https://openalex.org/A5008532411
+  - name: Shuo Han
+    openalex_author_id: https://openalex.org/A5111125807
+  - name: Dayang Wang
+    openalex_author_id: https://openalex.org/A5101759770
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  - name: Jonathan S. Maltz
+    openalex_author_id: https://openalex.org/A5089938291
+  - name: Hengyong Yu
+    openalex_author_id: https://openalex.org/A5052662150
+  matched_by: doi
+lama-dual-domain-sparse-view:
+  openalex: https://openalex.org/W4387211269
+  authors:
+  - name: Chi Ding
+    openalex_author_id: null
+  - name: Qingchao Zhang
+    openalex_author_id: https://openalex.org/A5090335788
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  - name: Xiaojing Ye
+    openalex_author_id: https://openalex.org/A5102770164
+  - name: Yunmei Chen
+    openalex_author_id: https://openalex.org/A5058530714
+  matched_by: doi
+ultra-spectral-ct:
+  openalex: https://openalex.org/W3081998621
+  authors:
+  - name: Weiwen Wu
+    openalex_author_id: https://openalex.org/A5077824092
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Chuang Niu
+    openalex_author_id: null
+  - name: Lieza Vanden Broeke
+    openalex_author_id: https://openalex.org/A5112684460
+  - name: Anthony P. H. Butler
+    openalex_author_id: https://openalex.org/A5067098695
+  - name: Peng Cao
+    openalex_author_id: https://openalex.org/A5064264675
+  - name: James Atlas
+    openalex_author_id: https://openalex.org/A5027920517
+  - name: Alexander I. Chernoglazov
+    openalex_author_id: https://openalex.org/A5102893298
+  - name: Varut Vardhanabhuti
+    openalex_author_id: https://openalex.org/A5001457706
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  matched_by: doi
+virtual-monoenergetic-dl:
+  openalex: https://openalex.org/W3093199996
+  authors:
+  - name: Wenxiang Cong
+    openalex_author_id: https://openalex.org/A5101414827
+  - name: Yan Xi
+    openalex_author_id: https://openalex.org/A5101744428
+  - name: Paul Bernard Fitzgerald
+    openalex_author_id: https://openalex.org/A5083159520
+  - name: Bruno De Man
+    openalex_author_id: https://openalex.org/A5088509171
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  matched_by: doi
+deep-silicon-pc-denoising-rl:
+  openalex: https://openalex.org/W4390782296
+  authors:
+  - name: Md. Sayed Tanveer
+    openalex_author_id: https://openalex.org/A5072937467
+  - name: Christopher Wiedeman
+    openalex_author_id: https://openalex.org/A5036621629
+  - name: Mengzhou Li
+    openalex_author_id: https://openalex.org/A5100643210
+  - name: Yongyi Shi
+    openalex_author_id: https://openalex.org/A5041502507
+  - name: Bruno De Man
+    openalex_author_id: https://openalex.org/A5088509171
+  - name: Jonathan S. Maltz
+    openalex_author_id: https://openalex.org/A5089938291
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  matched_by: doi
+ldm-dn-metal-artifact:
+  openalex: https://openalex.org/W3041976831
+  authors:
+  - name: Chuang Niu
+    openalex_author_id: https://openalex.org/A5065193592
+  - name: Wenxiang Cong
+    openalex_author_id: https://openalex.org/A5002629143
+  - name: Fenglei Fan
+    openalex_author_id: https://openalex.org/A5018677035
+  - name: Hongming Shan
+    openalex_author_id: https://openalex.org/A5049086157
+  - name: Mengzhou Li
+    openalex_author_id: https://openalex.org/A5100643210
+  - name: Jimin Liang
+    openalex_author_id: https://openalex.org/A5032808299
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  matched_by: doi
+dual-stream-metal-streak:
+  openalex: https://openalex.org/W2980501212
+  authors:
+  - name: Lars Gjesteby
+    openalex_author_id: https://openalex.org/A5008693878
+  - name: Hongming Shan
+    openalex_author_id: https://openalex.org/A5049086157
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  - name: Yan Xi
+    openalex_author_id: https://openalex.org/A5101744428
+  - name: Yannan Jin
+    openalex_author_id: https://openalex.org/A5023174282
+  - name: Drosoula Giantsoudi
+    openalex_author_id: https://openalex.org/A5021753469
+  - name: Harald Paganetti
+    openalex_author_id: https://openalex.org/A5037938903
+  - name: Bruno De Man
+    openalex_author_id: https://openalex.org/A5088509171
+  matched_by: doi
+tod-net-low-dose:
+  openalex: https://openalex.org/W3202635716
+  authors:
+  - name: Jiajin Zhang
+    openalex_author_id: https://openalex.org/A5102763260
+  - name: Hanqing Chao
+    openalex_author_id: https://openalex.org/A5070759471
+  - name: Xuanang Xu
+    openalex_author_id: https://openalex.org/A5057836774
+  - name: Chuang Niu
+    openalex_author_id: https://openalex.org/A5065193592
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  - name: Pingkun Yan
+    openalex_author_id: https://openalex.org/A5054075262
+  matched_by: doi
+do-cnns-solve-ct-inverse-problem:
+  openalex: https://openalex.org/W3082534285
+  authors:
+  - name: Emil Y. Sidky
+    openalex_author_id: https://openalex.org/A5035273354
+  - name: Iris Lorente
+    openalex_author_id: https://openalex.org/A5033591238
+  - name: Jovan G. Brankov
+    openalex_author_id: https://openalex.org/A5029355810
+  - name: Xiaochuan Pan
+    openalex_author_id: https://openalex.org/A5101465418
+  matched_by: doi
+dps-nonlinear-measurement-model:
+  openalex: https://openalex.org/W4400221850
+  authors:
+  - name: Shudong Li
+    openalex_author_id: https://openalex.org/A5043717671
+  - name: Xiao Qiang Jiang
+    openalex_author_id: https://openalex.org/A5050076185
+  - name: Matthew Tivnan
+    openalex_author_id: https://openalex.org/A5089321471
+  - name: Grace J. Gang
+    openalex_author_id: https://openalex.org/A5001358171
+  - name: Yuan Shen
+    openalex_author_id: https://openalex.org/A5052022779
+  - name: Joseph Webster Stayman
+    openalex_author_id: https://openalex.org/A5066969185
+  matched_by: doi
+spectral-dps:
+  openalex: https://openalex.org/W4401525877
+  authors:
+  - name: Xiao Jiang
+    openalex_author_id: https://openalex.org/A5100640345
+  - name: Grace J. Gang
+    openalex_author_id: https://openalex.org/A5001358171
+  - name: Joseph Webster Stayman
+    openalex_author_id: https://openalex.org/A5066969185
+  matched_by: doi
+mixed-prior-implants:
+  openalex: https://openalex.org/W4415318221
+  authors:
+  - name: Xiao Jiang
+    openalex_author_id: https://openalex.org/A5100640345
+  - name: Grace J. Gang
+    openalex_author_id: https://openalex.org/A5001358171
+  - name: Joseph Webster Stayman
+    openalex_author_id: https://openalex.org/A5066969185
+  matched_by: doi
+blur-noise-restoration:
+  openalex: https://openalex.org/W4407108657
+  authors:
+  - name: Yijie Yuan
+    openalex_author_id: https://openalex.org/A5102681610
+  - name: Grace J. Gang
+    openalex_author_id: https://openalex.org/A5001358171
+  - name: Joseph Webster Stayman
+    openalex_author_id: https://openalex.org/A5066969185
+  matched_by: doi
+dl-vif-motion:
+  openalex: https://openalex.org/W4281764733
+  authors:
+  - name: Heyuan Huang
+    openalex_author_id: https://openalex.org/A5009498944
+  - name: Jeff H. Siewerdsen
+    openalex_author_id: https://openalex.org/A5014280818
+  - name: Wojciech B. Zbijewski
+    openalex_author_id: https://openalex.org/A5079368329
+  - name: Clifford R. Weiss
+    openalex_author_id: https://openalex.org/A5040854218
+  - name: Mathias Unberath
+    openalex_author_id: https://openalex.org/A5087095414
+  - name: Tina Ehtiati
+    openalex_author_id: https://openalex.org/A5073936277
+  - name: Alejandro Sisniega
+    openalex_author_id: https://openalex.org/A5043476692
+  matched_by: doi
+dl-recon-brain-cbct:
+  openalex: https://openalex.org/W4323971770
+  authors:
+  - name: Xiaoxuan Zhang
+    openalex_author_id: https://openalex.org/A5100712575
+  - name: Alejandro Sisniega
+    openalex_author_id: https://openalex.org/A5043476692
+  - name: Wojciech B. Zbijewski
+    openalex_author_id: https://openalex.org/A5079368329
+  - name: Junghoon Lee
+    openalex_author_id: https://openalex.org/A5100626273
+  - name: Craig K. Jones
+    openalex_author_id: https://openalex.org/A5018714925
+  - name: Pengwei Wu
+    openalex_author_id: https://openalex.org/A5058183994
+  - name: Runze Han
+    openalex_author_id: https://openalex.org/A5009793323
+  - name: Ali Uneri
+    openalex_author_id: https://openalex.org/A5089623752
+  - name: Prasad Vagdargi
+    openalex_author_id: https://openalex.org/A5029253617
+  - name: Patrick A. Helm
+    openalex_author_id: https://openalex.org/A5081877123
+  - name: Mark Gregory Luciano
+    openalex_author_id: https://openalex.org/A5068150912
+  - name: William Stanley Anderson
+    openalex_author_id: https://openalex.org/A5043335263
+  - name: Jeffrey H. Siewerdsen
+    openalex_author_id: https://openalex.org/A5068070550
+  matched_by: doi
+dect-multra:
+  openalex: https://openalex.org/W2980295205
+  authors:
+  - name: Zhipeng Li
+    openalex_author_id: https://openalex.org/A5100344741
+  - name: Saiprasad Ravishankar
+    openalex_author_id: https://openalex.org/A5101799762
+  - name: Yong Qiang Long
+    openalex_author_id: https://openalex.org/A5085257241
+  - name: Jeffrey A. Fessler
+    openalex_author_id: https://openalex.org/A5027207271
+  matched_by: doi
+bcd-net:
+  openalex: https://openalex.org/W2965697440
+  authors:
+  - name: Il Yong Chun
+    openalex_author_id: https://openalex.org/A5020501362
+  - name: Xuehang Zheng
+    openalex_author_id: https://openalex.org/A5065098110
+  - name: Yong Qiang Long
+    openalex_author_id: https://openalex.org/A5085257241
+  - name: Jeffrey A. Fessler
+    openalex_author_id: https://openalex.org/A5027207271
+  matched_by: doi
+pwls-ultra:
+  openalex: https://openalex.org/W2603901191
+  authors:
+  - name: Xuehang Zheng
+    openalex_author_id: null
+  - name: Saiprasad Ravishankar
+    openalex_author_id: null
+  - name: Yong Long
+    openalex_author_id: null
+  - name: Jeffrey A. Fessler
+    openalex_author_id: https://openalex.org/A5027207271
+  matched_by: doi
+dl-denoising-generalizability:
+  openalex: https://openalex.org/W4200145257
+  authors:
+  - name: Rongping Zeng
+    openalex_author_id: https://openalex.org/A5021406539
+  - name: Claire Yilin Lin
+    openalex_author_id: https://openalex.org/A5046978305
+  - name: Qin Li
+    openalex_author_id: https://openalex.org/A5100438891
+  - name: Lu Jiang
+    openalex_author_id: null
+  - name: Marlene Skopec
+    openalex_author_id: https://openalex.org/A5018333274
+  - name: Jeffrey A. Fessler
+    openalex_author_id: https://openalex.org/A5027207271
+  - name: Kyle J. Myers
+    openalex_author_id: https://openalex.org/A5010335705
+  matched_by: doi
+model-based-motion-simulation-dynamic-wrist:
+  openalex: https://openalex.org/W7212276420
+  authors:
+  - name: Chunming Gu
+    openalex_author_id: https://openalex.org/A5065891486
+  - name: Ann A. Davis
+    openalex_author_id: https://openalex.org/A5113432762
+  - name: Andrew Ryan Thoreson
+    openalex_author_id: https://openalex.org/A5011690849
+  - name: Shengbing Huang
+    openalex_author_id: https://openalex.org/A5108086435
+  - name: Kevin J. Treb
+    openalex_author_id: https://openalex.org/A5005021256
+  - name: Nirusha Lachman
+    openalex_author_id: https://openalex.org/A5005633855
+  - name: Kristin Daigle Zhao
+    openalex_author_id: https://openalex.org/A5089857613
+  - name: Maryam Sadeghian
+    openalex_author_id: https://openalex.org/A5026158500
+  - name: Francis Baffour
+    openalex_author_id: https://openalex.org/A5151414386
+  - name: Taylor P. Trentadue
+    openalex_author_id: https://openalex.org/A5021211689
+  - name: Sanjeev Kakar
+    openalex_author_id: https://openalex.org/A5002285513
+  - name: Cynthia H McCollough
+    openalex_author_id: https://openalex.org/A5109583908
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  matched_by: doi
+hr-cnn-pcd-spatial-resolution:
+  openalex: https://openalex.org/W7143052397
+  authors:
+  - name: Zhongxing Zhou
+    openalex_author_id: https://openalex.org/A5130595598
+  - name: Alex K. Bratt
+    openalex_author_id: https://openalex.org/A5057605374
+  - name: Chi Wan Koo
+    openalex_author_id: https://openalex.org/A5010766801
+  - name: Kelly K. Horst
+    openalex_author_id: https://openalex.org/A5037535956
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  matched_by: doi
+ct-harmonization-learned-vmi:
+  openalex: https://openalex.org/W7140324448
+  authors:
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: Joseph R. Swicklik
+    openalex_author_id: https://openalex.org/A5092797038
+  - name: Zhongxing Zhou
+    openalex_author_id: https://openalex.org/A5130595598
+  - name: Shravani Kharat
+    openalex_author_id: https://openalex.org/A5040739906
+  - name: Jarod Wellinghoff
+    openalex_author_id: https://openalex.org/A5089557257
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Eric E. Williamson
+    openalex_author_id: https://openalex.org/A5029061846
+  - name: Thomas A. Foley
+    openalex_author_id: https://openalex.org/A5057286132
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+diamond-monoenergetic-coronary:
+  openalex: https://openalex.org/W7139041631
+  authors:
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: Emily K. Koons
+    openalex_author_id: https://openalex.org/A5089131549
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Jamison E. Thorne
+    openalex_author_id: https://openalex.org/A5018149399
+  - name: Eric E. Williamson
+    openalex_author_id: https://openalex.org/A5029061846
+  - name: Thomas A. Foley
+    openalex_author_id: https://openalex.org/A5057286132
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+voi-helical-ct:
+  openalex: https://openalex.org/W4414380355
+  authors:
+  - name: Zhongxing Zhou
+    openalex_author_id: https://openalex.org/A5101578526
+  - name: Akitoshi Inoue
+    openalex_author_id: https://openalex.org/A5081255744
+  - name: Christian W. Cox
+    openalex_author_id: https://openalex.org/A5079022937
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  matched_by: doi
+ilumenate-eid-cta:
+  openalex: https://openalex.org/W4410192351
+  authors:
+  - name: Emily K. Koons
+    openalex_author_id: https://openalex.org/A5089131549
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: Andrew D. Missert
+    openalex_author_id: null
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Jamison E. Thorne
+    openalex_author_id: https://openalex.org/A5018149399
+  - name: Safa Hoodeshenas
+    openalex_author_id: https://openalex.org/A5055527409
+  - name: Prabhakar Shantha Rajiah
+    openalex_author_id: https://openalex.org/A5047904907
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5113341331
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+palette-low-dose-synthesis:
+  openalex: https://openalex.org/W4407536951
+  authors:
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5011815340
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Scott S. Hsieh
+    openalex_author_id: https://openalex.org/A5038240758
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  matched_by: doi
+uhr-pcd-temporal-bone-denoising:
+  openalex: https://openalex.org/W4404230565
+  authors:
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: John Charles Benson
+    openalex_author_id: https://openalex.org/A5006728583
+  - name: John Ignatius Lane
+    openalex_author_id: https://openalex.org/A5086392575
+  - name: Michael R. Bruesewitz
+    openalex_author_id: https://openalex.org/A5036016693
+  - name: Joseph R. Swicklik
+    openalex_author_id: https://openalex.org/A5092797038
+  - name: Jamison E. Thorne
+    openalex_author_id: https://openalex.org/A5018149399
+  - name: Emily K. Koons
+    openalex_author_id: https://openalex.org/A5089131549
+  - name: Matthew L. Carlson
+    openalex_author_id: https://openalex.org/A5087866752
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+noise-texture-training-curation:
+  openalex: https://openalex.org/W4412419453
+  authors:
+  - name: Kevin J. Treb
+    openalex_author_id: https://openalex.org/A5005021256
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: Emily K. Koons
+    openalex_author_id: https://openalex.org/A5089131549
+  - name: Jeffrey F. Marsh
+    openalex_author_id: https://openalex.org/A5072540869
+  - name: Thomas A. Foley
+    openalex_author_id: https://openalex.org/A5057286132
+  - name: Eric E. Williamson
+    openalex_author_id: https://openalex.org/A5029061846
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+pkaid-net:
+  openalex: https://openalex.org/W4398763201
+  authors:
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: Jeffrey F. Marsh
+    openalex_author_id: https://openalex.org/A5072540869
+  - name: Emily K. Koons
+    openalex_author_id: https://openalex.org/A5089131549
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+zircon-multi-kernel-head-ct:
+  openalex: https://openalex.org/W4390816466
+  authors:
+  - name: Brandon Nelson
+    openalex_author_id: https://openalex.org/A5059620666
+  - name: Daniel Gomez‐Cardona
+    openalex_author_id: https://openalex.org/A5109972054
+  - name: Jamison E. Thorne
+    openalex_author_id: https://openalex.org/A5018149399
+  - name: Nathan R. Huber
+    openalex_author_id: https://openalex.org/A5056071386
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Andrew D. Missert
+    openalex_author_id: null
+  matched_by: doi
+atom-cardiac-motion-correction:
+  openalex: https://openalex.org/W4390605515
+  authors:
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Zaki Ahmed
+    openalex_author_id: https://openalex.org/A5101184546
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: Emily K. Koons
+    openalex_author_id: https://openalex.org/A5089131549
+  - name: Jamison E. Thorne
+    openalex_author_id: https://openalex.org/A5018149399
+  - name: Prabhakar Shantha Rajiah
+    openalex_author_id: https://openalex.org/A5047904907
+  - name: Thomas A. Foley
+    openalex_author_id: https://openalex.org/A5057286132
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+st-cnn-self-trained-denoising:
+  openalex: https://openalex.org/W4386126866
+  authors:
+  - name: Zhongxing Zhou
+    openalex_author_id: https://openalex.org/A5101578526
+  - name: Akitoshi Inoue
+    openalex_author_id: https://openalex.org/A5081255744
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  matched_by: doi
+pie-net:
+  openalex: https://openalex.org/W4365136356
+  authors:
+  - name: Shaojie Chang
+    openalex_author_id: https://openalex.org/A5033662215
+  - name: Nathan R. Huber
+    openalex_author_id: https://openalex.org/A5056071386
+  - name: Jeffrey F. Marsh
+    openalex_author_id: https://openalex.org/A5072540869
+  - name: Emily K. Koons
+    openalex_author_id: https://openalex.org/A5089131549
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+multislice-residual-cnn-denoising:
+  openalex: https://openalex.org/W4318689349
+  authors:
+  - name: Zhongxing Zhou
+    openalex_author_id: https://openalex.org/A5101578526
+  - name: Nathan R. Huber
+    openalex_author_id: https://openalex.org/A5056071386
+  - name: Akitoshi Inoue
+    openalex_author_id: https://openalex.org/A5081255744
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  matched_by: doi
+phantom-training-framework-denoising:
+  openalex: https://openalex.org/W4309244427
+  authors:
+  - name: Nathan R. Huber
+    openalex_author_id: https://openalex.org/A5056071386
+  - name: Andrew D. Missert
+    openalex_author_id: null
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  matched_by: doi
+agate-virtual-noncalcium:
+  openalex: https://openalex.org/W4292377331
+  authors:
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Francis I. Baffour
+    openalex_author_id: https://openalex.org/A5049695645
+  - name: Katrina N. Glazebrook
+    openalex_author_id: https://openalex.org/A5038334516
+  - name: Nicholas G. Rhodes
+    openalex_author_id: https://openalex.org/A5009322890
+  - name: Christin A. Tiegs‐Heiden
+    openalex_author_id: https://openalex.org/A5024375120
+  - name: Jamison E. Thorne
+    openalex_author_id: https://openalex.org/A5018149399
+  - name: Joselle Cook
+    openalex_author_id: https://openalex.org/A5061950759
+  - name: Shaji Kunnathu Kumar
+    openalex_author_id: https://openalex.org/A5026574827
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+dedicated-cnn-uhr-pcd-denoising:
+  openalex: https://openalex.org/W4292421623
+  authors:
+  - name: Nathan R. Huber
+    openalex_author_id: https://openalex.org/A5056071386
+  - name: Andrea Ferrero
+    openalex_author_id: https://openalex.org/A5112242372
+  - name: Kishore Rajendran
+    openalex_author_id: https://openalex.org/A5030457611
+  - name: Francis I. Baffour
+    openalex_author_id: https://openalex.org/A5049695645
+  - name: Katrina N. Glazebrook
+    openalex_author_id: https://openalex.org/A5038334516
+  - name: Felix E. Diehn
+    openalex_author_id: https://openalex.org/A5064519201
+  - name: Akitoshi Inoue
+    openalex_author_id: https://openalex.org/A5081255744
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  matched_by: doi
+ufp-net-ultra-fast-pitch:
+  openalex: https://openalex.org/W3193375965
+  authors:
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Liqiang Ren
+    openalex_author_id: https://openalex.org/A5103098394
+  - name: Scott S. Hsieh
+    openalex_author_id: https://openalex.org/A5038240758
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  matched_by: doi
+incept-net-virtual-monoenergetic:
+  openalex: https://openalex.org/W3156941979
+  authors:
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Jeffrey F. Marsh
+    openalex_author_id: https://openalex.org/A5072540869
+  - name: Karen N. DSouza
+    openalex_author_id: https://openalex.org/A5008847735
+  - name: Nathan R. Huber
+    openalex_author_id: https://openalex.org/A5056071386
+  - name: Kishore Rajendran
+    openalex_author_id: https://openalex.org/A5030457611
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+incept-net-direct-inversion:
+  openalex: https://openalex.org/W3089678347
+  authors:
+  - name: Hao Gong
+    openalex_author_id: https://openalex.org/A5033648312
+  - name: Shengzhen Tao
+    openalex_author_id: https://openalex.org/A5064588240
+  - name: Kishore Rajendran
+    openalex_author_id: https://openalex.org/A5030457611
+  - name: Wei Zhou
+    openalex_author_id: https://openalex.org/A5003878368
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+multi-kernel-synthesis-dcnn:
+  openalex: https://openalex.org/W2988155973
+  authors:
+  - name: Andrew D. Missert
+    openalex_author_id: null
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  matched_by: doi
+cnn-mar-uhr-pcd-ear:
+  openalex: https://openalex.org/W7222140232
+  authors:
+  - name: Kevin J. Treb
+    openalex_author_id: https://openalex.org/A5005021256
+  - name: Maryam Sadeghian
+    openalex_author_id: https://openalex.org/A5026158500
+  - name: Wenchao Cao
+    openalex_author_id: https://openalex.org/A5081990820
+  - name: Paul J. Farnsworth
+    openalex_author_id: https://openalex.org/A5060539853
+  - name: John Ignatius Lane
+    openalex_author_id: https://openalex.org/A5086392575
+  - name: John C. Benson
+    openalex_author_id: https://openalex.org/A5158802830
+  - name: Christopher P. Favazza
+    openalex_author_id: https://openalex.org/A5082464647
+  - name: Andrea Ferrero
+    openalex_author_id: https://openalex.org/A5112242372
+  - name: Andrew D. Missert
+    openalex_author_id: https://openalex.org/A5124738613
+  - name: Matthew L. Carlson
+    openalex_author_id: https://openalex.org/A5087866752
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  matched_by: doi
+deep-interior:
+  openalex: https://openalex.org/W4389477945
+  authors:
+  - name: Chengzhu Zhang
+    openalex_author_id: https://openalex.org/A5101474583
+  - name: Guang‐Hong Chen
+    openalex_author_id: https://openalex.org/A5042252659
+  matched_by: doi
+deep-en-chroma-material-basis:
+  openalex: https://openalex.org/W4324019085
+  authors:
+  - name: Yinsheng Li
+    openalex_author_id: https://openalex.org/A5101658474
+  - name: Xin Tie
+    openalex_author_id: https://openalex.org/A5011075663
+  - name: Ke Li
+    openalex_author_id: https://openalex.org/A5100343489
+  - name: Ran Zhang
+    openalex_author_id: https://openalex.org/A5100439284
+  - name: Zhihua Qi
+    openalex_author_id: https://openalex.org/A5101874818
+  - name: A. Budde
+    openalex_author_id: https://openalex.org/A5081016819
+  - name: Thomas M. Grist
+    openalex_author_id: https://openalex.org/A5005789926
+  - name: Guang‐Hong Chen
+    openalex_author_id: https://openalex.org/A5042252659
+  matched_by: doi
+scoutct-net:
+  openalex: https://openalex.org/W4200421901
+  authors:
+  - name: Juan C. Montoya
+    openalex_author_id: null
+  - name: Chengzhu Zhang
+    openalex_author_id: https://openalex.org/A5101474583
+  - name: Yinsheng Li
+    openalex_author_id: https://openalex.org/A5101658474
+  - name: Ke Li
+    openalex_author_id: https://openalex.org/A5100343489
+  - name: Guang‐Hong Chen
+    openalex_author_id: https://openalex.org/A5042252659
+  matched_by: doi
+high-pitch-helical-ct:
+  openalex: https://openalex.org/W3165135268
+  authors:
+  - name: John W. Hayes
+    openalex_author_id: null
+  - name: Juan Montoya
+    openalex_author_id: null
+  - name: A. Budde
+    openalex_author_id: https://openalex.org/A5081016819
+  - name: Chengzhu Zhang
+    openalex_author_id: https://openalex.org/A5101474583
+  - name: Yinsheng Li
+    openalex_author_id: https://openalex.org/A5101658474
+  - name: Ke Li
+    openalex_author_id: https://openalex.org/A5100343489
+  - name: Jiang Hsieh
+    openalex_author_id: https://openalex.org/A5031644528
+  - name: Guang‐Hong Chen
+    openalex_author_id: https://openalex.org/A5042252659
+  matched_by: doi
+3d-dla:
+  openalex: https://openalex.org/W2789660897
+  authors:
+  - name: J.C. Montoya
+    openalex_author_id: null
+  - name: Yinsheng Li
+    openalex_author_id: https://openalex.org/A5101658474
+  - name: Charles M. Strother
+    openalex_author_id: https://openalex.org/A5055137353
+  - name: Guang‐Hong Chen
+    openalex_author_id: https://openalex.org/A5042252659
+  matched_by: doi
+tmgan:
+  openalex: https://openalex.org/W4412553469
+  authors:
+  - name: Madhuri Nagare
+    openalex_author_id: https://openalex.org/A5074854022
+  - name: Gregery T. Buzzard
+    openalex_author_id: https://openalex.org/A5020010248
+  - name: Charles A. Bouman
+    openalex_author_id: https://openalex.org/A5056657991
+  matched_by: doi
+multi-slice-fusion-4d:
+  openalex: https://openalex.org/W3047122857
+  authors:
+  - name: Soumendu Majee
+    openalex_author_id: https://openalex.org/A5026380428
+  - name: Thilo Balke
+    openalex_author_id: https://openalex.org/A5048698903
+  - name: Craig A. J. Kemp
+    openalex_author_id: https://openalex.org/A5075349279
+  - name: Gregery T. Buzzard
+    openalex_author_id: https://openalex.org/A5020010248
+  - name: Charles A. Bouman
+    openalex_author_id: https://openalex.org/A5056657991
+  matched_by: doi
+dinr-time-space:
+  openalex: https://openalex.org/W4408100191
+  authors:
+  - name: K. Aditya Mohan
+    openalex_author_id: https://openalex.org/A5046593950
+  - name: Massimiliano Ferrucci
+    openalex_author_id: https://openalex.org/A5022300759
+  - name: Chuck Divin
+    openalex_author_id: https://openalex.org/A5005740293
+  - name: Garrett A. Stevenson
+    openalex_author_id: https://openalex.org/A5039222986
+  - name: Hyojin Kim
+    openalex_author_id: https://openalex.org/A5045479111
+  matched_by: doi
+low-dose-dcnn-tomography:
+  openalex: https://openalex.org/W2789171981
+  authors:
+  - name: Xiaogang Yang
+    openalex_author_id: https://openalex.org/A5102997961
+  - name: Vincent De Andrade
+    openalex_author_id: https://openalex.org/A5006290581
+  - name: William Scullin
+    openalex_author_id: https://openalex.org/A5005627159
+  - name: Eva L. Dyer
+    openalex_author_id: https://openalex.org/A5064062853
+  - name: Narayanan Kasthuri
+    openalex_author_id: https://openalex.org/A5091300565
+  - name: Francesco De Carlo
+    openalex_author_id: https://openalex.org/A5032126111
+  - name: Doğa Gürsoy
+    openalex_author_id: https://openalex.org/A5057222929
+  matched_by: doi
+limited-angle-deep-image-physics-priors:
+  openalex: https://openalex.org/W3197960341
+  authors:
+  - name: Semih Barutcu
+    openalex_author_id: https://openalex.org/A5026388064
+  - name: Selin Aslan
+    openalex_author_id: https://openalex.org/A5064411462
+  - name: Aggelos K. Katsaggelos
+    openalex_author_id: https://openalex.org/A5048650003
+  - name: Doğa Gürsoy
+    openalex_author_id: https://openalex.org/A5057222929
+  matched_by: doi
+learned-denoising-simulated-experimental:
+  openalex: https://openalex.org/W4417000696
+  authors:
+  - name: Maximilian B. Kiss
+    openalex_author_id: https://openalex.org/A5104268419
+  - name: Ander Biguri
+    openalex_author_id: https://openalex.org/A5087444643
+  - name: Carola‐Bibiane Schönlieb
+    openalex_author_id: https://openalex.org/A5033880300
+  - name: K. Joost Batenburg
+    openalex_author_id: https://openalex.org/A5010057651
+  - name: Felix F. Lucka
+    openalex_author_id: https://openalex.org/A5036662934
+  matched_by: doi
+task-specific-sampling-sparse-view:
+  openalex: https://openalex.org/W4409102490
+  authors:
+  - name: Liutao Yang
+    openalex_author_id: https://openalex.org/A5101182554
+  - name: Jiahao Huang
+    openalex_author_id: https://openalex.org/A5063511624
+  - name: Yingying Fang
+    openalex_author_id: https://openalex.org/A5085166013
+  - name: Angelica I. Avilés-Rivero
+    openalex_author_id: https://openalex.org/A5013015879
+  - name: Carola‐Bibiane Schönlieb
+    openalex_author_id: https://openalex.org/A5033880300
+  - name: Daoqiang Zhang
+    openalex_author_id: https://openalex.org/A5018821033
+  - name: Guang Yang
+    openalex_author_id: https://openalex.org/A5100436460
+  matched_by: doi
+phase-contrast-data-driven-prior:
+  openalex: https://openalex.org/W4294044396
+  authors:
+  - name: Stefano van Gogh
+    openalex_author_id: https://openalex.org/A5046868068
+  - name: Subhadip Mukherjee
+    openalex_author_id: https://openalex.org/A5102928532
+  - name: Jinqiu Xu
+    openalex_author_id: https://openalex.org/A5058968556
+  - name: Zhentian Wang
+    openalex_author_id: https://openalex.org/A5071585990
+  - name: M. Rawlik
+    openalex_author_id: https://openalex.org/A5103144218
+  - name: Zsuzsanna Varga
+    openalex_author_id: null
+  - name: Rima Alaifari
+    openalex_author_id: https://openalex.org/A5007199281
+  - name: Carola‐Bibiane Schönlieb
+    openalex_author_id: https://openalex.org/A5033880300
+  - name: Marco Stampanoni
+    openalex_author_id: https://openalex.org/A5002647826
+  matched_by: doi
+noisier2inverse:
+  openalex: https://openalex.org/W4413118605
+  authors:
+  - name: Nadja Gruber
+    openalex_author_id: https://openalex.org/A5068080596
+  - name: Johannes Schwab
+    openalex_author_id: null
+  - name: Markus Haltmeier
+    openalex_author_id: https://openalex.org/A5026767648
+  - name: Ander Biguri
+    openalex_author_id: https://openalex.org/A5087444643
+  - name: Clemens Dlaska
+    openalex_author_id: https://openalex.org/A5007574896
+  - name: Gyeongha Hwang
+    openalex_author_id: https://openalex.org/A5070476604
+  matched_by: doi
+filter-design-noise-robust:
+  openalex: https://openalex.org/W7135173369
+  authors:
+  - name: Hamid Fathi
+    openalex_author_id: null
+  - name: Alexander S. Skorikov
+    openalex_author_id: https://openalex.org/A5047607779
+  - name: Tristan van Leeuwen
+    openalex_author_id: https://openalex.org/A5008696762
+  matched_by: doi
+cone-angle-artifact-reduction:
+  openalex: https://openalex.org/W3166818618
+  authors:
+  - name: Jordi Minnema
+    openalex_author_id: https://openalex.org/A5067948858
+  - name: Maureen A.J.M. van Eijnatten
+    openalex_author_id: https://openalex.org/A5035413133
+  - name: Henri Der Sarkissian
+    openalex_author_id: https://openalex.org/A5067448884
+  - name: Shannon Doyle
+    openalex_author_id: https://openalex.org/A5000901903
+  - name: Juha Koivisto
+    openalex_author_id: https://openalex.org/A5102782878
+  - name: Jan Wolff
+    openalex_author_id: https://openalex.org/A5059544055
+  - name: Tymour Forouzanfar
+    openalex_author_id: https://openalex.org/A5025467622
+  - name: Felix F. Lucka
+    openalex_author_id: https://openalex.org/A5036662934
+  - name: Kees Joost Batenburg
+    openalex_author_id: https://openalex.org/A5071026235
+  matched_by: doi
+on-the-fly-resolution:
+  openalex: https://openalex.org/W2952697073
+  authors:
+  - name: Allard A. Hendriksen
+    openalex_author_id: https://openalex.org/A5087146959
+  - name: Daniël M. Pelt
+    openalex_author_id: https://openalex.org/A5037323866
+  - name: Willem Jan Palenstijn
+    openalex_author_id: https://openalex.org/A5038209740
+  - name: Sophia Bethany Coban
+    openalex_author_id: https://openalex.org/A5031377050
+  - name: Kees Joost Batenburg
+    openalex_author_id: https://openalex.org/A5071026235
+  matched_by: doi
+msdnet-limited-data:
+  openalex: https://openalex.org/W2899172221
+  authors:
+  - name: Daniël M. Pelt
+    openalex_author_id: https://openalex.org/A5037323866
+  - name: Kees Joost Batenburg
+    openalex_author_id: https://openalex.org/A5071026235
+  - name: James A. Sethian
+    openalex_author_id: https://openalex.org/A5038419345
+  matched_by: doi
+known-operator-geometry-conversion:
+  openalex: https://openalex.org/W3031817779
+  authors:
+  - name: Christopher Syben
+    openalex_author_id: https://openalex.org/A5018771243
+  - name: Bernhard Stimpel
+    openalex_author_id: https://openalex.org/A5088859781
+  - name: Philipp Roser
+    openalex_author_id: https://openalex.org/A5088971649
+  - name: Arnd Dörfler
+    openalex_author_id: https://openalex.org/A5110328756
+  - name: Andreas Maier
+    openalex_author_id: https://openalex.org/A5101619735
+  matched_by: doi
+extended-fov-reconstruction:
+  openalex: https://openalex.org/W4206116956
+  authors:
+  - name: Bhupinder Singh Khural
+    openalex_author_id: https://openalex.org/A5010163792
+  - name: Matthias Baer‐Beck
+    openalex_author_id: https://openalex.org/A5040232140
+  - name: Éric Fournié
+    openalex_author_id: https://openalex.org/A5029909417
+  - name: Karl Stierstorfer
+    openalex_author_id: https://openalex.org/A5013152871
+  - name: Yixing Huang
+    openalex_author_id: https://openalex.org/A5073209088
+  - name: Andreas Maier
+    openalex_author_id: https://openalex.org/A5101619735
+  matched_by: doi
+two-view-topogram:
+  openalex: https://openalex.org/W4395030047
+  authors:
+  - name: Chang Liu
+    openalex_author_id: https://openalex.org/A5100353304
+  - name: Laura Klein
+    openalex_author_id: https://openalex.org/A5026017096
+  - name: Yixing Huang
+    openalex_author_id: https://openalex.org/A5073209088
+  - name: Edith Baader
+    openalex_author_id: https://openalex.org/A5093784825
+  - name: Michael Lell
+    openalex_author_id: https://openalex.org/A5082428769
+  - name: Marc Kachelrieß
+    openalex_author_id: https://openalex.org/A5019247249
+  - name: Andreas Maier
+    openalex_author_id: https://openalex.org/A5101619735
+  matched_by: doi
+trainable-joint-bilateral:
+  openalex: https://openalex.org/W4306879673
+  authors:
+  - name: Fabian Wagner
+    openalex_author_id: null
+  - name: Mareike Thies
+    openalex_author_id: https://openalex.org/A5029146495
+  - name: Felix Denzinger
+    openalex_author_id: https://openalex.org/A5042068959
+  - name: Mingxuan Gu
+    openalex_author_id: https://openalex.org/A5028924625
+  - name: Mayank Patwari
+    openalex_author_id: https://openalex.org/A5074118213
+  - name: Stefan B. Ploner
+    openalex_author_id: https://openalex.org/A5076283550
+  - name: Noah Maul
+    openalex_author_id: https://openalex.org/A5025633906
+  - name: Laura Pfaff
+    openalex_author_id: https://openalex.org/A5061411458
+  - name: Yixing Huang
+    openalex_author_id: https://openalex.org/A5073209088
+  - name: Andreas Maier
+    openalex_author_id: https://openalex.org/A5101619735
+  matched_by: doi
+filter2noise:
+  openalex: https://openalex.org/W7154465463
+  authors:
+  - name: Yipeng Sun
+    openalex_author_id: https://openalex.org/A5133641426
+  - name: Linda-Sophie Schneider
+    openalex_author_id: https://openalex.org/A5019999986
+  - name: Siyuan Mei
+    openalex_author_id: https://openalex.org/A5103267120
+  - name: Jinhua Wang
+    openalex_author_id: https://openalex.org/A5159313339
+  - name: Ge Hu
+    openalex_author_id: https://openalex.org/A5102962868
+  - name: Mingxuan Gu
+    openalex_author_id: https://openalex.org/A5028924625
+  - name: Chengze Ye
+    openalex_author_id: https://openalex.org/A5111140216
+  - name: Fabian Wagner
+    openalex_author_id: https://openalex.org/A5134326807
+  - name: Lan Song
+    openalex_author_id: https://openalex.org/A5133672473
+  - name: Siming Bayer
+    openalex_author_id: https://openalex.org/A5053698756
+  - name: Andreas Maier
+    openalex_author_id: https://openalex.org/A5101619735
+  matched_by: doi
+ultralow-parameter-denoising:
+  openalex: https://openalex.org/W4280565701
+  authors:
+  - name: Fabian Wagner
+    openalex_author_id: null
+  - name: Mareike Thies
+    openalex_author_id: https://openalex.org/A5029146495
+  - name: Mingxuan Gu
+    openalex_author_id: https://openalex.org/A5028924625
+  - name: Yixing Huang
+    openalex_author_id: https://openalex.org/A5073209088
+  - name: Sabrina Pechmann
+    openalex_author_id: https://openalex.org/A5011796999
+  - name: Mayank Patwari
+    openalex_author_id: https://openalex.org/A5074118213
+  - name: Stefan B. Ploner
+    openalex_author_id: https://openalex.org/A5076283550
+  - name: Oliver Aust
+    openalex_author_id: https://openalex.org/A5068070921
+  - name: Stefan Uderhardt
+    openalex_author_id: https://openalex.org/A5077714377
+  - name: Georg Andreas Schett
+    openalex_author_id: https://openalex.org/A5075261558
+  - name: Silke H. Christiansen
+    openalex_author_id: https://openalex.org/A5039155812
+  - name: Andreas Maier
+    openalex_author_id: https://openalex.org/A5101619735
+  matched_by: doi
+swinir-dual-domain-sparse-view:
+  openalex: https://openalex.org/W4413296415
+  authors:
+  - name: Jonas Van der Rauwelaert
+    openalex_author_id: https://openalex.org/A5116087990
+  - name: Caroline Bossuyt
+    openalex_author_id: https://openalex.org/A5054906270
+  - name: Stijn E. Verleden
+    openalex_author_id: https://openalex.org/A5055712465
+  - name: Jan Sijbers
+    openalex_author_id: https://openalex.org/A5054696921
+  matched_by: doi
+to-recurse-low-dose:
+  openalex: https://openalex.org/W2980989680
+  authors:
+  - name: Shabab Bazrafkan
+    openalex_author_id: https://openalex.org/A5069991255
+  - name: Vincent Van Nieuwenhove
+    openalex_author_id: https://openalex.org/A5054635425
+  - name: Joris Soons
+    openalex_author_id: null
+  - name: Jan De Beenhouwer
+    openalex_author_id: https://openalex.org/A5008231285
+  - name: Jan Sijbers
+    openalex_author_id: https://openalex.org/A5054696921
+  matched_by: doi
+deep-microlocal-limited-angle:
+  openalex: https://openalex.org/W3187438131
+  authors:
+  - name: Héctor Andrade-Loarca
+    openalex_author_id: https://openalex.org/A5067785114
+  - name: Gitta Kutyniok
+    openalex_author_id: https://openalex.org/A5090767423
+  - name: Ozan Öktem
+    openalex_author_id: https://openalex.org/A5078374818
+  - name: Philipp Petersen
+    openalex_author_id: https://openalex.org/A5041074956
+  matched_by: doi
+dictionary-learning-tomographic:
+  openalex: https://openalex.org/W3196050896
+  authors:
+  - name: Jevgenija Rudzusika
+    openalex_author_id: https://openalex.org/A5003156285
+  - name: Thomas Koehler
+    openalex_author_id: https://openalex.org/A5035212168
+  - name: Ozan Öktem
+    openalex_author_id: https://openalex.org/A5078374818
+  matched_by: doi
+photon-counting-learned-forward:
+  openalex: https://openalex.org/W4285179991
+  authors:
+  - name: Emanuel Ström
+    openalex_author_id: https://openalex.org/A5050714338
+  - name: Mats Persson
+    openalex_author_id: https://openalex.org/A5052538564
+  - name: Alma Eguizabal
+    openalex_author_id: https://openalex.org/A5022986459
+  - name: Ozan Öktem
+    openalex_author_id: https://openalex.org/A5078374818
+  matched_by: doi
+helical-learned-primal-dual:
+  openalex: https://openalex.org/W4402586317
+  authors:
+  - name: Jevgenija Rudzusika
+    openalex_author_id: https://openalex.org/A5003156285
+  - name: Buda Bajić
+    openalex_author_id: https://openalex.org/A5003122955
+  - name: Thomas Koehler
+    openalex_author_id: https://openalex.org/A5035212168
+  - name: Ozan Öktem
+    openalex_author_id: https://openalex.org/A5078374818
+  matched_by: doi
+sparse-view-elongated-objects:
+  openalex: https://openalex.org/W4392538367
+  authors:
+  - name: Buda Bajić
+    openalex_author_id: https://openalex.org/A5003122955
+  - name: Johannes A. J. Huber
+    openalex_author_id: https://openalex.org/A5026415245
+  - name: Benedikt Neyses
+    openalex_author_id: https://openalex.org/A5001088078
+  - name: Linus Olofsson
+    openalex_author_id: https://openalex.org/A5055121619
+  - name: Ozan Öktem
+    openalex_author_id: https://openalex.org/A5078374818
+  matched_by: doi
+sdf-self-supervised-denoiser:
+  openalex: https://openalex.org/W4414678079
+  authors:
+  - name: Emilien Valat
+    openalex_author_id: https://openalex.org/A5088250873
+  - name: Andreas Hauptmann
+    openalex_author_id: https://openalex.org/A5052463438
+  - name: Ozan Öktem
+    openalex_author_id: https://openalex.org/A5078374818
+  matched_by: doi
+glimpse-scalable-robust-ct:
+  openalex: https://openalex.org/W4410886883
+  authors:
+  - name: AmirEhsan Khorashadizadeh
+    openalex_author_id: https://openalex.org/A5006965390
+  - name: Valentin Debarnot
+    openalex_author_id: https://openalex.org/A5022772194
+  - name: Tianlin Liu
+    openalex_author_id: https://openalex.org/A5101848357
+  - name: Ivan Dokmanić
+    openalex_author_id: https://openalex.org/A5002015062
+  matched_by: doi
+sim2real-material-decomposition:
+  openalex: https://openalex.org/W3092291198
+  authors:
+  - name: Juan Abascal
+    openalex_author_id: https://openalex.org/A5040785458
+  - name: Nicolas Ducros
+    openalex_author_id: https://openalex.org/A5038386064
+  - name: Valeriya Pronina
+    openalex_author_id: null
+  - name: Simon Rit
+    openalex_author_id: https://openalex.org/A5091631955
+  - name: Pierre‐Antoine Rodesch
+    openalex_author_id: https://openalex.org/A5090301407
+  - name: Thomas Broussaud
+    openalex_author_id: https://openalex.org/A5066036634
+  - name: Suzanne Bussod
+    openalex_author_id: https://openalex.org/A5111082426
+  - name: Philippe Douek
+    openalex_author_id: https://openalex.org/A5064227040
+  - name: Andreas Hauptmann
+    openalex_author_id: https://openalex.org/A5052463438
+  - name: Simon Arridge
+    openalex_author_id: https://openalex.org/A5082445591
+  - name: Françoise Peyrin
+    openalex_author_id: https://openalex.org/A5075496055
+  matched_by: doi
+cgan-stripe-artefact-removal:
+  openalex: https://openalex.org/W4388980283
+  authors:
+  - name: Daniil Kazantsev
+    openalex_author_id: https://openalex.org/A5032656034
+  - name: Lucas Beveridge
+    openalex_author_id: https://openalex.org/A5021524629
+  - name: Vigneshwar Shanmugasundar
+    openalex_author_id: https://openalex.org/A5093333032
+  - name: Oxana V. Magdysyuk
+    openalex_author_id: https://openalex.org/A5061685773
+  matched_by: doi
+one-network-all-rois:
+  openalex: https://openalex.org/W2993817755
+  authors:
+  - name: Yoseob Han
+    openalex_author_id: https://openalex.org/A5027171928
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  matched_by: doi
+dbp-domain-conebeam-artifact:
+  openalex: https://openalex.org/W3033459146
+  authors:
+  - name: Yoseob Han
+    openalex_author_id: https://openalex.org/A5027171928
+  - name: Junyoung Kim
+    openalex_author_id: https://openalex.org/A5012588464
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  matched_by: doi
+cycle-free-cyclegan:
+  openalex: https://openalex.org/W3155194423
+  authors:
+  - name: Taesung Kwon
+    openalex_author_id: null
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  matched_by: doi
+cardiac-cyclegan-noise-disentanglement:
+  openalex: https://openalex.org/W3193594030
+  authors:
+  - name: Jawook Gu
+    openalex_author_id: https://openalex.org/A5030881632
+  - name: Tae Seong Yang
+    openalex_author_id: https://openalex.org/A5020120756
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  - name: Dong Hyun Yang
+    openalex_author_id: https://openalex.org/A5004642940
+  matched_by: doi
+metal-artifact-beta-cyclegan:
+  openalex: https://openalex.org/W3185953395
+  authors:
+  - name: Junghyun Lee
+    openalex_author_id: null
+  - name: Jawook Gu
+    openalex_author_id: null
+  - name: Jong Chul Ye
+    openalex_author_id: null
+  matched_by: doi
+adain-tunable-cyclegan:
+  openalex: https://openalex.org/W3121038207
+  authors:
+  - name: Jawook Gu
+    openalex_author_id: https://openalex.org/A5030881632
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  matched_by: doi
+slice-wise-low-dose-cbct:
+  openalex: https://openalex.org/W2921457409
+  authors:
+  - name: Hongkai Yang
+    openalex_author_id: https://openalex.org/A5112329666
+  - name: Kaichao Liang
+    openalex_author_id: https://openalex.org/A5030449177
+  - name: Kejun Kang
+    openalex_author_id: https://openalex.org/A5039075779
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  matched_by: doi
+dual-domain-sparse-helical:
+  openalex: https://openalex.org/W3022200535
+  authors:
+  - name: Ao Zheng
+    openalex_author_id: https://openalex.org/A5101972564
+  - name: Hewei Gao
+    openalex_author_id: https://openalex.org/A5032132088
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425762
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  matched_by: doi
+interweaving-monochromatic:
+  openalex: https://openalex.org/W3109578338
+  authors:
+  - name: Ao Zheng
+    openalex_author_id: null
+  - name: Hongkai Yang
+    openalex_author_id: https://openalex.org/A5112329666
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425633
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  matched_by: doi
+mbdl-unsupervised-low-dose:
+  openalex: https://openalex.org/W3082888505
+  authors:
+  - name: Kaichao Liang
+    openalex_author_id: https://openalex.org/A5030449177
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425762
+  - name: Hongkai Yang
+    openalex_author_id: https://openalex.org/A5112329666
+  - name: Zhiqiang Chen
+    openalex_author_id: https://openalex.org/A5100434656
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  matched_by: doi
+sams-net-limited-angle:
+  openalex: https://openalex.org/W4280501029
+  authors:
+  - name: Changyu Chen
+    openalex_author_id: https://openalex.org/A5101514892
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  - name: Hewei Gao
+    openalex_author_id: https://openalex.org/A5032132088
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425762
+  - name: Zhiqiang Chen
+    openalex_author_id: https://openalex.org/A5100434656
+  matched_by: doi
+udamar-metal-artefact:
+  openalex: https://openalex.org/W4321020942
+  authors:
+  - name: Muge Du
+    openalex_author_id: https://openalex.org/A5018846520
+  - name: Kaichao Liang
+    openalex_author_id: https://openalex.org/A5030449177
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425528
+  - name: Hewei Gao
+    openalex_author_id: https://openalex.org/A5032132088
+  - name: Yinong Liu
+    openalex_author_id: https://openalex.org/A5100652115
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  matched_by: doi
+pwls-som-limited-view:
+  openalex: https://openalex.org/W4413753481
+  authors:
+  - name: Changyu Chen
+    openalex_author_id: https://openalex.org/A5101514892
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425762
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  - name: Zhiqiang Chen
+    openalex_author_id: https://openalex.org/A5100434656
+  matched_by: doi
+disentangled-interior-low-dose:
+  openalex: https://openalex.org/W4413962974
+  authors:
+  - name: Changyu Chen
+    openalex_author_id: https://openalex.org/A5101514892
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425762
+  - name: Hewei Gao
+    openalex_author_id: https://openalex.org/A5032132088
+  - name: Zhilei Wang
+    openalex_author_id: https://openalex.org/A5029231785
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  - name: Zhiqiang Chen
+    openalex_author_id: https://openalex.org/A5100434656
+  matched_by: doi
+dental-metal-interpolation:
+  openalex: https://openalex.org/W2993661428
+  authors:
+  - name: Kaichao Liang
+    openalex_author_id: https://openalex.org/A5030449177
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425633
+  - name: Hongkai Yang
+    openalex_author_id: https://openalex.org/A5112329666
+  - name: Yirong Yang
+    openalex_author_id: https://openalex.org/A5109444205
+  - name: Zhiqiang Chen
+    openalex_author_id: https://openalex.org/A5100434656
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  matched_by: doi
+fourier-linogram-symmetric:
+  openalex: https://openalex.org/W3082094700
+  authors:
+  - name: Tao Zhang
+    openalex_author_id: https://openalex.org/A5025376095
+  - name: Li Zhang
+    openalex_author_id: https://openalex.org/A5100425762
+  - name: Zhiqiang Chen
+    openalex_author_id: https://openalex.org/A5100434656
+  - name: Yuxiang Xing
+    openalex_author_id: https://openalex.org/A5091410552
+  - name: Hewei Gao
+    openalex_author_id: https://openalex.org/A5032132088
+  matched_by: doi
+prior-4d-cbct:
+  openalex: https://openalex.org/W4292968429
+  authors:
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Jin Liu
+    openalex_author_id: https://openalex.org/A5100327076
+  - name: Yi Zhang
+    openalex_author_id: https://openalex.org/A5100388053
+  - name: Jean-Louis Coatrieux
+    openalex_author_id: https://openalex.org/A5052775662
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+direct-net-dect:
+  openalex: https://openalex.org/W4200229112
+  authors:
+  - name: Ting Su
+    openalex_author_id: null
+  - name: Xindong Sun
+    openalex_author_id: null
+  - name: Jiecheng Yang
+    openalex_author_id: https://openalex.org/A5101722488
+  - name: Donghua Mi
+    openalex_author_id: https://openalex.org/A5060680734
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Haodi Wu
+    openalex_author_id: https://openalex.org/A5064704997
+  - name: Shibo Fang
+    openalex_author_id: null
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  - name: Hairong Zheng
+    openalex_author_id: https://openalex.org/A5024833275
+  - name: Dong Liang
+    openalex_author_id: https://openalex.org/A5107191592
+  - name: Yongshuai Ge
+    openalex_author_id: https://openalex.org/A5042576006
+  matched_by: doi
+cross-limited-angle:
+  openalex: https://openalex.org/W4320009740
+  authors:
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Guotao Quan
+    openalex_author_id: https://openalex.org/A5033344283
+  - name: Jun Xiang
+    openalex_author_id: null
+  - name: Gouenou Coatrieux
+    openalex_author_id: https://openalex.org/A5062289182
+  - name: Shouhua Luo
+    openalex_author_id: https://openalex.org/A5062682047
+  - name: Jean-Louis Coatrieux
+    openalex_author_id: https://openalex.org/A5052775662
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5007565319
+  - name: Hongbin Han
+    openalex_author_id: https://openalex.org/A5101856799
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+sea-net-limited-angle-cbct:
+  openalex: https://openalex.org/W4387448895
+  authors:
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Wangyao Li
+    openalex_author_id: https://openalex.org/A5103198107
+  - name: Weijie Zhang
+    openalex_author_id: https://openalex.org/A5050196280
+  - name: Krishna Reddy
+    openalex_author_id: null
+  - name: Qiaoqiao Ding
+    openalex_author_id: https://openalex.org/A5055538882
+  - name: Xiaoqun Zhang
+    openalex_author_id: https://openalex.org/A5010022305
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  - name: Hao Gao
+    openalex_author_id: https://openalex.org/A5101675267
+  matched_by: doi
+cas-pred-limited-angle-cbct:
+  openalex: https://openalex.org/W4389169186
+  authors:
+  - name: Yuan Gao
+    openalex_author_id: https://openalex.org/A5101726786
+  - name: Liu Zhang
+    openalex_author_id: https://openalex.org/A5102761662
+  - name: Wenxue Yu
+    openalex_author_id: https://openalex.org/A5066659798
+  - name: Shijie Wang
+    openalex_author_id: https://openalex.org/A5101590137
+  - name: Pinzheng Zhang
+    openalex_author_id: https://openalex.org/A5042696342
+  - name: Cheng Xue
+    openalex_author_id: https://openalex.org/A5037998156
+  - name: Chunfeng Yang
+    openalex_author_id: https://openalex.org/A5106479022
+  - name: Shipeng Xie
+    openalex_author_id: https://openalex.org/A5024785349
+  - name: Gouenou Coatrieux
+    openalex_author_id: https://openalex.org/A5062289182
+  - name: Jean-Louis Coatrieux
+    openalex_author_id: https://openalex.org/A5052775662
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+gdp-net-ring-artifact:
+  openalex: https://openalex.org/W4407937895
+  authors:
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Guannan Liu
+    openalex_author_id: null
+  - name: Yang Liu
+    openalex_author_id: https://openalex.org/A5100325590
+  - name: Shipeng Xie
+    openalex_author_id: https://openalex.org/A5024785349
+  - name: Jiabing Gu
+    openalex_author_id: https://openalex.org/A5105421184
+  - name: Zujian Huang
+    openalex_author_id: https://openalex.org/A5021604224
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5007565319
+  - name: Tianling Lyu
+    openalex_author_id: https://openalex.org/A5040249442
+  - name: Yan Xi
+    openalex_author_id: https://openalex.org/A5050645206
+  - name: Shouping Zhu
+    openalex_author_id: https://openalex.org/A5080912825
+  - name: Jian Yang
+    openalex_author_id: https://openalex.org/A5100643476
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+delta-net-high-pitch-helical:
+  openalex: https://openalex.org/W4414856588
+  authors:
+  - name: Xinyun Zhong
+    openalex_author_id: https://openalex.org/A5103036343
+  - name: Guojun Zhu
+    openalex_author_id: https://openalex.org/A5020169761
+  - name: Li Chen
+    openalex_author_id: https://openalex.org/A5108438413
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Qianjin Feng
+    openalex_author_id: https://openalex.org/A5100772591
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5007565319
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+deep-sinogram-completion-mar:
+  openalex: https://openalex.org/W3087119976
+  authors:
+  - name: Lequan Yu
+    openalex_author_id: https://openalex.org/A5012581106
+  - name: Zhicheng Zhang
+    openalex_author_id: https://openalex.org/A5100456083
+  - name: Xiaomeng Li
+    openalex_author_id: https://openalex.org/A5100427643
+  - name: Lei Xing
+    openalex_author_id: https://openalex.org/A5100381484
+  matched_by: doi
+mar-self-supervised-cross-domain:
+  openalex: https://openalex.org/W3185548153
+  authors:
+  - name: Lequan Yu
+    openalex_author_id: https://openalex.org/A5012581106
+  - name: Zhicheng Zhang
+    openalex_author_id: https://openalex.org/A5100456083
+  - name: Xiaomeng Li
+    openalex_author_id: https://openalex.org/A5100427643
+  - name: Hongyi Ren
+    openalex_author_id: https://openalex.org/A5062327519
+  - name: Wei Zhao
+    openalex_author_id: null
+  - name: Lei Xing
+    openalex_author_id: https://openalex.org/A5100381484
+  matched_by: doi
+fda-recon-limited-angle-cbct:
+  openalex: https://openalex.org/W7143527854
+  authors:
+  - name: Yuhao Liu
+    openalex_author_id: https://openalex.org/A5124009873
+  - name: Yao Wang
+    openalex_author_id: https://openalex.org/A5130955591
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Qiegen Liu
+    openalex_author_id: https://openalex.org/A5057647276
+  - name: Yi Zhang
+    openalex_author_id: https://openalex.org/A5128291147
+  - name: Jian Yang
+    openalex_author_id: https://openalex.org/A5100643476
+  - name: Hao Gao
+    openalex_author_id: https://openalex.org/A5130912815
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5108973667
+  matched_by: doi
+spectral-x-mamba:
+  openalex: https://openalex.org/W7117417262
+  authors:
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5128642335
+  - name: Jiashun Wang
+    openalex_author_id: https://openalex.org/A5101456851
+  - name: Xi Wang
+    openalex_author_id: https://openalex.org/A5121434482
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5103652158
+  - name: Kai Chen
+    openalex_author_id: https://openalex.org/A5141857577
+  - name: Jian Yang
+    openalex_author_id: https://openalex.org/A5124302381
+  - name: Yinsheng Li
+    openalex_author_id: https://openalex.org/A5121414144
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5108973667
+  matched_by: doi
+msdu-nets-dual-energy-limited-angle:
+  openalex: https://openalex.org/W4399563396
+  authors:
+  - name: Guojun Zhu
+    openalex_author_id: https://openalex.org/A5020169761
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Weilong Mao
+    openalex_author_id: https://openalex.org/A5070575076
+  - name: Shiyu Zhu
+    openalex_author_id: https://openalex.org/A5056372183
+  - name: Yan Xi
+    openalex_author_id: https://openalex.org/A5050645206
+  - name: Guotao Quan
+    openalex_author_id: https://openalex.org/A5033344283
+  - name: Gouenou Coatrieux
+    openalex_author_id: https://openalex.org/A5062289182
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5007565319
+  - name: Shipeng Xie
+    openalex_author_id: https://openalex.org/A5024785349
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+mjcnet-planning-ct-limited-angle:
+  openalex: https://openalex.org/W4399146308
+  authors:
+  - name: Shizhe Zang
+    openalex_author_id: https://openalex.org/A5114170050
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Weilong Mao
+    openalex_author_id: https://openalex.org/A5070575076
+  - name: Xuanjia Fei
+    openalex_author_id: https://openalex.org/A5113233052
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5007565319
+  - name: Yi Yong Yao
+    openalex_author_id: https://openalex.org/A5101960218
+  - name: Chunfeng Yang
+    openalex_author_id: https://openalex.org/A5106479022
+  - name: Gouenou Coatrieux
+    openalex_author_id: https://openalex.org/A5062289182
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+large-diffnet-planning-ct:
+  openalex: https://openalex.org/W4410295364
+  authors:
+  - name: Zhan Wu
+    openalex_author_id: https://openalex.org/A5036005382
+  - name: Yang Yang
+    openalex_author_id: null
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Tianling Lyu
+    openalex_author_id: https://openalex.org/A5040249442
+  - name: Yinsheng Li
+    openalex_author_id: https://openalex.org/A5101658474
+  - name: Hao Tang
+    openalex_author_id: null
+  - name: Huazhong Shu
+    openalex_author_id: https://openalex.org/A5100687822
+  - name: Yan Xi
+    openalex_author_id: https://openalex.org/A5050645206
+  - name: Yi Zhang
+    openalex_author_id: https://openalex.org/A5100388053
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+spear-net-limited-angle-dect:
+  openalex: https://openalex.org/W4360595179
+  authors:
+  - name: Kai Chen
+    openalex_author_id: https://openalex.org/A5048960396
+  - name: Chunfeng Yang
+    openalex_author_id: https://openalex.org/A5106479022
+  - name: Hui Nee Tang
+    openalex_author_id: https://openalex.org/A5083564415
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5007565319
+  - name: Gouenou Coatrieux
+    openalex_author_id: https://openalex.org/A5062289182
+  - name: Jean-Louis Coatrieux
+    openalex_author_id: https://openalex.org/A5052775662
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+time-net-limited-angle-dect:
+  openalex: https://openalex.org/W4306407394
+  authors:
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Zhihong Yan
+    openalex_author_id: https://openalex.org/A5015249382
+  - name: Qingxian Zhao
+    openalex_author_id: https://openalex.org/A5052262081
+  - name: Guotao Quan
+    openalex_author_id: https://openalex.org/A5033344283
+  - name: Shouhua Luo
+    openalex_author_id: https://openalex.org/A5062682047
+  - name: Yi Zhang
+    openalex_author_id: https://openalex.org/A5100388053
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+lwcdnet-metal-artifact:
+  openalex: https://openalex.org/W4408934964
+  authors:
+  - name: Jin Liu
+    openalex_author_id: https://openalex.org/A5100327076
+  - name: Tong Jin
+    openalex_author_id: null
+  - name: Zihao Ye
+    openalex_author_id: null
+  - name: Fan Wu
+    openalex_author_id: null
+  - name: Kun Wang
+    openalex_author_id: https://openalex.org/A5100366662
+  - name: Zhan Wu
+    openalex_author_id: https://openalex.org/A5036005382
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5100629918
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+dcdl-gs-sparse-view:
+  openalex: https://openalex.org/W4390636494
+  authors:
+  - name: Yanqin Kang
+    openalex_author_id: https://openalex.org/A5033889237
+  - name: Jin Liu
+    openalex_author_id: https://openalex.org/A5100327076
+  - name: Fan Wu
+    openalex_author_id: https://openalex.org/A5100380589
+  - name: Kun Wang
+    openalex_author_id: https://openalex.org/A5100366662
+  - name: Jun Qiang
+    openalex_author_id: https://openalex.org/A5079749996
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5090637480
+  matched_by: doi
+mvss-pcr-self-supervised-denoising:
+  openalex: https://openalex.org/W7134812006
+  authors:
+  - name: Tong Lin
+    openalex_author_id: https://openalex.org/A5108330540
+  - name: Xi Wang
+    openalex_author_id: https://openalex.org/A5121434482
+  - name: Wenhui Huang
+    openalex_author_id: https://openalex.org/A5011615174
+  - name: Yan Xi
+    openalex_author_id: https://openalex.org/A5123895113
+  - name: Xu Ji
+    openalex_author_id: https://openalex.org/A5007565319
+  - name: Qiegen Liu
+    openalex_author_id: https://openalex.org/A5057647276
+  - name: Jian Yang
+    openalex_author_id: https://openalex.org/A5124302381
+  - name: Yikun Zhang
+    openalex_author_id: https://openalex.org/A5128642335
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5108973667
+  matched_by: doi
+dp-resnet-low-dose:
+  openalex: https://openalex.org/W2946539594
+  authors:
+  - name: Xiangrui Yin
+    openalex_author_id: https://openalex.org/A5010320045
+  - name: Jean-Louis Coatrieux
+    openalex_author_id: https://openalex.org/A5052775662
+  - name: Qianlong Zhao
+    openalex_author_id: https://openalex.org/A5026929962
+  - name: Jin Liu
+    openalex_author_id: https://openalex.org/A5100327076
+  - name: Wei Yang
+    openalex_author_id: https://openalex.org/A5044127793
+  - name: Jian Yang
+    openalex_author_id: https://openalex.org/A5100643476
+  - name: Guotao Quan
+    openalex_author_id: https://openalex.org/A5033344283
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  - name: Huazhong Shu
+    openalex_author_id: https://openalex.org/A5100687822
+  - name: Limin Luo
+    openalex_author_id: https://openalex.org/A5036093909
+  matched_by: doi
+dire-low-dose:
+  openalex: https://openalex.org/W2938296211
+  authors:
+  - name: Jin Liu
+    openalex_author_id: https://openalex.org/A5100327076
+  - name: Yi Zhang
+    openalex_author_id: https://openalex.org/A5100388053
+  - name: Qianlong Zhao
+    openalex_author_id: https://openalex.org/A5026929962
+  - name: Tianling Lv
+    openalex_author_id: https://openalex.org/A5058302600
+  - name: Weiwen Wu
+    openalex_author_id: https://openalex.org/A5077824092
+  - name: Ning Cai
+    openalex_author_id: https://openalex.org/A5016104877
+  - name: Guotao Quan
+    openalex_author_id: https://openalex.org/A5033344283
+  - name: Wei Yang
+    openalex_author_id: https://openalex.org/A5044127793
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  - name: Limin Luo
+    openalex_author_id: https://openalex.org/A5036093909
+  - name: Huazhong Shu
+    openalex_author_id: https://openalex.org/A5100687822
+  - name: Jean-Louis Coatrieux
+    openalex_author_id: https://openalex.org/A5052775662
+  matched_by: doi
+cascaded-resunet-spectrum-loss:
+  openalex: https://openalex.org/W3160670007
+  authors:
+  - name: Jin Liu
+    openalex_author_id: https://openalex.org/A5100327076
+  - name: Yanqin Kang
+    openalex_author_id: https://openalex.org/A5033889237
+  - name: Jun Qiang
+    openalex_author_id: https://openalex.org/A5079749996
+  - name: Yong Wang
+    openalex_author_id: https://openalex.org/A5044595141
+  - name: Dianlin Hu
+    openalex_author_id: https://openalex.org/A5087825515
+  - name: Yang Chen
+    openalex_author_id: https://openalex.org/A5100350437
+  matched_by: doi
+geometry-aware-attenuation-learning-sparse-view-cbct:
+  openalex: https://openalex.org/W4403123513
+  authors:
+  - name: Z. Q. Liu
+    openalex_author_id: https://openalex.org/A5066423038
+  - name: Yu Fang
+    openalex_author_id: https://openalex.org/A5044445924
+  - name: Changjian Li
+    openalex_author_id: https://openalex.org/A5101794527
+  - name: Han Chuan Wu
+    openalex_author_id: https://openalex.org/A5102095659
+  - name: Yuan Liu
+    openalex_author_id: https://openalex.org/A5034194344
+  - name: Dinggang G. Shen
+    openalex_author_id: https://openalex.org/A5000937401
+  - name: Zhiming Cui
+    openalex_author_id: https://openalex.org/A5100602191
+  matched_by: doi
