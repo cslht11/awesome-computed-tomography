@@ -1,0 +1,8 @@
+# Batch: 68-item list follow-up (user-approved 2026-10-25): the true paper behind the fabricated "GeoAtt-CBCT" list entry. Verified against arXiv:2303.14739 abstract 2026-10-25; journal record TMI 2024 vol 44(2) 1083-1097, DOI 10.1109/TMI.2024.3473970.
+- id: "geometry-aware-attenuation-learning-sparse-view-cbct"
+  title: "Geometry-Aware Attenuation Learning for Sparse-View CBCT Reconstruction"
+  year: 2024
+  venue: "TMI"
+  topics: [sparse-view, cbct]
+  paper: "https://doi.org/10.1109/TMI.2024.3473970"
+  note: "The true paper behind the 68-item list's fabricated 'GeoAtt-CBCT' entry (retitled, DOI swapped). A geometry-aware encoder-decoder framework: a 2D CNN encodes multi-view 2D features from X-ray projections, CBCT geometry back-projects them into a 3D volumetric feature map, and a 3D CNN decodes the CBCT image; generalizes to extremely sparse inputs (5 or 10 projections) without per-case training, validated on two simulated and one real dataset. No official code found; code left blank rather than fabricated."

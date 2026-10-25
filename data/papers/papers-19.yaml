@@ -1,0 +1,9 @@
+# Batch: STFC CIL team sweep #16 (user-approved 2026-10-24, journal methods 1).
+- id: "cgan-stripe-artefact-removal"
+  title: "Conditional generative adversarial networks for stripe artefact removal in high-resolution X-ray tomography"
+  year: 2024
+  venue: "Tomogr. Mater. Struct."
+  topics: [other]
+  paper: "https://doi.org/10.1016/j.tmater.2023.100019"
+  code: "https://github.com/dkazanc/NoStripesNet"
+  note: "A conditional GAN inpainting method for stripe artifacts in tomographic projection data, with a new deterministic stripe detection and inpainting algorithm; training data are extracted directly from the same tomographic dataset being repaired, and the parameter-free method suppresses ring artifacts on 3D and 4D high-resolution X-ray data from Diamond Light Source. Year follows the formal volume (March 2024), not the DOI year 2023."

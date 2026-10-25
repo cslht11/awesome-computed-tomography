@@ -1,0 +1,39 @@
+# Batch: SEU #19 second batch (13), EN quick-reads, verified against Semantic Scholar/IEEE/PubMed 2026-10-25.
+fda-recon-limited-angle-cbct: >-
+  Limited-angle CBCT from real clinical data suffers artifacts, and supervised methods need paired full-angle references; FDA-Recon is an unsupervised three-stage method — target-to-source data adaptation, source-data image restoration, and prior-image-constrained target-domain fidelity reconstruction — with deep learning and spiral-Mamba in the first two stages. Validated on real head-and-neck data, it reduces artifacts and recovers structures.
+
+spectral-x-mamba: >-
+  Multi-energy CT restoration benefits from full-spectrum prior information, but fusing it across energies while modeling long-range dependencies is difficult; Spectral-X uses latent representations of an enhanced full-spectrum prior image, an X-shaped network with feature fusion blocks adaptively capturing multi-scale prior information in latent space, and an omnidirectional Mamba mechanism for long-range dependencies. It is validated on photon-counting CT denoising and limited-view multi-source CT restoration.
+
+msdu-nets-dual-energy-limited-angle: >-
+  Dual-energy limited-angle CT needs both domains' information with only partial scans; MsDu-Nets is a multistage dual-domain network connecting sinogram and image domains per stage via FBP, with an informative prior from concatenating dual-energy projection data with Parker-weighted backprojection reconstructions and self-augmentation mitigating streak artifacts. It requires only 180° scans.
+
+mjcnet-planning-ct-limited-angle: >-
+  Planning CT offers strong priors for limited-angle CBCT, but using them slice by slice leaves inter-slice artifacts; MJCNet is a multidimensional joint cascaded network whose coarse 2D stage uses two encoders to remove artifacts slice by slice with planning-CT priors, while a refinement 3D dense attention network improves detail and removes inter-slice artifacts.
+
+large-diffnet-planning-ct: >-
+  Handcrafted regularizers such as local smoothness and sparsity limit limited-angle CBCT quality; LARGE-DiffNet is a planning-CT-guided deep diffusion model learning distribution-level priors of ideal CBCT images. Validated on clinical CBCT data, it targets improved limited-angle image quality and registration accuracy in image-guided radiotherapy.
+
+spear-net-limited-angle-dect: >-
+  Limited-angle dual-energy CT lacks complete projections in both energy bins; SPEAR-Net uses IP-Net, two DIP-Nets and DSP-Net to exploit dual quarter-scan priors and complete limited-angle projections via forward projection, for self-prior enhanced artifact removal in limited-angle dual-energy CT.
+
+time-net-limited-angle-dect: >-
+  Limited-angle dual-energy CBCT needs complementary information from both energy channels; TIME-Net combines image, prior and Transformer encoders with low- and high-energy decoders and a feature fusion module compressing features into a compact shared representation for differential learning. Two complementary quarter scans yield high-quality dual-energy CBCT, with virtual non-contrast imaging and iodine quantification demonstrated as clinical applications.
+
+lwcdnet-metal-artifact: >-
+  Metal artifact reduction benefits from interpretable models that separate artifact from tissue; LWCDNet builds on the iterative soft-thresholding algorithm with learned weighted convolutional dictionary units representing artifact features, a lightweight residual network improving tissue attenuation recovery, and metal-mask-based discriminative representation and constraints across components. It is validated on synthetic and clinical datasets.
+
+dcdl-gs-sparse-view: >-
+  Sparse-view CT reconstruction benefits from interpretable priors beyond black-box networks; DCDL-GS integrates projection data with image priors into an interpretable deep iterative model combining convolutional dictionary learning with a non-local group sparse prior inside a statistical iterative reconstruction framework, with a new group thresholding operation, FBP reconstruction and fast sliding-window non-local similarity operations.
+
+mvss-pcr-self-supervised-denoising: >-
+  Self-supervised CT denoising by subsampling suffers pixel misalignment between training inputs and targets, and convolutions weakly model long-range dependencies; MVSS aggregates multi-view sinograms to improve alignment, a globally-searched non-local means module provides higher-quality training targets, and a prior-constrained iterative reconstruction framework with adaptive step adjustment ensures data consistency, fine-structure recovery and faster convergence.
+
+dp-resnet-low-dose: >-
+  Low-dose CT quality improves when both projection and image domains are processed, but single-domain networks leave complementary information unused; DP-ResNet is a domain-progressive 3D residual network in three stages — sinogram-domain network (SD-net), FBP, and image-domain network (ID-net) — with both networks residual-structured and complementary. Validated on simulated and real projection data, combining both domains' processing significantly improves performance.
+
+dire-low-dose: >-
+  Conventional iterative reconstruction is expensive for low-dose CT; DIRE estimates iterative-reconstruction images from low-dose analytic reconstructions with a 3D residual convolutional network, avoiding the iterative cost. Compared against existing methods on multiple simulated and real datasets, it improves low-dose CT image quality.
+
+cascaded-resunet-spectrum-loss: >-
+  Low-dose CT denoising must suppress severe artifact noise while preserving target structures and noise texture; Ca-ResUnet is a 3D cascaded ResUnet with improved noise-power-spectrum loss, combining FBP reconstruction through a domain-transform module, a ResUnet on CT images, an image compensation module, and a second ResUnet with improved spectrum loss. Validated on AAPM and United Imaging Healthcare data, it significantly reduces severe artifact noise while preserving target structures.

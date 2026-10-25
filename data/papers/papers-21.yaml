@@ -1,0 +1,87 @@
+# Batch: Tsinghua EP team sweep #18 (user-approved 2026-10-24, journal methods 10).
+- id: "slice-wise-low-dose-cbct"
+  title: "Slice-wise reconstruction for low-dose cone-beam CT using a deep residual convolutional neural network"
+  year: 2019
+  venue: "Nucl. Sci. Tech."
+  topics: [low-dose, cbct]
+  paper: "https://doi.org/10.1007/s41365-019-0581-7"
+  note: "An end-to-end slice-wise reconstruction embedding cone-beam imaging physics into a residual convolutional network, reducing the 3D projection problem to 2D slice-wise problems with three cascaded subnetworks — cone-to-fan-beam transform, 2D analytic inversion, image refinement — lowering compute and enabling parallel processing."
+
+- id: "dual-domain-sparse-helical"
+  title: "A dual-domain deep learning-based reconstruction method for fully 3D sparse data helical CT"
+  year: 2020
+  venue: "PMB"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1088/1361-6560/ab8fc1"
+  note: "For a new helical CT prototype with axially sparse multidetectors and multi-slit collimators, a Radon inverse operator with layer-wise decoupling: a projection-domain CNN completes missing projections into 2D fan-beam projections, an analytic linear operator maps to the image domain, and an image-domain CNN refines, trained end-to-end on 8 AAPM low-dose challenge patients and evaluated on simulated and clinical data."
+
+- id: "interweaving-monochromatic"
+  abbr: "WeaveNet"
+  title: "Interweaving Network: A Novel Monochromatic Image Synthesis Method for a Photon-Counting Detector CT System"
+  year: 2020
+  venue: "IEEE Access"
+  topics: [spectral]
+  paper: "https://doi.org/10.1109/ACCESS.2020.3041078"
+  note: "A sinogram-domain Interweaving Network (WeaveNet) structured around spectral distortion mechanisms, producing more accurate, lower-noise monochromatic images on photon-counting cone-beam CT after FDK reconstruction, where direct reconstruction suffers spectral distortion and crosstalk."
+
+- id: "mbdl-unsupervised-low-dose"
+  abbr: "MBDL"
+  title: "A Model-Based Unsupervised Deep Learning Method for Low-Dose CT Reconstruction"
+  year: 2020
+  venue: "IEEE Access"
+  topics: [low-dose, self-supervised]
+  paper: "https://doi.org/10.1109/ACCESS.2020.3020406"
+  note: "A model-based unsupervised deep learning method (MBDL-US) training on low-dose projections alone with a generalized maximum-a-posteriori loss, no labels required, extendable to semi-supervised MBDL-SS with few supervised data; on AAPM data it beats model-based iterative reconstruction at much lower compute and approaches supervised performance."
+
+- id: "sams-net-limited-angle"
+  abbr: "Sam's Net"
+  title: "Sam's Net: A Self-Augmented Multistage Deep-Learning Network for End-to-End Reconstruction of Limited Angle CT"
+  year: 2022
+  venue: "TMI"
+  topics: [limited-angle]
+  paper: "https://doi.org/10.1109/TMI.2022.3175529"
+  note: "A multistage self-augmented network for end-to-end limited-angle reconstruction via alternating minimization, with sinogram completion network SCNet, artifact suppression network ASNet and domain transform layers as a cross-domain optimization backbone, plus online self-augmentation, data-fidelity surrogate constraints and learnable weight layers; beats comparisons at 90 and 120 degrees."
+
+- id: "udamar-metal-artefact"
+  abbr: "UDAMAR"
+  title: "Deep-Learning-Based Metal Artefact Reduction With Unsupervised Domain Adaptation Regularization for Practical CT Images"
+  year: 2023
+  venue: "TMI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/TMI.2023.3244252"
+  note: "Unsupervised domain adaptation regularization (UDAMAR) added to a typical image-domain supervised method, aligning feature spaces to shrink the simulation-to-real artifact gap while learning from labeled simulated and unlabeled real data; beats comparisons on dental and torso data."
+
+- id: "pwls-som-limited-view"
+  abbr: "PWLS-SOM"
+  title: "PWLS-SOM: alternative PWLS reconstruction for limited-view CT by strategic optimization of a deep learning model"
+  year: 2025
+  venue: "PMB"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1088/1361-6560/adffe0"
+  note: "A penalized weighted least-squares reconstruction framework combining a deep-learning prior with case-specific data consistency through three-stage strategic optimization; beats supervised deep learning on 90-view circular and multi-segment linear sparse-view scans, validated on ex vivo rat data."
+
+- id: "disentangled-interior-low-dose"
+  abbr: "DPER"
+  title: "Disentangled deep learning method for interior tomographic reconstruction of low-dose x-ray CT"
+  year: 2025
+  venue: "PMB"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1088/1361-6560/ae02dc"
+  note: "A disentangled framework (DPER and improved DPER-Pro) separating noise from background/truncation effects with a coarse-to-fine strategy for low-dose interior tomography, where noise and truncated projections couple; validated on simulated torso and real phantom data."
+
+- id: "dental-metal-interpolation"
+  title: "Metal artifact reduction for practical dental computed tomography by improving interpolation-based reconstruction with deep learning"
+  year: 2019
+  venue: "Med Phys"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1002/mp.13644"
+  note: "Coarse reconstruction from metal-affected local interpolation data, then a deep network removes artifacts and restores non-metal structures, finally adding back metals in the region of interest; trained on simulated data and validated on independent simulations, with a simulation-to-real transfer learning strategy."
+
+- id: "fourier-linogram-symmetric"
+  abbr: "Linogram-Net"
+  title: "Fourier Properties of Symmetric-Geometry Computed Tomography and Its Linogram Reconstruction With Neural Network"
+  year: 2020
+  venue: "TMI"
+  topics: [other]
+  paper: "https://doi.org/10.1109/TMI.2020.3020720"
+  note: "A Fourier slice theorem for symmetric-geometry CT (linearly distributed fixed sources and detectors), linking the 1D Fourier transform of weighted projections to the 2D Fourier transform of the deformed object; a Linogram-based Fourier reconstruction embeds the whole process as known operators in an end-to-end network (Linogram-Net), achieving accurate reconstruction from dual symmetric-geometry scans at much lower complexity, especially improving limited-angle scenarios."

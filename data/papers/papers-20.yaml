@@ -1,0 +1,48 @@
+# Batch: KAIST BISPL team sweep #17 (user-approved 2026-10-24, journal methods 7).
+- id: "one-network-all-rois"
+  title: "One Network to Solve All ROIs: Deep Learning CT for Any ROI using Differentiated Backprojection"
+  year: 2019
+  venue: "Med Phys"
+  topics: [other]
+  paper: "https://doi.org/10.1002/mp.13631"
+  note: "Two networks for ROI CT: one learning ROI-size-dependent cupping artifacts from FBP images, the other inverting the truncated Hilbert transform from truncated differentiated backprojection data; generalizes across ROI sizes, pixel sizes, detector pitches and short-scan start angles, significantly beating iterative methods at much lower complexity, as a general CT reconstruction engine unaffected by detector truncation."
+
+- id: "dbp-domain-conebeam-artifact"
+  title: "Differentiated Backprojection Domain Deep Learning for Conebeam Artifact Removal"
+  year: 2020
+  venue: "TMI"
+  topics: [cbct]
+  paper: "https://doi.org/10.1109/TMI.2020.3000341"
+  note: "A deep network in the differentiated backprojection domain performs data-driven inversion of the ill-posed deconvolution linked to the Hilbert transform, with spectral blending merging coronal and sagittal reconstructions to reduce spectral leakage; generalizes well across conditions, beating iterative methods at significantly lower complexity."
+
+- id: "cycle-free-cyclegan"
+  title: "Cycle-Free CycleGAN Using Invertible Generator for Unsupervised Low-Dose CT Denoising"
+  year: 2021
+  venue: "IEEE Trans. Comput. Imaging"
+  topics: [low-dose, self-supervised]
+  paper: "https://doi.org/10.1109/TCI.2021.3129369"
+  note: "A cycle-free CycleGAN with a single generator and a single discriminator that still guarantees cycle consistency via an invertible generator, removing the extra discriminator and AdaIN code generator; uses only 24% of the learnable parameters and trains twice as fast, with a better complexity-quality tradeoff across dose levels."
+
+- id: "cardiac-cyclegan-noise-disentanglement"
+  title: "CycleGAN denoising of extreme low-dose cardiac CT using wavelet-assisted noise disentanglement"
+  year: 2021
+  venue: "Med. Image Anal."
+  topics: [low-dose]
+  paper: "https://doi.org/10.1016/j.media.2021.102209"
+  note: "Unsupervised denoising by wavelet-extracted high-frequency noise signals trained with CycleGAN on unpaired low-dose and high-dose CT, subtracting the estimated noise from the input; on 4%-dose cardiac CT, radiologist visual grading and SNR show image quality far above low-dose CT and baseline CycleGAN."
+
+- id: "metal-artifact-beta-cyclegan"
+  title: "Unsupervised CT Metal Artifact Learning Using Attention-Guided β-CycleGAN"
+  year: 2021
+  venue: "TMI"
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/TMI.2021.3101363"
+  note: "A β-CycleGAN from optimal-transport theory for proper feature-space disentanglement, with convolutional block attention (CBAM) layers in the generator focusing on metal artifacts; achieves better metal artifact reduction while preserving original detail texture, without paired metal-free and metal-corrupted images."
+
+- id: "adain-tunable-cyclegan"
+  title: "AdaIN-Based Tunable CycleGAN for Efficient Unsupervised Low-Dose CT Denoising"
+  year: 2021
+  venue: "IEEE Trans. Comput. Imaging"
+  topics: [low-dose, self-supervised]
+  paper: "https://doi.org/10.1109/TCI.2021.3050266"
+  note: "A single-generator tunable CycleGAN using adaptive instance normalization (AdaIN) layers: the baseline low-to-routine-dose generator switches to high-to-low-dose by changing only the AdaIN code, minimizing extra memory and weights, and interpolating AdaIN codes explores intermediate denoising levels; about half the parameters of prior CycleGAN methods with better performance."

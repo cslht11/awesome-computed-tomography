@@ -278,8 +278,8 @@ async function testLineage() {
   const win = dom.window, doc = win.document;
   const vp = doc.querySelector(".tree-viewport");
   ok("lineage script ran (viewport is live)", !!vp && vp.getAttribute("data-live") === "1");
-  ok("lineage cards rendered (29 papers + 2 groups)",
-    doc.querySelectorAll(".tn-node").length === 29 && doc.querySelectorAll(".tn-group").length === 2,
+  ok("lineage cards rendered (30 papers + 2 groups)",
+    doc.querySelectorAll(".tn-node").length === 30 && doc.querySelectorAll(".tn-group").length === 2,
     doc.querySelectorAll(".tn-node").length + " nodes, " + doc.querySelectorAll(".tn-group").length + " groups");
   const link = doc.querySelector(".tn-node h3 a[href^=\"http\"]");
   ok("card title links to a real URL", !!link, link ? link.getAttribute("href") : "—");

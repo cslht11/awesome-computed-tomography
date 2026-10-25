@@ -1,0 +1,117 @@
+# Batch: SEU team sweep #19 second batch (13 journal methods, verified 2026-10-25). PICAS excluded (confirmed classical PICCS, no deep learning); 3D-FCR excluded (dictionary-based alternating minimization, no network evidenced). All no code shown on checked pages.
+- id: "fda-recon-limited-angle-cbct"
+  abbr: "FDA-Recon"
+  title: "FDA-Recon: Faithful and Data-Adaptive Reconstruction for Limited-Angle CBCT"
+  year: 2026
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [limited-angle, cbct]
+  paper: "https://doi.org/10.1109/TIM.2026.3679175"
+  note: "An unsupervised three-stage method — target-to-source data adaptation, source-data image restoration, and prior-image-constrained target-domain fidelity reconstruction — with deep learning and spiral-Mamba in the first two stages; validated on real head-and-neck data for artifact reduction and structure recovery."
+
+- id: "spectral-x-mamba"
+  abbr: "Spectral-X"
+  title: "Spectral-X: Latent prior enhanced spectral CT restoration with mamba-assisted X-net"
+  year: 2026
+  venue: "Comput. Med. Imaging Graph."
+  topics: [spectral]
+  paper: "https://doi.org/10.1016/j.compmedimag.2025.102696"
+  note: "Latent representations of an enhanced full-spectrum prior image drive multi-energy CT restoration, with an X-shaped network and feature fusion blocks adaptively capturing multi-scale prior information in latent space and an omnidirectional Mamba mechanism modeling long-range dependencies; validated on photon-counting CT denoising and limited-view multi-source CT restoration."
+
+- id: "msdu-nets-dual-energy-limited-angle"
+  abbr: "MsDu-Nets"
+  title: "Multistage Dual-Domain Networks With Informative Prior and Self-Augmentation for Dual-Energy Limited-Angle CT Reconstruction"
+  year: 2024
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [limited-angle, spectral]
+  paper: "https://doi.org/10.1109/TIM.2024.3413140"
+  note: "A multistage dual-domain network connecting sinogram and image domains per stage via FBP, with an informative prior from concatenating dual-energy projection data with Parker-weighted backprojection reconstructions and self-augmentation mitigating streak artifacts; requires only 180° scans."
+
+- id: "mjcnet-planning-ct-limited-angle"
+  abbr: "MJCNet"
+  title: "Coarse-to-Fine Learning for Planning CT-Enhanced Limited-Angle CBCT Reconstruction"
+  year: 2024
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [limited-angle, cbct]
+  paper: "https://doi.org/10.1109/TIM.2024.3406810"
+  note: "A multidimensional joint cascaded network (MJCNet): a coarse 2D stage with two encoders removes artifacts slice by slice using planning-CT priors, and a refinement 3D dense attention network improves detail and removes inter-slice artifacts."
+
+- id: "large-diffnet-planning-ct"
+  abbr: "LARGE-DiffNet"
+  title: "Cone-Beam Computed Tomography Limited-Angle Image Reconstruction Using Planning CT-Guided Deep Diffusion Model"
+  year: 2025
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [limited-angle, cbct, diffusion]
+  paper: "https://doi.org/10.1109/TIM.2025.3568976"
+  note: "Unlike handcrafted regularizers (local smoothness, sparsity), a planning-CT-guided deep diffusion model learns distribution-level priors of ideal CBCT images; validated on clinical CBCT data for limited-angle image quality and registration accuracy in image-guided radiotherapy."
+
+- id: "spear-net-limited-angle-dect"
+  abbr: "SPEAR-Net"
+  title: "SPEAR-Net: Self-Prior Enhanced Artifact Removal Network for Limited-Angle DECT"
+  year: 2023
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [limited-angle, spectral]
+  paper: "https://doi.org/10.1109/TIM.2023.3260280"
+  note: "With IP-Net, two DIP-Nets and DSP-Net, SPEAR-Net exploits dual quarter-scan priors and completes limited-angle projections via forward projection, for self-prior enhanced artifact removal in limited-angle dual-energy CT."
+
+- id: "time-net-limited-angle-dect"
+  abbr: "TIME-Net"
+  title: "TIME-Net: Transformer-Integrated Multi-Encoder Network for limited-angle artifact removal in dual-energy CBCT"
+  year: 2023
+  venue: "Med. Image Anal."
+  topics: [limited-angle, cbct, spectral]
+  paper: "https://doi.org/10.1016/j.media.2022.102650"
+  note: "Three encoders (image, prior, Transformer), low- and high-energy decoders, and a feature fusion module compressing features into a compact shared representation for differential learning; two complementary quarter scans yield high-quality dual-energy CBCT, with virtual non-contrast imaging and iodine quantification demonstrated as clinical applications."
+
+- id: "lwcdnet-metal-artifact"
+  abbr: "LWCDNet"
+  title: "LWCDNet: An Interpretable Learning Weighted Convolutional Dictionary Network for Metal Artifact Reduction in CT Images"
+  year: 2025
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [metal-artifact]
+  paper: "https://doi.org/10.1109/TIM.2025.3555697"
+  note: "An interpretable network built on the iterative soft-thresholding algorithm, with learned weighted convolutional dictionary units representing artifact features, a lightweight residual network improving tissue attenuation recovery, and metal-mask-based discriminative representation and constraints across components; validated on synthetic and clinical datasets."
+
+- id: "dcdl-gs-sparse-view"
+  abbr: "DCDL-GS"
+  title: "Deep convolutional dictionary learning network for sparse view CT reconstruction with a group sparse prior"
+  year: 2024
+  venue: "Comput. Methods Programs Biomed."
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1016/j.cmpb.2024.108010"
+  note: "An interpretable deep iterative model (DCDL-GS) integrating projection data with image priors, combining convolutional dictionary learning with a non-local group sparse prior inside a statistical iterative reconstruction framework, with a new group thresholding operation, FBP reconstruction and fast sliding-window non-local similarity operations."
+
+- id: "mvss-pcr-self-supervised-denoising"
+  abbr: "MVSS-PCR"
+  title: "MVSS-PCR: A Multiview Subsampling Approach With Prior-Constrained Reconstruction for Self-Supervised CT Denoising"
+  year: 2026
+  venue: "IEEE Trans. Instrum. Meas."
+  topics: [low-dose, self-supervised]
+  paper: "https://doi.org/10.1109/TIM.2026.3671923"
+  note: "Multiview sinogram subsampling (MVSS) aggregates multi-view sinograms to improve training-target alignment and mitigate pixel misalignment in self-supervised subsampling, a globally-searched non-local means module compensates for convolutions' weak long-range modeling to provide higher-quality training targets, and a prior-constrained iterative reconstruction framework with adaptive step adjustment ensures data consistency, fine-structure recovery and faster convergence."
+
+- id: "dp-resnet-low-dose"
+  abbr: "DP-ResNet"
+  title: "Domain Progressive 3D Residual Convolution Network to Improve Low-Dose CT Imaging"
+  year: 2019
+  venue: "TMI"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1109/TMI.2019.2917258"
+  note: "A domain-progressive 3D residual network in three stages — sinogram-domain network (SD-net), FBP, and image-domain network (ID-net) — with both networks residual-structured and complementary for final low-dose CT quality; validated on simulated and real projection data showing that combining both domains' processing significantly improves performance."
+
+- id: "dire-low-dose"
+  abbr: "DIRE"
+  title: "Deep iterative reconstruction estimation (DIRE): approximate iterative reconstruction estimation for low dose CT imaging"
+  year: 2019
+  venue: "PMB"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1088/1361-6560/ab18db"
+  note: "DIRE avoids the high cost of conventional iterative reconstruction by estimating iterative-reconstruction images from low-dose analytic reconstructions with a 3D residual convolutional network; compared against existing methods on multiple simulated and real datasets with improved low-dose CT image quality."
+
+- id: "cascaded-resunet-spectrum-loss"
+  abbr: "Ca-ResUnet"
+  title: "Low-dose CT imaging via cascaded ResUnet with spectrum loss"
+  year: 2022
+  venue: "Methods"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1016/j.ymeth.2021.05.005"
+  note: "A 3D cascaded ResUnet with improved noise-power-spectrum loss (Ca-ResUnet): FBP reconstruction through a domain-transform module, a ResUnet on CT images, an image compensation module, and a second ResUnet with improved spectrum loss; validated on AAPM and United Imaging Healthcare data with significant severe-artifact noise reduction while preserving target structures."

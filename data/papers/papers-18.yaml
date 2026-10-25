@@ -1,0 +1,17 @@
+# Batch: CREATIS team sweep #15 (user-approved 2026-10-24, journal methods 2).
+- id: "glimpse-scalable-robust-ct"
+  abbr: "GLIMPSE"
+  title: "GLIMPSE: Generalized Locality for Scalable and Robust CT"
+  year: 2025
+  venue: "TMI"
+  topics: [other]
+  paper: "https://doi.org/10.1109/TMI.2025.3575071"
+  note: "A local coordinate neural network reconstructing each pixel value from only the measurements relevant to that pixel's neighborhood, avoiding multi-scale CNN overfitting to large-scale structure and resolution-scaling memory costs; significantly better than successful CNNs on out-of-distribution samples, comparable or better in-distribution, near-resolution-independent memory (5GB for 1024x1024 training), fully differentiable, plug-and-play capable, and able to correct mismatched projection directions. Year follows the formal volume (TMI 44(11), Nov 2025), not Semantic Scholar's 2024-01-01."
+
+- id: "sim2real-material-decomposition"
+  title: "Material Decomposition in Spectral CT Using Deep Learning: A Sim2Real Transfer Approach"
+  year: 2021
+  venue: "IEEE Access"
+  topics: [spectral]
+  paper: "https://doi.org/10.1109/ACCESS.2021.3056150"
+  note: "A U-Net with Sim2Real transfer learning for nonlinear spectral CT material decomposition: knowledge learned from synthetic data (soft-tissue and bone phantoms from KiTS19 human CT volumes, with simulated scanner energy response photon-counting data) transfers to real scenarios, comparing projection-domain versus image-domain decomposition against regularized Gauss-Newton on synthetic, experimental phantom and human chest data."

@@ -1,0 +1,27 @@
+# Batch: SEU #19 (7) + HKUST #20 (2), EN quick-reads, verified against Semantic Scholar/PubMed 2026-10-25.
+prior-4d-cbct: >-
+  In 4D CBCT, extremely sparse projections per phase cause severe streak artifacts; combining physics-based modeling with data-driven methods, the PRIOR framework uses a dedicated PRIOR-Net that mines static information from a prior image reconstructed from fully sampled projections during encoding to improve each phase's reconstruction. Experiments on simulated and clinical 4D CBCT data show good streak suppression, soft-tissue recovery and detail preservation.
+
+direct-net-dect: >-
+  Quantitative dual-energy CT material decomposition benefits from using both sinogram and image domain data, but conventional methods handle the domains separately; DIRECT-Net is an end-to-end unified mutual-domain material decomposition network that directly uses cross-domain data, with stacked convolutional layers performing denoising and material decomposition together. Trained on physics-simulated DECT data and validated on XCAT digital phantoms, biological specimens, calcium chloride and iodine phantoms, it shows fewer water and bone basis image artifacts and quantitative errors under 4% for calcium chloride and iodine.
+
+cross-limited-angle: >-
+  Limited-angle CT suffers artifacts and lost structure, and conventional dual-domain algorithms regularize only one domain at a time; CROSS alternates three steps between image and measurement domains, regularizing both image space and residual error space to strengthen organ recovery in high-attenuation regions, plus a structure-enhancement network for tissue preservation. Simulated and preclinical experiments show better artifact removal and edge preservation than comparisons.
+
+sea-net-limited-angle-cbct: >-
+  Limited-angle CBCT from real clinical projection data is rarely studied with deep learning, as most work uses simulated data; comparing image-domain, data-domain and hybrid deep learning approaches, SEA-Net uses a dedicated structure-enhancement subnetwork for texture preservation and spatial attention to highlight regions tied to the non-uniform wedge-artifact distribution while ignoring irrelevant regions, achieving more accurate texture recovery. The authors present it as the first feasibility study of limited-angle CBCT on clinical projection data.
+
+cas-pred-limited-angle-cbct: >-
+  Limited-angle data causes noise and artifacts, while conventional iterative reconstruction such as total variation is expensive in cone-beam forward and backprojection; Cas-PRED is a cascaded prior residual encoder-decoder network using full-angle CT reconstructions as prior information to guide training. On [0°, 150°] reconstructions it reports PSNR 33.69 ± 0.90 dB, SSIM 0.9557 ± 0.0029 and RMSE 22.73 ± 1.56.
+
+gdp-net-ring-artifact: >-
+  Ring artifacts arise from inconsistent detector responses and are globally correlated, which convolutional networks model poorly; exploiting the different signatures of ring artifacts in Cartesian versus polar coordinates, GDP-Net uses a dual-domain parallel architecture to extract and use latent features from different domains, plus a Mamba mechanism for global receptive field at low computational cost. Simulations and two unseen real datasets show good ring removal and image detail recovery.
+
+delta-net-high-pitch-helical: >-
+  High-pitch helical CT undersamples data and causes artifacts; Delta-Net is a deep dual-domain alternating optimization network whose every sub-iteration combines projection-domain correction with image-domain refinement, with learned per-domain priors entering as regularization, all hyperparameters auto-optimized during training, and a structure-aware joint loss strengthening artifact suppression and structure recovery. Quantitative and qualitative results show it beats comparisons in artifact suppression, detail recovery and generalization.
+
+deep-sinogram-completion-mar: >-
+  Metal artifact reduction can be framed as sinogram completion, but image-domain methods lose sinogram consistency while sinogram-domain methods mishandle metal-trace boundaries; combining both strengths, SinoNet restores metal-affected projections while PriorNet generates a good prior image to improve continuity at metal-trace boundaries, jointly trained end-to-end through differentiable forward projection with residual sinogram learning, and FBP reconstructs the artifact-reduced image from the completed sinogram. It beats comparisons on simulated and real artifact data while preserving anatomy.
+
+mar-self-supervised-cross-domain: >-
+  Supervised metal artifact reduction needs perfectly paired metal-artifact and clean CT images of identical anatomy, which are hard to obtain; a self-supervised cross-domain framework first restores the metal-trace region (from forward-projecting the metal mask) in the metal-free sinogram, uses a new FBP reconstruction loss to encourage more complete completion, and adds a residual-learning image refinement module to reduce secondary artifacts. Metal-trace replacement with a CNN prior sinogram preserves detail and fidelity, and FBP reconstructs the final image.

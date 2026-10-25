@@ -22,11 +22,11 @@ lineages:
       en: "The CT Reconstruction Family Tree: From FBP to Foundation Models"
       zh: "CT 重建谱系树：从 FBP 到基础模型"
     description:
-      en: "A hand-curated family tree of CT reconstruction — 29 papers on one zoomable canvas, branching from the analytic root through dual-domain networks, implicit and explicit representations, and generative priors, into foundation models."
-      zh: "一张可缩放画布上的 CT 重建谱系树：29 篇手工策展的论文，从解析重建的根出发，分叉出双域网络、隐式与显式表示、生成先验，最终汇入基础模型。"
+      en: "A hand-curated family tree of CT reconstruction — 30 papers on one zoomable canvas, branching from the analytic root through dual-domain networks, implicit and explicit representations, and generative priors, into foundation models."
+      zh: "一张可缩放画布上的 CT 重建谱系树：30 篇手工策展的论文，从解析重建的根出发，分叉出双域网络、隐式与显式表示、生成先验，最终汇入基础模型。"
     intro:
-      en: "One tree, four decades, twenty-nine papers. CT reconstruction did not advance along a single line — it forked: into networks that repair the sinogram as well as the image, into coordinate networks that represent one scan at a time, into explicit Gaussian primitives, into generative priors, and finally into foundation models that try to hold all the branches at once. This hand-curated tree starts at FDK, the analytic root, and follows every fork. Each card is a paper in the library; each short label names the step that was taken; and the reading list below the canvas tells every step at full length."
-      zh: "一棵树，四十年，二十九篇论文。CT 重建不是沿一条直线前进的——它不断分叉：分出同时修复正弦图与图像的双域网络，分出逐次扫描现学的坐标网络，分出显式的三维高斯基元，分出生成式先验，最后汇入试图把所有分支收进一个模型的基础模型。这棵手工策展的谱系树从解析重建的根 FDK 出发，追踪每一次分叉。每张卡片都是库内的一篇论文，每条短标签点明迈出的那一步，画布下方的阅读清单则把每一步完整讲清。"
+      en: "One tree, four decades, thirty papers. CT reconstruction did not advance along a single line — it forked: into networks that repair the sinogram as well as the image, into coordinate networks that represent one scan at a time, into explicit Gaussian primitives, into generative priors, and finally into foundation models that try to hold all the branches at once. This hand-curated tree starts at FDK, the analytic root, and follows every fork. Each card is a paper in the library; each short label names the step that was taken; and the reading list below the canvas tells every step at full length."
+      zh: "一棵树，四十年，三十篇论文。CT 重建不是沿一条直线前进的——它不断分叉：分出同时修复正弦图与图像的双域网络，分出逐次扫描现学的坐标网络，分出显式的三维高斯基元，分出生成式先验，最后汇入试图把所有分支收进一个模型的基础模型。这棵手工策展的谱系树从解析重建的根 FDK 出发，追踪每一次分叉。每张卡片都是库内的一篇论文，每条短标签点明迈出的那一步，画布下方的阅读清单则把每一步完整讲清。"
     nodes:
       - key: fdk-1984
         paper: fdk-1984
@@ -255,6 +255,18 @@ lineages:
         label:
           en: "dual-domain, written as unfolding"
           zh: "双域写成展开式"
+      - key: cnn-inverse
+        paper: cnn-inverse
+        parent: pnp-2013
+        note:
+          en: "The canonical post-processing entry: FBPConvNet applies direct inversion first, then a multi-resolution U-Net with residual learning regresses the FBP image to the ground truth — the network only ever sees FBP images, never the raw measurements."
+          zh: "后处理的标准入口：FBPConvNet 先做直接反演，再用多分辨率 U-Net 加残差学习把 FBP 图像回归到真值——网络只见过 FBP 图像，从未见过原始测量。"
+        label:
+          en: "FBP first, then a CNN cleans it"
+          zh: "先 FBP，再用 CNN 擦干净"
+        prose:
+          en: "RED-CNN showed a learned denoiser could clean an FBP image. Jin and colleagues ask what that denoiser should look like when the corruption is not just noise but the inverse problem itself: their answer, FBPConvNet, keeps the analytic step and learns the rest. A direct inversion — FBP — produces a first image, and a multi-resolution U-Net with residual learning maps that image to the ground truth, trained to correct exactly the artifacts the inversion leaves behind. The design is deliberately conservative: the geometry stays analytic — the network never touches the measurements — so the learning problem is a pure image-to-image mapping from a corrupted image to a clean one. It is the post-processing idea at its most explicit — inversion first, learning second — and the template RED-CNN and FBPConvNet share: reconstruct, then repair."
+          zh: "RED-CNN 证明学到的去噪器可以擦干净 FBP 图像。Jin 等人追问：当损坏不只是噪声、而是逆问题本身时，这个去噪器该长什么样？他们的回答 FBPConvNet 是：解析步骤保留，剩下的交给学习。先由直接反演（FBP）得到一张初始图像，再用多分辨率 U-Net 加残差学习把这张图映射到真值，训练目标就是修正反演留下的伪影。这个设计刻意保守：几何保持解析——网络从不触碰原始测量——于是学习问题纯化为从损坏图像到干净图像的图像到图像映射。这就是后处理思想最直白的形态——先反演、再学习——也是 RED-CNN 与 FBPConvNet 共有的模板：先重建，再修复。"
       - key: 3dip
         paper: 3dip
         parent: pnp-2013

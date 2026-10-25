@@ -1,0 +1,30 @@
+# Batch: Tsinghua EP team sweep #18 (EN quick-reads, verified against Springer/IOP/IEEE/PubMed 2026-10-25).
+slice-wise-low-dose-cbct: >-
+  In low-dose cone-beam CT, conventional Feldkamp methods struggle to balance denoising and resolution while optimization-based iterative methods are computationally expensive; embedding cone-beam imaging physics into a residual convolutional network, an end-to-end slice-wise reconstruction reduces the 3D projection problem to 2D slice-wise problems. Three cascaded subnetworks — cone-to-fan-beam transform, 2D analytic inversion and image refinement — lower compute and ease parallel processing.
+
+dual-domain-sparse-helical: >-
+  A new helical CT prototype with axially sparse multidetectors and multi-slit collimators makes reconstruction an ill-posed inverse problem from insufficient data; introducing a Radon inverse operator with layer-wise decoupling, a projection-domain convolutional network completes missing projections into 2D fan-beam projections, an analytic linear operator maps to the image domain, and an image-domain convolutional network refines, trained end-to-end. Trained on 8 AAPM low-dose CT challenge patients and evaluated on simulated and clinical data, visual and quantitative results are encouraging.
+
+interweaving-monochromatic: >-
+  Photon-counting detectors suffer spectral distortion and crosstalk, so directly reconstructed monochromatic images are inaccurate, while conventional calibration compensation depends on model calibration accuracy; a sinogram-domain Interweaving Network (WeaveNet) structured around spectral distortion mechanisms is proposed. Validated on photon-counting cone-beam CT and evaluated after FDK reconstruction, it yields more accurate, lower-noise monochromatic images.
+
+mbdl-unsupervised-low-dose: >-
+  Low-dose CT reduces radiation risk, but supervised learning needs paired routine-dose images that are expensive to obtain; a model-based unsupervised deep learning method (MBDL-US) trains on low-dose projections alone with a generalized maximum-a-posteriori loss, requiring no labels, and combines with few supervised data into a semi-supervised method (MBDL-SS). On AAPM data, MBDL beats model-based iterative reconstruction at significantly lower compute and approaches supervised performance.
+
+sams-net-limited-angle: >-
+  Limited-angle CT is a severely ill-posed problem, and conventional analytic and iterative methods show severe structural distortion and artifacts under incomplete projections; Sam's Net is a multistage self-augmented network achieving end-to-end reconstruction via alternating minimization, with sinogram completion network SCNet, artifact suppression network ASNet and domain transform layers as a cross-domain optimization backbone, plus online self-augmentation, data-fidelity surrogate constraints and learnable weight layers. At 90 and 120 degrees it outperforms comparisons.
+
+udamar-metal-artefact: >-
+  Supervised metal artifact reduction suffers a domain gap between simulation and real data, while purely unsupervised methods underperform; UDAMAR adds unsupervised domain adaptation regularization to a typical image-domain supervised method, aligning feature spaces to shrink the simulation-to-real artifact gap while learning from labeled simulated and unlabeled real data. On dental and torso data it beats comparisons.
+
+pwls-som-limited-view: >-
+  Deep-learning methods reduce streak artifacts in limited-view CT, but generalization to real applications remains challenging; PWLS-SOM combines a deep-learning prior with case-specific data consistency in a three-stage strategically optimized penalized weighted least-squares reconstruction framework. On 90-view circular and multi-segment linear sparse-view scans it beats supervised deep learning, validated on ex vivo rat data.
+
+disentangled-interior-low-dose: >-
+  Low-dose interior tomography suffers coupled noise and truncated projections, whose interaction greatly challenges accurate reconstruction; a disentangled framework (DPER and improved DPER-Pro) separates noise from background or truncation effects with a coarse-to-fine strategy. Validated on simulated torso and real phantom data, the framework provides a robust, effective solution for interior tomography.
+
+dental-metal-interpolation: >-
+  Metal artifacts are common in dental CT and conventional interpolation methods are limited; coarse reconstruction from metal-affected local interpolation data is followed by a deep network removing artifacts and restoring non-metal structures, finally adding back metals in the region of interest. Trained on simulated data and validated on independent simulations, with a simulation-to-real transfer learning strategy proposed.
+
+fourier-linogram-symmetric: >-
+  For symmetric-geometry CT with linearly distributed fixed sources and detectors, a simple mathematical link is established between the 1D Fourier transform of weighted projections and the 2D Fourier transform of the deformed object — the Fourier slice theorem of symmetric-geometry CT. Based on this theorem and its distinctive Fourier-space data sampling, a Linogram-based Fourier reconstruction embeds the whole process as known operators in an end-to-end neural network (Linogram-Net); numerical simulations and physical experiments on a symmetric-geometry CT prototype show accurate reconstruction from dual symmetric-geometry scans at much lower complexity, especially improving limited-angle and other non-ideal imaging scenarios.

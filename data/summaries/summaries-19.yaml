@@ -1,0 +1,3 @@
+# Batch: STFC CIL team sweep #16 (EN quick-read, verified against ScienceDirect 2026-10-25; year follows formal volume 2024).
+cgan-stripe-artefact-removal: >-
+  For stripe artifacts in tomographic projection data, this paper proposes an inpainting method based on conditional generative adversarial networks, with a new deterministic stripe detection and inpainting algorithm; the key innovation in training data is extracting them directly from the same tomographic dataset being repaired, and the method is compared with other stripe-removal algorithms. Applied to 3D and 4D high-resolution X-ray data acquired at Diamond Light Source, reconstructed images show suppressed ring artifacts, and the parameter-free method can also remove other types of image artifacts.
