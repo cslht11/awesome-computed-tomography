@@ -206,3 +206,28 @@
     - dataset: LIDC-IDRI
       usage: both
       evidence: "Section 7 numerical examples (Table 7.6, Fig. 7.12) — “the adversarial regularizer from Section 4.7 on the LIDC/IDRI database (Armato et al. 2011) of lung scans” and “Training and test measurements have been simulated by taking the ray transform of the two-dimensional CT slices”."
+- paper: glimpse-scalable-robust-ct
+  uses:
+    - dataset: LoDoPaB-CT
+      usage: both
+      evidence: "§4.1.1 Training data of chest images — “We use 35820 training samples of chest images from the LoDoPaB-CT dataset [64] in resolution 128 × 128.” §4.2 trains on LoDoPaB-CT at 512 × 512 (90 projections, 40dB measurement noise); chest test samples used for in-distribution evaluation."
+- paper: one-network-all-rois
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§III.A Data Set — “Ten subject data sets from American Association of Physicists in Medicine (AAPM) Low-Dose CT Grand Challenge were used in this study.” 8/1/1 patient split = 3720/254/486 slices for train/val/test; raw projection data from the same challenge used in the test phase."
+- paper: dbp-domain-conebeam-artifact
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§IV Data Set — “simulated projection data from ten subject data sets from American Association of Physicists in Medicine (AAPM) Low-Dose CT Grand Challenge were used. The data set was selected from the abdominal scans that include liver regions.” 8/1/1 patient split for train/val/test (8192/1024 coronal/sagittal slices for train/val)."
+- paper: cycle-free-cyclegan
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§IV.A “AAPM CT dataset” — “AAPM CT dataset is a reconstructed CT image dataset from abdominal CT projection data in the AAPM 2016 Low Dose CT Grand Challenge… To train our network, we use 3839 CT images, while the other 421 images were used to test our network.” Poisson noise inserted to 25% of standard dose."
+- paper: adain-tunable-cyclegan
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§IV.A “Chest CT Scans” — “The low-dose CT image data released in 2020 by the Mayo clinic [29], [30] was used for quantitative analysis of the network performance. Of the 100 chest CT data provided, 50 were used. 45 data is as training data, the remaining five were used as test data.” 14,965 train / 1,683 test images; ref [30] is the TCIA Low Dose CT Image and Projection Data set."
