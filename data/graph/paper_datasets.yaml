@@ -231,3 +231,13 @@
     - dataset: LDCT-and-Projection-data
       usage: both
       evidence: "§IV.A “Chest CT Scans” — “The low-dose CT image data released in 2020 by the Mayo clinic [29], [30] was used for quantitative analysis of the network performance. Of the 100 chest CT data provided, 50 were used. 45 data is as training data, the remaining five were used as test data.” 14,965 train / 1,683 test images; ref [30] is the TCIA Low Dose CT Image and Projection Data set."
+- paper: mbdl-unsupervised-low-dose
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§III.A.1 Dataset — “We conducted our experiments based on thorax CT data from AAPM Low Dose CT Grand Challenge.” 5936 CT images from 10 patients; LDCT projections simulated from NDCT images; 5376 images from nine patients for training, the remaining one patient for testing (§III.B)."
+- paper: prior-4d-cbct
+  uses:
+    - dataset: SPARE 4D-CBCT
+      usage: eval
+      evidence: "§IV.A.1 Dataset Acquisition — “Clinical data was provided by the SPARE Challenge.” Elekta dataset (one case) and Varian dataset (one patient) evaluated by the PRIOR-Net trained on simulated images, as clinical datasets have no ground truth images."
