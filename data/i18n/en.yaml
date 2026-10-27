@@ -220,6 +220,7 @@ ui:
   graphDatasetsIntro: "The datasets and benchmarks that papers in this directory are recorded as using or citing in their experiments \u2014 and those papers. Select a dataset to see its papers, or a paper to see what it ran on."
   graphDatasetsDesc: "Dataset relations in this CT reconstruction directory: the datasets and benchmarks with a recorded link to a paper, and the papers that use them."
   graphDatasetsNote: "Showing {d_shown} of {d_total} datasets and {b_shown} of {b_total} benchmarks: only resources with a recorded link to a paper appear in this graph. The rest are in the {ds}."
+  graphBackboneGuideNote: "Note: the guide \u201cHow to Choose a CT Reconstruction Dataset\u201d has no topics assigned, so it has no edges and does not appear in this backbone graph."
   graphDirDatasets: "datasets and benchmarks directory"
   graphTopicIntro: "The papers in this topic, the datasets they use, the teams that focus on it, the toolkits assigned to it, and the authors with several papers here. Select any node to see its connections."
   graphTopicDesc: "Knowledge graph for one topic of this CT reconstruction directory: its papers, the datasets they use, the teams that focus on it and its most prolific authors."

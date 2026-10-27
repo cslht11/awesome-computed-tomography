@@ -390,7 +390,7 @@ def _spread(sl, pos, rounds=5):
                 for i in range(n))
 
 
-def slice_payload(sl):
+def slice_payload(sl, total=None):
     """One slice -> the JSON its page loads: the slice's nodes and
     edges plus precomputed positions (and nothing else's).
 
@@ -421,8 +421,11 @@ def slice_payload(sl):
             kind_index[k] = len(kinds)
             kinds.append(k)
         edges.append([index[s], index[t], kind_index[k]])
+    if total is None:
+        total = len(sl["nodes"])
     return {"nodes": sl["nodes"], "edges": edges, "kinds": kinds,
-            "pos": [pos[n["id"]] for n in sl["nodes"]]}
+            "pos": [pos[n["id"]] for n in sl["nodes"]],
+            "total": total}
 
 
 def slice_json(data):

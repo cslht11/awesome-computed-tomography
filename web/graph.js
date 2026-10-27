@@ -254,7 +254,7 @@
     if (countsEl) {
       countsEl.textContent = t("counts", "")
         .replace("{shown}", G.nodes.length)
-        .replace("{total}", G.nodes.length)
+        .replace("{total}", G.total || G.nodes.length)
         .replace("{edges}", EDGES.length);
     }
 

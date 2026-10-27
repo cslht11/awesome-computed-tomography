@@ -269,3 +269,28 @@
     - dataset: FleX-ray Walnut CBCT Collection (CWI)
       usage: both
       evidence: "§IV-A1 Dataset — “we collect the third dataset includes 42 real-world walnut CBCT scanning collections from [48].” “We split this dataset into 32 cases for training, 5 cases for validation, and 5 cases for testing.” Reference [48] is Der Sarkissian et al., Scientific Data 2019, the CWI FleX-ray cone-beam CT data collection for machine learning, identical to the library entry. The dental dataset (130 self-collected images) and the spine dataset (from CTSpine1K, not among the 79 library names) yield no edges."
+
+- paper: efmct
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "Datasets section: the first dataset is the AAPM 2016 Low Dose CT Grand Challenge data, 9 patients for training and patient L506 for testing; per the established mapping, the 2016 AAPM challenge is LDCT-and-Projection-data."
+    - dataset: Medical Segmentation Decathlon
+      usage: both
+      evidence: "Datasets section: Medical Segmentation Decathlon CT, Task_06 Lung subset, 10 patients for training and patient 017 for evaluation."
+- paper: sr4zct
+  uses:
+    - dataset: Medical Segmentation Decathlon
+      usage: both
+      evidence: "§3: Task06 Lung volumes 06, 14, 22 and 23 (2170 axial slices); axial slices are used for training per volume and coronal/sagittal views for evaluation."
+    - dataset: LDCT-and-Projection-data
+      usage: eval
+      evidence: "§3, Real-world CT Images without Reference: Low Dose CT Challenge patient L291 is used for reference-free visual evaluation only."
+- paper: multi-stage-artifact-reduction-parallel-beam-ct
+  uses:
+    - dataset: LoDoInd
+      usage: both
+      evidence: "§4.1: LoDoInd reference-tube sample, upper half for training and lower half for testing."
+    - dataset: TomoBank
+      usage: both
+      evidence: "§4.1: TomoBank fatigue-corrosion data, tomo_00056 for training and tomo_00055 for testing."

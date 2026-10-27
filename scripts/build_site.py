@@ -1281,6 +1281,18 @@ def _datasets_note(ov, sl, payload_en):
     return note
 
 
+def _backbone_note(ov):
+    """The backbone slice's honesty line, as HTML for under its intro.
+
+    The choosing-a-ct-reconstruction-dataset guide deliberately has
+    no topics (option (b), user decision 2026-10-27), so the graph
+    builder gives it no topic edges and the slice drops it as an
+    isolate. The page says so explicitly instead of silently
+    omitting it, mirroring _datasets_note's honesty line.
+    """
+    return esc(ov.ui("graphBackboneGuideNote", ""))
+
+
 def render_graph_slice_body(ov, code, title, intro, sl, back="../",
                             data_v="", note_html=""):
     """The <main> of one category graph page: back link, controls,
@@ -1631,7 +1643,7 @@ def main():
     graph_slice_json = {}
     for name, sl in graph_slices.items():
         graph_slice_json[name] = graph_slices_mod.slice_json(
-            graph_slices_mod.slice_payload(sl))
+            graph_slices_mod.slice_payload(sl, total=len(graph["nodes"])))
         print("  graph slice %-24s %3d nodes, %4d edges, %.0f KB"
               % (name, len(sl["nodes"]), len(sl["edges"]),
                  len(graph_slice_json[name].encode("utf-8")) / 1024.0))
@@ -1857,7 +1869,7 @@ def main():
         slice_pages = [
             ("backbone", ov.ui("graphBackboneTitle", "Team backbone"),
              ov.ui("graphBackboneIntro", ""), ov.ui("graphBackboneDesc", ""),
-             ""),
+             _backbone_note(ov)),
             ("datasets",
              ov.ui("graphDatasetsTitle", "Datasets & the papers that use them"),
              ov.ui("graphDatasetsIntro", ""), ov.ui("graphDatasetsDesc", ""),
