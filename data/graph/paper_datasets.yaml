@@ -259,3 +259,8 @@
     - dataset: LIDC-IDRI
       usage: both
       evidence: "§III.A Experimental conditions — “The lung data are obtained from the AAPM dataset (from the low-dose CT challenge) and the LIDC-IDRI dataset (from the National Cancer Institute).” Fig. 6(f1) is a LIDC-IDRI test result; overall split 50 sets training / 10 sets test / 5 sets prior."
+- paper: dcdl-gs-sparse-view
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§3 Experiment settings — “we conducted training and testing using two datasets: the low-dose CT image and projection dataset (named the LDCT-P dataset), which consists of low-dose CT images and projections; and the United Image Healthcare (UIH) clinical dataset (named the UIH dataset).” LDCT-P is the TCIA Low-Dose CT Image and Projection Data collection, identical to the library entry (same collection URL and 2016 AAPM challenge origin); the UIH clinical dataset is not among the 79 library names. No per-dataset slice counts are given in this section, so none are written."
