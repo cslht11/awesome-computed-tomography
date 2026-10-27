@@ -386,9 +386,6 @@ neat: >-
 bayesian-multicontrast-ct: >-
   Proposes joint Bayesian reconstruction of attenuation, phase and dark-field images from sinograms for limited-data multi-contrast CT: a joint total-variation prior couples edge locations across images, and NUTS posterior sampling adds uncertainty, suppressing undersampling artifacts with up to 24x fewer exposures.
 
-temporal-ct-per-bundle: >-
-  Proposes per-bundle, pre-reconstruction inversion for Temporal CT: a Gauss-Newton estimator converges to the Poisson maximum-likelihood solution, a bow-tie plus tube-current-modulation co-design compresses flux dynamic range, and a training-free empirical-Bayes post-processor attains the Cramer-Rao floor on volumes.
-
 contilnn: >-
   Introduces ContiLNN, augmenting 2D restoration backbones with bidirectional closed-form continuous-time liquid-network modules for cross-slice modeling that adapt to sampling variations; it beats Restore-RWKV on CT denoising with 52.8% lower latency and 57.0% lower peak memory than Bi-GRU.
 

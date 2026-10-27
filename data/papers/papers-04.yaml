@@ -1026,13 +1026,6 @@
   paper: "https://arxiv.org/abs/2610.21406"
   note: "Joint Bayesian reconstruction of attenuation, phase and dark-field images with a joint total-variation prior and NUTS posterior sampling."
 
-- id: "temporal-ct-per-bundle"
-  title: "Per-Bundle, Pre-Reconstruction Inversion for Temporal CT: Flux-Compensation Design and Multi-Patient Generalization"
-  year: 2026
-  topics: [dynamic]
-  paper: "https://arxiv.org/abs/2610.19229"
-  note: "Per-bundle Poisson maximum-likelihood inversion with flux-compensation co-design and a training-free empirical-Bayes post-processor."
-
 - id: "contilnn"
   abbr: "ContiLNN"
   title: "ContiLNN: Mitigating Slice Sampling Discontinuity with Liquid Neural Networks for Medical Image Restoration"

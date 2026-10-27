@@ -6612,12 +6612,6 @@ bayesian-multicontrast-ct:
   - name: Henrik Mäkinen
     openalex_author_id: https://openalex.org/A5001119335
   matched_by: arxiv
-temporal-ct-per-bundle:
-  openalex: https://openalex.org/W7222004127
-  authors:
-  - name: Guy M. Besson
-    openalex_author_id: https://openalex.org/A5111835424
-  matched_by: arxiv
 contilnn:
   openalex: https://openalex.org/W7221197164
   authors:
