@@ -1,0 +1,26 @@
+# Batch: Jiayang Shi works (user-approved 2026-10-27): EFMCT, Multi-stage, SR4ZCT.
+- id: "efmct"
+  abbr: "EFMCT"
+  title: "Efficient Flow Matching for Sparse-View CT Reconstruction"
+  year: 2026
+  venue: "MICCAI"
+  topics: [sparse-view, diffusion]
+  paper: "https://doi.org/10.1007/978-3-032-38179-8_16"
+  code: "https://github.com/EFMCT/EFMCT"
+  note: "Flow matching instead of diffusion for sparse-view CT: deterministic ODE sampling avoids SDE stochasticity interfering with repeated data-consistency corrections, and reusing velocity fields across steps cuts function evaluations."
+- id: "multi-stage-artifact-reduction-parallel-beam-ct"
+  title: "Multi-stage Deep Learning Artifact Reduction for Parallel-beam CT"
+  year: 2025
+  venue: "J. Synchrotron Radiat."
+  topics: [other]
+  paper: "https://doi.org/10.1107/S1600577525000359"
+  note: "Separate deep learning models at each synchrotron CT pipeline stage (projection, sinogram, reconstruction) with bypass connections; no official code found, code left blank rather than fabricated."
+- id: "sr4zct"
+  abbr: "SR4ZCT"
+  title: "SR4ZCT: Self-supervised Through-plane Resolution Enhancement for CT Images with Arbitrary Resolution and Overlap"
+  year: 2023
+  venue: "MLMIR"
+  topics: [self-supervised, other]
+  paper: "https://doi.org/10.1007/978-3-031-45673-2_6"
+  code: "https://github.com/jiayangshi/SR4ZCT"
+  note: "User-approved scope inclusion (2026-10-27): self-supervised through-plane super-resolution of already-reconstructed CT volumes, not projection reconstruction."
