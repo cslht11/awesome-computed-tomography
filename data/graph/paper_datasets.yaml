@@ -264,3 +264,8 @@
     - dataset: LDCT-and-Projection-data
       usage: both
       evidence: "§3 Experiment settings — “we conducted training and testing using two datasets: the low-dose CT image and projection dataset (named the LDCT-P dataset), which consists of low-dose CT images and projections; and the United Image Healthcare (UIH) clinical dataset (named the UIH dataset).” LDCT-P is the TCIA Low-Dose CT Image and Projection Data collection, identical to the library entry (same collection URL and 2016 AAPM challenge origin); the UIH clinical dataset is not among the 79 library names. No per-dataset slice counts are given in this section, so none are written."
+- paper: geometry-aware-attenuation-learning-sparse-view-cbct
+  uses:
+    - dataset: FleX-ray Walnut CBCT Collection (CWI)
+      usage: both
+      evidence: "§IV-A1 Dataset — “we collect the third dataset includes 42 real-world walnut CBCT scanning collections from [48].” “We split this dataset into 32 cases for training, 5 cases for validation, and 5 cases for testing.” Reference [48] is Der Sarkissian et al., Scientific Data 2019, the CWI FleX-ray cone-beam CT data collection for machine learning, identical to the library entry. The dental dataset (130 self-collected images) and the spine dataset (from CTSpine1K, not among the 79 library names) yield no edges."
