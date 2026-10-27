@@ -284,12 +284,6 @@ x2-gaussian:
   - name: Yixuan Yuan
     openalex_author_id: https://openalex.org/A5073968803
   matched_by: doi
-baggagect:
-  openalex: https://openalex.org/W4405089075
-  authors:
-  - name: Shin Kim
-    openalex_author_id: https://openalex.org/A5101917033
-  matched_by: arxiv
 cocodiff-a-contextual-conditional-diffusion-model-for-low-:
   openalex: https://openalex.org/W4306247150
   authors:

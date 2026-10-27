@@ -95,9 +95,6 @@ automap: >-
 awtv: >-
   自适应加权全变分（AwTV）模型用局部强度梯度的指数函数给相邻体素加权，保留传统 TV 会过度平滑的边缘，并以 AwTV-POCS 方案求解，用于稀疏视角低剂量 CT 重建。
 
-baggagect: >-
-  本方法把多光谱神经衰减场重建与线性推扫（LPB）相机模型的位姿优化结合起来，并通过颜色编码网络增强新视角渲染的一致性。
-
 balancing-efficiency-and-restoration-lightweight-mamba-based: >-
   为此提出 MARMamba，在保持图像原有解剖结构完整的前提下，有效消除不同尺寸金属造成的伪影。
 

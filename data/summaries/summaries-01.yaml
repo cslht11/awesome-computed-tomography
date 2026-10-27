@@ -96,9 +96,6 @@ automap: >-
 awtv: >-
   The adaptive-weighted total variation (AwTV) model weights neighboring voxels by an exponential function of the local intensity gradient, preserving edges that conventional TV over-smooths, and is solved with an AwTV-POCS scheme for sparse-view low-dose CT reconstruction.
 
-baggagect: >-
-  Our approach integrates multi-spectral neural attenuation field reconstruction with Linear pushbroom (LPB) camera model pose optimization, enhancing rendering consistency for novel views through color coding network.
-
 balancing-efficiency-and-restoration-lightweight-mamba-based: >-
   Addressing these issues, we introduce MARMamba, which effectively eliminates artifacts caused by metals of different sizes while maintaining the integrity of the original anatomical structures of the image.
 

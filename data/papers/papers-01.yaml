@@ -147,13 +147,6 @@
   paper: "https://doi.org/10.1109/iccv51701.2025.02293"
   code: "https://github.com/yuyouxixi/x2-gaussian"
 
-- id: "baggagect"
-  abbr: "BaggageCT"
-  title: "Fan-Beam CT Reconstruction for Unaligned Sparse-View X-Ray Baggage Data"
-  year: 2024
-  topics: [sparse-view, geometry]
-  paper: "https://arxiv.org/abs/2412.03036"
-
 - id: "cocodiff-a-contextual-conditional-diffusion-model-for-low-"
   abbr: "CoCoDiff"
   title: "CoCoDiff: A Contextual Conditional Diffusion Model for Low-dose CT Image Denoising"
