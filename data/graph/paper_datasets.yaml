@@ -241,3 +241,21 @@
     - dataset: SPARE 4D-CBCT
       usage: eval
       evidence: "§IV.A.1 Dataset Acquisition — “Clinical data was provided by the SPARE Challenge.” Elekta dataset (one case) and Varian dataset (one patient) evaluated by the PRIOR-Net trained on simulated images, as clinical datasets have no ground truth images."
+- paper: deep-sinogram-completion-mar
+  uses:
+    - dataset: DeepLesion
+      usage: both
+      evidence: "§III-A Dataset and Simulation — “For the simulation data, we randomly selected a subset of CT images from the recently released DeepLesion dataset to synthesize metal artifacts.” Training 1000 CT images + 90 metal masks; evaluation 2000 combinations from the remaining 10 masks × another 200 CT images (12 patients)."
+- paper: mar-self-supervised-cross-domain
+  uses:
+    - dataset: DeepLesion
+      usage: both
+      evidence: "§III-A Datasets — “For network training, we randomly chose 1000 CT slices from the DeepLesion dataset and 90 metal masks from the collected metal masks.” Evaluation 2000 combinations from 200 slices + 10 masks; clinical metal CT images in §III-E from DeepLesion + local hospital (DeepLesion part counted as eval)."
+- paper: cas-pred-limited-angle-cbct
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§III.A Experimental conditions — “The lung data are obtained from the AAPM dataset (from the low-dose CT challenge) and the LIDC-IDRI dataset (from the National Cancer Institute).” 23 lung + 42 leg scans in total; 50 sets training, 10 sets test, 5 sets prior (Table I splits by anatomy, not by named dataset)."
+    - dataset: LIDC-IDRI
+      usage: both
+      evidence: "§III.A Experimental conditions — “The lung data are obtained from the AAPM dataset (from the low-dose CT challenge) and the LIDC-IDRI dataset (from the National Cancer Institute).” Fig. 6(f1) is a LIDC-IDRI test result; overall split 50 sets training / 10 sets test / 5 sets prior."
