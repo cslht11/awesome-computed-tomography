@@ -531,6 +531,8 @@
   year: 2026
   topics: [diffusion, cbct]
   paper: "https://arxiv.org/abs/2610.06094"
+  code: "https://github.com/Lai-KK/RefineCBCT"
+  note: "Official repo currently contains only a README; implementation and sample data are not present (README references SynDiff sample data)."
 
 - id: "computed-tomography-reconstruction-algorithm-using-markov-ra"
   title: "Computed Tomography Reconstruction Algorithm Using Markov Random Field Model"
@@ -821,4 +823,5 @@
   topics: [gaussian, sparse-view]
   paper: "https://arxiv.org/abs/2609.10376"
   code: "https://github.com/polyshape-lab/ShapeGuidedGaussian"
+  note: "Official repo is currently a placeholder (LICENSE and README only); no implementation has been released."
 
