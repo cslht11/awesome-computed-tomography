@@ -662,9 +662,6 @@ fid-net: >-
 simurgh-scattercontrol: >-
   将 ZEISS scatterControl 硬件散射校正与改进的 Simurgh 2.5D U-Net 相结合，用于大型铸造金属构件的高通量 X 射线 CT 无损表征。扫描时间缩短 10 倍以上且缺陷可检出性不受影响，在工业 XCT 数据上优于 FDK、模型迭代重建（MBIR）与商用深度学习模型。
 
-care-ct-foundation: >-
-  CARE 是经临床验证的 CT 基础模型，采用大规模视觉-语言预训练（基于 OpenCLIP），面向五大 CT 部位的综合分析。它为体素级、区域级和像素级识别以及视觉-语言任务（图文检索、报告生成）提供可泛化的表征；已公开代码与六个下游任务评估。
-
 ctpretrain: >-
   CTPretrain 是面向低剂量、稀疏视角与有限角 CT 的双域预训练基础模型。它耦合 sinogram 域修复 transformer 与经可学习高斯带通分解预训练的 image 域修复 transformer，使单个模型适应不同类型与程度的退化。
 vfminr: >-

@@ -554,9 +554,6 @@ fid-net: >-
 simurgh-scattercontrol: >-
   Combines ZEISS scatterControl hardware scatter correction with a modified Simurgh 2.5D U-Net to enable high-throughput X-ray CT of large cast metallic components. Reduces scan time by over 10x while preserving flaw detectability, outperforming FDK, model-based iterative reconstruction and commercial DL models on industrial XCT data.
 
-care-ct-foundation: >-
-  CARE is a clinically validated CT foundation model with large-scale vision-language pretraining for comprehensive analysis across five major CT regions. It supports volume-, region- and pixel-level recognition plus vision-language tasks (retrieval, report generation); code and six downstream evaluations are released.
-
 ctpretrain: >-
   CTPretrain is a dual-domain pretraining foundation model for low-dose, sparse-view and limited-angle CT. It couples a sinogram-domain restoration transformer with an image-domain one pretrained via learnable Gaussian bandpass decomposition, so one model adapts to different degradation types and levels.
 vfminr: >-

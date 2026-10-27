@@ -7742,10 +7742,6 @@ simurgh-scattercontrol:
   - name: Peter Kaťuch
     openalex_author_id: https://openalex.org/A5005601514
   matched_by: doi
-care-ct-foundation:
-  openalex: null
-  authors: []
-  matched_by: null
 ctpretrain:
   openalex: https://openalex.org/W7133220621
   authors:
