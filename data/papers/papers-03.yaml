@@ -64,7 +64,8 @@
 - id: "gb-svfbp-gaussian-based-shift-variant-fbp-neural-network"
   abbr: "GB-SVFBP"
   title: "GB-SVFBP: Gaussian-Based Shift-Variant FBP neural network"
-  year: 2026
+  year: 2025
+  venue: "Fully3D"
   topics: [geometry, unrolling]
   paper: "https://arxiv.org/abs/2607.11584"
 

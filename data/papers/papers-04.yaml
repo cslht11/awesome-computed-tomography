@@ -502,6 +502,7 @@
   abbr: "AD-GS"
   title: "AD-GS: Anatomical Density-guided 3D Gaussian Splatting for Sparse-View Dental CBCT Reconstruction"
   year: 2026
+  venue: "BMVC"
   topics: [sparse-view, cbct, gaussian]
   paper: "https://arxiv.org/abs/2610.14963"
   code: "https://github.com/yulinjiaxue/AD-GS-BMVC2026"
@@ -1062,6 +1063,7 @@
   abbr: "X-Field"
   title: "X-Field: A Physically Grounded Representation for 3D X-ray Reconstruction"
   year: 2025
+  venue: "NeurIPS"
   topics: [gaussian, sparse-view]
   paper: "https://arxiv.org/abs/2503.08596"
   code: "https://github.com/Brack-Wang/X-Field"
@@ -1315,7 +1317,8 @@
 - id: "founddiff"
   abbr: "FoundDiff"
   title: "FoundDiff: Foundational Diffusion Model for Generalizable Low-Dose CT Denoising"
-  year: 2025
+  year: 2026
+  venue: "TMI"
   topics: [low-dose, diffusion]
   paper: "https://arxiv.org/abs/2508.17299"
   code: "https://github.com/hao1635/FoundDiff"
@@ -1372,6 +1375,7 @@
   abbr: "TAT"
   title: "TAT: Task-Adaptive Transformer for All-in-One Medical Image Restoration"
   year: 2025
+  venue: "MICCAI"
   topics: [low-dose, other]
   paper: "https://arxiv.org/abs/2512.14550"
   code: "https://github.com/Yaziwel/TAT"
@@ -1506,7 +1510,8 @@
 - id: "eda"
   abbr: "EDA"
   title: "Elucidating the Design Space of Arbitrary-Noise-Based Diffusion Models"
-  year: 2025
+  year: 2026
+  venue: "CVPR"
   topics: [metal-artifact, diffusion]
   paper: "https://arxiv.org/abs/2507.18534"
   note: "Arbitrary-noise diffusion generalizing EDM for image restoration; validated on CT metal artifact removal with competitive results in 5 sampling steps."
@@ -1542,6 +1547,7 @@
   abbr: "MedVAE"
   title: "MedVAE: Efficient Automated Interpretation of Medical Images with Large-Scale Generalizable Autoencoders"
   year: 2025
+  venue: "MIDL"
   topics: [other]
   paper: "https://arxiv.org/abs/2502.14753"
   code: "https://github.com/StanfordMIMI/MedVAE"
@@ -1550,7 +1556,8 @@
 - id: "maisi"
   abbr: "MAISI"
   title: "MAISI: Medical AI for Synthetic Imaging"
-  year: 2024
+  year: 2025
+  venue: "WACV"
   topics: [other]
   paper: "https://arxiv.org/abs/2409.11169"
   code: "https://github.com/NVIDIA-Medtech/NV-Generate-CTMR"
@@ -1559,7 +1566,8 @@
 - id: "generate-ct"
   abbr: "GenerateCT"
   title: "GenerateCT: Text-Conditional Generation of 3D Chest CT Volumes"
-  year: 2023
+  year: 2024
+  venue: "ECCV"
   topics: [other]
   paper: "https://arxiv.org/abs/2305.16037"
   code: "https://github.com/ibrahimethemhamamci/GenerateCT"

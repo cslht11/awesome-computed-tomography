@@ -740,7 +740,8 @@
 
 - id: "nonperiodic-dynamic-ct-reconstruction-using-backward-warping"
   title: "Nonperiodic dynamic CT reconstruction using backward-warping INR with regularization of diffeomorphism (BIRD)"
-  year: 2025
+  year: 2026
+  venue: "PMB"
   topics: [inr, dynamic]
   paper: "https://arxiv.org/abs/2505.03463"
 
@@ -816,6 +817,7 @@
 - id: "shape-guided-gaussian-splatting-for-sparse-view-x-ray-3d-rec"
   title: "Shape-guided Gaussian Splatting for Sparse-View X-ray 3D Reconstruction"
   year: 2026
+  venue: "Off-Grid Workshop"
   topics: [gaussian, sparse-view]
   paper: "https://arxiv.org/abs/2609.10376"
   code: "https://github.com/polyshape-lab/ShapeGuidedGaussian"
