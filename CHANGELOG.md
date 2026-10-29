@@ -114,6 +114,53 @@ may be reformatted at any time.
 - **Papers.** *Learned denoising with simulated and experimental low-dose CT data* is Sci Rep 2025 (online 2025-12-04), not 2026, and its code link pointed at a repository that does not exist, so it is removed. DDDM now links its IEEE SPL article instead of the TechRxiv preprint. Three entries carry the titles and year of their published versions (same authors as the preprints): the MedIA survey on diffusion models (2023), ProCT (*Universal Pre-training for Generalizable Incomplete-View CT Reconstruction*) and the 4D-CBCT Gaussian paper (*Dynamic Cone Beam CT Reconstruction via Spatiotemporal Gaussian Neural Representation*). Three code links follow renamed repositories (DiffusionMBIR, MAGIC, SparseViewCT-TCI), and three venues read "TRPMS" like the other sixteen.
 - **Chinese homepage.** The hero sentence on /zh/ opened with the English tagline; the `{tagline}` token is now filled per language, and the DOM suite checks it.
 
+## 2026-10-28 — 4D-Lung dataset
+
+### Added
+
+- **4D-Lung** (TCIA, CC BY 3.0): 4D fan-beam CT and 4D cone-beam CT of 20 lung-cancer patients during chemoradiotherapy, with contours; images only, no raw projections. PRIOR, which trains and tests on it, gets a verified dataset-usage link. Datasets 79 → 80.
+
+## 2026-10-27 — Three papers added, three withdrawn after an arXiv audit
+
+### Added
+
+- Three papers by Jiayang Shi et al.: **EFMCT** (MICCAI 2026), **Multi-stage deep learning artifact reduction for parallel-beam CT** (J. Synchrotron Radiat. 2025) and **SR4ZCT** (MLMI 2023), with six verified dataset-usage links.
+
+### Removed
+
+- Three entries were withdrawn after an audit of the arXiv-only papers: `baggagect`, `temporal-ct-per-bundle` and `care-ct-foundation` (the last was a scope exception with no published paper). The list is back at 653 papers.
+
+### Fixed
+
+- Audit follow-ups: one paper's venue and year set to TMI 2026; code links added for two papers; notes on two entries describe their repositories' current state.
+
+## 2026-10-26 — Published venues for 11 former preprints; 13 dataset-usage links
+
+### Changed
+
+- **11 papers listed as preprints now carry their published venue**, read from the DOI record: PMB 2026, Off-Grid Workshop 2026, Fully3D 2025, BMVC 2026, NeurIPS 2025, TMI 2026, MICCAI 2025, CVPR 2026, MIDL 2025, WACV 2025 and ECCV 2024, with years set to the published volume.
+
+### Added
+
+- **13 hand-verified dataset-usage links** in the knowledge graph, in five batches (33 → 46), each quoting the paper's own experiments section.
+
+## 2026-10-25 — Team sweeps complete; graph data refreshed
+
+### Added
+
+- **41 papers from the last six groups in the Teams directory** (team sweeps 15–20), plus GeoAtt corrected to its actual paper and a CNN-inverse card in the family tree. The list grows from 611 to 653 papers.
+- **Graph data refreshed** for the 116 papers added since 22 October: their OpenAlex authors and 1,110 more in-library citation links.
+
+### Fixed
+
+- The interior-tomography paper's year: 2022 (PMB, from its DOI), not 2025.
+
+## 2026-10-24 — Team sweeps: 65 papers from the research groups
+
+### Added
+
+- **65 papers from the groups in the Teams directory** (team sweeps 3–14): JHU 6, Fessler (Michigan) 4, Mayo Clinic 23, UW–Madison 5, Purdue 2, LLNL 1, Argonne 2, FAU Erlangen 6, Cambridge 4, CWI 4, Antwerp 2 and KTH 6. The list grows from 546 to 611 papers.
+
 ## 2026-10-24 — Graph index folds lineages into Overview
 
 ### Changed

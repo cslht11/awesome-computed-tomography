@@ -116,6 +116,58 @@
 - **论文。**《Learned denoising with simulated and experimental low-dose CT data》是 Sci Rep 2025（2025-12-04 在线发表），不是 2026；其代码链接指向一个不存在的仓库，已删除。DDDM 改为链接 IEEE SPL 正式论文，不再链接 TechRxiv 预印本。三个条目改用正式发表版本的题名与年份（作者与预印本相同）：MedIA 上的扩散模型综述（2023）、ProCT（《Universal Pre-training for Generalizable Incomplete-View CT Reconstruction》）以及 4D-CBCT 高斯论文（《Dynamic Cone Beam CT Reconstruction via Spatiotemporal Gaussian Neural Representation》）。三个代码链接改为仓库更名后的地址（DiffusionMBIR、MAGIC、SparseViewCT-TCI），三处期刊名统一为"TRPMS"，与其余十六处一致。
 - **中文首页。**/zh/ 首屏的导语此前以英文标语开头；现在 `{tagline}` 按语言填充，DOM 测试也会检查这一点。
 
+## 2026-10-28 — 4D-Lung 数据集
+<!-- en: 4D-Lung dataset -->
+
+### 新增
+
+- **4D-Lung**（TCIA，CC BY 3.0）：20 例肺癌患者放化疗期间的四维扇束 CT 与四维锥束 CT，附轮廓标注；只有图像，没有原始投影。PRIOR 在该数据上训练和测试，已记为一条经过核实的数据集使用关系。数据集 79 → 80。
+
+## 2026-10-27 — 新增三篇论文，arXiv 审核后撤下三篇
+<!-- en: Three papers added, three withdrawn after an arXiv audit -->
+
+### 新增
+
+- Jiayang Shi 等人的三篇论文：**EFMCT**（MICCAI 2026）、**Multi-stage deep learning artifact reduction for parallel-beam CT**（J. Synchrotron Radiat. 2025）与 **SR4ZCT**（MLMI 2023），并附六条经过核实的数据集使用关系。
+
+### 移除
+
+- 对仅有 arXiv 版本的论文审核后，撤下三条：`baggagect`、`temporal-ct-per-bundle` 与 `care-ct-foundation`（最后一条原是收录范围的例外，且没有正式发表的论文）。论文数回到 653 篇。
+
+### 修复
+
+- 审核后续：一篇论文的期刊与年份改为 TMI 2026；为两篇论文补上代码链接；两条说明改为描述其代码仓库的当前状态。
+
+## 2026-10-26 — 11 篇原预印本补上正式发表的期刊/会议；13 条数据集使用关系
+<!-- en: Published venues for 11 former preprints; 13 dataset-usage links -->
+
+### 变更
+
+- **11 篇原标为预印本的论文补上了正式发表的期刊或会议**（依据 DOI 记录）：PMB 2026、Off-Grid Workshop 2026、Fully3D 2025、BMVC 2026、NeurIPS 2025、TMI 2026、MICCAI 2025、CVPR 2026、MIDL 2025、WACV 2025 与 ECCV 2024，年份改为正式发表的卷期年份。
+
+### 新增
+
+- 知识图谱中新增 **13 条人工核实的数据集使用关系**（分五批，33 → 46），每条都引用论文自身实验部分的原文。
+
+## 2026-10-25 — 团队梳理完成；图谱数据更新
+<!-- en: Team sweeps complete; graph data refreshed -->
+
+### 新增
+
+- **来自"团队"目录中最后六个课题组的 41 篇论文**（团队梳理第 15–20 批），另有 GeoAtt 改为指向其真正对应的论文，以及谱系树中新增的 CNN-inverse 卡片。论文从 611 篇增至 653 篇。
+- **图谱数据更新**：为 10 月 22 日以来新增的 116 篇论文补上 OpenAlex 作者信息，以及 1,110 条库内引用连线。
+
+### 修复
+
+- 内部重建（interior tomography）论文的年份：依据其 DOI 应为 2022（PMB），而不是 2025。
+
+## 2026-10-24 — 团队梳理：来自各课题组的 65 篇论文
+<!-- en: Team sweeps: 65 papers from the research groups -->
+
+### 新增
+
+- **来自"团队"目录中各课题组的 65 篇论文**（团队梳理第 3–14 批）：JHU 6 篇、Fessler（密歇根）4 篇、Mayo Clinic 23 篇、UW–Madison 5 篇、Purdue 2 篇、LLNL 1 篇、Argonne 2 篇、FAU Erlangen 6 篇、剑桥 4 篇、CWI 4 篇、安特卫普 2 篇、KTH 6 篇。论文从 546 篇增至 611 篇。
+
 ## 2026-10-24 — 图谱索引把谱系树并入总览
 <!-- en: Graph index folds lineages into Overview -->
 
