@@ -399,7 +399,7 @@ pages:
     <ul>
       <li><strong>Identity.</strong> Every paper link is resolved against Crossref, arXiv or the publisher’s own record, and the title is matched against that record, so an entry cannot quietly point at a different paper.</li>
       <li><strong>Venue.</strong> Paper venues are confirmed from the DOI rather than from search results. Papers without a peer-reviewed venue are marked <em>preprint</em> and dated by their first public posting.</li>
-      <li><strong>Links.</strong> Every URL is checked. Code links point at the authors’ own repositories where they exist.</li>
+      <li><strong>Links.</strong> Every URL is checked, and an automated check reruns every week. Code links point at the authors’ own repositories where they exist.</li>
     </ul>
     <p>Checks catch broken links and mismatched records, not every mistake. A venue, a year or a category can still be wrong. If a detail matters for your work, follow the link and rely on the original paper.</p>
 

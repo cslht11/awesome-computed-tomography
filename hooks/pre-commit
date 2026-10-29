@@ -2,7 +2,7 @@
 # 本仓库只允许以 cslht11 的官方邮箱提交。
 #
 # 起因：2026-10-12 诊断出旧仓库贡献者里多出 chai1110，根因是某批提交用了
-# csljjh99@gmail.com —— 一个属于另一个账号的邮箱（见 HANDOFF.md「先读」一节）。
+# csljjh99@gmail.com —— 一个属于另一个账号的邮箱。
 #
 # 由 scripts/install-hooks.sh 安装到 .git/hooks/。Git 不会自动启用仓库里的
 # hooks/ 目录，克隆之后必须跑一次那个脚本。

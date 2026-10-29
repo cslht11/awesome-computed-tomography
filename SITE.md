@@ -86,8 +86,7 @@ python -m http.server 8899 -d site      # then open http://127.0.0.1:8899/
 
 **Stop the preview server when you are done with it.** `http.server` holds the
 directory it was started in, and on Windows that alone is enough to make the folder
-impossible to rename or move until the process is killed. (This actually bit us once —
-see `local/docs/2026-10-11-目录整理与备份清单.md`.)
+impossible to rename or move until the process is killed. (This actually bit us once.)
 
 `site/index.html` also opens correctly by **double-clicking** it — see the two design
 constraints below, which exist specifically to keep that working.

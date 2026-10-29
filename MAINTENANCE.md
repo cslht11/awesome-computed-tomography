@@ -298,7 +298,7 @@ imposes a compatibility contract on the `id` fields that nothing currently promi
 keeps the rewritten-away commits reachable. GitHub counts contributors over every
 reachable commit, so a stale tag made a deleted author reappear in Insights long
 after the branch itself was clean. Tags are not free bookkeeping here; they are
-anchors into history. See `HANDOFF.md` §5.9b.
+anchors into history.
 
 ## Sole authorship: one author, no bots, no pull requests
 
