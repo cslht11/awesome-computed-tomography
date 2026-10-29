@@ -9,12 +9,23 @@ not take outside pull requests. Suggestions come in as issues or by email
 ```
 awesome-computed-tomography/
 ├── data/                        the only hand-edited content
-│   ├── papers.yaml              papers
+│   ├── papers/papers-NN.yaml    papers, sharded (new entries go on the LAST shard)
+│   ├── summaries/summaries-NN.yaml        hover blurbs, English, keyed by paper id
+│   ├── summaries.zh/summaries.zh-NN.yaml  the same blurbs in Chinese
 │   ├── toolkits.yaml            toolkits and libraries
 │   ├── datasets.yaml            datasets
 │   ├── benchmarks.yaml          benchmarks and challenges
 │   ├── learning.yaml            books, courses, tutorials
-│   ├── meta.yaml                the topic taxonomy + the language registry
+│   ├── teams.yaml               research groups (Teams tab)
+│   ├── topics.yaml              topic hub pages: intros and "Start here" picks
+│   ├── guides.yaml              /guides/ pages
+│   ├── resources.yaml           which datasets/benchmarks get a page of their own
+│   ├── lineages.yaml            curated lineage trees (/graph/lineage/)
+│   ├── graph/                   knowledge-graph data
+│   │   ├── authors.yaml         OpenAlex authorship per paper (fetch_openalex.py)
+│   │   ├── citations.yaml       in-library citation pairs (fetch_openalex.py)
+│   │   └── paper_datasets.yaml  hand-verified paper -> dataset usage
+│   ├── meta.yaml                topic taxonomy, language registry, last_updated
 │   └── i18n/
 │       ├── en.yaml              every user-visible string, English (source of truth)
 │       └── zh.yaml              Chinese overlay; a missing key falls back to English
@@ -24,6 +35,10 @@ awesome-computed-tomography/
 │   ├── export_site_data.py      the JSON payload on its own (build_site uses it too)
 │   ├── changelog.py             CHANGELOG.md (+ its translation) -> /changelog/
 │   ├── i18n.py                  overlay lookup and the orphan-key checker
+│   ├── resource_pages.py        dataset / benchmark pages and the guides
+│   ├── graph.py, graph_layout.py, graph_slices.py, lineage_tree.py   the /graph/ pages
+│   ├── brand_assets.py          favicon, touch icon and share image, generated
+│   ├── check_last_updated.py    CI guard: last_updated must cover the newest data commit
 │   ├── check_links.py           link-health sweep; writes into scripts/oneoff/
 │   ├── install-hooks.sh         copies hooks/ into .git/hooks/ (see below)
 │   └── oneoff/                  the harvest history — how each entry was found
@@ -36,8 +51,10 @@ awesome-computed-tomography/
 │   ├── styles.css               all styling; light and dark from one token set
 │   ├── search.js                the search core: tokenise, index, rank, highlight
 │   ├── app.js                   filtering and rendering; uses search.js
-│   └── chrome.js                the phone drawer on the standalone pages
-├── tests/                       search + structured-data tests (pure ones run in CI)
+│   ├── chrome.js                the phone drawer on the standalone pages
+│   ├── graph.js, lineage.js     the graph pages and the lineage canvas
+│   └── vendor/                  sigma.js + graphology (MIT), see vendor/README.md
+├── tests/                       search, structured-data and jsdom page tests (all run in CI)
 ├── assets/logo.svg              the mark
 ├── site.config.yml              title, origin, licence — the site's single config
 ├── requirements.txt             PyYAML, and nothing else
@@ -53,7 +70,8 @@ To change something, edit the left column and rerun the right one:
 
 | Change | Edit | Then run |
 | --- | --- | --- |
-| a paper, toolkit, dataset, benchmark or learning resource | the matching `data/*.yaml` | `python scripts/build.py` |
+| a paper | the last shard in `data/papers/` — see the checklist below | `python scripts/build.py` |
+| a toolkit, dataset, benchmark, learning resource or team | the matching `data/*.yaml` | `python scripts/build.py` |
 | a user-visible string, in either language | `data/i18n/<lang>.yaml` | `python scripts/build.py` |
 | a topic's name, description or order | `data/meta.yaml` and the overlays | `python scripts/build.py` |
 | anything about the website | `web/` | `python scripts/build_site.py` |
@@ -88,17 +106,26 @@ then commit the data change **and** every regenerated README together. Running
 writes both `README.md` and `README.zh-CN.md`; committing only the English one
 leaves the Chinese file stale, and CI now fails on that.
 
-CI (`.github/workflows/validate.yml`) does exactly three things:
+CI (`.github/workflows/validate.yml`), in order:
 
-1. `python scripts/build.py --check`
-2. rebuild and fail if **any** generated README (`README.md`, `README.zh-CN.md`) is not
+1. **Sole authorship** — every pushed commit is attributed to cslht11 (see below)
+2. `python scripts/build.py --check`
+3. `python scripts/check_last_updated.py` — `data/meta.yaml` `last_updated` must not be
+   older than the newest commit that touched `data/` (the commit's own date or its
+   Asia/Shanghai date, whichever is earlier)
+4. rebuild and fail if **any** generated README (`README.md`, `README.zh-CN.md`) is not
    byte-identical to the committed copy — the loop covers every language, so a stale
    translation fails the push just like a stale English file
-3. `python scripts/build_site.py` — build the website too, so a change that breaks it
+5. `python scripts/build_site.py` — build the website too, so a change that breaks it
    fails here rather than at deploy time
+6. `tests/test_search.js`, `tests/test_seo.js` and `tests/test_site_dom.js` (jsdom)
 
-So if `--check` passes locally, `git status` is clean after a rebuild, and
-`build_site.py` exits 0, CI will pass.
+**The deploy waits for all of this.** `deploy.yml` runs on `workflow_run` after
+`validate` succeeds on a push to `main`, and builds the commit validate checked. A red
+`validate` means the website is not updated (see SITE.md, *Deploying*).
+
+So if `--check` and `check_last_updated.py` pass locally, `git status` is clean after a
+rebuild, `build_site.py` exits 0 and the three test suites pass, CI will pass.
 
 ## What `build.py` validates
 
@@ -354,7 +381,7 @@ Worth knowing, because each of these was silent:
 
 | Category | File | Bar |
 | --- | --- | --- |
-| Papers | `data/papers.yaml` | Peer-reviewed, arXiv preprint, or a well-documented technical report on CT reconstruction. |
+| Papers | `data/papers/papers-NN.yaml` | Peer-reviewed, arXiv preprint, or a well-documented technical report on CT reconstruction. |
 | Toolkits & libraries | `data/toolkits.yaml` | Publicly available, actively usable code (reconstruction, simulation, geometry, denoising). |
 | Datasets | `data/datasets.yaml` | Publicly downloadable CT datasets with a stable landing page. |
 | Benchmarks & challenges | `data/benchmarks.yaml` | Community benchmarks and challenge campaigns with published results. |
@@ -366,7 +393,7 @@ belongs to (a sparse-view diffusion paper goes under both `sparse-view` and
 
 ### Entry schemas
 
-#### `data/papers.yaml`
+#### `data/papers/papers-NN.yaml`
 
 ```yaml
 - id: fbpconvnet                 # required, unique, lowercase slug
@@ -448,29 +475,54 @@ so keep the wording exactly as above.
   note: Jiang Hsieh. The standard practitioner reference.
 ```
 
-Survey papers are **not** listed here — file them under `data/papers.yaml` with
+Survey papers are **not** listed here — file them under `data/papers/` with
 the `survey` topic, so they appear in the Papers section instead of being
 duplicated.
 
 ### Checklist: adding one paper
 
-One entry is never one edit. `data/papers.yaml` is the only hand-written file,
-but five other things are derived from it or have to be kept beside it, and
-each one is silent when you skip it — the build still succeeds, the site still
-serves, and the gap only shows up as a stale number somewhere.
+One entry is never one edit. The paper entry is the only source of truth, but
+several other files are derived from it or have to be kept beside it, and most
+of them are silent when you skip them — the build still succeeds, the site still
+serves, and the gap only shows up as a stale number, an English blurb on the
+Chinese site, or a paper missing from the graph.
+
+**Edit by hand (one commit):**
 
 | # | Do | Why | What happens if you skip it |
 | --- | --- | --- | --- |
-| 1 | Add the entry to `data/papers.yaml` | The only source of truth | — |
-| 2 | **Resolve the identifiers first** — Crossref by exact title (accept at ≥ 0.90 similarity), arXiv only as a fallback | A PDF-to-markdown conversion keeps the arXiv ids of the *bibliography*, not of the paper. Two entries in this list got a wrong DOI that way | A plausible-looking link to a different paper |
-| 3 | If the entry has a `note`, add `zh.yaml` → `papers: "<id>": note:` | The list is bilingual; `build.py` prints the shortfall rather than failing | The Chinese site shows one English note among Chinese ones |
-| 4 | Run `python scripts/build.py` | Rewrites both READMEs and re-validates | Both READMEs keep the previous count while the data has moved on |
-| 5 | Run `python scripts/build_site.py` | Rewrites `site/`, including `data.json`, `sitemap.xml` and the cover counts | Local preview stale — harmless locally, but it is how you notice step 4 was skipped |
-| 6 | Run `node tests/test_search.js` | The search index is built from the payload in the browser | Nothing breaks; you just stop noticing when it does |
-| 7 | Add a dated entry to `CHANGELOG.md`, and its translation to `CHANGELOG.zh-CN.md` (same date, `<!-- en: English title -->` under the heading; `python scripts/changelog.py --status CHANGELOG.zh-CN.md` lists what is missing) | There are no version numbers, so the changelog *is* the history | The change is invisible to anyone not reading diffs; without the translation, `/zh/changelog/` shows that entry in English |
-| 8 | Commit as cslht11 and push | `hooks/pre-push` refuses any commit that is not | Push rejected |
-| 9 | Wait for `validate` **and** `Deploy site to GitHub Pages` | Two workflows; only the second one publishes | GitHub is ahead of the website |
-| 10 | Confirm the live `data.json` counts match the local build | The one check no hook can do, because it is the only one that sees what GitHub actually computed | — |
+| 1 | Add the entry to the **last** shard in `data/papers/` (`papers-NN.yaml`); start a new shard when it nears ~130 KB | The only source of truth; shards exist because of a per-file push limit | — |
+| 2 | **Resolve the identifiers first** — Crossref by exact title (accept at ≥ 0.90 similarity), arXiv only as a fallback. When you upgrade an arXiv link to a DOI, **read title and year back from that DOI** | A PDF-to-markdown conversion keeps the arXiv ids of the *bibliography*. Upgrading a link without a read-back left three entries with the preprint's title or year (fixed 2026-10-29) | A plausible-looking link to a different paper, or the wrong year/title |
+| 3 | Add the hover blurb to the last shard of **both** `data/summaries/` and `data/summaries.zh/` (keyed by the paper id; your own words, not abstract sentences) | Every paper has one in both languages; nothing validates this | No hover card for that paper, or an English one on the Chinese site |
+| 4 | If the entry has a `note`, add `zh.yaml` → `papers: "<id>": note:` | The list is bilingual; `build.py` prints the shortfall rather than failing | The Chinese site shows one English note among Chinese ones |
+| 5 | Optional, by judgement: a "Start here" pick in `data/topics.yaml`; a node in `data/lineages.yaml` (then update the **hand-written paper count** in that lineage's `description` and `intro`, EN and ZH); a verified usage edge in `data/graph/paper_datasets.yaml` (quote the paper's own experiments section) | Curated layers on top of the list | — |
+| 6 | Set `data/meta.yaml` **`last_updated`** to today | The only date on the site that nothing updates for you: the homepage "Updated" stat, both READMEs, the meta description, `llms.txt`, the JSON-LD `dateModified` and every sitemap `<lastmod>` read it | CI fails (`check_last_updated.py`), so nothing deploys |
+| 7 | Run `python scripts/build.py` | Rewrites both READMEs (counts, date, badge) and re-validates | CI fails on the stale README, so nothing deploys |
+| 8 | Run `python scripts/build_site.py`, then `node tests/test_search.js`, `node tests/test_seo.js` and `tests/test_site_dom.js` (jsdom, see tests/README.md) | Same checks CI runs | CI fails, so nothing deploys |
+| 9 | Add a dated entry to `CHANGELOG.md`, and its translation to `CHANGELOG.zh-CN.md` (same date, `<!-- en: English title -->` under the heading; `python scripts/changelog.py --status CHANGELOG.zh-CN.md` lists what is missing) | There are no version numbers, so the changelog *is* the history | The change is invisible to anyone not reading diffs; without the translation, `/zh/changelog/` shows that entry in English |
+| 10 | Commit as cslht11 and push | `hooks/pre-push` and CI refuse any commit that is not | Push or CI rejected |
+
+**Then, after that push (a second commit):**
+
+| # | Do | Why | What happens if you skip it |
+| --- | --- | --- | --- |
+| 11 | Run `python3 scripts/oneoff/fetch_openalex.py` (needs `requests`; it reads the paper shards **from GitHub main**, which is why this step comes after the push), then copy the `authors.yaml` and `citations.yaml` it writes beside itself over `data/graph/` | Authors, team links and in-library citations for the knowledge graph | The new paper has no authors and no citation edges in the graph (as EFMCT, SR4ZCT and the multi-stage parallel-beam paper had on 2026-10-28) |
+| 12 | Rebuild, run the tests, commit and push | Same as steps 7–10 | — |
+
+**Watch the deploy:**
+
+| # | Do | Why |
+| --- | --- | --- |
+| 13 | Wait for `validate`, then `Deploy site to GitHub Pages` (it starts only after validate succeeds) | A red `validate` means the website was not updated |
+| 14 | Confirm the live `data.json` counts and the homepage "Updated" date match the local build | The one check no hook can do, because it is the only one that sees what GitHub actually computed |
+
+**Generated for you at build time — never edit:** the homepage and topic-page counts,
+both READMEs (after step 7), `data.json`, the JSON-LD, `llms.txt`, `sitemap.xml`, the
+dataset/benchmark pages, the graph slices and the counts inside the guides.
+
+**Refreshed by hand from time to time (not per paper):** toolkit `stars` (snapshot date
+in the header of `data/toolkits.yaml`), and each team's `verified` date in
+`data/teams.yaml`.
 
 `site/` is gitignored — it is a build artifact, never committed. That is
 deliberate, and it is why step 9 matters: the website is built from the pushed

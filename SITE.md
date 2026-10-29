@@ -33,7 +33,7 @@ PyYAML.
 | `scripts/export_site_data.py` | yes | `data/*.yaml` -> the JSON payload. Also usable on its own. |
 | `scripts/build_site.py` | yes | Assembles templates + payload + origin into `site/`, once per language. |
 | `scripts/changelog.py` | yes | Parses `CHANGELOG.md` into dated entries (newest first) and renders them for `/changelog/` and `/zh/changelog/`. Fails the build on an undated `##` heading or a date more than a day in the future. The Chinese edition reads each entry's translation from `CHANGELOG.zh-CN.md`, matched by date and the `<!-- en: … -->` title line; an untranslated entry falls back to English (marked `lang="en"`, with a note on the page), and a translation whose English entry no longer exists fails the build. |
-| `data/resources.yaml` | yes | Which dataset/benchmark rows get a page at `/datasets/<slug>/` or `/benchmarks/<slug>/`, their slugs, short names, paper-matching aliases and descriptor papers, plus the page strings (en/zh). The rule for which rows qualify is documented at the top of the file; every fact on the pages comes from `data/datasets.yaml` / `data/benchmarks.yaml` / `data/papers.yaml`. |
+| `data/resources.yaml` | yes | Which dataset/benchmark rows get a page at `/datasets/<slug>/` or `/benchmarks/<slug>/`, their slugs, short names, paper-matching aliases and descriptor papers, plus the page strings (en/zh). The rule for which rows qualify is documented at the top of the file; every fact on the pages comes from `data/datasets.yaml` / `data/benchmarks.yaml` / `data/papers/`. |
 | `data/guides.yaml` | yes | The evergreen guides at `/guides/<slug>/`: editorial prose (en/zh) with `{tokens}` filled from live data, the generated comparison tables they show, and their FAQ. |
 | `scripts/resource_pages.py` | yes | Selects and renders the dataset, benchmark and guide pages and their two indexes; called by `build_site.py`. |
 | `site/` | **no** | Build output. Git-ignored. Delete it freely; it is regenerated. |
@@ -97,9 +97,16 @@ address was used.
 
 ## Deploying
 
-**Live at <https://computedtomography.org/>**, and published automatically:
-`.github/workflows/deploy.yml` runs on every push to `main` and rebuilds `site/` from
-`data/*.yaml`. Nothing generated is committed.
+**Live at <https://computedtomography.org/>**, and published automatically: after
+`validate` passes on a push to `main`, `.github/workflows/deploy.yml` rebuilds `site/`
+from `data/` for that exact commit and publishes it. Nothing generated is committed.
+
+Deploy is chained to validation with `workflow_run` (since 2026-10-29). Before that both
+workflows triggered on `push` in parallel, so a push that failed `validate` — a stale
+README, a commit by another account, the DOM suite, a stale `last_updated` — still went
+live. Now a red `validate` means no deploy, and the deploy builds `workflow_run.head_sha`,
+the commit validate actually checked. `workflow_dispatch` (Actions tab) still deploys by
+hand, without waiting for validate.
 
 It started as a manual-only workflow, deliberately: `actions/deploy-pages` fails while
 Pages is switched off, so a push trigger added before then would turn every push red for
@@ -127,13 +134,21 @@ gh api repos/cslht11/awesome-computed-tomography/pages \
   --jq '{html_url, cname, build_type, https_enforced, cert: .https_certificate.state}'
 ```
 
-Both workflows begin with `python scripts/build.py --check`, which validates `data/*.yaml`
-and the i18n overlays. Regenerating the READMEs is a *separate* guard and it does not live
-here: `.github/workflows/validate.yml` runs on pushes to `main` **and** on pull requests,
-rebuilds both READMEs and fails if either differs from the committed copy. `deploy.yml`
-runs only on pushes to `main` (and by hand), so a stale README is caught by validate
-rather than at deploy time. `validate.yml` also runs `build_site.py`, so a change that
-breaks the site fails CI rather than surfacing at the next deploy.
+Both workflows begin with `python scripts/build.py --check`, which validates `data/`
+and the i18n overlays. `validate.yml` (pushes to `main` and pull requests) additionally
+checks sole authorship, that `data/meta.yaml` `last_updated` is not older than the newest
+commit touching `data/` (`scripts/check_last_updated.py`), that both READMEs are
+byte-identical to a rebuild, that `build_site.py` succeeds, and runs all three test
+suites. Because deploy waits for it, every one of those checks now blocks publication.
+
+**Cache-busting.** GitHub Pages serves every file with `max-age=600`. So that a deploy
+never pairs new HTML with a cached old script, every page references `styles.css`,
+`search.js`, `app.js`, `chrome.js` and `lang.js` with `?v=<content hash>` (as the graph
+and lineage assets already did); `tests/test_seo.js` fails on any unversioned reference.
+
+**Sitemap dates.** Every `<lastmod>` is `data/meta.yaml` `last_updated`, the content
+date, not the build date, so a rebuild that changes no data does not tell search engines
+that all pages changed.
 
 ## Switching to a custom domain
 

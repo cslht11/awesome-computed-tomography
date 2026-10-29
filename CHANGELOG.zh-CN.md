@@ -6,6 +6,20 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 部署须等校验通过；静态资源带版本号；last_updated 受检查
+<!-- en: Deploys wait for validation; cache-busted assets; a guarded last_updated -->
+
+### 变更
+
+- **网站只在 `validate` 通过后才更新。** 此前 `deploy.yml` 在每次推送时与 `validate.yml` 并行触发，因此一次校验失败的推送（README 过期、提交者不是本账号、jsdom 测试失败）照样会上线。现在它通过 `workflow_run` 在 `validate` 于 `main` 推送上成功之后运行，并且构建的正是 validate 检查过的那个提交。从 Actions 页手动部署仍然可用。
+- **每个页面的样式表和脚本都带上内容哈希**（`styles.css?v=…`、`app.js?v=…` 等），与图谱页和谱系页的资源一致。GitHub Pages 会把文件缓存十分钟，否则访客可能拿到新页面配旧脚本。`tests/test_seo.js` 发现任何未带版本号的引用都会失败。
+- **站点地图的 `<lastmod>` 改用内容日期**（`data/meta.yaml` 的 `last_updated`），不再用构建日期，因此不改数据的重新构建不会再把全部 208 个页面标为"已修改"。
+
+### 新增
+
+- `scripts/check_last_updated.py`，由 `validate` 运行：当 `data/` 在 `last_updated` 之后又有改动时报错。`last_updated` 是首页、两份 README、JSON-LD、`llms.txt` 和站点地图共同读取的唯一手写日期。提交本身的日期或其上海时区日期任一满足即可，所以在任一时区深夜提交都不会误报。
+- MAINTENANCE.md：仓库结构图涵盖分片后的论文与摘要、图谱、团队、主题、指南和谱系；CI 一节列出 `validate` 现在检查的内容；**"Checklist: adding one paper"** 列出新增一篇论文会涉及的全部文件——两份摘要、`last_updated`、OpenAlex 步骤（它从 GitHub 读取数据，所以是第二次提交）以及谱系简介里手写的论文数量。SITE.md 说明了部署链路、静态资源版本号和站点地图日期。
+
 ## 2026-10-29 — 修正外部审查发现的条目错误
 <!-- en: Corrected records found by an outside review -->
 

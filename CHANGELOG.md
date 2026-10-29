@@ -13,6 +13,19 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Deploys wait for validation; cache-busted assets; a guarded last_updated
+
+### Changed
+
+- **The website is only updated after `validate` passes.** `deploy.yml` used to trigger on every push in parallel with `validate.yml`, so a push that failed validation (a stale README, a commit by another account, the jsdom suite) still went live. It now runs on `workflow_run` after `validate` succeeds on a push to `main`, and builds the exact commit validate checked. Manual deploys from the Actions tab still work.
+- **Every page's stylesheet and scripts carry a content hash** (`styles.css?v=…`, `app.js?v=…`, …), as the graph and lineage assets already did. GitHub Pages caches files for ten minutes, so without it a visitor could get the new page with the previous deploy's script. `tests/test_seo.js` fails on any unversioned reference.
+- **Sitemap `<lastmod>` is the content date** (`data/meta.yaml` `last_updated`), not the build date, so a rebuild that changes no data no longer marks all 208 pages as modified.
+
+### Added
+
+- `scripts/check_last_updated.py`, run by `validate`: it fails when `data/` changed after `last_updated`, the one hand-set date that the homepage, both READMEs, the JSON-LD, `llms.txt` and the sitemap all read. The commit's own date or its Asia/Shanghai date is accepted, so a late-evening commit in either timezone does not fail.
+- MAINTENANCE.md: the repository map covers the sharded papers and blurbs, the graph, teams, topics, guides and lineages; the CI section lists what `validate` now checks; and **"Checklist: adding one paper"** lists every file a new paper touches — both blurb files, `last_updated`, the OpenAlex step (which reads from GitHub, so it is a second commit) and the hand-written count in a lineage's description. SITE.md documents the deploy chain, cache-busting and sitemap dates.
+
 ## 2026-10-29 — Corrected records found by an outside review
 
 ### Fixed
