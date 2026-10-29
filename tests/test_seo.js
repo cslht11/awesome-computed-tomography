@@ -278,7 +278,9 @@ for (const L of LANGS) {
   ok("no orphan pages", orphans.length === 0, orphans.join(", "));
   // Topic pages link the dataset pages they list and the relevant guides.
   let topicLinks = 0, topicBroken = [];
-  for (const t of fs.readdirSync(path.join(SITE, L.prefix, "topics"))) {
+  // Topic hub directories only: topics/ also holds the index page itself.
+  for (const t of fs.readdirSync(path.join(SITE, L.prefix, "topics"), { withFileTypes: true })
+                    .filter((d) => d.isDirectory()).map((d) => d.name)) {
     const tu = base + "topics/" + t + "/";
     const th = read(L.prefix + "topics/" + t + "/index.html");
     for (const target of internalLinks(th, tu)) {
@@ -462,6 +464,33 @@ for (const L of LANGS) {
   const lastmods = new Set([...sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]));
   ok("sitemap <lastmod> is data/meta.yaml last_updated",
      lastmods.size === 1 && lastmods.has(updated), [...lastmods].join(", ") + " vs " + updated);
+}
+
+/* Every page's meta description is unique within its language (the 17
+ * topic graph pages once shared one sentence), and /topics/ is a real
+ * index of the topic hubs rather than a 404. */
+{
+  console.log("\ndescriptions and the topics index");
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const seen = new Map();
+  const dup = [];
+  for (const u of urls) {
+    const file = path.join(SITE, u.slice(ORIGIN.length), u.endsWith("/") ? "index.html" : "");
+    if (!fs.existsSync(file)) continue;
+    const d = attr(fs.readFileSync(file, "utf8"), /<meta name="description" content="([^"]*)"/);
+    const key = (u.startsWith(ORIGIN + "zh/") ? "zh|" : "en|") + d;
+    if (seen.has(key)) dup.push(u + " = " + seen.get(key)); else seen.set(key, u);
+  }
+  ok("every sitemap page has its own meta description", dup.length === 0, dup.slice(0, 3).join("; ") || (urls.length + " pages"));
+  for (const L of LANGS) {
+    const hubs = urls.filter((u) => new RegExp("^" + ORIGIN + L.prefix + "topics/[^/]+/$").test(u));
+    const idx = path.join(SITE, L.prefix, "topics", "index.html");
+    const h = fs.existsSync(idx) ? fs.readFileSync(idx, "utf8") : "";
+    ok("[" + L.code + "] /topics/ exists, is in the sitemap and links every topic page",
+       h && urls.includes(ORIGIN + L.prefix + "topics/") &&
+       hubs.every((u) => h.includes('href="../' + u.slice((ORIGIN + L.prefix).length) + '"')),
+       hubs.length + " topic pages");
+  }
 }
 
 console.log("\nacross languages");

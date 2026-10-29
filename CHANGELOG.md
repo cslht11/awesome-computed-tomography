@@ -13,6 +13,24 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Site fixes: readable dark mode, wrapping, emphasis, accessibility, /topics/
+
+### Fixed
+
+- **Dark mode:** the "code" link next to every paper with code was white on light indigo (2.49:1); it now uses dark text (7.45:1). A new `--on-accent` colour token carries the choice for both themes.
+- **Changelog on phones:** inline `code` was `nowrap`, so long file paths widened the page to 560 px on a 375 px screen and the phone zoomed the whole page out. Inline code now wraps where it has to.
+- **Licence column:** licences used the numeric column style, which never wraps. On phones a long licence was cut off, and on wide screens it made the Licence column wider than Notes. It now wraps (Toolkits and Datasets).
+- **Emphasis renders:** `*text*` and `_text_` were shown literally (e.g. `*why*`, `_preprint_`). The build's and the browser's markdown renderers now both support emphasis, with identical word-edge rules so `snake_case` names and URLs are left alone.
+- **Legends describe the site:** the Papers legend still described the old README ("within each topic", "in italics"); the Datasets legend referred to a "Data" column the site does not have. Both are rewritten (EN and ZH).
+- **Accessibility (axe-core, now 0 violations on the homepage, About, topics index, lineage and changelog pages):** paper titles no longer share one ARIA label, which had made a screen reader announce all 653 the same; the tab list holds only tabs (the drawer title and the Graph/GitHub links sit beside it); the search box is a combobox; the logo link has a name on phones; the lineage canvas has a heading for its cards.
+- **Lineage canvas:** it opened at about 12% scale (card text ~2 px). It now opens at a readable scale on the root card, and a double-click still shows the whole tree. A plain mouse wheel scrolls the page instead of being trapped by the canvas; Ctrl/⌘ + wheel or a pinch zooms.
+- **Topic graph pages** each have their own meta description (all 17 shared one).
+
+### Added
+
+- **`/topics/`** (and `/zh/topics/`) lists every topic page with its paper count and one-line description; it used to be a 404. The "Topic" breadcrumb on each topic page links to it.
+- `tests/test_seo.js` checks that every sitemap page has a unique description within its language and that `/topics/` links every topic page.
+
 ## 2026-10-29 — Deploys wait for validation; cache-busted assets; a guarded last_updated
 
 ### Changed

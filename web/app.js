@@ -85,8 +85,10 @@
     });
   }
 
-  /* Minimal inline markdown for the `note` fields: **bold**, `code`, [text](url).
-     Everything is escaped first, so the output is safe. */
+  /* Minimal inline markdown for the `note` fields: **bold**, *em* / _em_,
+     `code`, [text](url). Everything is escaped first, so the output is safe.
+     The emphasis rules match italics() in scripts/build_site.py: delimiters
+     only at word edges, so snake_case names and URLs are left alone. */
   function mdInline(s) {
     var out = esc(s == null ? "" : s);
     out = out.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
@@ -95,6 +97,12 @@
       });
     out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+    out = out.replace(/(^|[^\w*])\*(?![\s*])([^*\n]+?)\*(?![\w*])/g, function (m, pre, body) {
+      return /\s$/.test(body) ? m : pre + "<em>" + body + "</em>";
+    });
+    out = out.replace(/(^|[^\w])_(?![\s_])([^_\n]+?)_(?![\w])/g, function (m, pre, body) {
+      return /\s$/.test(body) ? m : pre + "<em>" + body + "</em>";
+    });
     return out;
   }
 
@@ -299,10 +307,9 @@
         span.setAttribute("data-blurb", p.blurb);
         span.tabIndex = 0;                 // reachable without a pointer
         span.setAttribute("role", "button");
-        /* Deliberately not run through t(): this is an ARIA label rather than
-           visible copy, and adding a UI key would open a translation gap that
-           the build reports as a fallback. */
-        span.setAttribute("aria-label", "What this paper is about");
+        /* No aria-label: the title text is the accessible name. A fixed label
+           here replaced it, so a screen reader announced every one of the
+           papers as the same phrase. */
       }
       h.appendChild(span);
       li.appendChild(h);
@@ -418,7 +425,7 @@
 
   function renderToolkits() {
     var cols = [{ label: t("tableToolkit", "Toolkit") }, { label: t("tableLanguage", "Language") },
-      { label: t("tableLicense", "License"), cls: "n" },
+      { label: t("tableLicense", "License"), cls: "lic" },
       { label: t("tableStars", "Stars"), cls: "n" },
       { label: t("tableNotes", "Notes"), cls: "note" }];
     var byStars = function (a, b) { return (b.stars || 0) - (a.stars || 0); };
@@ -465,7 +472,7 @@
     renderTable(document.getElementById("t-datasets"),
       [{ label: t("tableDataset", "Dataset") }, { label: t("tableModality", "Modality") },
        { label: t("tableTasks", "Tasks"), cls: "tasks" },
-       { label: t("tableLicense", "License"), cls: "n" },
+       { label: t("tableLicense", "License"), cls: "lic" },
        { label: t("tableNotes", "Notes"), cls: "note" }],
       DATA.datasets.map(function (d) {
         var nm = resourceName(d);

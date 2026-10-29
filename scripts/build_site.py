@@ -113,8 +113,22 @@ def md_inline(text):
     out = out.replace("`", "\x00")
     out = re.sub(r"\x00([^\x00]+)\x00", r"<code>\1</code>", out)
     out = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", out)
+    out = italics(out)
     out = re.sub(r"\s+", " ", out).strip()
     return out
+
+
+# *emphasis* and _emphasis_. Kept identical to mdInline() in web/app.js. The
+# delimiters must sit at word edges, so snake_case names, URLs and products
+# such as 3*4 are left alone (a scan of every note and legend found only
+# intended emphasis when this was added).
+_EM_STAR = re.compile(r"(?<![\w*])\*(?![\s*])([^*\n]+?)(?<!\s)\*(?![\w*])", re.ASCII)
+_EM_UNDER = re.compile(r"(?<![\w])_(?![\s_])([^_\n]+?)(?<!\s)_(?![\w])", re.ASCII)
+
+
+def italics(out):
+    out = _EM_STAR.sub(r"<em>\1</em>", out)
+    return _EM_UNDER.sub(r"<em>\1</em>", out)
 
 
 def top_for(ov, code, key, fallback):
@@ -192,9 +206,10 @@ def render_static_papers(payload, ov):
         if name:
             head += '<span class="abbr">%s</span>' % esc(name)
         if blurb:
+            # No aria-label: it would replace the title as the accessible
+            # name, so a screen reader heard every paper as the same phrase.
             head += ('<span class="p-titletext has-blurb" tabindex="0"'
-                     ' role="button" aria-label="What this paper is about"'
-                     ' title="%s">%s</span>' % (esc(blurb), esc(title)))
+                     ' role="button" title="%s">%s</span>' % (esc(blurb), esc(title)))
         else:
             head += '<span class="p-titletext">%s</span>' % esc(title)
 
@@ -715,7 +730,8 @@ def render_topic_body(tid, tp, payload, code, s, ov, res_pages=None, guides=None
         return '<a href="%s" target="_blank" rel="noopener">%s</a>' % (esc(url), esc(text))
 
     out = ['<nav class="crumbs" aria-label="breadcrumb"><p class="kicker">'
-           '<a href="{{ROOT}}">%s</a> / %s</p></nav>' % (esc(s.get("home", "Home")), esc(s.get("kicker", "Topic"))),
+           '<a href="{{ROOT}}">%s</a> / <a href="{{ROOT}}topics/">%s</a></p></nav>'
+           % (esc(s.get("home", "Home")), esc(s.get("kicker", "Topic"))),
            '<h1>%s</h1>' % esc(topic["name"])]
     paras = [x.strip() for x in re.split(r"\n\s*\n", topic_text(tp, code, "intro")) if x.strip()]
     for i, para in enumerate(paras):
@@ -777,6 +793,25 @@ def render_topic_body(tid, tp, payload, code, s, ov, res_pages=None, guides=None
 
     out += ['<h2 id="topics">%s</h2>' % esc(s.get("siblings", "Other topics")),
             render_topic_links(payload, tid, "{{ROOT}}")]
+    return "\n".join(out)
+
+
+def render_topics_index(payload, topic_ids, s):
+    """The <main> of /topics/: every topic hub page with its paper count and
+    one-line description. Links are relative ({{ROOT}} is ../)."""
+    by_id = dict((t["id"], t) for t in payload["topics"])
+    out = ['<nav class="crumbs" aria-label="breadcrumb"><p class="kicker">'
+           '<a href="{{ROOT}}">%s</a> / %s</p></nav>'
+           % (esc(s.get("home", "Home")), esc(s.get("kicker", "Topic"))),
+           '<h1>%s</h1>' % esc(s.get("indexTitle", "Topics")),
+           '<p class="lede">%s</p>' % esc(s.get("indexLede", "")),
+           '<ul class="topic-index">']
+    for tid in topic_ids:
+        t = by_id[tid]
+        desc = (" \u2014 %s" % esc(t["desc"])) if t.get("desc") else ""
+        out.append('<li><a href="{{ROOT}}topics/%s/">%s</a> <span class="sep">(%d)</span>%s</li>'
+                   % (esc(tid), esc(t["name"]), t["count"], desc))
+    out.append("</ul>")
     return "\n".join(out)
 
 
@@ -1085,6 +1120,9 @@ def render_lineage_body(payload, ov, code, lineage):
                              h=num(pos[n["key"]][3])) for n in nodes],
               "edges": [dict([("from", par), ("to", key)])
                         for par, key, _lx, _ly, _d in edges]}
+    # The cards carry <h3>s; this heading (read by screen readers, not shown)
+    # gives them a parent level below the page's <h1>.
+    bits.append('<h2 class="sr-only">%s</h2>' % esc(ov.ui("treeHeading", "The tree")))
     bits.append(
         '<div class="tree-ui"><div class="tree-bar"><span class="tree-hint">%s</span>'
         '<span class="tree-btns"><button type="button" class="tree-btn" data-act="out" aria-label="Zoom out">\u2212</button>'
@@ -1883,10 +1921,13 @@ def main():
              ov.ui("graphDatasetsIntro", ""), ov.ui("graphDatasetsDesc", ""),
              _datasets_note(ov, graph_slices["datasets"], payload_en)),
         ]
+        # Lead each topic page's meta description with the topic's name: the
+        # shared sentence alone gave all 17 topic graphs one description.
+        topic_sep = "：" if code == "zh" else ": "
         for t in payload["topics"]:
             slice_pages.append(("topic/" + t["id"], t["name"],
                                 ov.ui("graphTopicIntro", ""),
-                                ov.ui("graphTopicDesc", ""), ""))
+                                t["name"] + topic_sep + ov.ui("graphTopicDesc", ""), ""))
         grels = graph_rels.setdefault(code, [])
         for name, title, intro, desc, note_html in slice_pages:
             rel = GRAPH_PATH + name + "/"
@@ -1967,6 +2008,23 @@ def main():
                 t_desc, payload))
             write(os.path.join(sub, "topics", tid, "index.html"), html_)
             sitemap_urls.append((t_url, "weekly", "0.6"))
+
+        # /topics/: the index of the hub pages above. It used to be a 404,
+        # although /datasets/, /guides/ and /graph/ all had an index.
+        if topic_ids:
+            ti_rel = "topics/"
+            ti_url = lang_base + ti_rel
+            ti_title = strings.get("indexTitle", "Topics")
+            ti_desc = re.sub(r"\s+", " ", strings.get("indexDesc", "")
+                             .replace("{n}", str(len(topic_ids)))).strip()
+            html_ = fill_page(tpl, render_topics_index(payload, topic_ids, strings),
+                              ti_title, ti_desc, ti_url, "../", subs,
+                              "%s/topics" % code,
+                              i18n.switch_links(base, langs, code, ti_rel))
+            html_ = add_to_head(html_, ti_url, head_extra_graph(
+                cfg, base, langs, entry, ov, ti_desc, rel=ti_rel, title=ti_title))
+            write(os.path.join(sub, "topics", "index.html"), html_)
+            sitemap_urls.append((ti_url, "weekly", "0.6"))
 
         # ------------------------------------- datasets, benchmarks, guides
         site_t = top_for(ov, code, "title", cfg["title"])

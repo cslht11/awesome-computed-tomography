@@ -1,8 +1,9 @@
 /* Lineage tree viewport controller (/graph/lineage/<id>/).
  * The layout is computed at build time; this script only moves
- * the stage: fit on load, drag to pan (with click suppression),
- * wheel zoom at the pointer, two-pointer pinch, toolbar
- * buttons, double-click to refit, keyboard pan/zoom, and
+ * the stage: open at a readable scale on the root, drag to pan
+ * (with click suppression), Ctrl/Cmd + wheel (and trackpad pinch)
+ * zoom at the pointer, two-pointer pinch, toolbar buttons,
+ * double-click for the whole tree, keyboard pan/zoom, and
  * #<paper-id> deep links. Without JS the stage simply scrolls
  * inside its viewport (the data-live switch below turns the
  * native scrolling off only once this controller runs). */
@@ -32,6 +33,21 @@
     ty = (r.height - H * scale) / 2;
     apply();
   }
+  // Fitting the whole tree into the viewport opened it at ~0.12 on a
+  // laptop, where 16px card text renders at ~2px. Open instead at a
+  // scale people can read, on the root card (nodes are in reading
+  // order, root first); double-click still shows the whole tree.
+  var READABLE = 0.55;
+  function initial() {
+    var r = vp.getBoundingClientRect();
+    if (r.width < 50 || r.height < 50) return;
+    if (Math.min(r.width / W, r.height / H, 1) >= READABLE) { fit(); return; }
+    var top = data.nodes[0];
+    scale = READABLE;
+    tx = r.width / 2 - (top.x + top.w / 2) * scale;
+    ty = 16 - top.y * scale;
+    apply();
+  }
   function zoomAt(mx, my, ns) {
     ns = Math.max(MIN, Math.min(MAX, ns));
     var k = ns / scale;
@@ -44,12 +60,12 @@
     var r = vp.getBoundingClientRect();
     zoomAt(r.width / 2, r.height / 2, scale * f);
   }
-  fit();
-  // Refit once the document has fully loaded: the first fit can run
+  initial();
+  // Redo it once the document has fully loaded: the first pass can run
   // before the stylesheet settles, and a stale transform from that
   // moment is otherwise permanent. Never override a user who has
   // already grabbed the canvas.
-  addEventListener("load", function () { if (!interacted) fit(); });
+  addEventListener("load", function () { if (!interacted) initial(); });
   vp.setAttribute("data-live", "1");
   var linked = null;
   if (location.hash.length > 1) {
@@ -74,6 +90,10 @@
   // script; centre once more then so the card ends up centred.
   if (linked) addEventListener("load", centreLinked);
   vp.addEventListener("wheel", function (e) {
+    // A plain wheel scrolls the page: capturing it trapped readers on a
+    // tall stage they could not scroll past. Ctrl/Cmd + wheel zooms, and
+    // so does a trackpad pinch, which browsers report as ctrl + wheel.
+    if (!e.ctrlKey && !e.metaKey) return;
     interacted = true;
     e.preventDefault();
     var r = vp.getBoundingClientRect();
@@ -153,7 +173,7 @@
       var act = b.getAttribute("data-act");
       if (act === "in") zoomCentre(1.3);
       else if (act === "out") zoomCentre(1 / 1.3);
-      else fit();
+      else initial();
     });
   });
   vp.addEventListener("keydown", function (e) {

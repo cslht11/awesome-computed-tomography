@@ -44,6 +44,9 @@ strings:
     kindBenchmark: Benchmark
     kindToolkit: Toolkit
     siblings: Other topics
+    indexTitle: CT reconstruction topics
+    indexDesc: "All {n} topic pages of this CT reconstruction directory: problems such as sparse-view, limited-angle, low-dose, metal artifacts and cone-beam CT, and method families from iterative solvers to diffusion priors, each with an introduction, starting points and its papers."
+    indexLede: "Each topic page explains the problem, picks a few papers to start with, and lists the papers, datasets and toolkits filed under it."
   zh:
     kicker: 主题
     home: 首页
@@ -64,6 +67,9 @@ strings:
     kindBenchmark: 基准
     kindToolkit: 工具库
     siblings: 其他主题
+    indexTitle: CT 重建主题
+    indexDesc: "本 CT 重建目录的全部 {n} 个主题页：稀疏视角、有限角、低剂量、金属伪影、锥束 CT 等问题，以及从迭代求解到扩散先验的各类方法；每页都有导读、入门推荐与相应论文。"
+    indexLede: "每个主题页都会介绍该问题，挑出几篇入门论文，并列出归入该主题的论文、数据集与工具库。"
 
 topics:
 

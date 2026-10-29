@@ -211,8 +211,9 @@ ui:
   graphSectionTopics: "By topic"
   graphCardCounts: "{nodes} nodes \u00b7 {edges} relations"
   graphLineageCounts: "{n} milestones \u00b7 {y0}\u2013{y1}"
-  treeHint: "Drag to pan \u00b7 scroll to zoom"
+  treeHint: "Drag to pan \u00b7 Ctrl/\u2318 + scroll or pinch to zoom \u00b7 double-click for the whole tree"
   treeReset: "Reset view"
+  treeHeading: "The tree"
   graphBackboneTitle: "Team backbone"
   graphBackboneIntro: "The directory's skeleton: the research teams, the topics, and the toolkits and guides that tie them together \u2014 which team focuses on which topic, and which tools and guides belong where. Select any node to see its connections."
   graphBackboneDesc: "The knowledge graph's backbone: research teams, topics, toolkits and guides in this CT reconstruction directory, and how they connect."
@@ -312,16 +313,17 @@ readme:
   # The JSON-LD ItemList's `name` — the machine-readable title of the paper
   # collection, which needs to be more explicit than the section heading.
   legendPapers: >-
-    Newest first within each topic. Each entry gives its venue and year in
-    italics; _preprint_ marks work not (yet) published at a peer-reviewed venue,
-    dated by its first public posting.
+    Newest first; change the order with Sort. Each entry shows its venue and
+    year, and _preprint_ marks work not (yet) published at a peer-reviewed
+    venue, dated by its first public posting. Hover over a title, or tap it, for
+    a short summary.
   toolkitsHeading: "Toolkits"
   datasetsHeading: "Datasets"
   legendDatasets: >-
-    **Data** says what a release contains: _proj + image_ has raw projections and
-    a reference volume, so a forward model can be scored end to end;
-    _projections_ has raw data only; _image_ is image-domain only and cannot test
-    a projection model.
+    Where it is known, each note starts with what the release contains:
+    **Projection + image** has raw projections and a reference volume, so a
+    forward model can be scored end to end; **Projection only** has raw data
+    only; **Image only** is image-domain data and cannot test a projection model.
   legendTeams: >-
     Research groups and labs whose papers, software or data appear in this
     directory. Each card links the group's homepage and the works of theirs
