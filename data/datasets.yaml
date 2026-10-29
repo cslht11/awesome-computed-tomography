@@ -21,7 +21,7 @@
   note: "**Projection + image.** Mayo Clinic, released through TCIA. 299 head / chest / abdomen exams (99 / 100 / 100), each with a routine-dose scan plus one simulated lower-dose projection set — head and abdomen at 25% of routine dose, chest at 10%. Chest and abdomen are open under CC BY 4.0; the 99 head scans need an NIH controlled-access request because they could be used to reconstruct a face. Raw sinograms in the open **DICOM-CT-PD** format. It grew out of the 2016 AAPM Low Dose CT Grand Challenge and is now the best real-data source for projection-domain methods."
 
 - name: 2DeteCT
-  url: https://zenodo.org/records/6984866
+  url: https://doi.org/10.1038/s41597-023-02484-6
   modality: 2D fan-beam
   tasks: [reconstruction, limited-angle, sparse-view, denoising]
   license: CC BY 4.0
@@ -65,10 +65,10 @@
 
 # ---------------------------------------------------------------- image domain
 - name: CT-RATE
-  url: https://zenodo.org/records/6406114
+  url: https://huggingface.co/datasets/ibrahimhamamci/CT-RATE
   modality: chest CT
   tasks: [reconstruction, denoising, detection, segmentation]
-  license: see source
+  license: CC BY-NC-SA 4.0
   note: "50,188 reconstructed 3D chest CT volumes (14.3M 2D slices) from 25,692 scans of 21,304 patients, every volume paired with its radiology report and labelled for 18 abnormalities. Reconstructed with several methods and window settings, so it carries realistic reconstruction variability — but image domain only, with no raw projections. The corpus behind CT-CLIP and CT-CHAT."
 
 - name: LIDC-IDRI
@@ -158,11 +158,11 @@
   note: "140 CT scans with multi-organ masks, including a subset of the Liver Tumor Segmentation benchmark."
 
 - name: STOIC 2021
-  url: https://portal.imaging.datacommons.cancer.gov/collections/stoic/
+  url: https://registry.opendata.aws/stoic2021-training/
   modality: CT
   tasks: [diagnosis, low-dose]
-  license: CC BY-NC 3.0
-  note: "10,735 COVID-19 chest CT scans from the French first wave, collected for severe-outcome prediction; a large real-clinical distribution-shift test. Listed here through the NCI Imaging Data Commons mirror, which exposes the same collection with a queryable API."
+  license: CC BY-NC 4.0
+  note: "2,000 COVID-19 chest CT scans (one per patient), the public part of the 10,735-patient STOIC study from the French first wave, collected for severe-outcome prediction; a large real-clinical distribution-shift test. Distributed through AWS Open Data; the remaining patients were kept private for the STOIC2021 challenge."
 
 - name: MosMedData
   url: https://mosmed.ai/en/datasets/datasets/covid191110/

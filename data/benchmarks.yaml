@@ -5,7 +5,7 @@
   url: https://www.aapm.org/grandchallenge/lowdosect/
   year: 2016
   tasks: [low-dose, denoising, reconstruction]
-  note: "The challenge that established the quarter-dose / 10% / 5% protocol and the Mayo abdominal cohort. Nearly every low-dose CT paper still reports on this split."
+  note: "The 2016 AAPM–NIBIB–Mayo Clinic challenge: 30 contrast-enhanced abdominal CT cases (10 for training, 20 for testing), with quarter-dose (25 %) data simulated by inserting Poisson noise into the projections. Its cases and protocol are the basis of the Mayo low-dose data that most low-dose CT papers still report on."
 
 - name: AAPM DL-Sparse-View CT Challenge
   url: https://www.aapm.org/GrandChallenge/DL-sparse-view-CT/
@@ -27,7 +27,7 @@
 
 - name: SPARE Challenge
   url: https://image-x.sydney.edu.au/spare-challenge/
-  year: 2024
+  year: 2018
   tasks: [dynamic, cbct, reconstruction]
   note: "Thoracic 4D cone-beam CT reconstruction from a one-minute scan. The first widely adopted benchmark for breathing-resolved dynamic CBCT; run by the Image X Institute at the University of Sydney."
 

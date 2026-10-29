@@ -41,7 +41,7 @@
   note: "Zeng (2010). Deliberately intuition-first: explains *why* FBP, iterative and analytic methods behave the way they do, with minimal notation."
 
 - name: Foundations of Image Science
-  url: https://doi.org/10.1002/0471722138
+  url: https://www.wiley.com/en-us/Foundations+of+Image+Science-p-9780471153009
   type: book
   tasks: [other]
   note: "Barrett & Myers (2004). The encyclopaedic reference for imaging-system theory — Fourier crosstalk, task-based assessment, and the mathematical basis of iterative reconstruction."

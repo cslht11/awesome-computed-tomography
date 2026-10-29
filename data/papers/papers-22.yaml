@@ -21,7 +21,7 @@
   abbr: "CROSS"
   title: "CROSS: Cross-Domain Residual-Optimization-Based Structure Strengthening Reconstruction for Limited-Angle CT"
   year: 2023
-  venue: "IEEE Trans. Radiat. Plasma Med. Sci."
+  venue: "TRPMS"
   topics: [limited-angle]
   paper: "https://doi.org/10.1109/TRPMS.2023.3242662"
   note: "A cross-domain framework alternating three steps between image and measurement domains, regularizing both image space and residual error space (unlike conventional dual-domain algorithms) to strengthen organ recovery in high-attenuation regions, plus a structure-enhancement network for tissue preservation; beats comparisons on simulated and preclinical data in artifact removal and edge preservation."

@@ -1,11 +1,10 @@
 # Batch: Cambridge CIA team sweep #11 (user-approved 2026-10-24, journal methods 4).
 - id: "learned-denoising-simulated-experimental"
   title: "Learned denoising with simulated and experimental low-dose CT data"
-  year: 2026
+  year: 2025
   venue: "Sci Rep"
   topics: [low-dose]
   paper: "https://doi.org/10.1038/s41598-025-30457-9"
-  code: "https://github.com/CambridgeCIA/LIONscripts/paper_scripts/noise_paper"
   note: "Systematic comparison of U-Net and MSD-Net trained on simulated versus experimental noise, in sinogram and reconstruction domains; simulated-noise advantages in the sinogram domain do not always transfer to the reconstruction domain, while direct sinogram-to-reconstruction mapping trained on experimental noise works better. Year follows the volume citation (vol. 16, 2026) though first published online 4 Dec 2025."
 
 - id: "task-specific-sampling-sparse-view"

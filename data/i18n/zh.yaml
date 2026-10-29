@@ -522,7 +522,7 @@ datasets:
   "CT-ORG":
     note: "140 例 CT，带多器官掩膜，其中含 Liver Tumor Segmentation 基准的一个子集。"
   "STOIC 2021":
-    note: "10,735 例来自法国第一波疫情的 COVID-19 胸部 CT，用于重症结局预测；规模很大的真实临床分布偏移测试。此处通过 NCI Imaging Data Commons 镜像收录，同一批数据提供可查询 API。"
+    note: "2,000 例 COVID-19 胸部 CT（每名患者一例），是法国第一波疫情 10,735 名患者 STOIC 研究中公开的部分，用于重症结局预测；规模很大的真实临床分布偏移测试。通过 AWS Open Data 发布；其余患者的数据为 STOIC2021 挑战赛保留，未公开。"
   "MosMedData":
     note: "1,110 例胸部 CT，带 COVID-19 严重程度分级；常被复用为低质量/低剂量鲁棒性测试集。原站目前无法访问——Kaggle 镜像收录了同一批数据。"
   "HNSCC (Head & Neck)":
@@ -642,7 +642,7 @@ datasets:
     note: "**Projection + image.** 单个核桃的显微 CT（Saarland）：1601 个采集投影（TIFF 栈）+ 重建体（pyXIT）。这是库中第 6 个核桃，采集方式与其他 5 个不同。"
 benchmarks:
   "AAPM Low-Dose CT Grand Challenge":
-    note: "确立了 1/4 剂量 / 10% / 5% 协议与 Mayo 腹部队列的挑战赛。几乎每一篇低剂量 CT 论文至今仍在该切分上报告结果。"
+    note: "2016 年由 AAPM、NIBIB 与 Mayo Clinic 主办的挑战赛：30 例增强腹部 CT（10 例训练、20 例测试），通过在投影中注入泊松噪声模拟 1/4 剂量（25%）数据。其病例与协议是 Mayo 低剂量数据的基础，至今大多数低剂量 CT 论文仍在其上报告结果。"
   "AAPM DL-Sparse-View CT Challenge":
     note: "从理想无噪声的 128 视角扇束数据恢复二维乳腺 CT 体模：4,000 组训练数据、100 例测试，按 RMSE 公开排名。深度学习稀疏视角 CT 的常用参照点。"
   "Helsinki Tomography Challenge":

@@ -150,10 +150,10 @@ guides:
     faq:
       - en:
           q: "What is the standard benchmark for low-dose CT denoising?"
-          a: "The Mayo Clinic data from the 2016 AAPM Low-Dose CT Grand Challenge, which established the quarter-dose / 10% / 5% protocol; nearly every low-dose CT paper still reports on that split. The data are now released as LDCT-and-Projection-data on TCIA. LoDoPaB-CT is the main simulated benchmark."
+          a: "The Mayo Clinic data from the 2016 AAPM Low-Dose CT Grand Challenge: 30 abdominal cases (10 training, 20 test) at simulated quarter dose; most low-dose CT papers still report on it. In 2021 the 30 challenge cases were re-released in the same format as TCIA's larger LDCT-and-Projection-data collection. LoDoPaB-CT is the main simulated benchmark."
         zh:
           q: "低剂量 CT 去噪的标准基准是什么？"
-          a: "2016 年 AAPM 低剂量 CT 大挑战中的 Mayo Clinic 数据，它确立了 1/4 剂量 / 10% / 5% 协议，几乎每一篇低剂量 CT 论文至今仍在该切分上报告结果。这批数据现以 LDCT-and-Projection-data 在 TCIA 发布。LoDoPaB-CT 则是主要的模拟基准。"
+          a: "2016 年 AAPM 低剂量 CT 大挑战中的 Mayo Clinic 数据：30 例腹部病例（10 例训练、20 例测试），模拟 1/4 剂量；大多数低剂量 CT 论文至今仍在其上报告结果。2021 年，这 30 例挑战赛病例以与 TCIA 更大的 LDCT-and-Projection-data 集合相同的格式重新公开。LoDoPaB-CT 则是主要的模拟基准。"
       - en:
           q: "Which low-dose CT datasets include projection data?"
           a: "Among the low-dose datasets with a page here, these ship projection data: {proj_low_dose}. The [low-dose datasets table](#guide-table-datasets) shows the rest."

@@ -6,6 +6,15 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 修正外部审查发现的条目错误
+<!-- en: Corrected records found by an outside review -->
+
+### 修复
+
+- **数据集、基准与学习资源。**《Foundations of Image Science》此前链接的 DOI 实际指向 Wiley 的另一本书（Spall《Introduction to Stochastic Search and Optimization》），现改为 Barrett & Myers 这本书的 Wiley 页面。**CT-RATE** 此前链接的 Zenodo 6406114 实为 RAD-ChestCT，现改为 Hugging Face 上的数据集，并补上其许可（CC BY-NC-SA 4.0）。**2DeteCT** 此前链接的 Zenodo 6984866 是一份医学病例报告，现改为该数据集在 *Scientific Data* 上的数据描述论文。**STOIC 2021** 此前链接的 IDC 页面会落到集合索引页，且写成 10,735 例、CC BY-NC 3.0；公开发布的是 AWS Open Data 上的 2,000 例，许可为 CC BY-NC 4.0。**AAPM 2016 低剂量 CT 大挑战**的说明（以及低剂量指南的问答）称其确立了"1/4 剂量 / 10% / 5% 协议"；实际该挑战只用了 1/4 剂量数据，共 30 例腹部病例（10 例训练、20 例测试）。**SPARE 挑战赛**的年份是 2018，不是 2024。
+- **论文。**《Learned denoising with simulated and experimental low-dose CT data》是 Sci Rep 2025（2025-12-04 在线发表），不是 2026；其代码链接指向一个不存在的仓库，已删除。DDDM 改为链接 IEEE SPL 正式论文，不再链接 TechRxiv 预印本。三个条目改用正式发表版本的题名与年份（作者与预印本相同）：MedIA 上的扩散模型综述（2023）、ProCT（《Universal Pre-training for Generalizable Incomplete-View CT Reconstruction》）以及 4D-CBCT 高斯论文（《Dynamic Cone Beam CT Reconstruction via Spatiotemporal Gaussian Neural Representation》）。三个代码链接改为仓库更名后的地址（DiffusionMBIR、MAGIC、SparseViewCT-TCI），三处期刊名统一为"TRPMS"，与其余十六处一致。
+- **中文首页。**/zh/ 首屏的导语此前以英文标语开头；现在 `{tagline}` 按语言填充，DOM 测试也会检查这一点。
+
 ## 2026-10-24 — 图谱索引把谱系树并入总览
 <!-- en: Graph index folds lineages into Overview -->
 

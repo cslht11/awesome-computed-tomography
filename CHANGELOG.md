@@ -13,6 +13,14 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Corrected records found by an outside review
+
+### Fixed
+
+- **Datasets, benchmarks and learning.** *Foundations of Image Science* linked a DOI that resolves to a different Wiley book (Spall, *Introduction to Stochastic Search and Optimization*); it now links the Wiley page for Barrett & Myers. **CT-RATE** linked Zenodo 6406114, which is RAD-ChestCT; it now links the Hugging Face dataset, with its licence (CC BY-NC-SA 4.0). **2DeteCT** linked Zenodo 6984866, a medical case report; it now links the dataset's *Scientific Data* descriptor. **STOIC 2021** linked an IDC page that lands on the collection index, and gave 10,735 scans and CC BY-NC 3.0; the public release is 2,000 scans under CC BY-NC 4.0 on AWS Open Data. The **AAPM 2016 Low-Dose CT Grand Challenge** note (and the low-dose guide's FAQ) claimed a "quarter-dose / 10% / 5% protocol"; the challenge used quarter-dose data only, 30 abdominal cases (10 training, 20 test). The **SPARE Challenge** is dated 2018, not 2024.
+- **Papers.** *Learned denoising with simulated and experimental low-dose CT data* is Sci Rep 2025 (online 2025-12-04), not 2026, and its code link pointed at a repository that does not exist, so it is removed. DDDM now links its IEEE SPL article instead of the TechRxiv preprint. Three entries carry the titles and year of their published versions (same authors as the preprints): the MedIA survey on diffusion models (2023), ProCT (*Universal Pre-training for Generalizable Incomplete-View CT Reconstruction*) and the 4D-CBCT Gaussian paper (*Dynamic Cone Beam CT Reconstruction via Spatiotemporal Gaussian Neural Representation*). Three code links follow renamed repositories (DiffusionMBIR, MAGIC, SparseViewCT-TCI), and three venues read "TRPMS" like the other sixteen.
+- **Chinese homepage.** The hero sentence on /zh/ opened with the English tagline; the `{tagline}` token is now filled per language, and the DOM suite checks it.
+
 ## 2026-10-24 — Graph index folds lineages into Overview
 
 ### Changed

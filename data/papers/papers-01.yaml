@@ -69,7 +69,7 @@
 
 - id: "4dgs-4dcbct"
   abbr: "4DGS-4DCBCT"
-  title: "Spatiotemporal Gaussian Optimization for 4D Cone Beam CT Reconstruction from Sparsely Sampled Projections"
+  title: "Dynamic Cone Beam CT Reconstruction via Spatiotemporal Gaussian Neural Representation"
   year: 2025
   venue: "Med Phys"
   topics: [gaussian, dynamic, cbct]
@@ -315,7 +315,7 @@
   venue: "CVPR"
   topics: [diffusion]
   paper: "https://doi.org/10.1109/cvpr52729.2023.02159"
-  code: "https://github.com/HJ-harry/DiffusionMBIR"
+  code: "https://github.com/hyungjin-chung/DiffusionMBIR"
 
 - id: "ascon"
   abbr: "ASCON"
@@ -345,11 +345,11 @@
 
 - id: "dddm"
   abbr: "DDDM"
-  title: "Dual-Domain Diffusion Model for Sparse-View CT Reconstruction"
+  title: "A Dual-Domain Diffusion Model for Sparse-View CT Reconstruction"
   year: 2024
   venue: "IEEE SPL"
   topics: [sparse-view, diffusion]
-  paper: "https://doi.org/10.36227/techrxiv.23726703"
+  paper: "https://doi.org/10.1109/lsp.2024.3392690"
   code: "https://github.com/YC-Markus/code-for-DDDM"
 
 - id: "freeseed"
@@ -474,8 +474,8 @@
 
 - id: "diffmed"
   abbr: "DiffMed"
-  title: "Diffusion Models for Medical Image Analysis: A Comprehensive Survey"
-  year: 2022
+  title: "Diffusion Models in Medical Imaging: A Comprehensive Survey"
+  year: 2023
   venue: "Med Image Anal"
   topics: [survey, diffusion]
   paper: "https://doi.org/10.1016/j.media.2023.102846"
@@ -702,7 +702,7 @@
   venue: "TMI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/TMI.2021.3088344"
-  code: "https://github.com/xwj01/MAGIC"
+  code: "https://github.com/xiawj-hub/MAGIC"
 
 - id: "map-nn"
   abbr: "MAP-NN"

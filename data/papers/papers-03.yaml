@@ -833,7 +833,7 @@
   venue: "TCI"
   topics: [sparse-view, cbct]
   paper: "https://doi.org/10.1109/TCI.2022.3225680"
-  code: "https://github.com/gtm2122/SparseViewCT-TCI"
+  code: "https://github.com/SLIM-MSU-repo/SparseViewCT-TCI"
 
 - id: "dip-warm-start-2022"
   title: "An Educated Warm Start for Deep Image Prior-Based Micro CT Reconstruction"
