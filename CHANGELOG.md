@@ -13,6 +13,19 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Data and graph corrections: a real CBCT dataset, topic fixes, the 2016 Mayo challenge data, editorial lineage links
+
+### Fixed
+
+- **"Cone-Beam CT (CBCT) Head & Neck" is replaced.** It promised paired planning CT and on-board CBCT, but linked TCIA's Head-Neck-Cetuximab collection, which has no CBCT at all. Its place is taken by **Pancreatic-CT-CBCT-SEG** (TCIA, CC BY 4.0): 40 patients, each with a planning CT and two CBCT scans and organ-at-risk contours on both. The old page `/datasets/cbct-head-and-neck/` is gone.
+- **18 learned methods left "Classical & Iterative Reconstruction"**, a topic described as hand-crafted regularisers. Unrolled networks (FISTA-Net, Momentum-Net, iRadonMAP and others), learned filters and regularisers, and diffusion priors inside iterative loops now sit under their method topics; the topic has 80 papers.
+- **The 2016 Mayo challenge data is its own dataset.** 29 papers from 2017 onward say they used "the 2016 AAPM–Mayo Low Dose CT Grand Challenge" data, but the graph credited them with TCIA's LDCT-and-Projection-data, a later collection (published December 2020) that holds only 13 of the challenge's cases. A new dataset row, **2016 Low Dose CT Grand Challenge data**, links the complete 30-case re-release, and those usage links now point at it. Two papers that did use the TCIA library keep it.
+
+### Changed
+
+- **New topic "Related: Beyond Reconstruction"** (25 papers): CT foundation, analysis and generation models (Merlin, CT-CLIP, MAISI, GenerateCT…), all-in-one restoration models trained across imaging modalities, an MRI method (Deep ADMM-Net), and general networks that reconstruction work builds on (CycleGAN, Noise2Noise, MSD-Net). They stay in the list for context, last and without a topic page, and no longer swell "Other Topics" (now 54). MAINTENANCE.md now states the scope rule and what "classical" means.
+- **The family tree says what its links mean.** Only 4 of its 31 links are citations, where the later paper cites the earlier one; the rest are the curators' reading of the field. Citation links are now drawn solid and the others dashed, with a legend that counts each.
+
 ## 2026-10-29 — Homepage layout: compact header, topic sidebar, sticky filters, year headings
 
 ### Changed

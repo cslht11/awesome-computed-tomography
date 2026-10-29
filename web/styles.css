@@ -774,8 +774,14 @@ li.team {
 .tree-viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .tree-stage { position: relative; transform-origin: 0 0; }
 .tree-edges { position: absolute; left: 0; top: 0; pointer-events: none; }
-.tree-edges path { fill: none; stroke: var(--border-strong); stroke-width: 2; }
+.tree-edges path { fill: none; stroke: var(--border-strong); stroke-width: 2; stroke-dasharray: 7 5; }
+.tree-edges path.cited { stroke: var(--accent); stroke-dasharray: none; }
 .tree-edges .tn-arrowhead { fill: var(--fg-faint); }
+.tree-edges .tn-arrowhead.cited { fill: var(--accent); }
+.tree-legend { display: flex; flex-direction: column; gap: 4px; margin: 6px 0 0; font-size: 13.5px; color: var(--fg-muted); }
+.tree-legend .lg-item { display: flex; align-items: center; gap: 10px; }
+.tree-legend .lg { flex: none; width: 28px; height: 0; border-top: 2px dashed var(--border-strong); }
+.tree-legend .lg-cited { border-top: 2px solid var(--accent); }
 .tn-node {
   position: absolute; box-sizing: border-box; overflow: hidden;
   border: 1px solid var(--border); border-radius: 12px;

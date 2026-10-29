@@ -84,6 +84,12 @@ topics:
     name: Other Topics
     desc: Industrial NDT, phase-contrast, quantitative CT, reconstruction software and anything that does not fit above.
 
+  # Work outside the reconstruction scope, listed for context: no hub page
+  # (build_site.TOPIC_SKIP), last in every list. See MAINTENANCE.md, "Scope".
+  - id: related
+    name: "Related: Beyond Reconstruction"
+    desc: CT foundation, analysis and generation models, all-in-one restoration across imaging modalities, and general-purpose networks that reconstruction work builds on. Listed for context; outside the reconstruction scope.
+
 # ---------------------------------------------------------------- languages
 # code      the overlay's filename under data/i18n/, and the key used everywhere
 # label     what the language switcher shows for this language

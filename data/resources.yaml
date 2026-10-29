@@ -37,14 +37,14 @@ datasets:
     cite: [lodopab-ct]
   "LDCT-and-Projection-data":
     slug: ldct-and-projection-data
+  "2016 Low Dose CT Grand Challenge data":
+    slug: aapm-2016-ldct-challenge-data
+    short: "AAPM 2016 Low Dose CT Grand Challenge data"
   "Helsinki Tomography Challenge 2022":
     aliases: ["Helsinki Tomography Challenge"]
   "SPARE 4D-CBCT":
     slug: spare-4d-cbct
     cite: [spare]
-  "Cone-Beam CT (CBCT) Head & Neck":
-    slug: cbct-head-and-neck
-    short: "CBCT Head & Neck (TCIA)"
   "Finnish Inverse Problems Society (FIPS) datasets":
     slug: fips-datasets
     short: "FIPS tomography datasets"

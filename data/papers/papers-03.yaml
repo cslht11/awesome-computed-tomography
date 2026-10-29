@@ -290,7 +290,7 @@
   title: "At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections"
   year: 2026
   venue: "NeurIPS"
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2604.10766"
 
 - id: "cryoderec"
@@ -426,7 +426,7 @@
   title: "Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction"
   year: 2026
   venue: "ICML"
-  topics: [diffusion, sparse-view, limited-angle, classical]
+  topics: [diffusion, sparse-view, limited-angle]
   paper: "https://arxiv.org/abs/2602.23214"
   code: "https://github.com/duchenhe/DC-PnPDP"
   project: "https://duchenhe.com/project/DCPnPDP/"
@@ -475,7 +475,7 @@
 - id: "deep-pseudo-proximal-map"
   title: "Deep Pseudo-Proximal Map: A Self-Supervised Data-Fitting Agent for Iterative Reconstruction"
   year: 2026
-  topics: [classical, self-supervised]
+  topics: [self-supervised]
   paper: "https://arxiv.org/abs/2609.30727"
 
 - id: "ram"
@@ -540,7 +540,7 @@
   title: "Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems"
   year: 2025
   venue: "NeurIPS"
-  topics: [unrolling, classical]
+  topics: [unrolling]
   paper: "https://arxiv.org/abs/2505.08909"
   code: "https://github.com/FizzzFizzz/CoCo-PnP"
 
@@ -571,7 +571,7 @@
   title: "System-Embedded Diffusion Bridge Models"
   year: 2025
   venue: "NeurIPS"
-  topics: [diffusion, classical]
+  topics: [diffusion]
   paper: "https://arxiv.org/abs/2506.23726"
   code: "https://github.com/sobieskibj/sdb"
 

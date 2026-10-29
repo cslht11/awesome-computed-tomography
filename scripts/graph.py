@@ -273,8 +273,9 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
     # ------------------------------------------------------------ topics
     for t in payload["topics"]:
         node("topic:" + t["id"], "topic", t["name"], zh_topics.get(t["id"]),
-             href=("topics/%s/" % t["id"]) if t["id"] != "other"
-             else "?tab=papers&topic=other",
+             href=("topics/%s/" % t["id"])
+             if t["id"] not in ("other", "related")   # no hub page
+             else "?tab=papers&topic=" + t["id"],
              meta={"count": t.get("count", 0)})
 
     # ------------------------------------------------------------ papers

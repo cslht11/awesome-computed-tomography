@@ -11,52 +11,59 @@
 # This file is authoritative for the pairs it covers: it supersedes the
 # resource-page derivation in scripts/graph.py for those pairs.
 # Dataset values are exact `name`s from data/datasets.yaml.
+#
+# Mayo low-dose data: "the 2016 (NIH-)AAPM-Mayo Low Dose CT Grand Challenge"
+# data (and challenge patient ids such as L506) is "2016 Low Dose CT Grand
+# Challenge data", not LDCT-and-Projection-data. The TCIA library is a later,
+# larger collection (published Dec 2020) that holds only 13 of the challenge's
+# cases; use it only when the paper names TCIA, the 2020 release or its
+# head/chest/abdomen sets.
 
 - paper: cnn-inverse
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "IV-A Data Preparation (with IV-B Training Procedure: 475 training / 25 test images for the synthetic datasets, test from a different subject) — “The biomedical dataset is a synthetic dataset that comprises 500 real in-vivo CT images from the Low-dose Grand challenge competition from database made by the Mayo clinic.”"
 
 - paper: red-cnn
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "III-A-2) Clinical Data — “a real clinical database was used, which was authorized by Mayo Clinics for “the 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge”.”"
 
 - paper: lpd
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "Experiments, 'b) Human phantoms' (data description, Fig. 1) — “human abdomen CT scans as provided by Mayo Clinic for the AAPM Low Dose CT Grand Challenge”"
 
 - paper: deepcnn
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "III.4 Data Set — “In the 2016 CT low-dose Grand Challenge, only abdominal CT images were provided as the training data set”"
 
 - paper: wgan-vgg
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "III-A Experimental Datasets — “We used a real clinical dataset authorized for “the 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge” by Mayo Clinic for the training and evaluation of the proposed networks”"
 
 - paper: learn
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "III. Experimental Design and Representative Results — “a set of clinical data and images was used, which was established and authorized by Mayo Clinics for “the 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge”.”"
 
 - paper: tfu-net
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "IV-A Data Set — “As a training data, we used ten patient data provided by AAPM Low Dose CT Grand Challenge”"
 
 - paper: cnn-mar
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "II-A. Generating Metal-free and Metal-inserted Images — “clinical CT images are collected from online resources and “the 2016 Low-dose CT Grand Challenge” training dataset”"
 
@@ -68,37 +75,37 @@
 
 - paper: map-nn
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: train
       evidence: "Methods — Training dataset for MAP-NN — “The training dataset we used is an authorized clinical low-dose CT dataset, which was used for the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge.”"
 
 - paper: cnnrpgd
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "V-A. Dataset — “Our dataset consists of clinically realistic invivo (512 × 512) CT scans of human abdomen from Mayo clinic for the AAPM Low Dose CT Grand Challenge”"
 
 - paper: wavresnet
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "III-C. Training dataset — “We used projection data obtained from “2016 Low-Dose CT Grand Challenge.””"
 
 - paper: ksae
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "Section III.A Datasets — “The experiments were carried on 2016 Low-dose CT Grand Challenge datasets, which contained projection and image data of the chest and abdomen from 10 different patients.”"
 
 - paper: cpce
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "Section IV.A Low-dose dataset with simulated noise — “The experimental data set stems from an authorized clinical low-dose CT dataset, which was made for the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge”"
 
 - paper: dlct
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "Section 2.5 Experiments — “We perform a tenfold cross validation on 2378 slices of ten different patients.” Identity: the acknowledgements credit McCollough, Mayo Clinic and AAPM (grants EB017095/EB017185) for providing the data; 2,378 slices / 10 patients is the documented composition of the 2016 Low-Dose CT Grand Challenge release."
 
@@ -110,7 +117,7 @@
 
 - paper: magic
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "Section 3 Experiments and results — “To evaluate the performance of our MAGIC, the dataset “the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge” [50] was used in our experiments.”"
 
@@ -122,7 +129,7 @@
 
 - paper: 3dip
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "4 Experimental setup — Dataset — “For both CT reconstruction tasks (i.e. SV-CT, LA-CT) we use the data from the AAPM 2016 CT low-dose grand challenge.” All volumes but one train the 2D score function and one volume is held out for testing (Appendix B.1)."
 
@@ -152,25 +159,25 @@
 
 - paper: csc-ct
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "IV-A Simulated Results — “a dataset of clinical CT images, authorized by Mayo Clinic and downloaded from ”the NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge,” was used [57].” Ten images from this dataset train the predetermined filters and its images serve the reconstruction evaluations."
 
 - paper: pdf
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "Section 3 Experiments and Results — “the dataset “the 2016 NIH-AAPM-Mayo Clinic Low-Dose CT Grand Challenge”, which has 5936 full-dose CT images from 10 patients, was used in our experiments” (400 images from eight patients as the training set; 100 images from the remaining two patients as the testing set)."
 
 - paper: coil
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: eval
       evidence: "Experiments (Fig. 4 caption) — “Eight 512 × 512 images from the scans of two patients in the AAPM human phantom dataset [96] were used for testing.” The dataset footnote identifies it as “The 2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge”, i.e. the TCIA release catalogued here; test images only, hence eval."
 
 - paper: casredscan
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "V-A Data Preparation and Training — “we collected 10 whole body CT scans from the AAPM Low Dose CT Grand Challenge” (the derived 2D images are split patient-wise into 1,834 training / 428 validation / 1,135 test images)."
     - dataset: DeepLesion
@@ -179,13 +186,13 @@
 
 - paper: metainv-net
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "III-B Training Setting (with III-C Test Setting) — “The “2016 NIH-AAPM-Mayo Clinic Low Dose CT Grand Challenge” data set has ten patients' normal dose CT images” (five patients' data as the training set; four other patients form the AAPM-Test set). The Pancreas-Test set is not counted: no NIH Pancreas-CT collection identity is established for it."
 
 - paper: ctformer
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "IV Experiments — Dataset — “A publicly released dataset from 2016 NIH-AAPM-Mayo Clinic LDCT Grand Challenge is used for model training and testing” (patient L506 held out for evaluation, the other nine patients for training)."
 
@@ -213,17 +220,17 @@
       evidence: "§4.1.1 Training data of chest images — “We use 35820 training samples of chest images from the LoDoPaB-CT dataset [64] in resolution 128 × 128.” §4.2 trains on LoDoPaB-CT at 512 × 512 (90 projections, 40dB measurement noise); chest test samples used for in-distribution evaluation."
 - paper: one-network-all-rois
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "§III.A Data Set — “Ten subject data sets from American Association of Physicists in Medicine (AAPM) Low-Dose CT Grand Challenge were used in this study.” 8/1/1 patient split = 3720/254/486 slices for train/val/test; raw projection data from the same challenge used in the test phase."
 - paper: dbp-domain-conebeam-artifact
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "§IV Data Set — “simulated projection data from ten subject data sets from American Association of Physicists in Medicine (AAPM) Low-Dose CT Grand Challenge were used. The data set was selected from the abdominal scans that include liver regions.” 8/1/1 patient split for train/val/test (8192/1024 coronal/sagittal slices for train/val)."
 - paper: cycle-free-cyclegan
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "§IV.A “AAPM CT dataset” — “AAPM CT dataset is a reconstructed CT image dataset from abdominal CT projection data in the AAPM 2016 Low Dose CT Grand Challenge… To train our network, we use 3839 CT images, while the other 421 images were used to test our network.” Poisson noise inserted to 25% of standard dose."
 - paper: adain-tunable-cyclegan
@@ -233,7 +240,7 @@
       evidence: "§IV.A “Chest CT Scans” — “The low-dose CT image data released in 2020 by the Mayo clinic [29], [30] was used for quantitative analysis of the network performance. Of the 100 chest CT data provided, 50 were used. 45 data is as training data, the remaining five were used as test data.” 14,965 train / 1,683 test images; ref [30] is the TCIA Low Dose CT Image and Projection Data set."
 - paper: mbdl-unsupervised-low-dose
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "§III.A.1 Dataset — “We conducted our experiments based on thorax CT data from AAPM Low Dose CT Grand Challenge.” 5936 CT images from 10 patients; LDCT projections simulated from NDCT images; 5376 images from nine patients for training, the remaining one patient for testing (§III.B)."
 - paper: prior-4d-cbct
@@ -256,7 +263,7 @@
       evidence: "§III-A Datasets — “For network training, we randomly chose 1000 CT slices from the DeepLesion dataset and 90 metal masks from the collected metal masks.” Evaluation 2000 combinations from 200 slices + 10 masks; clinical metal CT images in §III-E from DeepLesion + local hospital (DeepLesion part counted as eval)."
 - paper: cas-pred-limited-angle-cbct
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "§III.A Experimental conditions — “The lung data are obtained from the AAPM dataset (from the low-dose CT challenge) and the LIDC-IDRI dataset (from the National Cancer Institute).” 23 lung + 42 leg scans in total; 50 sets training, 10 sets test, 5 sets prior (Table I splits by anatomy, not by named dataset)."
     - dataset: LIDC-IDRI
@@ -275,9 +282,9 @@
 
 - paper: efmct
   uses:
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
-      evidence: "Datasets section: the first dataset is the AAPM 2016 Low Dose CT Grand Challenge data, 9 patients for training and patient L506 for testing; per the established mapping, the 2016 AAPM challenge is LDCT-and-Projection-data."
+      evidence: "Datasets section: the first dataset is the AAPM 2016 Low Dose CT Grand Challenge data, 9 patients for training and patient L506 for testing."
     - dataset: Medical Segmentation Decathlon
       usage: both
       evidence: "Datasets section: Medical Segmentation Decathlon CT, Task_06 Lung subset, 10 patients for training and patient 017 for evaluation."
@@ -286,7 +293,7 @@
     - dataset: Medical Segmentation Decathlon
       usage: both
       evidence: "§3: Task06 Lung volumes 06, 14, 22 and 23 (2170 axial slices); axial slices are used for training per volume and coronal/sagittal views for evaluation."
-    - dataset: LDCT-and-Projection-data
+    - dataset: 2016 Low Dose CT Grand Challenge data
       usage: eval
       evidence: "§3, Real-world CT Images without Reference: Low Dose CT Challenge patient L291 is used for reference-free visual evaluation only."
 - paper: multi-stage-artifact-reduction-parallel-beam-ct

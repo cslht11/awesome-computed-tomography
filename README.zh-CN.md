@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 653 篇论文 | 52 个工具包 | 80 个数据集 | 19 个基准 | 更新于 2026-10-29 |
+| 653 篇论文 | 52 个工具包 | 81 个数据集 | 19 个基准 | 更新于 2026-10-29 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -28,12 +28,12 @@
 
 | | | |
 | --- | --- | --- |
-| [综述与回顾](https://computedtomography.org/zh/?tab=papers&topic=survey) <sub>25</sub> | [经典与迭代重建](https://computedtomography.org/zh/?tab=papers&topic=classical) <sub>98</sub> | [稀疏视角 CT](https://computedtomography.org/zh/?tab=papers&topic=sparse-view) <sub>202</sub> |
+| [综述与回顾](https://computedtomography.org/zh/?tab=papers&topic=survey) <sub>25</sub> | [经典与迭代重建](https://computedtomography.org/zh/?tab=papers&topic=classical) <sub>80</sub> | [稀疏视角 CT](https://computedtomography.org/zh/?tab=papers&topic=sparse-view) <sub>202</sub> |
 | [有限角层析](https://computedtomography.org/zh/?tab=papers&topic=limited-angle) <sub>65</sub> | [低剂量 CT 去噪](https://computedtomography.org/zh/?tab=papers&topic=low-dose) <sub>126</sub> | [金属伪影校正](https://computedtomography.org/zh/?tab=papers&topic=metal-artifact) <sub>59</sub> |
 | [能谱与双能 CT](https://computedtomography.org/zh/?tab=papers&topic=spectral) <sub>42</sub> | [锥束 CT](https://computedtomography.org/zh/?tab=papers&topic=cbct) <sub>102</sub> | [动态与 4D CT](https://computedtomography.org/zh/?tab=papers&topic=dynamic) <sub>31</sub> |
-| [散射校正](https://computedtomography.org/zh/?tab=papers&topic=scatter) <sub>12</sub> | [几何标定与运动补偿](https://computedtomography.org/zh/?tab=papers&topic=geometry) <sub>29</sub> | [深度展开与基于模型的学习](https://computedtomography.org/zh/?tab=papers&topic=unrolling) <sub>75</sub> |
+| [散射校正](https://computedtomography.org/zh/?tab=papers&topic=scatter) <sub>12</sub> | [几何标定与运动补偿](https://computedtomography.org/zh/?tab=papers&topic=geometry) <sub>29</sub> | [深度展开与基于模型的学习](https://computedtomography.org/zh/?tab=papers&topic=unrolling) <sub>79</sub> |
 | [自监督与免训练方法](https://computedtomography.org/zh/?tab=papers&topic=self-supervised) <sub>51</sub> | [扩散与生成式先验](https://computedtomography.org/zh/?tab=papers&topic=diffusion) <sub>73</sub> | [隐式神经表示](https://computedtomography.org/zh/?tab=papers&topic=inr) <sub>31</sub> |
-| [高斯溅射](https://computedtomography.org/zh/?tab=papers&topic=gaussian) <sub>29</sub> | [其他主题](https://computedtomography.org/zh/?tab=papers&topic=other) <sub>79</sub> |  |
+| [高斯溅射](https://computedtomography.org/zh/?tab=papers&topic=gaussian) <sub>29</sub> | [其他主题](https://computedtomography.org/zh/?tab=papers&topic=other) <sub>54</sub> | [相关工作：重建之外](https://computedtomography.org/zh/?tab=papers&topic=related) <sub>25</sub> |
 
 ## 工具包与库
 
@@ -41,7 +41,7 @@
 
 ## 数据集
 
-[在网站上浏览全部 80 条](https://computedtomography.org/zh/?tab=datasets)
+[在网站上浏览全部 81 条](https://computedtomography.org/zh/?tab=datasets)
 
 ## 基准与挑战赛
 

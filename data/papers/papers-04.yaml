@@ -1213,7 +1213,7 @@
   title: "Unpaired Image-to-Image Translation Using Cycle-Consistent Adversarial Networks"
   year: 2017
   venue: "ICCV"
-  topics: [other]
+  topics: [related]
   paper: "https://doi.org/10.1109/ICCV.2017.244"
   note: "General unpaired image-to-image translation via cycle-consistent GANs; foundational for unpaired low-dose CT denoising and artifact reduction."
 
@@ -1222,7 +1222,7 @@
   title: "A mixed-scale dense convolutional neural network for image analysis"
   year: 2018
   venue: "PNAS"
-  topics: [other]
+  topics: [related]
   paper: "https://doi.org/10.1073/pnas.1715832114"
   note: "General mixed-scale dense CNN with dilated convolutions; compact architecture widely used for low-dose CT denoising."
 
@@ -1231,7 +1231,7 @@
   title: "Noise2Noise: Learning Image Restoration without Clean Data"
   year: 2018
   venue: "ICML"
-  topics: [other]
+  topics: [related]
   paper: "https://proceedings.mlr.press/v80/lehtinen18a.html"
   note: "General self-supervised denoising from noisy pairs only; the principle behind Noise2Inverse-style CT training."
 
@@ -1240,7 +1240,7 @@
   title: "Deep ADMM-Net for Compressive Sensing MRI"
   year: 2016
   venue: "NeurIPS"
-  topics: [other]
+  topics: [related]
   paper: "https://proceedings.neurips.cc/paper/6406-deep-admm-net-for-compressive-sensing-mri.pdf"
   note: "General deep unfolding of the ADMM solver; pioneering learned-iteration architecture later adapted to CT reconstruction."
 
@@ -1258,7 +1258,7 @@
   title: "Merlin: A Computed Tomography Vision-Language Foundation Model and Dataset"
   year: 2026
   venue: "Nature"
-  topics: [other]
+  topics: [related]
   paper: "https://doi.org/10.1038/s41586-026-10181-8"
   code: "https://github.com/StanfordMIMI/Merlin"
   note: "CT vision-language foundation model for diagnosis and image understanding (not reconstruction); included as a user-approved scope exception."
@@ -1267,7 +1267,7 @@
   abbr: "TAP-CT"
   title: "TAP-CT: 3D Task-Agnostic Pretraining of Computed Tomography Foundation Models"
   year: 2025
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2512.00872"
   note: "Self-supervised 3D CT representation learning with ViT and DINOv2 (not reconstruction); included as a user-approved scope exception."
 
@@ -1285,7 +1285,7 @@
   title: "An all-in-one foundation model for multimodal medical image restoration and enhancement"
   year: 2026
   venue: "Nat. Mach. Intell."
-  topics: [metal-artifact, other]
+  topics: [metal-artifact, related]
   paper: "https://doi.org/10.1038/s42256-026-01310-z"
   code: "https://github.com/caoluyang0830/All-in-One-Medical-Image-Restoration"
   note: "All-in-one restoration foundation model across 7 modalities, trained on 3.76M paired images; covers CT metal artifact removal on 37 CT datasets."
@@ -1295,7 +1295,7 @@
   title: "All-In-One Medical Image Restoration via Task-Adaptive Routing"
   year: 2024
   venue: "MICCAI"
-  topics: [low-dose, other]
+  topics: [low-dose, related]
   paper: "https://doi.org/10.1007/978-3-031-72104-5_7"
   code: "https://github.com/Yaziwel/All-In-One-Medical-Image-Restoration-via-Task-Adaptive-Routing"
   note: "Task-adaptive routing mitigates interference across MRI super-resolution, CT denoising (Mayo) and PET synthesis in one model."
@@ -1351,7 +1351,7 @@
   title: "All-In-One Medical Image Restoration via Text-Guided Prompting and Dual-Domain Modeling"
   year: 2026
   venue: "Information Fusion"
-  topics: [sparse-view, low-dose, metal-artifact, other]
+  topics: [sparse-view, low-dose, metal-artifact, related]
   paper: "https://doi.org/10.1016/j.inffus.2026.104558"
   code: "https://github.com/gluucose/UniMedIR"
   note: "All-in-one MedIR using LLM-enhanced text prompts refined by a mixture of task experts, guiding a dual-domain transformer across six tasks including CT denoising, metal artifact reduction, and sparse-view CT."
@@ -1361,7 +1361,7 @@
   title: "Degradation-Aware Prompted Transformer for Unified Medical Image Restoration"
   year: 2025
   venue: "TIP"
-  topics: [other]
+  topics: [related]
   paper: "https://doi.org/10.1109/TIP.2025.3644795"
   note: "A degradation-aware prompted transformer using spatially compact prompts with optimal-transport regularization and prompt-routed experts, validated on MRI, CT, and PET; code repo is a placeholder."
 
@@ -1370,7 +1370,7 @@
   title: "TAT: Task-Adaptive Transformer for All-in-One Medical Image Restoration"
   year: 2025
   venue: "MICCAI"
-  topics: [low-dose, other]
+  topics: [low-dose, related]
   paper: "https://arxiv.org/abs/2512.14550"
   code: "https://github.com/Yaziwel/TAT"
   note: "Task-adaptive transformer using task-specific weight generation and difficulty-based loss balancing for PET synthesis, CT denoising, and MRI super-resolution."
@@ -1389,7 +1389,7 @@
   title: "AllFreqNet: A unified frequency-enhanced all-in-one framework for medical image restoration"
   year: 2026
   venue: "Knowledge-Based Systems"
-  topics: [low-dose, metal-artifact, other]
+  topics: [low-dose, metal-artifact, related]
   paper: "https://doi.org/10.1016/j.knosys.2026.116882"
   note: "Unified CT denoising, CT metal artifact reduction, MRI super-resolution, and PET synthesis with multi-scale mixture-of-experts and region-conditioned frequency prompts; no public code found."
 
@@ -1515,7 +1515,7 @@
   abbr: "HounsWorld"
   title: "HounsWorld: A Multimodal World Model for Hidden Patient-State Readout, Reconstruction, and Simulation"
   year: 2026
-  topics: [low-dose, other]
+  topics: [low-dose, related]
   paper: "https://arxiv.org/abs/2608.12904"
   note: "3B multimodal CT world model unifying patient-state readout, reconstruction and simulation, including low-dose denoising and text-and-mask-to-volume generation."
 
@@ -1523,7 +1523,7 @@
   abbr: "CT-FM"
   title: "Vision Foundation Models for Computed Tomography"
   year: 2025
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2501.09001"
   code: "https://github.com/project-lighter/CT-FM"
   note: "CT vision foundation model pretrained on 148,000 scans for segmentation, triage, retrieval and semantic understanding (not reconstruction); included as a user-approved scope exception."
@@ -1533,7 +1533,7 @@
   title: "3D foundation model for generalizable disease detection in head computed tomography"
   year: 2026
   venue: "Nat. Biomed. Eng."
-  topics: [other]
+  topics: [related]
   paper: "https://doi.org/10.1038/s41551-026-01668-w"
   code: "https://github.com/NYUMedML/headCT_foundation"
   note: "Self-supervised 3D head CT foundation model pretrained on 361,663 scans for hemorrhage/tumor detection (not reconstruction); included as a user-approved scope exception."
@@ -1543,7 +1543,7 @@
   title: "MedVAE: Efficient Automated Interpretation of Medical Images with Large-Scale Generalizable Autoencoders"
   year: 2025
   venue: "MIDL"
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2502.14753"
   code: "https://github.com/StanfordMIMI/MedVAE"
   note: "Family of six large-scale 2D/3D medical autoencoders for efficient downstream embedding (not reconstruction); included as a user-approved scope exception."
@@ -1553,7 +1553,7 @@
   title: "MAISI: Medical AI for Synthetic Imaging"
   year: 2025
   venue: "WACV"
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2409.11169"
   code: "https://github.com/NVIDIA-Medtech/NV-Generate-CTMR"
   note: "Latent diffusion model generating synthetic high-resolution 3D CT volumes with ControlNet anatomy conditioning (not reconstruction); included as a user-approved scope exception."
@@ -1563,7 +1563,7 @@
   title: "GenerateCT: Text-Conditional Generation of 3D Chest CT Volumes"
   year: 2024
   venue: "ECCV"
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2305.16037"
   code: "https://github.com/ibrahimethemhamamci/GenerateCT"
   note: "Text-conditional diffusion model generating 3D chest CT volumes from free-form medical text prompts (not reconstruction); included as a user-approved scope exception."
@@ -1622,7 +1622,7 @@
   title: "UniH³: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration"
   year: 2026
   venue: "ECCV"
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2609.11156"
   code: "https://github.com/Yaziwel/UniH3"
   note: "All-in-one medical image restoration unifying intra- and inter-task homogeneity (Hierarchical Homogeneity Memory, H2M) with heterogeneity handling, state-of-the-art on the MedIR-2D-500K and MedIR-3D-3K benchmarks covering PET, CT and MRI; included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
@@ -1632,7 +1632,7 @@
   title: "Restore-RWKV: Efficient and Effective Medical Image Restoration with RWKV"
   year: 2026
   venue: "JBHI"
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2407.11087"
   code: "https://github.com/Yaziwel/Restore-RWKV"
   note: "First RWKV-based model for medical image restoration, adapting RWKV to 2D with recurrent WKV attention of linear complexity and an omnidirectional token shift layer; covers PET synthesis, CT denoising, MRI super-resolution and all-in-one restoration; included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
@@ -1641,7 +1641,7 @@
   abbr: "Mamba-MoE"
   title: "Mamba-MoE: Deterministic Intermediate Expert Isolation With a Shared Reconstruction Head for All-in-One Medical Image Restoration"
   year: 2026
-  topics: [other]
+  topics: [related]
   code: "https://github.com/Yanglllz/Mamba-MoE"
   note: "All-in-one medical image restoration (MRI super-resolution, CT denoising, PET restoration) injecting deterministic modality-matched residual experts into intermediate convolutions of a Mamba encoder-decoder with one shared reconstruction head; released as code without a public paper (manuscript under review); included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
 
@@ -1649,7 +1649,7 @@
   abbr: "MARR"
   title: "MARR: Decoupling Policy, Execution, and Calibration for All-in-One Medical Image Restoration"
   year: 2026
-  topics: [other]
+  topics: [related]
   paper: "https://arxiv.org/abs/2609.06645"
   note: "All-in-one PET, CT and MRI restoration recast as decoupled degradation-aware policy routing, modality-private residual execution and image-domain calibration, outperforming thirteen re-trained methods on an all-in-one benchmark; claimed code link is dead; included as a user-approved scope exception (CT is one of several tasks, not CT reconstruction)."
 
@@ -1667,7 +1667,7 @@
   title: "Generalist Foundation Models from a Multimodal Dataset for 3D Computed Tomography"
   year: 2026
   venue: "Nature Biomedical Engineering"
-  topics: [other]
+  topics: [related]
   paper: "https://doi.org/10.1038/s41551-025-01599-y"
   code: "https://github.com/ibrahimethemhamamci/CT-CLIP"
   note: "CT vision-language models (CT-CLIP + CT-CHAT; understanding, not reconstruction; CT-CHAT code at https://github.com/ibrahimethemhamamci/CT-CHAT); included as a user-approved scope exception."

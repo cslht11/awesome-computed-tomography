@@ -20,6 +20,13 @@
   license: CC BY 4.0 (head scans NIH controlled access)
   note: "**Projection + image.** Mayo Clinic, released through TCIA. 299 head / chest / abdomen exams (99 / 100 / 100), each with a routine-dose scan plus one simulated lower-dose projection set — head and abdomen at 25% of routine dose, chest at 10%. Chest and abdomen are open under CC BY 4.0; the 99 head scans need an NIH controlled-access request because they could be used to reconstruct a face. Raw sinograms in the open **DICOM-CT-PD** format. It grew out of the 2016 AAPM Low Dose CT Grand Challenge and is now the best real-data source for projection-domain methods."
 
+- name: 2016 Low Dose CT Grand Challenge data
+  url: https://aapm.app.box.com/s/eaw4jddb53keg1bptavvvd1sf4x3pe9h
+  modality: helical CT
+  tasks: [low-dose, reconstruction, denoising]
+  license: see source
+  note: "**Projection + image.** The complete data of the 2016 AAPM–NIBIB–Mayo Clinic Low Dose CT Grand Challenge: 30 contrast-enhanced abdominal CT cases (10 for training, 20 for testing) at routine and simulated quarter dose, re-released by Mayo and the AAPM on 21 September 2021 in the same **DICOM-CT-PD** projection format as the TCIA library. 13 of the 20 test cases are also in LDCT-and-Projection-data, and a README in the download maps the case IDs. This is the data most low-dose CT papers from 2017 onward mean by \"the Mayo\" or \"the AAPM\" dataset."
+
 - name: 2DeteCT
   url: https://doi.org/10.1038/s41597-023-02484-6
   modality: 2D fan-beam
@@ -56,12 +63,12 @@
   license: CC BY 4.0
   note: "480 dental CBCT scans with 3D tooth and jaw annotations; large-scale and useful for CBCT-domain pretraining. **Image domain only** — volumes are released without raw projections."
 
-- name: Cone-Beam CT (CBCT) Head & Neck
-  url: https://www.cancerimagingarchive.net/collection/head-neck/
+- name: Pancreatic-CT-CBCT-SEG
+  url: https://www.cancerimagingarchive.net/collection/pancreatic-ct-cbct-seg/
   modality: cone-beam
-  tasks: [cbct, reconstruction]
-  license: CC BY-NC 3.0
-  note: "Paired planning CT and on-board CBCT — the standard setting for CBCT correction and synthetic-CT work in radiotherapy."
+  tasks: [cbct, registration, segmentation]
+  license: CC BY 4.0
+  note: "**Image only.** 40 pancreatic-cancer radiotherapy patients (MSKCC), each with one breath-hold planning CT and two kV CBCT scans — 58 of the 80 CBCTs are 200° limited-view acquisitions — with expert organ-at-risk contours on both. Real paired CT–CBCT data for CBCT correction, registration and synthetic-CT work; reconstructed volumes only, no raw projections."
 
 # ---------------------------------------------------------------- image domain
 - name: CT-RATE

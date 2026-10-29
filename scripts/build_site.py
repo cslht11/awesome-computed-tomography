@@ -596,7 +596,9 @@ def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(),
 # data/topics.yaml; the paper table, counts and related resources come from the
 # same payload as the directory, so a page cannot fall out of step with it.
 TOPICS_FILE = os.path.join(ROOT, "data", "topics.yaml")
-TOPIC_SKIP = ("other",)          # a catch-all is not a topic worth a hub page
+# A catch-all is not a topic worth a hub page, and `related` is outside the
+# list's scope (context only), so neither gets one.
+TOPIC_SKIP = ("other", "related")
 TOPIC_PAPER_CAP = 30
 RESOURCE_TABLES = (("datasets", "tasks", "kindDataset"),
                    ("benchmarks", "tasks", "kindBenchmark"),
@@ -1080,15 +1082,34 @@ def render_lineage_body(payload, ov, code, lineage):
             '<p class="lede">%s</p>'
             % lin_rich(lin_text(lineage["intro"], code))]
 
+    # A parent link is the curators' reading of the field, not a citation:
+    # most children do not cite their parent. Links where the child does
+    # cite it (data/graph/citations.yaml) are drawn solid, the rest dashed,
+    # and the legend under the lede says which is which.
+    cites = set((c["from"], c["to"]) for c in (load("graph/citations.yaml") or []))
+
+    def cited(par, key):
+        a, b = by_key[key].get("paper"), by_key[par].get("paper")
+        return bool(a and b and (a, b) in cites)
+    n_cited = sum(1 for par, key, _lx, _ly, _d in edges if cited(par, key))
+    bits.append('<p class="tree-legend"><span class="lg-item"><span class="lg lg-cited" aria-hidden="true"></span>%s</span>'
+                '<span class="lg-item"><span class="lg" aria-hidden="true"></span>%s</span></p>'
+                % (esc(fill(ov.ui("treeLegendCited", "Solid: the later paper cites the earlier one ({n})."),
+                            {"n": n_cited})),
+                   esc(fill(ov.ui("treeLegendEditorial", "Dashed: a step the curators drew between related work, not a citation ({n})."),
+                            {"n": len(edges) - n_cited}))))
+
     # ---- the canvas: positioned cards + one SVG connector layer.
     stage = ['<div class="tree-stage" style="width:%spx;height:%spx">'
              % (num(width), num(height))]
     paths, heads = [], []
-    for _par, key, _lx, _ly, d in edges:
-        paths.append('<path d="%s"/>' % d)
+    for par, key, _lx, _ly, d in edges:
+        cls = ' class="cited"' if cited(par, key) else ""
+        paths.append('<path%s d="%s"/>' % (cls, d))
         x2, y2 = pos[key][0] + pos[key][2] / 2.0, pos[key][1]
-        heads.append('<polygon class="tn-arrowhead" points="%s,%s %s,%s %s,%s"/>'
-                     % (num(x2 - 5), num(y2 - 9), num(x2 + 5), num(y2 - 9), num(x2), num(y2)))
+        heads.append('<polygon class="tn-arrowhead%s" points="%s,%s %s,%s %s,%s"/>'
+                     % (" cited" if cls else "",
+                        num(x2 - 5), num(y2 - 9), num(x2 + 5), num(y2 - 9), num(x2), num(y2)))
     stage.append('<svg class="tree-edges" width="%s" height="%s" viewBox="0 0 %s %s" aria-hidden="true">%s%s</svg>'
                  % (num(width), num(height), num(width), num(height), "".join(paths), "".join(heads)))
     for _par, key, lx, ly, _d in edges:

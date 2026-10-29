@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 653 papers | 52 toolkits | 80 datasets | 19 benchmarks | Updated 2026-10-29 |
+| 653 papers | 52 toolkits | 81 datasets | 19 benchmarks | Updated 2026-10-29 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -28,12 +28,12 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 | | | |
 | --- | --- | --- |
-| [Surveys & Reviews](https://computedtomography.org/?tab=papers&topic=survey) <sub>25</sub> | [Classical & Iterative Reconstruction](https://computedtomography.org/?tab=papers&topic=classical) <sub>98</sub> | [Sparse-View CT](https://computedtomography.org/?tab=papers&topic=sparse-view) <sub>202</sub> |
+| [Surveys & Reviews](https://computedtomography.org/?tab=papers&topic=survey) <sub>25</sub> | [Classical & Iterative Reconstruction](https://computedtomography.org/?tab=papers&topic=classical) <sub>80</sub> | [Sparse-View CT](https://computedtomography.org/?tab=papers&topic=sparse-view) <sub>202</sub> |
 | [Limited-Angle Tomography](https://computedtomography.org/?tab=papers&topic=limited-angle) <sub>65</sub> | [Low-Dose CT Denoising](https://computedtomography.org/?tab=papers&topic=low-dose) <sub>126</sub> | [Metal Artifact Reduction](https://computedtomography.org/?tab=papers&topic=metal-artifact) <sub>59</sub> |
 | [Spectral & Dual-Energy CT](https://computedtomography.org/?tab=papers&topic=spectral) <sub>42</sub> | [Cone-Beam CT](https://computedtomography.org/?tab=papers&topic=cbct) <sub>102</sub> | [Dynamic & 4D CT](https://computedtomography.org/?tab=papers&topic=dynamic) <sub>31</sub> |
-| [Scatter Correction](https://computedtomography.org/?tab=papers&topic=scatter) <sub>12</sub> | [Geometry Calibration & Motion Compensation](https://computedtomography.org/?tab=papers&topic=geometry) <sub>29</sub> | [Deep Unrolling & Model-Based Learning](https://computedtomography.org/?tab=papers&topic=unrolling) <sub>75</sub> |
+| [Scatter Correction](https://computedtomography.org/?tab=papers&topic=scatter) <sub>12</sub> | [Geometry Calibration & Motion Compensation](https://computedtomography.org/?tab=papers&topic=geometry) <sub>29</sub> | [Deep Unrolling & Model-Based Learning](https://computedtomography.org/?tab=papers&topic=unrolling) <sub>79</sub> |
 | [Self-Supervised & Untrained Methods](https://computedtomography.org/?tab=papers&topic=self-supervised) <sub>51</sub> | [Diffusion & Generative Priors](https://computedtomography.org/?tab=papers&topic=diffusion) <sub>73</sub> | [Implicit Neural Representations](https://computedtomography.org/?tab=papers&topic=inr) <sub>31</sub> |
-| [Gaussian Splatting](https://computedtomography.org/?tab=papers&topic=gaussian) <sub>29</sub> | [Other Topics](https://computedtomography.org/?tab=papers&topic=other) <sub>79</sub> |  |
+| [Gaussian Splatting](https://computedtomography.org/?tab=papers&topic=gaussian) <sub>29</sub> | [Other Topics](https://computedtomography.org/?tab=papers&topic=other) <sub>54</sub> | [Related: Beyond Reconstruction](https://computedtomography.org/?tab=papers&topic=related) <sub>25</sub> |
 
 ## Toolkits
 
@@ -41,7 +41,7 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 ## Datasets
 
-[Browse all 80 entries on the website](https://computedtomography.org/?tab=datasets)
+[Browse all 81 entries on the website](https://computedtomography.org/?tab=datasets)
 
 ## Benchmarks
 

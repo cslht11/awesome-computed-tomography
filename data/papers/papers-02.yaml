@@ -37,7 +37,7 @@
   title: "Learning to Reconstruct Computed Tomography Images Directly From Sinogram Data Under A Variety of Data Acquisition Conditions"
   year: 2019
   venue: "TMI"
-  topics: [unrolling, classical]
+  topics: [unrolling]
   paper: "https://doi.org/10.1109/tmi.2019.2910760"
 
 - id: "spss"
@@ -160,7 +160,7 @@
   title: "Intelligent Parameter Tuning in Optimization-Based Iterative CT Reconstruction via Deep Reinforcement Learning"
   year: 2018
   venue: "TMI"
-  topics: [classical, unrolling]
+  topics: [unrolling]
   paper: "https://doi.org/10.1109/tmi.2018.2823679"
 
 - id: "rad"
@@ -306,7 +306,7 @@
 - id: "learned-convex-regularizers-for-inverse-problems"
   title: "Learned convex regularizers for inverse problems"
   year: 2020
-  topics: [classical, unrolling]
+  topics: [unrolling]
   paper: "https://arxiv.org/abs/2008.02839"
 
 - id: "n2s"
@@ -773,7 +773,7 @@
   title: "Learning Wavelet-Sparse FDK for 3D Cone-Beam CT Reconstruction"
   year: 2025
   venue: "Fully3D"
-  topics: [cbct, classical]
+  topics: [cbct, unrolling]
   paper: "https://arxiv.org/abs/2505.13579"
 
 - id: "fact-gs-fast-and-scalable-ct-reconstruction-with-gaussian-sp"
@@ -796,7 +796,7 @@
   title: "Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT"
   year: 2026
   venue: "TMI"
-  topics: [diffusion, sparse-view, classical]
+  topics: [diffusion, sparse-view]
   paper: "https://doi.org/10.1109/tmi.2026.3687173"
 
 - id: "digs-dynamic-cbct-reconstruction-using-deformation-informed-"
@@ -813,7 +813,7 @@
   title: "H3D-MarNet: Wavelet-Guided Dual-Path Learning for Metal Artifact Suppression and CT Modality Transformation for Radiotherapy Workflows"
   year: 2026
   venue: "ICPR"
-  topics: [metal-artifact, cbct, classical]
+  topics: [metal-artifact, cbct]
   paper: "https://doi.org/10.1007/978-3-032-31438-3_9"
 
 - id: "shape-guided-gaussian-splatting-for-sparse-view-x-ray-3d-rec"

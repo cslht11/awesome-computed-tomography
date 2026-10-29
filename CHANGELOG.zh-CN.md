@@ -6,6 +6,20 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 数据与图谱修正：真正的 CBCT 数据集、主题调整、2016 年 Mayo 挑战赛数据、谱系连线的性质
+<!-- en: Data and graph corrections: a real CBCT dataset, topic fixes, the 2016 Mayo challenge data, editorial lineage links -->
+
+### 修复
+
+- **替换了"Cone-Beam CT (CBCT) Head & Neck"。**它声称提供配对的计划 CT 与机载 CBCT，链接的却是 TCIA 的 Head-Neck-Cetuximab 数据集，其中根本没有 CBCT。改为收录 **Pancreatic-CT-CBCT-SEG**（TCIA，CC BY 4.0）：40 例患者，每例含一次计划 CT 与两次 CBCT，两类图像上都有危及器官轮廓。原页面 `/datasets/cbct-head-and-neck/` 已删除。
+- **18 个基于学习的方法移出了"经典与迭代重建"**（该主题的定义是手工设计的正则项）。展开网络（FISTA-Net、Momentum-Net、iRadonMAP 等）、可学习的滤波器与正则项，以及嵌入迭代循环的扩散先验，现在归入各自的方法主题；该主题现有 80 篇论文。
+- **2016 年 Mayo 挑战赛数据单独成为一个数据集。**2017 年以来有 29 篇论文写明使用的是"2016 年 AAPM–Mayo 低剂量 CT 大挑战"的数据，图谱却把它们记在 TCIA 的 LDCT-and-Projection-data 名下——那是更晚（2020 年 12 月）发布的数据集，只包含挑战赛 30 例中的 13 例。新增数据集条目 **2016 Low Dose CT Grand Challenge data**，链接到完整的 30 例重新发布版，这些使用关系现在指向它。确实使用 TCIA 数据库的两篇论文保持不变。
+
+### 变更
+
+- **新增主题"相关工作：重建之外"**（25 篇）：CT 基础模型、分析与生成模型（Merlin、CT-CLIP、MAISI、GenerateCT 等），跨成像模态训练的一体化复原模型，一个 MRI 方法（Deep ADMM-Net），以及重建工作所依赖的通用网络（CycleGAN、Noise2Noise、MSD-Net）。它们仍作为背景收录，排在最后，没有主题页，也不再挤占"其他主题"（现为 54 篇）。MAINTENANCE.md 写明了收录范围规则以及"经典"一词的含义。
+- **谱系树说明了连线的含义。**31 条连线中只有 4 条是引用关系（后一篇论文引用了前一篇），其余是策展人对研究脉络的解读。现在引用关系画成实线，其余画成虚线，并配有分别计数的图例。
+
 ## 2026-10-29 — 首页布局：紧凑的开头、主题侧栏、固定的筛选栏、年份标题
 <!-- en: Homepage layout: compact header, topic sidebar, sticky filters, year headings -->
 

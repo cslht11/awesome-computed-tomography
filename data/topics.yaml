@@ -229,6 +229,7 @@ topics:
     match: [low-dose, noise, noise-model]
     also:
       benchmarks: ["Noise2Noise denoising protocol"]
+      datasets: ["2016 Low Dose CT Grand Challenge data"]
     start:
       - id: red-cnn
         en: The residual encoder-decoder CNN that became the standard image-domain denoising baseline, with code.

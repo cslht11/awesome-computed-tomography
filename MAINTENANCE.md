@@ -392,6 +392,32 @@ We are deliberately **topic-first**: a paper is filed under every topic it
 belongs to (a sparse-view diffusion paper goes under both `sparse-view` and
 `diffusion`). Use the topic ids defined in `data/meta.yaml`.
 
+**Scope.** The list is about *reconstruction*: turning tomographic measurements
+into images, and the corrections that belong to that step (artifacts, scatter,
+geometry, dose). Tomography outside X-ray CT (cryo-ET, ultrasound CT, emission or
+schlieren tomography) is in scope when the contribution is the reconstruction;
+file it under its problem topics plus `other`.
+
+Some work outside that scope is still worth listing for context: CT foundation,
+analysis and generation models, all-in-one restoration models trained across
+imaging modalities, methods from another modality (e.g. MRI unrolling), and
+general-purpose networks that reconstruction papers build on (CycleGAN,
+Noise2Noise). Tag it `related`, not `other`. It may keep the problem topics it
+genuinely addresses (an all-in-one model evaluated on low-dose CT keeps
+`low-dose`), but `related` has no hub page and sits last in every list, so a
+reader can tell context from core. When unsure, ask whether the paper's own
+contribution changes how an image is formed from projections; if not, it is
+`related`.
+
+**Classical vs. learned.** `classical` means analytical and iterative methods
+with hand-crafted models: FBP/FDK, ART/SART/SIRT, statistical and
+penalised-likelihood reconstruction, sparsity, dictionaries, TV and its
+relatives, PnP/RED as frameworks. A method that trains a network or a learned
+prior (unrolled networks, learned filters or regularisers, diffusion priors
+inside an iterative loop) is not `classical`: use `unrolling`, `diffusion`,
+`self-supervised` or the matching method topic. Surveys that span both may carry
+both.
+
 ### Entry schemas
 
 #### `data/papers/papers-NN.yaml`

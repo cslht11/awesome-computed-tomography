@@ -214,6 +214,8 @@ ui:
   treeHint: "Drag to pan \u00b7 Ctrl/\u2318 + scroll or pinch to zoom \u00b7 double-click for the whole tree"
   treeReset: "Reset view"
   treeHeading: "The tree"
+  treeLegendCited: "Solid: the later paper cites the earlier one ({n})."
+  treeLegendEditorial: "Dashed: a step the curators drew between related work, not a citation ({n})."
   graphBackboneTitle: "Team backbone"
   graphBackboneIntro: "The directory's skeleton: the research teams, the topics, and the toolkits and guides that tie them together \u2014 which team focuses on which topic, and which tools and guides belong where. Select any node to see its connections."
   graphBackboneDesc: "The knowledge graph's backbone: research teams, topics, toolkits and guides in this CT reconstruction directory, and how they connect."
