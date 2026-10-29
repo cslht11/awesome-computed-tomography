@@ -149,7 +149,9 @@ def main():
                 bad.append((fn, i, title, url, "arxiv id not found"))
             else:
                 s = similar(title, got)
-                if s < 0.5:
+                # A toolkit or dataset is keyed by its short name ("CTrex"),
+                # which the paper's title contains but does not resemble.
+                if s < 0.5 and not (norm(title) and norm(title) in norm(got)):
                     bad.append((fn, i, title, url, "title mismatch (%.2f): %s" % (s, got[:60])))
                 else:
                     ok += 1

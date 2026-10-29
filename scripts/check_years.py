@@ -95,8 +95,9 @@ def main():
         if want and p["year"] != want:
             bad.append("%s: year %s, Crossref says %s (%s)"
                        % (p["id"], p["year"], want, msg.get("type")))
-        got = (msg.get("title") or [""])[0]
-        if got and similar(p["title"], got) < 0.6:
+        # Crossref can hold "NeAT" as the title and the rest as a subtitle.
+        got = " ".join((msg.get("title") or [""])[:1] + (msg.get("subtitle") or [])[:1])
+        if got.strip() and similar(p["title"], got) < 0.6:
             bad.append("%s: title differs from the DOI's: %r" % (p["id"], got[:90]))
         time.sleep(0.3)
 
