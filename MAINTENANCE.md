@@ -24,6 +24,7 @@ awesome-computed-tomography/
 │   ├── graph/                   knowledge-graph data
 │   │   ├── authors.yaml         OpenAlex authorship per paper (fetch_openalex.py)
 │   │   ├── citations.yaml       in-library citation pairs (fetch_openalex.py)
+│   │   ├── author_overrides.yaml  one person = one node; team PIs pinned by OpenAlex id
 │   │   └── paper_datasets.yaml  hand-verified paper -> dataset usage
 │   ├── meta.yaml                topic taxonomy, language registry, last_updated
 │   └── i18n/
@@ -533,7 +534,7 @@ Chinese site, or a paper missing from the graph.
 
 | # | Do | Why | What happens if you skip it |
 | --- | --- | --- | --- |
-| 11 | Run `python3 scripts/oneoff/fetch_openalex.py` (needs `requests`; it reads the paper shards **from GitHub main**, which is why this step comes after the push), then copy the `authors.yaml` and `citations.yaml` it writes beside itself over `data/graph/` | Authors, team links and in-library citations for the knowledge graph | The new paper has no authors and no citation edges in the graph (as EFMCT, SR4ZCT and the multi-stage parallel-beam paper had on 2026-10-28) |
+| 11 | Run `python3 scripts/oneoff/fetch_openalex.py` (needs `requests`; it reads the paper shards **from GitHub main**, which is why this step comes after the push), then copy the `authors.yaml` and `citations.yaml` it writes beside itself over `data/graph/`. If a new paper brings a known person under a new OpenAlex id (same name as a node or a team PI), add that id to their `same:` list in `data/graph/author_overrides.yaml`, with the evidence the file's header asks for | Authors, team links and in-library citations for the knowledge graph | The new paper has no authors and no citation edges in the graph (as EFMCT, SR4ZCT and the multi-stage parallel-beam paper had on 2026-10-28) |
 | 12 | Rebuild, run the tests, commit and push | Same as steps 7–10 | — |
 
 **Watch the deploy:**

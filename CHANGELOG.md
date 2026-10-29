@@ -13,6 +13,13 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Knowledge graph: one node per person, team leads pinned by identity
+
+### Fixed
+
+- **Authors split across several OpenAlex identities are now one node.** OpenAlex had split, for example, Jiliu Zhou, Cynthia McCollough, Yang Chen and Qiegen Liu across several author ids, so their papers were divided between duplicate nodes. A new file, `data/graph/author_overrides.yaml`, merges 43 such ids into 56 people. An id is merged only on evidence, recorded beside it: the same ORCID, at least three shared co-authors in the library, or the same institution plus a shared co-author.
+- **Team leads are linked by identity, not by name.** Every author named like a team's lead used to get a "leads" edge, so five different "Yang Chen" records all led the Southeast University team, one of them a power-grid engineer's profile. Each team's lead is now pinned to a verified OpenAlex id; LLNL's Hyojin Kim, for instance, now links to the LLNL profile instead of one that OpenAlex mixes with an ophthalmologist.
+
 ## 2026-10-29 — Data and graph corrections: a real CBCT dataset, topic fixes, the 2016 Mayo challenge data, editorial lineage links
 
 ### Fixed

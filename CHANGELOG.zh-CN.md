@@ -6,6 +6,14 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 知识图谱：一人一个节点，团队负责人按身份锁定
+<!-- en: Knowledge graph: one node per person, team leads pinned by identity -->
+
+### 修复
+
+- **被 OpenAlex 拆成多个身份的作者现在合并为一个节点。**例如 Jiliu Zhou、Cynthia McCollough、Yang Chen 与 Qiegen Liu 都被 OpenAlex 拆成了多个作者 ID，他们的论文因此分散在重复的节点上。新文件 `data/graph/author_overrides.yaml` 把 43 个这样的 ID 合并到 56 位作者名下。只有在有证据时才合并，并在旁边注明证据：相同的 ORCID、库内至少三位共同作者，或同一机构且至少一位共同作者。
+- **团队负责人按身份关联，而不是按姓名。**此前凡是与团队负责人同名的作者都会得到一条"负责"连线，于是五个不同的"Yang Chen"记录都成了东南大学团队的负责人，其中一个是电网工程师的档案。现在每个团队的负责人都锁定到经过核实的 OpenAlex ID；例如 LLNL 的 Hyojin Kim 现在链接到 LLNL 的档案，而不是被 OpenAlex 与一位眼科医生混在一起的那个档案。
+
 ## 2026-10-29 — 数据与图谱修正：真正的 CBCT 数据集、主题调整、2016 年 Mayo 挑战赛数据、谱系连线的性质
 <!-- en: Data and graph corrections: a real CBCT dataset, topic fixes, the 2016 Mayo challenge data, editorial lineage links -->
 

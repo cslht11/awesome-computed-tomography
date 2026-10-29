@@ -84,6 +84,57 @@ def _openalex_tail(url_or_id):
     return s.rsplit("/", 1)[-1] if s else ""
 
 
+def author_identities(doc):
+    """data/graph/author_overrides.yaml -> (alias, display, team_of).
+
+    alias maps every listed OpenAlex id (the canonical one and its `same`
+    ids) to the canonical id; display maps a canonical id to the name to
+    show; team_of maps a canonical id to the team it leads."""
+    alias, display, team_of = {}, {}, {}
+    for person in (doc or {}).get("people") or []:
+        cid = _openalex_tail(person.get("id"))
+        if not cid:
+            continue
+        alias[cid] = cid
+        for other in person.get("same") or []:
+            alias[_openalex_tail(other)] = cid
+        display[cid] = person.get("name") or cid
+        if person.get("team"):
+            team_of[cid] = person["team"]
+    return alias, display, team_of
+
+
+def validate_author_overrides(doc, teams):
+    """Shape and references of data/graph/author_overrides.yaml."""
+    problems = []
+    if doc is None:
+        return problems
+    people = doc.get("people") if isinstance(doc, dict) else None
+    if not isinstance(people, list):
+        return ["graph/author_overrides: needs a `people` list"]
+    team_ids = set(t["id"] for t in teams or [])
+    seen = {}
+    for i, person in enumerate(people):
+        w = "graph/author_overrides[%d]" % i
+        if not isinstance(person, dict) or not person.get("name"):
+            problems.append("%s: every person needs a name" % w)
+            continue
+        ids = [person.get("id")] + list(person.get("same") or [])
+        for x in ids:
+            if not re.match(r"^A\d+$", str(x or "")):
+                problems.append("%s (%s): %r is not an OpenAlex author id"
+                                % (w, person["name"], x))
+            elif x in seen:
+                problems.append("%s (%s): id %s is already listed for %s"
+                                % (w, person["name"], x, seen[x]))
+            else:
+                seen[x] = person["name"]
+        if person.get("team") and person["team"] not in team_ids:
+            problems.append("%s (%s): no team %r in data/teams.yaml"
+                            % (w, person["name"], person["team"]))
+    return problems
+
+
 # ---------------------------------------------------------------- validation
 def validate_graph(papers, teams, authors_doc, citations_doc,
                    paper_datasets_doc=None, dataset_names=None):
@@ -435,18 +486,27 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
     author_stats = {"matched": 0, "nodes": 0, "authored": 0, "leads": 0,
                     "coauthor": 0}
     if authors_doc:
+        # One person, one node: author_overrides.yaml folds OpenAlex's split
+        # ids into a canonical one and pins each team PI by id. A team whose
+        # PI is pinned is led only by that id; the name match below remains
+        # only for PIs with no pinned id (none of their papers matched).
+        alias, display, team_of = author_identities(load("graph/author_overrides.yaml"))
+        pinned_teams = set(team_of.values())
         pi_names = {}
         for tm in payload["teams"]:
+            if tm["id"] in pinned_teams:
+                continue
             for name in tm["pi"]:
                 pi_names.setdefault(norm_person(name), tm["id"])
         def author_key(a, by_name):
             """Canonical key for one authorship: the OpenAlex author id
-            when the record carries one; otherwise the normalised name —
-            merged into the id-keyed author when exactly one exists with
-            that name (OpenAlex leaves some authorships id-less)."""
+            when the record carries one (folded to its person's canonical
+            id); otherwise the normalised name — merged into the id-keyed
+            author when exactly one exists with that name (OpenAlex leaves
+            some authorships id-less)."""
             tail = _openalex_tail(a.get("openalex_author_id") or a.get("openalex"))
             if tail:
-                return tail
+                return alias.get(tail, tail)
             named = by_name.get(norm_person(a.get("name")) or "")
             if named and len(named) == 1:
                 return next(iter(named))
@@ -470,7 +530,7 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
             for a in authors:
                 tail = _openalex_tail(a.get("openalex_author_id") or a.get("openalex"))
                 if tail:
-                    by_name[norm_person(a.get("name"))].add(tail)
+                    by_name[norm_person(a.get("name"))].add(alias.get(tail, tail))
         for pid, authors in raw.items():
             keys = []
             for a in authors:
@@ -479,13 +539,14 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
                     continue
                 keys.append(key)
                 counts[key] += 1
-                names[key] = a.get("name") or key
+                names[key] = display.get(key) or a.get("name") or key
                 oa = a.get("openalex_author_id") or a.get("openalex")
                 if oa:
-                    oa_ids[key] = oa
+                    oa_ids[key] = "https://openalex.org/" + key if key in display else oa
             per_paper[pid] = keys
         included = set(k for k, n in counts.items()
-                       if n >= AUTHOR_MIN_PAPERS or norm_person(names[k]) in pi_names)
+                       if n >= AUTHOR_MIN_PAPERS or k in team_of
+                       or norm_person(names[k]) in pi_names)
         for key in included:
             meta = {"papers": counts[key]}
             oa_url = None
@@ -497,7 +558,7 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
             node("author:" + key, "author", names[key],
                  href=oa_url, meta=meta)
             author_stats["nodes"] += 1
-            team_id = pi_names.get(norm_person(names[key]))
+            team_id = team_of.get(key) or pi_names.get(norm_person(names[key]))
             if team_id:
                 edge("author:" + key, "team:" + team_id, "leads")
                 author_stats["leads"] += 1

@@ -737,6 +737,8 @@ def main():
         problems.extend(graph_mod.validate_graph(
             papers, teams, g_authors, g_citations, g_paper_datasets,
             set(e["name"] for e in datasets)))
+    problems.extend(graph_mod.validate_author_overrides(
+        load("graph/author_overrides.yaml"), teams))
 
     langs = i18n.languages(meta)
     by_code = dict((e["code"], e) for e in langs)

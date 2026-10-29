@@ -1,0 +1,231 @@
+# Author identities for the knowledge graph (scripts/graph.py).
+#
+# data/graph/authors.yaml keys each authorship by its OpenAlex author id, and
+# OpenAlex splits some people across several ids (and merges unrelated people
+# into one). Each entry here names one person: `id` is the canonical OpenAlex
+# id (the node and its link), `same` lists other ids whose authorships IN THIS
+# LIBRARY belong to that person, and `team` makes them the PI of a team in
+# data/teams.yaml (the graph's "leads" edge is keyed by this id, not by name,
+# so a namesake can never pick up a team).
+#
+# A `same` id is listed only on evidence, recorded beside it: the same ORCID;
+# or at least three shared co-authors across the library; or the same
+# institution plus a shared co-author. Ids without such evidence stay separate
+# even when the name matches. Ids are checked by build.py --check.
+people:
+  - name: "Ander Biguri"
+    id: A5087444643
+    team: cambridge-cia
+  - name: "Andreas Maier"
+    id: A5101619735
+    team: fau-lme
+  - name: "Carola-Bibiane Schönlieb"
+    id: A5033880300
+    team: cambridge-cia
+  - name: "Charles A. Bouman"
+    id: A5056657991
+    team: purdue-bouman
+  - name: "Cynthia H. McCollough"
+    id: A5067668310
+    team: mayo-ctic
+    same:
+      - A5109583908   # 3 shared co-authors in the library (model-based-motion-simulation-dynamic-wrist)
+      - A5113341331   # same ORCID 0000-0002-5346-332X (ilumenate-eid-cta)
+  - name: "Daniil Kazantsev"
+    id: A5032656034
+    team: stfc-cil
+  - name: "Dong Zeng"
+    id: A5100613149
+    same:
+      - A5123860595   # same ORCID 0000-0001-6015-5010 (balancing-efficiency-and-restoration-lightweight-mamba-based)
+  - name: "Emil Y. Sidky"
+    id: A5035273354
+    team: uchicago-xray
+  - name: "Francesco De Carlo"
+    id: A5032126111
+    team: anl-aps-tomo
+  - name: "Ge Wang"
+    id: A5100400458
+    team: rpi-wang-axis
+  - name: "Guang-Hong Chen"
+    id: A5042252659
+    team: uwisc-chen
+  - name: "Haimiao Zhang"
+    id: A5001445572
+    same:
+      - A5035804966   # same institution and 1 shared co-author (a-review-on-deep-learning-in-medical-image-reconstruction)
+  - name: "Hao Gao"
+    id: A5101675267
+    same:
+      - A5130912815   # 4 shared co-authors in the library (fda-recon-limited-angle-cbct)
+  - name: "Hao Gong"
+    id: A5033648312
+    same:
+      - A5011815340   # 5 shared co-authors in the library (palette-low-dose-synthesis)
+  - name: "Hyojin Kim"
+    id: A5045479111
+    team: llnl-leap
+    same:
+      - A5100439154   # its library papers are LLNL CT work; the profile also holds an ophthalmologist at UC Irvine (extreme-few-view-ct-reconstruction-using-deep-inference, dctr, ctnet)
+  - name: "Jakob Sauer Jørgensen"
+    id: A5021261523
+    team: stfc-cil
+  - name: "Jan De Beenhouwer"
+    id: A5008231285
+    team: uantwerp-visionlab
+  - name: "Jan Sijbers"
+    id: A5054696921
+    team: uantwerp-visionlab
+  - name: "Jeffrey A. Fessler"
+    id: A5027207271
+    team: umich-fessler
+  - name: "Jeffrey H. Siewerdsen"
+    id: A5068070550
+    team: jhu-istar
+  - name: "Ji He"
+    id: A5017295309
+    same:
+      - A5127335281   # same ORCID 0000-0001-9811-6500 (ctpretrain)
+  - name: "Jian Yang"
+    id: A5100643476
+    same:
+      - A5124302381   # same ORCID 0000-0003-1250-6319 (spectral-x-mamba, mvss-pcr-self-supervised-denoising)
+  - name: "Jianhua Ma"
+    id: A5006049117
+    same:
+      - A5136255417   # same ORCID 0000-0003-2958-1710 (ctpretrain)
+  - name: "Jiliu Zhou"
+    id: A5102009027
+    same:
+      - A5084645511   # same ORCID 0000-0001-6864-9509 (idol-net)
+      - A5110286429   # 7 shared co-authors in the library (dan-net)
+  - name: "Jong Chul Ye"
+    id: A5012644755
+    team: kaist-bispl
+  - name: "Junping Zhang"
+    id: A5100696429
+    same:
+      - A5129660824   # same ORCID 0000-0002-5924-3360 (proct)
+      - A5136587864   # same ORCID 0000-0002-5924-3360 (founddiff)
+  - name: "Kyle Champley"
+    id: A5039538061
+    team: llnl-leap
+  - name: "Li Zhang"
+    id: A5100425762
+    team: tsinghua-ep-ct
+    same:
+      - A5100425633   # 7 shared co-authors in the library (cargo-fewview, interweaving-monochromatic, dental-metal-interpolation)
+      - A5100425528   # 3 shared co-authors in the library (udamar-metal-artefact)
+  - name: "Lifeng Yu"
+    id: A5047914292
+    team: mayo-ctic
+  - name: "Mingxuan Gu"
+    id: A5028924625
+    same:
+      - A5049539538   # 12 shared co-authors in the library (data-driven-filter-design-in-fbp-transforming-ct-reconstru, gglf)
+  - name: "Ozan Öktem"
+    id: A5078374818
+    team: kth-oktem
+  - name: "Qi Gao"
+    id: A5100766909
+    same:
+      - A5114400786   # 8 shared co-authors in the library (noise-inspired-diffusion-model-for-generalizable-low-dose-ct, langmamba, quad-net)
+      - A5033891692   # same institution and 1 shared co-author (cocodiff-a-contextual-conditional-diffusion-model-for-low-)
+  - name: "Qiegen Liu"
+    id: A5057647276
+    same:
+      - A5157940281   # 3 shared co-authors in the library (gaussian-material-fields)
+  - name: "Qing Wu"
+    id: A5048171551
+    same:
+      - A5127855619   # 3 shared co-authors in the library (polyner)
+      - A5125227118   # 3 shared co-authors in the library (iscs)
+      - A5127390889   # 5 shared co-authors in the library (dc-pnpdp)
+  - name: "S. Kevin Zhou"
+    id: A5028465673
+    same:
+      - A5127813983   # same institution and 1 shared co-author (polyner)
+  - name: "Shaoyu Wang"
+    id: A5100770381
+    same:
+      - A5157968175   # 3 shared co-authors in the library (gaussian-material-fields)
+  - name: "Shouhua Luo"
+    id: A5062682047
+    team: seu-ct
+    same:
+      - A5158720274   # same ORCID 0000-0002-3307-1652 (noise2match)
+  - name: "Simon Rit"
+    id: A5091631955
+    team: creatis-rit
+  - name: "Tao Wang"
+    id: A5050971812
+    same:
+      - A5151909731   # 3 shared co-authors in the library (agenticct)
+  - name: "Tristan van Leeuwen"
+    id: A5008696762
+    team: cwi-ci
+  - name: "Wenxiang Cong"
+    id: A5002629143
+    same:
+      - A5101414827   # same institution and 1 shared co-author (virtual-monoenergetic-dl)
+  - name: "Xiaochuan Pan"
+    id: A5101465418
+    team: uchicago-xray
+  - name: "Xiaomeng Li"
+    id: A5100427643
+    team: hkust-xmed
+  - name: "Xiaoqun Zhang"
+    id: A5052123856
+    same:
+      - A5010022305   # same institution and 2 shared co-authors (sea-net-limited-angle-cbct)
+  - name: "Xu Ji"
+    id: A5007565319
+    same:
+      - A5103652158   # 5 shared co-authors in the library (spectral-x-mamba)
+  - name: "Yan Xi"
+    id: A5050645206
+    same:
+      - A5123895113   # same ORCID 0000-0001-6143-3107 (mvss-pcr-self-supervised-denoising)
+  - name: "Yang Chen"
+    id: A5108973667
+    team: seu-ct
+    same:
+      - A5100350437   # same ORCID 0000-0002-5660-6349 (soul-net, dream-net, easel)
+      - A5100639746   # 4 shared co-authors in the library (tamp)
+  - name: "Yi Zhang"
+    id: A5100388053
+    same:
+      - A5128291147   # same ORCID 0000-0001-7201-2092 (agenticct, fda-recon-limited-angle-cbct)
+      - A5100336523   # same institution and 2 shared co-authors (low-level-dataset-distillation)
+  - name: "Yikun Zhang"
+    id: A5100629918
+    same:
+      - A5128642335   # same ORCID 0000-0002-4048-4869 (diffnaf, spectral-x-mamba, mvss-pcr-self-supervised-denoising)
+      - A5090637480   # 4 shared co-authors in the library (dcdl-gs-sparse-view)
+  - name: "Yinsheng Li"
+    id: A5101658474
+    same:
+      - A5121414144   # same ORCID 0000-0002-1635-5178 (spectral-x-mamba)
+  - name: "Yipeng Sun"
+    id: A5110375849
+    same:
+      - A5133641426   # same ORCID 0009-0009-8587-8894 (filter2noise)
+  - name: "Yixing Huang"
+    id: A5073209088
+    same:
+      - A5140826999   # same ORCID 0000-0003-2627-3077 (gr-gaussian)
+  - name: "Yuanhao Cai"
+    id: A5038281038
+    same:
+      - A5109535986   # 4 shared co-authors in the library (x-gaussian)
+  - name: "Yuxiang Xing"
+    id: A5091410552
+    team: tsinghua-ep-ct
+  - name: "Zhan Wu"
+    id: A5036005382
+    same:
+      - A5040315468   # same institution and 1 shared co-author (tamp)
+  - name: "Zhiwen Yang"
+    id: A5086589010
+    same:
+      - A5102790365   # 3 shared co-authors in the library (unih3)
