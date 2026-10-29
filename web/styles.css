@@ -214,29 +214,36 @@ header .gres { color: var(--fg); width: max(100%, 380px); }
 
 /* ---------------------------------------------------------------- hero */
 
-.hero { padding: 64px 0 36px; text-align: center; }
-.hero-art { color: var(--accent); margin: 0 auto 22px; width: 104px; height: 104px; }
+/* Compact: the hero used to be ~600 px tall, which put the first paper at
+   y = 974 on a laptop (and below the fold on a phone). Logo, title and lead
+   sit side by side, and the counts are one line of figures. */
+.hero {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 20px;
+  align-items: center; padding: 30px 0 6px;
+}
+.hero-art { color: var(--accent); grid-row: span 2; width: 64px; height: 64px; }
 .hero-art .gantry { width: 100%; height: 100%; }
 .eyebrow { margin: 0 0 10px; font: 600 14px var(--sans); color: var(--accent); letter-spacing: 0; }
 .hero-title {
-  margin: 0 0 18px;
-  font: 700 clamp(32px, 5.2vw, 52px)/1.08 var(--display);
-  letter-spacing: -.028em;
+  margin: 0;
+  font: 700 clamp(26px, 3vw, 34px)/1.12 var(--display);
+  letter-spacing: -.025em;
 }
-.lead { margin: 0 auto; max-width: 640px; font-size: 19px; line-height: 1.5; color: var(--fg-muted); }
+.lead { margin: 0; max-width: 860px; font-size: 15px; line-height: 1.5; color: var(--fg-muted); }
 
 .stats {
-  margin: 48px auto 0; max-width: 860px;
-  /* The last column sizes to its content: the Updated date (26px, 10 chars)
-     is a hair wider than an equal sixth, so an equal grid let the browser
-     break it at a hyphen while every other value stayed on one line. */
-  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)) max-content;
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  grid-column: 1 / -1; margin: 14px 0 0;
+  display: flex; flex-wrap: wrap; gap: 6px 26px;
 }
-.stats div { padding: 18px 8px; }
-.stats div + div { border-left: 1px solid var(--border); }
-.stats dt { font-size: 12.5px; color: var(--fg-faint); }
-.stats dd { margin: 2px 0 0; font: 600 26px/1.2 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Figure first, label after it ("653 Papers"); the markup keeps dt before
+   dd for the definition list. */
+.stats div { display: inline-flex; flex-direction: row-reverse; align-items: baseline; gap: 6px; }
+.stats dt { font-size: 13px; color: var(--fg-faint); }
+.stats dd { margin: 0; font: 600 18px/1.2 var(--display); letter-spacing: -.01em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* The hero introduces the paper list; on the other tabs it only pushed the
+   table down, and each tab switch lands at the top with it in view. */
+main:has(> #panel-papers[hidden]) .hero { display: none; }
 
 /* ---------------------------------------------------------------- global search */
 
@@ -293,6 +300,12 @@ kbd {
   padding: 18px 0 12px; font-size: 13.5px; color: var(--fg-muted);
   border-bottom: 1px solid var(--border);
 }
+/* Filters and the result count stay in reach while scrolling the list
+   (below the two-row header; on phones the drawer header is shorter and
+   the toolbar wraps to three rows, so it scrolls away there). */
+@media (min-width: 861px) {
+  .toolbar { position: sticky; top: 104px; z-index: 20; background: var(--bg); }
+}
 .toolbar label { display: inline-flex; align-items: center; gap: 7px; }
 .toolbar input[type="checkbox"] { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
 select {
@@ -345,6 +358,39 @@ section[hidden] { display: none; }
 /* ---------------------------------------------------------------- papers */
 
 ul.papers { list-style: none; margin: 8px 0 0; padding: 0; }
+li.year-sep { padding: 22px 0 2px; border-bottom: 1px solid var(--border-strong); }
+li.year-sep h2 { margin: 0; font: 700 20px/1.3 var(--display); letter-spacing: -.015em; font-variant-numeric: tabular-nums; }
+li.year-sep .n { margin-left: 10px; font: 400 13px var(--sans); color: var(--fg-faint); }
+
+/* Wide screens: topics become a sticky column beside the list instead of
+   four or five rows of chips above it. `:not([hidden])` because an id
+   selector would otherwise beat `section[hidden] { display: none }`. The
+   homepage (the only page without body.subpage) also gets a wider measure,
+   header and footer included so their edges line up with the content. */
+@media (min-width: 1280px) {
+  body:not(.subpage) .wrap { max-width: 1280px; }
+}
+@media (min-width: 1080px) {
+  #panel-papers:not([hidden]) {
+    display: grid; grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 40px; align-items: start;
+  }
+  #panel-papers > * { grid-column: 2; }
+  #panel-papers > #topics {
+    grid-column: 1; grid-row: 1 / span 5;
+    position: sticky; top: 120px;
+    flex-direction: column; flex-wrap: nowrap; gap: 2px;
+    max-height: calc(100vh - 136px); overflow-y: auto;
+    padding: 18px 0 16px; scrollbar-width: thin;
+  }
+  #topics .chip {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    text-align: left; white-space: normal; line-height: 1.35;
+    border-radius: 8px; padding: 6px 10px; background: none;
+  }
+  #topics .chip:hover { background: var(--surface); }
+  #topics .chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+}
 li.paper {
   display: grid; grid-template-columns: minmax(0, 1fr) auto;
   gap: 5px 20px;
@@ -518,13 +564,16 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   .scrim[hidden] { display: none; }
   body.drawer-open { overflow: hidden; }
 
-  .hero { padding: 40px 0 24px; }
-  .lead { font-size: 17px; }
-  .hero-art { width: 80px; height: 80px; margin-bottom: 16px; }
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)) max-content; margin-top: 32px; }
-  .stats div:nth-child(4) { border-left: 0; }
-  .stats div:nth-child(n+4) { border-top: 1px solid var(--border); }
-  .stats dd { font-size: 22px; }
+  .hero { padding: 20px 0 4px; gap: 4px 14px; }
+  .hero-art { width: 44px; height: 44px; grid-row: auto; }
+  .lead { grid-column: 1 / -1; font-size: 14.5px; }
+  .stats { gap: 4px 18px; margin-top: 10px; }
+  .stats dd { font-size: 16px; }
+}
+@media (max-width: 560px) {
+  /* The lead already gives every count; on a phone the figures row only
+     pushes the list down. */
+  .stats { display: none; }
 }
 
 @media (max-width: 560px) {

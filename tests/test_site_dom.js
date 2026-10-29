@@ -161,6 +161,17 @@ async function testEnglish() {
 
   homeDetailLinks(doc, "");
 
+  /* Year headings: one per year while the list is in year order, each
+     counting its own rows; none once the list is ranked by a search. */
+  const seps = Array.prototype.slice.call(doc.querySelectorAll("#papers-list li.year-sep h2"));
+  const years = new Set(Array.prototype.map.call(doc.querySelectorAll("#papers-list .paper .p-meta"),
+    (m) => (m.textContent.match(/\b(19|20)\d\d\b/) || [""])[0]));
+  ok("year headings: one per year in the list", seps.length > 5 && seps.length === years.size,
+    seps.length + " headings, " + years.size + " years");
+  const sumN = seps.reduce((a, h) => a + Number(h.querySelector(".n").textContent), 0);
+  ok("year headings: counts add up to the rows shown", sumN === paperTitles(win).length,
+    sumN + " vs " + paperTitles(win).length);
+
   /* ---- hover cards -----------------------------------------------------
      A paper title used to be an <a> to the same URL as the `paper` link beside
      it, so clicking either went to the same place. It is plain text now, and
@@ -211,6 +222,8 @@ async function testEnglish() {
   await wait(150);
   ok("filter: relevance puts DenoMamba first", /denomamba/i.test(paperTitles(win)[0] || ""),
     paperTitles(win)[0] || "—");
+  ok("year headings: none while results are ranked by a search",
+    doc.querySelectorAll("#papers-list li.year-sep").length === 0);
   typeInput(win, q, "");
   await wait(150);
 

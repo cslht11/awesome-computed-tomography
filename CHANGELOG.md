@@ -13,6 +13,19 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Homepage layout: compact header, topic sidebar, sticky filters, year headings
+
+### Changed
+
+- **The list starts higher.** The opening block (logo, title, summary and figures) was about 600 px tall, so the first paper sat at y = 974 on a laptop and below the fold on a phone. It is now one compact block: the first paper appears at about y = 500 on a laptop. On phones the row of figures is hidden, since the summary above it already gives every count.
+- **Topic sidebar on wide screens.** From 1080 px wide, the 17 topics sit in a column beside the list instead of four or five rows of chips above it, and the column stays in view while you scroll. The homepage also uses more of a wide screen (up to 1280 px).
+- **Filters stay in reach.** On desktop, the filter bar (status, has-code, year, sort, result count) stays pinned under the header while you scroll the list.
+- **The opening block shows on the Papers tab only.** Other tabs open straight on their table.
+
+### Added
+
+- **Year headings in the paper list**, each with its count, whenever the list is in year order. They are real headings, so screen-reader users can jump from year to year. They are left out when the list is sorted by title or ranked by a search.
+
 ## 2026-10-29 — Lighter homepage, licence notices for the graph libraries, weekly link check
 
 ### Changed

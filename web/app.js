@@ -279,7 +279,29 @@
     /* The row the card was describing may be about to disappear. */
     hideCard();
 
+    /* Year headings while the list is in year order (not when it is sorted
+       by title or ranked by a search), so a long list can be scanned by year
+       and a screen reader can jump between years by heading. */
+    var byYear = !state.q && state.sort !== "title";
+    var perYear = {}, lastYear = null;
+    if (byYear) {
+      rows.forEach(function (p) { perYear[p.year] = (perYear[p.year] || 0) + 1; });
+    }
+
     rows.forEach(function (p) {
+      if (byYear && p.year !== lastYear) {
+        lastYear = p.year;
+        var yl = document.createElement("li");
+        yl.className = "year-sep";
+        var yh = document.createElement("h2");
+        yh.textContent = String(p.year);
+        var yn = document.createElement("span");
+        yn.className = "n";
+        yn.textContent = perYear[p.year];
+        yh.appendChild(yn);
+        yl.appendChild(yh);
+        frag.appendChild(yl);
+      }
       var li = document.createElement("li");
       li.className = "paper";
 
