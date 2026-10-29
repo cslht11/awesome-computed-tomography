@@ -3,7 +3,7 @@
 # visitor can tell at a glance whether the list is still maintained.
 # Bump it whenever content changes (papers, toolkits, datasets, links).
 # scripts/build.py --check fails if it is missing or not a YYYY-MM-DD date.
-last_updated: 2026-10-27
+last_updated: 2026-10-28
 
 # Topic taxonomy and language registry.
 #

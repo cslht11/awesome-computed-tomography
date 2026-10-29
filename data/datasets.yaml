@@ -574,3 +574,10 @@
   tasks: [segmentation]
   license: see source
   note: "**Image only.** Reconstructed 8-bit TIFF stacks of two deep-sea bamboo coral species (Acanella arbuscula, 5 specimens; Keratoisis sp., 4 specimens) at 15/50 µm voxels; no raw projections (available from the authors only). Total 103.51 GB. Documentation lives at Williams et al., Sci Data 2024."
+
+- name: 4D-Lung
+  url: https://www.cancerimagingarchive.net/collection/4d-lung/
+  modality: 4D CT (fan-beam + cone-beam)
+  tasks: [dynamic, cbct, reconstruction]
+  license: CC BY 3.0
+  note: "**Image only.** 20 locally advanced NSCLC patients during chemoradiotherapy: 4D fan-beam CT (16-slice helical, 10 respiratory phases, 3 mm slices) and 4D cone-beam CT (Varian on-board imager, ~2500 projections sorted into 10 phases and reconstructed with an in-house FDK) — 183 GB of DICOM images plus RTSTRUCT contours; no raw projections in the download. Data citation required: Hugo et al. 2016, DOI 10.7937/K9/TCIA.2016.ELN8YGLE. The simulation source for PRIOR's PRIOR-Net (17 train / 3 test patients); distinct from the SPARE 4D-CBCT challenge data."

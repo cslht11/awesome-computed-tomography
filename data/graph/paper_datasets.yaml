@@ -241,6 +241,9 @@
     - dataset: SPARE 4D-CBCT
       usage: eval
       evidence: "§IV.A.1 Dataset Acquisition — “Clinical data was provided by the SPARE Challenge.” Elekta dataset (one case) and Varian dataset (one patient) evaluated by the PRIOR-Net trained on simulated images, as clinical datasets have no ground truth images."
+    - dataset: 4D-Lung
+      usage: both
+      evidence: "§IV.A.1 Dataset Acquisition — “Simulated data came from the 4D-Lung Cancer Imaging Archive... It had twenty high-quality 4D lung images and each of which had ten volumetric images corresponding to ten breathing phases.” “We selected seventeen patients (16870 images) for training and three patients (3060 images) for testing.” Degraded and prior images simulated from the high-quality 4D images were the PRIOR-Net training input, with the high-quality 4D images as reference."
 - paper: deep-sinogram-completion-mar
   uses:
     - dataset: DeepLesion
