@@ -581,7 +581,7 @@
 - id: "gan-circle"
   abbr: "GAN-CIRCLE"
   title: "CT Super-resolution GAN Constrained by the Identical, Residual, and Cycle Learning Ensemble (GAN-CIRCLE)"
-  year: 2019
+  year: 2020
   venue: "TMI"
   topics: [other]
   paper: "https://doi.org/10.1109/TMI.2019.2922960"
@@ -678,7 +678,7 @@
 
 - id: "diffusion-probabilistic-priors-zero-shot-low-dose-ct"
   title: "Diffusion Probabilistic Priors for Zero-Shot Low-Dose CT Image Denoising"
-  year: 2024
+  year: 2025
   venue: "Med Phys"
   topics: [low-dose, diffusion]
   paper: "https://doi.org/10.1002/mp.17431"
@@ -923,7 +923,7 @@
   year: 2011
   venue: "Found. Trends Mach. Learn."
   topics: [classical, sparse-view]
-  paper: "https://doi.org/10.1561/9781601984616"
+  paper: "https://doi.org/10.1561/2200000016"
   note: "The ADMM reference."
 
 - id: "fista-2009"
@@ -1396,7 +1396,7 @@
 - id: "deep-mar"
   abbr: "Deep-MAR"
   title: "Fast Enhanced CT Metal Artifact Reduction Using Data Domain Deep Learning"
-  year: 2019
+  year: 2020
   venue: "TCI"
   topics: [metal-artifact]
   paper: "https://doi.org/10.1109/tci.2019.2937221"
@@ -1406,7 +1406,7 @@
 - id: "dicdnet"
   abbr: "DICDNet"
   title: "DICDNet: Deep Interpretable Convolutional Dictionary Network for Metal Artifact Reduction in CT Images"
-  year: 2021
+  year: 2022
   venue: "TMI"
   topics: [metal-artifact, unrolling]
   paper: "https://doi.org/10.1109/tmi.2021.3127074"
@@ -1456,7 +1456,7 @@
 - id: "pdumsrnet"
   abbr: "PDuMSRNet"
   title: "Prompt Guiding Multi-Scale Adaptive Sparse Representation-driven Network for Low-Dose CT MAR"
-  year: 2025
+  year: 2026
   venue: "MedIA"
   topics: [metal-artifact, low-dose]
   paper: "https://doi.org/10.1016/j.media.2025.103870"

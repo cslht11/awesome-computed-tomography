@@ -72,7 +72,7 @@
 - id: "remar-ds-recalibrated-feature-learning-for-metal-artifact-re"
   abbr: "ReMAR-DS"
   title: "ReMAR-DS: Recalibrated Feature Learning for Metal Artifact Reduction and CT Domain Transformation"
-  year: 2025
+  year: 2026
   venue: "ICIAP"
   topics: [metal-artifact]
   paper: "https://doi.org/10.1007/978-3-032-10192-1_18"
@@ -126,7 +126,7 @@
 
 - id: "bigger-isn-t-always-better-towards-a-general-prior-for-medic"
   title: "Bigger Isn't Always Better: Towards a General Prior for Medical Image Reconstruction"
-  year: 2025
+  year: 2026
   venue: "IJCV"
   topics: [diffusion]
   paper: "https://doi.org/10.1007/s11263-026-02904-1"
@@ -731,7 +731,7 @@
 
 - id: "moreau-shearlet-tv-2020"
   title: "Moreau-envelope-enhanced nonlocal shearlet transform and total variation for sparse-view CT reconstruction"
-  year: 2020
+  year: 2021
   venue: "Meas. Sci. Technol."
   topics: [classical, sparse-view]
   paper: "https://doi.org/10.1088/1361-6501/aba282"

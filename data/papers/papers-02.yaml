@@ -51,7 +51,7 @@
 - id: "spultra"
   abbr: "SPULTRA"
   title: "SPULTRA: Low-Dose CT Image Reconstruction with Joint Statistical and Learned Image Models"
-  year: 2019
+  year: 2020
   venue: "TMI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/tmi.2019.2934933"
@@ -67,7 +67,7 @@
 - id: "vvbp-tsvd"
   abbr: "VVBP-tSVD"
   title: "VVBP-Tensor in the FBP Algorithm: Its Properties and Application in Low-Dose CT Reconstruction"
-  year: 2019
+  year: 2020
   venue: "TMI"
   topics: [low-dose, classical]
   paper: "https://doi.org/10.1109/tmi.2019.2935187"
@@ -75,7 +75,7 @@
 - id: "3padmm"
   abbr: "3pADMM"
   title: "Optimizing a parameterized plug-and-play ADMM for iterative low-dose CT reconstruction"
-  year: 2018
+  year: 2019
   venue: "TMI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/tmi.2018.2865202"
@@ -150,7 +150,7 @@
 - id: "nlctf"
   abbr: "NLCTF"
   title: "Non-Local Low-Rank Cube-Based Tensor Factorization for Spectral CT Reconstruction"
-  year: 2018
+  year: 2019
   venue: "TMI"
   topics: [spectral]
   paper: "https://doi.org/10.1109/tmi.2018.2878226"
@@ -339,7 +339,7 @@
 
 - id: "equivariant-conditional-diffusion-model-for-head-and-neck-ct"
   title: "Equivariant Conditional Diffusion Model for Head and Neck CT Image Synthesis from CBCT"
-  year: 2025
+  year: 2026
   venue: "Med Phys"
   topics: [diffusion, cbct]
   paper: "https://doi.org/10.1002/mp.70617"
@@ -369,7 +369,7 @@
 - id: "dvg-diffusion-dual-view-guided-diffusion-model-for-ct-recons"
   abbr: "DVG-Diffusion"
   title: "DVG-Diffusion: Dual-View Guided Diffusion Model for CT Reconstruction from X-Rays"
-  year: 2025
+  year: 2026
   venue: "TIP"
   topics: [diffusion]
   paper: "https://doi.org/10.1109/tip.2026.3655171"
@@ -520,7 +520,7 @@
 
 - id: "adaptive-diffusion-models-for-sparse-view-motion-corrected-h"
   title: "Adaptive Diffusion Models for Sparse-View Motion-Corrected Head Cone-beam CT"
-  year: 2025
+  year: 2026
   venue: "TRPMS"
   topics: [diffusion, sparse-view, cbct]
   paper: "https://doi.org/10.1109/TRPMS.2025.3637124"
@@ -578,7 +578,7 @@
 - id: "mindi-3d-iterative-deep-learning-in-3d-for-sparse-view-cone-"
   abbr: "MInDI-3D"
   title: "MInDI-3D: Iterative Deep Learning in 3D for Sparse-view Cone Beam Computed Tomography"
-  year: 2025
+  year: 2026
   venue: "IEEE Access"
   topics: [sparse-view, cbct, unrolling]
   paper: "https://doi.org/10.1109/access.2026.3652627"

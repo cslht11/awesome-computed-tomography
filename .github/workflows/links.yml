@@ -2,9 +2,11 @@ name: link check
 
 # Weekly sweep of every URL in data/ (papers, toolkits, datasets, benchmarks,
 # learning, teams) with scripts/check_links.py: arXiv links are also checked
-# against the entry's title. A PROBLEM opens an issue labelled `link-check`,
-# or comments on the open one; BLOCKED (bot-refusing hosts) and WARN never do.
-# The full report is attached to the run as an artifact.
+# against the entry's title. Then scripts/check_years.py reads every paper
+# DOI back from Crossref and checks its year (the issue-year rule) and title.
+# A problem from either opens an issue labelled `link-check`, or comments on
+# the open one; BLOCKED (bot-refusing hosts) and WARN never do. Both reports
+# are attached to the run as an artifact.
 
 on:
   schedule:
@@ -18,7 +20,7 @@ permissions:
 jobs:
   links:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v7
 
@@ -34,14 +36,21 @@ jobs:
         continue-on-error: true
         run: python scripts/check_links.py --strict
 
+      - name: Read every paper DOI back from Crossref (year, title)
+        id: years
+        continue-on-error: true
+        run: python scripts/check_years.py --strict
+
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: link-report
-          path: scripts/oneoff/link-report.txt
+          path: |
+            scripts/oneoff/link-report.txt
+            scripts/oneoff/year-report.txt
 
       - name: Open or update the link-check issue
-        if: steps.check.outcome == 'failure'
+        if: steps.check.outcome == 'failure' || steps.years.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -50,16 +59,21 @@ jobs:
           gh label create link-check --color c5def5 \
             --description "Found by the weekly link check" 2>/dev/null || true
           {
-            echo "The weekly link check found URLs that no longer resolve ($RUN_URL)."
+            echo "The weekly check found problems in data/ ($RUN_URL)."
             echo
             echo '```'
             sed -n '/^--- PROBLEM ---$/,/^--- \(BLOCKED\|WARN\)/p' scripts/oneoff/link-report.txt | head -200
+            echo '```'
+            echo
+            echo "Crossref read-back (year / title):"
+            echo '```'
+            head -100 scripts/oneoff/year-report.txt 2>/dev/null
             echo '```'
           } > body.md
           N=$(gh issue list --label link-check --state open --json number --jq '.[0].number')
           if [ -n "$N" ]; then
             gh issue comment "$N" --body-file body.md
           else
-            gh issue create --title "Link check: broken URLs in data/" \
+            gh issue create --title "Weekly check: broken links or Crossref mismatches in data/" \
               --label link-check --body-file body.md
           fi

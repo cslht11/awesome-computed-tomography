@@ -42,6 +42,7 @@ awesome-computed-tomography/
 │   ├── check_last_updated.py    CI guard: last_updated must cover the newest data commit
 │   ├── check_links.py           link-health sweep (weekly in CI); writes into scripts/oneoff/
 │   ├── changed_urls.py          deploy: which pages changed, for IndexNow
+│   ├── check_years.py           Crossref read-back of every paper's year and title (weekly in CI)
 │   ├── install-hooks.sh         copies hooks/ into .git/hooks/ (see below)
 │   └── oneoff/                  the harvest history — how each entry was found
 ├── hooks/                       authorship guards — MUST be installed after a clone
@@ -168,6 +169,19 @@ the venue and the year from that record.
 `year` means the year **at the venue**. When a work appeared on arXiv first, the value
 belongs to the publication, not the posting. For an entry with no venue, `year` is the
 first public posting and the site prints `_preprint <year>_`.
+
+At the venue means, precisely:
+
+- **journal article:** the year of the issue it appears in (Crossref `published-print`),
+  as a bibliography would cite it. While it has no issue yet (online-first, IEEE early
+  access), the year it went online; update it when the issue is assigned. Example: a
+  TPAMI paper in early access in 2020 and in the 2023 volume is 2023.
+- **conference paper, chapter, monograph:** the conference or publication year
+  (Crossref `issued`), even when the printed proceedings appear the next year.
+
+`scripts/check_years.py` reads every DOI back from Crossref and applies this rule (and a
+title match); it runs weekly in CI. Its `EXEMPT` table holds the few deliberate
+exceptions, each with its reason.
 
 `arXiv` and `TechRxiv` are not venues. If an entry has no venue, leave the field out —
 do not fill it with the preprint server.
@@ -581,8 +595,8 @@ against a bibliographic database rather than typed by hand:
   really is the paper in the entry. Two wrong DOIs were caught this way.
 - `year` and `venue` are written back from the authoritative Crossref record, so
   they reflect the version of record (e.g. a MICCAI paper is dated to the
-  proceedings year, not the arXiv preprint year). Manual corrections take
-  precedence where Crossref reports an online-first date instead.
+  proceedings year, not the arXiv preprint year). The exact year rule is in
+  "Verify venues by DOI" above, and `scripts/check_years.py` enforces it weekly.
 - Toolkit `stars` are a snapshot and are refreshed by hand; `license` comes from
   the repository's declared SPDX identifier.
 - `scripts/check_links.py` requests every URL in `data/` and writes a report to

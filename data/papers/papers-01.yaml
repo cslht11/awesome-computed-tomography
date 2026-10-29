@@ -114,7 +114,7 @@
 - id: "diffnaf"
   abbr: "DiffNAF"
   title: "Iterative Diffusion-Refined Neural Attenuation Fields for Multi-Source Stationary Tomography"
-  year: 2025
+  year: 2026
   venue: "TCI"
   topics: [inr, diffusion]
   paper: "https://doi.org/10.1109/tci.2026.3707041"
@@ -544,7 +544,7 @@
 - id: "malar"
   abbr: "MALAR"
   title: "Multiple Adversarial Learning based Angiography Reconstruction for Ultra-low-dose Contrast Medium CT"
-  year: 2022
+  year: 2023
   venue: "JBHI"
   topics: [low-dose]
   paper: "https://doi.org/10.1109/jbhi.2022.3213595"
@@ -732,7 +732,7 @@
 - id: "sinonet"
   abbr: "SinoNet"
   title: "Noise-Generating-Mechanism-Driven Unsupervised Learning for Low-Dose CT Sinogram Recovery"
-  year: 2021
+  year: 2022
   venue: "TRPMS"
   topics: [low-dose, self-supervised]
   paper: "https://doi.org/10.1109/trpms.2021.3083361"
@@ -842,7 +842,7 @@
 - id: "hdnet"
   abbr: "HDNet"
   title: "Hybrid-domain neural network processing for sparse-view CT reconstruction"
-  year: 2020
+  year: 2021
   venue: "TRPMS"
   topics: [sparse-view]
   paper: "https://doi.org/10.1109/trpms.2020.3011413"
@@ -866,7 +866,7 @@
 - id: "momentum-net"
   abbr: "Momentum-Net"
   title: "Momentum-Net: Fast and convergent iterative neural network for inverse problems"
-  year: 2020
+  year: 2023
   venue: "TPAMI"
   topics: [unrolling]
   paper: "https://doi.org/10.1109/tpami.2020.3012955"
@@ -874,7 +874,7 @@
 - id: "redaep"
   abbr: "REDAEP"
   title: "REDAEP: Robust and Enhanced Denoising Autoencoding Prior for Sparse-View CT Reconstruction"
-  year: 2020
+  year: 2021
   venue: "TRPMS"
   topics: [sparse-view, low-dose]
   paper: "https://doi.org/10.1109/trpms.2020.2989634"
@@ -906,7 +906,7 @@
 - id: "dl"
   abbr: "ℓ₀DL"
   title: "Limited-Angle X-Ray CT Reconstruction Using Image Gradient ℓ₀-Norm With Dictionary Learning"
-  year: 2020
+  year: 2021
   venue: "TRPMS"
   topics: [limited-angle]
   paper: "https://doi.org/10.1109/trpms.2020.2991887"

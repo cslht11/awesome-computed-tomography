@@ -1,7 +1,7 @@
 # Batch: 68-item list follow-up (user-approved 2026-10-25): the true paper behind the fabricated "GeoAtt-CBCT" list entry. Verified against arXiv:2303.14739 abstract 2026-10-25; journal record TMI 2024 vol 44(2) 1083-1097, DOI 10.1109/TMI.2024.3473970.
 - id: "geometry-aware-attenuation-learning-sparse-view-cbct"
   title: "Geometry-Aware Attenuation Learning for Sparse-View CBCT Reconstruction"
-  year: 2024
+  year: 2025
   venue: "TMI"
   topics: [sparse-view, cbct]
   paper: "https://doi.org/10.1109/TMI.2024.3473970"

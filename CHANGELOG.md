@@ -13,6 +13,17 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — One year rule for papers, checked weekly against Crossref
+
+### Fixed
+
+- **24 paper years now follow one rule.** A journal article is dated by the issue it appears in, as a bibliography cites it; online-first or early-access papers use the year they went online until they have an issue; conference papers use the conference year. This is what 507 of the 533 DOI-linked papers already did. The 24 that did not, mostly IEEE articles dated by their early-access year, now carry their issue or conference year: for example Momentum-Net is TPAMI 2023 (early access 2020), and eight papers listed as 2025 appeared in 2026.
+- **The ADMM monograph** (Boyd et al.) linked the 2010 book edition while naming the journal; it now links the journal article (Foundations and Trends in Machine Learning 3(1), 2011).
+
+### Added
+
+- **A weekly Crossref read-back** (`scripts/check_years.py`) checks every paper's year and title against its DOI and runs with the weekly link check, so an arXiv link upgraded to a DOI without reading the record back is caught within a week.
+
 ## 2026-10-29 — Knowledge graph: one node per person, team leads pinned by identity
 
 ### Fixed

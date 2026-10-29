@@ -6,6 +6,18 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 论文年份统一为一条规则，每周与 Crossref 核对
+<!-- en: One year rule for papers, checked weekly against Crossref -->
+
+### 修复
+
+- **24 篇论文的年份改为遵循同一条规则。**期刊论文按其所在期次的年份标注（即参考文献的通常写法）；尚未分配期次的在线优先或 IEEE Early Access 论文，先用上线年份，分配期次后再更新；会议论文用会议年份。533 篇带 DOI 的论文中已有 507 篇如此。其余 24 篇（多为按 Early Access 年份标注的 IEEE 论文）现改为期次或会议年份：例如 Momentum-Net 为 TPAMI 2023（Early Access 为 2020）；其中 8 篇此前标为 2025 年，实际在 2026 年发表。
+- **ADMM 专著**（Boyd 等）此前写的是期刊名，链接的却是 2010 年的图书版；现改为链接期刊文章（Foundations and Trends in Machine Learning 3(1)，2011）。
+
+### 新增
+
+- **每周一次的 Crossref 回读**（`scripts/check_years.py`）：按 DOI 核对每篇论文的年份与标题，随每周链接检查一起运行。这样，把 arXiv 链接升级为 DOI 却没有回读记录的情况，一周之内就能被发现。
+
 ## 2026-10-29 — 知识图谱：一人一个节点，团队负责人按身份锁定
 <!-- en: Knowledge graph: one node per person, team leads pinned by identity -->
 
