@@ -1,9 +1,19 @@
 name: Deploy site to GitHub Pages
 
-# Deploys on every push to main; can also be run by hand from the Actions tab.
+# Deploys after `validate` has passed on a push to main; can also be run by
+# hand from the Actions tab.
+#
+# It used to trigger on `push` directly, in parallel with validate.yml, so a
+# push that failed validation (stale README, a commit by another account, the
+# DOM suite, a stale last_updated) still went live. `workflow_run` waits for
+# validate to finish, and the job below only runs when it succeeded on a push.
+# It builds the exact commit validate checked (head_sha), not whatever main
+# points at by then.
 
 on:
-  push:
+  workflow_run:
+    workflows: [validate]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -18,9 +28,15 @@ concurrency:
 
 jobs:
   build:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - uses: actions/setup-python@v7
         with:
