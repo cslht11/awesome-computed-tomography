@@ -437,6 +437,33 @@ for (const L of LANGS) {
      bad.length === 0, bad.slice(0, 5).join("; ") || (urls.length + " pages"));
 }
 
+/* Cache-busting and sitemap dates. Every page's shared stylesheet and
+ * scripts carry ?v=<content hash>, so a deploy never pairs new HTML with a
+ * cached old app.js / styles.css (GitHub Pages: max-age=600). And
+ * <lastmod> is the content date from data/meta.yaml, not the build date. */
+{
+  console.log("\ncore asset versions and sitemap dates");
+  const CORE = ["styles.css", "search.js", "app.js", "chrome.js", "lang.js"];
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const bad = [];
+  for (const u of urls) {
+    const file = path.join(SITE, u.slice(ORIGIN.length), u.endsWith("/") ? "index.html" : "");
+    if (!fs.existsSync(file)) continue;
+    const h = fs.readFileSync(file, "utf8");
+    for (const a of CORE) {
+      const refs = [...h.matchAll(new RegExp('(?:href|src)="(?:[^"?#]*/)?' + a.replace(".", "\\.") + '(\\?v=[0-9a-f]{10})?"', "g"))];
+      refs.filter((m) => !m[1]).forEach(() => bad.push(u + ": unversioned " + a));
+    }
+  }
+  ok("every page references its stylesheet and scripts with ?v=<hash>",
+     bad.length === 0, bad.slice(0, 5).join("; ") || (urls.length + " pages"));
+  const meta = fs.readFileSync(path.join(REPO, "data", "meta.yaml"), "utf8");
+  const updated = (meta.match(/^last_updated:\s*["']?([0-9-]{10})/m) || [])[1];
+  const lastmods = new Set([...sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]));
+  ok("sitemap <lastmod> is data/meta.yaml last_updated",
+     lastmods.size === 1 && lastmods.has(updated), [...lastmods].join(", ") + " vs " + updated);
+}
+
 console.log("\nacross languages");
 ok("titles are unique per language", titles.size === LANGS.length);
 ok("descriptions are unique per language", descs.size === LANGS.length);

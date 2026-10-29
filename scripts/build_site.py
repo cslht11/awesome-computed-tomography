@@ -1238,6 +1238,10 @@ def _slice_label(n, code):
 
 _ASSET_V = {}
 
+# Shared stylesheet and scripts referenced by the homepage and the standalone
+# pages; main() appends ?v=<content hash> to every reference to them.
+CORE_ASSETS = ("styles.css", "search.js", "app.js", "chrome.js", "lang.js")
+
 
 def _asset_version(rel):
     """Short content hash of a web/ source file, used as a ?v=
@@ -2052,8 +2056,32 @@ def main():
     if cfg.get("indexnow_key"):
         write(os.path.join(out, "%s.txt" % cfg["indexnow_key"]),
               cfg["indexnow_key"] + "\n")
-    write(os.path.join(out, "sitemap.xml"), render_sitemap(sitemap_urls, today))
+    # <lastmod> is the content date (data/meta.yaml last_updated), not the
+    # build date: a rebuild that changes no data must not tell search engines
+    # that every page changed today.
+    write(os.path.join(out, "sitemap.xml"),
+          render_sitemap(sitemap_urls, str(meta["last_updated"])))
     write(os.path.join(out, ".nojekyll"), "")
+
+    # Version every page's core stylesheet and scripts, as the graph and
+    # lineage pages already do (see _asset_version). GitHub Pages serves them
+    # with max-age=600, so for ten minutes after a deploy a browser could pair
+    # the new HTML (and its inline data) with the previous app.js or
+    # styles.css. A content hash in the URL makes each deploy a new URL.
+    core_re = re.compile(r'((?:href|src)="(?:[^"?#]*/)?)(%s)"'
+                         % "|".join(re.escape(a) for a in CORE_ASSETS))
+    for dirpath, _dirs, files in os.walk(out):
+        for fn in files:
+            if not fn.endswith(".html"):
+                continue
+            fp = os.path.join(dirpath, fn)
+            html_text = read(fp)
+            new_text = core_re.sub(
+                lambda m: '%s%s?v=%s"' % (m.group(1), m.group(2),
+                                          _asset_version(m.group(2))),
+                html_text)
+            if new_text != html_text:
+                write(fp, new_text)
 
     # GitHub Pages reads CNAME from the deployed files. With the Actions source
     # the domain is also set in Settings -> Pages, but writing it here keeps the
