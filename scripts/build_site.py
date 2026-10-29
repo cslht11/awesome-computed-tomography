@@ -1677,8 +1677,12 @@ def main():
         # previous iteration's edits would otherwise leak into this one.
         payload = build_payload(code)
 
-        shared = dict(tokens)
-        shared["coverage"] = fill(ov.ui("coverage"), tokens)
+        # `tokens` is built once, with the English tagline from site.config.yml.
+        # Give each language its own copy so `{tagline}` in ui.* strings reads in
+        # the page's language (the /zh/ hero used to open with the English one).
+        tokens_lang = dict(tokens, tagline=top_for(ov, code, "tagline", cfg["tagline"]))
+        shared = dict(tokens_lang)
+        shared["coverage"] = fill(ov.ui("coverage"), tokens_lang)
         payload["ui"] = js_ui(ov)
         # Topic names/descs already arrive translated: build_payload()
         # applies the overlay to the topics list itself. (A previous
@@ -1710,7 +1714,7 @@ def main():
 
         subs = {
             "{{HEAD}}": render_head(cfg, payload, lang_base, base, entry, langs,
-                                   ov, tokens),
+                                   ov, tokens_lang),
             "{{DATA}}": safe_json(payload),
             "{{PAPERS_STATIC}}": render_static_papers(payload, ov),
             "{{TEAMS_STATIC}}": render_static_teams(payload, ov),

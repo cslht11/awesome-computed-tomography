@@ -237,6 +237,13 @@ async function testChinese() {
 
   homeDetailLinks(doc, "zh");
 
+  // The hero lead fills {tagline}; it must be the Chinese tagline, not the
+  // English one from site.config.yml.
+  const lead = (doc.querySelector(".lead") || {}).textContent || "";
+  ok("zh hero lead opens in Chinese (no English tagline)",
+     !/A curated list of CT reconstruction resources/.test(lead) && /[一-鿿]/.test(lead.slice(0, 12)),
+     lead.slice(0, 40));
+
   const q = doc.getElementById("q");
   typeInput(win, q, "稀疏视角");
   await wait(180);
