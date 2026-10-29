@@ -6,6 +6,19 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 首页减重、图谱库的许可声明、每周链接检查
+<!-- en: Lighter homepage, licence notices for the graph libraries, weekly link check -->
+
+### 变更
+
+- **首页轻了约四分之一**（1.33 MB → 1.02 MB；压缩后 308 → 228 KB）。每篇论文的一句话简介此前在页面里存了两份，现在只存一份，由页面脚本读回。列出全部论文的结构化数据已删除：其中每一项都指向站外，没有任何搜索功能使用它，而且它是所有标题的第三份拷贝。`data.json` 不变。
+- **IndexNow 只推送有变化的页面。**此前每次部署都把全部 210 个网址提交给搜索引擎；现在只提交自上次部署以来内容有变化的页面。
+
+### 新增
+
+- **sigma.js 与 graphology 的许可声明。**网站提供的这两个图谱库副本开头现在附有各自的 MIT 许可全文，仓库中库文件旁也放了许可文件。
+- **每周链接检查。**每周一检查数据中的全部网址（论文、工具包、数据集、基准、学习资源与团队）；发现失效链接会自动开一个 issue。
+
 ## 2026-10-29 — 网站修复：深色模式可读、换行、斜体、无障碍、/topics/
 <!-- en: Site fixes: readable dark mode, wrapping, emphasis, accessibility, /topics/ -->
 

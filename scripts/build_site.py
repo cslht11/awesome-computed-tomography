@@ -193,6 +193,16 @@ def safe_json(obj, indent=None):
 
 
 # ------------------------------------------------------------------ rendering
+def page_payload(payload):
+    """The payload as embedded in the homepage: paper blurbs left out,
+    because render_static_papers() already puts each one in its title's
+    `title=` and app.js reads them back from there. data.json keeps them."""
+    out = dict(payload)
+    out["papers"] = [dict((k, v) for k, v in p.items() if k != "blurb")
+                     for p in payload["papers"]]
+    return out
+
+
 def render_static_papers(payload, ov):
     rows = []
     for p in payload["papers"]:
@@ -208,8 +218,12 @@ def render_static_papers(payload, ov):
         if blurb:
             # No aria-label: it would replace the title as the accessible
             # name, so a screen reader heard every paper as the same phrase.
+            # This `title=` is also the only copy of the blurb in the page:
+            # the embedded JSON leaves blurbs out and app.js reads them back
+            # from here by data-id (they were ~200 KB stored twice).
             head += ('<span class="p-titletext has-blurb" tabindex="0"'
-                     ' role="button" title="%s">%s</span>' % (esc(blurb), esc(title)))
+                     ' role="button" data-id="%s" title="%s">%s</span>'
+                     % (esc(p["id"]), esc(blurb), esc(title)))
         else:
             head += '<span class="p-titletext">%s</span>' % esc(title)
 
@@ -360,23 +374,9 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
         "license": cfg["content_license_url"],
         "copyrightHolder": {"@id": base + "#organization"},
     }
-    ld_list = {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "CT reconstruction papers",
-        "numberOfItems": len(payload["papers"]),
-        "itemListOrder": "https://schema.org/ItemListOrderDescending",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": i + 1,
-                "name": p["title"],
-                "url": (p["links"].get("paper") or p["links"].get("project")
-                        or p["links"].get("code") or base),
-            }
-            for i, p in enumerate(payload["papers"])
-        ],
-    }
+    # No ItemList of the papers: every item pointed off-site (DOIs, arXiv),
+    # which no search feature uses, and it was the page's third copy of the
+    # titles (~120 KB). The DataCatalog below and data.json describe them.
 
     ld_catalog = render_datacatalog(cfg, payload, base, entry, ov, tokens,
                                     title, desc)
@@ -404,7 +404,6 @@ def render_head(cfg, payload, base, root, entry, langs, ov, tokens):
         '<link rel="alternate" type="application/json" href="./data.json" title="Machine-readable dataset">',
         '<script type="application/ld+json">%s</script>' % safe_json(ld_org),
         '<script type="application/ld+json">%s</script>' % safe_json(ld_site),
-        '<script type="application/ld+json">%s</script>' % safe_json(ld_list),
         '<script type="application/ld+json">%s</script>' % safe_json(ld_catalog),
     ]
 
@@ -1757,7 +1756,7 @@ def main():
         subs = {
             "{{HEAD}}": render_head(cfg, payload, lang_base, base, entry, langs,
                                    ov, tokens_lang),
-            "{{DATA}}": safe_json(payload),
+            "{{DATA}}": safe_json(page_payload(payload)),
             "{{PAPERS_STATIC}}": render_static_papers(payload, ov),
             "{{TEAMS_STATIC}}": render_static_teams(payload, ov),
             "{{PAPERS_LEGEND}}": md_inline(ov.readme("legendPapers", PAPERS_LEGEND)),
@@ -1810,11 +1809,18 @@ def main():
         # The vendored sigma + graphology are optional at build time:
         # without them the graph page still ships, with its static
         # fallback list visible (graph.js checks for the globals).
+        # The release builds carry no licence text, and MIT requires the
+        # notice in every copy, so the deployed copy opens with it
+        # (web/vendor/<name>.LICENSE.txt, as shipped in the npm package).
         for vend in ("graphology.min.js", "sigma.min.js"):
             vendor = os.path.join(WEB, "vendor", vend)
             if os.path.exists(vendor):
+                lic = read(os.path.join(WEB, "vendor",
+                                        vend.split(".")[0] + ".LICENSE.txt"))
+                assert "*/" not in lic
                 write_bytes(os.path.join(sub, vend),
-                            open(vendor, "rb").read())
+                            ("/*!\n%s\n*/\n" % lic.strip()).encode("utf-8")
+                            + open(vendor, "rb").read())
             else:
                 print("  note: web/vendor/%s is absent; "
                       "/graph/ will serve its static fallback" % vend)

@@ -4,8 +4,8 @@
  * first) and checks what search engines read rather than what users click:
  *
  *   - the homepage DataCatalog JSON-LD (English and Chinese) sits beside the
- *     Organization / WebSite / ItemList blocks, references the Organization,
- *     and its counts and dateModified equal the live payload in data.json —
+ *     Organization / WebSite blocks (no papers ItemList), references the
+ *     Organization, and its counts and dateModified equal the live payload in data.json —
  *     the same numbers the stat tiles show;
  *   - /changelog/ and /zh/changelog/ exist with their own title, description,
  *     canonical, hreflang (each language + x-default) and BreadcrumbList, list
@@ -77,8 +77,22 @@ for (const L of LANGS) {
   const data = JSON.parse(read(L.prefix + "data.json"));
   const blocks = jsonld(home);
   const types = blocks.map((b) => b["@type"]);
-  ["Organization", "WebSite", "ItemList", "DataCatalog"].forEach((t) =>
+  ["Organization", "WebSite", "DataCatalog"].forEach((t) =>
     ok(t + " JSON-LD present", types.includes(t), types.join(", ")));
+  // The papers ItemList was dropped (off-site URLs, a third copy of every
+  // title); keep it from coming back unnoticed.
+  ok("no papers ItemList on the homepage", !types.includes("ItemList"));
+  // Blurbs ride in the static list's title= only; the embedded payload and
+  // the markup must still cover every paper data.json has a blurb for.
+  const embedded = JSON.parse(home.match(
+    /<script id="site-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  ok("embedded payload carries no blurbs",
+     embedded.papers.every((p) => !("blurb" in p)));
+  const withBlurb = data.papers.filter((p) => p.blurb);
+  const missing = withBlurb.filter((p) =>
+    !home.includes('data-id="' + p.id.replace(/&/g, "&amp;") + '" title="'));
+  ok("every blurb is in the static list", withBlurb.length > 0 && missing.length === 0,
+     withBlurb.length + " blurbs, missing " + missing.map((p) => p.id).slice(0, 3));
   const org = blocks.find((b) => b["@type"] === "Organization") || {};
   const cat = blocks.find((b) => b["@type"] === "DataCatalog") || {};
   ok("url is the page URL", cat.url === base, cat.url);

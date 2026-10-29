@@ -7,7 +7,10 @@
   403 / 405 / 429 are reported as BLOCKED (reachable, but refuses bots) rather
   than DEAD, because publisher sites routinely do this.
 
-Usage:  python scripts/check_links.py
+Usage:  python scripts/check_links.py [--strict]
+
+--strict exits 1 when anything is a PROBLEM (BLOCKED and WARN never fail);
+the weekly link-check workflow uses it to decide whether to open an issue.
 """
 import io
 import os
@@ -26,7 +29,8 @@ from build import load as build_load  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
-FILES = ["papers.yaml", "toolkits.yaml", "datasets.yaml", "benchmarks.yaml", "learning.yaml"]
+FILES = ["papers.yaml", "toolkits.yaml", "datasets.yaml", "benchmarks.yaml", "learning.yaml",
+         "teams.yaml"]
 URL_FIELDS = ("url", "repo", "homepage", "paper", "code", "project", "data")
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -187,6 +191,8 @@ def main():
                  "w", encoding="utf-8", newline="\n") as f:
         f.write(text + "\n")
     print("\n报告已写入 scripts/oneoff/link-report.txt")
+    if bad and "--strict" in sys.argv:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

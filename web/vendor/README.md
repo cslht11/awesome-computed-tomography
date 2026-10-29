@@ -10,6 +10,12 @@ graph page degrades gracefully when any of them is absent.
 | `graphology.min.js` | graphology — https://github.com/graphology/graphology | 0.25.4 | MIT |
 | `sigma.min.js` | sigma.js — https://github.com/jacomyal/sigma.js | 3.0.2 | MIT |
 
+Each library's MIT licence is kept beside it (`graphology.LICENSE.txt`,
+`sigma.LICENSE.txt`, copied from the npm packages of the same versions).
+The release builds carry no licence text of their own, so the build
+prepends that file as a `/*! … */` comment to the copy it deploys; the
+files here stay byte-identical to the releases.
+
 Notes:
 
 - Both are UMD builds defining browser globals (`graphology`, `Sigma`);

@@ -39,7 +39,8 @@ awesome-computed-tomography/
 │   ├── graph.py, graph_layout.py, graph_slices.py, lineage_tree.py   the /graph/ pages
 │   ├── brand_assets.py          favicon, touch icon and share image, generated
 │   ├── check_last_updated.py    CI guard: last_updated must cover the newest data commit
-│   ├── check_links.py           link-health sweep; writes into scripts/oneoff/
+│   ├── check_links.py           link-health sweep (weekly in CI); writes into scripts/oneoff/
+│   ├── changed_urls.py          deploy: which pages changed, for IndexNow
 │   ├── install-hooks.sh         copies hooks/ into .git/hooks/ (see below)
 │   └── oneoff/                  the harvest history — how each entry was found
 ├── hooks/                       authorship guards — MUST be installed after a clone
@@ -53,7 +54,7 @@ awesome-computed-tomography/
 │   ├── app.js                   filtering and rendering; uses search.js
 │   ├── chrome.js                the phone drawer on the standalone pages
 │   ├── graph.js, lineage.js     the graph pages and the lineage canvas
-│   └── vendor/                  sigma.js + graphology (MIT), see vendor/README.md
+│   └── vendor/                  sigma.js + graphology (MIT) and their licences, see vendor/README.md
 ├── tests/                       search, structured-data and jsdom page tests (all run in CI)
 ├── assets/logo.svg              the mark
 ├── site.config.yml              title, origin, licence — the site's single config
@@ -558,7 +559,8 @@ against a bibliographic database rather than typed by hand:
 - Toolkit `stars` are a snapshot and are refreshed by hand; `license` comes from
   the repository's declared SPDX identifier.
 - `scripts/check_links.py` requests every URL in `data/` and writes a report to
-  `scripts/oneoff/link-report.txt`. Status handling follows what the sites
+  `scripts/oneoff/link-report.txt`. It runs every Monday in CI
+  (`.github/workflows/links.yml`), which opens a `link-check` issue on a PROBLEM. Status handling follows what the sites
   actually do to automated clients: `200`/`202`/`30x` count as **OK** (`202` is
   what IEEE's DOI resolver returns to a non-browser client, so it is not a
   failure), `403`/`405`/`429` are reported as **BLOCKED** — reachable but

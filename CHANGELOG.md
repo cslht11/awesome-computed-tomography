@@ -13,6 +13,18 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Lighter homepage, licence notices for the graph libraries, weekly link check
+
+### Changed
+
+- **Homepage is about a quarter lighter** (1.33 MB → 1.02 MB; 308 → 228 KB compressed). Each paper's one-line summary was stored twice in the page; it is now stored once and read back by the page script. The structured-data list of all papers is gone: every item pointed off-site, no search feature used it, and it was a third copy of every title. `data.json` is unchanged.
+- **IndexNow pings only changed pages.** Each deploy used to send search engines all 210 URLs; it now sends only the pages whose content changed since the previous deploy.
+
+### Added
+
+- **Licence notices for sigma.js and graphology.** The MIT licence of each vendored graph library now heads the copy the site serves, and the licence files sit beside the libraries in the repository.
+- **Weekly link check.** Every URL in the data (papers, toolkits, datasets, benchmarks, learning resources and teams) is checked every Monday; a broken link opens an issue.
+
 ## 2026-10-29 — Site fixes: readable dark mode, wrapping, emphasis, accessibility, /topics/
 
 ### Fixed

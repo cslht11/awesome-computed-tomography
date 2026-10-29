@@ -665,6 +665,17 @@
     countEl = document.getElementById("count");
     emptyEl = document.getElementById("empty");
 
+    /* The embedded payload carries no blurbs: each one is already in the
+       server-rendered title's `title=`, so read them back from there before
+       the first render replaces that list. */
+    var blurbs = {};
+    listEl.querySelectorAll(".p-titletext[data-id][title]").forEach(function (el) {
+      blurbs[el.getAttribute("data-id")] = el.getAttribute("title");
+    });
+    DATA.papers.forEach(function (p) {
+      if (!p.blurb && blurbs[p.id]) { p.blurb = blurbs[p.id]; }
+    });
+
     /* Hover cards are delegated from the list, so re-rendering it (every
        keystroke) never has to rebind anything. */
     listEl.addEventListener("mouseover", function (e) {

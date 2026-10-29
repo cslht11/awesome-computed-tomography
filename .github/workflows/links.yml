@@ -1,0 +1,65 @@
+name: link check
+
+# Weekly sweep of every URL in data/ (papers, toolkits, datasets, benchmarks,
+# learning, teams) with scripts/check_links.py: arXiv links are also checked
+# against the entry's title. A PROBLEM opens an issue labelled `link-check`,
+# or comments on the open one; BLOCKED (bot-refusing hosts) and WARN never do.
+# The full report is attached to the run as an artifact.
+
+on:
+  schedule:
+    - cron: "17 2 * * 1"   # Monday 02:17 UTC (10:17 Beijing)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check every URL in data/
+        id: check
+        continue-on-error: true
+        run: python scripts/check_links.py --strict
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: link-report
+          path: scripts/oneoff/link-report.txt
+
+      - name: Open or update the link-check issue
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -e
+          gh label create link-check --color c5def5 \
+            --description "Found by the weekly link check" 2>/dev/null || true
+          {
+            echo "The weekly link check found URLs that no longer resolve ($RUN_URL)."
+            echo
+            echo '```'
+            sed -n '/^--- PROBLEM ---$/,/^--- \(BLOCKED\|WARN\)/p' scripts/oneoff/link-report.txt | head -200
+            echo '```'
+          } > body.md
+          N=$(gh issue list --label link-check --state open --json number --jq '.[0].number')
+          if [ -n "$N" ]; then
+            gh issue comment "$N" --body-file body.md
+          else
+            gh issue create --title "Link check: broken URLs in data/" \
+              --label link-check --body-file body.md
+          fi

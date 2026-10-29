@@ -150,6 +150,22 @@ and lineage assets already did); `tests/test_seo.js` fails on any unversioned re
 date, not the build date, so a rebuild that changes no data does not tell search engines
 that all pages changed.
 
+**IndexNow.** After a deploy, the `indexnow` job sends Bing/Yandex the URLs whose page
+changed, not the whole sitemap. `scripts/changed_urls.py` (run in the build job) hashes
+every sitemap page with build-day noise removed (the payload's `generated` date and the
+`?v=` asset hashes), ships the hashes as `/page-hashes.json`, and compares them with the
+copy that is live. If the live copy cannot be read, every URL counts as changed.
+
+**Homepage weight.** Each paper's blurb is stored once, in the server-rendered title's
+`title=`; the embedded `#site-data` payload leaves blurbs out and `app.js` reads them
+back by `data-id` before its first render (`data.json` still has them). There is no
+papers `ItemList` in the JSON-LD: its items all pointed off-site, and it was a third copy
+of every title. Together this took the page from 1.33 MB to 1.02 MB (gzip 308 → 228 KB).
+
+**Link check.** `.github/workflows/links.yml` runs `scripts/check_links.py --strict`
+every Monday and on demand. A PROBLEM opens an issue labelled `link-check` (or comments
+on the open one); the full report is attached to the run.
+
 ## Switching to a custom domain
 
 One line, then a rebuild. This has already been done once — the site is configured for
