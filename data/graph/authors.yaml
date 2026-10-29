@@ -9926,3 +9926,39 @@ geometry-aware-attenuation-learning-sparse-view-cbct:
   - name: Zhiming Cui
     openalex_author_id: https://openalex.org/A5100602191
   matched_by: doi
+efmct:
+  openalex: https://openalex.org/W7133299966
+  authors:
+  - name: Jiayang Shi
+    openalex_author_id: https://openalex.org/A5126659759
+  - name: Lincen Yang
+    openalex_author_id: https://openalex.org/A5024505048
+  - name: Zhong Li
+    openalex_author_id: https://openalex.org/A5127897179
+  - name: Tristan van Leeuwen
+    openalex_author_id: https://openalex.org/A5008696762
+  - name: Daniël M. Pelt
+    openalex_author_id: https://openalex.org/A5037323866
+  - name: K. Joost Batenburg
+    openalex_author_id: https://openalex.org/A5010057651
+  matched_by: doi
+multi-stage-artifact-reduction-parallel-beam-ct:
+  openalex: https://openalex.org/W4407625007
+  authors:
+  - name: Jiayang Shi
+    openalex_author_id: https://openalex.org/A5071898836
+  - name: Daniël M. Pelt
+    openalex_author_id: https://openalex.org/A5037323866
+  - name: Kees Joost Batenburg
+    openalex_author_id: https://openalex.org/A5071026235
+  matched_by: doi
+sr4zct:
+  openalex: https://openalex.org/W4387640703
+  authors:
+  - name: Jiayang Shi
+    openalex_author_id: https://openalex.org/A5071898836
+  - name: Daniël M. Pelt
+    openalex_author_id: https://openalex.org/A5037323866
+  - name: Kees Joost Batenburg
+    openalex_author_id: https://openalex.org/A5071026235
+  matched_by: doi

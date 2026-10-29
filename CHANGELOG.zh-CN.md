@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 又为三篇论文补上作者与引用
+<!-- en: Authors and citations for three more papers -->
+
+### 新增
+
+- **EFMCT、SR4ZCT 与多阶段平行束伪影校正论文现在在知识图谱中有了作者与引用**（新增 10 条库内引用连线）。上次抓取图谱数据时，OpenAlex 尚未收录它们。其作者被拆分的 OpenAlex 身份（Jiayang Shi；以两种写法出现的 K. Joost Batenburg）按与其他作者相同的证据规则合并。仍有五篇论文没有 OpenAlex 记录：三篇 CVPR 2026、一篇 ICLR 2026 与一篇未发表稿件。
+
 ## 2026-10-29 — 论文年份统一为一条规则，每周与 Crossref 核对
 <!-- en: One year rule for papers, checked weekly against Crossref -->
 

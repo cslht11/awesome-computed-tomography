@@ -94,6 +94,10 @@ people:
     id: A5006049117
     same:
       - A5136255417   # same ORCID 0000-0003-2958-1710 (ctpretrain)
+  - name: "Jiayang Shi"
+    id: A5071898836
+    same:
+      - A5126659759   # same institution and shared co-authors (dm4ct, efmct)
   - name: "Jiliu Zhou"
     id: A5102009027
     same:
@@ -107,6 +111,10 @@ people:
     same:
       - A5129660824   # same ORCID 0000-0002-5924-3360 (proct)
       - A5136587864   # same ORCID 0000-0002-5924-3360 (founddiff)
+  - name: "K. Joost Batenburg"
+    id: A5071026235
+    same:
+      - A5010057651   # 4 shared co-authors in the library, same institution (dm4ct, autodiff-ct-workflows-2024, learned-denoising-simulated-experimental)
   - name: "Kyle Champley"
     id: A5039538061
     team: llnl-leap

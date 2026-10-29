@@ -5640,6 +5640,24 @@
   to: pnp-2013
 - from: multi-slice-fusion-4d
   to: sauer-bouman-1993
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: deep-mar
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: etedn
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: ldct-cnn
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: msdnet
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: msdnet-limited-data
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: noise2inverse
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: rof-tv-1992
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: sams-net-limited-angle
+- from: multi-stage-artifact-reduction-parallel-beam-ct
+  to: wgan-vgg
 - from: multislice-residual-cnn-denoising
   to: cpce
 - from: multislice-residual-cnn-denoising
@@ -7570,6 +7588,8 @@
   to: pwls-ultra
 - from: spultra
   to: wavresnet
+- from: sr4zct
+  to: msdnet
 - from: srcnn-cbct
   to: 4dcbct-prior
 - from: srcnn-cbct

@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Authors and citations for three more papers
+
+### Added
+
+- **EFMCT, SR4ZCT and the multi-stage parallel-beam artifact-reduction paper now have their authors and citations in the knowledge graph** (10 in-library citation links). OpenAlex had not indexed them when the graph data was last fetched. Their authors' split OpenAlex identities (Jiayang Shi; K. Joost Batenburg, listed under two spellings) are merged on the same evidence rule as the others. Five papers remain without OpenAlex records: three from CVPR 2026, one from ICLR 2026 and one unpublished manuscript.
+
 ## 2026-10-29 — One year rule for papers, checked weekly against Crossref
 
 ### Fixed
