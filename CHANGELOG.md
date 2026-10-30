@@ -13,6 +13,17 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — Language switch keeps the tab you are on; centred homepage intro
+
+### Fixed
+
+- **Switching language keeps the tab and filters you chose.** The language link carried only the address the page was opened with, so after clicking a tab (Datasets, say) the switch landed on the Papers tab of the other language. It now reads the current address when it is used, including #anchors such as a card in the family tree. All 212 pages and every homepage tab were checked in both languages.
+- **A topic in the address (?topic=…) now shows as selected.** The list was filtered, but the topic button did not light up.
+
+### Changed
+
+- **The homepage intro is centred and larger:** logo and title on one row, the summary and the figures (papers, toolkits, datasets, benchmarks, updated) centred beneath them. On phones the logo sits above the title. The list below stays a centred column with left-aligned text.
+
 ## 2026-10-29 — No more jumps on tab and language switches; centred section links
 
 ### Fixed

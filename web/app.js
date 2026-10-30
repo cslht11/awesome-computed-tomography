@@ -652,6 +652,9 @@
     if (p.get("q")) { state.q = p.get("q"); document.getElementById("q").value = state.q; }
     if (p.get("topic")) {
       state.topics = p.get("topic").split(",").filter(function (t) { return !!TOPIC[t] || t === "other"; });
+      /* The chips were rendered before the address was read; without this the
+         list was filtered but no chip showed as selected. */
+      syncTopicChips();
     }
     if (p.get("type") === "peer" || p.get("type") === "preprint") setType(p.get("type"));
     if (p.get("code") === "1") { state.code = true; document.getElementById("has-code").checked = true; }

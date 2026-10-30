@@ -217,32 +217,34 @@ header .gres { color: var(--fg); width: max(100%, 380px); }
 
 /* ---------------------------------------------------------------- hero */
 
-/* Compact: the hero used to be ~600 px tall, which put the first paper at
-   y = 974 on a laptop (and below the fold on a phone). Logo, title and lead
-   sit side by side, and the counts are one line of figures. */
+/* Centred: logo and title on one row, the lead and the figures centred
+   under them. Much shorter than the original ~600 px hero (the first paper
+   sat at y = 974 on a laptop), but no longer crammed to one side. The
+   content below stays a centred column with left-aligned text. */
 .hero {
-  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 20px;
-  align-items: center; padding: 30px 0 6px;
+  display: grid; grid-template-columns: auto auto; justify-content: center;
+  align-items: center; column-gap: 16px; text-align: center;
+  padding: 40px 0 10px;
 }
-.hero-art { color: var(--accent); grid-row: span 2; width: 64px; height: 64px; }
+.hero-art { color: var(--accent); width: 60px; height: 60px; }
 .hero-art .gantry { width: 100%; height: 100%; }
 .eyebrow { margin: 0 0 10px; font: 600 14px var(--sans); color: var(--accent); letter-spacing: 0; }
 .hero-title {
-  margin: 0;
-  font: 700 clamp(26px, 3vw, 34px)/1.12 var(--display);
-  letter-spacing: -.025em;
+  margin: 0; text-align: left;
+  font: 700 clamp(30px, 3.6vw, 44px)/1.1 var(--display);
+  letter-spacing: -.026em;
 }
-.lead { margin: 0; max-width: 860px; font-size: 15px; line-height: 1.5; color: var(--fg-muted); }
+.lead { grid-column: 1 / -1; margin: 16px auto 0; max-width: 760px; font-size: 17px; line-height: 1.55; color: var(--fg-muted); }
 
 .stats {
-  grid-column: 1 / -1; margin: 14px 0 0;
-  display: flex; flex-wrap: wrap; gap: 6px 26px;
+  grid-column: 1 / -1; margin: 22px 0 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 48px;
 }
-/* Figure first, label after it ("653 Papers"); the markup keeps dt before
-   dd for the definition list. */
-.stats div { display: inline-flex; flex-direction: row-reverse; align-items: baseline; gap: 6px; }
+/* Figure above its label; the markup keeps dt before dd for the
+   definition list. */
+.stats div { display: flex; flex-direction: column-reverse; align-items: center; gap: 2px; }
 .stats dt { font-size: 13px; color: var(--fg-faint); }
-.stats dd { margin: 0; font: 600 18px/1.2 var(--display); letter-spacing: -.01em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stats dd { margin: 0; font: 600 28px/1.15 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* The intro stays on every tab: hiding it on all but Papers made every tab
    switch jump the page by its height. html[data-tab] is set before first
@@ -578,11 +580,14 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   .scrim[hidden] { display: none; }
   body.drawer-open { overflow: hidden; }
 
-  .hero { padding: 20px 0 4px; gap: 4px 14px; }
-  .hero-art { width: 44px; height: 44px; grid-row: auto; }
-  .lead { grid-column: 1 / -1; font-size: 14.5px; }
-  .stats { gap: 4px 18px; margin-top: 10px; }
-  .stats dd { font-size: 16px; }
+  /* Phones: logo above the title, both centred (side by side the title
+     broke into three ragged lines). */
+  .hero { grid-template-columns: auto; padding: 26px 0 6px; row-gap: 10px; }
+  .hero-art { width: 48px; height: 48px; margin: 0 auto; }
+  .hero-title { text-align: center; font-size: 28px; }
+  .lead { font-size: 15px; margin-top: 12px; }
+  .stats { gap: 8px 28px; margin-top: 16px; }
+  .stats dd { font-size: 22px; }
 }
 @media (max-width: 560px) {
   /* The lead already gives every count; on a phone the figures row only

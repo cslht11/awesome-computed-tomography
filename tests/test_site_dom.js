@@ -143,6 +143,27 @@ function homeDetailLinks(doc, prefix) {
   ok("learning tab: Guides group is at the top", !!first && first.classList.contains("grp-guides"));
 }
 
+/* lang.js on its own, at a real https address (a file:// page cannot
+   rewrite its query): the switch link must follow the address as it is when
+   the link is used, so a tab or filter chosen after load survives the
+   switch (it used to carry only the query present at load). */
+async function testLangSwitch() {
+  console.log("\n[lang.js] language switch follows the address");
+  const dom = new JSDOM(
+    '<span class="lang-switch"><a href="https://computedtomography.org/zh/">中文</a></span>',
+    { url: "https://computedtomography.org/?tab=toolkits", runScripts: "outside-only" });
+  const win = dom.window, a = win.document.querySelector("a");
+  win.eval(fs.readFileSync(path.join(SITE, "lang.js"), "utf8"));
+  ok("query present at load is carried", a.getAttribute("href") === "https://computedtomography.org/zh/?tab=toolkits", a.getAttribute("href"));
+  win.history.replaceState(null, "", "?tab=datasets&topic=low-dose");
+  a.dispatchEvent(new win.Event("focus"));
+  ok("a tab and filter chosen after load are carried",
+    a.getAttribute("href") === "https://computedtomography.org/zh/?tab=datasets&topic=low-dose", a.getAttribute("href"));
+  win.history.replaceState(null, "", "/graph/lineage/x/#red-cnn");
+  a.dispatchEvent(new win.Event("click"));
+  ok("an #anchor is carried, and no stale query", a.getAttribute("href") === "https://computedtomography.org/zh/#red-cnn", a.getAttribute("href"));
+}
+
 async function testEnglish() {
   console.log("\n[en] site/index.html");
   const dom = await openPage("index.html");
@@ -397,6 +418,7 @@ async function testDrawer() {
 (async function () {
   console.log("site DOM smoke test (jsdom, against the real build)");
   await testEnglish();
+  await testLangSwitch();
   await testChinese();
   await testLineage();
   await testGraphSlice();
