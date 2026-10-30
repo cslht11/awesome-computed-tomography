@@ -6,6 +6,18 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-30 — 知识图谱页与其他栏目布局一致；首次访问时导航不再闪动
+<!-- en: Knowledge Graph laid out like the other sections; no nav flash on a first visit -->
+
+### 变更
+
+- **知识图谱页现在与其他六个栏目外观一致。**它以同样的开头区域（Logo、标题、统计数字）开始，内容标题与版面宽度也相同，不再是一个窄栏的文字页。两个页面的开头区域由同一份模板生成，不会彼此走样。
+- **每个页面的页头都有搜索框。**在首页以外的页面，搜索会跳转到首页的论文列表（按"/"即可聚焦搜索框）。
+
+### 修复
+
+- **首次（无缓存）访问时，切换语言不再先闪到"论文"标签。**此前导航栏的下划线先停在"论文"上，等页面脚本下载完才移到目标栏目；现在导航栏一出现就标好当前栏目。
+
 ## 2026-10-29 — 首页开头恢复大气的居中样式，不再重复数字
 <!-- en: The homepage intro is big and centred again, without repeating the figures -->
 

@@ -13,6 +13,17 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Knowledge Graph laid out like the other sections; no nav flash on a first visit
+
+### Changed
+
+- **The Knowledge Graph page now looks like the other six sections.** It opens with the same intro (logo, title, figures) and heads its content the same way, at the same width, instead of a narrow text page with its own heading. Both pages build the intro from one shared template, so they cannot drift apart.
+- **Every page has the search box in its header.** On pages other than the homepage it sends the query to the homepage's paper list (press "/" to focus it).
+
+### Fixed
+
+- **On a first, uncached visit, switching language no longer flashes the Papers tab.** The tab underline started under Papers and moved only after the page script had downloaded; it is now set as soon as the navigation appears.
+
 ## 2026-10-29 — The homepage intro is big and centred again, without repeating the figures
 
 ### Changed

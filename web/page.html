@@ -45,6 +45,12 @@
     </button>
     <a class="brand" href="{{ROOT}}" aria-label="{{TITLE}}"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="2" stroke-dasharray="2 3"/><g stroke="currentColor" stroke-opacity=".6" stroke-width="2"><line x1="32" y1="5" x2="14" y2="52"/><line x1="32" y1="5" x2="32" y2="59"/><line x1="32" y1="5" x2="50" y2="52"/></g><circle cx="32" cy="5" r="4" fill="currentColor"/><ellipse cx="32" cy="34" rx="9" ry="11" fill="currentColor" fill-opacity=".25" stroke="currentColor" stroke-width="2"/></svg><span>{{TITLE}}</span></a>
     <span class="spacer"></span>
+    <!-- Sub-pages carry no search index; the box sends the query to the
+         homepage, which filters the paper list by ?q=. -->
+    <form class="gsearch" role="search" action="{{ROOT}}" method="get">
+      <input id="gq" name="q" type="search" placeholder="{{UI_SEARCH}}" autocomplete="off" spellcheck="false" aria-label="{{UI_SEARCH_WHOLE_ARIA}}">
+      <kbd class="gkbd">/</kbd>
+    </form>
     <button type="button" id="theme" class="icon-btn" aria-label="{{UI_THEME_ARIA}}" title="{{UI_THEME_TITLE}}">
       <svg class="i-moon" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
       <svg class="i-sun" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.3" y1="5.3" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.7" y2="18.7"/><line x1="5.3" y1="18.7" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.7" y2="5.3"/></g></svg>

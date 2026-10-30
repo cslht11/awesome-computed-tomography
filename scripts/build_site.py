@@ -1236,8 +1236,10 @@ def render_graph_index_body(payload, ov, code, slices, lineages=()):
     # look fragmented; they are index cards like the others, so they
     # live in the same row now. Topics stay a section of their own:
     # 17 cards would drown the three overview cards.
-    bits = ['<h1>%s</h1>' % esc(ov.ui("pageGraphTitle", "Knowledge Graph")),
-            '<p class="lede">%s</p>' % esc(ov.ui("graphIntro", "")),
+    # The page opens with the shared intro (web/hero.html, whose <h1> is the
+    # site title), so the section is headed like a homepage tab panel.
+    bits = ['<h2 class="panel-heading">%s</h2>' % esc(ov.ui("pageGraphTitle", "Knowledge Graph")),
+            '<p class="panel-intro">%s</p>' % esc(ov.ui("graphIntro", "")),
             '<h2>%s</h2>' % esc(ov.ui("graphSectionOverview", "Overview")),
             '<div class="graph-cards">',
             _graph_card("backbone/", ov.ui("graphBackboneTitle", "Team backbone"),
@@ -1648,6 +1650,10 @@ def main():
 
     tpl = read(os.path.join(WEB, "page.html"))
     index_tpl = read(os.path.join(WEB, "index.html"))
+    # The homepage intro, shared with /graph/ (the last item of the same nav
+    # row), so the two open identically; filled from the homepage's subs.
+    hero_tpl = read(os.path.join(WEB, "hero.html"))
+    hero_tpl = hero_tpl[hero_tpl.index("-->") + 4:]
     sitemap_urls = []
     # Topic hub pages (data/topics.yaml). Validated once, against English.
     topic_doc = load_topic_pages(payload)
@@ -1806,7 +1812,7 @@ def main():
         }
         subs.update(ui_subs(ov, shared))
 
-        page = index_tpl.replace("{{ROOT}}", "./")
+        page = index_tpl.replace("{{HERO}}", hero_tpl).replace("{{ROOT}}", "./")
         for k, v in subs.items():
             page = page.replace(k, v)
         page = page.replace("{{LANG_SWITCH}}", switch)
@@ -1926,11 +1932,15 @@ def main():
 
         g_url = lang_base + GRAPH_PATH
         g_desc = re.sub(r"\s+", " ", fill(ov.ui("pageGraphDesc"), shared)).strip()
-        html_ = fill_page(tpl, render_graph_index_body(payload, ov, code,
-                                                       graph_slices, lineages),
+        html_ = fill_page(tpl, hero_tpl + render_graph_index_body(payload, ov, code,
+                                                                  graph_slices, lineages),
                           ov.ui("pageGraphTitle", "Knowledge Graph"), g_desc,
                           g_url, "../", subs, "%s/graph" % code,
                           i18n.switch_links(base, langs, code, GRAPH_PATH))
+        # Laid out like a homepage tab (full width, panel heading), not like
+        # a prose page.
+        assert html_.count('<main class="wrap prose">') == 1
+        html_ = html_.replace('<main class="wrap prose">', '<main class="wrap graph-home">')
         html_ = add_to_head(html_, g_url, head_extra_graph(
             cfg, base, langs, entry, ov, g_desc))
         write(os.path.join(sub, "graph", "index.html"), html_)

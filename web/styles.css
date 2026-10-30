@@ -361,6 +361,12 @@ section[hidden] { display: none; }
   display: block; margin: 8px 0 4px;
   font: 700 32px/1.15 var(--display); letter-spacing: -.022em;
 }
+/* /graph/ opens with the homepage intro and heads its content the same way. */
+.graph-home .panel-heading { margin: 18px 0 4px; font: 700 32px/1.15 var(--display); letter-spacing: -.022em; }
+.graph-home h2:not(.panel-heading) { margin: 34px 0 6px; font: 650 20px var(--display); }
+.graph-home { padding-bottom: 64px; }
+.graph-home .graph-cards { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.graph-home .g-card h3 { color: var(--accent); }
 #panel-toolkits::before { content: "Toolkits"; }
 #panel-datasets::before { content: "Datasets"; }
 #panel-benchmarks::before { content: "Benchmarks & challenges"; }
@@ -386,7 +392,7 @@ li.year-sep .n { margin-left: 10px; font: 400 13px var(--sans); color: var(--fg-
 @media (min-width: 1280px) {
   /* Header and footer are the same width on every page, so moving between
      the homepage and a sub-page never shifts them sideways. */
-  header.top .wrap, footer .wrap, body:not(.subpage) main.wrap { max-width: 1280px; }
+  header.top .wrap, footer .wrap, body:not(.subpage) main.wrap, main.wrap.graph-home { max-width: 1280px; }
 }
 @media (min-width: 1080px) {
   #panel-papers:not([hidden]) {
@@ -608,7 +614,6 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   .foot { padding: 20px 20px 8px; }
   .foot-legal { padding: 0 20px 24px; }
   .prose { padding-top: 36px; }
-  body.subpage .bar .spacer { display: block; }
   .toolbar { gap: 10px 14px; }
   .countbar { width: 100%; }
   #topics { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -20px; padding-left: 20px; padding-right: 20px;

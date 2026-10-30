@@ -1,4 +1,4 @@
-/* Phone drawer for the static pages (About, Contact, Privacy).
+/* Phone drawer and the "/" search shortcut for the standalone pages.
    The colour theme is NOT handled here: page.html wires it in an inline head
    script, and a second listener would toggle the theme twice per click. */
 (function () {
@@ -11,4 +11,12 @@
   if (menu) menu.addEventListener("click", function () { set(!document.body.classList.contains("drawer-open")); });
   if (scrim) scrim.addEventListener("click", function () { set(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+  /* "/" jumps to the search box, as on the homepage. */
+  var gq = document.getElementById("gq");
+  document.addEventListener("keydown", function (e) {
+    var t = e.target && e.target.tagName;
+    if (gq && e.key === "/" && t !== "INPUT" && t !== "TEXTAREA" && !e.metaKey && !e.ctrlKey) {
+      e.preventDefault(); gq.focus();
+    }
+  });
 })();
