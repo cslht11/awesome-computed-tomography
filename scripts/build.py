@@ -40,8 +40,11 @@ DEFAULT_TITLE = "Awesome Computed Tomography"
 # sorted by stars within itself). data/toolkits.yaml carries the same
 # section order as comments; the `group` field is what the build reads.
 # Keep in sync with the TOOLKIT_GROUPS list in web/app.js.
-TOOLKIT_GROUPS = ("engines", "learning", "simulation", "io", "classical",
-                  "reference", "augmentation", "platforms", "operators")
+# Six groups by what a tool is used for, without overlap (2026-10-30: the
+# nine earlier ones overlapped, e.g. two simulation groups and a catch-all
+# "operators" group).
+TOOLKIT_GROUPS = ("engines", "classical", "learning", "simulation",
+                  "correction", "platforms")
 
 
 # ---------------------------------------------------------------- helpers

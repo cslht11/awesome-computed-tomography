@@ -260,8 +260,8 @@ def render_static_papers(payload, ov):
 # renderBenchmarks, renderLearning) column for column, but are written at
 # build time, so the page reads without JavaScript.
 SECTION_PAGES = ("toolkits", "benchmarks", "learning", "teams")
-TOOLKIT_GROUP_ORDER = ("engines", "learning", "simulation", "io", "classical",
-                       "reference", "augmentation", "platforms", "operators")
+TOOLKIT_GROUP_ORDER = ("engines", "classical", "learning", "simulation",
+                       "correction", "platforms")      # = build.TOOLKIT_GROUPS
 
 
 def _ext(url, text):

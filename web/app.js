@@ -420,14 +420,11 @@
   // scripts/build.py. Rows inside a group sort by stars, highest first.
   var TOOLKIT_GROUPS = [
     ["engines", "toolkitGroupEngines", "Reconstruction engines"],
-    ["learning", "toolkitGroupLearning", "Differentiable / learning"],
-    ["simulation", "toolkitGroupSimulation", "Simulation & physics"],
-    ["io", "toolkitGroupIo", "I/O, frameworks, visualisation"],
-    ["classical", "toolkitGroupClassical", "Classical / statistical"],
-    ["reference", "toolkitGroupReference", "Reference implementations"],
-    ["augmentation", "toolkitGroupAugmentation", "Data augmentation & simulation"],
-    ["platforms", "toolkitGroupPlatforms", "Platforms & viewers"],
-    ["operators", "toolkitGroupOperators", "Operators, physics & synchrotron"]
+    ["classical", "toolkitGroupClassical", "Operators, solvers & classical algorithms"],
+    ["learning", "toolkitGroupLearning", "Differentiable & learned reconstruction"],
+    ["simulation", "toolkitGroupSimulation", "Simulation, phantoms & physics"],
+    ["correction", "toolkitGroupCorrection", "Artefact correction & calibration"],
+    ["platforms", "toolkitGroupPlatforms", "Data, viewers & platforms"]
   ];
 
   // NB: the callback parameter must NOT be named `t` — that would shadow the

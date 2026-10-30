@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Toolkits in six groups that do not overlap
+
+### Changed
+
+- **The 60 toolkits are regrouped by what they are used for**, in six groups instead of nine overlapping ones: reconstruction engines (20); operators, solvers and classical algorithms (9); differentiable and learned reconstruction (11); simulation, phantoms and physics (9); artefact correction and calibration (4); and data, viewers and platforms (7). Before, there were two simulation groups, a two-entry "reference implementations" group, and an "operators" group holding everything from learning frameworks to a Gaussian-splatting project.
+
 ## 2026-10-30 — Five research groups added to Teams
 
 ### Added

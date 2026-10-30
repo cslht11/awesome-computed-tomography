@@ -1,6 +1,8 @@
 # Toolkits & libraries for CT / tomographic reconstruction.
 # Fields: name, repo | url, homepage?, language, license, stars, tags, note
 # `stars` is a snapshot refreshed 2026-10-24 and refreshed by hand.
+# `group` (one of scripts/build.py TOOLKIT_GROUPS) is what the site groups by;
+# the section comments below are the file's history, not the grouping.
 
 # ---------------------------------------------------------------- reconstruction engines
 - name: TIGRE
@@ -32,7 +34,7 @@
   note: Painless specification of 2D/3D projection geometries; wraps ASTRA and integrates with PyTorch.
 
 - name: ODL
-  group: engines
+  group: classical
   repo: odlgroup/odl
   homepage: https://odlgroup.github.io/odl/
   language: Python
@@ -52,7 +54,7 @@
   note: CCPi framework for variational CT reconstruction with a large catalogue of optimisation algorithms.
 
 - name: CCPi Regularisation Toolkit
-  group: engines
+  group: classical
   repo: TomographicImaging/CCPi-Regularisation-Toolkit
   language: C / Python
   license: Apache-2.0
@@ -116,7 +118,7 @@
   note: Reference toolkit for synchrotron micro/nano tomography; gridrec, FBP and phase retrieval.
 
 - name: RadIO
-  group: engines
+  group: platforms
   repo: analysiscenter/radio
   language: Python
   license: Apache-2.0
@@ -125,7 +127,7 @@
   note: A CT preprocessing and augmentation framework oriented towards lung-nodule pipelines; despite the name, there is no Radon transform or FBP here.
 
 - name: pySART
-  group: engines
+  group: classical
   repo: djvine/pySART
   language: Python
   license: GPL-2.0
@@ -152,7 +154,7 @@
   note: Helper layer on top of the UFO framework for fast GPU tomographic reconstruction pipelines.
 
 - name: sigpy
-  group: engines
+  group: classical
   repo: mikgroup/sigpy
   language: Python
   license: BSD-3-Clause
@@ -211,7 +213,7 @@
 
 # ---------------------------------------------------------------- I/O, frameworks, visualisation
 - name: pydicom
-  group: io
+  group: platforms
   repo: pydicom/pydicom
   homepage: https://pydicom.github.io/
   language: Python
@@ -221,7 +223,7 @@
   note: Read, modify and write DICOM files — the standard entry point for clinical CT data.
 
 - name: MONAI
-  group: io
+  group: platforms
   repo: Project-MONAI/MONAI
   homepage: https://monai.dev/
   language: Python
@@ -231,7 +233,7 @@
   note: PyTorch-based framework for medical imaging with CT reconstruction transforms and pretrained models.
 
 - name: tomviz
-  group: io
+  group: platforms
   repo: OpenChemistry/tomviz
   homepage: https://tomviz.org/
   language: C++
@@ -269,7 +271,7 @@
   note: Compact, readable Python and MATLAB CT reconstruction code. FBP plus ASD-POCS, SART and EM already exist under python/, though the README still lists iterative reconstruction as "to be added".
 
 - name: Algotom
-  group: classical
+  group: correction
   repo: algotom/algotom
   language: Python
   license: Apache-2.0
@@ -278,7 +280,7 @@
   note: "Data-processing algorithms for tomography — ring and artefact removal, distortion correction, denoising, phase retrieval and reconstruction. Developed for synchrotron beamlines."
 
 - name: Sarepy
-  group: classical
+  group: correction
   repo: nghia-vo/sarepy
   language: Python
   license: See repository
@@ -287,7 +289,7 @@
   note: Numerical techniques for ring-artefact removal in tomography — the most complete open collection of stripe/ring filters.
 
 - name: DBT-Reconstruction
-  group: classical
+  group: engines
   repo: LAVI-USP/DBT-Reconstruction
   language: MATLAB
   license: GPL-3.0
@@ -296,7 +298,7 @@
   note: Open-source reconstruction toolbox for digital breast tomosynthesis, covering DBT-specific geometry alongside FBP and iterative solvers.
 
 - name: Discorpy
-  group: classical
+  group: correction
   repo: DiamondLightSource/discorpy
   language: Python
   license: Apache-2.0
@@ -306,7 +308,7 @@
 
 # ---------------------------------------------------------------- reference implementations
 - name: Learned Primal-Dual
-  group: reference
+  group: learning
   repo: adler-j/learned_primal_dual
   language: Python
   license: See repository
@@ -315,7 +317,7 @@
   note: Reference implementation of Learned Primal-Dual reconstruction — the canonical unrolled primal-dual scheme, originally applied to CT.
 
 - name: Learned Gradient Tomography
-  group: reference
+  group: learning
   repo: adler-j/learned_gradient_tomography
   language: Python
   license: See repository
@@ -325,7 +327,7 @@
 
 # ---------------------------------------------------------------- data augmentation & simulation
 - name: Physics-ArX
-  group: augmentation
+  group: simulation
   repo: nadeemlab/Physics-ArX
   language: Python
   license: See repository
@@ -334,7 +336,7 @@
   note: Physics-based data-augmentation library that injects realistic CT/CBCT noise, scatter and artefact models into existing images to build paired training data.
 
 - name: LD-CT simulator
-  group: augmentation
+  group: simulation
   repo: smuzd/LD-CT-simulation
   language: MATLAB
   license: See repository
@@ -343,7 +345,7 @@
   note: Low-dose CT simulator that converts high-dose images into realistic low-dose counterparts using a validated noise model.
 
 - name: CBCT Scatter Correction Tool
-  group: augmentation
+  group: correction
   repo: YangkangJiang/Cone-beam-CT-scatter-correction-tool
   license: See repository
   stars: 16
@@ -372,7 +374,7 @@
 
 # ---------------------------------------------------------------- operators, physics & synchrotron
 - name: PyLops
-  group: operators
+  group: classical
   # Moved from `equinor/pylops`, which now 301s here (verified 2026-10-11).
   repo: PyLops/pylops
   homepage: https://pylops.readthedocs.io/
@@ -383,7 +385,7 @@
   note: Linear-operator library with a Radon transform and a large set of solvers (CGLS, LSQR, TV, sparsity-promoting). The cleanest way to prototype a variational CT problem without writing your own matrix-free operators.
 
 - name: mumott
-  group: operators
+  group: engines
   url: https://gitlab.com/liebi-group/software/mumott
   homepage: https://mumott.org/
   language: Python
@@ -393,7 +395,7 @@
   note: Tensor-tomography reconstruction for reciprocal-space data, developed at DTU. Specialised rather than general-purpose, but it is the most complete open implementation of the tensor-tomography model.
 
 - name: XrayPhysics
-  group: operators
+  group: simulation
   repo: kylechampley/XrayPhysics
   homepage: https://xrayphysics.readthedocs.io/
   language: C++ / Python
@@ -403,7 +405,7 @@
   note: X-ray cross sections, source-spectrum modelling, multi-material beam-hardening correction and dual-energy decomposition. From the LEAP author, and it pairs naturally with a simulator when you need a physically honest spectrum.
 
 - name: pyHST2
-  group: operators
+  group: engines
   url: https://gitlab.esrf.fr/tomotools/pyhst2
   homepage: https://ftp.esrf.fr/scisoft/PYHST2/
   language: C / Python
@@ -411,7 +413,7 @@
   tags: [synchrotron, phase-contrast, reconstruction]
   note: The ESRF beamline reconstruction code — gridrec, FBP and iterative methods with phase retrieval for propagation-based phase-contrast tomography. Long-standing workhorse of the synchrotron community.
 - name: DIRECTT Reconstruction GUI
-  group: operators
+  group: engines
   repo: BAMresearch/DIRECTT
   language: Python
   license: GPL-2.0
@@ -420,7 +422,7 @@
   note: A Python GUI built on the ASTRA toolbox for reconstructing X-ray CT data, with the DIRECTT algorithm included. DIRECTT targets the regime where only a handful of projections are available along an arbitrary scanning trajectory and folds the acquisition path itself into the inverse problem - a corner that operator-based toolboxes mostly leave untouched. From BAM and published in Review of Scientific Instruments 2020; run Main.py to launch. Niche and lightly starred, but there is little else that covers trajectories explicitly.
 
 - name: CTrex
-  group: operators
+  group: engines
   url: https://arxiv.org/abs/2609.30166
   homepage: https://arxiv.org/abs/2609.30166
   language: Python / CUDA (PyCUDA)
@@ -429,7 +431,7 @@
   note: A research-oriented GPU iterative reconstruction framework that exposes the projection–correction–backprojection pipeline all the way down to the individual CUDA kernels, so non-ideal acquisition effects can be folded into the operators themselves instead of being bolted on afterwards as corrections. Geometry is carried as per-projection homogeneous view matrices, which keeps the kernels agnostic to the scan path — circular, helical, offset and conveyor-belt trajectories all work, as do motion- and deformation-aware, event-based 4D and extended-field-of-view cases. Aimed squarely at micro-CT under unconventional acquisition. Described in arXiv:2609.30166; the paper announces no code repository, so this entry points at the preprint until one appears.
 
 - name: PFITRE
-  group: operators
+  group: learning
   repo: chonghangzhao/PFITRE
   language: Python
   license: MIT
@@ -438,7 +440,7 @@
   note: Perception Fused Iterative Tomography Reconstruction Engine — a CNN carrying perceptual knowledge as a regularizer inside an iterative solver, correcting limited-angle artefacts in X-ray nano-tomography. Ships a demo, a data-generation script and pretrained weights (Google Drive). From Brookhaven National Lab (NSLS-II); published in npj Computational Materials 2025.
 
 - name: MIRTorch
-  group: operators
+  group: learning
   repo: guanhuaw/MIRTorch
   language: Python
   license: See source
@@ -447,7 +449,7 @@
   note: A PyTorch-powered differentiable image reconstruction and optimization toolbox for medical imaging.
 
 - name: xtomosim
-  group: operators
+  group: simulation
   repo: gjadick/xtomosim
   language: Python
   license: See source
@@ -456,7 +458,7 @@
   note: An X-ray computed tomography physical simulator in Python by Giavanna Jadick.
 
 - name: Dual-Domain-CT-Denoising
-  group: operators
+  group: learning
   repo: gab9694/Dual-Domain-CT-Denoising
   language: Python
   license: See source
@@ -465,7 +467,7 @@
   note: A deep learning framework for dual-domain low-dose CT denoising.
 
 - name: diffct
-  group: operators
+  group: learning
   repo: sypsyp97/diffct
   homepage: https://sypsyp97.github.io/diffct/
   language: Python / CUDA
@@ -475,7 +477,7 @@
   note: "Differentiable CUDA CT projectors from FAU (Maier group): arbitrary per-view trajectories, autograd through volume and acquisition geometry, exact-adjoint project/backproject pairs, multi-GPU/multi-node. Technical report 2026-10-14 (doi:10.20944/preprints202605.1446.v2)."
 
 - name: PYRO-NN
-  group: operators
+  group: learning
   repo: csyben/PYRO-NN
   language: Python / CUDA
   license: Apache-2.0
@@ -484,7 +486,7 @@
   note: "Python Reconstruction Operators in Neural Networks (FAU Maier group): known-operator CT projectors as neural network layers for end-to-end learned reconstruction, with fan/cone-beam geometries."
 
 - name: X-Splat
-  group: operators
+  group: learning
   repo: zezeaaa/X-Splat
   language: Python
   license: See source
@@ -541,7 +543,7 @@
   note: MATLAB package of algebraic iterative reconstruction methods (ART and SIRT families) with test problems, stopping rules and parameter choice, by Hansen and Jørgensen.
 
 - name: ToMoBAR
-  group: classical
+  group: engines
   repo: dkazanc/ToMoBAR
   homepage: https://dkazanc.github.io/ToMoBAR/
   language: Python
