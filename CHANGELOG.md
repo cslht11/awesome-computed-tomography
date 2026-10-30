@@ -13,6 +13,16 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Duplicate dataset rows merged; old addresses keep working
+
+### Fixed
+
+- **Two duplicate dataset rows are gone** (datasets 84 → 82). "LoDoPaB-CT (benchmark release paper)" was only the descriptor of LoDoPaB-CT, which is already a paper entry cited on the LoDoPaB-CT page. "Walnut-CBCT" pointed at the FIPS catalogue page and duplicated the specific record "Walnut CBCT (FIPS, 3D)" (CC BY 4.0), which stays.
+
+### Added
+
+- **Old addresses redirect.** A removed or merged page now leaves a small stub that sends visitors to its replacement (`data/redirects.yaml`, EN and ZH), instead of a 404: `/datasets/walnut-cbct/` and the earlier `/datasets/cbct-head-and-neck/`.
+
 ## 2026-10-30 — Readable knowledge-graph pages
 
 ### Changed

@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 678 篇论文 | 60 个工具包 | 84 个数据集 | 22 个基准 | 更新于 2026-10-30 |
+| 678 篇论文 | 60 个工具包 | 82 个数据集 | 22 个基准 | 更新于 2026-10-30 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -42,7 +42,7 @@
 
 ## 数据集
 
-[在网站上浏览全部 84 条](https://computedtomography.org/zh/?tab=datasets)
+[在网站上浏览全部 82 条](https://computedtomography.org/zh/?tab=datasets)
 
 ## 基准与挑战赛
 

@@ -34,13 +34,6 @@
   license: CC BY 4.0
   note: "**Projection + image.** 5,000 real experimental 2D slices of mixed objects, 3 dose levels, multiple source-detector geometries. Excellent for reproducible real-data CT benchmarking."
 
-- name: Walnut-CBCT
-  url: https://www.fips.fi/dataset.php
-  modality: cone-beam
-  tasks: [reconstruction, geometry]
-  license: CC BY 4.0
-  note: "**Projection only.** Finnish Inverse Problems Society. Real cone-beam projections of a walnut at several angular samplings — a standard test bed for sparse-view and limited-angle CBCT."
-
 - name: Helsinki Tomography Challenge 2022
   url: https://www.fips.fi/HTC2022.php
   modality: 2D fan-beam
@@ -245,14 +238,6 @@
   tasks: [reconstruction, geometry, calibration]
   license: CC BY 4.0
   note: "**Projection only.** A family of real measured sinograms (walnut, lotus root, apple, carrot, phantoms) with carefully documented acquisition geometry — the cleanest public source for testing reconstruction operators."
-
-- name: LoDoPaB-CT (benchmark release paper)
-  url: https://doi.org/10.1038/s41597-021-00893-z
-  homepage: https://lodopab.grand-challenge.org/
-  modality: 2D fan-beam
-  tasks: [low-dose, reconstruction, benchmarking]
-  license: CC BY 4.0
-  note: "The **Scientific Data** descriptor for the LoDoPaB-CT dataset — the citation to use when you report results on this split. Documents the simulation protocol and the FBP/U-Net reference baseline."
 
 - name: "COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset"
   url: "https://arxiv.org/abs/2607.20037"

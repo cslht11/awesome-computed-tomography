@@ -115,7 +115,7 @@ topics:
   classical:
     match: [iterative, FBP, FDK, SART, MBIR, TV, TGV, regularisation, variational, Krylov, statistical, proximal, gridrec]
     also:
-      datasets: ["Finnish Inverse Problems Society (FIPS) datasets", "SparseBeads", "Walnut-CBCT"]
+      datasets: ["Finnish Inverse Problems Society (FIPS) datasets", "SparseBeads", "Walnut CBCT (FIPS, 3D)"]
     start:
       - id: radon-1917
         en: Defines the transform that every analytical CT method inverts.

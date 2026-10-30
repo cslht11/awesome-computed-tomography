@@ -1,0 +1,10 @@
+# Pages that no longer exist, and where their address should lead.
+# Each old path (under the language root, so it applies to /zh/ as well) gets
+# a small stub page that sends the visitor to the new one: a static site has
+# no server-side redirects, and an entry removed or merged would otherwise
+# turn every existing link and search result into a 404.
+# The stubs are marked noindex, point their canonical at the target, and are
+# not in the sitemap. The target must be a page the build writes (checked).
+# Add a line here whenever a page's slug disappears; never delete one.
+datasets/walnut-cbct/: datasets/walnut-cbct-fips-3d/        # merged into the specific FIPS record
+datasets/cbct-head-and-neck/: datasets/                     # entry replaced (its link had no CBCT)

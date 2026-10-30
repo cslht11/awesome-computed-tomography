@@ -526,8 +526,6 @@ datasets:
     note: "**Projection + image.** 2016 年 AAPM–NIBIB–Mayo Clinic 低剂量 CT 大挑战的完整数据：30 例增强腹部 CT（10 例训练、20 例测试），含常规剂量与仿真的四分之一剂量数据；Mayo 与 AAPM 于 2021 年 9 月 21 日以与 TCIA 数据库相同的 **DICOM-CT-PD** 投影格式重新发布。20 例测试数据中有 13 例也收录在 LDCT-and-Projection-data 中，下载包内的 README 给出了病例编号的对应关系。2017 年以来多数低剂量 CT 论文所说的“Mayo 数据集”或“AAPM 数据集”指的就是它。"
   "2DeteCT":
     note: "**Projection + image.** 5,000 张真实实验采集的混合物体二维切片，三个剂量水平，多种源-探测器几何。非常适合做可复现的真实数据 CT 基准测试。"
-  "Walnut-CBCT":
-    note: "**Projection only.** 芬兰逆问题学会。真实采集的核桃锥束投影，提供多种角度采样——稀疏视角与有限角 CBCT 的标准测试床。"
   "Helsinki Tomography Challenge 2022":
     note: "**Projection only.** 体模与莲藕的真实有限角正弦图；配套挑战赛定义了标准的有限角协议。"
   "SPARE 4D-CBCT":
@@ -588,8 +586,6 @@ datasets:
     note: "**Projection + image.** 2021 年 AAPM DL-sparse-view CT 挑战赛数据：4,000 个仿真二维乳腺 CT 体模，每个配有 360° 理想无噪声 128 视角扇束正弦图及其 FBP 图像，另有 100 例测试。真值完全已知，可把稀疏视角逆问题与噪声、模型失配分开考察。"
   "Finnish Inverse Problems Society (FIPS) datasets":
     note: "**Projection only.** 一批真实测量的正弦图（核桃、莲藕、苹果、胡萝卜、体模），采集几何记录详尽——检验重建算子最干净的公开来源。"
-  "LoDoPaB-CT (benchmark release paper)":
-    note: "LoDoPaB-CT 数据集在 **Scientific Data** 上的数据描述论文——在该切分上报告结果时应引用的文献。记录了仿真协议与 FBP/U-Net 参照基线。"
   "COBRA2026: a large-scale multicenter pelvic cone-beam computed tomography projection dataset":
     note: "**Projection + image.** 来自六家欧洲中心的 867 例骨盆放疗 CBCT 扫描（Elekta 与 Varian 系统），含原始投影、采集几何、临床 CBCT 与计划 CT。约 950 GB，按 692/52/123 划分，以 CC BY-NC 4.0 发布于 Zenodo（doi:10.5281/zenodo.21322350）。也是 COBRA2026 重建挑战赛的数据基础。"
   "MORE: Multi-Organ Medical Image REconstruction Dataset":

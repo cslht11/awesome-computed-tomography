@@ -6,6 +6,17 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-30 — 合并重复的数据集条目；旧地址继续可用
+<!-- en: Duplicate dataset rows merged; old addresses keep working -->
+
+### 修复
+
+- **删除了两个重复的数据集条目**（数据集 84 → 82）。“LoDoPaB-CT (benchmark release paper)”只是 LoDoPaB-CT 的数据描述论文，而这篇论文本身已是论文条目，并已作为引用显示在 LoDoPaB-CT 页面上。“Walnut-CBCT”指向的是 FIPS 目录页，与具体记录“Walnut CBCT (FIPS, 3D)”（CC BY 4.0）重复，后者予以保留。
+
+### 新增
+
+- **旧地址会跳转。**被删除或合并的页面现在会留下一个小的跳转页，把访客送到替代页面（`data/redirects.yaml`，中英文均有），而不是 404：`/datasets/walnut-cbct/` 与此前的 `/datasets/cbct-head-and-neck/`。
+
 ## 2026-10-30 — 知识图谱页面更易读
 <!-- en: Readable knowledge-graph pages -->
 

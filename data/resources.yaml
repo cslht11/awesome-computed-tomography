@@ -69,8 +69,6 @@ datasets:
     short: "FleX-ray Walnut CBCT Collection"
   "Carved cheese (FIPS)":
     slug: carved-cheese
-  "LoDoPaB-CT (benchmark release paper)":
-    skip: "Not a separate dataset: it is the Scientific Data descriptor of LoDoPaB-CT, which is cited on the LoDoPaB-CT page."
 
 benchmarks:
   "AAPM CT-MAR Grand Challenge":

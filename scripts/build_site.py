@@ -2265,6 +2265,27 @@ def main():
         write(os.path.join(sub, "data.json"),
               json.dumps(payload, ensure_ascii=False, indent=1) + "\n")
 
+        # Stub pages for addresses that no longer exist (data/redirects.yaml).
+        for old_rel, new_rel in sorted((load("redirects.yaml") or {}).items()):
+            if not os.path.exists(os.path.join(sub, new_rel, "index.html")):
+                sys.exit("%s: data/redirects.yaml sends %s to %s, which was not built"
+                         % (code, old_rel, new_rel))
+            old_page = os.path.join(sub, old_rel, "index.html")
+            if os.path.exists(old_page) and 'http-equiv="refresh"' not in read(old_page):
+                sys.exit("%s: data/redirects.yaml lists %s, which is a real page now"
+                         % (code, old_rel))
+            target = lang_base + new_rel
+            write(os.path.join(sub, old_rel, "index.html"),
+                  '<!DOCTYPE html>\n<html lang="%s"><head><meta charset="utf-8">\n'
+                  '<title>%s</title>\n'
+                  '<meta name="robots" content="noindex">\n'
+                  '<link rel="canonical" href="%s">\n'
+                  '<meta http-equiv="refresh" content="0; url=%s">\n'
+                  '</head><body><p><a href="%s">%s</a></p>'
+                  '<script>location.replace(%s)</script></body></html>\n'
+                  % (esc(entry["html"]), esc(target), esc(target), esc(target),
+                     esc(target), esc(target), json.dumps(target)))
+
         # Each category page's own slice, beside its index.html; no
         # monolithic graph.json exists any more.
         for name, text in graph_slice_json.items():
@@ -2429,6 +2450,8 @@ def main():
                 continue
             f = os.path.join(dirpath, fn)
             page = read(f)
+            if 'http-equiv="refresh"' in page and 'content="noindex"' in page:
+                continue            # a redirect stub (data/redirects.yaml)
             if 'rel="icon"' not in page:
                 problems.append("%s: favicon link missing"
                                 % os.path.relpath(f, out))
