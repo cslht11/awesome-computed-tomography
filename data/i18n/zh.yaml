@@ -225,6 +225,7 @@ ui:
   graphReset: "重置"
   graphCounts: "正在显示 {total} 个节点中的 {shown} 个 · 共 {edges} 条关系"
   graphCoverage: "引用连线来自 OpenAlex；它尚未收录参考文献的论文（多为较新的论文）不会显示引用。放大可看到更多标签，点击节点可查看其连接。"
+  graphListToggle: "以列表形式查看此图谱"
   graphFullNote: "全图节点较多，布局需要一点时间；放大后单个节点的标签更易读。"
   graphLoadNote: "交互图谱未能加载（JavaScript 或图谱库不可用）；下方以链接形式列出了同样的条目。"
   graphFallbackTitle: "团队与它们在库中的工作"
@@ -436,7 +437,7 @@ toolkits:
   "RadIO":
     note: "面向肺结节流程的 CT 数据预处理与增广框架；名字虽如此，但其中并没有 Radon 变换或 FBP。"
   "pySART":
-    note: "联立代数重建技术（SART）的精简参照实现。"
+    note: "联立代数重建技术（SART）的精简参照实现。最近一次提交为 2013 年 11 月。"
   "libcbct":
     note: "轻量锥束 CT 重建库，含 FDK 与迭代求解器；采用非商业许可。"
   "tofu":
@@ -464,7 +465,7 @@ toolkits:
   "IRtools":
     note: "迭代正则化工具——混合 Krylov 方法、Tikhonov、TV 与一般形式正则化，随包附带大规模层析测试问题。来自 Hansen 课题组。"
   "leehoy/CTReconstruction":
-    note: "精简易读的 Python 与 MATLAB CT 重建代码。python/ 下已有 FBP 以及 ASD-POCS、SART、EM，但 README 仍把迭代重建列为“待补”。"
+    note: "精简易读的 Python 与 MATLAB CT 重建代码。python/ 下已有 FBP 以及 ASD-POCS、SART、EM，但 README 仍把迭代重建列为“待补”。最近一次提交为 2021 年 7 月。"
   "Algotom":
     note: "层析数据处理算法集——环状伪影与伪影去除、畸变校正、去噪、相位恢复与重建。为同步辐射光束线开发。"
   "Sarepy":
@@ -476,11 +477,11 @@ toolkits:
   "Learned Primal-Dual":
     note: "学习式原始-对偶重建的参照实现——最典型的展开式原始-对偶方案，最初即用于 CT。"
   "Learned Gradient Tomography":
-    note: "面向不适定层析的学习式梯度下降参照实现（Adler & Öktem）；后来许多展开式 CT 网络的源头。"
+    note: "面向不适定层析的学习式梯度下降参照实现（Adler & Öktem）；后来许多展开式 CT 网络的源头。最近一次提交为 2021 年 11 月。"
   "Physics-ArX":
     note: "基于物理的数据增强库，把真实的 CT/CBCT 噪声、散射与伪影模型注入既有图像，以构造成对训练数据。"
   "LD-CT simulator":
-    note: "低剂量 CT 仿真器，用经过验证的噪声模型把高剂量图像转成逼真的低剂量对应图像。"
+    note: "低剂量 CT 仿真器，用经过验证的噪声模型把高剂量图像转成逼真的低剂量对应图像。最近一次提交为 2017 年 4 月。"
   "CBCT Scatter Correction Tool":
     note: "为数不多的锥束 CT 散射估计与校正工具之一；以预编译 Windows 可执行文件分发，仓库中无源码。"
   "3D Slicer":

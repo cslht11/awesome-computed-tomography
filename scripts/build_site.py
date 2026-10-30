@@ -1305,6 +1305,7 @@ def graph_strings(ov):
         "mPapersHere": u("graphPapersHere", "Papers here"),
         "mCount": u("graphCount", "Entries"),
         "coverage": u("graphCoverage", ""),
+        "listToggle": u("graphListToggle", ""),
     }
     for tname, key in (("paper", "kindPaper"), ("toolkit", "kindToolkit"),
                        ("dataset", "kindDataset"), ("benchmark", "kindBenchmark"),

@@ -720,6 +720,9 @@ li.team {
 .g-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .g-legend .g-type { cursor: default; }
 .g-line { width: 16px; height: 2px; display: inline-block; border-radius: 1px; }
+.graph-list { margin: 14px 0 0; }
+.graph-list > summary { cursor: pointer; font-size: 14px; color: var(--accent); }
+.graph-list .graph-fallback { margin-top: 6px; }
 .g-coverage { width: 100%; margin: 0; font-size: 12.5px; color: var(--fg-faint); }
 /* The canvas uses the full page width on a desktop, beyond the text column. */
 @media (min-width: 900px) {

@@ -6,6 +6,14 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-30 — 图谱页保留节点列表；久未更新的工具包注明最后更新时间
+<!-- en: Graph pages keep a list of their nodes; stale toolkits say when they were last updated -->
+
+### 新增
+
+- **每个图谱页现在都有“以列表形式查看此图谱”**，位于图谱下方，以链接形式列出所有节点，供无法使用画布的读者（读屏软件、纯键盘操作）使用。此前这份列表在图谱加载后就被隐藏了。
+- **四个多年未更新的工具包在说明中注明了这一点**，日期取自各仓库真实的最近一次提交：pySART（2013 年 11 月）、LD-CT simulator（2017 年 4 月）、leehoy/CTReconstruction（2021 年 7 月）、Learned Gradient Tomography（2021 年 11 月）。它们仍保留在列表中，作为参考。
+
 ## 2026-10-30 — 合并重复的数据集条目；旧地址继续可用
 <!-- en: Duplicate dataset rows merged; old addresses keep working -->
 

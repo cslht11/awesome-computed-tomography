@@ -13,6 +13,13 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Graph pages keep a list of their nodes; stale toolkits say when they were last updated
+
+### Added
+
+- **Every graph page now has a "Show this graph as a list" section** under the graph, with all of its nodes as links, for readers who cannot use the canvas (screen readers, keyboard-only). Before, this list was hidden as soon as the graph loaded.
+- **Four toolkits that have not been updated in years now say so** in their notes, from the repositories' real last-commit dates: pySART (November 2013), LD-CT simulator (April 2017), leehoy/CTReconstruction (July 2021) and Learned Gradient Tomography (November 2021). They stay listed, as references.
+
 ## 2026-10-30 — Duplicate dataset rows merged; old addresses keep working
 
 ### Fixed

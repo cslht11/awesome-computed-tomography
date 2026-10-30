@@ -133,7 +133,7 @@
   license: GPL-2.0
   stars: 33
   tags: [SART, iterative, teaching]
-  note: Compact reference implementation of the Simultaneous Algebraic Reconstruction Technique.
+  note: Compact reference implementation of the Simultaneous Algebraic Reconstruction Technique. Last commit November 2013.
 
 - name: libcbct
   group: engines
@@ -268,7 +268,7 @@
   license: GPL-2.0
   stars: 97
   tags: [FBP, iterative, teaching]
-  note: Compact, readable Python and MATLAB CT reconstruction code. FBP plus ASD-POCS, SART and EM already exist under python/, though the README still lists iterative reconstruction as "to be added".
+  note: Compact, readable Python and MATLAB CT reconstruction code. FBP plus ASD-POCS, SART and EM already exist under python/, though the README still lists iterative reconstruction as "to be added". Last commit July 2021.
 
 - name: Algotom
   group: correction
@@ -323,7 +323,7 @@
   license: See repository
   stars: 96
   tags: [unrolling, learned-gradient, reference]
-  note: Reference implementation of learned gradient descent for ill-posed tomography (Adler & Öktem); the origin of many later unrolled CT networks.
+  note: Reference implementation of learned gradient descent for ill-posed tomography (Adler & Öktem); the origin of many later unrolled CT networks. Last commit November 2021.
 
 # ---------------------------------------------------------------- data augmentation & simulation
 - name: Physics-ArX
@@ -342,7 +342,7 @@
   license: See repository
   stars: 59
   tags: [low-dose, simulation, noise]
-  note: Low-dose CT simulator that converts high-dose images into realistic low-dose counterparts using a validated noise model.
+  note: Low-dose CT simulator that converts high-dose images into realistic low-dose counterparts using a validated noise model. Last commit April 2017.
 
 - name: CBCT Scatter Correction Tool
   group: correction

@@ -261,8 +261,20 @@
       return out;
     });
 
+    // The list of every node stays as the graph's text alternative (the
+    // canvas has none): collapsed under the graph once the graph runs, and
+    // opened by the watchdog below if nothing was painted.
     var fallback = document.getElementById("graph-fallback");
-    if (fallback) fallback.hidden = true;
+    var fbDetails = null;
+    if (fallback) {
+      fbDetails = document.createElement("details");
+      fbDetails.className = "graph-list";
+      var sum = document.createElement("summary");
+      sum.textContent = t("listToggle", "Show this graph as a list");
+      fbDetails.appendChild(sum);
+      fallback.parentNode.insertBefore(fbDetails, fallback);
+      fbDetails.appendChild(fallback);
+    }
     var bar = document.getElementById("graph-bar");
     if (bar) bar.hidden = false;
 
@@ -361,8 +373,7 @@
                           "showing the fallback list");
           }
           showLoadNote();
-          var fb = document.getElementById("graph-fallback");
-          if (fb) fb.hidden = false;
+          if (fbDetails) fbDetails.open = true;
         }
       } catch (e) { /* the watchdog must never break the page */ }
     }, 900);
