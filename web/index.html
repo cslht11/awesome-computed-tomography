@@ -35,6 +35,16 @@
 </script>
 </head>
 <body>
+<script>
+/* Show the tab named in ?tab= from the first paint. The panels switch in
+   app.js, which runs after the whole (large) page has parsed; until then the
+   browser painted the Papers tab and its intro, then jumped to the right tab
+   — visible on every language switch. app.js keeps this attribute in sync. */
+(function () {
+  var m = /[?&]tab=([a-z]+)/.exec(location.search);
+  if (m && m[1] !== "papers") document.documentElement.setAttribute("data-tab", m[1]);
+})();
+</script>
 
 <header class="top">
   <div class="wrap bar">

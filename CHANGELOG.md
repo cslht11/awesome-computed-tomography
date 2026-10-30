@@ -13,6 +13,18 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — No more jumps on tab and language switches; centred section links
+
+### Fixed
+
+- **Switching language no longer flashes the Papers tab.** A page opened on another tab (which is what the language switch does) painted the Papers list first and jumped to the right tab once the page script had run. The tab is now applied before the first paint.
+- **Switching tabs no longer moves the page.** Hiding the intro on every tab but Papers made each switch jump the page by the intro's height; the intro now stays on every tab.
+- **The header no longer shifts sideways** between the homepage and the other pages: it has the same width everywhere (it was wider on the homepage only).
+
+### Changed
+
+- **The section links (Papers … Graph) are centred in their own row** instead of starting at the left edge.
+
 ## 2026-10-29 — Authors and citations for three more papers
 
 ### Added

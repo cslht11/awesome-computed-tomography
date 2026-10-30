@@ -161,6 +161,17 @@ async function testEnglish() {
 
   homeDetailLinks(doc, "");
 
+  /* html[data-tab] drives which panel shows before app.js runs (no flash of
+     the Papers list when a page opens on ?tab=...); app.js must keep it in
+     step with the selected tab, and drop it on Papers. */
+  doc.querySelector('#tabs button[data-tab="datasets"]').click();
+  ok("tab state: html[data-tab] follows the selected tab",
+    doc.documentElement.getAttribute("data-tab") === "datasets" &&
+    doc.getElementById("panel-datasets").hidden === false);
+  doc.querySelector('#tabs button[data-tab="papers"]').click();
+  ok("tab state: Papers clears html[data-tab]",
+    !doc.documentElement.hasAttribute("data-tab") && doc.getElementById("panel-papers").hidden === false);
+
   /* Year headings: one per year while the list is in year order, each
      counting its own rows; none once the list is ranked by a search. */
   const seps = Array.prototype.slice.call(doc.querySelectorAll("#papers-list li.year-sep h2"));

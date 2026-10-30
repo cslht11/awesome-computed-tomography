@@ -601,6 +601,10 @@
     Array.prototype.forEach.call(document.querySelectorAll("section[role=tabpanel]"), function (s) {
       s.hidden = s.id !== "panel-" + name;
     });
+    /* The CSS shows the right panel from this attribute before app.js has
+       run (it is first set by the inline script in index.html). */
+    if (name === "papers") document.documentElement.removeAttribute("data-tab");
+    else document.documentElement.setAttribute("data-tab", name);
     if (push !== false) writeUrl();
   }
 

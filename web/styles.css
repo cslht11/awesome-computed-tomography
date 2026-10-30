@@ -152,6 +152,9 @@ header.top {
 
 .tabrow { height: 46px; }
 #tabs, #tabs .tablist { display: flex; align-items: center; gap: 30px; height: 100%; }
+/* The section links sit centred in their own row (the phone drawer below
+   overrides this with a column). */
+#tabs { justify-content: center; }
 #tabs .drawer-title, #tabs .nav-ext.drawer-only { display: none; }
 #tabs button, #tabs .nav-ext {
   font: 400 14.5px var(--sans); color: var(--hdr-fg); opacity: .78;
@@ -241,9 +244,18 @@ header .gres { color: var(--fg); width: max(100%, 380px); }
 .stats dt { font-size: 13px; color: var(--fg-faint); }
 .stats dd { margin: 0; font: 600 18px/1.2 var(--display); letter-spacing: -.01em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
-/* The hero introduces the paper list; on the other tabs it only pushed the
-   table down, and each tab switch lands at the top with it in view. */
-main:has(> #panel-papers[hidden]) .hero { display: none; }
+/* The intro stays on every tab: hiding it on all but Papers made every tab
+   switch jump the page by its height. html[data-tab] is set before first
+   paint from ?tab= (inline script in index.html) and kept in sync by app.js,
+   so a page opened on another tab (e.g. after a language switch) shows that
+   tab from the start instead of flashing the Papers list first; main keeps a
+   screen's height meanwhile so the footer is not pushed down as the table
+   fills in. */
+html[data-tab] #panel-papers { display: none; }
+html[data-tab="toolkits"] #panel-toolkits, html[data-tab="datasets"] #panel-datasets,
+html[data-tab="benchmarks"] #panel-benchmarks, html[data-tab="learning"] #panel-learning,
+html[data-tab="teams"] #panel-teams { display: block; }
+html[data-tab] main { min-height: 100vh; }
 
 /* ---------------------------------------------------------------- global search */
 
@@ -368,7 +380,9 @@ li.year-sep .n { margin-left: 10px; font: 400 13px var(--sans); color: var(--fg-
    homepage (the only page without body.subpage) also gets a wider measure,
    header and footer included so their edges line up with the content. */
 @media (min-width: 1280px) {
-  body:not(.subpage) .wrap { max-width: 1280px; }
+  /* Header and footer are the same width on every page, so moving between
+     the homepage and a sub-page never shifts them sideways. */
+  header.top .wrap, footer .wrap, body:not(.subpage) main.wrap { max-width: 1280px; }
 }
 @media (min-width: 1080px) {
   #panel-papers:not([hidden]) {
@@ -537,7 +551,7 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   #tabs {
     position: fixed; top: 0; bottom: 0; left: 0; z-index: 60;
     width: min(78vw, 300px); height: auto;
-    flex-direction: column; align-items: stretch; gap: 2px;
+    flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 2px;
     padding: 20px 14px;
     background: var(--bg);
     box-shadow: var(--shadow-pop);
