@@ -13,6 +13,13 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — What the paper summaries are, and who maintains the list
+
+### Changed
+
+- **The About page now says what the one-line summaries are for and where they come from.** The summary shown when you point at a title is there to help decide whether a paper is worth opening; many quote the paper's own abstract. The page used to say an entry is "never a copy" of the work, which those quotations contradicted. `LICENSE-content` now states that quoted abstract text and titles stay their authors' and publishers' and are not relicensed; the CC licence covers this project's own selection, organisation, notes and original summaries.
+- **The maintainer is named:** About, Contact, Privacy and the README say the list is maintained by [cslht11](https://github.com/cslht11) instead of "its authors".
+
 ## 2026-10-30 — Every section has its own page for search engines
 
 ### Added

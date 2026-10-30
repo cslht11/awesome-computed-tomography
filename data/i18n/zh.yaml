@@ -306,7 +306,7 @@ readme:
   statBenchmarksCell: "{benchmarks} 个基准"
   statSpanCell: "更新于 {updated}"
   contactHeading: "联系方式"
-  contactBody: "本列表由作者策展并维护，不接受拉取请求。如有疑问、勘误，或希望增删某篇论文，请提交 [issue](https://github.com/{repo}/issues) 或发送邮件至 **[heitieya@163.com](mailto:heitieya@163.com)**。"
+  contactBody: "本列表由 [cslht11](https://github.com/cslht11) 策展并维护，不接受拉取请求。如有疑问、勘误，或希望增删某篇论文，请提交 [issue](https://github.com/{repo}/issues) 或发送邮件至 **[heitieya@163.com](mailto:heitieya@163.com)**。"
   licenseIntro: "内容（`data/`、本 README 与生成的页面）采用 [CC BY-NC-SA 4.0](LICENSE-content) 许可："
   licenseAttribution: "**署名**：使用时请注明出处。"
   licenseNonCommercial: "**非商业性使用**：不得用于商业用途，如需商用请先联系。"
@@ -783,10 +783,10 @@ pages:
     <p>这些检查能发现失效链接和记录不匹配，但无法发现所有错误。某个发表出处、年份或分类仍可能出错。如果某个细节对你的工作很关键，请顺着链接以原始论文为准。</p>
 
     <h2>它不是什么</h2>
-    <p>一个条目只是指向他人工作的指针，绝不是其副本。标题、发表出处与链接是关于论文的事实，归作者与出版方所有；收录并不意味着他们认可，也不表示这里复现了结果。本站内容不构成医疗建议。</p>
+    <p>一个条目是指向他人工作的指针。鼠标停在论文标题上时出现的一句话简介，是为了帮助你判断这篇论文是否值得点开原文阅读；其中不少简介引用了论文自身的摘要，被引用的文字仍归作者与出版方所有，不在本站内容许可的范围之内。标题、发表出处与链接是关于论文的事实，归作者与出版方所有；收录并不意味着他们认可，也不表示这里复现了结果。本站内容不构成医疗建议。</p>
 
     <h2>维护</h2>
-    <p>本列表由作者策划和维护并持续更新，包括新增 arXiv 论文、更正发表出处和修复链接。它不接受外部 pull request。建议与更正欢迎通过<a href="{{ROOT}}contact/">联系页面</a>提交，每一条都会先经核对再决定是否收录。每一次改动都按日期记录在<a href="{{ROOT}}changelog/">更新日志</a>中。</p>
+    <p>本列表由 <a href="https://github.com/cslht11" target="_blank" rel="noopener">cslht11</a> 策划和维护并持续更新，包括新增 arXiv 论文、更正发表出处和修复链接。它不接受外部 pull request。建议与更正欢迎通过<a href="{{ROOT}}contact/">联系页面</a>提交，每一条都会先经核对再决定是否收录。每一次改动都按日期记录在<a href="{{ROOT}}changelog/">更新日志</a>中。</p>
     <p>同样的数据也以 <a href="{{REPO_URL}}" target="_blank" rel="noopener">GitHub README</a> 和 <a href="{{ROOT}}data.json">data.json</a> 发布。两者由同一份源文件生成，因此不会与本站产生分歧。</p>
 
     <h2>许可与复用</h2>
@@ -863,7 +863,7 @@ pages:
   privacy: |-
     <p class="kicker">隐私</p>
     <h1>隐私政策</h1>
-    <p class="lede">最后更新于 2026 年 10 月 12 日。本政策适用于 https://computedtomography.org/，这是由作者维护的个人非商业项目。</p>
+    <p class="lede">最后更新于 2026 年 10 月 12 日。本政策适用于 https://computedtomography.org/，这是由 <a href="https://github.com/cslht11" target="_blank" rel="noopener">cslht11</a> 维护的个人非商业项目。</p>
 
     <h2>简而言之</h2>
     <p>本站没有账号、没有广告，也不设置 cookie。唯一的外部脚本是 Cloudflare Web Analytics，它不用 cookie、不识别你个人，只统计访问量。阅读本站不需要你提供任何东西。</p>

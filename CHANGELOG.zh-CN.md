@@ -6,6 +6,14 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-30 — 说明论文简介的用途与来源，并署名维护者
+<!-- en: What the paper summaries are, and who maintains the list -->
+
+### 变更
+
+- **"关于"页面现在说明了一句话简介的用途和来源。**鼠标停在标题上时出现的简介，是为了帮助判断论文是否值得点开原文；其中不少引用了论文自身的摘要。此前页面写的是条目"绝不是其副本"，与这些引用不符。`LICENSE-content` 现在写明：被引用的摘要文字与论文标题仍归作者与出版方所有，不在本站许可之内；CC 许可涵盖的是本项目自己的遴选、组织、说明与原创简介。
+- **署名维护者：**"关于"、"联系"、"隐私"页面与 README 现在写明由 [cslht11](https://github.com/cslht11) 维护，而不是"作者"。
+
 ## 2026-10-30 — 每个栏目都有供搜索引擎收录的独立页面
 <!-- en: Every section has its own page for search engines -->
 

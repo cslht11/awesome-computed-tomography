@@ -61,7 +61,7 @@ The library as a relationship map, split into small pages that load fast: a team
 
 ## Contact
 
-This list is curated and maintained by its authors; pull requests are not accepted. Questions, corrections, or a paper you want added or removed: open an [issue](https://github.com/cslht11/awesome-computed-tomography/issues) or email **[heitieya@163.com](mailto:heitieya@163.com)**.
+This list is curated and maintained by [cslht11](https://github.com/cslht11); pull requests are not accepted. Questions, corrections, or a paper you want added or removed: open an [issue](https://github.com/cslht11/awesome-computed-tomography/issues) or email **[heitieya@163.com](mailto:heitieya@163.com)**.
 
 ## License
 

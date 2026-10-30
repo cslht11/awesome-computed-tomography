@@ -14,6 +14,18 @@ code is MIT. The reasoning is in [MAINTENANCE.md](MAINTENANCE.md).
     site/data.json                  the rendered data payload
     site/sitemap.xml, site/robots.txt
 
+### Not covered: text quoted from the papers
+
+The one-line paper summaries (`data/summaries/*.yaml`, shown when a reader
+points at a title) exist to help decide whether a paper is worth opening.
+Many of them quote sentences of the paper's own abstract, and
+`data/summaries.zh/*.yaml` translates those sentences. Quoted abstract text,
+and paper titles, remain the copyright of their authors and publishers; they
+are reproduced here for identification and comment, and this repository does
+not relicense them. The CC licence above covers this project's own
+contribution: the selection, organisation, classification, notes and
+original summaries.
+
 ## Code — MIT
 
 See [LICENSE](LICENSE).

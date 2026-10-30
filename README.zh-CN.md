@@ -61,7 +61,7 @@
 
 ## 联系方式
 
-本列表由作者策展并维护，不接受拉取请求。如有疑问、勘误，或希望增删某篇论文，请提交 [issue](https://github.com/cslht11/awesome-computed-tomography/issues) 或发送邮件至 **[heitieya@163.com](mailto:heitieya@163.com)**。
+本列表由 [cslht11](https://github.com/cslht11) 策展并维护，不接受拉取请求。如有疑问、勘误，或希望增删某篇论文，请提交 [issue](https://github.com/cslht11/awesome-computed-tomography/issues) 或发送邮件至 **[heitieya@163.com](mailto:heitieya@163.com)**。
 
 ## 许可
 
