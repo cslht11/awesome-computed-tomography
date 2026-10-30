@@ -389,6 +389,22 @@ papers:
 
 # ------------------------------------------------------------------ 工具包
 toolkits:
+  "XCIST":
+    note: "开源 X 射线 CT 仿真器（附重建），属 CatSim 一脉；对几何、能谱、探测器响应与物理过程建模，AAPM CT-MAR 挑战赛的数据即由它生成。"
+  "MBIRJAX":
+    note: "Bouman 课题组基于 JAX 的基于模型迭代重建，可在 CPU 或 GPU 上运行；svmbir 的后继。"
+  "tomocupy":
+    note: "阿贡国家实验室 Advanced Photon Source 的 GPU 层析重建工具，基于 CuPy，用于快速重建大规模同步辐射数据。"
+  "CONRAD":
+    note: "FAU Erlangen 面向锥束 CT 研究的 Java 框架，涵盖仿真、体模与重建，并支持 GPU 加速。"
+  "AIR Tools II":
+    note: "Hansen 与 Jørgensen 的 MATLAB 代数迭代重建工具包（ART 与 SIRT 两大类），附测试问题、停止准则与参数选择。"
+  "ToMoBAR":
+    note: "基于模型迭代重建的 Python 库（FISTA、ADMM、有序子集），集成 CCPi 正则项，构建于 ASTRA 之上；由 Diamond Light Source 开发。"
+  "MC-GPU":
+    note: "美国 FDA 的 GPU 蒙特卡洛 X 射线输运仿真，用于生成含散射的逼真 CT 与乳腺成像投影。"
+  "GATE 10 (opengate)":
+    note: "GATE 的 Python 新一代版本——基于 Geant4 的医学成像与放疗蒙特卡洛平台；可仿真 CT 采集、散射与剂量。"
   "TIGRE":
     note: "GPU 加速（CUDA）的锥束与平行束 CT 工具箱；提供 FDK、SART、SIRT、CGLS 及 TV 变体。"
   "ASTRA Toolbox":
@@ -542,6 +558,12 @@ datasets:
     note: "140 例 CT，带多器官掩膜，其中含 Liver Tumor Segmentation 基准的一个子集。"
   "STOIC 2021":
     note: "2,000 例 COVID-19 胸部 CT（每名患者一例），是法国第一波疫情 10,735 名患者 STOIC 研究中公开的部分，用于重症结局预测；规模很大的真实临床分布偏移测试。通过 AWS Open Data 发布；其余患者的数据为 STOIC2021 挑战赛保留，未公开。"
+  "SynthRAD2023 dataset":
+    note: "**Image only.** SynthRAD2023 挑战赛的训练数据，来自荷兰三家大学医学中心：脑部与盆腔已配准的 MRI–CT（任务 1）与 CBCT–CT（任务 2）图像对，每个任务每个部位 180 名患者（共 720 对），附身体掩膜。验证与测试病例由挑战赛保留。"
+  "AAPM CT-MAR challenge data":
+    note: "**Projection + image.** AAPM CT 金属伪影校正大挑战的数据：14,000 例仿真训练病例，每例含有金属与无金属两种情况下的图像与正弦图，另有 1,000 例测试病例。使用开源 XCIST 工具包中的 CatSim 仿真，金属物体的材料、密度、形状与大小各异，随机放置。"
+  "AAPM DL-Spectral CT challenge data":
+    note: "**Projection + image.** 2022 年 AAPM 深度学习能谱 CT 挑战赛的训练数据：1,000 例仿真乳腺体模病例，含低、高 kVp 透射数据与图像，以及需要恢复的脂肪、纤维腺体与钙化组织图（512 × 512，NumPy 格式）。"
   "MosMedData":
     note: "1,110 例胸部 CT，带 COVID-19 严重程度分级；常被复用为低质量/低剂量鲁棒性测试集。原站目前无法访问——Kaggle 镜像收录了同一批数据。"
   "HNSCC (Head & Neck)":
@@ -690,6 +712,12 @@ benchmarks:
     note: "全标注的三维牙科 CBCT 数据集与牙齿分割基准（5,803 层 CBCT），后扩展为 CTooth+。在伪影严重的领域里，是一个规模不大但标注精良的 CBCT 基准。"
   "Noise2Noise denoising protocol":
     note: "让「无需干净真值即可训练去噪器」流行起来的参照实现。在 CT 上它成为标准的「无干净真值」评测协议——多数无监督 CT 去噪论文都在此设定下、用 Mayo-LDCT 式切分报告结果。"
+  "AAPM CT-MAR Grand Challenge":
+    note: "仿真 CT 上的金属伪影校正（2023–24）：14,000 例含金属与无金属的训练病例，允许图像域或正弦图域方法，按一组以临床为导向的图像质量指标加权排名。结果发表于 Medical Physics（2025）。"
+  "AAPM DL-Spectral CT Challenge":
+    note: "从仿真的双 kVp 乳腺 CT 数据直接重建脂肪、纤维腺体与钙化组织图：1,000 例训练病例与 100 例测试集。是 DL-Sparse-View 挑战赛的能谱版本。"
+  "LDCTIQAC 2023":
+    note: "低剂量 CT 感知图像质量评价：在含混合噪声与伪影的低剂量 CT 图像上评测无参考质量模型，按其与放射科医师评分的一致程度排名。它检验的是重建论文所报告的指标，而不是重建本身。"
   "SynthRAD2023 Challenge":
     note: "从 CBCT 与 MRI 生成合成 CT。与此处相关，是因为 CBCT→CT 任务恰恰由重建伪影（散射、截断、射束硬化）主导——该挑战赛迫使方法正面处理它们，而不是假设输入干净。"
   "DeepInverse benchmark suite":
@@ -701,6 +729,18 @@ benchmarks:
 
 # ------------------------------------------------------------ 学习资源
 learning:
+  "Image Reconstruction: Algorithms and Analysis":
+    note: "Fessler 关于统计图像重建的著作，**免费在线**、按章节提供：系统模型、似然、正则化，以及现代迭代 CT 背后的优化方法。"
+  "Computed Tomography: Algorithms, Insight, and Just Enough Theory":
+    note: "Hansen、Jørgensen 与 Lionheart（SIAM，2021）。现代的实践型入门书：讲清理解重建算法所需的数学，配有例子与习题。"
+  "Medical Imaging Systems: An Introductory Guide":
+    note: "Maier、Steidl、Christlein 与 Hornegger（Springer，2018）。**开放获取（CC BY 4.0）。** 成像系统（包括 CT）入门，写作时就考虑了机器学习读者。"
+  "Introduction to the Mathematics of Medical Imaging":
+    note: "Epstein（SIAM，第 2 版，2007）。CT 与 MRI 背后的数学——傅里叶分析、Radon 变换及其反演——难度为高年级本科。"
+  "Mathematical Methods in Image Reconstruction":
+    note: "Natterer 与 Wübbeling（SIAM，2001）。Natterer 理论专著的算法姊妹篇：解析与迭代方法、采样与分辨率，覆盖平行束、扇束与锥束几何。"
+  "CIL-Demos":
+    note: "Core Imaging Library（CIL）的 Jupyter 教程：从读入数据与 FBP，到真实数据上的迭代、正则化与有限数据重建。"
   "Principles of Computerized Tomographic Imaging":
     note: "Kak & Slaney（1988）。**免费 PDF。** 奠基之作：Radon 变换、傅里叶切片定理、FBP、代数重建、扇束/锥束重排。建议先读第 1–3 章。"
   "The Mathematics of Computerized Tomography":

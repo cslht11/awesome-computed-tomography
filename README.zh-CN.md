@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 678 篇论文 | 52 个工具包 | 81 个数据集 | 19 个基准 | 更新于 2026-10-30 |
+| 678 篇论文 | 60 个工具包 | 84 个数据集 | 22 个基准 | 更新于 2026-10-30 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -37,19 +37,19 @@
 
 ## 工具包与库
 
-[在网站上浏览全部 52 条](https://computedtomography.org/zh/?tab=toolkits)
+[在网站上浏览全部 60 条](https://computedtomography.org/zh/?tab=toolkits)
 
 ## 数据集
 
-[在网站上浏览全部 81 条](https://computedtomography.org/zh/?tab=datasets)
+[在网站上浏览全部 84 条](https://computedtomography.org/zh/?tab=datasets)
 
 ## 基准与挑战赛
 
-[在网站上浏览全部 19 条](https://computedtomography.org/zh/?tab=benchmarks)
+[在网站上浏览全部 22 条](https://computedtomography.org/zh/?tab=benchmarks)
 
 ## 学习资源
 
-[在网站上浏览全部 29 条](https://computedtomography.org/zh/?tab=learning)
+[在网站上浏览全部 35 条](https://computedtomography.org/zh/?tab=learning)
 
 ## 研究团队
 

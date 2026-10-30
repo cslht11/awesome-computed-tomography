@@ -13,6 +13,15 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Datasets, benchmarks, toolkits and books from the review's list
+
+### Added
+
+- **3 datasets:** the SynthRAD2023 training data (paired MRI–CT and CBCT–CT), the AAPM CT-MAR challenge data (14,000 simulated cases with and without metal, images and sinograms) and the AAPM DL-Spectral CT challenge data (1,000 simulated dual-energy breast cases).
+- **3 benchmarks:** the AAPM CT-MAR Grand Challenge, the AAPM DL-Spectral CT Challenge and LDCTIQAC 2023 (low-dose CT image-quality assessment against radiologists' ratings). The two AAPM entries cite their challenge reports.
+- **8 toolkits:** XCIST, MBIRJAX, tomocupy, CONRAD, AIR Tools II, ToMoBAR, MC-GPU and GATE 10, with stars and licences read from each repository (licences from the repositories' own licence files where GitHub reports none). Savu was left out: it has not been updated since 2023.
+- **6 learning resources:** Fessler's *Image Reconstruction* (free online); Hansen, Jørgensen & Lionheart's *Computed Tomography: Algorithms, Insight, and Just Enough Theory*; Maier et al.'s open-access *Medical Imaging Systems*; Epstein's and Natterer & Wübbeling's SIAM books; and the CIL-Demos notebooks.
+
 ## 2026-10-30 — Authors and citations for the 25 new papers
 
 ### Added

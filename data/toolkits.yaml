@@ -491,3 +491,80 @@
   stars: 5
   tags: [gaussian, 3D-reconstruction, x-ray, multi-view]
   note: "Unified Gaussian splatting for joint RGB and X-ray 3D reconstruction: shared geometry across primitives, cross-modal registration via X-ray geometric proxies. Code of the SIGGRAPH Asia 2026 paper (also listed under Papers)."
+
+# ---------------------------------------------------------------- added 2026-10-30 (review catalogue)
+- name: XCIST
+  group: simulation
+  repo: xcist/main
+  language: Python
+  license: BSD-3-Clause
+  stars: 82
+  tags: [simulation, CatSim, spectra, detector]
+  note: Open-source X-ray CT simulator with reconstruction, in the CatSim lineage; models geometry, spectra, detector response and physics, and generated the AAPM CT-MAR challenge data.
+
+- name: MBIRJAX
+  group: engines
+  repo: cabouman/mbirjax
+  homepage: https://mbirjax.readthedocs.io
+  language: Python
+  license: BSD-3-Clause
+  stars: 23
+  tags: [MBIR, JAX, GPU, cone-beam, parallel-beam]
+  note: Model-based iterative reconstruction in JAX from Bouman's group, running on CPU or GPU; the successor to svmbir.
+
+- name: tomocupy
+  group: engines
+  repo: tomography/tomocupy
+  homepage: https://tomocupy.readthedocs.io/en/latest/
+  language: Python
+  license: BSD-style (see repository)
+  stars: 30
+  tags: [synchrotron, GPU, CuPy, FBP]
+  note: GPU tomographic reconstruction from Argonne's Advanced Photon Source, built on CuPy for fast reconstruction of large synchrotron datasets.
+
+- name: CONRAD
+  group: platforms
+  repo: akmaier/CONRAD
+  language: Java
+  license: GPL-3.0
+  stars: 72
+  tags: [cone-beam, simulation, phantoms, OpenCL]
+  note: Java framework for cone-beam CT research from FAU Erlangen, covering simulation, phantoms and reconstruction, with GPU acceleration.
+
+- name: AIR Tools II
+  group: classical
+  repo: jakobsj/AIRToolsII
+  language: MATLAB
+  license: BSD-3-Clause
+  stars: 89
+  tags: [ART, SIRT, Kaczmarz, algebraic, test-problems]
+  note: MATLAB package of algebraic iterative reconstruction methods (ART and SIRT families) with test problems, stopping rules and parameter choice, by Hansen and Jørgensen.
+
+- name: ToMoBAR
+  group: classical
+  repo: dkazanc/ToMoBAR
+  homepage: https://dkazanc.github.io/ToMoBAR/
+  language: Python
+  license: Apache-2.0 / GPL-3.0
+  stars: 54
+  tags: [model-based, FISTA, ADMM, regularisation, synchrotron]
+  note: Python library for model-based iterative reconstruction (FISTA, ADMM, ordered subsets) with the CCPi regularisers, built on ASTRA; developed at Diamond Light Source.
+
+- name: MC-GPU
+  group: simulation
+  repo: DIDSR/MCGPU
+  language: CUDA
+  license: Public domain (FDA)
+  stars: 107
+  tags: [Monte Carlo, scatter, GPU, simulation]
+  note: GPU Monte Carlo simulation of X-ray transport from the FDA, used to generate realistic CT and breast-imaging projections including scatter.
+
+- name: GATE 10 (opengate)
+  group: simulation
+  repo: OpenGATE/opengate
+  homepage: http://www.opengatecollaboration.org
+  language: Python
+  license: LGPL-3.0
+  stars: 158
+  tags: [Monte Carlo, Geant4, CT, dose]
+  note: The Python generation of GATE, the Geant4-based Monte Carlo platform for medical imaging and radiotherapy; simulates CT acquisition, scatter and dose.

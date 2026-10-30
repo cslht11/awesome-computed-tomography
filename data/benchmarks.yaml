@@ -116,3 +116,21 @@
   year: 2026
   tasks: [reconstruction]
   note: "A physics-informed benchmark for detecting CT degradations (noise, blur, artefacts) and estimating their severity — it asks what is wrong with a scan, not only how to reconstruct it. Accepted at the CVPR 2026 VISION Workshop (DEXTER track)."
+
+- name: AAPM CT-MAR Grand Challenge
+  url: https://www.aapm.org/GrandChallenge/CT-MAR/
+  year: 2024
+  tasks: [metal-artifact, reconstruction]
+  note: "Metal artifact reduction on simulated CT (2023–24): 14,000 training cases with and without metal, image- or sinogram-domain methods allowed, ranked by a weighted set of clinically focused image-quality metrics. Results reported in Medical Physics (2025)."
+
+- name: AAPM DL-Spectral CT Challenge
+  url: https://www.aapm.org/GrandChallenge/DL-spectral-CT/
+  year: 2022
+  tasks: [spectral, reconstruction]
+  note: "Reconstruct adipose, fibroglandular and calcification maps directly from simulated dual-kVp breast CT data: 1,000 training cases and a 100-case test set. The spectral counterpart of the DL-Sparse-View challenge."
+
+- name: LDCTIQAC 2023
+  url: https://ldctiqac2023.grand-challenge.org/
+  year: 2023
+  tasks: [low-dose, quality-assessment]
+  note: "Low-dose CT perceptual image quality assessment: no-reference quality models scored on low-dose CT images with mixed noise and artefacts, ranked by how well they agree with radiologists' ratings. A test of the metrics reconstruction papers report, not of the reconstructions."

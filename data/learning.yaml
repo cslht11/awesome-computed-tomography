@@ -188,3 +188,40 @@
   type: book
   tasks: [classical, cbct]
   note: "黄力宇. A hands-on Chinese-language lab manual: builds each reconstruction algorithm as a simulation experiment rather than presenting it as theory."
+
+# ---------------------------------------------------------------- added 2026-10-30 (review catalogue)
+- name: "Image Reconstruction: Algorithms and Analysis"
+  url: https://web.eecs.umich.edu/~fessler/book/
+  type: book
+  tasks: [classical, low-dose]
+  note: "Fessler's book on statistical image reconstruction, **free online** chapter by chapter: system models, likelihoods, regularisation and the optimisation behind modern iterative CT."
+
+- name: "Computed Tomography: Algorithms, Insight, and Just Enough Theory"
+  url: https://doi.org/10.1137/1.9781611976670
+  type: book
+  tasks: [classical, sparse-view]
+  note: "Hansen, Jørgensen & Lionheart (SIAM, 2021). A modern, hands-on introduction: the mathematics needed to understand reconstruction algorithms, with examples and exercises."
+
+- name: "Medical Imaging Systems: An Introductory Guide"
+  url: https://doi.org/10.1007/978-3-319-96520-8
+  type: book
+  tasks: [classical, cbct]
+  note: "Maier, Steidl, Christlein & Hornegger (Springer, 2018). **Open access (CC BY 4.0).** An introduction to imaging systems, CT included, written with machine learning in mind."
+
+- name: Introduction to the Mathematics of Medical Imaging
+  url: https://doi.org/10.1137/9780898717792
+  type: book
+  tasks: [classical]
+  note: "Epstein (SIAM, 2nd ed., 2007). The mathematics behind CT and MRI — Fourier analysis, the Radon transform and its inversion — at an advanced-undergraduate level."
+
+- name: Mathematical Methods in Image Reconstruction
+  url: https://doi.org/10.1137/1.9780898718324
+  type: book
+  tasks: [classical, cbct]
+  note: "Natterer & Wübbeling (SIAM, 2001). The algorithmic companion to Natterer's theory book: analytic and iterative methods, sampling and resolution, for parallel, fan and cone-beam geometries."
+
+- name: CIL-Demos
+  repo: TomographicImaging/CIL-Demos
+  type: tutorial
+  tasks: [classical, sparse-view, limited-angle]
+  note: "Jupyter notebooks for the Core Imaging Library (CIL): from loading data and FBP to iterative, regularised and limited-data reconstruction on real datasets."

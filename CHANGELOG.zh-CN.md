@@ -6,6 +6,16 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-30 — 新增审查清单中的数据集、基准、工具包与书籍
+<!-- en: Datasets, benchmarks, toolkits and books from the review's list -->
+
+### 新增
+
+- **3 个数据集：**SynthRAD2023 训练数据（配对的 MRI–CT 与 CBCT–CT）、AAPM CT-MAR 挑战赛数据（14,000 例含金属与无金属的仿真病例，含图像与正弦图）、AAPM DL-Spectral CT 挑战赛数据（1,000 例仿真双能乳腺病例）。
+- **3 个基准：**AAPM CT-MAR 大挑战、AAPM DL-Spectral CT 挑战赛，以及 LDCTIQAC 2023（以放射科医师评分为准的低剂量 CT 图像质量评价）。两个 AAPM 条目附有各自挑战赛报告的引用。
+- **8 个工具包：**XCIST、MBIRJAX、tomocupy、CONRAD、AIR Tools II、ToMoBAR、MC-GPU 与 GATE 10，星标数与许可证取自各仓库（GitHub 未标注许可证的，以仓库自带的许可文件为准）。Savu 未收录：它自 2023 年起没有更新。
+- **6 项学习资源：**Fessler 的《Image Reconstruction》（免费在线）；Hansen、Jørgensen 与 Lionheart 的《Computed Tomography: Algorithms, Insight, and Just Enough Theory》；Maier 等人的开放获取教材《Medical Imaging Systems》；Epstein 以及 Natterer 与 Wübbeling 的 SIAM 著作；CIL-Demos 教程。
+
 ## 2026-10-30 — 为新增的 25 篇论文补上作者与引用
 <!-- en: Authors and citations for the 25 new papers -->
 

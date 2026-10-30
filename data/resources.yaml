@@ -32,6 +32,10 @@
 min_note: 80
 
 datasets:
+  "AAPM CT-MAR challenge data":
+    cite: [aapm-ct-mar-challenge-report]
+  "AAPM DL-Spectral CT challenge data":
+    cite: [aapm-spectral-challenge-report]
   "LoDoPaB-CT":
     aliases: ["LoDoPaB"]
     cite: [lodopab-ct]
@@ -69,6 +73,10 @@ datasets:
     skip: "Not a separate dataset: it is the Scientific Data descriptor of LoDoPaB-CT, which is cited on the LoDoPaB-CT page."
 
 benchmarks:
+  "AAPM CT-MAR Grand Challenge":
+    cite: [aapm-ct-mar-challenge-report]
+  "AAPM DL-Spectral CT Challenge":
+    cite: [aapm-spectral-challenge-report]
   "AAPM DL-Sparse-View CT Challenge":
     cite: [aapm-sparse-view-challenge-report]
   "AAPM Low-Dose CT Grand Challenge":

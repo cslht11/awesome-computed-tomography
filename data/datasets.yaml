@@ -588,3 +588,24 @@
   tasks: [dynamic, cbct, reconstruction]
   license: CC BY 3.0
   note: "**Image only.** 20 locally advanced NSCLC patients during chemoradiotherapy: 4D fan-beam CT (16-slice helical, 10 respiratory phases, 3 mm slices) and 4D cone-beam CT (Varian on-board imager, ~2500 projections sorted into 10 phases and reconstructed with an in-house FDK) — 183 GB of DICOM images plus RTSTRUCT contours; no raw projections in the download. Data citation required: Hugo et al. 2016, DOI 10.7937/K9/TCIA.2016.ELN8YGLE. The simulation source for PRIOR's PRIOR-Net (17 train / 3 test patients); distinct from the SPARE 4D-CBCT challenge data."
+
+- name: SynthRAD2023 dataset
+  url: https://doi.org/10.5281/zenodo.7260705
+  modality: CBCT / MRI / CT
+  tasks: [cbct, synthetic-ct]
+  license: CC BY-NC 4.0
+  note: "**Image only.** Training data of the SynthRAD2023 challenge from three Dutch university medical centres: registered MRI–CT (task 1) and CBCT–CT (task 2) pairs of brain and pelvis, 180 patients per task and region (720 pairs), with body masks. Validation and test cases are held back by the challenge."
+
+- name: AAPM CT-MAR challenge data
+  url: https://www.aapm.org/GrandChallenge/CT-MAR/
+  modality: simulated CT
+  tasks: [metal-artifact, reconstruction]
+  license: see source
+  note: "**Projection + image.** The data of the AAPM CT metal artifact reduction grand challenge: 14,000 simulated training cases, each with images and sinograms with and without metal, and 1,000 further test cases. Simulated with CatSim in the open XCIST toolkit, with metal objects of varied material, density, shape and size placed at random."
+
+- name: AAPM DL-Spectral CT challenge data
+  url: https://doi.org/10.5281/zenodo.14262737
+  modality: simulated dual-energy breast CT
+  tasks: [spectral, reconstruction]
+  license: CC BY 4.0
+  note: "**Projection + image.** Training data of the 2022 AAPM deep-learning spectral CT challenge: 1,000 simulated breast-phantom cases with low- and high-kVp transmission data and images, and the adipose, fibroglandular and calcification maps to recover (512 × 512, NumPy)."
