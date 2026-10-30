@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Authors and citations for the 25 new papers
+
+### Added
+
+- **The 25 papers added today are now in the knowledge graph** with their OpenAlex authors and 459 in-library citation links; classics such as the Siddon projector, OS-EM and DPS are cited by many papers already in the list. One authorship, OpenAlex's "Jianhua Ma" on the CT metal-artifact challenge report, points at an unrelated textile-chemistry profile; under the identity rule it is not merged into the Southern Medical University researcher.
+
 ## 2026-10-30 — 25 papers: foundations, challenge reports, diffusion baselines, spectral CT
 
 ### Added

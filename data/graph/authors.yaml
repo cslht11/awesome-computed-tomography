@@ -9962,3 +9962,319 @@ sr4zct:
   - name: Kees Joost Batenburg
     openalex_author_id: https://openalex.org/A5071026235
   matched_by: doi
+hounsfield-1973:
+  openalex: https://openalex.org/W2123169298
+  authors:
+  - name: Godfrey Newbold Hounsfield
+    openalex_author_id: https://openalex.org/A5108463138
+  matched_by: doi
+zou-pan-pi-line-2004:
+  openalex: https://openalex.org/W2060686929
+  authors:
+  - name: Yu Shan Zou
+    openalex_author_id: https://openalex.org/A5045539412
+  - name: Xiaochuan Pan
+    openalex_author_id: https://openalex.org/A5101465418
+  matched_by: doi
+os-em-1994:
+  openalex: https://openalex.org/W2154744699
+  authors:
+  - name: Harold Malcolm Hudson
+    openalex_author_id: https://openalex.org/A5045578991
+  - name: R.S. Larkin
+    openalex_author_id: https://openalex.org/A5072002116
+  matched_by: doi
+erdogan-fessler-os-1999:
+  openalex: https://openalex.org/W2032237670
+  authors:
+  - name: H Erdogan
+    openalex_author_id: null
+  - name: Jeffrey A. Fessler
+    openalex_author_id: https://openalex.org/A5027207271
+  matched_by: doi
+thibault-mbir-2007:
+  openalex: https://openalex.org/W2003624223
+  authors:
+  - name: Jean‐Baptiste Thibault
+    openalex_author_id: https://openalex.org/A5109296991
+  - name: Ken D. Sauer
+    openalex_author_id: https://openalex.org/A5110231549
+  - name: Charles A. Bouman
+    openalex_author_id: https://openalex.org/A5056657991
+  - name: Jiang Hsieh
+    openalex_author_id: https://openalex.org/A5031644528
+  matched_by: doi
+joseph-1982:
+  openalex: https://openalex.org/W2016309987
+  authors:
+  - name: Peter M. Joseph
+    openalex_author_id: https://openalex.org/A5102356443
+  matched_by: doi
+siddon-1985:
+  openalex: https://openalex.org/W2055483062
+  authors:
+  - name: Robert L. Siddon
+    openalex_author_id: https://openalex.org/A5060483955
+  matched_by: doi
+distance-driven-2004:
+  openalex: https://openalex.org/W2068454934
+  authors:
+  - name: Bruno De Man
+    openalex_author_id: https://openalex.org/A5088509171
+  - name: S. Basu
+    openalex_author_id: https://openalex.org/A5108514935
+  matched_by: doi
+ldct-grand-challenge-report-2017:
+  openalex: https://openalex.org/W2762996341
+  authors:
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  - name: Adam C. Bartley
+    openalex_author_id: https://openalex.org/A5082095583
+  - name: Rickey E. Carter
+    openalex_author_id: https://openalex.org/A5023936819
+  - name: Baiyu Chen
+    openalex_author_id: https://openalex.org/A5114549860
+  - name: Tammy A. Drees
+    openalex_author_id: https://openalex.org/A5020736780
+  - name: Phillip K Edwards
+    openalex_author_id: https://openalex.org/A5086164913
+  - name: David R. Holmes
+    openalex_author_id: https://openalex.org/A5101750603
+  - name: Alice E. Huang
+    openalex_author_id: https://openalex.org/A5062455849
+  - name: Farhana Khan
+    openalex_author_id: https://openalex.org/A5054835914
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Kyle L. McMillan
+    openalex_author_id: https://openalex.org/A5040175412
+  - name: Gregory J. Michalak
+    openalex_author_id: https://openalex.org/A5102888529
+  - name: Kristina M. Nunez
+    openalex_author_id: https://openalex.org/A5038888316
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  matched_by: doi
+ldct-projection-dataset-2021:
+  openalex: https://openalex.org/W3103645830
+  authors:
+  - name: Taylor R. Moen
+    openalex_author_id: https://openalex.org/A5032842692
+  - name: Baiyu Chen
+    openalex_author_id: https://openalex.org/A5114549860
+  - name: David R. Holmes
+    openalex_author_id: null
+  - name: Xinhui Duan
+    openalex_author_id: https://openalex.org/A5003152723
+  - name: Zhicong Yu
+    openalex_author_id: https://openalex.org/A5110461517
+  - name: Lifeng Yu
+    openalex_author_id: https://openalex.org/A5047914292
+  - name: Shuai Leng
+    openalex_author_id: https://openalex.org/A5051084260
+  - name: Joel G. Fletcher
+    openalex_author_id: https://openalex.org/A5032222962
+  - name: Cynthia H. McCollough
+    openalex_author_id: https://openalex.org/A5067668310
+  matched_by: doi
+aapm-sparse-view-challenge-report:
+  openalex: https://openalex.org/W4210595795
+  authors:
+  - name: Emil Y. Sidky
+    openalex_author_id: https://openalex.org/A5035273354
+  - name: Xiaochuan Pan
+    openalex_author_id: https://openalex.org/A5101465418
+  matched_by: doi
+leuschner-comparison-2021:
+  openalex: https://openalex.org/W3134238839
+  authors:
+  - name: Johannes Leuschner
+    openalex_author_id: https://openalex.org/A5086994165
+  - name: Maximilian Schmidt
+    openalex_author_id: https://openalex.org/A5029163831
+  - name: Poulami Somanya Ganguly
+    openalex_author_id: https://openalex.org/A5034840085
+  - name: Vladyslav Andriiashen
+    openalex_author_id: https://openalex.org/A5076500762
+  - name: Sophia Bethany Coban
+    openalex_author_id: https://openalex.org/A5031377050
+  - name: Alexander Denker
+    openalex_author_id: https://openalex.org/A5026709984
+  - name: Dominik F. Bauer
+    openalex_author_id: https://openalex.org/A5078608302
+  - name: Amir Hadjifaradji
+    openalex_author_id: https://openalex.org/A5046322495
+  - name: Kees Joost Batenburg
+    openalex_author_id: https://openalex.org/A5071026235
+  - name: Peter Maaß
+    openalex_author_id: https://openalex.org/A5018483872
+  - name: Maureen A.J.M. van Eijnatten
+    openalex_author_id: https://openalex.org/A5035413133
+  matched_by: doi
+gloredi:
+  openalex: https://openalex.org/W4390874166
+  authors:
+  - name: Zilong Li
+    openalex_author_id: https://openalex.org/A5114400782
+  - name: Chenglong Ma
+    openalex_author_id: https://openalex.org/A5101539986
+  - name: Jie Chen
+    openalex_author_id: https://openalex.org/A5100332933
+  - name: Junping Zhang
+    openalex_author_id: https://openalex.org/A5100696429
+  - name: Hongming Shan
+    openalex_author_id: https://openalex.org/A5049086157
+  matched_by: doi
+regformer:
+  openalex: https://openalex.org/W4381302562
+  authors:
+  - name: Wenjun Xia
+    openalex_author_id: https://openalex.org/A5045882773
+  - name: Ziyuan Yang
+    openalex_author_id: https://openalex.org/A5019886356
+  - name: Zexin Lu
+    openalex_author_id: https://openalex.org/A5048826290
+  - name: Zhongxian Wang
+    openalex_author_id: https://openalex.org/A5018492197
+  - name: Yi Zhang
+    openalex_author_id: https://openalex.org/A5100388053
+  matched_by: doi
+score-inverse-medical:
+  openalex: https://openalex.org/W3207575373
+  authors:
+  - name: Yang Sup Song
+    openalex_author_id: https://openalex.org/A5060099123
+  - name: Liyue Shen
+    openalex_author_id: https://openalex.org/A5072483985
+  - name: Lei Xing
+    openalex_author_id: https://openalex.org/A5100381484
+  - name: Stefano Ermon
+    openalex_author_id: https://openalex.org/A5091179481
+  matched_by: arxiv
+mcg:
+  openalex: https://openalex.org/W7133222424
+  authors:
+  - name: Hyungjin Chung
+    openalex_author_id: https://openalex.org/A5006604581
+  - name: Byeongsu Sim
+    openalex_author_id: https://openalex.org/A5003311094
+  - name: Dohoon Ryu
+    openalex_author_id: https://openalex.org/A5014772393
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  matched_by: arxiv
+dps:
+  openalex: https://openalex.org/W4298184813
+  authors:
+  - name: Hyungjin Chung
+    openalex_author_id: https://openalex.org/A5006604581
+  - name: Jeongsol Kim
+    openalex_author_id: https://openalex.org/A5077506611
+  - name: Michael T. McCann
+    openalex_author_id: https://openalex.org/A5006151881
+  - name: Marc Klasky
+    openalex_author_id: https://openalex.org/A5007504310
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  matched_by: arxiv
+dds:
+  openalex: https://openalex.org/W4324108770
+  authors:
+  - name: Hyungjin Chung
+    openalex_author_id: https://openalex.org/A5006604581
+  - name: Suhyeon Lee
+    openalex_author_id: https://openalex.org/A5101711271
+  - name: Jong Chul Ye
+    openalex_author_id: https://openalex.org/A5012644755
+  matched_by: arxiv
+aapm-ct-mar-challenge-report:
+  openalex: https://openalex.org/W4414930236
+  authors:
+  - name: Eri Haneda
+    openalex_author_id: https://openalex.org/A5047552045
+  - name: Nils Peters
+    openalex_author_id: https://openalex.org/A5033277028
+  - name: Jiayong Zhang
+    openalex_author_id: null
+  - name: Grigorios Marios Karageorgos
+    openalex_author_id: https://openalex.org/A5069257816
+  - name: Wenjun Xia
+    openalex_author_id: https://openalex.org/A5045882773
+  - name: Harald Paganetti
+    openalex_author_id: https://openalex.org/A5037938903
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  - name: Yi Guo
+    openalex_author_id: https://openalex.org/A5112113194
+  - name: Jianhua Ma
+    openalex_author_id: https://openalex.org/A5078383050
+  - name: Hyoung Suk Park
+    openalex_author_id: https://openalex.org/A5021735255
+  - name: Kiwan Jeon
+    openalex_author_id: https://openalex.org/A5089915992
+  - name: Fuxin Fan
+    openalex_author_id: https://openalex.org/A5027810391
+  - name: Mareike Thies
+    openalex_author_id: https://openalex.org/A5029146495
+  - name: Bruno De Man
+    openalex_author_id: https://openalex.org/A5088509171
+  matched_by: doi
+photon-counting-ct-2018:
+  openalex: https://openalex.org/W2889741596
+  authors:
+  - name: Martin J. Willemink
+    openalex_author_id: https://openalex.org/A5009857138
+  - name: Mats Persson
+    openalex_author_id: https://openalex.org/A5052538564
+  - name: Amir Pourmorteza
+    openalex_author_id: https://openalex.org/A5059090915
+  - name: Norbert J. Pelc
+    openalex_author_id: https://openalex.org/A5034967738
+  - name: Dominik Fleischmann
+    openalex_author_id: https://openalex.org/A5008914452
+  matched_by: doi
+vision-2020-photon-counting:
+  openalex: https://openalex.org/W2072647673
+  authors:
+  - name: Katsuyuki Taguchi
+    openalex_author_id: https://openalex.org/A5020030902
+  - name: Jan S. Iwanczyk
+    openalex_author_id: https://openalex.org/A5051259921
+  matched_by: doi
+long-fessler-mmd-2014:
+  openalex: https://openalex.org/W2110652437
+  authors:
+  - name: Yong Qiang Long
+    openalex_author_id: https://openalex.org/A5085257241
+  - name: Jeffrey A. Fessler
+    openalex_author_id: https://openalex.org/A5027207271
+  matched_by: doi
+aapm-spectral-challenge-report:
+  openalex: https://openalex.org/W4327893763
+  authors:
+  - name: Emil Y. Sidky
+    openalex_author_id: https://openalex.org/A5035273354
+  - name: Xiaochuan Pan
+    openalex_author_id: https://openalex.org/A5101465418
+  matched_by: doi
+perspective-deep-imaging:
+  openalex: https://openalex.org/W2520016695
+  authors:
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  matched_by: doi
+image-recon-new-frontier:
+  openalex: https://openalex.org/W2803224943
+  authors:
+  - name: Ge Wang
+    openalex_author_id: https://openalex.org/A5100400458
+  - name: Jong Ye
+    openalex_author_id: https://openalex.org/A5086199229
+  - name: Klaus D. Mueller
+    openalex_author_id: https://openalex.org/A5070670810
+  - name: Jeffrey A. Fessler
+    openalex_author_id: https://openalex.org/A5027207271
+  matched_by: doi

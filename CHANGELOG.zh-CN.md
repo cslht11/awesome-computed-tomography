@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-30 — 为新增的 25 篇论文补上作者与引用
+<!-- en: Authors and citations for the 25 new papers -->
+
+### 新增
+
+- **今天新增的 25 篇论文现已进入知识图谱**，附 OpenAlex 作者信息与 459 条库内引用连线；Siddon 投影算法、OS-EM、DPS 等经典工作被库中大量论文引用。其中 CT 金属伪影挑战赛报告上的一处作者“Jianhua Ma”，OpenAlex 指向的是一位无关的纺织化学研究者；按身份规则，它不与南方医科大学的同名研究者合并。
+
 ## 2026-10-30 — 新增 25 篇论文：奠基工作、挑战赛报告、扩散模型基线、能谱 CT
 <!-- en: 25 papers: foundations, challenge reports, diffusion baselines, spectral CT -->
 
