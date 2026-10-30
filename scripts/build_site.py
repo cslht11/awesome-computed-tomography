@@ -253,6 +253,107 @@ def render_static_papers(payload, ov):
     return "\n".join(rows)
 
 
+# --------------------------------------------------- section pages
+# /toolkits/, /benchmarks/, /learning/, /teams/: each homepage tab also as a
+# page of its own, so search engines can index the section (a ?tab= URL is the
+# homepage to them). The tables mirror web/app.js (renderToolkits,
+# renderBenchmarks, renderLearning) column for column, but are written at
+# build time, so the page reads without JavaScript.
+SECTION_PAGES = ("toolkits", "benchmarks", "learning", "teams")
+TOOLKIT_GROUP_ORDER = ("engines", "learning", "simulation", "io", "classical",
+                       "reference", "augmentation", "platforms", "operators")
+
+
+def _ext(url, text):
+    return '<a href="%s" target="_blank" rel="noopener">%s</a>' % (esc(url), text)
+
+
+def _grid(cols, rows, tbody_extra=""):
+    """cols: [(label, css class or "")]; rows: [[cell html]] (as app.js's
+    renderTable: class, then data-label for the phone card layout)."""
+    head = "".join("<th>%s</th>" % esc(lab) for lab, _ in cols)
+    body = "".join(
+        "<tr>%s</tr>" % "".join(
+            '<td%s data-label="%s">%s</td>' % ((' class="%s"' % c) if c else "", esc(lab), cell)
+            for (lab, c), cell in zip(cols, r))
+        for r in rows)
+    return ('<table class="grid"><thead><tr>%s</tr></thead>%s<tbody>%s</tbody></table>'
+            % (head, tbody_extra, body))
+
+
+def render_section_tables(payload, ov, section, root):
+    """The table(s) of one homepage tab as static HTML; ``root`` prefixes
+    this site's own links (detail pages, guides)."""
+    u = ov.ui
+    if section == "toolkits":
+        cols = [(u("tableToolkit", "Toolkit"), ""), (u("tableLanguage", "Language"), ""),
+                (u("tableLicense", "License"), "lic"), (u("tableStars", "Stars"), "n"),
+                (u("tableNotes", "Notes"), "note")]
+
+        def row(r):
+            nm = _ext(r["url"], esc(r.get("label") or r["name"]))
+            if r.get("homepage"):
+                nm += ' <a href="%s" target="_blank" rel="noopener" title="%s"><span class="mono">[site]</span></a>' % (
+                    esc(r["homepage"]), esc(u("homepageTitle", "homepage")))
+            return [nm, esc(r.get("language") or "-"), esc(r.get("license") or "-"),
+                    "-" if r.get("stars") is None else str(r["stars"]), md_inline(r.get("note") or "")]
+        out, seen = [], set()
+        groups = [(g, u("toolkitGroup" + g[0].upper() + g[1:], g)) for g in TOOLKIT_GROUP_ORDER]
+        groups.append((None, u("toolkitGroupOther", "Other")))
+        for gid, label in groups:
+            rows = [r for r in payload["toolkits"]
+                    if (r.get("group") == gid if gid else r["name"] not in seen)]
+            rows.sort(key=lambda r: -(r.get("stars") or 0))
+            if not rows:
+                continue
+            seen.update(r["name"] for r in rows)
+            out.append('<h3 class="toolkit-group">%s (%d)</h3>' % (esc(label), len(rows)))
+            out.append(_grid(cols, [row(r) for r in rows]))
+        return "\n".join(out)
+    G = payload.get("guides") or {}
+
+    def resource_name(r):
+        label = esc(r.get("label") or r["name"])
+        if not r.get("page"):
+            return _ext(r["url"], label)
+        html_ = '<a href="%s%s">%s</a>' % (root, esc(r["page"]), label)
+        if r.get("url"):
+            html_ += (' <a class="ext" href="%s" target="_blank" rel="noopener" title="%s">'
+                      '<span class="mono">%s</span></a>'
+                      % (esc(r["url"]), esc(G.get("officialTitle") or "official page"),
+                         esc(G.get("official") or "[official]")))
+        return html_
+    if section == "benchmarks":
+        cols = [(u("tableBenchmark", "Benchmark / Challenge"), ""), (u("tableYear", "Year"), "n"),
+                (u("tableTasks", "Tasks"), "tasks"), (u("tableNotes", "Notes"), "note")]
+        rows = sorted(payload["benchmarks"], key=lambda b: -(b.get("year") or 0))
+        return _grid(cols, [[resource_name(b), "-" if b.get("year") is None else str(b["year"]),
+                             esc(", ".join(b.get("tasks") or []) or "-"), md_inline(b.get("note") or "")]
+                            for b in rows])
+    if section == "learning":
+        order = {"book": 1, "course": 2, "tutorial": 3, "tool": 4, "list": 5}
+        cols = [(u("tableResource", "Resource"), ""), (u("tableType", "Type"), "n"),
+                (u("tableNotes", "Notes"), "note")]
+        rows = sorted(payload["learning"], key=lambda l: (order.get(l.get("type"), 9),
+                                                          (l.get("label") or l["name"]).lower()))
+        guides = ""
+        if G.get("items"):
+            lab = lambda i: ' data-label="%s"' % esc(cols[i][0])
+            guides = ('<tbody class="grp-guides"><tr class="grp-head"><th colspan="3" scope="rowgroup">%s '
+                      '<a href="%s%s">%s \u2192</a></th></tr>%s</tbody>'
+                      % (esc(G["label"]), root, esc(G["index"]), esc(G["indexLabel"]),
+                         "".join('<tr><td%s><a href="%s%s">%s</a></td><td class="n"%s>%s</td>'
+                                 '<td class="note"%s>%s</td></tr>'
+                                 % (lab(0), root, esc(g["url"]), esc(g["title"]), lab(1), esc(G["kind"]),
+                                    lab(2), esc(g["note"])) for g in G["items"])))
+        return _grid(cols, [[_ext(l["url"], esc(l.get("label") or l["name"])), esc(l.get("type") or "-"),
+                             md_inline(l.get("note") or "")] for l in rows], tbody_extra=guides)
+    if section == "teams":
+        return ('<p class="panel-intro">%s</p>' % md_inline(ov.readme("legendTeams", ""))
+                + render_static_teams(payload, ov))
+    raise ValueError(section)
+
+
 TEAM_REGIONS = (("north-america", "regionNorthAmerica", "North America"),
                 ("europe", "regionEurope", "Europe"),
                 ("asia", "regionAsia", "Asia"))
@@ -521,7 +622,13 @@ def render_llms(cfg, base, c, topics, topic_pages=(), rp_pages=(), rp_guides=(),
         "## Directory", "",
         "- [Paper directory (English)](%s): searchable list of all papers, "
         "toolkits, datasets and benchmarks" % base,
-        "- [Research teams](%s?tab=teams): %d research groups and labs behind "
+        "- [Toolkits](%stoolkits/): %d open-source CT reconstruction "
+        "toolkits and libraries, grouped by kind" % (base, c["toolkits"]),
+        "- [Benchmarks & challenges](%sbenchmarks/): %d CT reconstruction "
+        "benchmarks and challenges" % (base, c["benchmarks"]),
+        "- [Learning resources](%slearning/): %d books, courses, tutorials "
+        "and tools, and this site's guides" % (base, c["learning"]),
+        "- [Research teams](%steams/): %d research groups and labs behind "
         "the papers, toolkits and datasets in this directory"
         % (base, c.get("teams", 0)),
         "- [Knowledge graph](%sgraph/): how the papers, toolkits, datasets, "
@@ -1483,7 +1590,8 @@ def add_to_head(page, canonical, extra):
 # about, contact, privacy) get no underline, honestly.
 _NAV_SECTION = {"graph": "graph", "datasets": "datasets",
                 "benchmarks": "benchmarks", "guides": "learning",
-                "topics": "papers"}
+                "topics": "papers", "toolkits": "toolkits",
+                "learning": "learning", "teams": "teams"}
 
 
 def mark_nav(html_, where):
@@ -1948,11 +2056,32 @@ def main():
         # Laid out like a homepage tab (full width, panel heading), not like
         # a prose page.
         assert html_.count('<main class="wrap prose">') == 1
-        html_ = html_.replace('<main class="wrap prose">', '<main class="wrap graph-home">')
+        html_ = html_.replace('<main class="wrap prose">', '<main class="wrap section-page">')
         html_ = add_to_head(html_, g_url, head_extra_graph(
             cfg, base, langs, entry, ov, g_desc))
         write(os.path.join(sub, "graph", "index.html"), html_)
         sitemap_urls.append((g_url, "monthly", "0.5"))
+
+        # One page per remaining homepage tab (see SECTION_PAGES), laid out
+        # like /graph/: the shared intro, the section heading, its table.
+        sec_tokens = dict(shared, teams=c.get("teams", 0))
+        for sec in SECTION_PAGES:
+            rel = sec + "/"
+            s_url = lang_base + rel
+            s_title = ov.ui("page%sTitle" % sec.capitalize())
+            s_desc = re.sub(r"\s+", " ", fill(ov.ui("page%sDesc" % sec.capitalize()), sec_tokens)).strip()
+            body = (hero_tpl
+                    + '<h2 class="panel-heading">%s</h2>' % esc(s_title)
+                    + '<p class="panel-intro">%s</p>' % esc(s_desc)
+                    + render_section_tables(payload, ov, sec, "{{ROOT}}"))
+            html_ = fill_page(tpl, body, s_title, s_desc, s_url, "../", subs,
+                              "%s/%s" % (code, rel), i18n.switch_links(base, langs, code, rel))
+            assert html_.count('<main class="wrap prose">') == 1
+            html_ = html_.replace('<main class="wrap prose">', '<main class="wrap section-page">')
+            html_ = add_to_head(html_, s_url, head_extra_graph(
+                cfg, base, langs, entry, ov, s_desc, rel=rel, title=s_title))
+            write(os.path.join(sub, sec, "index.html"), html_)
+            sitemap_urls.append((s_url, "weekly", "0.6"))
 
         # One small graph page per category slice; each loads only its
         # own data.json (written beside data.json at the end of the

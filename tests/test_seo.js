@@ -288,7 +288,10 @@ for (const L of LANGS) {
   ok("/guides/ links every guide", guides.every((u) => gidx.includes('href="../' + u.slice(base.length) + '"')));
   const about = mainOf(read(L.prefix + "about/index.html"));
   ok("About links /datasets/ and /guides/", about.includes('href="../datasets/"') && about.includes('href="../guides/"'));
-  const orphans = mine.filter((u) => u !== base + "datasets/" && u !== base + "guides/" && !(inbound[u] || []).length);
+  // Index pages (/datasets/, /benchmarks/, /guides/) are reached from the
+  // footer on every page, not from other pages' main content.
+  const orphans = mine.filter((u) => ![base + "datasets/", base + "benchmarks/", base + "guides/"].includes(u) &&
+                                     !(inbound[u] || []).length);
   ok("no orphan pages", orphans.length === 0, orphans.join(", "));
   // Topic pages link the dataset pages they list and the relevant guides.
   let topicLinks = 0, topicBroken = [];
@@ -427,6 +430,42 @@ for (const L of LANGS) {
      bad.length === 0, bad.slice(0, 5).join("; ") || (urls.length + " pages"));
 }
 
+/* Section pages: each homepage tab also as a standalone, indexable page
+ * (/toolkits/, /benchmarks/, /learning/, /teams/, /graph/). Each must be
+ * canonical to itself with both hreflang editions, in the sitemap, linked
+ * from every page's footer, and carry every row of its section, written at
+ * build time (search engines see the table without running app.js). */
+{
+  for (const L of LANGS) {
+    console.log("\n[" + L.code + "] section pages");
+    const data = JSON.parse(read(L.prefix + "data.json"));
+    const home = read(L.prefix + "index.html");
+    const want = { toolkits: data.toolkits.length, benchmarks: data.benchmarks.length,
+                   learning: data.learning.length, teams: data.teams.length };
+    const bad = [];
+    for (const sec of ["toolkits", "benchmarks", "learning", "teams", "graph"]) {
+      const url = ORIGIN + L.prefix + sec + "/";
+      const h = read(L.prefix + sec + "/index.html");
+      if (!h.includes('<link rel="canonical" href="' + url + '">')) bad.push(sec + ": canonical");
+      for (const [hl, u] of [["en", ORIGIN + sec + "/"], ["zh-Hans", ORIGIN + "zh/" + sec + "/"]])
+        if (!h.includes('<link rel="alternate" hreflang="' + hl + '" href="' + u + '">')) bad.push(sec + ": hreflang " + hl);
+      if (!sitemap.includes("<loc>" + url + "</loc>")) bad.push(sec + ": not in sitemap");
+      if (!home.includes('href="./' + sec + '/"') && !home.includes('href="' + sec + '/"')) bad.push(sec + ": not linked from the homepage footer");
+      if (!h.includes('<section class="hero">')) bad.push(sec + ": no shared intro");
+      const main = mainOf(h);
+      if (sec === "teams") {
+        const n = (main.match(/<li class="team" id="team-/g) || []).length;
+        if (n !== want.teams) bad.push(sec + ": " + n + " team cards, want " + want.teams);
+      } else if (want[sec] !== undefined) {
+        const rows = (main.match(/<tbody>[\s\S]*?<\/tbody>/g) || []).join("").match(/<tr>/g) || [];
+        if (rows.length !== want[sec]) bad.push(sec + ": " + rows.length + " rows, want " + want[sec]);
+      }
+    }
+    ok("toolkits, benchmarks, learning, teams, graph: canonical, hreflang, sitemap, footer link, every row",
+       bad.length === 0, bad.join("; ") || "5 pages");
+  }
+}
+
 /* Sub-page nav underline: every page built from page.html carries
  * data-nav links, and exactly the current section's link (if any) is
  * marked aria-current="page" — the underline the homepage tabs get from
@@ -436,7 +475,8 @@ for (const L of LANGS) {
  * the nav used to be plain links with no current-state at all.) */
 {
   console.log("\nsub-page nav current section");
-  const SECTION = { graph: "graph", datasets: "datasets", benchmarks: "benchmarks", guides: "learning", topics: "papers" };
+  const SECTION = { graph: "graph", datasets: "datasets", benchmarks: "benchmarks", guides: "learning", topics: "papers",
+                    toolkits: "toolkits", learning: "learning", teams: "teams" };
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const bad = [];
   for (const u of urls) {

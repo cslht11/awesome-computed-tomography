@@ -361,12 +361,13 @@ section[hidden] { display: none; }
   display: block; margin: 8px 0 4px;
   font: 700 32px/1.15 var(--display); letter-spacing: -.022em;
 }
-/* /graph/ opens with the homepage intro and heads its content the same way. */
-.graph-home .panel-heading { margin: 18px 0 4px; font: 700 32px/1.15 var(--display); letter-spacing: -.022em; }
-.graph-home h2:not(.panel-heading) { margin: 34px 0 6px; font: 650 20px var(--display); }
-.graph-home { padding-bottom: 64px; }
-.graph-home .graph-cards, #panel-graph .graph-cards { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-.graph-home .g-card h3, #panel-graph .g-card h3 { color: var(--accent); }
+/* The section pages (/graph/, /toolkits/, /benchmarks/, /learning/, /teams/)
+   open with the homepage intro and head their content like a tab panel. */
+.section-page .panel-heading { margin: 18px 0 4px; font: 700 32px/1.15 var(--display); letter-spacing: -.022em; }
+.section-page h2:not(.panel-heading) { margin: 34px 0 6px; font: 650 20px var(--display); }
+.section-page { padding-bottom: 64px; }
+.section-page .graph-cards, #panel-graph .graph-cards { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.section-page .g-card h3, #panel-graph .g-card h3 { color: var(--accent); }
 #panel-graph h2 { margin: 34px 0 6px; font: 650 20px var(--display); }
 #panel-toolkits::before { content: "Toolkits"; }
 #panel-datasets::before { content: "Datasets"; }
@@ -395,7 +396,7 @@ li.year-sep .n { margin-left: 10px; font: 400 13px var(--sans); color: var(--fg-
 @media (min-width: 1280px) {
   /* Header and footer are the same width on every page, so moving between
      the homepage and a sub-page never shifts them sideways. */
-  header.top .wrap, footer .wrap, body:not(.subpage) main.wrap, main.wrap.graph-home { max-width: 1280px; }
+  header.top .wrap, footer .wrap, body:not(.subpage) main.wrap, main.wrap.section-page { max-width: 1280px; }
 }
 @media (min-width: 1080px) {
   #panel-papers:not([hidden]) {
@@ -519,6 +520,10 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
 .foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding: 22px 28px 10px; }
 .foot-note { margin: 0; flex: 1 1 320px; }
 .foot-links { display: flex; gap: 26px; }
+/* The section pages, linked from every page (they are not in the nav,
+   which switches homepage tabs). Its own full-width row, quieter. */
+.foot-dir { flex-wrap: wrap; gap: 6px 20px; flex-basis: 100%; font-size: 13.5px; }
+.foot-dir a { color: var(--fg-muted); }
 .foot-links a { color: var(--fg); }
 .foot-links a:hover { color: var(--accent); text-decoration: none; }
 .foot-legal { padding: 0 28px 26px; font-size: 12px; color: var(--fg-muted); }

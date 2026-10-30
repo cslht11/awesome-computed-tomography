@@ -13,6 +13,17 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Every section has its own page for search engines
+
+### Added
+
+- **Standalone pages for Toolkits, Benchmarks, Learning and Teams** (`/toolkits/`, `/benchmarks/`, `/learning/`, `/teams/`), as Datasets (`/datasets/`) and the Knowledge Graph (`/graph/`) already had. A homepage tab's address (`?tab=…`) is the homepage to a search engine, so these sections had no page of their own to be found by. Each opens with the same intro, carries its full table written into the page, and has its own title and description in both languages. The navigation still switches tabs instantly; the pages are linked from a new row in every page's footer and listed in the sitemap.
+
+### Fixed
+
+- **The footer's "updated" date now matches the figures row.** It showed the build date, which also made every page look changed on every daily build.
+- **The weekly link check no longer flags 3D Slicer and MosMedData**, two sites that refuse automated connections but work in a browser (MosMedData's entry also links a working mirror).
+
 ## 2026-10-30 — The Knowledge Graph is a homepage tab like the other six
 
 ### Changed

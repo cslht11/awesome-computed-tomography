@@ -94,6 +94,29 @@ constraints below, which exist specifically to keep that working.
 The build prints the size summary and, if `url` is empty, a note that the GitHub Pages
 address was used.
 
+## Sections: homepage tabs and section pages
+
+The site has seven sections, Papers, Toolkits, Datasets, Benchmarks, Learning, Teams and
+Knowledge Graph, and each exists in two forms built from the same code:
+
+- **a homepage tab** (`/?tab=toolkits` …; Papers is the default tab at `/`). This is what
+  the navigation switches: one page, so switching is instant. `?tab=` is applied before
+  first paint (an inline script sets `html[data-tab]` and marks the nav), and the language
+  switch carries the current tab, filters and `#anchor` (`web/lang.js`).
+- **a standalone section page** (`/toolkits/`, `/datasets/`, `/benchmarks/`, `/learning/`,
+  `/teams/`, `/graph/`, plus `/topics/` and `/guides/`), for search engines and links: a
+  `?tab=` URL is the homepage to a crawler, so without these a section had no address of
+  its own. They open with the same intro (`web/hero.html`), render their tables at build
+  time (`render_section_tables`, mirroring `web/app.js` column for column), are linked from
+  every page's footer, and are in the sitemap and `llms.txt`.
+
+Detail pages (one dataset, one benchmark, one graph, one topic) are separate pages under
+those paths; their "back" links and the nav lead to the homepage tab. Moves between
+separate pages cross-fade (`@view-transition`) where the browser supports it.
+
+To add a column or change a table, change both `web/app.js` and `render_section_tables`;
+`tests/test_seo.js` checks every section page carries every row.
+
 ## Deploying
 
 **Live at <https://computedtomography.org/>**, and published automatically: after
