@@ -182,6 +182,16 @@ async function testEnglish() {
 
   homeDetailLinks(doc, "");
 
+  /* All seven sections are tabs of this page, the Knowledge Graph included;
+     its panel links every graph page that was built. */
+  const tabs = Array.prototype.map.call(doc.querySelectorAll('#tabs [role="tab"]'), (b) => b.dataset.tab);
+  ok("seven section tabs, Graph last",
+     tabs.join() === "papers,toolkits,datasets,benchmarks,learning,teams,graph", tabs.join());
+  const gl = Array.prototype.map.call(doc.querySelectorAll("#panel-graph a.g-card"), (a) => a.getAttribute("href"));
+  const gmissing = gl.filter((h) => !fs.existsSync(path.join(SITE, h, "index.html")));
+  ok("Graph tab: every card links a built graph page", gl.length >= 20 && gmissing.length === 0,
+     gl.length + " cards" + (gmissing.length ? ", missing " + gmissing.join(", ") : ""));
+
   /* html[data-tab] drives which panel shows before app.js runs (no flash of
      the Papers list when a page opens on ?tab=...); app.js must keep it in
      step with the selected tab, and drop it on Papers. */

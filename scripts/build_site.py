@@ -1076,7 +1076,7 @@ def render_lineage_body(payload, ov, code, lineage):
     def prose_of(n, cls):
         return ('<p class="%s">%s</p>' % (cls, lin_rich(lin_text(n["prose"], code)))) if n.get("prose") else ""
 
-    bits = ['<p class="graph-back"><a href="../../">%s</a></p>'
+    bits = ['<p class="graph-back"><a href="{{ROOT}}?tab=graph">%s</a></p>'
             % esc(ov.ui("graphBackToIndex", "\u2190 All graph categories")),
             '<h1>%s</h1>' % esc(lin_text(lineage["title"], code)),
             '<p class="lede">%s</p>'
@@ -1217,7 +1217,7 @@ def _graph_card(href, title, desc, counts):
             % (esc(href), esc(title), esc(desc), esc(counts)))
 
 
-def render_graph_index_body(payload, ov, code, slices, lineages=()):
+def render_graph_index_body(payload, ov, code, slices, lineages=(), prefix="", panel=False):
     """The <main> of /graph/: an index of the per-category small
     graphs — overview cards (backbone, datasets, lineage trees), one
     card per topic — over the static team -> works list the page has
@@ -1236,15 +1236,20 @@ def render_graph_index_body(payload, ov, code, slices, lineages=()):
     # look fragmented; they are index cards like the others, so they
     # live in the same row now. Topics stay a section of their own:
     # 17 cards would drown the three overview cards.
-    # The page opens with the shared intro (web/hero.html, whose <h1> is the
-    # site title), so the section is headed like a homepage tab panel.
-    bits = ['<h2 class="panel-heading">%s</h2>' % esc(ov.ui("pageGraphTitle", "Knowledge Graph")),
-            '<p class="panel-intro">%s</p>' % esc(ov.ui("graphIntro", "")),
+    # Rendered twice from this one function: as the homepage's Graph tab
+    # (panel=True: links prefixed with "graph/", headed by the panel's CSS
+    # heading like the other tabs, no team list -- the Teams tab has it) and
+    # as the standalone /graph/ page, kept for search engines and old links,
+    # which opens with the shared intro (web/hero.html, whose <h1> is the
+    # site title) and so is headed like a tab panel too.
+    bits = ([] if panel else
+            ['<h2 class="panel-heading">%s</h2>' % esc(ov.ui("pageGraphTitle", "Knowledge Graph"))])
+    bits += ['<p class="panel-intro">%s</p>' % esc(ov.ui("graphIntro", "")),
             '<h2>%s</h2>' % esc(ov.ui("graphSectionOverview", "Overview")),
             '<div class="graph-cards">',
-            _graph_card("backbone/", ov.ui("graphBackboneTitle", "Team backbone"),
+            _graph_card(prefix + "backbone/", ov.ui("graphBackboneTitle", "Team backbone"),
                         ov.ui("graphBackboneDesc", ""), counts_of("backbone")),
-            _graph_card("datasets/",
+            _graph_card(prefix + "datasets/",
                         ov.ui("graphDatasetsTitle", "Datasets & the papers that use them"),
                         ov.ui("graphDatasetsDesc", ""), counts_of("datasets"))]
     for lin in lineages:
@@ -1256,7 +1261,7 @@ def render_graph_index_body(payload, ov, code, slices, lineages=()):
             .replace("{n}", str(len(pnodes))) \
             .replace("{y0}", str(min(years))) \
             .replace("{y1}", str(max(years)))
-        bits.append(_graph_card("lineage/%s/" % lin["id"],
+        bits.append(_graph_card(prefix + "lineage/%s/" % lin["id"],
                                 lin_text(lin["title"], code),
                                 lin_text(lin["description"], code),
                                 counts))
@@ -1264,11 +1269,13 @@ def render_graph_index_body(payload, ov, code, slices, lineages=()):
     bits += ['<h2>%s</h2>' % esc(ov.ui("graphSectionTopics", "By topic")),
              '<div class="graph-cards">']
     for t in payload["topics"]:
-        bits.append(_graph_card("topic/%s/" % t["id"], t["name"],
+        bits.append(_graph_card(prefix + "topic/%s/" % t["id"], t["name"],
                                 ov.ui("graphTopicDesc", ""),
                                 counts_of("topic/" + t["id"])))
-    bits += ['</div>',
-             '<div id="graph-fallback" class="graph-fallback">',
+    bits.append('</div>')
+    if panel:
+        return "\n".join(bits)
+    bits += ['<div id="graph-fallback" class="graph-fallback">',
              '<h2>%s</h2>' % esc(ov.ui("graphFallbackTitle",
                                        "Teams and their works in the library"))]
     for tm in payload.get("teams") or []:
@@ -1362,8 +1369,7 @@ def render_graph_slice_body(ov, code, title, intro, sl, back="../",
     """The <main> of one category graph page: back link, controls,
     canvas, detail panel, and the no-JS fallback — this slice's own
     entries as a plain grouped list of links. `back` is the relative
-    path to the graph index ("../" from graph/<category>/, "../../"
-    from graph/topic/<id>/). `note_html` is an optional extra intro
+    path back to the graph index (the homepage's Graph tab). `note_html` is an optional extra intro
     paragraph (the datasets slice's shown-vs-total line)."""
     strings = graph_strings(ov)
     bits = ['<p class="graph-back"><a href="%s">%s</a></p>'
@@ -1786,6 +1792,8 @@ def main():
             "{{DATA}}": safe_json(page_payload(payload)),
             "{{PAPERS_STATIC}}": render_static_papers(payload, ov),
             "{{TEAMS_STATIC}}": render_static_teams(payload, ov),
+            "{{GRAPH_PANEL}}": render_graph_index_body(payload, ov, code, graph_slices,
+                                                       lineages, prefix="graph/", panel=True),
             "{{PAPERS_LEGEND}}": md_inline(ov.readme("legendPapers", PAPERS_LEGEND)),
             "{{TEAMS_LEGEND}}": md_inline(ov.readme("legendTeams", "")),
             "{{DATASET_LEGEND}}": md_inline(ov.readme("legendDatasets", DATASET_LEGEND)),
@@ -1974,7 +1982,9 @@ def main():
             html_ = fill_page(
                 tpl, render_graph_slice_body(
                     ov, code, title, intro, graph_slices[name],
-                    back="../" * (depth - 1),
+                    # Back to the homepage's Graph tab, where the nav's
+                    # Graph item goes (fill_page fills {{ROOT}}).
+                    back="{{ROOT}}?tab=graph",
                     data_v=hashlib.sha256(
                         graph_slice_json[name].encode("utf-8")
                     ).hexdigest()[:10],
@@ -2488,8 +2498,8 @@ def main():
                 if marker not in ppage:
                     problems.append("%s/%s: graph asset URL lacks its "
                                     "cache-buster (%s)" % (code, rel, marker))
-            if ('<p class="graph-back"><a href="%s">'
-                    % ("../" * rel.rstrip("/").count("/"))) not in ppage:
+            if ('<p class="graph-back"><a href="%s?tab=graph">'
+                    % ("../" * (rel.rstrip("/").count("/") + 1))) not in ppage:
                 problems.append("%s/%s: back-to-index link wrong" % (code, rel))
             dj = os.path.join(sub, rel, "data.json")
             if not os.path.exists(dj):

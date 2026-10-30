@@ -322,7 +322,9 @@ for (const L of LANGS) {
   const missing = homeRels.filter((r) => !fs.existsSync(path.join(SITE, L.prefix, r, "index.html")));
   ok("every homepage detail/guide link resolves to a built page", missing.length === 0, missing.join(", "));
   const allowed = new Set(wantRels);
-  const stray = [...homeMain.matchAll(/href="(?!https?:)([^"]*(?:datasets|guides|benchmarks)\/[^"]*)"/g)]
+  // graph/... links belong to the Graph tab (graph/datasets/ is a graph page,
+  // not the /datasets/ directory), so they are not counted here.
+  const stray = [...homeMain.matchAll(/href="(?!https?:|graph\/)([^"]*(?:datasets|guides|benchmarks)\/[^"]*)"/g)]
     .map((m) => m[1].replace(/^\.\//, "")).filter((h) => !allowed.has(h));
   ok("homepage body: no other link to the new pages", stray.length === 0, stray.join(", "));
 }

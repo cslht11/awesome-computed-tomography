@@ -13,6 +13,15 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — The Knowledge Graph is a homepage tab like the other six
+
+### Changed
+
+- **Knowledge Graph is now the seventh tab of the homepage** (`?tab=graph`), switching instantly like Papers, Toolkits, Datasets, Benchmarks, Learning and Teams, with the same heading, width and language switch. It used to be a separate page, so moving to or from it reloaded the site and flashed.
+- Each graph (the backbone, the datasets graph, each topic and the family tree) is still its own page, as each dataset has its own page under the Datasets tab; its "← All graph categories" link and the Graph item in every page's navigation now lead back to the tab.
+- **`/graph/` stays** as a standalone page for search engines and existing links, built from the same code as the tab.
+- **Smoother moves between pages:** in browsers that support it, going to or from a separate page (a graph, a dataset page, About) cross-fades instead of flashing white.
+
 ## 2026-10-30 — Knowledge Graph laid out like the other sections; no nav flash on a first visit
 
 ### Changed

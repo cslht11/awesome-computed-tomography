@@ -253,7 +253,7 @@ header .gres { color: var(--fg); width: max(100%, 380px); }
 html[data-tab] #panel-papers { display: none; }
 html[data-tab="toolkits"] #panel-toolkits, html[data-tab="datasets"] #panel-datasets,
 html[data-tab="benchmarks"] #panel-benchmarks, html[data-tab="learning"] #panel-learning,
-html[data-tab="teams"] #panel-teams { display: block; }
+html[data-tab="teams"] #panel-teams, html[data-tab="graph"] #panel-graph { display: block; }
 html[data-tab] main { min-height: 100vh; }
 
 /* ---------------------------------------------------------------- global search */
@@ -357,7 +357,7 @@ section[hidden] { display: none; }
 .panel-intro { font-size: 15px; color: var(--fg-muted); margin: 24px 0 4px; max-width: 760px; }
 
 /* Section heading for non-paper tabs, taken from the active tab name. */
-#panel-toolkits::before, #panel-datasets::before, #panel-benchmarks::before, #panel-learning::before {
+#panel-toolkits::before, #panel-datasets::before, #panel-benchmarks::before, #panel-learning::before, #panel-graph::before {
   display: block; margin: 8px 0 4px;
   font: 700 32px/1.15 var(--display); letter-spacing: -.022em;
 }
@@ -365,17 +365,20 @@ section[hidden] { display: none; }
 .graph-home .panel-heading { margin: 18px 0 4px; font: 700 32px/1.15 var(--display); letter-spacing: -.022em; }
 .graph-home h2:not(.panel-heading) { margin: 34px 0 6px; font: 650 20px var(--display); }
 .graph-home { padding-bottom: 64px; }
-.graph-home .graph-cards { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-.graph-home .g-card h3 { color: var(--accent); }
+.graph-home .graph-cards, #panel-graph .graph-cards { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.graph-home .g-card h3, #panel-graph .g-card h3 { color: var(--accent); }
+#panel-graph h2 { margin: 34px 0 6px; font: 650 20px var(--display); }
 #panel-toolkits::before { content: "Toolkits"; }
 #panel-datasets::before { content: "Datasets"; }
 #panel-benchmarks::before { content: "Benchmarks & challenges"; }
 #panel-learning::before { content: "Learning resources"; }
+#panel-graph::before { content: "Knowledge Graph"; }
 /* The Chinese page (html lang="zh-Hans") showed these headings in English. */
 html:lang(zh) #panel-toolkits::before { content: "工具包"; }
 html:lang(zh) #panel-datasets::before { content: "数据集"; }
 html:lang(zh) #panel-benchmarks::before { content: "基准与挑战赛"; }
 html:lang(zh) #panel-learning::before { content: "学习资源"; }
+html:lang(zh) #panel-graph::before { content: "知识图谱"; }
 
 /* ---------------------------------------------------------------- papers */
 
@@ -632,7 +635,7 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   li.paper { grid-template-columns: minmax(0, 1fr); }
   .p-links { grid-column: 1; grid-row: auto; align-self: start; margin-top: 6px; }
   .p-links a { padding: 6px 14px; }
-  #panel-toolkits::before, #panel-datasets::before, #panel-benchmarks::before, #panel-learning::before { font-size: 26px; margin-top: 24px; }
+  #panel-toolkits::before, #panel-datasets::before, #panel-benchmarks::before, #panel-learning::before, #panel-graph::before { font-size: 26px; margin-top: 24px; }
 }
 
 @media print {
@@ -880,3 +883,15 @@ li.team {
 
 /* Text for screen readers only (e.g. the lineage canvas heading). */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------------------------------------------------------------- page transitions
+   Moving between the homepage tabs is instant (one page); moving to or from
+   a separate page (a graph, a dataset page, About) is a full navigation.
+   Browsers that support cross-document view transitions keep the old page
+   on screen until the new one can paint and cross-fade, instead of a white
+   flash; others navigate as before. */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .18s; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
