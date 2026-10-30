@@ -58,6 +58,19 @@ def similar(a, b):
     return len(wa & wb) / max(len(wa), len(wb))
 
 
+# Hosts that drop automated clients at the connection (TLS EOF / reset)
+# while serving browsers, checked by hand. A transport error from one of
+# them is reported as BLOCKED, not PROBLEM; an HTTP error (404 ...) still
+# counts. Add a host only with the evidence beside it.
+KNOWN_BOT_BLOCKING = {
+    # 2026-10-30: archive.org captured it normally in Oct 2026 and the
+    # Slicer repository is active; only scripted TLS handshakes fail.
+    "www.slicer.org": "drops scripted TLS handshakes",
+    # Unreachable from outside its region since 2026-10-11 (see the note in
+    # data/datasets.yaml); the entry also links a Kaggle mirror.
+    "mosmed.ai": "unreachable from outside its region; entry has a mirror",
+}
+
 # arXiv's API guidelines ask for at least 3 seconds between requests. Going
 # faster gets a *silently empty* feed rather than an error, which this script
 # used to read as "id not found" — that produced 70+ phantom dead links in
@@ -165,6 +178,9 @@ def main():
             ok += 1
         elif st in (403, 405, 429):
             blocked.append((fn, i, title, url, st))
+        elif str(st).startswith("ERR") and urllib.parse.urlsplit(url).hostname in KNOWN_BOT_BLOCKING:
+            blocked.append((fn, i, title, url, "%s (%s)" % (
+                st, KNOWN_BOT_BLOCKING[urllib.parse.urlsplit(url).hostname])))
         else:
             bad.append((fn, i, title, url, st))
         time.sleep(0.4)
