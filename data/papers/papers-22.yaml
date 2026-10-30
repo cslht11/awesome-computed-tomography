@@ -58,7 +58,7 @@
   title: "Delta-Net: Deep Dual-Domain Alternating Optimization Network for High Pitch Helical CT Reconstruction"
   year: 2026
   venue: "TMI"
-  topics: [sparse-view]
+  topics: [sparse-view, helical]
   paper: "https://doi.org/10.1109/TMI.2025.3617899"
   note: "A deep dual-domain alternating optimization network for incomplete high-pitch helical CT data, each sub-iteration combining projection-domain correction with image-domain refinement; learned per-domain priors enter as regularization, all hyperparameters are auto-optimized in training, and a structure-aware joint loss strengthens artifact suppression and structure recovery, beating comparisons in artifact suppression, detail recovery and generalization."
 

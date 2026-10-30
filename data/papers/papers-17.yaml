@@ -28,7 +28,7 @@
   title: "3D Helical CT Reconstruction With a Memory Efficient Learned Primal-Dual Architecture"
   year: 2024
   venue: "IEEE Trans. Comput. Imaging"
-  topics: [low-dose]
+  topics: [low-dose, helical]
   paper: "https://doi.org/10.1109/TCI.2024.3463485"
   note: "Adapts the Learned Primal-Dual architecture to 3D helical CT by splitting the helical trajectory into segments and applying unrolled LPD iterations per segment, enabling training and testing on full-size low-dose clinical data on a single 24GB GPU — claimed as the first unrolled deep-learning architecture applied to such data."
 

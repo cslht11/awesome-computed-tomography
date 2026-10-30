@@ -11,7 +11,7 @@
   title: "Deep learning-based extended field of view computed tomography image reconstruction: influence of network design on image estimation outside the scan field of view"
   year: 2022
   venue: "Biomed. Phys. Eng. Express"
-  topics: [other]
+  topics: [interior]
   paper: "https://doi.org/10.1088/2057-1976/ac47fc"
   note: "Deep learning extends the field of view and suppresses truncation artifacts, aiming at good patient-data estimation outside the scan FOV rather than fully diagnostic images; on 12 truncated test patients, U-Net with structural dissimilarity loss recovers outside-FOV regions best."
 

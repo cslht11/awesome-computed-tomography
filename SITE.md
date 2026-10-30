@@ -261,7 +261,7 @@ exists.
   only if it scored at least 2 (i.e. it hit a name or the metadata); a weaker lone body hit
   filters instead. Without that floor, typing an arXiv id whose digits also occur inside
   some other record's URL would navigate to the wrong page.
-- **Filters** — 17 topic chips (multi-select, with counts), `All / Peer-reviewed /
+- **Filters** — one chip per topic (multi-select, with counts), `All / Peer-reviewed /
   Preprints`, `has code`, `from <year>`, and sorting by newest, oldest or title.
 - **Tabs** — Papers, Toolkits, Datasets, Benchmarks, Learning.
 - **Deep links** — the whole filter state lives in the URL

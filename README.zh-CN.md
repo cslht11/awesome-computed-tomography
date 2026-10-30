@@ -29,11 +29,12 @@
 | | | |
 | --- | --- | --- |
 | [综述与回顾](https://computedtomography.org/zh/?tab=papers&topic=survey) <sub>34</sub> | [经典与迭代重建](https://computedtomography.org/zh/?tab=papers&topic=classical) <sub>89</sub> | [稀疏视角 CT](https://computedtomography.org/zh/?tab=papers&topic=sparse-view) <sub>209</sub> |
-| [有限角层析](https://computedtomography.org/zh/?tab=papers&topic=limited-angle) <sub>66</sub> | [低剂量 CT 去噪](https://computedtomography.org/zh/?tab=papers&topic=low-dose) <sub>130</sub> | [金属伪影校正](https://computedtomography.org/zh/?tab=papers&topic=metal-artifact) <sub>60</sub> |
-| [能谱与双能 CT](https://computedtomography.org/zh/?tab=papers&topic=spectral) <sub>46</sub> | [锥束 CT](https://computedtomography.org/zh/?tab=papers&topic=cbct) <sub>104</sub> | [动态与 4D CT](https://computedtomography.org/zh/?tab=papers&topic=dynamic) <sub>31</sub> |
-| [散射校正](https://computedtomography.org/zh/?tab=papers&topic=scatter) <sub>12</sub> | [几何标定与运动补偿](https://computedtomography.org/zh/?tab=papers&topic=geometry) <sub>29</sub> | [深度展开与基于模型的学习](https://computedtomography.org/zh/?tab=papers&topic=unrolling) <sub>80</sub> |
-| [自监督与免训练方法](https://computedtomography.org/zh/?tab=papers&topic=self-supervised) <sub>51</sub> | [扩散与生成式先验](https://computedtomography.org/zh/?tab=papers&topic=diffusion) <sub>77</sub> | [隐式神经表示](https://computedtomography.org/zh/?tab=papers&topic=inr) <sub>31</sub> |
-| [高斯溅射](https://computedtomography.org/zh/?tab=papers&topic=gaussian) <sub>29</sub> | [其他主题](https://computedtomography.org/zh/?tab=papers&topic=other) <sub>54</sub> | [相关工作：重建之外](https://computedtomography.org/zh/?tab=papers&topic=related) <sub>25</sub> |
+| [有限角层析](https://computedtomography.org/zh/?tab=papers&topic=limited-angle) <sub>66</sub> | [内部、感兴趣区与截断重建](https://computedtomography.org/zh/?tab=papers&topic=interior) <sub>12</sub> | [低剂量 CT 去噪](https://computedtomography.org/zh/?tab=papers&topic=low-dose) <sub>130</sub> |
+| [金属伪影校正](https://computedtomography.org/zh/?tab=papers&topic=metal-artifact) <sub>60</sub> | [能谱与双能 CT](https://computedtomography.org/zh/?tab=papers&topic=spectral) <sub>46</sub> | [锥束 CT](https://computedtomography.org/zh/?tab=papers&topic=cbct) <sub>104</sub> |
+| [螺旋与多层 CT](https://computedtomography.org/zh/?tab=papers&topic=helical) <sub>8</sub> | [动态与 4D CT](https://computedtomography.org/zh/?tab=papers&topic=dynamic) <sub>31</sub> | [散射校正](https://computedtomography.org/zh/?tab=papers&topic=scatter) <sub>12</sub> |
+| [几何标定与运动补偿](https://computedtomography.org/zh/?tab=papers&topic=geometry) <sub>29</sub> | [深度展开与基于模型的学习](https://computedtomography.org/zh/?tab=papers&topic=unrolling) <sub>80</sub> | [自监督与免训练方法](https://computedtomography.org/zh/?tab=papers&topic=self-supervised) <sub>51</sub> |
+| [扩散与生成式先验](https://computedtomography.org/zh/?tab=papers&topic=diffusion) <sub>78</sub> | [隐式神经表示](https://computedtomography.org/zh/?tab=papers&topic=inr) <sub>31</sub> | [高斯溅射](https://computedtomography.org/zh/?tab=papers&topic=gaussian) <sub>29</sub> |
+| [其他主题](https://computedtomography.org/zh/?tab=papers&topic=other) <sub>47</sub> | [相关工作：重建之外](https://computedtomography.org/zh/?tab=papers&topic=related) <sub>25</sub> |  |
 
 ## 工具包与库
 

@@ -224,6 +224,44 @@ topics:
 
         方法包括各向异性和方向性全变分及其他稀疏先验、只学习不可见部分的混合方法、正弦图补全网络、双域深度网络，以及配合基于模型的数据一致性、把扩散模型用作图像先验的方法。由于大量信息没有被测到，宣称的精度最好在 Helsinki Tomography Challenge 等实测数据上验证。
 
+  # ---------------------------------------------------------------- interior
+  interior:
+    match: [interior, truncation, ROI, region-of-interest, field-of-view]
+    start:
+      - id: kudo-interior-2008
+        en: Shows that a small piece of prior knowledge inside the region of interest makes the interior problem uniquely solvable.
+        zh: 证明只要在感兴趣区内有一小块先验知识，内部重建问题就有唯一解。
+      - id: one-network-all-rois
+        en: An early network for interior CT that reconstructs any region of interest through differentiated backprojection.
+        zh: 较早的内部 CT 网络，通过微分反投影重建任意感兴趣区。
+      - id: deep-interior
+        en: Interior reconstruction through a weighted backprojection, with a network recovering the image of the region.
+        zh: 通过加权反投影做内部重建，由网络恢复感兴趣区的图像。
+      - id: extended-fov-reconstruction
+        en: Extends the reconstructed field of view beyond the scanner's when the patient is wider than the beam.
+        zh: 当患者宽于射束时，把重建视野扩展到扫描仪视野之外。
+      - id: cbct-truncation-diffusion
+        en: A recent diffusion-based method for truncation artifacts in cone-beam CT.
+        zh: 一种较新的、基于扩散模型的锥束 CT 截断伪影校正方法。
+    en:
+      title: "Interior, ROI and Truncated CT Reconstruction: Papers, Toolkits and Datasets"
+      description: "Reconstruction from truncated projections: interior tomography and region-of-interest CT, field-of-view extension, and truncation artifact reduction in cone-beam and dental CT."
+      intro: |
+        Truncation happens when the object is wider than the X-ray beam or the detector, so every projection misses part of it. It is deliberate in region-of-interest (ROI) and interior tomography, which irradiate only the region that matters to reduce dose, and unavoidable when a large patient or a small dental or C-arm detector leaves part of the body outside the field of view.
+
+        Filtered back-projection needs complete projections, so truncated data produce bright rims and low-frequency shading across the image. The interior problem, reconstructing a region from rays that pass through it only, has no unique solution in general, but becomes solvable with a little prior knowledge such as a known sub-region. Practical methods extrapolate the missing projection data, use differentiated backprojection, or regularise iteratively.
+
+        Learned methods now extend the field of view of truncated scans, reduce truncation artifacts in cone-beam and dental CT, and reconstruct interior regions directly, with diffusion priors and implicit neural representations among the recent tools.
+    zh:
+      title: "内部、感兴趣区与截断 CT 重建：论文、工具库与数据集"
+      description: "投影截断时的重建：内部重建与感兴趣区 CT、视野扩展，以及锥束与牙科 CT 的截断伪影校正。"
+      intro: |
+        当物体宽于 X 射线束或探测器时，每个投影都会缺失一部分，这就是截断。在感兴趣区（ROI）与内部重建中，截断是有意为之——只照射需要的区域以降低剂量；而当患者体型较大，或牙科、C 形臂探测器较小、身体有一部分落在视野之外时，截断则无法避免。
+
+        滤波反投影需要完整的投影，截断数据会在图像中产生明亮的边缘与低频阴影。内部问题——只用穿过某区域的射线重建该区域——一般没有唯一解，但只要有少量先验知识（例如一块已知子区域）就可以求解。实用方法包括外推缺失的投影数据、使用微分反投影，或做正则化迭代重建。
+
+        学习型方法如今被用来扩展截断扫描的视野、减少锥束与牙科 CT 的截断伪影，并直接重建内部区域；扩散先验与隐式神经表示是其中较新的工具。
+
   # ---------------------------------------------------------------- low-dose
   low-dose:
     match: [low-dose, noise, noise-model]
@@ -378,6 +416,44 @@ topics:
         CBCT 是口腔颌面成像、图像引导放疗（直线加速器上的机载成像）、介入 C 形臂系统和四肢扫描仪的标准配置，也是工业 CT 与显微 CT 的常用几何。
 
         FDK 算法仍是主要的重建方法，稀疏或含噪数据则使用迭代和 TV 正则化求解器。近期工作涵盖基于神经衰减场和高斯溅射的稀疏视角 CBCT、面向自适应放疗的 CBCT 图像增强与合成 CT、散射与运动校正，以及针对呼吸运动的 4D-CBCT。TIGRE、RTK 和 ASTRA Toolbox 等开源工具库提供 GPU 锥束投影算子。
+
+  # ---------------------------------------------------------------- helical
+  helical:
+    match: [helical, multislice, multi-slice, spiral]
+    start:
+      - id: katsevich-2002
+        en: Katsevich's theoretically exact FBP-type inversion for helical cone-beam CT, with shift-invariant filtering.
+        zh: Katsevich 针对螺旋锥束 CT 的理论精确、具有移不变滤波的 FBP 型反演公式。
+      - id: zou-pan-pi-line-2004
+        en: Exact reconstruction on PI-lines from minimal data, the basis of backprojection-filtration methods.
+        zh: 由最少量数据在 PI 线上精确重建，是反投影滤波类方法的基础。
+      - id: thibault-mbir-2007
+        en: Statistical iterative reconstruction for multislice helical scanners, a forerunner of clinical model-based reconstruction.
+        zh: 面向多层螺旋 CT 的统计迭代重建，是临床基于模型重建的先驱。
+      - id: helical-learned-primal-dual
+        en: A memory-efficient learned primal-dual network for full 3D helical CT, unrolled reconstruction at clinical scale.
+        zh: 面向完整三维螺旋 CT 的低显存学习原始-对偶网络，在临床规模上实现展开式重建。
+      - id: high-pitch-helical-ct
+        en: Reconstruction from high-pitch helical scans, which cover the body faster but sample each slice less.
+        zh: 大螺距螺旋扫描的重建：扫描更快，但每个层面的采样更少。
+    en:
+      title: "Helical and Multislice CT Reconstruction: Papers, Toolkits and Datasets"
+      description: "Reconstruction for helical (spiral) and multislice CT: exact cone-beam inversion (Katsevich, PI-lines), statistical iterative reconstruction for clinical scanners, high-pitch and sparse helical scans, and learned 3D methods."
+      intro: |
+        Helical (spiral) CT moves the patient through the gantry while the source rotates, so the source traces a helix around the body. Almost every clinical CT scanner acquires data this way: it covers long regions quickly, and with today's multislice detectors each turn of the helix is a cone-beam measurement.
+
+        Reconstruction has followed the hardware. Early helical scanners interpolated between turns and used fan-beam FBP; as detectors gained rows, approximate cone-beam methods and then theoretically exact inversion formulas appeared (Katsevich's formula, reconstruction on PI-lines). Statistical iterative reconstruction modelled the full 3D helical geometry and the photon statistics, and became the basis of commercial model-based reconstruction.
+
+        Current work addresses what makes helical data hard for learned methods: the volume is large and three-dimensional, the geometry differs between scanners, and fast high-pitch or sparse helical protocols undersample each slice. The papers here include memory-efficient unrolled networks for full 3D helical data, dual-domain methods for sparse and high-pitch scans, and volume-of-interest imaging.
+    zh:
+      title: "螺旋与多层 CT 重建：论文、工具库与数据集"
+      description: "螺旋与多层 CT 的重建：锥束精确反演（Katsevich 公式、PI 线）、面向临床扫描仪的统计迭代重建、大螺距与稀疏螺旋扫描，以及三维学习型方法。"
+      intro: |
+        螺旋 CT 在射线源旋转的同时让患者平移穿过机架，因此射线源在身体周围走出一条螺旋线。几乎所有临床 CT 都以这种方式采集数据：它能快速覆盖较长的部位，而在如今的多层探测器上，螺旋的每一圈都是一次锥束测量。
+
+        重建方法随硬件一起发展。早期螺旋扫描仪在相邻两圈之间插值，再用扇束 FBP 重建；随着探测器排数增加，先出现了近似锥束方法，后来又出现了理论精确的反演公式（Katsevich 公式、PI 线上的重建）。统计迭代重建对完整的三维螺旋几何与光子统计建模，成为商用基于模型重建的基础。
+
+        当前的工作针对螺旋数据给学习型方法带来的难点：体数据大且是三维的，不同扫描仪的几何各不相同，而快速的大螺距或稀疏螺旋协议使每个层面欠采样。这里收录的论文包括面向完整三维螺旋数据的低显存展开网络、用于稀疏与大螺距扫描的双域方法，以及感兴趣体积成像。
 
   # ----------------------------------------------------------------- dynamic
   dynamic:

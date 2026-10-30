@@ -812,7 +812,7 @@
   title: "Theoretically Exact Filtered Backprojection-Type Inversion Algorithm for Spiral CT"
   year: 2002
   venue: "SIAM J. Appl. Math."
-  topics: [classical, cbct]
+  topics: [classical, cbct, helical]
   paper: "https://doi.org/10.1137/S0036139901387186"
   note: "First exact helical cone-beam FBP algorithm."
 
@@ -835,7 +835,7 @@
   title: "Tiny a priori knowledge solves the interior problem in computed tomography"
   year: 2008
   venue: "PMB"
-  topics: [classical, limited-angle]
+  topics: [classical, limited-angle, interior]
   paper: "https://doi.org/10.1088/0031-9155/53/9/001"
 
 - id: "bouman-sauer-1993"
@@ -1039,7 +1039,7 @@
   title: "Truncation artifact reduction in cone-beam computed tomography scans using conditional generative diffusion models"
   year: 2026
   venue: "BMC Med Imaging"
-  topics: [cbct, diffusion]
+  topics: [cbct, diffusion, interior]
   paper: "https://doi.org/10.1186/s12880-026-02818-x"
   note: "Conditional generative diffusion models complete truncated CBCT projections; 12 dB PSNR gain over RTK padding."
 - id: "langmamba"
@@ -1067,7 +1067,7 @@
   title: "Truncated projection adaptive weighting combined with adaptive TV for artifact reduction in linear computed laminography"
   year: 2026
   venue: "Opt. Laser Technol."
-  topics: [other]
+  topics: [interior]
   paper: "https://doi.org/10.1016/j.optlastec.2025.114348"
   note: "TPAw-SIRT and TPAw-LAwTV correct ROI truncation in linear computed laminography with adaptive weighting plus TV."
 

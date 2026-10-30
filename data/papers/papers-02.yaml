@@ -328,7 +328,7 @@
   title: "End-to-End Deep Learning for Interior Tomography with Low-Dose X-ray CT"
   year: 2022
   venue: "PMB"
-  topics: [limited-angle, low-dose, unrolling]
+  topics: [limited-angle, low-dose, unrolling, interior]
   paper: "https://doi.org/10.1088/1361-6560/ac6560"
 
 - id: "toward-ct-equivalent-image-quality-in-low-dose-radiotherapy-"
@@ -440,7 +440,7 @@
 - id: "an-iterative-reconstruction-method-for-dental-cone-beam-comp"
   title: "An Iterative Reconstruction Method for Dental Cone-Beam Computed Tomography with a Truncated Field of View"
   year: 2025
-  topics: [geometry, cbct, classical]
+  topics: [geometry, cbct, classical, interior]
   paper: "https://arxiv.org/abs/2508.07618"
 
 - id: "monstr-model-oriented-neutron-strain-tomographic-reconstruct"
@@ -632,7 +632,7 @@
 - id: "texture-preserving-implicit-neural-representation-for-cone-b"
   title: "Texture-preserving implicit neural representation for cone-beam CT truncated reconstruction"
   year: 2026
-  topics: [inr, geometry, cbct]
+  topics: [inr, geometry, cbct, interior]
   paper: "https://arxiv.org/abs/2606.06039"
 
 - id: "conditional-diffusion-for-3d-ct-volume-reconstruction-from-2"

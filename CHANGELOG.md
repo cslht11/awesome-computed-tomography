@@ -13,6 +13,18 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Two new topics: Interior, ROI & Truncation, and Helical & Multislice CT
+
+### Added
+
+- **Interior, ROI & Truncation** (12 papers): reconstruction from truncated projections, covering interior and region-of-interest tomography, field-of-view extension, and truncation artifacts in cone-beam and dental CT.
+- **Helical & Multislice CT** (8 papers): the geometry of almost every clinical scanner, from Katsevich's exact inversion and PI-line reconstruction to statistical reconstruction and learned 3D methods for high-pitch and sparse helical scans.
+- Each has its own topic page (introduction, "start here" picks, papers) and graph, in English and Chinese.
+
+### Changed
+
+- **"Other Topics" shrinks from 54 to 47 papers.** Six papers moved into the new topics, and a diffusion-posterior-sampling CT paper moved to Diffusion & Generative Priors. Ring and stripe artifacts were considered too, but three papers are too few for a topic page.
+
 ## 2026-10-30 — Toolkits in six groups that do not overlap
 
 ### Changed

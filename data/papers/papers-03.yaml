@@ -11,7 +11,7 @@
   title: "Field-of-View Extension in Dental Cone-Beam CT via Implicit Neural Representations and Diffusion Model-Based Refinement"
   year: 2026
   venue: "MICAD"
-  topics: [inr, diffusion, cbct]
+  topics: [inr, diffusion, cbct, interior]
   paper: "https://arxiv.org/abs/2609.28110"
   code: "https://github.com/SusanneSchaub/CBCT-FOV-Extension"
 

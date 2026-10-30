@@ -35,7 +35,7 @@
   title: "Exact image reconstruction on PI-lines from minimum data in helical cone-beam CT"
   year: 2004
   venue: "PMB"
-  topics: [classical, cbct]
+  topics: [classical, cbct, helical]
   paper: "https://doi.org/10.1088/0031-9155/49/6/006"
 - id: "os-em-1994"
   abbr: "OS-EM"
@@ -54,7 +54,7 @@
   title: "A three-dimensional statistical approach to improved image quality for multislice helical CT"
   year: 2007
   venue: "Med Phys"
-  topics: [classical, low-dose]
+  topics: [classical, low-dose, helical]
   paper: "https://doi.org/10.1118/1.2789499"
 - id: "joseph-1982"
   title: "An Improved Algorithm for Reprojecting Rays through Pixel Images"

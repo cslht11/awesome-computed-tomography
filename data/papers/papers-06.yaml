@@ -4,7 +4,7 @@
   title: "CT reconstruction using diffusion posterior sampling conditioned on a nonlinear measurement model"
   year: 2024
   venue: "J. Med. Imaging"
-  topics: [other]
+  topics: [diffusion]
   paper: "https://doi.org/10.1117/1.JMI.11.4.043504"
   note: "Unconditional diffusion prior score combined with a nonlinear physical measurement model's likelihood score for posterior sampling, with no retraining for new systems; beats conventional reconstruction and the linear-model version in simulation."
 

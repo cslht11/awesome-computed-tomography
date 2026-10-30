@@ -4,7 +4,7 @@
   title: "Deep-Interior: A new pathway to interior tomographic image reconstruction via a weighted backprojection and deep learning"
   year: 2024
   venue: "Med Phys"
-  topics: [other]
+  topics: [interior]
   paper: "https://doi.org/10.1002/mp.16880"
   note: "Analytic weighted backprojection maps fan-beam projections of any ROI location/size to an intermediate feature space, then a supervised network deconvolves to the true image; accurate even for 5 cm ROIs under short and super-short scans."
 
@@ -30,7 +30,7 @@
   title: "High Pitch Helical CT Reconstruction"
   year: 2021
   venue: "TMI"
-  topics: [other]
+  topics: [helical]
   paper: "https://doi.org/10.1109/TMI.2021.3083210"
   note: "Synergistic combination of conventional helical FBP, compressed sensing and deep learning achieves artifact-free accurate reconstruction for single-source multi-detector scans up to pitch 4, breaking the usual 1.5 pitch limit."
 

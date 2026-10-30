@@ -32,6 +32,10 @@ topics:
     name: Limited-Angle Tomography
     desc: Missing angular wedge, where the null space makes the problem severely ill-posed.
 
+  - id: interior
+    name: Interior, ROI & Truncation
+    desc: Reconstruction from truncated projections — interior and region-of-interest CT, field-of-view extension, truncation artifacts.
+
   - id: low-dose
     name: Low-Dose CT Denoising
     desc: Noise suppression at reduced tube current, in image, projection or dual domain.
@@ -47,6 +51,10 @@ topics:
   - id: cbct
     name: Cone-Beam CT
     desc: Circular, helical and non-standard CBCT geometries; on-board imaging.
+
+  - id: helical
+    name: Helical & Multislice CT
+    desc: Reconstruction for helical (spiral) and multislice scanners — exact cone-beam inversion, statistical reconstruction, high-pitch and 3D learned methods.
 
   - id: dynamic
     name: Dynamic & 4D CT

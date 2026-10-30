@@ -39,7 +39,7 @@
   title: "Deep learning-based volume of interest imaging in helical CT for image quality improvement and radiation dose reduction"
   year: 2025
   venue: "Br. J. Radiol."
-  topics: [other]
+  topics: [interior, helical]
   paper: "https://doi.org/10.1093/bjr/tqaf128"
   note: "Concentrated exposure on the volume of interest plus a residual U-Net (VOI-Net) correcting truncation artifacts cuts dose by 71% within a 10 cm VOI without sacrificing in-VOI image quality."
 
