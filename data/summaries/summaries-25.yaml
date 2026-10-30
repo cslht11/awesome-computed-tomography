@@ -5,3 +5,78 @@ multi-stage-artifact-reduction-parallel-beam-ct: >-
   Synchrotron CT boosts spatial and temporal resolution over laboratory CT, but its projection data pass through a multi-stage computational pipeline, and artifacts introduced during acquisition propagate through the stages and degrade the reconstructed image. Existing deep learning approaches either fail to address the specific artifacts or cost too much compute. This paper places a separate deep learning model at each pipeline stage, projection, sinogram, and reconstruction, so each artifact is addressed locally in a data-driven way, and adds bypass connections that feed both previous-stage outputs and raw data into later stages to minimize error propagation. Evaluations on simulated and real-world datasets show the approach effectively reduces artifacts in synchrotron parallel-beam CT.
 sr4zct: >-
   In medical CT, through-plane resolution is often worse than in-plane resolution and slices can overlap, which hurts diagnosis. Self-supervised through-plane resolution enhancement trains on in-plane images and infers on through-plane images, but existing methods either neglect overlap or handle only fixed combinations of resolution and overlap. SR4ZCT keeps the same off-axis training approach while handling arbitrary combinations of resolution and overlap, making self-supervised through-plane enhancement practical for real CT volumes with varying slice spacing and overlap.
+
+hounsfield-1973: >-
+  Hounsfield's description of the EMI scanner, the first clinical CT system: an X-ray source and detector take transmission readings at many angles, and a computer reconstructs cross-sections of the head from them.
+
+zou-pan-pi-line-2004: >-
+  Shows that a helical cone-beam image can be reconstructed exactly on each PI-line from a minimal amount of projection data, which gives backprojection-filtration (BPF) algorithms that tolerate truncated projections.
+
+os-em-1994: >-
+  Introduces ordered-subsets EM: each iteration steps through subsets of the projections, speeding up expectation-maximisation reconstruction roughly by the number of subsets. The basis of most clinical iterative reconstruction and of later ordered-subsets methods for CT.
+
+erdogan-fessler-os-1999: >-
+  Carries ordered subsets over to transmission data, the CT model: with separable paraboloidal surrogates it gives fast penalized-likelihood reconstruction under the Poisson transmission model that is simple to parallelise.
+
+thibault-mbir-2007: >-
+  A 3D statistical (model-based) iterative reconstruction for multislice helical CT that models the scanner geometry, the photon statistics and an edge-preserving prior, with lower noise and sharper detail than FBP; a forerunner of commercial model-based iterative reconstruction.
+
+joseph-1982: >-
+  Joseph's forward projector: along each ray the image is interpolated linearly, one row or column at a time. One of the standard ray-driven projectors, more accurate than nearest-neighbour sampling at similar cost.
+
+siddon-1985: >-
+  Siddon's algorithm computes the exact length of a ray inside every voxel of a 3D grid by tracking where it crosses the grid planes; the classic exact ray-driven projector.
+
+distance-driven-2004: >-
+  Distance-driven projection and backprojection in 3D: voxel and detector-cell boundaries are mapped onto a common axis and weighted by their overlap, avoiding the artefacts of pixel- and ray-driven methods at similar speed. A common choice in iterative CT.
+
+ldct-grand-challenge-report-2017: >-
+  The results paper of the 2016 AAPM–NIBIB–Mayo Low Dose CT Grand Challenge: denoising and iterative methods were applied to quarter-dose abdominal CT, and radiologists scored how well liver metastases could still be detected and classified.
+
+ldct-projection-dataset-2021: >-
+  The paper describing Mayo's low-dose CT library on TCIA: 299 head, chest and abdomen exams with routine-dose and simulated low-dose projection data in the open DICOM-CT-PD format, plus reconstructed images.
+
+aapm-sparse-view-challenge-report: >-
+  Report of the AAPM deep-learning sparse-view CT challenge: teams recovered breast-CT phantom images from 128-view data. The best networks came close to exact recovery on this idealised task, and the report discusses what that does and does not show for real data.
+
+leuschner-comparison-2021: >-
+  Compares learned CT reconstruction methods (post-processing, learned iterative, fully learned and unsupervised) under one protocol on LoDoPaB-CT for low dose and on the Apple CT data for sparse angles, reporting both image quality and consistency with the measured data.
+
+gloredi: >-
+  Sparse-view CT by representation distillation: a teacher learns a global representation of the full-view image, and the sparse-view network is trained to match it, so few projections still yield the image's global structure.
+
+regformer: >-
+  Unrolls an iterative sparse-view CT solver and learns its regulariser at each stage with both a local (convolutional) and a nonlocal (transformer) component.
+
+score-inverse-medical: >-
+  Uses an unconditional score-based (diffusion) model trained on images alone as the prior for medical inverse problems, sparse-view CT and undersampled MRI, so one model serves any measurement process without retraining.
+
+mcg: >-
+  Adds a manifold-constraint correction to diffusion-based inverse problem solvers, keeping samples near the data manifold through the data-consistency steps; evaluated on inpainting, colourisation and sparse-view CT.
+
+dps: >-
+  Diffusion posterior sampling: approximates the likelihood gradient through the denoised estimate, so a pretrained diffusion model can solve noisy and nonlinear inverse problems. A standard baseline in CT diffusion papers.
+
+dds: >-
+  Decomposed Diffusion Sampler: replaces the costly manifold gradient with a few conjugate-gradient data-consistency steps on the denoised estimate, making diffusion reconstruction of large 3D sparse-view and limited-angle CT (and MRI) much faster.
+
+aapm-ct-mar-challenge-report: >-
+  Report of the AAPM CT metal artifact reduction grand challenge: methods were trained on simulated CT data with metal and ranked on held-out cases, giving a shared benchmark for metal artifact reduction.
+
+photon-counting-ct-2018: >-
+  Review of photon-counting CT: how energy-resolving detectors count individual photons, what that gains in noise, spatial resolution and spectral imaging, and the clinical prospects and remaining technical problems.
+
+vision-2020-photon-counting: >-
+  Review of single-photon-counting x-ray detectors for medical imaging: detector physics, pulse pile-up, charge sharing and other spectral distortions, and what they mean for spectral CT.
+
+long-fessler-mmd-2014: >-
+  Penalized-likelihood reconstruction that decomposes spectral (dual-energy) CT data directly into several material images, with constraints that make decomposition into more than two materials solvable.
+
+aapm-spectral-challenge-report: >-
+  Report of the AAPM deep-learning spectral CT grand challenge: teams reconstructed tissue maps directly from simulated spectral CT data of breast phantoms, and the report compares how the leading methods did.
+
+perspective-deep-imaging: >-
+  Ge Wang's perspective arguing that deep learning will move from analysing images to forming them; the paper that set out the 'deep imaging' agenda for tomographic reconstruction.
+
+image-recon-new-frontier: >-
+  Editorial of the 2018 IEEE TMI special issue on machine learning for image reconstruction, surveying the first wave of learned reconstruction methods and the questions they raise.

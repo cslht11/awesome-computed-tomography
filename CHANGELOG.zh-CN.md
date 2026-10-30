@@ -6,6 +6,18 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-30 — 新增 25 篇论文：奠基工作、挑战赛报告、扩散模型基线、能谱 CT
+<!-- en: 25 papers: foundations, challenge reports, diffusion baselines, spectral CT -->
+
+### 新增
+
+从审查报告中经过核实的缺失清单新增 25 篇论文（653 → 678），每篇都回读了 Crossref 或 arXiv 记录，并配有中英文原创简介：
+
+- **奠基工作与投影算法：**Hounsfield 1973 年的 EMI 扫描仪论文；OS-EM（Hudson 与 Larkin）及面向透射 CT 的有序子集方法（Erdogan 与 Fessler）；Thibault 等人面向螺旋 CT 的三维统计重建；PI 线精确重建（Zou 与 Pan）；Joseph、Siddon 与距离驱动投影算法。
+- **挑战赛与数据集报告：**2016 年 AAPM–Mayo 低剂量 CT 大挑战结果、Mayo 低剂量 CT 图像与投影数据集论文，以及 AAPM 稀疏视角、能谱与金属伪影挑战赛报告。前三篇现在作为"如何引用"显示在对应的基准与数据集页面上。
+- **学习型与扩散方法：**GloReDi、RegFormer、用于医学反问题的分数先验（Song 等）、MCG、DPS 与 DDS，以及在 LoDoPaB 与苹果 CT 数据上比较学习型方法的研究（Leuschner 等）。
+- **能谱 CT 与观点文章：**两篇光子计数综述、统计多材料分解（Long 与 Fessler）、Wang 的《A Perspective on Deep Imaging》以及 2018 年 TMI 专刊社论。
+
 ## 2026-10-30 — 说明论文简介的用途与来源，并署名维护者
 <!-- en: What the paper summaries are, and who maintains the list -->
 

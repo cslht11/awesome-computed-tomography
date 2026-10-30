@@ -24,3 +24,166 @@
   paper: "https://doi.org/10.1007/978-3-031-45673-2_6"
   code: "https://github.com/jiayangshi/SR4ZCT"
   note: "User-approved scope inclusion (2026-10-27): self-supervised through-plane super-resolution of already-reconstructed CT volumes, not projection reconstruction."
+- id: "hounsfield-1973"
+  title: "Computerized transverse axial scanning (tomography): Part 1. Description of system"
+  year: 1973
+  venue: "Br. J. Radiol."
+  topics: [classical]
+  paper: "https://doi.org/10.1259/0007-1285-46-552-1016"
+- id: "zou-pan-pi-line-2004"
+  abbr: "BPF"
+  title: "Exact image reconstruction on PI-lines from minimum data in helical cone-beam CT"
+  year: 2004
+  venue: "PMB"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1088/0031-9155/49/6/006"
+- id: "os-em-1994"
+  abbr: "OS-EM"
+  title: "Accelerated image reconstruction using ordered subsets of projection data"
+  year: 1994
+  venue: "TMI"
+  topics: [classical]
+  paper: "https://doi.org/10.1109/42.363108"
+- id: "erdogan-fessler-os-1999"
+  title: "Ordered subsets algorithms for transmission tomography"
+  year: 1999
+  venue: "PMB"
+  topics: [classical]
+  paper: "https://doi.org/10.1088/0031-9155/44/11/311"
+- id: "thibault-mbir-2007"
+  title: "A three-dimensional statistical approach to improved image quality for multislice helical CT"
+  year: 2007
+  venue: "Med Phys"
+  topics: [classical, low-dose]
+  paper: "https://doi.org/10.1118/1.2789499"
+- id: "joseph-1982"
+  title: "An Improved Algorithm for Reprojecting Rays through Pixel Images"
+  year: 1982
+  venue: "TMI"
+  topics: [classical]
+  paper: "https://doi.org/10.1109/tmi.1982.4307572"
+- id: "siddon-1985"
+  title: "Fast calculation of the exact radiological path for a three-dimensional CT array"
+  year: 1985
+  venue: "Med Phys"
+  topics: [classical]
+  paper: "https://doi.org/10.1118/1.595715"
+- id: "distance-driven-2004"
+  abbr: "DD"
+  title: "Distance-driven projection and backprojection in three dimensions"
+  year: 2004
+  venue: "PMB"
+  topics: [classical, cbct]
+  paper: "https://doi.org/10.1088/0031-9155/49/11/024"
+- id: "ldct-grand-challenge-report-2017"
+  title: "Low-dose CT for the detection and classification of metastatic liver lesions: Results of the 2016 Low Dose CT Grand Challenge"
+  year: 2017
+  venue: "Med Phys"
+  topics: [low-dose, survey]
+  paper: "https://doi.org/10.1002/mp.12345"
+- id: "ldct-projection-dataset-2021"
+  title: "Low-dose CT image and projection dataset"
+  year: 2021
+  venue: "Med Phys"
+  topics: [low-dose]
+  paper: "https://doi.org/10.1002/mp.14594"
+- id: "aapm-sparse-view-challenge-report"
+  title: "Report on the AAPM deep-learning sparse-view CT grand challenge"
+  year: 2022
+  venue: "Med Phys"
+  topics: [sparse-view, survey]
+  paper: "https://doi.org/10.1002/mp.15489"
+- id: "leuschner-comparison-2021"
+  title: "Quantitative Comparison of Deep Learning-Based Image Reconstruction Methods for Low-Dose and Sparse-Angle CT Applications"
+  year: 2021
+  venue: "J. Imaging"
+  topics: [survey, low-dose, sparse-view]
+  paper: "https://doi.org/10.3390/jimaging7030044"
+- id: "gloredi"
+  abbr: "GloReDi"
+  title: "Learning to Distill Global Representation for Sparse-View CT"
+  year: 2023
+  venue: "ICCV"
+  topics: [sparse-view]
+  paper: "https://doi.org/10.1109/iccv51070.2023.01938"
+  code: "https://github.com/longzilicart/GloReDi"
+- id: "regformer"
+  abbr: "RegFormer"
+  title: "RegFormer: A Local–Nonlocal Regularization-Based Model for Sparse-View CT Reconstruction"
+  year: 2024
+  venue: "TRPMS"
+  topics: [sparse-view, unrolling]
+  paper: "https://doi.org/10.1109/trpms.2023.3281148"
+- id: "score-inverse-medical"
+  title: "Solving Inverse Problems in Medical Imaging with Score-Based Generative Models"
+  year: 2022
+  venue: "ICLR"
+  topics: [diffusion, sparse-view]
+  paper: "https://arxiv.org/abs/2111.08005"
+  code: "https://github.com/yang-song/score_inverse_problems"
+- id: "mcg"
+  abbr: "MCG"
+  title: "Improving Diffusion Models for Inverse Problems Using Manifold Constraints"
+  year: 2022
+  venue: "NeurIPS"
+  topics: [diffusion, sparse-view]
+  paper: "https://arxiv.org/abs/2206.00941"
+  code: "https://github.com/hyungjin-chung/MCG_diffusion"
+- id: "dps"
+  abbr: "DPS"
+  title: "Diffusion Posterior Sampling for General Noisy Inverse Problems"
+  year: 2023
+  venue: "ICLR"
+  topics: [diffusion]
+  paper: "https://arxiv.org/abs/2209.14687"
+  code: "https://github.com/DPS2022/diffusion-posterior-sampling"
+- id: "dds"
+  abbr: "DDS"
+  title: "Decomposed Diffusion Sampler for Accelerating Large-Scale Inverse Problems"
+  year: 2024
+  venue: "ICLR"
+  topics: [diffusion, sparse-view, limited-angle]
+  paper: "https://arxiv.org/abs/2303.05754"
+  code: "https://github.com/hyungjin-chung/DDS"
+- id: "aapm-ct-mar-challenge-report"
+  title: "AAPM CT metal artifact reduction grand challenge"
+  year: 2025
+  venue: "Med Phys"
+  topics: [metal-artifact, survey]
+  paper: "https://doi.org/10.1002/mp.70050"
+- id: "photon-counting-ct-2018"
+  title: "Photon-counting CT: Technical Principles and Clinical Prospects"
+  year: 2018
+  venue: "Radiology"
+  topics: [spectral, survey]
+  paper: "https://doi.org/10.1148/radiol.2018172656"
+- id: "vision-2020-photon-counting"
+  title: "Vision 20/20: Single photon counting x-ray detectors in medical imaging"
+  year: 2013
+  venue: "Med Phys"
+  topics: [spectral, survey]
+  paper: "https://doi.org/10.1118/1.4820371"
+- id: "long-fessler-mmd-2014"
+  title: "Multi-Material Decomposition Using Statistical Image Reconstruction for Spectral CT"
+  year: 2014
+  venue: "TMI"
+  topics: [spectral, classical]
+  paper: "https://doi.org/10.1109/tmi.2014.2320284"
+- id: "aapm-spectral-challenge-report"
+  title: "Report on the AAPM deep-learning spectral CT Grand Challenge"
+  year: 2024
+  venue: "Med Phys"
+  topics: [spectral, survey]
+  paper: "https://doi.org/10.1002/mp.16363"
+- id: "perspective-deep-imaging"
+  title: "A Perspective on Deep Imaging"
+  year: 2016
+  venue: "IEEE Access"
+  topics: [survey]
+  paper: "https://doi.org/10.1109/access.2016.2624938"
+- id: "image-recon-new-frontier"
+  title: "Image Reconstruction is a New Frontier of Machine Learning"
+  year: 2018
+  venue: "TMI"
+  topics: [survey]
+  paper: "https://doi.org/10.1109/tmi.2018.2833635"

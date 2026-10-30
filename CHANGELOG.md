@@ -13,6 +13,17 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — 25 papers: foundations, challenge reports, diffusion baselines, spectral CT
+
+### Added
+
+25 papers from the review's verified list of missing work (653 → 678), each read back from Crossref or arXiv and given an original summary in English and Chinese:
+
+- **Foundations and projectors:** Hounsfield's 1973 EMI scanner paper; OS-EM (Hudson & Larkin) and ordered subsets for transmission CT (Erdogan & Fessler); Thibault et al.'s 3D statistical reconstruction for helical CT; exact PI-line reconstruction (Zou & Pan); the Joseph, Siddon and distance-driven projectors.
+- **Challenge and dataset reports:** the 2016 AAPM–Mayo Low Dose CT Grand Challenge results, the Mayo low-dose CT image and projection dataset, and the AAPM sparse-view, spectral and metal-artifact challenge reports. The first three are now shown as "How to cite" on their benchmark and dataset pages.
+- **Learned and diffusion methods:** GloReDi, RegFormer, score-based priors for medical inverse problems (Song et al.), MCG, DPS and DDS, and the LoDoPaB / Apple CT comparison of learned methods (Leuschner et al.).
+- **Spectral CT and perspectives:** two photon-counting reviews, statistical multi-material decomposition (Long & Fessler), Wang's "A Perspective on Deep Imaging" and the 2018 TMI special-issue editorial.
+
 ## 2026-10-30 — What the paper summaries are, and who maintains the list
 
 ### Changed

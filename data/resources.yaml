@@ -37,9 +37,13 @@ datasets:
     cite: [lodopab-ct]
   "LDCT-and-Projection-data":
     slug: ldct-and-projection-data
+    cite: [ldct-projection-dataset-2021]
+  "AAPM DL-Sparse-View CT data":
+    cite: [aapm-sparse-view-challenge-report]
   "2016 Low Dose CT Grand Challenge data":
     slug: aapm-2016-ldct-challenge-data
     short: "AAPM 2016 Low Dose CT Grand Challenge data"
+    cite: [ldct-grand-challenge-report-2017]
   "Helsinki Tomography Challenge 2022":
     aliases: ["Helsinki Tomography Challenge"]
   "SPARE 4D-CBCT":
@@ -65,8 +69,11 @@ datasets:
     skip: "Not a separate dataset: it is the Scientific Data descriptor of LoDoPaB-CT, which is cited on the LoDoPaB-CT page."
 
 benchmarks:
+  "AAPM DL-Sparse-View CT Challenge":
+    cite: [aapm-sparse-view-challenge-report]
   "AAPM Low-Dose CT Grand Challenge":
     slug: aapm-low-dose-ct-grand-challenge
+    cite: [ldct-grand-challenge-report-2017]
     aliases: ["AAPM-Mayo", "Low-dose CT Grand Challenge"]
   "Helsinki Tomography Challenge":
     aliases: ["Helsinki Tomography Challenge"]
