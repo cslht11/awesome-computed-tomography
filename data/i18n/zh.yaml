@@ -141,7 +141,7 @@ ui:
   star: "在 GitHub 上加星标"
   drawerTitle: "栏目"
   github: "GitHub"
-  heroLead: "{tagline} — {coverage} 每篇论文的链接都经 Crossref、arXiv 或出版方自身记录核验。"
+  heroLead: "{tagline}。每篇论文的链接都经 Crossref、arXiv 或出版方自身记录核验，所有链接每周自动复查。"
   statLabelYears: "更新于"
   labelHasCode: "有代码"
   labelFrom: "起始"

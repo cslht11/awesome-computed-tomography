@@ -6,6 +6,17 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-29 — 首页开头恢复大气的居中样式，不再重复数字
+<!-- en: The homepage intro is big and centred again, without repeating the figures -->
+
+### 变更
+
+- **首页开头恢复为完整的居中样式：**Logo 在上，下面是大标题、一句简介，以及带分隔线的数字栏。简介不再重复数字栏已经给出的数量（"653 篇论文、52 个工具包……"）；数字栏新增"学习资源"一项，此前只有简介里提到它。手机上数字栏分两列显示。
+
+### 修复
+
+- **中文首页的"工具包""数据集""基准与挑战赛""学习资源"标签页，标题此前显示为英文。**现在显示中文。
+
 ## 2026-10-29 — 切换语言保持当前标签页；首页开头居中
 <!-- en: Language switch keeps the tab you are on; centred homepage intro -->
 

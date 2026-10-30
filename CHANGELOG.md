@@ -13,6 +13,16 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-29 — The homepage intro is big and centred again, without repeating the figures
+
+### Changed
+
+- **The homepage intro is back to its full, centred form:** logo above a large title, one sentence, and the figures in a ruled row. The sentence no longer repeats the counts that the row shows ("653 papers, 52 toolkits, …"); the figures row now also includes learning resources, which only the sentence used to give. On phones the figures sit in two columns.
+
+### Fixed
+
+- **On the Chinese homepage, the Toolkits, Datasets, Benchmarks and Learning tabs were headed in English.** They are now headed in Chinese.
+
 ## 2026-10-29 — Language switch keeps the tab you are on; centred homepage intro
 
 ### Fixed

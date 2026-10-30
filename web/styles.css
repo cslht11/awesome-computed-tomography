@@ -217,34 +217,31 @@ header .gres { color: var(--fg); width: max(100%, 380px); }
 
 /* ---------------------------------------------------------------- hero */
 
-/* Centred: logo and title on one row, the lead and the figures centred
-   under them. Much shorter than the original ~600 px hero (the first paper
-   sat at y = 974 on a laptop), but no longer crammed to one side. The
-   content below stays a centred column with left-aligned text. */
-.hero {
-  display: grid; grid-template-columns: auto auto; justify-content: center;
-  align-items: center; column-gap: 16px; text-align: center;
-  padding: 40px 0 10px;
-}
-.hero-art { color: var(--accent); width: 60px; height: 60px; }
+/* The centred hero: logo above a large title, one line of purpose, and the
+   figures in a ruled row. The lead carries no counts; the figures row is the
+   one place they appear (they used to be repeated in the sentence above). */
+.hero { padding: 52px 0 28px; text-align: center; }
+.hero-art { color: var(--accent); margin: 0 auto 18px; width: 92px; height: 92px; }
 .hero-art .gantry { width: 100%; height: 100%; }
 .eyebrow { margin: 0 0 10px; font: 600 14px var(--sans); color: var(--accent); letter-spacing: 0; }
 .hero-title {
-  margin: 0; text-align: left;
-  font: 700 clamp(30px, 3.6vw, 44px)/1.1 var(--display);
-  letter-spacing: -.026em;
+  margin: 0 0 16px;
+  font: 700 clamp(32px, 4.8vw, 52px)/1.08 var(--display);
+  letter-spacing: -.028em;
 }
-.lead { grid-column: 1 / -1; margin: 16px auto 0; max-width: 760px; font-size: 17px; line-height: 1.55; color: var(--fg-muted); }
+.lead { margin: 0 auto; max-width: 660px; font-size: 18px; line-height: 1.55; color: var(--fg-muted); }
 
 .stats {
-  grid-column: 1 / -1; margin: 22px 0 0;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 48px;
+  margin: 36px auto 0; max-width: 920px;
+  /* The last column sizes to its content: the Updated date is a hair wider
+     than an equal share, and an equal grid broke it at a hyphen. */
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)) max-content;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
 }
-/* Figure above its label; the markup keeps dt before dd for the
-   definition list. */
-.stats div { display: flex; flex-direction: column-reverse; align-items: center; gap: 2px; }
-.stats dt { font-size: 13px; color: var(--fg-faint); }
-.stats dd { margin: 0; font: 600 28px/1.15 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stats div { padding: 16px 12px; }
+.stats div + div { border-left: 1px solid var(--border); }
+.stats dt { font-size: 12.5px; color: var(--fg-faint); }
+.stats dd { margin: 4px 0 0; font: 600 26px/1.2 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* The intro stays on every tab: hiding it on all but Papers made every tab
    switch jump the page by its height. html[data-tab] is set before first
@@ -368,6 +365,11 @@ section[hidden] { display: none; }
 #panel-datasets::before { content: "Datasets"; }
 #panel-benchmarks::before { content: "Benchmarks & challenges"; }
 #panel-learning::before { content: "Learning resources"; }
+/* The Chinese page (html lang="zh-Hans") showed these headings in English. */
+html:lang(zh) #panel-toolkits::before { content: "工具包"; }
+html:lang(zh) #panel-datasets::before { content: "数据集"; }
+html:lang(zh) #panel-benchmarks::before { content: "基准与挑战赛"; }
+html:lang(zh) #panel-learning::before { content: "学习资源"; }
 
 /* ---------------------------------------------------------------- papers */
 
@@ -580,19 +582,18 @@ footer { margin-top: 56px; background: var(--surface); border-top: 1px solid var
   .scrim[hidden] { display: none; }
   body.drawer-open { overflow: hidden; }
 
-  /* Phones: logo above the title, both centred (side by side the title
-     broke into three ragged lines). */
-  .hero { grid-template-columns: auto; padding: 26px 0 6px; row-gap: 10px; }
-  .hero-art { width: 48px; height: 48px; margin: 0 auto; }
-  .hero-title { text-align: center; font-size: 28px; }
-  .lead { font-size: 15px; margin-top: 12px; }
-  .stats { gap: 8px 28px; margin-top: 16px; }
+  .hero { padding: 32px 0 20px; }
+  .hero-art { width: 64px; height: 64px; margin-bottom: 14px; }
+  .hero-title { font-size: 30px; margin-bottom: 12px; }
+  .lead { font-size: 16px; }
+  /* Two figures per row, three rows. */
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 24px; }
+  .stats div:nth-child(odd) { border-left: 0; }
+  .stats div:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .stats div { padding: 12px 6px; }
   .stats dd { font-size: 22px; }
 }
 @media (max-width: 560px) {
-  /* The lead already gives every count; on a phone the figures row only
-     pushes the list down. */
-  .stats { display: none; }
 }
 
 @media (max-width: 560px) {

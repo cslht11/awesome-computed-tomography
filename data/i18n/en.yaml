@@ -172,7 +172,7 @@ ui:
   star: "Star on GitHub"
   drawerTitle: "Sections"
   github: "GitHub"
-  heroLead: "{tagline} — {coverage} Every paper link resolved against Crossref, arXiv or the publisher’s own record."
+  heroLead: "{tagline}. Every paper link is resolved against Crossref, arXiv or the publisher’s own record, and every URL is rechecked weekly."
   statLabelYears: "Updated"
   labelHasCode: "Has code"
   labelFrom: "From"
