@@ -6,7 +6,7 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
-## 2026-10-30 — "研究团队"新增五个课题组
+## 2026-10-30 — “研究团队”新增五个课题组
 <!-- en: Five research groups added to Teams -->
 
 ### 新增
