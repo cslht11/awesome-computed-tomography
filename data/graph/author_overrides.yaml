@@ -141,6 +141,7 @@ people:
       - A5033891692   # same institution and 1 shared co-author (cocodiff-a-contextual-conditional-diffusion-model-for-low-)
   - name: "Qiegen Liu"
     id: A5057647276
+    team: ncu-liu
     same:
       - A5157940281   # 3 shared co-authors in the library (gaussian-material-fields)
   - name: "Qing Wu"
@@ -202,6 +203,7 @@ people:
       - A5100639746   # 4 shared co-authors in the library (tamp)
   - name: "Yi Zhang"
     id: A5100388053
+    team: scu-dig
     same:
       - A5128291147   # same ORCID 0000-0001-7201-2092 (agenticct, fda-recon-limited-angle-cbct)
       - A5100336523   # same institution and 2 shared co-authors (low-level-dataset-distillation)
@@ -237,3 +239,12 @@ people:
     id: A5086589010
     same:
       - A5102790365   # 3 shared co-authors in the library (unih3)
+  - name: "Hongming Shan"
+    id: A5049086157
+    team: fudan-miah
+  - name: "Lei Xing"
+    id: A5100381484
+    team: stanford-xing
+  - name: "Hengyong Yu"
+    id: A5052662150
+    team: umass-lowell-yu

@@ -1125,3 +1125,45 @@ teams:
       Medical Imaging，2026）是一个用于稀疏视角锥束 CT 重建的基础模型，在
       大规模腹部 CT 数据集（AtlasAbdomenMini，约 7k 个体数据）上预训练，
       并可用少量标注样本微调到不同解剖部位。
+  fudan-miah:
+    institution: "复旦大学"
+    intro: >
+      复旦大学类脑智能科学与技术研究院的 MIAH 实验室由单洪明领导，研究面向
+      医学影像的机器学习，侧重生成式人工智能与图像重建。其 CT 工作以低剂量
+      CT 为中心：单洪明早年与 Ge Wang 课题组合作的 MAP-NN（Nature Machine
+      Intelligence，2019）和三维 CPCE 网络，之后在复旦发展为基于扩散模型的
+      去噪，如 CoreDiff（IEEE TMI，2024）与 FoundDiff。课题组还研究稀疏视角
+      与不完整视角重建（FreeSeed、GloReDi、ProCT）以及金属伪影校正（Quad-Net）。
+  scu-dig:
+    institution: "四川大学"
+    intro: >
+      深度成像课题组（DIG）由四川大学网络空间安全学院的张意教授领导，研究
+      基于深度学习的医学图像处理。其 CT 重建工作涵盖低剂量 CT（MAGIC，IEEE
+      TMI 2021）、跨扫描几何的重建（PDF）、金属伪影校正（DAN-Net、IDOL-Net、
+      SemiMAR）、基于展开网络的稀疏视角与能谱 CT（RegFormer、SOUL-Net），以及
+      一篇 2024 年关于不完整投影数据深度学习 CT 重建的综述。
+  ncu-liu:
+    institution: "南昌大学"
+    intro: >
+      刘且根领导的南昌大学信息工程学院成像与视觉表示实验室，研究 MRI 与 CT
+      图像重建中的生成模型。其 CT 论文使用学习得到的先验与分数先验：用于低剂量
+      CT 的深度梯度先验（EASEL，IEEE TRPMS 2022）、用于稀疏视角 CT 的去噪自编码
+      先验（REDAEP）、正弦图域生成建模（IEEE TRPMS 2024），以及用于稀疏视角 CT
+      的小波细化扩散模型（SWORD，IEEE TMI 2024）。
+  stanford-xing:
+    institution: "斯坦福大学"
+    intro: >
+      Lei Xing 主持斯坦福大学放射肿瘤学系医学物理部，其课题组研究面向放射
+      治疗的人工智能与成像。其 CT 重建工作包括由单个投影视角重建患者特异的
+      容积图像（Nature Biomedical Engineering，2019）、用于稀疏采样的带先验
+      嵌入的隐式神经表示（NeRP、PINER）、压缩感知与四维锥束 CT、低剂量网络
+      TransCT，以及基于深度学习的金属伪影校正。
+  umass-lowell-yu:
+    institution: "麻省大学洛厄尔分校"
+    intro: >
+      麻省大学洛厄尔分校电气与计算机工程系的成像与信息学实验室由 Hengyong
+      Yu 主持，研究计算机断层成像与医学图像处理，从基于压缩感知的内部重建
+      到基于机器学习的层析成像。其收录于本目录的论文包括基于 CNN 的金属伪影
+      校正（CNN-MAR，IEEE TMI 2018）、用于低剂量 CT 的 Transformer 去噪网络
+      CTformer、对抗式重建（CLEAR）、用于动态与能谱 CT 的张量方法，以及有限角
+      心脏 CT。

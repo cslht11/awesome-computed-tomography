@@ -13,6 +13,13 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Five research groups added to Teams
+
+### Added
+
+- **Five research groups**, the ones with the most papers in the list among those without a team card, each checked against its official page: Hongming Shan's MIAH Lab (Fudan University), Yi Zhang's Deep Imaging Group (Sichuan University), Qiegen Liu's Imaging and Visual Representation Laboratory (Nanchang University), Lei Xing's group (Stanford Medical Physics) and Hengyong Yu's Imaging and Informatics Lab (UMass Lowell). Each card links the group's papers in the list, and each lead is pinned in the knowledge graph by a verified identity. Teams 20 → 25.
+- Jianhua Ma (Southern Medical University), also on the review's list, is not added yet: no official group page could be found, and sources disagree on his current institution.
+
 ## 2026-10-30 — Datasets, benchmarks, toolkits and books from the review's list
 
 ### Added

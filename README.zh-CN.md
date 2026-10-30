@@ -53,7 +53,7 @@
 
 ## 研究团队
 
-[在网站上浏览全部 20 条](https://computedtomography.org/zh/?tab=teams)
+[在网站上浏览全部 25 条](https://computedtomography.org/zh/?tab=teams)
 
 ## 知识图谱
 

@@ -602,3 +602,139 @@
     benchmarks: []
   software: "DeepSparse code (GitHub: xmed-lab/DeepSparse); pretrained and fine-tuned model weights released on Hugging Face."
   verified: 2026-10-20
+
+- id: fudan-miah
+  name: "MIAH Lab"
+  name_zh: "复旦大学 MIAH 实验室（单洪明）"
+  institution: "Fudan University"
+  city: "Shanghai"
+  country: "China"
+  region: asia
+  pi: ["Hongming Shan (单洪明)"]
+  homepage: "https://hmshan.io/"
+  focus: [low-dose, diffusion, sparse-view, metal-artifact]
+  status: active
+  intro: >
+    The MIAH Lab at Fudan University's Institute of Science and Technology
+    for Brain-inspired Intelligence is led by Hongming Shan and works on
+    machine learning for medical imaging, with an emphasis on generative AI
+    and image reconstruction. Its CT work centres on low-dose CT: Shan's
+    earlier MAP-NN (Nature Machine Intelligence, 2019) and 3D CPCE networks,
+    built with Ge Wang's group, were followed at Fudan by diffusion-based
+    denoising such as CoreDiff (IEEE TMI, 2024) and FoundDiff. The group also
+    works on sparse- and incomplete-view reconstruction (FreeSeed, GloReDi,
+    ProCT) and metal artifact reduction (Quad-Net).
+  works:
+    papers: [corediff, founddiff, freeseed, gloredi, proct, quad-net, ascon, du-gan, map-nn, cpce]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-30
+
+- id: scu-dig
+  name: "Deep Imaging Group (DIG)"
+  name_zh: "四川大学深度成像课题组（张意）"
+  institution: "Sichuan University"
+  city: "Chengdu"
+  country: "China"
+  region: asia
+  pi: ["Yi Zhang (张意)"]
+  homepage: "https://deep-imaging-group.github.io/"
+  focus: [low-dose, metal-artifact, sparse-view, spectral]
+  status: active
+  intro: >
+    The Deep Imaging Group (DIG) is led by Yi Zhang, a professor in the
+    School of Cyber Science and Engineering at Sichuan University, and works
+    on medical image processing with deep learning. Its CT reconstruction
+    papers cover low-dose CT (MAGIC, IEEE TMI 2021), reconstruction across
+    scan geometries (PDF), metal artifact reduction (DAN-Net, IDOL-Net,
+    SemiMAR), sparse-view and spectral CT with unrolled networks (RegFormer,
+    SOUL-Net), and a 2024 review of deep-learning CT reconstruction from
+    incomplete projection data.
+  works:
+    papers: [magic, pdf, dan-net, idol-net, semimar, regformer, soul-net, dl-ct-incomplete-data-review-2024]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-30
+
+- id: ncu-liu
+  name: "Imaging and Visual Representation Laboratory"
+  name_zh: "南昌大学成像与视觉表示实验室（刘且根）"
+  institution: "Nanchang University"
+  city: "Nanchang"
+  country: "China"
+  region: asia
+  pi: ["Qiegen Liu (刘且根)"]
+  homepage: "https://yqx7150.github.io/en-index.html"
+  focus: [diffusion, sparse-view, low-dose]
+  status: active
+  intro: >
+    Qiegen Liu's Imaging and Visual Representation Laboratory in the School
+    of Information Engineering at Nanchang University works on generative
+    models for image reconstruction in MRI and CT. Its CT papers use learned
+    and score-based priors: deep gradient priors for low-dose CT (EASEL,
+    IEEE TRPMS 2022), a denoising-autoencoder prior for sparse-view CT
+    (REDAEP), generative modelling in the sinogram domain (IEEE TRPMS 2024)
+    and a wavelet-refined diffusion model for sparse-view CT (SWORD, IEEE TMI
+    2024).
+  works:
+    papers: [easel, redaep, generative-modeling-in-sinogram-domain-for-sparse-view-ct-, sword, diffnaf]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-30
+
+- id: stanford-xing
+  name: "Lei Xing's group, Medical Physics Division"
+  name_zh: "斯坦福大学 Lei Xing 课题组（医学物理部）"
+  institution: "Stanford University"
+  city: "Stanford, CA"
+  country: "USA"
+  region: north-america
+  pi: ["Lei Xing"]
+  homepage: "https://profiles.med.stanford.edu/lei-xing"
+  focus: [sparse-view, inr, metal-artifact, cbct, low-dose]
+  status: active
+  intro: >
+    Lei Xing directs the Medical Physics Division of Stanford's Department
+    of Radiation Oncology, and his group works on artificial intelligence and
+    imaging for radiation therapy. Its CT reconstruction papers include
+    patient-specific volumetric reconstruction from a single projection view
+    (Nature Biomedical Engineering, 2019), implicit neural representations
+    with prior embedding for sparse sampling (NeRP, PINER), compressed-sensing
+    and 4D cone-beam CT, the TransCT low-dose network and deep-learning metal
+    artifact reduction.
+  works:
+    papers: [psrv, nerp, piner, transct, deep-sinogram-completion-mar, mar-self-supervised-cross-domain, cs-cbct-fom, gao-2012]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-30
+
+- id: umass-lowell-yu
+  name: "Imaging and Informatics Lab (CT Lab)"
+  name_zh: "麻省大学洛厄尔分校成像与信息学实验室（Hengyong Yu）"
+  institution: "University of Massachusetts Lowell"
+  city: "Lowell, MA"
+  country: "USA"
+  region: north-america
+  pi: ["Hengyong Yu"]
+  homepage: "https://sites.uml.edu/hengyong-yu/"
+  focus: [metal-artifact, low-dose, spectral, dynamic, limited-angle]
+  status: active
+  intro: >
+    The Imaging and Informatics Lab in the Department of Electrical and
+    Computer Engineering at UMass Lowell is directed by Hengyong Yu and works
+    on computed tomography and medical image processing, from compressed
+    sensing based interior tomography to machine-learning based tomographic
+    imaging. Its papers in this directory include CNN-based metal artifact
+    reduction (CNN-MAR, IEEE TMI 2018), the CTformer transformer for low-dose
+    CT, adversarial reconstruction (CLEAR), tensor methods for dynamic and
+    spectral CT, and limited-angle cardiac CT.
+  works:
+    papers: [cnn-mar, ctformer, clear, tensor-dl, nlctf, uswin-limited-angle-cardiac]
+    toolkits: []
+    datasets: []
+    benchmarks: []
+  verified: 2026-10-30

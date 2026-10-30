@@ -53,7 +53,7 @@ Sparse-view, limited-angle, low-dose, metal-artifact, spectral, cone-beam and 4D
 
 ## Research Teams
 
-[Browse all 20 entries on the website](https://computedtomography.org/?tab=teams)
+[Browse all 25 entries on the website](https://computedtomography.org/?tab=teams)
 
 ## Knowledge Graph
 
