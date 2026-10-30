@@ -177,13 +177,35 @@
       });
     });
 
+    var stageStyle = getComputedStyle(stage);
+    var haloColor = stageStyle.backgroundColor || "#fff";
+    var textColor = stageStyle.getPropertyValue("--fg").trim() || "#1d1d1f";
     var sigma = new window.Sigma(graph, stage, {
       renderLabels: true,
-      labelRenderedSizeThreshold: 5.5,
-      labelDensity: 0.12,
-      labelGridCellSize: 60,
-      labelSize: 12,
+      // How many labels show is decided by the rank budget in the node
+      // reducer below; sigma's grid only keeps those from colliding.
+      labelRenderedSizeThreshold: 1,
+      labelDensity: 0.7,
+      labelGridCellSize: 120,
+      labelSize: 12.5,
       labelColor: { color: "#5a6270" },
+      // Labels sit over a dense field of dots and edges: draw each with a
+      // halo in the stage's own background colour (dark mode included) so
+      // it stays legible, in the page's text colour.
+      defaultDrawNodeLabel: function (ctx, data, settings) {
+        if (!data.label) return;
+        // Long paper titles are cut on the canvas; the panel shows them whole.
+        var text = data.label.length > 42 ? data.label.slice(0, 40).replace(/\s+\S*$/, "") + "\u2026" : data.label;
+        var size = settings.labelSize;
+        ctx.font = "500 " + size + "px " + settings.labelFont;
+        var x = data.x + data.size + 4, y = data.y + size / 3;
+        ctx.lineJoin = "round";
+        ctx.lineWidth = 3.5;
+        ctx.strokeStyle = haloColor;
+        ctx.strokeText(text, x, y);
+        ctx.fillStyle = textColor;
+        ctx.fillText(text, x, y);
+      },
       defaultNodeColor: "#999",
       defaultEdgeColor: "#c3c9d4",
       minCameraRatio: 0.04,
@@ -197,16 +219,28 @@
     // partial return therefore drops x/y and sigma throws inside
     // setSetting, killing init before any control is wired. Always
     // start from a copy of `data`.
+    // Labels: at the opening zoom only the best-connected nodes carry one
+    // (about one per 70 px of stage width), and more appear as the reader
+    // zooms in. Labelling every team and every node above a small size
+    // piled hundreds of names on top of each other on the large topics.
+    var rank = {};
+    G.nodes.map(function (n) { return n.id; })
+      .sort(function (a, b) { return (degree[b] || 0) - (degree[a] || 0); })
+      .forEach(function (id, i) { rank[id] = i; });
+    function labelBudget() {
+      var k = Math.max(8, Math.min(22, Math.round(stage.clientWidth / 70)));
+      return k * Math.max(1, 1.12 / sigma.getCamera().ratio);
+    }
+    var budget = 0;
     sigma.setSetting("nodeReducer", function (id, data) {
       var out = Object.assign({}, data);
       var n = byId[id];
-      // Structural hubs always carry their label; everyone else is
-      // labelled by the zoom threshold, and hover/selection forces the
-      // label of the node being inspected.
-      if ((n && (n.t === "team" || n.t === "topic")) ||
-          id === selected || id === hoverId) {
-        out.forceLabel = true;
-      }
+      var focus = id === selected || id === hoverId;
+      if (focus || (n && n.t === "topic" && rank[id] === 0)) out.forceLabel = true;
+      // The inspected node's neighbours may be labelled too (sigma's own
+      // grid still keeps them from colliding); everything else waits for
+      // its rank to come within the zoom-dependent budget.
+      else if (!(hlNodes && hlNodes[id]) && rank[id] >= budget) out.label = null;
       if (hlNodes && !hlNodes[id]) {
         out.color = DIM_COLORS[n.t] || "#ddd";
         out.zIndex = 0;
@@ -244,6 +278,13 @@
       else cam.animate(target, { duration: 550 });
     }
     frameAll(false);
+    budget = labelBudget();
+    sigma.refresh();     // the reducers first ran with budget 0
+    // Re-run the reducers only when the zoom changes the label budget.
+    sigma.getCamera().on("updated", function () {
+      var b = labelBudget();
+      if (Math.round(b) !== Math.round(budget)) { budget = b; sigma.refresh(); }
+    });
 
     function refresh() {
       computeHighlight();
@@ -256,6 +297,45 @@
         .replace("{shown}", G.nodes.length)
         .replace("{total}", G.total || G.nodes.length)
         .replace("{edges}", EDGES.length);
+    }
+
+    // Legend: what each colour is, with this graph's counts, and what the
+    // red arrows are. Citation links come from OpenAlex, which has no
+    // reference list yet for many recent papers; say so where they appear.
+    if (bar) {
+      var types = {}, kinds = {};
+      G.nodes.forEach(function (n) { types[n.t] = (types[n.t] || 0) + 1; });
+      EDGES.forEach(function (e) { kinds[e[2]] = true; });
+      var leg = document.createElement("div");
+      leg.className = "g-types g-legend";
+      Object.keys(types).sort(function (a, b) { return types[b] - types[a]; })
+        .forEach(function (ty) {
+          var item = document.createElement("span");
+          item.className = "g-type";
+          var dot = document.createElement("span");
+          dot.className = "g-dot";
+          dot.style.background = COLORS[ty] || "#999";
+          item.appendChild(dot);
+          item.appendChild(document.createTextNode(t("type_" + ty, ty) + " " + types[ty]));
+          leg.appendChild(item);
+        });
+      if (kinds.cites) {
+        var cite = document.createElement("span");
+        cite.className = "g-type";
+        var line = document.createElement("span");
+        line.className = "g-line";
+        line.style.background = EDGE_COLORS.cites;
+        cite.appendChild(line);
+        cite.appendChild(document.createTextNode(t("edge_cites", "cites")));
+        leg.appendChild(cite);
+      }
+      bar.appendChild(leg);
+      if (kinds.cites && t("coverage", "")) {
+        var cov = document.createElement("p");
+        cov.className = "g-note g-coverage";
+        cov.textContent = t("coverage", "");
+        bar.appendChild(cov);
+      }
     }
 
     // Paint watchdog: a successful init is not proof anything was

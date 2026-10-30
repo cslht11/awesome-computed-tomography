@@ -248,6 +248,7 @@ ui:
   graphView3D: "3D"
   graphReset: "Reset"
   graphCounts: "Showing {shown} of {total} nodes \u00b7 {edges} relations in total"
+  graphCoverage: "Citation links come from OpenAlex; papers it has not indexed with a reference list yet, mostly recent ones, show none. Zoom in for more labels; select a node to see its connections."
   graphFullNote: "The full graph is large; the layout may take a moment and individual labels are best read after zooming in."
   graphLoadNote: "The interactive graph could not be loaded (JavaScript or the graph library is unavailable); the same entries are listed below as links."
   graphFallbackTitle: "Teams and their works in the library"

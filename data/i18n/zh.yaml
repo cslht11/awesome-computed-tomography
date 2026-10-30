@@ -224,6 +224,7 @@ ui:
   graphView3D: "3D"
   graphReset: "重置"
   graphCounts: "正在显示 {total} 个节点中的 {shown} 个 · 共 {edges} 条关系"
+  graphCoverage: "引用连线来自 OpenAlex；它尚未收录参考文献的论文（多为较新的论文）不会显示引用。放大可看到更多标签，点击节点可查看其连接。"
   graphFullNote: "全图节点较多，布局需要一点时间；放大后单个节点的标签更易读。"
   graphLoadNote: "交互图谱未能加载（JavaScript 或图谱库不可用）；下方以链接形式列出了同样的条目。"
   graphFallbackTitle: "团队与它们在库中的工作"

@@ -13,6 +13,14 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-30 — Readable knowledge-graph pages
+
+### Changed
+
+- **Labels no longer pile up.** At the opening zoom only the best-connected nodes are labelled (about one per 70 px of width), and more appear as you zoom in; every team name used to be forced on, which on the larger topics stacked dozens of names on top of each other. Labels have a halo in the background colour so they stay legible over the edges, and long paper titles are shortened on the canvas (the panel shows them whole).
+- **A legend** under the search bar says what each colour is, with this graph's counts, and what the red arrows (citations) are. A note explains that citation links come from OpenAlex, which has no reference list yet for many recent papers.
+- **The canvas uses the full page width** on a desktop instead of the narrow text column.
+
 ## 2026-10-30 — Two new topics: Interior, ROI & Truncation, and Helical & Multislice CT
 
 ### Added
