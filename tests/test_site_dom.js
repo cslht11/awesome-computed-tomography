@@ -118,6 +118,21 @@ function paperTitles(win) {
   );
 }
 
+/* Section tables render on first use (app.js renderTab), not all at load:
+   a datasets deep link used to pay for every table before the visible one
+   appeared. Opening each tab must fill its table; papers is left active
+   afterwards so the filter tests below read the papers list. */
+function openSectionTabs(doc, win) {
+  ["toolkits", "datasets", "benchmarks", "learning"].forEach(function (tab) {
+    const before = doc.querySelectorAll("#t-" + tab + " tr").length;
+    ok("lazy tab: #" + tab + " empty at load", before === 0, before + " rows");
+    doc.querySelector('#tabs button[data-tab="' + tab + '"]').dispatchEvent(new win.MouseEvent("click", { bubbles: true }));
+    const after = doc.querySelectorAll("#t-" + tab + " tr").length;
+    ok("lazy tab: #" + tab + " fills on first open", after > 0, after + " rows");
+  });
+  doc.querySelector('#tabs button[data-tab="papers"]').dispatchEvent(new win.MouseEvent("click", { bubbles: true }));
+}
+
 /* Dataset / benchmark names link to their own page (official link kept
    beside it), and the Learning tab opens with the Guides group. Every such
    link must resolve to a page in the build. */
@@ -172,13 +187,12 @@ async function testEnglish() {
   ok("search.js loaded (window.CTSearch)", typeof win.CTSearch === "object" && win.CTSearch !== null);
   ok("paper list rendered on load", paperTitles(win).length > 300, paperTitles(win).length + " rows");
 
-  /* init() runs the five section renders in sequence, so a throw in any one of
-     them silently skips every step after it — including the search wiring. Row
-     counts are therefore the guard that init() actually finished. */
-  ["t-toolkits", "t-datasets", "t-benchmarks", "t-learning"].forEach(function (id) {
-    const n = doc.querySelectorAll("#" + id + " tr").length;
-    ok("init() completed: #" + id + " has rows", n > 0, n + " rows");
-  });
+  /* init() used to run every section render in sequence, so a throw in any
+     one of them silently skipped every step after it — including the search
+     wiring. Tables now render on first open instead, so the guard moves
+     there: each tab must fill on click, and init finishing is still proven
+     by the papers list above plus the search wiring below. */
+  openSectionTabs(doc, win);
 
   homeDetailLinks(doc, "");
 
@@ -290,6 +304,7 @@ async function testChinese() {
   const dom = await openPage(path.join("zh", "index.html"));
   const win = dom.window, doc = win.document;
 
+  openSectionTabs(doc, win);
   homeDetailLinks(doc, "zh");
 
   // The hero lead fills {tagline}; it must be the Chinese tagline, not the

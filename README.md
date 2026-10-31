@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 678 papers | 60 toolkits | 82 datasets | 22 benchmarks | Updated 2026-10-30 |
+| 678 papers | 60 toolkits | 82 datasets | 22 benchmarks | Updated 2026-10-31 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>

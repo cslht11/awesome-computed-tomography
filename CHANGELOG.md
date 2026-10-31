@@ -13,6 +13,14 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-10-31 — Homepage renders the requested tab first; 4D-Lung note in Chinese; SITE.md tabs fixed
+
+### Fixed
+
+- **Homepage no longer renders every section table before reading the URL.** init() now reads the address first and renders only the visible tab's table on first open (the other tables render when opened); the plain papers view upgrades the served list in place instead of rebuilding 678 rows. A ?tab= deep link no longer flashes the papers list while the other tables build.
+- **4D-Lung note is Chinese on the Chinese site.** It was the only dataset of 82 without a Chinese note, so the Chinese detail page showed the English text.
+- **SITE.md Tabs line lists all seven tabs.** It still listed five, omitting Teams and Knowledge Graph.
+
 ## 2026-10-30 — Graph pages keep a list of their nodes; stale toolkits say when they were last updated
 
 ### Added

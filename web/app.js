@@ -590,8 +590,8 @@
     });
   }
 
-  function setTab(name, push) {
-    state.tab = name;
+  /* Visibility only: the panel switch itself, without any rendering. */
+  function showTab(name) {
     Array.prototype.forEach.call(document.querySelectorAll("#tabs button"), function (b) {
       b.setAttribute("aria-selected", String(b.dataset.tab === name));
     });
@@ -602,6 +602,16 @@
        run (it is first set by the inline script in index.html). */
     if (name === "papers") document.documentElement.removeAttribute("data-tab");
     else document.documentElement.setAttribute("data-tab", name);
+  }
+
+  function setTab(name, push) {
+    state.tab = name;
+    showTab(name);
+    if (name === "papers") {
+      if (papersStale) { apply(); }
+    } else {
+      renderTab(name);
+    }
     if (push !== false) writeUrl();
   }
 
@@ -672,8 +682,78 @@
 
   /* ---------------------------------------------------------------- wiring */
 
+  /* Section tables render on first use, not all at load: a datasets deep
+     link used to pay for every table before the visible one appeared. */
+  var renderedTabs = {};
+  function renderTab(name) {
+    if (renderedTabs[name]) { return; }
+    renderedTabs[name] = true;
+    if (name === "toolkits") { renderToolkits(); }
+    else if (name === "datasets") { renderDatasets(); }
+    else if (name === "benchmarks") { renderBenchmarks(); }
+    else if (name === "learning") { renderLearning(); }
+    /* papers renders through apply()/upgradeServerList; teams and graph are static. */
+  }
+
+  /* True when the URL asks for anything beyond the plain newest-first
+     papers view. Only then does the first render need the full rebuild;
+     the plain view upgrades the served list in place instead. */
+  function hasFilters() {
+    return !!state.q || state.topics.length > 0 || state.type !== "all" ||
+      state.code || state.from !== 0 || state.sort !== "new";
+  }
+
+  /* The served papers list already shows the plain view, so rebuilding it
+     from DATA would only swap identical rows and block the first paint
+     behind 678 fresh nodes. Upgrade it in place instead: the year
+     headings renderPapers would insert, and the data-blurb the hover
+     cards read (served titles carry the blurb as a plain `title` tooltip
+     for no-JS readers; the card needs data-blurb, and keeping both
+     would show two tooltips at once). */
+  function upgradeServerList() {
+    var byId = {};
+    DATA.papers.forEach(function (p) { byId[p.id] = p; });
+    var perYear = {};
+    DATA.papers.forEach(function (p) { perYear[p.year] = (perYear[p.year] || 0) + 1; });
+    var lastYear = null;
+    Array.prototype.forEach.call(listEl.querySelectorAll("li.paper"), function (li) {
+      var span = li.querySelector(".p-titletext");
+      var p = span ? byId[span.getAttribute("data-id")] : null;
+      if (p && p.year !== lastYear) {
+        lastYear = p.year;
+        var yl = document.createElement("li");
+        yl.className = "year-sep";
+        var yh = document.createElement("h2");
+        yh.textContent = String(p.year);
+        var yn = document.createElement("span");
+        yn.className = "n";
+        yn.textContent = perYear[p.year];
+        yh.appendChild(yn);
+        yl.appendChild(yh);
+        listEl.insertBefore(yl, li);
+      }
+      if (span && span.hasAttribute("title")) {
+        span.setAttribute("data-blurb", span.getAttribute("title"));
+        span.removeAttribute("title");
+      }
+    });
+    countEl.textContent = DATA.papers.length;
+    emptyEl.hidden = DATA.papers.length !== 0;
+  }
+
+  /* Nothing JS-rendered yet: the served list is pre-JS markup until init
+     upgrades or replaces it. */
+  var papersStale = true;
+
   function apply() {
-    renderPapers();
+    if (state.tab === "papers") {
+      renderPapers();
+      papersStale = false;
+    } else {
+      /* The papers panel is hidden: rendering 678 rows into it now would
+         only block the visible tab. Defer it until papers is opened. */
+      papersStale = true;
+    }
     writeUrl();
   }
 
@@ -756,17 +836,24 @@
       b.addEventListener("click", function () { setTab(b.dataset.tab); });
     });
 
-    renderTopics();
-    renderToolkits();
-    renderDatasets();
-    renderBenchmarks();
-    renderLearning();
+    /* The URL decides the visible tab BEFORE anything heavy renders, so a
+       ?tab= deep link never flashes the papers list while the other
+       tables build. */
     readUrl();
-    setTab(state.tab, false);
-    /* Render once with whatever the URL asked for. The list is also present in
-       the served HTML so the page works without JS and stays crawlable; this
-       call is what makes ?q= / ?topic= / ?code= deep links actually filter. */
-    apply();
+    if (state.tab === "papers" && !hasFilters()) {
+      /* Plain view: the served list already shows exactly this, so upgrade
+         it in place (year headings, data-blurb cards) instead of
+         rebuilding 678 rows. */
+      upgradeServerList();
+      papersStale = false;
+      showTab(state.tab);
+    } else {
+      /* A filtered papers view renders through apply(); any other tab
+         renders its own table on first open (see setTab). */
+      setTab(state.tab, false);
+    }
+    renderTopics();
+    writeUrl();
 
     document.getElementById("q").addEventListener("input", debounce(function (e) {
       state.q = e.target.value.trim();

@@ -263,7 +263,7 @@ exists.
   some other record's URL would navigate to the wrong page.
 - **Filters** — one chip per topic (multi-select, with counts), `All / Peer-reviewed /
   Preprints`, `has code`, `from <year>`, and sorting by newest, oldest or title.
-- **Tabs** — Papers, Toolkits, Datasets, Benchmarks, Learning.
+- **Tabs** — Papers, Toolkits, Datasets, Benchmarks, Learning, Teams, Knowledge Graph.
 - **Deep links** — the whole filter state lives in the URL
   (`?q=&topic=&type=&code=&from=&sort=&tab=`), so any view can be shared. There is a
   *copy link* button.

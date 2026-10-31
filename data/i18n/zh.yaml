@@ -682,6 +682,8 @@ datasets:
     note: "**Projection + image.** 缅甸琥珀中白垩纪中期 lagonomegopid 蜘蛛的显微 CT：原始显微 CT TIFF + 三维重建。这是古生物标本扫描，并非为重建基准而设计。Dryad DOI 10.5061/dryad.7m0cfxpv0。"
   "Walnut micro-CT (Saarland)":
     note: "**Projection + image.** 单个核桃的显微 CT（Saarland）：1601 个采集投影（TIFF 栈）+ 重建体（pyXIT）。这是库中第 6 个核桃，采集方式与其他 5 个不同。"
+  "4D-Lung":
+    note: "**仅含图像。**20 例接受放化疗的局部晚期非小细胞肺癌患者：4D 扇束 CT（16 排螺旋，10 个呼吸时相，层厚 3 mm）与 4D 锥束 CT（Varian 机载成像仪，约 2500 个投影按 10 个时相分选、以内部 FDK 重建）——183 GB DICOM 图像加 RTSTRUCT 勾画；下载中不含原始投影。引用数据时须注明：Hugo 等 2016，DOI 10.7937/K9/TCIA.2016.ELN8YGLE。PRIOR 的 PRIOR-Net 的仿真数据来源（17 例训练 / 3 例测试）；与 SPARE 4D-CBCT 挑战赛数据不同。"
 benchmarks:
   "AAPM Low-Dose CT Grand Challenge":
     note: "2016 年由 AAPM、NIBIB 与 Mayo Clinic 主办的挑战赛：30 例增强腹部 CT（10 例训练、20 例测试），通过在投影中注入泊松噪声模拟 1/4 剂量（25%）数据。其病例与协议是 Mayo 低剂量数据的基础，至今大多数低剂量 CT 论文仍在其上报告结果。"

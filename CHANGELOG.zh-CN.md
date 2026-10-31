@@ -6,6 +6,15 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-10-31 — 首页先读地址再渲染；4D-Lung 注记译成中文；SITE.md 标签列表补齐
+<!-- en: Homepage renders the requested tab first; 4D-Lung note in Chinese; SITE.md tabs fixed -->
+
+### 修复
+
+- **首页不再先渲染全部表格再读地址。**init() 现在先读地址，只在首次打开时渲染当前标签页的表格（其他表格在打开时再渲染）；默认论文视图直接在服务端列表上原地升级，不再重建 678 行。?tab= 深链不再先闪一下论文列表。
+- **4D-Lung 的注记在中文站显示中文。**它是 82 个数据集中唯一没有中文注记的，中文详情页此前显示英文。
+- **SITE.md 的 Tabs 一行补齐七个标签。**此前只列了五个，漏了 Teams 与 Knowledge Graph。
+
 ## 2026-10-30 — 图谱页保留节点列表；久未更新的工具包注明最后更新时间
 <!-- en: Graph pages keep a list of their nodes; stale toolkits say when they were last updated -->
 
