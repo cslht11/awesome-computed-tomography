@@ -80,3 +80,27 @@ perspective-deep-imaging: >-
 
 image-recon-new-frontier: >-
   Editorial of the 2018 IEEE TMI special issue on machine learning for image reconstruction, surveying the first wave of learned reconstruction methods and the questions they raise.
+
+eureca: >-
+  A single geometry-aware feed-forward network family that reconstructs clinical linac CBCT from 2-100 projections without view-count-specific retraining, fusing exact cone-beam back-projection with a differentiable FDK reconstruction at every scale; simulated 10-100 views reach 29.9-33.2 dB PSNR, and the model is best on 15 real patient CBCT scans at every view count.
+
+sparsetokengs: >-
+  Feed-forward Gaussian-splatting reconstruction for sparse-view CBCT built on a reusable token pool: one forward pass, no per-scan optimisation; best on three public chest and dental sets, with 29.51 dB PSNR and 0.842 SSIM from 6 projections on clinical dental CBCT, where pulp segmentation remains separable.
+
+p2-gaussian: >-
+  Prior-driven, projection-guided Gaussian splatting for sparse-view CBCT: a latent rectified-flow model (Sparse2Prior) restores the artifact-corrupted FDK volume into an anatomical prior in about 5 s, Gaussians are initialised from it in a tissue-adaptive way, and virtual intermediate views are activated in rotation during optimisation; at 5/10/20 views it beats the Gaussian baseline by 5.98/4.25/2.49 dB while running 2.6-3.0 times faster with 62-65% fewer primitives.
+
+xsv-ct: >-
+  Extremely sparse-view CT from 2D projections via pose-aware diffusion priors, under a train-sparse/infer-sparse setting where each training sample contributes only one 2D projection; measurement fidelity, a shared volume re-projection and projection-physics consistency guide inference, giving best or tied novel-view synthesis and reconstruction at 1/4/8 views on two public sets.
+
+ffai: >-
+  Unified conditional flow matching for CT reconstruction across low-dose, sparse-view and limited-angle tasks, with teacher-simulated inference-shift feedback training and degradation-adaptive initialisation; one framework beats task-specific baselines on all three public benchmarks.
+
+rdbm-mar: >-
+  Image-domain metal artifact reduction with an endpoint-conditioned diffusion bridge connecting metal-affected and metal-free CT, using a 10-step deterministic reverse pass; on 14,000 AAPM CT-MAR slices it reaches 43.67 dB PSNR, 0.9856 SSIM and 14.74 HU MAE, significantly better than five controls.
+
+driftrecon: >-
+  One-step generative reconstruction by drifting inside the measurement operator's nullspace, coupled to data-consistency guidance; the same formulation beats existing generative and drift models on sparse-view CT and accelerated MRI.
+
+epc-rawdc: >-
+  Scanner-geometry-equivariant, physics-constrained 3D latent diffusion for CBCT-to-CT synthesis, enforcing raw-data consistency through projection constraints; SSIM 0.97 on two independent clinical cohorts, beating DDPM by 2.66 dB and JUST by 2.10 dB on SynthRAD2025.

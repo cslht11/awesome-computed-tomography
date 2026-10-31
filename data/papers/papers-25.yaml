@@ -187,3 +187,55 @@
   venue: "TMI"
   topics: [survey]
   paper: "https://doi.org/10.1109/tmi.2018.2833635"
+- id: "eureca"
+  abbr: "EUReCA"
+  title: "EUReCA: End-to-End Unified CBCT Reconstruction Across Clinical Acquisitions"
+  year: 2026
+  topics: [sparse-view, cbct]
+  paper: "https://arxiv.org/abs/2610.37740"
+  code: "https://github.com/Jiening666/EUReCA"
+- id: "sparsetokengs"
+  abbr: "SparseTokenGS"
+  title: "SparseTokenGS: Gaussian-based Sparse-View CBCT Reconstruction via Reusable Token Pool"
+  year: 2026
+  topics: [sparse-view, cbct, gaussian]
+  paper: "https://arxiv.org/abs/2610.38360"
+- id: "p2-gaussian"
+  abbr: "P2-Gaussian"
+  title: "P^2-Gaussian: Prior-Driven and Projection-Guided Gaussian Splatting for Sparse-View Cone-Beam CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, cbct, gaussian]
+  paper: "https://arxiv.org/abs/2610.39359"
+- id: "xsv-ct"
+  abbr: "xSV-CT"
+  title: "Extremely Sparse-View CT from 2D Projections via Pose-Aware Diffusion Priors"
+  year: 2026
+  topics: [sparse-view, diffusion]
+  paper: "https://arxiv.org/abs/2610.38319"
+- id: "ffai"
+  abbr: "FFAI"
+  title: "FFAI: Flow Matching with Feedback Training and Adaptive Initialization for CT Reconstruction"
+  year: 2026
+  topics: [low-dose, sparse-view, limited-angle, diffusion]
+  paper: "https://arxiv.org/abs/2610.39517"
+- id: "rdbm-mar"
+  abbr: "RDBM-MAR"
+  title: "RDBM-MAR: Image-Domain CT Metal Artifact Reduction Using an Endpoint-Conditioned Diffusion Bridge"
+  year: 2026
+  topics: [metal-artifact, diffusion]
+  paper: "https://arxiv.org/abs/2610.36319"
+  note: "User-approved scope inclusion (2026-10-31): image-domain metal artifact reduction, not projection reconstruction."
+- id: "driftrecon"
+  abbr: "DriftRecon"
+  title: "DriftRecon: Guidance-Coupled Nullspace Drifting for One-Step Medical Image Reconstruction"
+  year: 2026
+  topics: [sparse-view, diffusion]
+  paper: "https://arxiv.org/abs/2610.38953"
+  note: "User-approved scope inclusion (2026-10-31): general CT+MRI method, included for its nullspace-drifting reconstruction formulation."
+- id: "epc-rawdc"
+  abbr: "EPC-RawDC"
+  title: "EPC-RawDC: Equivariant Physics Constrained 3D Diffusion with Raw Data Consistency for CBCT to CT"
+  year: 2026
+  topics: [cbct, diffusion]
+  paper: "https://arxiv.org/abs/2610.40046"
+  note: "User-approved scope inclusion (2026-10-31): CBCT-to-CT synthesis, not projection reconstruction."

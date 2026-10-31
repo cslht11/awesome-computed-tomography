@@ -15,6 +15,10 @@
 - **4D-Lung 的注记在中文站显示中文。**它是 82 个数据集中唯一没有中文注记的，中文详情页此前显示英文。
 - **SITE.md 的 Tabs 一行补齐七个标签。**此前只列了五个，漏了 Teams 与 Knowledge Graph。
 
+### 新增
+
+- **新增 8 篇 2026 年 10 月 arXiv 论文：**EUReCA（统一直线加速器 CBCT，2-100 视角，附代码）、SparseTokenGS（token 池高斯稀疏视角 CBCT）、P^2-Gaussian（先验驱动高斯稀疏视角 CBCT）、xSV-CT（单张投影训练样本的极稀疏视角 CT）、FFAI（统一流匹配覆盖低剂量、稀疏视角、有限角）、RDBM-MAR（扩散桥图像域金属伪影校正）、DriftRecon（零空间漂移一步重建）与 EPC-RawDC（物理约束 CBCT→CT 扩散）。
+
 ## 2026-10-30 — 图谱页保留节点列表；久未更新的工具包注明最后更新时间
 <!-- en: Graph pages keep a list of their nodes; stale toolkits say when they were last updated -->
 

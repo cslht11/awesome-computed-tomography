@@ -21,6 +21,10 @@ may be reformatted at any time.
 - **4D-Lung note is Chinese on the Chinese site.** It was the only dataset of 82 without a Chinese note, so the Chinese detail page showed the English text.
 - **SITE.md Tabs line lists all seven tabs.** It still listed five, omitting Teams and Knowledge Graph.
 
+### Added
+
+- **Added eight recent arXiv papers (all October 2026 preprints):** EUReCA (unified linac CBCT, 2-100 views, code), SparseTokenGS (token-pool Gaussian sparse-view CBCT), P^2-Gaussian (prior-driven Gaussian sparse-view CBCT), xSV-CT (extremely sparse-view CT from single-projection training samples), FFAI (unified flow matching for low-dose, sparse-view and limited-angle), RDBM-MAR (diffusion-bridge image-domain metal artifact reduction), DriftRecon (nullspace-drifting one-step reconstruction) and EPC-RawDC (physics-constrained CBCT-to-CT diffusion).
+
 ## 2026-10-30 — Graph pages keep a list of their nodes; stale toolkits say when they were last updated
 
 ### Added
