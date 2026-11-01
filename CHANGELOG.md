@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-01 — Added paper-dataset uses edges for EUReCA and xSV-CT
+
+### Added
+
+- **Added 5 paper-dataset uses edges:** EUReCA → LUNA16, AMOS22, TotalSegmentator, RibFrac (all train+test) and xSV-CT → CT-RATE (train+test).
+
 ## 2026-10-31 — Homepage renders the requested tab first; 4D-Lung note in Chinese; SITE.md tabs fixed
 
 ### Fixed

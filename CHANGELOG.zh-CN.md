@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-01 — 为 EUReCA 与 xSV-CT 添加论文-数据集使用边
+<!-- en: Added paper-dataset uses edges for EUReCA and xSV-CT -->
+
+### 新增
+
+- **新增 5 条论文-数据集使用边：**EUReCA → LUNA16、AMOS22、TotalSegmentator、RibFrac（均为训练+测试两用），xSV-CT → CT-RATE（训练+测试两用）。
+
 ## 2026-10-31 — 首页先读地址再渲染；4D-Lung 注记译成中文；SITE.md 标签列表补齐
 <!-- en: Homepage renders the requested tab first; 4D-Lung note in Chinese; SITE.md tabs fixed -->
 

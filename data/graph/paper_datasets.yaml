@@ -304,3 +304,22 @@
     - dataset: TomoBank
       usage: both
       evidence: "§4.1: TomoBank fatigue-corrosion data, tomo_00056 for training and tomo_00055 for testing."
+- paper: eureca
+  uses:
+    - dataset: LUNA16
+      usage: both
+      evidence: "§3.1 Table I (case-level split): LUNA16 thorax (lung), 611 filtered cases split 489 train / 60 val / 62 test; §3.4: the reserved test set is used only for final evaluation."
+    - dataset: AMOS22
+      usage: both
+      evidence: "§3.1 Table I: AMOS22 abdomen, 796 filtered cases split 654 train / 75 val / 67 test; §3.4 case-level 80:10:10 partition, test set for final evaluation only."
+    - dataset: TotalSegmentator
+      usage: both
+      evidence: "§3.1 Table I: TotalSegmentator whole body, 756 filtered cases split 603 train / 75 val / 78 test; §3.4 case-level 80:10:10 partition, test set for final evaluation only."
+    - dataset: RibFrac
+      usage: both
+      evidence: "§3.1 Table I: RibFrac thorax (ribs), 618 filtered cases split 503 train / 60 val / 55 test; §3.4 case-level 80:10:10 partition, test set for final evaluation only."
+- paper: xsv-ct
+  uses:
+    - dataset: CT-RATE
+      usage: both
+      evidence: "§4 Dataset Curation: “We evaluate on xSV-CT regime with two public datasets separately on the pulmonary (CT-RATE) and cranial (SinoCT) cavities. We simulated 2D parallel-beam projections for CT-RATE using LEAP package.” Table 5 gives training, validation and testing splits for CT-RATE (6,000 cases selected); results tables report CT-RATE reconstruction at 1/4/8 views."
