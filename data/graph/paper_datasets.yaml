@@ -323,3 +323,28 @@
     - dataset: CT-RATE
       usage: both
       evidence: "§4 Dataset Curation: “We evaluate on xSV-CT regime with two public datasets separately on the pulmonary (CT-RATE) and cranial (SinoCT) cavities. We simulated 2D parallel-beam projections for CT-RATE using LEAP package.” Table 5 gives training, validation and testing splits for CT-RATE (6,000 cases selected); results tables report CT-RATE reconstruction at 1/4/8 views."
+- paper: ffai
+  uses:
+    - dataset: 2016 Low Dose CT Grand Challenge data
+      usage: both
+      evidence: "§III Experiments and Results: FFAI is evaluated on the Mayo 2016 low-dose CT dataset for low-dose, limited-angle and sparse-view reconstruction; low-dose training uses 1923 slice pairs from 8 patients and testing uses all 211 slice pairs from patient L506; limited-angle and sparse-view experiments use the same Mayo data with patient L286 for evaluation."
+- paper: driftrecon
+  uses:
+    - dataset: 2016 Low Dose CT Grand Challenge data
+      usage: both
+      evidence: "§IV-A Datasets: CT experiments use 1-mm abdominal data from the NIH–AAPM–Mayo Clinic Low Dose CT Grand Challenge, with training, validation and test splits of 2402, 305 and 263 cross-sections without subject overlap; the MRI experiments use M4Raw and are outside the CT library."
+- paper: rdbm-mar
+  uses:
+    - dataset: AAPM CT-MAR challenge data
+      usage: both
+      evidence: "§2.1 Data Preparation and abstract: the model is developed and evaluated on the paired image-domain CT data released by the AAPM CT Metal Artifact Reduction (CT-MAR) grand challenge, with 12045 training, 633 validation and 1322 held-out test slices, plus one case from the 29-case scoring set for qualitative evaluation."
+- paper: sparsetokengs
+  uses:
+    - dataset: LUNA16
+      usage: both
+      evidence: "§IV-A Simulated Experiments and Datasets: quantitative evaluation uses chest CT dataset LUNA16 and dental CBCT datasets ToothFairy and ToothFairy4, each split into training, validation and test scans at about 8:1:1; Table II reports LUNA16 at 3/6/10/14/18 views. ToothFairy and ToothFairy4 have no library entries and are not mapped to ToothFairy2."
+- paper: p2-gaussian
+  uses:
+    - dataset: 4D-Lung
+      usage: eval
+      evidence: "§III-A Datasets and Preprocessing: P²-Gaussian and other reconstruction methods are evaluated on two additional independent datasets, the publicly available 4D-Lung dataset and a separate internal clinical CT dataset; experiments use 5, 10 and 20 projection views with volumes resampled to 256×256×256. AbdomenCT-1K and the 200-case internal set train and evaluate the Sparse2Prior network, not the main method, and have no library entry."

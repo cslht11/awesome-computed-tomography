@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-02 — Added paper-dataset uses edges for FFAI, DriftRecon, RDBM-MAR, SparseTokenGS and P²-Gaussian
+
+### Added
+
+- **Added 5 paper-dataset uses edges:** FFAI → 2016 Low Dose CT Grand Challenge data (train+test), DriftRecon → 2016 Low Dose CT Grand Challenge data (train+test), RDBM-MAR → AAPM CT-MAR challenge data (train+test), SparseTokenGS → LUNA16 (train+test) and P²-Gaussian → 4D-Lung (eval only).
+
 ## 2026-11-01 — Added paper-dataset uses edges for EUReCA and xSV-CT
 
 ### Added

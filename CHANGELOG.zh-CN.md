@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-02 — 为 FFAI、DriftRecon、RDBM-MAR、SparseTokenGS 与 P²-Gaussian 添加论文-数据集使用边
+<!-- en: Added paper-dataset uses edges for FFAI, DriftRecon, RDBM-MAR, SparseTokenGS and P²-Gaussian -->
+
+### 新增
+
+- **新增 5 条论文-数据集使用边：**FFAI → 2016 Low Dose CT Grand Challenge data（训练+测试两用），DriftRecon → 2016 Low Dose CT Grand Challenge data（训练+测试两用），RDBM-MAR → AAPM CT-MAR challenge data（训练+测试两用），SparseTokenGS → LUNA16（训练+测试两用），P²-Gaussian → 4D-Lung（仅评估）。
+
 ## 2026-11-01 — 为 EUReCA 与 xSV-CT 添加论文-数据集使用边
 <!-- en: Added paper-dataset uses edges for EUReCA and xSV-CT -->
 
