@@ -18,6 +18,7 @@ may be reformatted at any time.
 ### Added
 
 - **Added 5 paper-dataset uses edges:** FFAI → 2016 Low Dose CT Grand Challenge data (train+test), DriftRecon → 2016 Low Dose CT Grand Challenge data (train+test), RDBM-MAR → AAPM CT-MAR challenge data (train+test), SparseTokenGS → LUNA16 (train+test) and P²-Gaussian → 4D-Lung (eval only).
+- **Added 1 paper-dataset uses edge:** FFAI → LDCT-and-Projection-data (eval only, cross-dataset generalizability study in §III-E).
 
 ## 2026-11-01 — Added paper-dataset uses edges for EUReCA and xSV-CT
 

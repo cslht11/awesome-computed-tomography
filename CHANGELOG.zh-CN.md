@@ -12,6 +12,7 @@
 ### 新增
 
 - **新增 5 条论文-数据集使用边：**FFAI → 2016 Low Dose CT Grand Challenge data（训练+测试两用），DriftRecon → 2016 Low Dose CT Grand Challenge data（训练+测试两用），RDBM-MAR → AAPM CT-MAR challenge data（训练+测试两用），SparseTokenGS → LUNA16（训练+测试两用），P²-Gaussian → 4D-Lung（仅评估）。
+- **新增 1 条论文-数据集使用边：**FFAI → LDCT-and-Projection-data（仅评估，§III-E 跨数据集通用性实验）。
 
 ## 2026-11-01 — 为 EUReCA 与 xSV-CT 添加论文-数据集使用边
 <!-- en: Added paper-dataset uses edges for EUReCA and xSV-CT -->

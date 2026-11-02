@@ -328,6 +328,9 @@
     - dataset: 2016 Low Dose CT Grand Challenge data
       usage: both
       evidence: "§III Experiments and Results: FFAI is evaluated on the Mayo 2016 low-dose CT dataset for low-dose, limited-angle and sparse-view reconstruction; low-dose training uses 1923 slice pairs from 8 patients and testing uses all 211 slice pairs from patient L506; limited-angle and sparse-view experiments use the same Mayo data with patient L286 for evaluation."
+    - dataset: LDCT-and-Projection-data
+      usage: eval
+      evidence: "§III-E Generalizability Study: to assess cross-dataset generalizability, FFAI is evaluated on the TCIA datasets CT-ORG and LDCT-and-Projection-data; low-dose experiments use 20 abdominal cases from LDCT-and-Projection-data, 5 image pairs per case (100 pairs total), with inputs simulated at 25% of routine dose and routine-dose references."
 - paper: driftrecon
   uses:
     - dataset: 2016 Low Dose CT Grand Challenge data
