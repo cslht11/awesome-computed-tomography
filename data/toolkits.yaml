@@ -570,3 +570,12 @@
   stars: 158
   tags: [Monte Carlo, Geant4, CT, dose]
   note: The Python generation of GATE, the Geant4-based Monte Carlo platform for medical imaging and radiotherapy; simulates CT acquisition, scatter and dose.
+
+- name: DICOMCBCTRecon
+  group: engines
+  repo: 4burakfe/SlicerDICOMCBCTRecon
+  language: Python
+  license: MIT
+  stars: 0
+  tags: [cbct, c-arm, FDK, SART, DICOM, slicer]
+  note: 3D Slicer extension reconstructing rotational C-arm runs (GE Innova 3D, Siemens DynaCT and Philips XperCT multi-frame XA/XRF DICOM) into a 3D volume from the DICOM browser, with FDK (Parker short-scan weights), FDK+SART refinement or SART only on PyTorch — GPU makes FDK take seconds. Tests so far are synthetic-phantom only.

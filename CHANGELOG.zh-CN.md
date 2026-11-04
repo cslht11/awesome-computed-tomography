@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-04 — 新增 DICOMCBCTRecon 工具包
+<!-- en: Added DICOMCBCTRecon toolkit -->
+
+### 新增
+
+- **新增 1 个工具包：**DICOMCBCTRecon（3D Slicer 旋转 C 臂 CBCT 重建扩展，FDK Parker 加权 + SART，PyTorch）入 engines 组；工具包 60 → 61 个。
+
 ## 2026-11-02 — 为 FFAI、DriftRecon、RDBM-MAR、SparseTokenGS 与 P²-Gaussian 添加论文-数据集使用边
 <!-- en: Added paper-dataset uses edges for FFAI, DriftRecon, RDBM-MAR, SparseTokenGS and P²-Gaussian -->
 

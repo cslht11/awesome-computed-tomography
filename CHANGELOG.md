@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-04 — Added DICOMCBCTRecon toolkit
+
+### Added
+
+- **Added 1 toolkit:** DICOMCBCTRecon (3D Slicer extension for rotational C-arm CBCT reconstruction, FDK with Parker weights + SART on PyTorch) to the engines group; toolkits 60 → 61.
+
 ## 2026-11-02 — Added paper-dataset uses edges for FFAI, DriftRecon, RDBM-MAR, SparseTokenGS and P²-Gaussian
 
 ### Added
