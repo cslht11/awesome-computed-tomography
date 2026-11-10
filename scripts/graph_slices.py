@@ -52,7 +52,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import graph_layout as graph_layout_mod  # noqa: E402
 
-CAP = 250                    # hard node cap for a topic slice
+CAP = 260                    # hard node cap for a topic slice
 AUTHOR_MIN_IN_TOPIC = 2      # in-topic papers an author needs to enter
 
 BACKBONE_TYPES = ("team", "topic", "toolkit", "guide")

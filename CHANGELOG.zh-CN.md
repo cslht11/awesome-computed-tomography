@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-10 — 知识图谱主题切片节点上限提高
+<!-- en: Raised knowledge-graph topic-slice cap -->
+
+### 变更
+
+- **知识图谱主题切片节点上限从 250 提高到 260**（`scripts/graph_slices.py`）：稀疏视角切片已达到旧上限 250 个节点，导致新的稀疏视角论文无法入库；新上限使 AgentCT 的入库成为可能（论文 686 → 687 篇）。
+
 ## 2026-11-04 — 新增 DICOMCBCTRecon 工具包
 <!-- en: Added DICOMCBCTRecon toolkit -->
 

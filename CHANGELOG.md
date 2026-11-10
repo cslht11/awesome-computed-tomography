@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-10 — Raised knowledge-graph topic-slice cap
+
+### Changed
+
+- **Raised the knowledge-graph topic-slice node cap from 250 to 260** (`scripts/graph_slices.py`): the sparse-view slice had reached the old cap at 250 nodes, which blocked adding new sparse-view papers; the new cap unblocks the AgentCT addition (papers 686 → 687).
+
 ## 2026-11-04 — Added DICOMCBCTRecon toolkit
 
 ### Added

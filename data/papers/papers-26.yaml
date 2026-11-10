@@ -1,0 +1,8 @@
+# Batch: AgentCT (user-approved 2026-11-10).
+- id: "agentct"
+  abbr: "AgentCT"
+  title: "AgentCT: A Vision-Language Agent for Universal CT Imaging"
+  year: 2026
+  topics: [low-dose, sparse-view, metal-artifact]
+  paper: "https://arxiv.org/abs/2611.11503"
+  note: "User-approved scope inclusion (2026-11-10): vision-language agent routing to degradation-specific CT restoration specialists (LDCT/SVCT/MAR)."
