@@ -93,14 +93,6 @@
   topics: [sparse-view, self-supervised]
   paper: "https://arxiv.org/abs/2605.24670"
   note: "Fractional l1/l2 gradient sparsity along slices with autoencoding sequential DIP for 3D CT; explicit inter-slice consistency with monotonic-descent and convergence analysis; improves over existing DIP approaches."
-- id: "ct-degradbench"
-  abbr: "CT-DegradBench"
-  title: "CT-DegradBench: A Physics-Informed Benchmark for CT Degradation Detection and Severity Estimation"
-  year: 2026
-  topics: [low-dose, other]
-  paper: "https://arxiv.org/abs/2605.16431"
-  code: "https://github.com/yousranb/CT-DEGRADBENCH"
-  note: "Accepted in CVPR 2026 VISION Workshop (DEXTER track). Dataset and benchmark for CT degradation detection and severity estimation under single- and mixed-artifact settings, with the SeSpeCT framework (medical vision-language semantic priors + spectral cues)."
 - id: "frequencyct"
   abbr: "FrequencyCT"
   title: "FrequencyCT: Frequency Domain Self-supervised Low-dose CT Denoising"
