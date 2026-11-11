@@ -518,6 +518,8 @@ toolkits:
     note: "统一的高斯溅射框架，联合 RGB 与 X 射线做三维重建：各基元共享同一套几何，借助 X 射线几何代理实现跨模态配准。SIGGRAPH Asia 2026 论文的代码（论文一节亦收录）。"
   "DICOMCBCTRecon":
     note: "3D Slicer 扩展，直接从 DICOM 浏览器把旋转 C 臂扫描（GE Innova 3D、西门子 DynaCT、飞利浦 XperCT 的多帧 XA/XRF DICOM）重建成体数据，支持 FDK（Parker 短扫描加权）、FDK+SART 细化或纯 SART，基于 PyTorch，GPU 上 FDK 只需几秒。目前测试仅为合成体模。"
+  "eXplore CT 120 Reconstruction":
+    note: "面向 GE eXplore CT 120 临床前 micro-CT 的开源重建管线：PyTorch FDK（ramp/Shepp-Logan/cosine/Hamming 滤波窗、Parker 加权）、ASTRA/TIGRE 迭代求解器与学习式体素/高斯溅射重建共用同一几何与 HU 标定，带命令行工具、Web 界面和 PyPI 包。仅适用该机型，输入即扫描仪写出的扫描文件夹。来源 arXiv:2604.23047（Wiegmann 与 Ford，UBC）。"
 datasets:
   "CT-RATE":
     note: "50,188 个重建完成的三维胸部 CT 体积（1,430 万张二维切片），来自 21,304 名患者的 25,692 次扫描；每个体积都配对一份影像科报告，并标注 18 类异常。体积由多种重建方法与窗宽窗位生成，因此天然带有重建差异——但只有图像域，不含原始投影。CT-CLIP 与 CT-CHAT 的训练语料。"

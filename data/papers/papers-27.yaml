@@ -1,0 +1,185 @@
+# Batch: 2026-11-10 list review (user-approved 2026-11-10, 25 papers; DIP overview -> learning resources).
+- id: "sonar"
+  abbr: "SONAR"
+  title: "SONAR: A Structure-Consistent Neural Operator for Null-Space-Aware Sparse View CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, unrolling]
+  paper: "https://arxiv.org/abs/2609.13688"
+  note: "Structure-consistent neural operator for null-space-aware sparse-view CT; low-dimensional null-space representation as pseudo-measurements; +1.87 dB PSNR at 62 views on AAPM, +7.63 dB zero-shot transfer to 512x512; validated on clinical MARS photon-counting CT."
+- id: "physics-independent-pair"
+  abbr: "Physics-Driven Independent Pair"
+  title: "Physics-Driven Independent Pair Generation for Iterative Self-Supervised Low-Dose CT Denoising"
+  year: 2026
+  topics: [low-dose, self-supervised]
+  paper: "https://arxiv.org/abs/2609.02654"
+  note: "Submitted to IEEE TCSVT. Physics-driven independent pair generation (learned sinogram prior + LDCT noise model, binomial/Gaussian thinning) for iterative self-supervised LDCT denoising; comparable to supervised baselines."
+- id: "physics-flow-matching"
+  abbr: "Physics-Guided Flow Matching"
+  title: "Physics-Guided Flow Matching for CT Image Reconstruction"
+  year: 2026
+  topics: [diffusion, low-dose, sparse-view]
+  paper: "https://arxiv.org/abs/2608.28256"
+  note: "Rectified flow matching as generative prior for CT reconstruction; trained on 256x256 Mayo chest images; Flow Matching methods (Plug-and-Play Flow, FlowDPS, Flower, Flow-Priors) consistently outperform diffusion baselines (DDRM, DPS, DiffPIR) with fewer sampling steps. Code not yet released: full text §4 footnote says 'Code will be provided upon acceptance' (verified 2026-11-10 18:46 CST, no GitHub/Hugging Face link anywhere in the paper) - code field stays blank until release."
+- id: "higdiff"
+  abbr: "HiGDiff"
+  title: "Feed-Forward Hierarchical Gaussian Diffusion for Extreme CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, limited-angle, diffusion, gaussian]
+  paper: "https://arxiv.org/abs/2608.15343"
+  code: "https://github.com/Bean-Young/HiGDiff"
+  note: "Feed-forward hierarchical Gaussian diffusion for extreme CT (sparse angle + limited angle + low photon counts, isolated/paired/joint); +5.81 dB macro-average PSNR and +0.113 SSIM on LDCT-PD."
+- id: "encore"
+  abbr: "ENCORE"
+  title: "Efficient Noise Context-Aware Representation for Low-Dose CT Denoising"
+  year: 2026
+  topics: [low-dose]
+  paper: "https://arxiv.org/abs/2608.10343"
+  code: "https://github.com/minwoo-yu/ENCORE"
+  note: "Noise context-aware LDCT denoising with FlyingConv adaptive convolution; explicit CT noise power/correlation contexts; zero-shot conditional denoising via noise-context intensity control."
+- id: "electric"
+  abbr: "ELECTRIC"
+  title: "ELECTRIC: Evidential Learning-Enhanced CT Reconstruction via Iterative Correction"
+  year: 2026
+  topics: [low-dose]
+  paper: "https://arxiv.org/abs/2608.00060"
+  note: "Physics-guided Bayesian formulation by Ge Wang; evidential network provides image proposal and error-predictive epistemic-uncertainty surrogate converted to an adaptive precision field in Poisson-weighted MAP updates; learned prior mean reduces error by ~70% vs FBP on Mayo data."
+- id: "agentic-autoresearch-ct"
+  abbr: "Agentic Autoresearch"
+  title: "Agentic Autoresearch for CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, low-dose]
+  paper: "https://arxiv.org/abs/2607.22824"
+  note: "LLM agent independently implements, tunes and benchmarks 26 reconstruction methods (Mayo LDCT + DL-Sparse-View Challenge breast); recombined 969-parameter solver ties the top Mayo tier with 0.4% of the champion's parameters; shows noiseless leaderboards do not predict noisy-input robustness."
+- id: "splitting-svct-design"
+  abbr: "Splitting-Based Self-Supervised SVCT"
+  title: "Design Choices in Splitting-Based Self-Supervised Sparse-View CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, self-supervised]
+  paper: "https://arxiv.org/abs/2607.10898"
+  note: "Unified framework decomposing splitting-based self-supervised sparse-view CT into partitioning, preprocessing and inference; multi-partition splitting and alternative inference; validated on simulated LoDoPaB-CT and real 2DeteCT data."
+- id: "ml-spnp"
+  abbr: "ML-SPnP"
+  title: "Multilevel Stochastic Plug-and-Play for Sparse-View CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, unrolling]
+  paper: "https://arxiv.org/abs/2606.24567"
+  note: "Multilevel stochastic Plug-and-Play on wavelet multiresolution spaces for sparse-view CT; comparable quality to stochastic PnP with less reconstruction time; convergence guarantees. Code link https://github.com/antoinedepaepe/ml-spnp returned 404 on 2026-11-10, re-verified still 404 at 18:45 CST the same day (announced, not yet live) - code field stays blank until the repo goes live."
+- id: "psct-net"
+  abbr: "PSCT-Net"
+  title: "PSCT-Net: Geometry-Aware Pediatric Skull CT Reconstruction via Differentiable Back-Projection and Attention-Guided Refinement"
+  year: 2026
+  topics: [sparse-view, cbct]
+  paper: "https://arxiv.org/abs/2606.19867"
+  code: "https://dydevelop.github.io/PSCT-Net/"
+  note: "Accepted at MICCAI Workshop 2026 (PedAItrics). Geometry-aware 3D pediatric skull CT from sparse bi-planar X-rays via differentiable back-projection, attention-guided projection and bidirectional Mamba; private PedSkull-CT cohort."
+- id: "tracing-oracle"
+  abbr: "TrO"
+  title: "Tracing the Oracle: Improving Diffusion Timestep Scheduling for 3D CT Reconstruction"
+  year: 2026
+  topics: [diffusion, sparse-view]
+  paper: "https://arxiv.org/abs/2606.06236"
+  note: "Accepted to ECML-PKDD 2026. Plug-and-play diffusion timestep scheduling via dynamic programming against a densely-sampled oracle trajectory; combined with DDS, improves 3D CT fidelity and efficiency, especially with at most 10 sampling steps."
+- id: "gradient-step-pnp-dental"
+  abbr: "Gradient Step PnP Dental CBCT"
+  title: "Gradient Step Plug-and-Play Model for Dental Cone-Beam CT Reconstruction"
+  year: 2026
+  topics: [cbct, unrolling]
+  paper: "https://arxiv.org/abs/2605.28124"
+  note: "CT Meeting 2026. Gradient-step denoiser trained on simulated noisy fan-beam acquisitions, integrated into a plug-and-play gradient-step algorithm for dental CBCT; validated on synthetic data and qualitatively on real images."
+- id: "fast-dip"
+  abbr: "FAST-DIP"
+  title: "Fractional-gradient Sparsity with Autoencoding Sequential Deep Image Prior for 3D CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, self-supervised]
+  paper: "https://arxiv.org/abs/2605.24670"
+  note: "Fractional l1/l2 gradient sparsity along slices with autoencoding sequential DIP for 3D CT; explicit inter-slice consistency with monotonic-descent and convergence analysis; improves over existing DIP approaches."
+- id: "ct-degradbench"
+  abbr: "CT-DegradBench"
+  title: "CT-DegradBench: A Physics-Informed Benchmark for CT Degradation Detection and Severity Estimation"
+  year: 2026
+  topics: [low-dose, other]
+  paper: "https://arxiv.org/abs/2605.16431"
+  code: "https://github.com/yousranb/CT-DEGRADBENCH"
+  note: "Accepted in CVPR 2026 VISION Workshop (DEXTER track). Dataset and benchmark for CT degradation detection and severity estimation under single- and mixed-artifact settings, with the SeSpeCT framework (medical vision-language semantic priors + spectral cues)."
+- id: "frequencyct"
+  abbr: "FrequencyCT"
+  title: "FrequencyCT: Frequency Domain Self-supervised Low-dose CT Denoising"
+  year: 2026
+  topics: [low-dose, self-supervised]
+  paper: "https://arxiv.org/abs/2605.10583"
+  code: "https://github.com/yqx7150/FrequencyCT"
+  note: "First zero-shot self-supervised pseudo-sample generation in the frequency domain for LDCT denoising (regional low-frequency anchoring, phase-preserving high-frequency perturbations); evaluated on multiple public and real datasets."
+- id: "neighbor2inverse"
+  abbr: "Neighbor2Inverse"
+  title: "Neighbor2Inverse: Self-Supervised Denoising for Low-Dose Region-of-Interest Phase Contrast CT"
+  year: 2026
+  topics: [low-dose, self-supervised]
+  paper: "https://arxiv.org/abs/2605.01075"
+  code: "https://github.com/J-3TO/Neighbor2Inverse"
+  note: "Submitted to IEEE. Self-supervised denoising generalizing Neighbor2Neighbor to propagation-based phase-contrast CT (subsampled noisy projections reconstructed separately as training pairs); competitive on clinical CT under simulated low dose."
+- id: "residual-gaussian-splatting"
+  abbr: "RGS"
+  title: "Residual Gaussian Splatting for Ultra Sparse-View CBCT Reconstruction"
+  year: 2026
+  topics: [sparse-view, cbct, gaussian]
+  paper: "https://arxiv.org/abs/2604.27552"
+  note: "Spectrally-decoupled Gaussian representation (geometric base + residual detail) with wavelet multi-resolution analysis for ultra sparse-view CBCT; resolves the artifact-suppression vs detail-preservation trade-off on clinical datasets."
+- id: "deep-rl-angle-selection"
+  abbr: "Deep RL Angle Selection"
+  title: "Deep Reinforcement Learning for Optimizing Angle Selection and Dose Allocation in CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, other]
+  paper: "https://arxiv.org/abs/2604.20939"
+  note: "Dose-aware acquisition and reconstruction (PWLS-PnP backbone + RL adaptive angle selection with angle-dependent photon statistics); improves reconstruction quality and defect detectability under few projections or constrained dose budgets."
+- id: "memory-efficient-inr-ct"
+  abbr: "Memory-Efficient INR CT"
+  title: "Memory-efficient optimization of implicit neural representations for CT reconstruction"
+  year: 2026
+  topics: [sparse-view, cbct, inr]
+  paper: "https://arxiv.org/abs/2604.09884"
+  note: "Memory-efficient stochastic gradient approximation for INR-based CT reconstruction (Jacobian-vector-product decomposition with stochastic subsampling); far less GPU memory than standard INR training, enabling memory-efficient 3D sparse-view CBCT."
+- id: "ipv2"
+  abbr: "IPv2"
+  title: "IPv2: An Improved Image Purification Strategy for Real-World Ultra-Low-Dose Lung CT Denoising"
+  year: 2026
+  topics: [low-dose]
+  paper: "https://arxiv.org/abs/2602.19314"
+  code: "https://github.com/MonkeyDadLufy/Image-Purification-Strategy-v2"
+  note: "Improved image purification strategy (Remove Background, Add noise, Remove noise) for real-world ultra-low-dose (2% dose) lung CT denoising; consistently improves background suppression and lung parenchyma restoration across mainstream denoisers."
+- id: "plot-ct"
+  abbr: "PLOT-CT"
+  title: "PLOT-CT: Pre-log Voronoi Decomposition Assisted Generation for Low-dose CT Reconstruction"
+  year: 2026
+  topics: [low-dose, diffusion]
+  paper: "https://arxiv.org/abs/2602.11625"
+  note: "Pre-log Voronoi decomposition-assisted CT generation; pre-log sinograms disentangled into components embedded in separate latent spaces; +2.36 dB PSNR over traditional methods at 1e4 incident photons."
+- id: "hybrid-2d-3d-cnn"
+  abbr: "Hybrid 2D-3D CNN"
+  title: "Artifact Reduction in Undersampled 3D Cone-Beam CTs using a Hybrid 2D-3D CNN Framework"
+  year: 2026
+  topics: [sparse-view, cbct]
+  paper: "https://arxiv.org/abs/2602.08727"
+  code: "https://github.com/J-3TO/2D-3DCNN_sparseview/"
+  note: "IEEE NSS/MIC/RTSD 2025 (DOI 10.1109/NSS/MIC/RTSD57106.2025.11287452). Hybrid 2D-3D CNN (2D U-Net slice features + 3D decoder) for artifact reduction in undersampled 3D CBCT; substantially improves inter-slice consistency with low overhead."
+- id: "principled-confidence-ct"
+  abbr: "Principled Confidence Estimation"
+  title: "Principled Confidence Estimation for Deep Computed Tomography"
+  year: 2026
+  topics: [other]
+  paper: "https://arxiv.org/abs/2602.05812"
+  note: "Principled confidence estimation for deep CT reconstruction via sequential likelihood mixing, with theoretical coverage guarantees; deep methods yield substantially tighter confidence regions than classical ones and enable hallucination detection."
+- id: "vsgc"
+  abbr: "VSGC"
+  title: "Visible Singularities Guided Correlation Network for Limited-Angle CT Reconstruction"
+  year: 2026
+  topics: [limited-angle]
+  paper: "https://arxiv.org/abs/2602.00184"
+  code: "https://github.com/yqx7150/VSGC"
+  note: "Visible-singularities-guided correlation network for limited-angle CT (VS edge features + correlation with other regions, anisotropic multi-scale loss); +2.45 dB PSNR and +1.5% SSIM in small angular ranges; validated on simulated and real datasets."
+- id: "dufal"
+  abbr: "DuFal"
+  title: "DuFal: Dual-Frequency-Aware Learning for High-Fidelity Extremely Sparse-view CBCT Reconstruction"
+  year: 2026
+  topics: [sparse-view, cbct]
+  paper: "https://arxiv.org/abs/2601.15416"
+  note: "Published in Transactions on Machine Learning Research (TMLR, J2C Certification). Dual-frequency-aware learning with global/local high-frequency-enhanced Fourier neural operators; significantly outperforms SOTA in high-frequency anatomical preservation on LUNA16 and ToothFairy under extremely sparse views."

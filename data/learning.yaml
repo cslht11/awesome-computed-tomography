@@ -225,3 +225,9 @@
   type: tutorial
   tasks: [classical, sparse-view, limited-angle]
   note: "Jupyter notebooks for the Core Imaging Library (CIL): from loading data and FBP to iterative, regularised and limited-data reconstruction on real datasets."
+
+- name: Deep Image Prior for Computed Tomography Reconstruction
+  url: https://arxiv.org/abs/2602.14709
+  type: survey
+  tasks: [survey, self-supervised]
+  note: "Comprehensive overview of the Deep Image Prior framework for CT reconstruction (formulation, overfitting mitigation, computational improvements), tested on real micro-CT measurements."

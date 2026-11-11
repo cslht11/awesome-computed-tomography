@@ -331,6 +331,9 @@
     - dataset: LDCT-and-Projection-data
       usage: eval
       evidence: "§III-E Generalizability Study: to assess cross-dataset generalizability, FFAI is evaluated on the TCIA datasets CT-ORG and LDCT-and-Projection-data; low-dose experiments use 20 abdominal cases from LDCT-and-Projection-data, 5 image pairs per case (100 pairs total), with inputs simulated at 25% of routine dose and routine-dose references."
+    - dataset: CT-ORG
+      usage: eval
+      evidence: "§III-E Generalizability Study: sparse-view (80 views) and limited-angle (90°) generalizability experiments use CT-ORG, one slice taken from each of the 140 scans."
 - paper: driftrecon
   uses:
     - dataset: 2016 Low Dose CT Grand Challenge data
@@ -351,3 +354,9 @@
     - dataset: 4D-Lung
       usage: eval
       evidence: "§III-A Datasets and Preprocessing: P²-Gaussian and other reconstruction methods are evaluated on two additional independent datasets, the publicly available 4D-Lung dataset and a separate internal clinical CT dataset; experiments use 5, 10 and 20 projection views with volumes resampled to 256×256×256. AbdomenCT-1K and the 200-case internal set train and evaluate the Sparse2Prior network, not the main method, and have no library entry."
+
+- paper: agentct
+  uses:
+    - dataset: LDCT-and-Projection-data
+      usage: both
+      evidence: "§2.5 Datasets and degradation simulation: “Experiments used the publicly available, de-identified Mayo 2020 abdominal CT data from The Cancer Imaging Archive [18] with a patient-disjoint training–test split.” Approximately 15,600 degraded–reference image pairs for restoration training and 4,740 pairs for testing; ref [18] is Moen et al. 2021, the TCIA Low Dose CT Image and Projection Data collection."

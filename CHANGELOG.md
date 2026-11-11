@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-10 — Raised knowledge-graph topic-slice cap to 350
+
+### Changed
+
+- **Raised the knowledge-graph topic-slice node cap from 260 to 350** (`scripts/graph_slices.py`): with the 25-paper batch from the 2026-11-10 arXiv list review, the sparse-view slice reached 267 nodes, over the 260 cap; the new cap unblocks the batch (papers 687 → 712) and the two approved uses edges (AgentCT → LDCT-and-Projection-data, FFAI → CT-ORG).
+
 ## 2026-11-10 — Raised knowledge-graph topic-slice cap
 
 ### Changed

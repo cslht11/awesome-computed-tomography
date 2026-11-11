@@ -579,3 +579,12 @@
   stars: 0
   tags: [cbct, c-arm, FDK, SART, DICOM, slicer]
   note: 3D Slicer extension reconstructing rotational C-arm runs (GE Innova 3D, Siemens DynaCT and Philips XperCT multi-frame XA/XRF DICOM) into a 3D volume from the DICOM browser, with FDK (Parker short-scan weights), FDK+SART refinement or SART only on PyTorch — GPU makes FDK take seconds. Tests so far are synthetic-phantom only.
+
+- name: eXplore CT 120 Reconstruction
+  group: engines
+  repo: UBC-Ford-lab/eXplore_CT_120_reconstruction_algorithms
+  language: Python
+  license: MIT
+  stars: 1
+  tags: [micro-CT, CBCT, FDK, preclinical, PyTorch, iterative]
+  note: "Open reconstruction pipeline for the GE eXplore CT 120 preclinical micro-CT scanner: PyTorch FDK (ramp/Shepp-Logan/cosine/Hamming, Parker weighting), ASTRA/TIGRE iterative solvers and learned voxel/Gaussian-splatting reconstruction sharing one geometry and HU calibration, with CLI tools, a web GUI and a PyPI package. Scanner-specific — input is a scan folder as the scanner writes it. From arXiv:2604.23047 (Wiegmann & Ford, UBC)."

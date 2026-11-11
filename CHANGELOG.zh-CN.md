@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-10 — 知识图谱主题切片节点上限提高到 350
+<!-- en: Raised knowledge-graph topic-slice cap to 350 -->
+
+### 变更
+
+- **知识图谱主题切片节点上限从 260 提高到 350**（`scripts/graph_slices.py`）：随 2026-11-10 arXiv 清单审查的 25 篇论文入库，稀疏视角切片达到 267 个节点，超过 260 的上限；新上限使该批入库成为可能（论文 687 → 712 篇），以及两条已批准的使用边（AgentCT → LDCT-and-Projection-data，FFAI → CT-ORG）。
+
 ## 2026-11-10 — 知识图谱主题切片节点上限提高
 <!-- en: Raised knowledge-graph topic-slice cap -->
 
