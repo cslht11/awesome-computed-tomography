@@ -1803,10 +1803,13 @@ def main():
     # Tolerate a graph.py that predates the paper_datasets file (returns a
     # 2-tuple): the graph then simply has no verified usage edges yet.
     g_paper_datasets = _enrichment[2] if len(_enrichment) > 2 else None
+    # Tolerate a graph.py that predates the exclusion file (3-tuple).
+    g_excluded = _enrichment[3] if len(_enrichment) > 3 else None
     g_problems = graph_mod.validate_graph(
         payload_en["papers"], payload_en["teams"], g_authors, g_citations,
         g_paper_datasets,
-        set(r["name"] for r in payload_en["datasets"]))
+        set(r["name"] for r in payload_en["datasets"]),
+        graph_excluded_doc=g_excluded)
     if g_problems:
         print("GRAPH DATA INVALID:")
         for x in g_problems:
@@ -1816,7 +1819,8 @@ def main():
                  i18n.SOURCE)
     graph = graph_mod.build_graph(
         payload_en, build_payload(other), topic_doc, topic_resources,
-        rp_pages, rp_guides, g_authors, g_citations, g_paper_datasets)
+        rp_pages, rp_guides, g_authors, g_citations, g_paper_datasets,
+        g_excluded)
     g_problems = graph_mod.check_graph(graph)
     if g_problems:
         print("GRAPH BUILD INVALID:")
@@ -2701,6 +2705,12 @@ def main():
                 sdeg[sdata["nodes"][e[1]]["id"]] += 1
             isolates = [n["id"] for n in sdata["nodes"]
                         if sdeg[n["id"]] == 0]
+            if name == "datasets":
+                # Datasets/benchmarks always ship on the datasets slice,
+                # even with no classic paper using them (datasets are
+                # never filtered by paper quality).
+                isolates = [i for i in isolates
+                            if not i.startswith(("dataset:", "benchmark:"))]
             if "dropped" in sl and isolates:
                 problems.append("%s/%s: slice ships %d isolated nodes "
                                 "(e.g. %s)"

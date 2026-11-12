@@ -735,11 +735,13 @@ def main():
     g_authors = load("graph/authors.yaml")
     g_citations = load("graph/citations.yaml")
     g_paper_datasets = load("graph/paper_datasets.yaml")
+    g_excluded = load("graph/graph_excluded.yaml")
     if (g_authors is not None or g_citations is not None
-            or g_paper_datasets is not None):
+            or g_paper_datasets is not None or g_excluded is not None):
         problems.extend(graph_mod.validate_graph(
             papers, teams, g_authors, g_citations, g_paper_datasets,
-            set(e["name"] for e in datasets)))
+            set(e["name"] for e in datasets),
+            graph_excluded_doc=g_excluded))
     problems.extend(graph_mod.validate_author_overrides(
         load("graph/author_overrides.yaml"), teams))
 

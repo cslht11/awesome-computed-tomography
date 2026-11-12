@@ -57,12 +57,13 @@ AUTHOR_MIN_PAPERS = 3      # an author becomes a node at this many papers
 
 # ------------------------------------------------------------------ loading
 def load_enrichment():
-    """(authors_doc, citations_doc, paper_datasets_doc); any may be None
-    when its file is absent."""
+    """(authors_doc, citations_doc, paper_datasets_doc, excluded_doc);
+    any may be None when its file is absent."""
     authors = load("graph/authors.yaml")
     citations = load("graph/citations.yaml")
     paper_datasets = load("graph/paper_datasets.yaml")
-    return authors, citations, paper_datasets
+    excluded = load("graph/graph_excluded.yaml")
+    return authors, citations, paper_datasets, excluded
 
 
 def norm_person(name):
@@ -137,7 +138,8 @@ def validate_author_overrides(doc, teams):
 
 # ---------------------------------------------------------------- validation
 def validate_graph(papers, teams, authors_doc, citations_doc,
-                   paper_datasets_doc=None, dataset_names=None):
+                   paper_datasets_doc=None, dataset_names=None,
+                   graph_excluded_doc=None):
     """Integrity rules for data/graph/*.yaml, in build.py's Problems style.
 
     All files are optional; when present, every reference must resolve.
@@ -235,6 +237,69 @@ def validate_graph(papers, teams, authors_doc, citations_doc,
                     if not u.get("evidence"):
                         problems.append("%s: every use needs its evidence "
                                         "(section + quote)" % w)
+    if graph_excluded_doc is not None:
+        if not isinstance(graph_excluded_doc, dict):
+            problems.append("graph/graph_excluded: top level must be a "
+                            "mapping with `excluded` / `exceptions` lists")
+        else:
+            excluded = graph_excluded_doc.get("excluded")
+            if excluded is None:
+                excluded = []
+            if not isinstance(excluded, list):
+                problems.append("graph/graph_excluded: `excluded` must be "
+                                "a list of {paper, reason} records")
+                excluded = []
+            seen_excluded = set()
+            for i, rec in enumerate(excluded):
+                w = "graph/graph_excluded[%d]" % i
+                if not isinstance(rec, dict):
+                    problems.append("%s: entry must be a mapping" % w)
+                    continue
+                pid = rec.get("paper")
+                if pid not in paper_ids:
+                    problems.append("%s: paper %r is not in the library"
+                                    % (w, pid))
+                if pid in seen_excluded:
+                    problems.append("%s: duplicate paper %r" % (w, pid))
+                seen_excluded.add(pid)
+                if rec.get("reason") not in ("preprint", "weak-zero-cite"):
+                    problems.append("%s: reason %r must be preprint or "
+                                    "weak-zero-cite" % (w, rec.get("reason")))
+            # An excluded paper must not be a team's listed work: the
+            # graph would silently drop that works edge. Remove it from
+            # the team's works first (an explicit decision), or
+            # un-exclude it.
+            works_papers = set()
+            for tm in teams or []:
+                for pid in ((tm.get("works") or {}).get("papers") or []):
+                    works_papers.add(pid)
+            for pid in sorted(seen_excluded & works_papers):
+                problems.append("graph/graph_excluded: paper %r is excluded "
+                                "from the graph but is a listed work of a "
+                                "team" % pid)
+            exceptions = graph_excluded_doc.get("exceptions")
+            if exceptions is None:
+                exceptions = []
+            if not isinstance(exceptions, list):
+                problems.append("graph/graph_excluded: `exceptions` must "
+                                "be a list of {paper, reason} records")
+            else:
+                for i, rec in enumerate(exceptions):
+                    w = "graph/graph_excluded exceptions[%d]" % i
+                    if not isinstance(rec, dict) or not rec.get("paper"):
+                        problems.append("%s: entry must be a mapping with "
+                                        "a paper" % w)
+                        continue
+                    pid = rec["paper"]
+                    if pid not in paper_ids:
+                        problems.append("%s: paper %r is not in the library"
+                                        % (w, pid))
+                    if pid in seen_excluded:
+                        problems.append("%s: paper %r is both excluded and "
+                                        "excepted" % (w, pid))
+                    if not rec.get("reason"):
+                        problems.append("%s: every exception needs a reason"
+                                        % w)
     return problems
 
 
@@ -278,7 +343,7 @@ def _paper_url(p):
 # -------------------------------------------------------------------- build
 def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
                 guides, authors_doc=None, citations_doc=None,
-                paper_datasets_doc=None):
+                paper_datasets_doc=None, graph_excluded_doc=None):
     """Project the payloads into {nodes, edges, backbone, stats}.
 
     ``payload`` / ``payload_zh`` are export_site_data payloads (English and
@@ -288,6 +353,18 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
     belongs to a topic). ``rp_pages`` is resource_pages.select's page list
     (the paper -> resource evidence). ``guides`` is data/guides.yaml's list.
     """
+    # Papers excluded from the graph (data/graph/graph_excluded.yaml):
+    # the library is untouched, but these papers get no node and no edge
+    # anywhere in the graph. Datasets are never filtered by paper
+    # quality (the datasets slice keeps every dataset; see
+    # graph_slices.py), and team works keep only classics because every
+    # downstream edge gates on papers_by_id.
+    excluded = set()
+    if graph_excluded_doc:
+        for rec in (graph_excluded_doc.get("excluded") or []):
+            if isinstance(rec, dict) and rec.get("paper"):
+                excluded.add(rec["paper"])
+    papers = [p for p in payload["papers"] if p["id"] not in excluded]
     nodes = {}
     edges = []
     edge_seen = set()
@@ -330,7 +407,7 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
              meta={"count": t.get("count", 0)})
 
     # ------------------------------------------------------------ papers
-    venue_counts = Counter(p["venue"] for p in payload["papers"] if p.get("venue"))
+    venue_counts = Counter(p["venue"] for p in papers if p.get("venue"))
     venues = set(v for v, n in venue_counts.items() if n >= VENUE_MIN_PAPERS)
     for v in venues:
         node("venue:" + v, "venue", v, meta={"count": venue_counts[v]})
@@ -343,7 +420,7 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
                     starts[tid].add(s["id"])
 
     papers_by_id = {}
-    for p in payload["papers"]:
+    for p in papers:
         papers_by_id[p["id"]] = p
         label = p.get("abbr") or p["title"]
         meta = {"topics": list(p["topics"])}
@@ -465,7 +542,7 @@ def build_graph(payload, payload_zh, topic_doc, topic_resources, rp_pages,
             k = _gh_key(u)
             if k and k.startswith("github.com/"):
                 repo_owner[k] = r["name"]
-    for p in payload["papers"]:
+    for p in papers:
         k = _gh_key(p["links"].get("code"))
         if k and k in repo_owner:
             edge("paper:" + p["id"], "toolkit:" + repo_owner[k], "code")

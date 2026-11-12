@@ -30,7 +30,11 @@ drift from the graph it is cut from:
   compute_positions' orphan ring is what arranged them so neatly).
   build_slices records the dropped ids on each slice ("dropped") so
   the build can account for them, and the datasets page states its
-  shown-vs-library totals explicitly.
+  shown-vs-library totals explicitly. The one exception is the
+  datasets slice, where every dataset and benchmark ships even with
+  no edge: datasets are never filtered by paper quality, so one
+  whose only papers are excluded from the graph still belongs on
+  the page.
 * Topic slices cap at CAP nodes. The core (topic + papers + used
   resources + focused teams + assigned toolkits) always ships whole.
   Authors enter only on top of the core: candidates are authors with
@@ -68,7 +72,7 @@ def _induced(nodes_by_id, keep, edges):
     return {"nodes": ns, "edges": es}
 
 
-def _drop_isolates(sl):
+def _drop_isolates(sl, keep_isolated=()):
     """Remove a slice's degree-0 nodes; record their ids on the slice.
 
     Removing isolates cannot isolate anything else (they had no
@@ -76,12 +80,20 @@ def _drop_isolates(sl):
     sl["dropped"]: the site build reconciles slice + dropped against
     the library payload, so a trim that ate a linked node would fail
     the build instead of silently shrinking the graph.
+
+    keep_isolated names nodes that ship even with no edge inside the
+    slice: the datasets slice uses it for every dataset/benchmark,
+    because datasets are never filtered by paper quality -- a dataset
+    whose only papers are excluded from the graph still belongs on
+    the datasets page, as a lone dot, rather than vanishing from it.
     """
+    keep = set(keep_isolated)
     degree = dict((n["id"], 0) for n in sl["nodes"])
     for s, t, _k in sl["edges"]:
         degree[s] += 1
         degree[t] += 1
-    dropped = [nid for nid, d in degree.items() if d == 0]
+    dropped = [nid for nid, d in degree.items()
+               if d == 0 and nid not in keep]
     if dropped:
         gone = set(dropped)
         sl["nodes"] = [n for n in sl["nodes"] if n["id"] not in gone]
@@ -115,7 +127,13 @@ def build_slices(graph):
                 keep.add(t)
             if t in keep and nodes_by_id[s]["t"] == "paper":
                 keep.add(s)
-    out["datasets"] = _drop_isolates(_induced(nodes_by_id, keep, edges))
+    # Datasets are never filtered by paper quality: every dataset and
+    # benchmark ships on this slice, even one whose only papers are
+    # excluded from the graph (it ships as a lone dot; see
+    # _drop_isolates' keep_isolated).
+    out["datasets"] = _drop_isolates(
+        _induced(nodes_by_id, keep, edges),
+        keep_isolated=[n for n in resources])
 
     # -------------------------------------------------------------- topics
     # Global authored counts break in-topic ties deterministically.
@@ -170,6 +188,11 @@ def build_slices(graph):
             degree[s] += 1
             degree[t] += 1
         bad = [nid for nid, d in degree.items() if d == 0]
+        if name == "datasets":
+            # Resource isolates are expected here by design (see above);
+            # only a paper with no edge would be a bug.
+            bad = [nid for nid in bad
+                   if not nid.startswith(("dataset:", "benchmark:"))]
         if bad:
             raise ValueError("slice %s still has isolates: %s"
                              % (name, bad[:5]))

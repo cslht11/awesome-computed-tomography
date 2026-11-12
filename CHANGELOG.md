@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-11 — Knowledge graph shows classic papers only (phase 1: sparse-view)
+
+### Changed
+
+- **Knowledge graph now shows classic papers only, starting with sparse-view** (`data/graph/graph_excluded.yaml`, `scripts/graph.py`, `scripts/graph_slices.py`): 42 preprint papers are excluded from the graph (the library itself is untouched at 711 papers); two highly-cited preprints (Patch-Based DDPM, SNAF) stay in by user decision. Datasets are never filtered by paper quality, so every dataset still ships on the datasets slice. The sparse-view slice drops from 350 nodes to 315 (188 papers; the authors previously cut off by the cap now fit), and the 350 cap no longer binds.
+
 ## 2026-11-10 — Raised knowledge-graph topic-slice cap to 350
 
 ### Changed

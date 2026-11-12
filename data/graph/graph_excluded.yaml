@@ -1,0 +1,97 @@
+# Papers excluded from the knowledge graph (phase 1: sparse-view, 2026-11-11).
+# The library is untouched: these papers stay in the directory and in search.
+# Datasets are never filtered by paper quality; team works in the graph show classics only.
+# reason: preprint (no formal venue) | weak-zero-cite (weak venue, zero citations).
+updated: "2026-11-11"
+excluded:
+  - paper: 2-step-sparse-view-ct-reconstruction-with-a-domain-specifi
+    reason: preprint
+  - paper: a-ct-geometry-with-multiple-centers-of-rotation-for-solving-
+    reason: preprint
+  - paper: agentct
+    reason: preprint
+  - paper: agentic-autoresearch-ct
+    reason: preprint
+  - paper: bayesian-multicontrast-ct
+    reason: preprint
+  - paper: cbct-pose-trajectory-optimisation
+    reason: preprint
+  - paper: conditional-diffusion-posterior-alignment-for-sparse-view-ct
+    reason: preprint
+  - paper: continuity-driven-synergistic-diffusion-with-neural-priors-f
+    reason: preprint
+  - paper: deep-rl-angle-selection
+    reason: preprint
+  - paper: driftrecon
+    reason: preprint
+  - paper: dufal
+    reason: preprint
+  - paper: eureca
+    reason: preprint
+  - paper: extreme-few-view-ct-reconstruction-using-deep-inference
+    reason: preprint
+  - paper: fast-dip
+    reason: preprint
+  - paper: ffai
+    reason: preprint
+  - paper: geometry-aware-diffusion-approximate-posterior-sampling-for-
+    reason: preprint
+  - paper: higdiff
+    reason: preprint
+  - paper: hybrid-2d-3d-cnn
+    reason: preprint
+  - paper: ilv-iterative-latent-volumes-for-fast-and-accurate-sparse-vi
+    reason: preprint
+  - paper: learning-where-and-what-to-lift-for-bi-planar-x-ray-to-ct-re
+    reason: preprint
+  - paper: lingo
+    reason: preprint
+  - paper: lucid-learned-undersampling-adaptive-consistency-guided-infe
+    reason: preprint
+  - paper: memory-efficient-inr-ct
+    reason: preprint
+  - paper: ml-spnp
+    reason: preprint
+  - paper: neural-discrete-representation-learning-for-sparse-view-cbct
+    reason: preprint
+  - paper: ordered-subsets-multi-diffusion-model-for-sparse-view-ct-rec
+    reason: preprint
+  - paper: ox-nerf
+    reason: preprint
+  - paper: p2-gaussian
+    reason: preprint
+  - paper: physics-flow-matching
+    reason: preprint
+  - paper: projection-volume-fidelity-divergence-diagnosing-and-control
+    reason: preprint
+  - paper: psct-net
+    reason: preprint
+  - paper: residual-gaussian-splatting
+    reason: preprint
+  - paper: sonar
+    reason: preprint
+  - paper: sparsetokengs
+    reason: preprint
+  - paper: splitting-svct-design
+    reason: preprint
+  - paper: stcnet
+    reason: preprint
+  - paper: tomotransformer
+    reason: preprint
+  - paper: tomotx
+    reason: preprint
+  - paper: tracing-oracle
+    reason: preprint
+  - paper: unisino
+    reason: preprint
+  - paper: x-grm-large-gaussian-reconstruction-model-for-sparse-view-x-
+    reason: preprint
+  - paper: xsv-ct
+    reason: preprint
+exceptions:
+  # Highly-cited preprints the user kept in the graph (2026-11-11).
+  # A future sift must not re-exclude these without the user's word.
+  - paper: patch-based-ddpm-sparse-view-ct
+    reason: highly-cited preprint (36 citations, OpenAlex 2026-11-11)
+  - paper: snaf
+    reason: highly-cited preprint (33 citations, OpenAlex 2026-11-11)

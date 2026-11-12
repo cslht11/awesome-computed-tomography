@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-11 — 知识图谱只收录经典论文（一期：稀疏视角）
+<!-- en: Knowledge graph shows classic papers only (phase 1: sparse-view) -->
+
+### 变更
+
+- **知识图谱只收录经典论文，先从稀疏视角开始**（`data/graph/graph_excluded.yaml`、`scripts/graph.py`、`scripts/graph_slices.py`）：42 篇预印本论文不进图谱（论文库本身不受影响，仍为 711 篇）；两篇高被引预印本（Patch-Based DDPM、SNAF）经用户决定留在图谱内。数据集不受论文质量过滤，所有数据集仍在数据集切片中。稀疏视角切片从 350 个节点降到 315 个（188 篇论文；之前被上限截掉的作者现在都能进来），350 的上限不再触发。
+
 ## 2026-11-10 — 知识图谱主题切片节点上限提高到 350
 <!-- en: Raised knowledge-graph topic-slice cap to 350 -->
 
