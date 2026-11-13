@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-13 — 知识图谱只收录经典论文（二期一批：CBCT、低剂量、扩散）
+<!-- en: Knowledge graph shows classic papers only (phase 2 batch 1: CBCT, low-dose, diffusion) -->
+
+### 变更
+
+- **知识图谱二期一批：CBCT、低剂量与扩散**（`data/graph/graph_excluded.yaml`）：图谱再排除 39 篇论文（论文库本身不受影响，仍为 711 篇）——三个主题的 36 篇预印本，外加 3 篇弱刊零引用论文与 2 篇高被引预印本，均经用户决定排除，本批无例外。图谱现为 630 篇论文（711 − 81）。切片规模：CBCT 175 → 145 个节点、低剂量 265 → 243、扩散 122 → 106；所有数据集仍在数据集切片中。
+
 ## 2026-11-11 — 知识图谱只收录经典论文（一期：稀疏视角）
 <!-- en: Knowledge graph shows classic papers only (phase 1: sparse-view) -->
 

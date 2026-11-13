@@ -1,30 +1,59 @@
-# Papers excluded from the knowledge graph (phase 1: sparse-view, 2026-11-11).
+# Papers excluded from the knowledge graph (phase 1: sparse-view, 2026-11-11;
+# phase 2 batch 1: CBCT / low-dose / diffusion, 2026-11-13).
 # The library is untouched: these papers stay in the directory and in search.
 # Datasets are never filtered by paper quality; team works in the graph show classics only.
 # reason: preprint (no formal venue) | weak-zero-cite (weak venue, zero citations).
-updated: "2026-11-11"
+updated: "2026-11-13"
 excluded:
   - paper: 2-step-sparse-view-ct-reconstruction-with-a-domain-specifi
     reason: preprint
   - paper: a-ct-geometry-with-multiple-centers-of-rotation-for-solving-
     reason: preprint
+  - paper: a-learnt-half-quadratic-splitting-based-algorithm-for-fast-a
+    reason: preprint
   - paper: agentct
     reason: preprint
   - paper: agentic-autoresearch-ct
     reason: preprint
+  - paper: an-iterative-reconstruction-method-for-dental-cone-beam-comp
+    reason: preprint
+  - paper: anatomy-preserving-unpaired-cone-beam-ct-refinement-for-imag
+    reason: preprint
   - paper: bayesian-multicontrast-ct
+    reason: preprint
+  - paper: cbct-based-synthetic-ct-generation-using-conditional-flow-ma
     reason: preprint
   - paper: cbct-pose-trajectory-optimisation
     reason: preprint
+  - paper: cbct-truncation-diffusion
+    reason: weak-zero-cite
   - paper: conditional-diffusion-posterior-alignment-for-sparse-view-ct
     reason: preprint
+  - paper: cone-beam-artifact-reduction-in-gamma-knife-cbct-images-usin
+    reason: preprint
+  - paper: cone-beam-ct-image-quality-enhancement-using-a-latent-diffus
+    reason: preprint
+  - paper: contilnn
+    reason: preprint
   - paper: continuity-driven-synergistic-diffusion-with-neural-priors-f
+    reason: preprint
+  - paper: ddn-fm
     reason: preprint
   - paper: deep-rl-angle-selection
     reason: preprint
   - paper: driftrecon
     reason: preprint
+  - paper: dual-domain-u-nets-with-embedded-back-projection-operators-f
+    reason: preprint
   - paper: dufal
+    reason: preprint
+  - paper: electric
+    reason: preprint
+  - paper: encore
+    reason: preprint
+  - paper: epc-rawdc
+    reason: preprint
+  - paper: equivariant-multiscale-learned-invertible-reconstruction-for
     reason: preprint
   - paper: eureca
     reason: preprint
@@ -34,17 +63,35 @@ excluded:
     reason: preprint
   - paper: ffai
     reason: preprint
+  - paper: frequencyct
+    reason: preprint
+  - paper: ganext-a-fully-convnext-enhanced-generative-adversarial-netw
+    reason: preprint
   - paper: geometry-aware-diffusion-approximate-posterior-sampling-for-
     reason: preprint
+  - paper: gradient-step-pnp-dental
+    reason: preprint
+  - paper: haru-net-hybrid-attention-residual-u-net-for-edge-preserving
+    reason: weak-zero-cite
   - paper: higdiff
+    reason: preprint
+  - paper: hounsworld
     reason: preprint
   - paper: hybrid-2d-3d-cnn
     reason: preprint
   - paper: ilv-iterative-latent-volumes-for-fast-and-accurate-sparse-vi
     reason: preprint
+  - paper: ipv2
+    reason: preprint
+  - paper: joint-decoupled-iterative-cbct-reconstruction-with-hybrid-sc
+    reason: preprint
   - paper: learning-where-and-what-to-lift-for-bi-planar-x-ray-to-ct-re
     reason: preprint
+  - paper: limited-angle-cbct-reconstruction-via-geometry-integrated-cy
+    reason: preprint
   - paper: lingo
+    reason: preprint
+  - paper: low-dose-ct-using-denoising-diffusion-probabilistic-model-
     reason: preprint
   - paper: lucid-learned-undersampling-adaptive-consistency-guided-infe
     reason: preprint
@@ -52,7 +99,13 @@ excluded:
     reason: preprint
   - paper: ml-spnp
     reason: preprint
+  - paper: neighbor2inverse
+    reason: preprint
   - paper: neural-discrete-representation-learning-for-sparse-view-cbct
+    reason: preprint
+  - paper: noise2match
+    reason: preprint
+  - paper: non-circular-scan-trajectories-for-reducing-cone-beam-artifa
     reason: preprint
   - paper: ordered-subsets-multi-diffusion-model-for-sparse-view-ct-rec
     reason: preprint
@@ -62,9 +115,21 @@ excluded:
     reason: preprint
   - paper: physics-flow-matching
     reason: preprint
+  - paper: physics-independent-pair
+    reason: preprint
+  - paper: physics-inspired-gaussian-kolmogorov-arnold-networks-for-x-r
+    reason: preprint
+  - paper: plot-ct
+    reason: preprint
+  - paper: projection-embedded-diffusion-bridge-for-ct-reconstruction-f
+    reason: preprint
   - paper: projection-volume-fidelity-divergence-diagnosing-and-control
     reason: preprint
   - paper: psct-net
+    reason: preprint
+  - paper: rdbm-mar
+    reason: preprint
+  - paper: rddm
     reason: preprint
   - paper: residual-gaussian-splatting
     reason: preprint
@@ -74,19 +139,33 @@ excluded:
     reason: preprint
   - paper: splitting-svct-design
     reason: preprint
+  - paper: statistical-image-reconstruction-using-mixed-poisson-gauss
+    reason: preprint
   - paper: stcnet
+    reason: preprint
+  - paper: texture-preserving-implicit-neural-representation-for-cone-b
     reason: preprint
   - paper: tomotransformer
     reason: preprint
   - paper: tomotx
     reason: preprint
+  - paper: toward-ct-equivalent-image-quality-in-low-dose-radiotherapy-
+    reason: preprint
   - paper: tracing-oracle
     reason: preprint
+  - paper: ultrafast-deep-learning-based-scatter-estimation-in-cone-bea
+    reason: preprint
   - paper: unisino
+    reason: preprint
+  - paper: unsupervised-metal-artifact-reduction-in-dental-cbct-using-f
+    reason: weak-zero-cite
+  - paper: view-dependent-detector-displacement-cbct
     reason: preprint
   - paper: x-grm-large-gaussian-reconstruction-model-for-sparse-view-x-
     reason: preprint
   - paper: xsv-ct
+    reason: preprint
+  - paper: zero-shot-low-dose-ct-denoising-via-sinogram-flicking
     reason: preprint
 exceptions:
   # Highly-cited preprints the user kept in the graph (2026-11-11).
