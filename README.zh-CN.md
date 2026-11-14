@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 711 篇论文 | 62 个工具包 | 82 个数据集 | 22 个基准 | 更新于 2026-11-13 |
+| 711 篇论文 | 60 个工具包 | 82 个数据集 | 22 个基准 | 更新于 2026-11-14 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -38,7 +38,7 @@
 
 ## 工具包与库
 
-[在网站上浏览全部 62 条](https://computedtomography.org/zh/?tab=toolkits)
+[在网站上浏览全部 60 条](https://computedtomography.org/zh/?tab=toolkits)
 
 ## 数据集
 

@@ -421,15 +421,6 @@
   tags: [GUI, ASTRA, iterative, limited-projections, trajectories]
   note: A Python GUI built on the ASTRA toolbox for reconstructing X-ray CT data, with the DIRECTT algorithm included. DIRECTT targets the regime where only a handful of projections are available along an arbitrary scanning trajectory and folds the acquisition path itself into the inverse problem - a corner that operator-based toolboxes mostly leave untouched. From BAM and published in Review of Scientific Instruments 2020; run Main.py to launch. Niche and lightly starred, but there is little else that covers trajectories explicitly.
 
-- name: CTrex
-  group: engines
-  url: https://arxiv.org/abs/2609.30166
-  homepage: https://arxiv.org/abs/2609.30166
-  language: Python / CUDA (PyCUDA)
-  license: See source
-  tags: [micro-CT, GPU, iterative, geometry, trajectories, kernel-level]
-  note: A research-oriented GPU iterative reconstruction framework that exposes the projection–correction–backprojection pipeline all the way down to the individual CUDA kernels, so non-ideal acquisition effects can be folded into the operators themselves instead of being bolted on afterwards as corrections. Geometry is carried as per-projection homogeneous view matrices, which keeps the kernels agnostic to the scan path — circular, helical, offset and conveyor-belt trajectories all work, as do motion- and deformation-aware, event-based 4D and extended-field-of-view cases. Aimed squarely at micro-CT under unconventional acquisition. Described in arXiv:2609.30166; the paper announces no code repository, so this entry points at the preprint until one appears.
-
 - name: PFITRE
   group: learning
   repo: chonghangzhao/PFITRE
@@ -456,15 +447,6 @@
   stars: 1
   tags: [simulation, x-ray, physics]
   note: An X-ray computed tomography physical simulator in Python by Giavanna Jadick.
-
-- name: Dual-Domain-CT-Denoising
-  group: learning
-  repo: gab9694/Dual-Domain-CT-Denoising
-  language: Python
-  license: See source
-  stars: 0
-  tags: [low-dose, denoising, dual-domain]
-  note: A deep learning framework for dual-domain low-dose CT denoising.
 
 - name: diffct
   group: learning
