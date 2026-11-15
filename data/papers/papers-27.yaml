@@ -175,3 +175,25 @@
   topics: [sparse-view, cbct]
   paper: "https://arxiv.org/abs/2601.15416"
   note: "Published in Transactions on Machine Learning Research (TMLR, J2C Certification). Dual-frequency-aware learning with global/local high-frequency-enhanced Fourier neural operators; significantly outperforms SOTA in high-frequency anatomical preservation on LUNA16 and ToothFairy under extremely sparse views."
+- id: "flic"
+  abbr: "FLIC"
+  title: "Taming Neural Fields with a Frequency-Lipschitz Curriculum for Sparse-View CT Reconstruction"
+  year: 2026
+  topics: [sparse-view, inr]
+  paper: "https://arxiv.org/abs/2611.15652"
+  note: "User-approved scope inclusion (2026-11-15): pure-arXiv sparse-view INR method, included as a frontier frequency-curriculum approach."
+- id: "pin"
+  abbr: "PIN"
+  title: "Real Pairs Are Not Enough: Physically Anchored Supervision for Volumetric CT Super-Resolution"
+  year: 2026
+  topics: [other]
+  paper: "https://arxiv.org/abs/2611.15514"
+  note: "User-approved scope inclusion (2026-11-15): pure-arXiv volumetric CT super-resolution, included as a frontier physically-anchored implicit-network approach."
+- id: "detector-gap-interpolation"
+  abbr: "Detector Gap Interpolation"
+  title: "Learning-Based Interpolation of Detector Gaps in Photon-Counting X-ray Imaging"
+  year: 2026
+  topics: [spectral]
+  paper: "https://arxiv.org/abs/2611.15614"
+  code: "https://github.com/J-3TO/detectorGapRemoval_Pix2Pix"
+  note: "User-approved scope inclusion (2026-11-15): pure-arXiv photon-counting detector-gap interpolation, included as a frontier projection-domain method with public code."

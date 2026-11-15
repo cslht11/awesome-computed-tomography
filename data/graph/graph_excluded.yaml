@@ -1,10 +1,11 @@
 # Papers excluded from the knowledge graph (phase 1: sparse-view, 2026-11-11;
 # phase 2 batch 1: CBCT / low-dose / diffusion, 2026-11-13;
 # phase 2 batch 2: remaining preprints, 2026-11-14).
+# 2026-11-15: 3 newly added preprints (flic, pin, detector-gap-interpolation) excluded on entry.
 # The library is untouched: these papers stay in the directory and in search.
 # Datasets are never filtered by paper quality; team works in the graph show classics only.
 # reason: preprint (no formal venue) | weak-zero-cite (weak venue, zero citations).
-updated: "2026-11-14"
+updated: "2026-11-15"
 excluded:
   - paper: 2-step-sparse-view-ct-reconstruction-with-a-domain-specifi
     reason: preprint
@@ -48,6 +49,8 @@ excluded:
     reason: preprint
   - paper: deep-rl-angle-selection
     reason: preprint
+  - paper: detector-gap-interpolation
+    reason: preprint
   - paper: driftrecon
     reason: preprint
   - paper: dual-domain-u-nets-with-embedded-back-projection-operators-f
@@ -69,6 +72,8 @@ excluded:
   - paper: fast-dip
     reason: preprint
   - paper: ffai
+    reason: preprint
+  - paper: flic
     reason: preprint
   - paper: frequencyct
     reason: preprint
@@ -137,6 +142,8 @@ excluded:
   - paper: physics-independent-pair
     reason: preprint
   - paper: physics-inspired-gaussian-kolmogorov-arnold-networks-for-x-r
+    reason: preprint
+  - paper: pin
     reason: preprint
   - paper: plot-ct
     reason: preprint
