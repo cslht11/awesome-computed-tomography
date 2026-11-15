@@ -1,9 +1,10 @@
 # Papers excluded from the knowledge graph (phase 1: sparse-view, 2026-11-11;
-# phase 2 batch 1: CBCT / low-dose / diffusion, 2026-11-13).
+# phase 2 batch 1: CBCT / low-dose / diffusion, 2026-11-13;
+# phase 2 batch 2: remaining preprints, 2026-11-14).
 # The library is untouched: these papers stay in the directory and in search.
 # Datasets are never filtered by paper quality; team works in the graph show classics only.
 # reason: preprint (no formal venue) | weak-zero-cite (weak venue, zero citations).
-updated: "2026-11-13"
+updated: "2026-11-14"
 excluded:
   - paper: 2-step-sparse-view-ct-reconstruction-with-a-domain-specifi
     reason: preprint
@@ -37,7 +38,13 @@ excluded:
     reason: preprint
   - paper: continuity-driven-synergistic-diffusion-with-neural-priors-f
     reason: preprint
+  - paper: ct-fm
+    reason: preprint
+  - paper: data-driven-filter-design-in-fbp-transforming-ct-reconstru
+    reason: preprint
   - paper: ddn-fm
+    reason: preprint
+  - paper: deep-pseudo-proximal-map
     reason: preprint
   - paper: deep-rl-angle-selection
     reason: preprint
@@ -67,6 +74,8 @@ excluded:
     reason: preprint
   - paper: ganext-a-fully-convnext-enhanced-generative-adversarial-netw
     reason: preprint
+  - paper: gaussian-material-fields
+    reason: preprint
   - paper: geometry-aware-diffusion-approximate-posterior-sampling-for-
     reason: preprint
   - paper: gradient-step-pnp-dental
@@ -81,9 +90,13 @@ excluded:
     reason: preprint
   - paper: ilv-iterative-latent-volumes-for-fast-and-accurate-sparse-vi
     reason: preprint
+  - paper: integration-of-spectral-ct-with-pet-and-spect-bringing-tissu
+    reason: preprint
   - paper: ipv2
     reason: preprint
   - paper: joint-decoupled-iterative-cbct-reconstruction-with-hybrid-sc
+    reason: preprint
+  - paper: learned-convex-regularizers-for-inverse-problems
     reason: preprint
   - paper: learning-where-and-what-to-lift-for-bi-planar-x-ray-to-ct-re
     reason: preprint
@@ -95,7 +108,13 @@ excluded:
     reason: preprint
   - paper: lucid-learned-undersampling-adaptive-consistency-guided-infe
     reason: preprint
+  - paper: mamba-moe
+    reason: preprint
+  - paper: marr
+    reason: preprint
   - paper: memory-efficient-inr-ct
+    reason: preprint
+  - paper: mgmar-metal-guided-metal-artifact-reduction-for-x-ray-comput
     reason: preprint
   - paper: ml-spnp
     reason: preprint
@@ -121,11 +140,17 @@ excluded:
     reason: preprint
   - paper: plot-ct
     reason: preprint
+  - paper: principled-confidence-ct
+    reason: preprint
   - paper: projection-embedded-diffusion-bridge-for-ct-reconstruction-f
     reason: preprint
   - paper: projection-volume-fidelity-divergence-diagnosing-and-control
     reason: preprint
   - paper: psct-net
+    reason: preprint
+  - paper: radioactive-3d-gaussian-ray-tracing-for-tomographic-reconstr
+    reason: preprint
+  - paper: radon-transforms-aleksandrov-fenchel
     reason: preprint
   - paper: rdbm-mar
     reason: preprint
@@ -142,6 +167,8 @@ excluded:
   - paper: statistical-image-reconstruction-using-mixed-poisson-gauss
     reason: preprint
   - paper: stcnet
+    reason: preprint
+  - paper: tap-ct
     reason: preprint
   - paper: texture-preserving-implicit-neural-representation-for-cone-b
     reason: preprint
@@ -160,6 +187,8 @@ excluded:
   - paper: unsupervised-metal-artifact-reduction-in-dental-cbct-using-f
     reason: weak-zero-cite
   - paper: view-dependent-detector-displacement-cbct
+    reason: preprint
+  - paper: vsgc
     reason: preprint
   - paper: x-grm-large-gaussian-reconstruction-model-for-sparse-view-x-
     reason: preprint

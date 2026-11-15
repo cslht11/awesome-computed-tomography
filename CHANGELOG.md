@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-14 — Knowledge graph shows classic papers only (phase 2 batch 2: remaining preprints)
+
+### Changed
+
+- **Knowledge graph, phase 2 batch 2: remaining preprints** (`data/graph/graph_excluded.yaml`): 14 more preprint papers excluded from the graph (the library itself is untouched at 711 papers), completing the phase-2 sift — including the two remaining highly-cited preprints (learned convex regularizers, 90 citations; CT-FM, 80 citations), excluded by user decision with no exceptions. The graph now holds 616 papers (711 − 95). Slice sizes: low-dose 243 → 242 nodes; CBCT 145, diffusion 106 and sparse-view 315 unchanged; every dataset still ships on the datasets slice (165 nodes).
+
 ## 2026-11-13 — Knowledge graph shows classic papers only (phase 2 batch 1: CBCT, low-dose, diffusion)
 
 ### Changed

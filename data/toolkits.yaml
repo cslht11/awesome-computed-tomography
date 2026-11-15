@@ -570,3 +570,13 @@
   stars: 1
   tags: [micro-CT, CBCT, FDK, preclinical, PyTorch, iterative]
   note: "Open reconstruction pipeline for the GE eXplore CT 120 preclinical micro-CT scanner: PyTorch FDK (ramp/Shepp-Logan/cosine/Hamming, Parker weighting), ASTRA/TIGRE iterative solvers and learned voxel/Gaussian-splatting reconstruction sharing one geometry and HU calibration, with CLI tools, a web GUI and a PyPI package. Scanner-specific — input is a scan folder as the scanner writes it. From arXiv:2604.23047 (Wiegmann & Ford, UBC)."
+
+- name: BasisSimulator.jl
+  group: simulation
+  repo: MolloiLab/BasisSimulator.jl
+  homepage: https://molloilab.github.io/BasisSimulator.jl/
+  language: Julia
+  license: MIT
+  stars: 5
+  tags: [spectral, photon-counting, polychromatic, simulation, FDK, iterative, GPU]
+  note: Open-source polychromatic CT simulation and reconstruction in Julia from UC Irvine (Molloi Lab), running on CPU and GPU (CUDA, Metal, ROCm). Models energy-integrating and photon-counting scanners from the source spectrum to detector counts, with vendor-realistic detector response (GE Gemstone scintillator, Siemens NAEOTOM Alpha CdTe), cone-beam FDK, helical WFBP and hybrid iterative reconstruction, beam-hardening correction, spectral denoising and virtual monoenergetic imaging. The distance-driven projector (ported from CatSim/XCIST) is the default forward projector, with a Siddon projector (ported from TIGRE) as an alternative. Published in SoftwareX 2026 (DOI 10.1016/j.softx.2026.102910); very actively developed (v0.16.8, Nov 2026).
