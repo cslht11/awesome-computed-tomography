@@ -63,6 +63,15 @@
   license: CC BY 4.0
   note: "**Image only.** 40 pancreatic-cancer radiotherapy patients (MSKCC), each with one breath-hold planning CT and two kV CBCT scans — 58 of the 80 CBCTs are 200° limited-view acquisitions — with expert organ-at-risk contours on both. Real paired CT–CBCT data for CBCT correction, registration and synthetic-CT work; reconstructed volumes only, no raw projections."
 
+- name: CT-CMM Benchmark
+  url: https://doi.org/10.5683/SP3/5XLJVS
+  homepage: https://tomobank.readthedocs.io/en/latest/source/data/docs.data.metrology.html
+  modality: cone-beam
+  tasks: [reconstruction, segmentation, registration]
+  license: CC0 1.0
+  year: 2026
+  note: "**Projection + image.** Cone-beam CT–CMM benchmark for dimensional validation of internal hourglass cavities in laser-powder-bed-fusion Ti-6Al-4V and Inconel 625 artefacts, each in rough and chemically milled states (TomoBank tomo_00110–00114). Each case links raw projections, reconstructed volumes, CT surface segmentations, nominal CAD, CMM point clouds with thickness-pair vectors, and derived surface/thickness deviation labels; an auxiliary Chinook rotor-hub blade set is included as a high-attenuation reconstruction reference. Scanned on a Comet Yxlon FF35 (360°, 4500 projections, 33.3 µm voxels); data are accessed via Globus. Companion preprint on Research Square, under review at Scientific Reports."
+
 # ---------------------------------------------------------------- image domain
 - name: CT-RATE
   url: https://huggingface.co/datasets/ibrahimhamamci/CT-RATE

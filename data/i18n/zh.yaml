@@ -537,6 +537,8 @@ datasets:
     note: "480 例牙科 CBCT 扫描，带三维牙齿与颌骨标注；规模可观，适合做 CBCT 域预训练。**Image domain only** — 只发布体数据，不带原始投影。"
   "Pancreatic-CT-CBCT-SEG":
     note: "**Image only.** 40 例胰腺癌放疗患者（MSKCC），每例含一次屏气计划 CT 与两次 kV CBCT 扫描——80 次 CBCT 中有 58 次为 200° 有限角采集——两类图像上都有专家勾画的危及器官轮廓。真实的配对 CT–CBCT 数据，可用于 CBCT 校正、配准与合成 CT 研究；只提供重建体，没有原始投影。"
+  "CT-CMM Benchmark":
+    note: "**Projection + image.** 面向增材制造（激光粉末床熔融）Ti-6Al-4V 与 Inconel 625 沙漏形内腔壁厚验证的锥束 CT–CMM 基准，粗糙态与化学铣削态各一（TomoBank tomo_00110–00114）。每例配齐原始投影、重建体、CT 表面分割、名义 CAD、带壁厚配对向量的 CMM 点云，以及派生的表面/壁厚偏差标签；另附 Chinook 旋翼毂叶片集作高衰减重建参照。Comet Yxlon FF35 采集（360°，4500 投影，33.3 µm 体素）；数据经 Globus 获取。配套预印本在 Research Square，已投 Scientific Reports 审稿中。"
   "LIDC-IDRI":
     note: "1,018 例胸部 CT，带四位放射科医师的结节标注。LoDoPaB-CT 与多数仿真低剂量数据所依据的解剖来源。"
   "DeepLesion":
