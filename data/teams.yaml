@@ -199,7 +199,7 @@
   country: "USA"
   region: north-america
   pi: ["Charles A. Bouman"]
-  homepage: "https://engineering.purdue.edu/~bouman/"
+  homepage: "https://charlesbouman.org/"
   focus: [sparse-view, low-dose, classical, geometry]
   status: active
   intro: >
@@ -218,7 +218,7 @@
     datasets: []
     benchmarks: []
   software: "SVMBIR (GitHub: cabouman/svmbir) — supervised MBIR for parallel/fan-beam CT."
-  verified: 2026-10-20
+  verified: 2026-11-16
 
 - id: llnl-leap
   name: "LEAP Project, Lawrence Livermore National Laboratory"
