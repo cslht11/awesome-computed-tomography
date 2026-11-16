@@ -2,10 +2,11 @@
 # phase 2 batch 1: CBCT / low-dose / diffusion, 2026-11-13;
 # phase 2 batch 2: remaining preprints, 2026-11-14).
 # 2026-11-15: 3 newly added preprints (flic, pin, detector-gap-interpolation) excluded on entry.
+# 2026-11-16: graph review batch 1 (10 papers: scatter-dl + 9 review candidates) excluded as low-value.
 # The library is untouched: these papers stay in the directory and in search.
 # Datasets are never filtered by paper quality; team works in the graph show classics only.
-# reason: preprint (no formal venue) | weak-zero-cite (weak venue, zero citations).
-updated: "2026-11-15"
+# reason: preprint (no formal venue) | weak-zero-cite (weak venue, zero citations) | low-value (reviewed: weak venue + low citations + few graph edges + old enough).
+updated: "2026-11-16"
 excluded:
   - paper: 2-step-sparse-view-ct-reconstruction-with-a-domain-specifi
     reason: preprint
@@ -29,6 +30,10 @@ excluded:
     reason: preprint
   - paper: cbct-truncation-diffusion
     reason: weak-zero-cite
+  - paper: cgan-stripe-artefact-removal
+    reason: low-value
+  - paper: coded-aperture
+    reason: low-value
   - paper: conditional-diffusion-posterior-alignment-for-sparse-view-ct
     reason: preprint
   - paper: cone-beam-artifact-reduction-in-gamma-knife-cbct-images-usin
@@ -51,6 +56,8 @@ excluded:
     reason: preprint
   - paper: detector-gap-interpolation
     reason: preprint
+  - paper: dlmir
+    reason: low-value
   - paper: driftrecon
     reason: preprint
   - paper: dual-domain-u-nets-with-embedded-back-projection-operators-f
@@ -61,6 +68,8 @@ excluded:
     reason: preprint
   - paper: encore
     reason: preprint
+  - paper: enhancing-synthetic-ct-from-cbct-via-multimodal-fusion-and-e
+    reason: low-value
   - paper: epc-rawdc
     reason: preprint
   - paper: equivariant-multiscale-learned-invertible-reconstruction-for
@@ -95,12 +104,16 @@ excluded:
     reason: preprint
   - paper: ilv-iterative-latent-volumes-for-fast-and-accurate-sparse-vi
     reason: preprint
+  - paper: industrial-ct-dual-mar
+    reason: low-value
   - paper: integration-of-spectral-ct-with-pet-and-spect-bringing-tissu
     reason: preprint
   - paper: ipv2
     reason: preprint
   - paper: joint-decoupled-iterative-cbct-reconstruction-with-hybrid-sc
     reason: preprint
+  - paper: kmar-net
+    reason: low-value
   - paper: learned-convex-regularizers-for-inverse-problems
     reason: preprint
   - paper: learning-where-and-what-to-lift-for-bi-planar-x-ray-to-ct-re
@@ -129,6 +142,8 @@ excluded:
     reason: preprint
   - paper: noise2match
     reason: preprint
+  - paper: noisier2inverse
+    reason: low-value
   - paper: non-circular-scan-trajectories-for-reducing-cone-beam-artifa
     reason: preprint
   - paper: ordered-subsets-multi-diffusion-model-for-sparse-view-ct-rec
@@ -137,6 +152,8 @@ excluded:
     reason: preprint
   - paper: p2-gaussian
     reason: preprint
+  - paper: photon-pile-up-normalizing-flow
+    reason: low-value
   - paper: physics-flow-matching
     reason: preprint
   - paper: physics-independent-pair
@@ -165,6 +182,10 @@ excluded:
     reason: preprint
   - paper: residual-gaussian-splatting
     reason: preprint
+  - paper: scatter-dl
+    reason: low-value
+  - paper: semantic-contrastive-learning-for-orthogonal-x-ray-computed-
+    reason: low-value
   - paper: sonar
     reason: preprint
   - paper: sparsetokengs

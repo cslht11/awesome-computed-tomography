@@ -6,6 +6,13 @@
 
 段落与列表项一律写在一行内：中文句子中间的换行会被当成空格。运行 `python scripts/changelog.py --status CHANGELOG.zh-CN.md` 可以列出尚未翻译的条目。
 
+## 2026-11-16 — 知识图谱审查第一批：排除 10 篇低价值论文
+<!-- en: Knowledge graph review batch 1: 10 low-value papers excluded -->
+
+### 变更
+
+- **知识图谱审查第一批：10 篇低价值论文**（`data/graph/graph_excluded.yaml`）：20 个图谱主题全部逐篇审查完毕（helical 至 sparse-view，共 616 篇），以新原因 `low-value`（弱刊 + 低引用 + 图谱连边少 + 年头够久；年轻论文除外）排除 10 篇——scatter-dl 加 9 名审查候选（coded-aperture、dlmir、kmar-net、noisier2inverse、industrial-ct-dual-mar、cgan-stripe-artefact-removal、photon-pile-up-normalizing-flow、semantic-contrastive-learning-for-orthogonal-x-ray-computed-、enhancing-synthetic-ct-from-cbct-via-multimodal-fusion-and-e）。图谱校验器（`scripts/graph.py`）已接受该新原因。论文库本身不受影响，仍为 714 篇。图谱现为 606 篇论文（714 − 108）。切片规模：稀疏视角 315 → 311 个节点；金属伪影 112 → 110；能谱 97 → 96；CBCT 146 → 144；散射 15 → 14；几何 42 → 41；unrolling 143 → 142；自监督 85 → 84；other 73 → 69；其余切片不变；所有数据集仍在数据集切片中（166 个节点）。
+
 ## 2026-11-14 — 知识图谱只收录经典论文（二期二批：剩余预印本）
 <!-- en: Knowledge graph shows classic papers only (phase 2 batch 2: remaining preprints) -->
 

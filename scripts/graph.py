@@ -262,9 +262,11 @@ def validate_graph(papers, teams, authors_doc, citations_doc,
                 if pid in seen_excluded:
                     problems.append("%s: duplicate paper %r" % (w, pid))
                 seen_excluded.add(pid)
-                if rec.get("reason") not in ("preprint", "weak-zero-cite"):
-                    problems.append("%s: reason %r must be preprint or "
-                                    "weak-zero-cite" % (w, rec.get("reason")))
+                if rec.get("reason") not in ("preprint", "weak-zero-cite",
+                                            "low-value"):
+                    problems.append("%s: reason %r must be preprint, "
+                                    "weak-zero-cite or low-value"
+                                    % (w, rec.get("reason")))
             # An excluded paper must not be a team's listed work: the
             # graph would silently drop that works edge. Remove it from
             # the team's works first (an explicit decision), or

@@ -13,6 +13,12 @@ with dates in place of version numbers. The stable public contract is the pair o
 fields — topic ids in `data/meta.yaml` and entry ids in `data/*.yaml`. Anything else
 may be reformatted at any time.
 
+## 2026-11-16 — Knowledge graph review batch 1: 10 low-value papers excluded
+
+### Changed
+
+- **Knowledge graph, review batch 1: 10 low-value papers** (`data/graph/graph_excluded.yaml`): the first full review of all 20 graph topics (helical through sparse-view, 616 papers) excluded 10 papers from the graph under a new reason, `low-value` (weak venue + low citations + few graph edges + old enough; young papers exempt) — scatter-dl plus 9 review candidates (coded-aperture, dlmir, kmar-net, noisier2inverse, industrial-ct-dual-mar, cgan-stripe-artefact-removal, photon-pile-up-normalizing-flow, semantic-contrastive-learning-for-orthogonal-x-ray-computed-, enhancing-synthetic-ct-from-cbct-via-multimodal-fusion-and-e). The graph validator (`scripts/graph.py`) now accepts the new reason. The library itself is untouched at 714 papers. The graph now holds 606 papers (714 − 108). Slice sizes: sparse-view 315 → 311 nodes; metal-artifact 112 → 110; spectral 97 → 96; CBCT 146 → 144; scatter 15 → 14; geometry 42 → 41; unrolling 143 → 142; self-supervised 85 → 84; other 73 → 69; all other slices unchanged; every dataset still ships on the datasets slice (166 nodes).
+
 ## 2026-11-14 — Knowledge graph shows classic papers only (phase 2 batch 2: remaining preprints)
 
 ### Changed
