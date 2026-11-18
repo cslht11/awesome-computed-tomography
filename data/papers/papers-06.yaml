@@ -1,6 +1,6 @@
 # Batch: JHU I-STAR team sweep #3 (user-approved 2026-10-24, journal methods 6).
 - id: "dps-nonlinear-measurement-model"
-  abbr: "DPS"
+  abbr: "DPS-NMM"
   title: "CT reconstruction using diffusion posterior sampling conditioned on a nonlinear measurement model"
   year: 2024
   venue: "J. Med. Imaging"

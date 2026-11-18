@@ -303,7 +303,7 @@
   code: "https://github.com/ZhidongYang/CryoDeRec"
 
 - id: "dinr"
-  abbr: "DINR"
+  abbr: "DINR-Neutron"
   title: "Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data"
   year: 2026
   venue: "ICASSP"
