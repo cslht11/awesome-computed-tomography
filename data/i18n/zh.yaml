@@ -518,6 +518,8 @@ toolkits:
     note: "面向 GE eXplore CT 120 临床前 micro-CT 的开源重建管线：PyTorch FDK（ramp/Shepp-Logan/cosine/Hamming 滤波窗、Parker 加权）、ASTRA/TIGRE 迭代求解器与学习式体素/高斯溅射重建共用同一几何与 HU 标定，带命令行工具、Web 界面和 PyPI 包。仅适用该机型，输入即扫描仪写出的扫描文件夹。来源 arXiv:2604.23047（Wiegmann 与 Ford，UBC）。"
   "BasisSimulator.jl":
     note: "加州大学尔湾分校 Molloi 实验室的开源多能谱 CT 仿真与重建 Julia 包，CPU 与 GPU（CUDA、Metal、ROCm）通用。覆盖能量积分与光子计数两种扫描仪，从源能谱到探测器计数全链路建模，探测器响应贴近厂商真实模型（GE Gemstone 闪烁体、西门子 NAEOTOM Alpha CdTe），带 FDK、螺旋 WFBP 与混合迭代重建、束硬化校正、能谱去噪与虚拟单能成像。默认正投影器为距离驱动投影器（移植自 CatSim/XCIST），Siddon 投影器（移植自 TIGRE）为备选。2026 年发表于 SoftwareX（DOI 10.1016/j.softx.2026.102910），更新非常活跃（2026 年 11 月已到 v0.16.8）。"
+  "aprict":
+    note: "澳大利亚国立大学的 GPU（CUDA）Python 库，用于模拟 X 射线 CT 透射实验并重建真实或仿真数据，带常用操作的命令行接口。显存外正投影支持任意平板探测器几何，覆盖体素化体积与 FORBILD 体模（精确线积分）；显存外解析重建支持扇束圆轨迹与锥束圆柱扫描；任意几何可用显存内 Landweber 与 SIRT 迭代重建。目前仅支持单 GPU 与方形像素平板数据，作者明言这是研究代码沙盒、可能随时有破坏性变更。2026 年 11 月发布首个正式版 v0.1.0，已上 PyPI。"
 datasets:
   "CT-RATE":
     note: "50,188 个重建完成的三维胸部 CT 体积（1,430 万张二维切片），来自 21,304 名患者的 25,692 次扫描；每个体积都配对一份影像科报告，并标注 18 类异常。体积由多种重建方法与窗宽窗位生成，因此天然带有重建差异——但只有图像域，不含原始投影。CT-CLIP 与 CT-CHAT 的训练语料。"

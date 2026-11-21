@@ -7,7 +7,7 @@
 
 **一份经过核验的 CT 重建研究精选列表**——涵盖 CT、CBCT 与显微 CT 的论文、工具包、数据集与基准。
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-714-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Website](https://img.shields.io/badge/网站-computedtomography.org-3f51b5?style=flat-square)](https://computedtomography.org/) [![Papers](https://img.shields.io/badge/论文-715-555?style=flat-square)](#论文) [![License](https://img.shields.io/badge/许可-CC%20BY--NC--SA%204.0-555?style=flat-square)](#许可)
 
 **[网站](https://computedtomography.org/)** · [论文](#论文) · [工具包与库](#工具包与库) · [数据集](#数据集) · [基准与挑战赛](#基准与挑战赛) · [学习资源](#学习资源) · [研究团队](#研究团队) · [知识图谱](#知识图谱)
 
@@ -17,7 +17,7 @@
 
 <div align="center">
 
-| 714 篇论文 | 61 个工具包 | 83 个数据集 | 22 个基准 | 更新于 2026-11-18 |
+| 715 篇论文 | 62 个工具包 | 83 个数据集 | 22 个基准 | 更新于 2026-11-21 |
 | :-: | :-: | :-: | :-: | :-: |
 
 </div>
@@ -28,8 +28,8 @@
 
 | | | |
 | --- | --- | --- |
-| [综述与回顾](https://computedtomography.org/zh/?tab=papers&topic=survey) <sub>34</sub> | [经典与迭代重建](https://computedtomography.org/zh/?tab=papers&topic=classical) <sub>89</sub> | [稀疏视角 CT](https://computedtomography.org/zh/?tab=papers&topic=sparse-view) <sub>231</sub> |
-| [有限角层析](https://computedtomography.org/zh/?tab=papers&topic=limited-angle) <sub>69</sub> | [内部、感兴趣区与截断重建](https://computedtomography.org/zh/?tab=papers&topic=interior) <sub>12</sub> | [低剂量 CT 去噪](https://computedtomography.org/zh/?tab=papers&topic=low-dose) <sub>141</sub> |
+| [综述与回顾](https://computedtomography.org/zh/?tab=papers&topic=survey) <sub>34</sub> | [经典与迭代重建](https://computedtomography.org/zh/?tab=papers&topic=classical) <sub>89</sub> | [稀疏视角 CT](https://computedtomography.org/zh/?tab=papers&topic=sparse-view) <sub>232</sub> |
+| [有限角层析](https://computedtomography.org/zh/?tab=papers&topic=limited-angle) <sub>70</sub> | [内部、感兴趣区与截断重建](https://computedtomography.org/zh/?tab=papers&topic=interior) <sub>12</sub> | [低剂量 CT 去噪](https://computedtomography.org/zh/?tab=papers&topic=low-dose) <sub>141</sub> |
 | [金属伪影校正](https://computedtomography.org/zh/?tab=papers&topic=metal-artifact) <sub>62</sub> | [能谱与双能 CT](https://computedtomography.org/zh/?tab=papers&topic=spectral) <sub>47</sub> | [锥束 CT](https://computedtomography.org/zh/?tab=papers&topic=cbct) <sub>114</sub> |
 | [螺旋与多层 CT](https://computedtomography.org/zh/?tab=papers&topic=helical) <sub>8</sub> | [动态与 4D CT](https://computedtomography.org/zh/?tab=papers&topic=dynamic) <sub>31</sub> | [散射校正](https://computedtomography.org/zh/?tab=papers&topic=scatter) <sub>12</sub> |
 | [几何标定与运动补偿](https://computedtomography.org/zh/?tab=papers&topic=geometry) <sub>29</sub> | [深度展开与基于模型的学习](https://computedtomography.org/zh/?tab=papers&topic=unrolling) <sub>83</sub> | [自监督与免训练方法](https://computedtomography.org/zh/?tab=papers&topic=self-supervised) <sub>56</sub> |
@@ -38,7 +38,7 @@
 
 ## 工具包与库
 
-[在网站上浏览全部 61 条](https://computedtomography.org/zh/?tab=toolkits)
+[在网站上浏览全部 62 条](https://computedtomography.org/zh/?tab=toolkits)
 
 ## 数据集
 

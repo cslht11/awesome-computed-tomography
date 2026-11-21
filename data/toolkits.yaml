@@ -580,3 +580,13 @@
   stars: 5
   tags: [spectral, photon-counting, polychromatic, simulation, FDK, iterative, GPU]
   note: Open-source polychromatic CT simulation and reconstruction in Julia from UC Irvine (Molloi Lab), running on CPU and GPU (CUDA, Metal, ROCm). Models energy-integrating and photon-counting scanners from the source spectrum to detector counts, with vendor-realistic detector response (GE Gemstone scintillator, Siemens NAEOTOM Alpha CdTe), cone-beam FDK, helical WFBP and hybrid iterative reconstruction, beam-hardening correction, spectral denoising and virtual monoenergetic imaging. The distance-driven projector (ported from CatSim/XCIST) is the default forward projector, with a Siddon projector (ported from TIGRE) as an alternative. Published in SoftwareX 2026 (DOI 10.1016/j.softx.2026.102910); very actively developed (v0.16.8, Nov 2026).
+
+- name: aprict
+  group: simulation
+  repo: murdock-grewar/aprict
+  homepage: https://docs.aprict.au/
+  language: Python
+  license: GPL-3.0-or-later
+  stars: 1
+  tags: [simulation, GPU, cone-beam, fan-beam, analytic, iterative]
+  note: GPU (CUDA) Python library from the Australian National University for simulating X-ray CT transmission experiments and reconstructing real or simulated data, with a CLI for common operations. Out-of-core forward projection for arbitrary flat-panel geometries over voxelised volumes and FORBILD phantoms (exact line integrals); out-of-core analytic reconstruction for fan-beam circular scans and cone-beam cylindrical scans; in-core Landweber and SIRT iterative reconstruction for arbitrary geometries. Single GPU and square-pixel flat-panel data only for now, and the author describes it as a research code sandbox subject to breaking changes. First stable release v0.1.0 (Nov 2026); also on PyPI.

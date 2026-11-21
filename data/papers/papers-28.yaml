@@ -1,0 +1,8 @@
+# Batch: 2026-11-21 arXiv sweep follow-up (user-approved 2026-11-21, 1 paper).
+- id: "acus"
+  abbr: "ACUS"
+  title: "ACUS: An Angular Calibrated Uncertainty Score for Incomplete-View CT"
+  year: 2026
+  topics: [sparse-view, limited-angle]
+  paper: "https://arxiv.org/abs/2611.23752"
+  note: "User-approved scope inclusion (2026-11-21): pure-arXiv uncertainty score for incomplete-view CT, included as an angular-distance-calibrated reliability check on projection completion."
